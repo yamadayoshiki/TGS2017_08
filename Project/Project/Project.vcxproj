@@ -138,6 +138,7 @@
     <ClCompile Include="Resource\Base\GameFrame\GameFrame.cpp" />
     <ClCompile Include="Resource\Base\GameManager\GameManager.cpp" />
     <ClCompile Include="Resource\FileReader\CsvReader.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="Resource\Utility\Rederer2D\Renderer2D.cpp" />
     <ClCompile Include="Resource\WorldContains\World\World.cpp" />
   </ItemGroup>
