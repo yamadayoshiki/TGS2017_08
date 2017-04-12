@@ -3,4 +3,5 @@
 int main() {
 	return GameFrame().run();
 	//‰i–ì
+	//’†ŽR
 }
