@@ -69,8 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\YuJimbo\Desktop\授業\No.04 17年度前期\00_TGS%2717\Program\Library\gslib_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\YuJimbo\Desktop\授業\No.04 17年度前期\00_TGS%2717\Program\Library\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -121,6 +125,7 @@
     <ClInclude Include="Resource\ActorContains\NullActor\NullActor.h" />
     <ClInclude Include="Resource\Base\GameFrame\GameFrame.h" />
     <ClInclude Include="Resource\Base\GameManager\GameManager.h" />
+    <ClInclude Include="Resource\FileReader\CsvReader.h" />
     <ClInclude Include="Resource\Utility\Rederer2D\Renderer2D.h" />
     <ClInclude Include="Resource\WorldContains\IWorld.h" />
     <ClInclude Include="Resource\WorldContains\World_Ptr.h" />
@@ -132,6 +137,7 @@
     <ClCompile Include="Resource\ActorContains\NullActor\NullActor.cpp" />
     <ClCompile Include="Resource\Base\GameFrame\GameFrame.cpp" />
     <ClCompile Include="Resource\Base\GameManager\GameManager.cpp" />
+    <ClCompile Include="Resource\FileReader\CsvReader.cpp" />
     <ClCompile Include="Resource\Utility\Rederer2D\Renderer2D.cpp" />
     <ClCompile Include="Resource\WorldContains\World\World.cpp" />
   </ItemGroup>
