@@ -69,8 +69,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\YuJimbo\Desktop\授業\No.04.1 %2717_TGS_SourceTree\Library\gslib_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\YuJimbo\Desktop\授業\No.04.1 %2717_TGS_SourceTree\Library\gslib_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
@@ -117,30 +117,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Resource\ActorContains\ActorGroup.h" />
-    <ClInclude Include="Resource\ActorContains\ActorManager\ActorManager.h" />
-    <ClInclude Include="Resource\ActorContains\ActorName.h" />
-    <ClInclude Include="Resource\ActorContains\Actor_Ptr.h" />
-    <ClInclude Include="Resource\ActorContains\Actor\Actor.h" />
-    <ClInclude Include="Resource\ActorContains\NullActor\NullActor.h" />
-    <ClInclude Include="Resource\Base\GameFrame\GameFrame.h" />
-    <ClInclude Include="Resource\Base\GameManager\GameManager.h" />
-    <ClInclude Include="Resource\FileReader\CsvReader.h" />
-    <ClInclude Include="Resource\Utility\Rederer2D\Renderer2D.h" />
-    <ClInclude Include="Resource\WorldContains\IWorld.h" />
-    <ClInclude Include="Resource\WorldContains\World_Ptr.h" />
-    <ClInclude Include="Resource\WorldContains\World\World.h" />
+    <ClInclude Include="Source\ActorContains\ActorGroup.h" />
+    <ClInclude Include="Source\ActorContains\ActorManager\ActorManager.h" />
+    <ClInclude Include="Source\ActorContains\ActorName.h" />
+    <ClInclude Include="Source\ActorContains\Actor_Ptr.h" />
+    <ClInclude Include="Source\ActorContains\Actor\Actor.h" />
+    <ClInclude Include="Source\ActorContains\NullActor\NullActor.h" />
+    <ClInclude Include="Source\Base\GameFrame\GameFrame.h" />
+    <ClInclude Include="Source\Base\GameManager\GameManager.h" />
+    <ClInclude Include="Source\FileReader\CsvReader.h" />
+    <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
+    <ClInclude Include="Source\WorldContains\IWorld.h" />
+    <ClInclude Include="Source\WorldContains\World_Ptr.h" />
+    <ClInclude Include="Source\WorldContains\World\World.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Resource\ActorContains\ActorManager\ActorManager.cpp" />
-    <ClCompile Include="Resource\ActorContains\Actor\Actor.cpp" />
-    <ClCompile Include="Resource\ActorContains\NullActor\NullActor.cpp" />
-    <ClCompile Include="Resource\Base\GameFrame\GameFrame.cpp" />
-    <ClCompile Include="Resource\Base\GameManager\GameManager.cpp" />
-    <ClCompile Include="Resource\FileReader\CsvReader.cpp" />
+    <ClCompile Include="Source\ActorContains\ActorManager\ActorManager.cpp" />
+    <ClCompile Include="Source\ActorContains\Actor\Actor.cpp" />
+    <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />
+    <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
+    <ClCompile Include="Source\Base\GameManager\GameManager.cpp" />
+    <ClCompile Include="Source\FileReader\CsvReader.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Resource\Utility\Rederer2D\Renderer2D.cpp" />
-    <ClCompile Include="Resource\WorldContains\World\World.cpp" />
+    <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
+    <ClCompile Include="Source\WorldContains\World\World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
