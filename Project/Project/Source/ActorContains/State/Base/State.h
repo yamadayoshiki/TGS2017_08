@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IState.h"
-#include "../../Base/Actor.h"
+#include "../../Actor/Actor.h"
 
 // 各プレイヤーステートの基底クラス
 class State : public IState {

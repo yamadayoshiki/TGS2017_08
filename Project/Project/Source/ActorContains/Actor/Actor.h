@@ -10,6 +10,9 @@
 #include "../ActorPtr.h"
 #include "../ActorName.h"
 
+#include "../Body/Base/IBodyPtr.h"
+#include "../Body/Base/DammyBody.h"
+
 enum class EventMessage;
 class IWorld;
 
@@ -18,11 +21,7 @@ class Actor
 {
 public:
 	//コンストラクタ
-	Actor(
-		IWorld* world,
-		const ActorName& name,
-		const GSvector2& position
-		);
+	Actor(IWorld* world, const ActorName& name, const GSvector2& position, const IBodyPtr& body = std::make_shared<DammyBody>());
 	//コンストラクタ
 	explicit Actor(const ActorName& name = ActorName::None);
 	//仮想デストラクタ
@@ -66,6 +65,8 @@ public:
 
 	//ワールドを設定
 	void SetWorld(IWorld* world);
+	// 判定の形の取得
+	IBodyPtr getBody() const;
 
 	//コピー禁止
 	Actor(const Actor& other) = delete;
@@ -91,6 +92,8 @@ protected:
 	ActorName m_Name;
 	//座標
 	GSvector2 m_Position;
+	// 衝突判定
+	IBodyPtr m_Body;
 	//死亡フラグ
 	bool m_dead;
 

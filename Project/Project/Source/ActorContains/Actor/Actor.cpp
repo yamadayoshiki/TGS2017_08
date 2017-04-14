@@ -2,16 +2,14 @@
 
 #include "Actor.h"
 #include "../NullActor/NullActor.h"
+#include "../Body/Base/HitInfo.h"
 
 //コンストラクタ
-Actor::Actor(
-	IWorld* world,
-	const ActorName& name,
-	const GSvector2& position
-	)
+Actor::Actor(IWorld* world, const ActorName& name, const GSvector2& position, const IBodyPtr& body)
 	: p_World(world)
 	, m_Name(name)
 	, m_Position(position)
+	, m_Body(body)
 	, m_dead(false)
 {
 }
@@ -176,6 +174,10 @@ void Actor::SetWorld(IWorld* world)
 	p_World = world;
 }
 
+IBodyPtr Actor::getBody() const{
+	return m_Body;
+}
+
 
 // メッセージ処理 
 void Actor::handleMessage(EventMessage message, void* param)
@@ -208,5 +210,8 @@ void Actor::onCollide(Actor&)
 // 衝突判定 
 bool Actor::isCollide(const Actor& other) const
 {
-	return false;
+	// 回転を含む場合
+	//return m_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
+	// 回転を含まない場合
+	return m_Body->translate(getPosition())->isCollide(*other.getBody()->translate(other.getPosition()).get(), HitInfo());
 }
