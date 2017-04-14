@@ -123,6 +123,18 @@
     <ClInclude Include="Source\ActorContains\ActorPtr.h" />
     <ClInclude Include="Source\ActorContains\Actor_Ptr.h" />
     <ClInclude Include="Source\ActorContains\Actor\Actor.h" />
+    <ClInclude Include="Source\ActorContains\Body\Base\Body.h" />
+    <ClInclude Include="Source\ActorContains\Body\Base\DammyBody.h" />
+    <ClInclude Include="Source\ActorContains\Body\Base\HitInfo.h" />
+    <ClInclude Include="Source\ActorContains\Body\Base\IBody.h" />
+    <ClInclude Include="Source\ActorContains\Body\Base\IBodyPtr.h" />
+    <ClInclude Include="Source\ActorContains\Body\Base\ShapeType.h" />
+    <ClInclude Include="Source\ActorContains\Body\BoundingBox.h" />
+    <ClInclude Include="Source\ActorContains\Body\BoundingCapsule.h" />
+    <ClInclude Include="Source\ActorContains\Body\BoundingCircle.h" />
+    <ClInclude Include="Source\ActorContains\Body\BoundingSegment.h" />
+    <ClInclude Include="Source\ActorContains\Body\Ray.h" />
+    <ClInclude Include="Source\ActorContains\Collision\collision.h" />
     <ClInclude Include="Source\ActorContains\NullActor\NullActor.h" />
     <ClInclude Include="Source\Base\GameFrame\GameFrame.h" />
     <ClInclude Include="Source\Base\GameManagerContains\GameManager\GameManager.h" />
@@ -155,6 +167,12 @@
   <ItemGroup>
     <ClCompile Include="Source\ActorContains\ActorManager\ActorManager.cpp" />
     <ClCompile Include="Source\ActorContains\Actor\Actor.cpp" />
+    <ClCompile Include="Source\ActorContains\Body\BoundingBox.cpp" />
+    <ClCompile Include="Source\ActorContains\Body\BoundingCapsule.cpp" />
+    <ClCompile Include="Source\ActorContains\Body\BoundingCircle.cpp" />
+    <ClCompile Include="Source\ActorContains\Body\BoundingSegment.cpp" />
+    <ClCompile Include="Source\ActorContains\Body\Ray.cpp" />
+    <ClCompile Include="Source\ActorContains\Collision\Collision.cpp" />
     <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
