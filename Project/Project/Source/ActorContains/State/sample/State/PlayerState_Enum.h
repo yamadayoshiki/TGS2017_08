@@ -1,0 +1,33 @@
+#pragma once
+
+// プレイヤーのステートの列挙
+enum class PlayerState_Enum {
+	DAMMY,
+	NORMAL,
+	AWAKE,
+	DAMAGE,
+	GUARD,
+	QUICK,
+	N_IDLE,
+	N_WALK,
+	N_RUN,
+	N_JUMP,
+	N_ATTACK1,
+	N_ATTACK2,
+	N_ATTACK3,
+	N_DAMAGE,
+	A_IDLE,
+	A_WALK,
+	A_RUN,
+	A_JUMP,
+	A_QUICK,
+	A_ATTACK1,
+	A_ATTACK2,
+	A_ATTACK3,
+	A_ATTACK4,
+	SPECIAL1,
+	SPECIAL2,
+	ROLL,
+	BIT,
+	REACTION
+};

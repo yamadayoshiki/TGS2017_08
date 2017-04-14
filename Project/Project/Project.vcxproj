@@ -136,6 +136,12 @@
     <ClInclude Include="Source\ActorContains\Body\Ray.h" />
     <ClInclude Include="Source\ActorContains\Collision\collision.h" />
     <ClInclude Include="Source\ActorContains\NullActor\NullActor.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\ActionType.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\IState.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\IStatePtr.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\State.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\StateMgr.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\State_Dammy.h" />
     <ClInclude Include="Source\Base\GameFrame\GameFrame.h" />
     <ClInclude Include="Source\Base\GameManagerContains\GameManager\GameManager.h" />
     <ClInclude Include="Source\Base\GameManagerContains\IGameManager.h" />
@@ -174,6 +180,8 @@
     <ClCompile Include="Source\ActorContains\Body\Ray.cpp" />
     <ClCompile Include="Source\ActorContains\Collision\Collision.cpp" />
     <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />
+    <ClCompile Include="Source\ActorContains\State\Base\State.cpp" />
+    <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp" />
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
     <ClCompile Include="Source\FileReader\CsvReader.cpp" />
