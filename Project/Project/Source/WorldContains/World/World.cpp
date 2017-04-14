@@ -1,9 +1,32 @@
 #include "World.h" 
+#include"../../Define/Def_Nakayama.h"
+#include"../../FileReader/CsvReader.h"
+
+#include <iostream>
 
 // コンストラクタ
 World::World()
 	:p_Actors(new ActorManager())
 {
+	CsvReader csv = CsvReader("Resource/StreamingAssets/stage1.csv");
+	
+	for (int i = 0; i < csv.rows(); i++) {
+		for (int j = 0; j < csv.columns(); j++) {
+			std::cout << csv.get(i, j);
+		}
+		std::cout << "\n";
+	}
+
+	for (int i = 0; i < csv.rows(); i++) {
+		for (int j = 0; j < csv.columns(); j++) {
+			if (csv.geti(i, j) == 1) {
+				GSvector2(j, i) * CHIP_SIZE;
+			}
+
+			std::cout << csv.get(i, j);
+		}
+		std::cout << "\n";
+	}
 }
 
 // 更新

@@ -1,16 +1,15 @@
 #ifndef MAP_GENERATOR_H_
 #define MAP_GENERATOR_H_
-#pragma once
+
+#include<string>
 
 class MapGenerator
 {
 public:
 	//コンストラクタ
-	MapGenerator();
+	MapGenerator(const std::string& file_name);
 	//ファイルの読み込み
-	void load();
-	//ファイルの取得
-
+	void load(const std::string& file_name);
 private:
 
 };
