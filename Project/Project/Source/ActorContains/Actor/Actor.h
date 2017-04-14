@@ -7,7 +7,7 @@
 #include <functional>
 #include <forward_list>
 
-#include "../Actor_Ptr.h"
+#include "../ActorPtr.h"
 #include "../ActorName.h"
 
 enum class EventMessage;

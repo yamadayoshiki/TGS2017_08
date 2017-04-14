@@ -4,15 +4,17 @@
 #include <gslib.h>
 
 #include"GameFrame.h"
-
-#include "../../WorldContains/World/World.h"
-#include "../GameManager/GameManager.h"
+#include"../GameManagerContains/GameManager/GameManager.h"
+#include"../../SceneContains/SceneName.h"
+#include"../../SceneContains/GameTitle/GameTitle.h"
+#include"../../SceneContains/GamePlay/GamePlay.h"
 
 //コンストラクタ
 GameFrame::GameFrame()
 	:Game(1024, 768)
-	, p_GameManager(new GameManager())
+	,m_SceneManager()
 {
+	p_GameManager = std::make_shared<GameManager>(new Renderer2D());
 	p_GameManager->LoadContent();
 }
 
@@ -25,24 +27,26 @@ GameFrame::~GameFrame()
 //初期化
 void GameFrame::start()
 {
-	p_World = std::make_shared<World>();
+	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>());
+	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>());
 }
 
 // 更新
 void GameFrame::update(float time)
 {
-	p_World->update(time);
+	m_SceneManager.Update(time);
 }
 
 // 描画
 void GameFrame::draw()
 {
-	p_World->Draw();
+	m_SceneManager.Draw();
 }
 
 // 終了
 void GameFrame::end()
 {
+	m_SceneManager.End();
 }
 
 // 実行中か

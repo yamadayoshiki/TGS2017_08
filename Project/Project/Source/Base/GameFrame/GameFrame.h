@@ -4,8 +4,8 @@
 #include<GSgame.h>
 #include<memory>
 
-/*先行宣言*/
-class World;
+#include "../../SceneContains/SceneManager/SceneManager.h"
+
 class GameManager;
 
 class GameFrame :public gslib::Game
@@ -28,12 +28,9 @@ private:
 	bool isRunning() override;
 
 private:
-	using WorldPtr = std::shared_ptr<World>;
-	WorldPtr p_World; // ワールドクラス
-
-	GameManager* p_GameManager; //ゲームマネージャー
-
-	bool isEnd_;  // 終了フラグ 
+	using GameManagerPtr = std::shared_ptr<GameManager>;
+	GameManagerPtr p_GameManager;	//ゲームマネージャー
+	SceneManager m_SceneManager;	//シーンマネージャー
 };
 
 

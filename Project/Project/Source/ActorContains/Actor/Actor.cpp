@@ -16,6 +16,7 @@ Actor::Actor(
 {
 }
 
+
 Actor::Actor(const ActorName& name)
 	:Actor(
 		nullptr,

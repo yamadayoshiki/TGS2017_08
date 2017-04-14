@@ -3,7 +3,7 @@
 
 #include <gslib.h>
 
-#include "../ActorContains/Actor_Ptr.h"
+#include "../ActorContains/ActorPtr.h"
 #include "../ActorContains/ActorName.h"
 
 enum class ActorGroup;
