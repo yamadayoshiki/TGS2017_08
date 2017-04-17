@@ -3,7 +3,8 @@
 
 enum ActorName
 {
-	Player = 0,//プレイヤー
+	Player = 0,	//プレイヤー
+	Enemy_Rush,	//突撃敵
 
 	None,
 };

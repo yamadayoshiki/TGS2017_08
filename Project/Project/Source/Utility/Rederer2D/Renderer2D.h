@@ -6,6 +6,8 @@
 
 #include"../../ActorContains/ActorName.h"
 
+class Texture2DParameter;
+
 class Renderer2D
 {
 public:
@@ -28,17 +30,17 @@ public:
 	//テクスチャ描画
 	void DrawTexture
 		(
-			const std::string& texName,		//登録名
-			const GSrect& rect,				//描画範囲
-			const GSvector2& position		//描画座標
+			const std::string& texName,										//登録名
+			const GSvector2& position,										//描画座標
+			const GSrect& rect = GSrect(0.0f, 0.0f, 1.0f, 1.0f)				//描画範囲
 			);
 
-	//テクスチャ描画(パラメータ設定)...未実装
-	//void DrawTexture
-	//	(
-	//		const std::string& texName,
-	//		const TextureParameter2D& param
-	//		);
+	//テクスチャ描画(パラメータ設定)
+	void DrawTexture
+		(
+			const std::string& texName,				//登録名
+			const Texture2DParameter& parameter		//パラメーター
+			);
 
 	//エラー出力
 	void ErrorPush(bool flag, const std::string& name);
@@ -49,12 +51,11 @@ public:
 
 private:
 	//指定した枚数目のrectを計算(アニメーションの補助)
-	//GSrect CalculateAnimationRect
-	//	(
-	//		const GSrect& rect,		//切り取るテクスチャのrect
-	//		int texWidth,			//テクスチャの横幅
-	//		int texNum				//指定する枚数目
-	//		);
+	GSrect CalculateAnimationRect(
+		const GSrect& rect,		//切り取るテクスチャのrect
+		int texWidth,			//テクスチャの横幅
+		int texNum				//指定する枚数目
+		);
 
 private:
 	std::map<std::string, unsigned int> m_TextureDic;

@@ -3,7 +3,9 @@
 
 enum class ActorGroup
 {
-	Player = 0, //プレイヤー
+	Player = 0,		//プレイヤー
+	Enemy,			//敵
+	EnemyBullet,	//敵の弾
 
 	None,
 };

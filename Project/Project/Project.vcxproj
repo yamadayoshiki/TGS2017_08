@@ -147,6 +147,12 @@
     <ClInclude Include="Source\Base\GameManagerContains\IGameManager.h" />
     <ClInclude Include="Source\Base\GameManagerContains\IGameManagerPtr.h" />
     <ClInclude Include="Source\Base\GameManager\GameManager.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\EnemyStateName.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_BaseContains\Enemy_Base_State\Enemy_Base_State.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_BaseContains\Enemy_Base\Enemy_Base.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_ForDirectionShot\Enemy_ForDirectionShot.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_Rush\Enemy_Rush.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_Rush\Enemy_Rush_State\Enemy_Rush_State.h" />
     <ClInclude Include="Source\Define\Def_Nakayama.h" />
     <ClInclude Include="Source\FileReader\CsvReader.h" />
     <ClInclude Include="Source\MapGenerator\MapGenerator.h" />
@@ -165,6 +171,7 @@
     <ClInclude Include="Source\UIContains\UIPtr.h" />
     <ClInclude Include="Source\UIContains\UI\UI.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
+    <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h" />
     <ClInclude Include="Source\WorldContains\IWorld.h" />
     <ClInclude Include="Source\WorldContains\IWorldPtr.h" />
     <ClInclude Include="Source\WorldContains\World_Ptr.h" />
@@ -184,6 +191,11 @@
     <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp" />
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_BaseContains\Enemy_Base_State\Enemy_Base_State.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_BaseContains\Enemy_Base\Enemy_Base.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_ForDirectionShot\Enemy_ForDirectionShot.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_Rush\Enemy_Rush.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_Rush\Enemy_Rush_State\Enemy_Rush_State.cpp" />
     <ClCompile Include="Source\FileReader\CsvReader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Source\MapGenerator\MapGenerator.cpp" />
@@ -196,6 +208,7 @@
     <ClCompile Include="Source\UIContains\UIManager\UIManager.cpp" />
     <ClCompile Include="Source\UIContains\UI\UI.cpp" />
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
+    <ClCompile Include="Source\Utility\Texture2DParameter\Texture2DParameter.cpp" />
     <ClCompile Include="Source\WorldContains\World\World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
