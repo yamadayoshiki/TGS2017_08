@@ -1,5 +1,6 @@
 #include "ActorManager.h" 
 #include "../ActorGroup.h"
+#include <memory>
 
 // コンストラクタ 
 ActorManager::ActorManager()
@@ -10,6 +11,9 @@ ActorManager::ActorManager()
 // 初期化 
 void ActorManager::initialize()
 {
+	m_actors[ActorGroup::Player] = std::make_shared<Actor>();
+	m_root.clearChildren();
+	m_root.addChild(m_actors[ActorGroup::Player]);
 }
 
 // 更新 

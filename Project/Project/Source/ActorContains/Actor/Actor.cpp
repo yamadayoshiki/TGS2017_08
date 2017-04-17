@@ -72,6 +72,14 @@ GSvector2 Actor::getPosition() const
 	return m_Position;
 }
 
+GSmatrix4 Actor::getMatrix() const{
+	return m_Matrix;
+}
+
+GSmatrix4 Actor::getPose() const{
+	return GSmatrix4(m_Matrix).setPosition(m_Position);
+}
+
 // Žq‚ÌŒŸõ 
 ActorPtr Actor::findChildren_NullActor(const ActorName& name)
 {
@@ -197,8 +205,8 @@ void Actor::onUpdate(float)
 }
 
 // •`‰æ 
-void Actor::onDraw() const
-{
+void Actor::onDraw() const{
+	m_Body->draw(getPose());
 }
 
 // Õ“Ë‚µ‚½ 
@@ -211,7 +219,5 @@ void Actor::onCollide(Actor&)
 bool Actor::isCollide(const Actor& other) const
 {
 	// ‰ñ“]‚ðŠÜ‚Þê‡
-	//return m_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
-	// ‰ñ“]‚ðŠÜ‚Ü‚È‚¢ê‡
-	return m_Body->translate(getPosition())->isCollide(*other.getBody()->translate(other.getPosition()).get(), HitInfo());
+	return m_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
 }

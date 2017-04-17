@@ -40,6 +40,10 @@ public:
 	const ActorName getName() const;
 	//座標を返す
 	GSvector2 getPosition() const;
+	//座標を返す
+	GSmatrix4 getMatrix() const;
+	//座標を返す
+	GSmatrix4 getPose() const;
 	//子の検索
 	ActorPtr findChildren_NullActor(const ActorName& name);
 	//子の検索（NullPtrあり）
@@ -72,7 +76,7 @@ public:
 	Actor(const Actor& other) = delete;
 	Actor& operator = (const Actor& other) = delete;
 
-private:
+protected:
 	//メッセージ処理
 	virtual void onMessage(EventMessage message, void* param);
 	//更新
@@ -92,7 +96,9 @@ protected:
 	ActorName m_Name;
 	//座標
 	GSvector2 m_Position;
-	// 衝突判定
+	//変換行列
+	GSmatrix4 m_Matrix;
+	//衝突判定
 	IBodyPtr m_Body;
 	//死亡フラグ
 	bool m_dead;

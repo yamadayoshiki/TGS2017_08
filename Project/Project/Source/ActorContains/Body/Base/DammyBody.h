@@ -24,5 +24,5 @@ public:
 	// Õ“Ë”»’è(ƒŒƒC)
 	virtual bool intersects(const Ray& other, HitInfo& hitinfo) const override { return false; }
 	// }Œ`•`‰æ
-	virtual void draw() const override{}
+	virtual void draw(const GSmatrix4 & mat) const override{}
 };

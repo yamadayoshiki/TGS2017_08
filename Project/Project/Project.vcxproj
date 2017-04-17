@@ -136,6 +136,7 @@
     <ClInclude Include="Source\ActorContains\Body\Ray.h" />
     <ClInclude Include="Source\ActorContains\Collision\collision.h" />
     <ClInclude Include="Source\ActorContains\NullActor\NullActor.h" />
+    <ClInclude Include="Source\ActorContains\Object\TestObj.h" />
     <ClInclude Include="Source\ActorContains\State\Base\ActionType.h" />
     <ClInclude Include="Source\ActorContains\State\Base\IState.h" />
     <ClInclude Include="Source\ActorContains\State\Base\IStatePtr.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="Source\SceneContains\GameTitle\GameTitle.h" />
     <ClInclude Include="Source\SceneContains\IScene.h" />
     <ClInclude Include="Source\SceneContains\IScenePtr.h" />
+    <ClInclude Include="Source\SceneContains\NaganoScene\NaganoScene.h" />
     <ClInclude Include="Source\SceneContains\NullScene\NullScene.h" />
     <ClInclude Include="Source\SceneContains\SceneManager\SceneManager.h" />
     <ClInclude Include="Source\SceneContains\SceneName.h" />
@@ -187,6 +189,7 @@
     <ClCompile Include="Source\ActorContains\Body\Ray.cpp" />
     <ClCompile Include="Source\ActorContains\Collision\Collision.cpp" />
     <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />
+    <ClCompile Include="Source\ActorContains\Object\TestObj.cpp" />
     <ClCompile Include="Source\ActorContains\State\Base\State.cpp" />
     <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp" />
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
@@ -201,6 +204,7 @@
     <ClCompile Include="Source\MapGenerator\MapGenerator.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
+    <ClCompile Include="Source\SceneContains\NaganoScene\NaganoScene.cpp" />
     <ClCompile Include="Source\SceneContains\NullScene\NullScene.cpp" />
     <ClCompile Include="Source\SceneContains\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Source\SceneContains\Scene\Scene.cpp" />

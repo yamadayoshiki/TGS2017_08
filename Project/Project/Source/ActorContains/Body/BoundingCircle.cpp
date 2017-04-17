@@ -65,7 +65,7 @@ BoundingCircle BoundingCircle::transform_e(const GSmatrix4 & mat) const {
 }
 
 // ê}å`ï`âÊ
-void BoundingCircle::draw() const{
+void BoundingCircle::draw(const GSmatrix4 & mat) const{
 	//DrawSphere3D(Vector3::Vector3ToVECTOR(mCenter), mRadius, 32, GetColor(255, 0, 0), GetColor(125, 125, 125), FALSE);
 }
 

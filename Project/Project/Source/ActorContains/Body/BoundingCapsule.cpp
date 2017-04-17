@@ -66,7 +66,7 @@ BoundingCapsule BoundingCapsule::transform_e(const GSmatrix4 & mat) const{
 }
 
 // ê}å`ï`âÊ
-void BoundingCapsule::draw() const{
+void BoundingCapsule::draw(const GSmatrix4 & mat) const{
 	//Vector3 p[2];
 	//p[0] = mPosition + Vector3::Up * mLength / 2 * mMatrix;
 	//p[1] = mPosition + Vector3::Down * mLength / 2 * mMatrix;

@@ -43,7 +43,7 @@ public:
 	// 判定があるかどうか
 	virtual bool enabled() const = 0;
 	// 図形描画
-	virtual void draw() const = 0;
+	virtual void draw(const GSmatrix4 & mat) const = 0;
 	// 形状の取得
 	virtual ShapeType type() const = 0;
 	// 中心座標の取得

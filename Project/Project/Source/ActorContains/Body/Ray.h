@@ -32,5 +32,5 @@ public:
 	Ray transform_e(const GSmatrix4& mat) const;
 
 	// ê}å`ï`âÊ
-	virtual void draw() const override;
+	virtual void draw(const GSmatrix4 & mat) const override;
 };

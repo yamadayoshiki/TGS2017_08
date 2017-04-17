@@ -81,7 +81,7 @@ BoundingBox BoundingBox::translate_e(const GSvector2 & pos) const{
 
 // BodyÇÃïœä∑
 BoundingBox BoundingBox::transform_e(const GSmatrix4 & mat) const{
-	return BoundingBox(mMin, mMax);
+	return BoundingBox(mMin + GSvector2(mat.getPosition().x, mat.getPosition().y), mMax + GSvector2(mat.getPosition().x, mat.getPosition().y));
 }
 
 // ê¸ÇÃè’ìÀîªíË
@@ -173,5 +173,27 @@ GSvector2 BoundingBox::Center() const{
 }
 
 // ê}å`ï`âÊ
-void BoundingBox::draw() const{
+void BoundingBox::draw(const GSmatrix4 & mat) const{
+	GSvector2 min = mMin + GSvector2(mat.getPosition());
+	GSvector2 max = mMax + GSvector2(mat.getPosition());
+
+	glBegin(GL_LINES);
+	glVertex2f(min.x, min.y);
+	glVertex2f(max.x, min.y);
+	glEnd();
+
+	glBegin(GL_LINES);
+	glVertex2f(max.x, min.y);
+	glVertex2f(max.x, max.y);
+	glEnd();
+
+	glBegin(GL_LINES);
+	glVertex2f(max.x, max.y);
+	glVertex2f(min.x, max.y);
+	glEnd();
+
+	glBegin(GL_LINES);
+	glVertex2f(min.x, max.y);
+	glVertex2f(min.x, min.y);
+	glEnd();
 }

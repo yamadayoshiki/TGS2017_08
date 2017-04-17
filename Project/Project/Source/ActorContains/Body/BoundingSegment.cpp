@@ -33,7 +33,7 @@ bool BoundingSegment::intersects(const BoundingCapsule & other, HitInfo & hitinf
 
 // Õ“Ë”»’è(ü•ª)
 bool BoundingSegment::intersects(const BoundingSegment & other, HitInfo & hitinfo) const{
-	return Collision::Segment_Segment(mPosition, mMatrix, mLength, other.mPosition, other.matrix(), other.length());
+	return false;// Collision::Segment_Segment(mPosition, mMatrix, mLength, other.mPosition, other.matrix(), other.length());
 }
 
 // Õ“Ë”»’è(AABB)
@@ -77,7 +77,7 @@ GSvector2 BoundingSegment::Direction() const{
 }
 
 // }Œ`•`‰æ
-void BoundingSegment::draw() const{
+void BoundingSegment::draw(const GSmatrix4 & mat) const{
 	//Vector3 p[2];
 	//p[0] = mPosition + Vector3::Up * mLength / 2 * mMatrix;
 	//p[1] = mPosition + Vector3::Down * mLength / 2 * mMatrix;

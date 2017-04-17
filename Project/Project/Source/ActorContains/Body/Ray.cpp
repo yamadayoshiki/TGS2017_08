@@ -55,4 +55,4 @@ Ray Ray::transform_e(const GSmatrix4 & mat) const {
 }
 
 // ê}å`ï`âÊ
-void Ray::draw() const{}
+void Ray::draw(const GSmatrix4 & mat) const{}
