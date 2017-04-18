@@ -13,14 +13,16 @@ public:
 	//デフォルトコンストラクタ
 	Scene();
 	// 仮想デストラクタ     
-	virtual ~Scene() {}
+	virtual ~Scene() {
+		delete p_GameManager;
+	}
 	// 開始     
 	virtual void Start() override;
 	// 更新     
 	virtual void Update(float deltaTime) override;
 	// 終了しているか？     
 	virtual bool IsEnd() const override;
-	
+
 public:
 	// 描画     
 	virtual void Draw() const override = 0;

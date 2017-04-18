@@ -149,6 +149,8 @@
     <ClInclude Include="Source\Base\GameManagerContains\IGameManagerPtr.h" />
     <ClInclude Include="Source\Base\GameManager\GameManager.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\EnemyStateName.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_AutoAttack\Enemy_AutoAttack.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_AutoAttack\State\Enemy_AutoAttack_State.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_BaseContains\Enemy_Base_State\Enemy_Base_State.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_BaseContains\Enemy_Base\Enemy_Base.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_ForDirectionShot\Enemy_ForDirectionShot.h" />
@@ -194,6 +196,8 @@
     <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp" />
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_AutoAttack\Enemy_AutoAttack.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_AutoAttack\State\Enemy_AutoAttack_State.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_BaseContains\Enemy_Base_State\Enemy_Base_State.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_BaseContains\Enemy_Base\Enemy_Base.cpp" />
     <ClCompile Include="Source\FileReader\CsvReader.cpp" />

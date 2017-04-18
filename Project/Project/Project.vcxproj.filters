@@ -198,6 +198,12 @@
     <ClInclude Include="Source\SceneContains\NaganoScene\NaganoScene.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_AutoAttack\State\Enemy_AutoAttack_State.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_AutoAttack\Enemy_AutoAttack.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -278,15 +284,6 @@
     <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_Rush\Enemy_Rush.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_Rush\Enemy_Rush_State\Enemy_Rush_State.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_ForDirectionShot\Enemy_ForDirectionShot.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_BaseContains\Enemy_Base\Enemy_Base.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -300,6 +297,12 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\NaganoScene\NaganoScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_AutoAttack\State\Enemy_AutoAttack_State.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_AutoAttack\Enemy_AutoAttack.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
