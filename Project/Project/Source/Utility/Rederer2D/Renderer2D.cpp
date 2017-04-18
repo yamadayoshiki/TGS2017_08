@@ -8,6 +8,7 @@ Renderer2D::Renderer2D()
 	:m_TextureID(0)
 {
 	m_TextureDic.clear();
+	m_TextureSizeDic.clear();
 }
 
 //初期化
@@ -15,6 +16,7 @@ void Renderer2D::Initialize()
 {
 	m_TextureID = 0;
 	m_TextureDic.clear();
+	m_TextureSizeDic.clear();
 }
 
 //テクスチャ読み込み
@@ -24,8 +26,7 @@ void Renderer2D::LoadTexture(const std::string& fileName)
 }
 
 //テクスチャ読み込み(fileName別登録)
-void Renderer2D::LoadTexture
-(
+void Renderer2D::LoadTexture(
 	const std::string& texName,			//登録名
 	const std::string& fileName			//ファイルパス
 	)
@@ -33,29 +34,26 @@ void Renderer2D::LoadTexture
 	//テクスチャー読み込み
 	m_TextureDic[texName] = m_TextureID;
 	bool flag = (gsLoadTexture(m_TextureDic[texName], fileName.c_str()) == GS_TRUE);
+	RecordTextureSize(texName);
 	m_TextureID++;
 
 	ErrorPush(flag, texName);
 }
 
 //テクスチャ描画
-void Renderer2D::DrawTexture
-(
+void Renderer2D::DrawTexture(
 	const std::string& texName,										//登録名
-	const GSvector2& position,										//描画座標
-	const GSrect& rect = GSrect(0.0f, 0.0f, 1.0f, 1.0f)				//描画範囲
-	)
+	const GSvector2& position)										//描画座標
 {
 	gsDrawSprite2D
 		(
 			m_TextureDic[texName],
 			&position,
-			&rect,
+			m_TextureSizeDic[texName],
 			NULL,
 			NULL,
 			NULL,
-			0.0f
-			);
+			0.0f);
 }
 
 //テクスチャ描画(パラメータ設定)
@@ -125,4 +123,31 @@ GSrect Renderer2D::CalculateAnimationRect(
 			);
 
 	return result;
+}
+
+//テクスチャサイズの取得(登録名)
+GSvector2 Renderer2D::GetTextureSize(const std::string& texName)
+{
+	return GetTextureSize(m_TextureDic[texName]);
+}
+
+//テクスチャサイズの取得(ID)
+GSvector2 Renderer2D::GetTextureSize(const unsigned int textureID)
+{
+	GSvector2 result = GSvector2();
+	GStexture* tex = gsGetTexture(textureID);
+	result.x = gsTextureGetWidth(tex);
+	result.y = gsTextureGetHeight(tex);
+
+	return result;
+}
+
+//テクスチャサイズの登録
+void Renderer2D::RecordTextureSize(const std::string& texName)
+{
+	GSvector2 size = GetTextureSize(texName);
+	GSrect* rectSize = new GSrect();
+	rectSize->right = size.x;
+	rectSize->bottom = size.y;
+	m_TextureSizeDic[texName] = rectSize;
 }

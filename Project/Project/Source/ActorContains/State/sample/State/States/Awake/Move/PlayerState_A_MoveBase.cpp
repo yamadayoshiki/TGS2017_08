@@ -8,7 +8,8 @@
 #include "../../../../../../../Scene/Base/SceneData.h"
 
 // コンストラクタ
-PlayerState_A_MoveBase::PlayerState_A_MoveBase(Vector3 & pos, Matrix & mat) : PlayerState(pos, mat) {}
+PlayerState_A_MoveBase::PlayerState_A_MoveBase(Vector3 & pos, Matrix & mat) 
+	: PlayerState(pos, mat) {}
 
 // 各状態独自の初期化
 void PlayerState_A_MoveBase::unique_init(Actor & actor){

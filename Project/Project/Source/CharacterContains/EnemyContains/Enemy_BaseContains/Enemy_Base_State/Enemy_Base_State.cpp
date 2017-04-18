@@ -11,7 +11,7 @@ Enemy_Base_State::Enemy_Base_State(GSvector2& position)
 }
 
 //ˆÚ“®ˆ—
-void Enemy_Base_State::Move(Actor& actor, float deltaTime, float speed = 1.0f)
+void Enemy_Base_State::Move(Actor& actor, float deltaTime, float speed)
 {
 	//‘¬“x‚ğÀ•W‚É‰ÁZ
 	m_Position += m_Velocity * speed;

@@ -23,8 +23,6 @@ void Scene::Start()
 // çXêV     
 void Scene::Update(float deltaTime)
 {
-	(void)deltaTime;
-
 	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE)
 		m_IsEnd = true;
 

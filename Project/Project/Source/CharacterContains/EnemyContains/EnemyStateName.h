@@ -4,7 +4,7 @@
 enum class EnemyStateName
 {
 	//‹¤’Ê
-	Idel,				//‚»‚Ìê‚É~‚Ü‚é
+	Idle,				//‚»‚Ìê‚É~‚Ü‚é
 	Move,				//“®‚­
 	Caught,				//‹²‚Ü‚ê‚Ä‚¢‚é
 	Thrown,				//“Š‚°‚ç‚ê‚Ä‚¢‚é
@@ -16,8 +16,8 @@ enum class EnemyStateName
 	Rush_Preliminary,	//“ËŒ‚€”õ
 	Rush,				//“ËŒ‚
 
-	//l•û‚É’e‚ğo‚·“G
-	FourDirectionShot,	//l•û‚É’e‚ğo‚·
+	//ËŒ‚
+	Shot,				//ËŒ‚
 };
 
 #endif // !ENEMYSTATENAME_H_

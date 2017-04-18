@@ -28,12 +28,10 @@ public:
 			);
 
 	//テクスチャ描画
-	void DrawTexture
-		(
-			const std::string& texName,										//登録名
-			const GSvector2& position,										//描画座標
-			const GSrect& rect = GSrect(0.0f, 0.0f, 1.0f, 1.0f)				//描画範囲
-			);
+	void DrawTexture(
+		const std::string& texName,										//登録名
+		const GSvector2& position										//描画座標
+		);
 
 	//テクスチャ描画(パラメータ設定)
 	void DrawTexture
@@ -57,9 +55,22 @@ private:
 		int texNum				//指定する枚数目
 		);
 
+	//テクスチャサイズの取得(登録名)
+	GSvector2 GetTextureSize(const std::string& texName);
+
+	//テクスチャサイズの取得(ID)
+	GSvector2 GetTextureSize(const unsigned int textureID);
+
+	//テクスチャサイズの登録
+	void RecordTextureSize(const std::string& texName);
+
 private:
+	//登録名・ID
 	std::map<std::string, unsigned int> m_TextureDic;
 	unsigned int m_TextureID;
+
+	//登録名・サイズ
+	std::map<std::string, GSrect*> m_TextureSizeDic;
 };
 
 #endif
