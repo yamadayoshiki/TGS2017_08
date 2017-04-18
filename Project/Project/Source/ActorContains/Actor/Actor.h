@@ -25,9 +25,7 @@ public:
 	//コンストラクタ
 	explicit Actor(const ActorName& name = ActorName::None);
 	//仮想デストラクタ
-	virtual ~Actor() {
-		delete p_World;
-	}
+	virtual ~Actor();
 	//更新
 	void update(float deltaTime);
 	//描画
@@ -51,7 +49,7 @@ public:
 	//子の検索（NullPtrあり）
 	ActorPtr findChildren(std::function<bool(const Actor&)> fn);
 	//子同士の衝突判定
-	void collideChidren(Actor& other);
+	void collideChildren(Actor& other);
 	//兄弟同士の衝突判定
 	void collideSibling();
 	//子の追加
@@ -73,6 +71,8 @@ public:
 	void SetWorld(IWorld* world);
 	// 判定の形の取得
 	IBodyPtr getBody() const;
+
+	virtual ActorPtr Actor::clone(const GSvector2&);
 
 	//コピー禁止
 	Actor(const Actor& other) = delete;

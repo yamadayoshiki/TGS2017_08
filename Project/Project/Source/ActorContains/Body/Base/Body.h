@@ -21,8 +21,8 @@ public:
 	Body(const ShapeType& type, const GSvector2& position, const GSmatrix4& mat, const float& radius, const float& length) :
 		mType(type), mPosition(position), mMatrix(mat), mRadius(radius), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(GSvector2(0, 0)), mMax(GSvector2(0, 0)), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(AABB)
-	Body(const ShapeType& type, const GSvector2& position, const GSvector2 & min, const GSvector2 & max) :
-		mType(type), mPosition(GSvector2(0, 0)), mMatrix(GS_MATRIX4_IDENTITY), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(min), mMax(max), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+	Body(const ShapeType& type, const GSvector2& position, const GSvector2 & min, const GSvector2 & max, const GSmatrix4& mat) :
+		mType(type), mPosition(position), mMatrix(mat), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(min), mMax(max), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// デストラクタ
 	virtual ~Body(){}
 

@@ -6,7 +6,7 @@
 class BoundingBox : public Body {
 public:
 	//AABB‚Ì”»’è‚ğì¬
-	BoundingBox(const GSvector2& min, const GSvector2& max);
+	BoundingBox(const GSvector2& min, const GSvector2& max, const GSmatrix4 & mat);
 public:
 	// Õ“Ë”»’è
 	virtual bool isCollide(const IBody& other, HitInfo& hitinfo) const override;

@@ -54,11 +54,13 @@ void ActorManager::handleMessage(EventMessage message, void* param)
 
 void ActorManager::OptionalCollide(Actor* actor, ActorGroup actorGroup)
 {
-	actor->collideChidren(*m_actors[actorGroup]);
+	actor->collideChildren(*m_actors[actorGroup]);
 }
 
 
 // Õ“Ë”»’è 
 void ActorManager::collide()
 {
+	m_actors[ActorGroup::Player]->collideChildren(*m_actors[ActorGroup::None]);
+
 }

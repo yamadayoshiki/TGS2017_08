@@ -3,6 +3,7 @@
 #include "Actor.h"
 #include "../NullActor/NullActor.h"
 #include "../Body/Base/HitInfo.h"
+#include "../../WorldContains/IWorld.h"
 
 //コンストラクタ
 Actor::Actor(IWorld* world, const ActorName& name, const GSvector2& position, const IBodyPtr& body)
@@ -21,6 +22,12 @@ Actor::Actor(const ActorName& name)
 		name,
 		{ 0.0f,0.0f })
 {
+}
+
+//仮想デストラクタ
+
+Actor::~Actor() {
+	delete p_World;
 }
 
 //更新
@@ -119,7 +126,7 @@ ActorPtr Actor::findChildren(std::function<bool(const Actor&)> fn)
 }
 
 // 子同士の衝突判定 
-void Actor::collideChidren(Actor& other)
+void Actor::collideChildren(Actor& other)
 {
 	eachChildren([&](Actor& my)
 	{

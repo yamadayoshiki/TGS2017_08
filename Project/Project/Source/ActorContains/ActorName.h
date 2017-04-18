@@ -11,7 +11,8 @@ enum ActorName
 	Enemy_Ice,			//
 	Enemy_Leak,			//
 	Enemy_Split,		//
-
+	Enemy,
+	EnemyManager,
 	None,
 };
 

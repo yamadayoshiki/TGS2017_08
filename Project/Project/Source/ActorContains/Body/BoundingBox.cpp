@@ -12,8 +12,8 @@
 //#include "../Collision/Collision.h"
 
 //AABBの判定を作成
-BoundingBox::BoundingBox(const GSvector2 & min, const GSvector2 & max) :
-	Body(ShapeType::Box, (max + min) / 2.0f, min, max){}
+BoundingBox::BoundingBox(const GSvector2 & min, const GSvector2 & max, const GSmatrix4 & mat) :
+	Body(ShapeType::Box, (max + min) / 2.0f, min, max, mat){}
 
 // 衝突判定
 bool BoundingBox::isCollide(const IBody & other, HitInfo & hitinfo) const {
@@ -49,8 +49,10 @@ bool BoundingBox::intersects(const BoundingSegment & segment, HitInfo & hitinfo)
 
 // 衝突判定(AABB)
 bool BoundingBox::intersects(const BoundingBox & aabb, HitInfo & hitinfo) const{
-	return	mMin.x < aabb.mMax.x && mMin.y < aabb.mMax.y && 
-			aabb.mMin.x < mMax.x && aabb.mMin.y < mMax.y;
+	return	mMin.x + mMatrix.getPosition().x < aabb.mMax.x + aabb.matrix().getPosition().x &&
+			mMin.y + mMatrix.getPosition().y < aabb.mMax.y + aabb.matrix().getPosition().y &&
+			aabb.mMin.x + aabb.matrix().getPosition().x < mMax.x + mMatrix.getPosition().x &&
+			aabb.mMin.y + aabb.matrix().getPosition().y < mMax.y + mMatrix.getPosition().y;
 }
 
 // 衝突判定(レイ)
@@ -76,12 +78,12 @@ IBodyPtr BoundingBox::transform(const GSmatrix4 & mat) const{
 
 // Bodyの平行移動
 BoundingBox BoundingBox::translate_e(const GSvector2 & pos) const{
-	return BoundingBox(mMin + pos, mMax + pos);
+	return BoundingBox(mMin, mMax, mMatrix);
 }
 
 // Bodyの変換
 BoundingBox BoundingBox::transform_e(const GSmatrix4 & mat) const{
-	return BoundingBox(mMin + GSvector2(mat.getPosition().x, mat.getPosition().y), mMax + GSvector2(mat.getPosition().x, mat.getPosition().y));
+	return BoundingBox(mMin, mMax, mat);
 }
 
 // 線の衝突判定
@@ -174,26 +176,30 @@ GSvector2 BoundingBox::Center() const{
 
 // 図形描画
 void BoundingBox::draw(const GSmatrix4 & mat) const{
-	GSvector2 min = mMin + GSvector2(mat.getPosition());
-	GSvector2 max = mMax + GSvector2(mat.getPosition());
+	// 座標変換の適応
+	GSvector2 lt = CornerPoint(0) * mat.getRotateMatrix() + GSvector2(mat.getPosition());
+	GSvector2 lb = CornerPoint(1) * mat.getRotateMatrix() + GSvector2(mat.getPosition());
+	GSvector2 rt = CornerPoint(2) * mat.getRotateMatrix() + GSvector2(mat.getPosition());
+	GSvector2 rb = CornerPoint(3) * mat.getRotateMatrix() + GSvector2(mat.getPosition());
 
+	// 上
 	glBegin(GL_LINES);
-	glVertex2f(min.x, min.y);
-	glVertex2f(max.x, min.y);
+	glVertex2f(lt.x, lt.y);
+	glVertex2f(rt.x, rt.y);
 	glEnd();
-
+	// 右
 	glBegin(GL_LINES);
-	glVertex2f(max.x, min.y);
-	glVertex2f(max.x, max.y);
+	glVertex2f(rt.x, rt.y);
+	glVertex2f(rb.x, rb.y);
 	glEnd();
-
+	// 下
 	glBegin(GL_LINES);
-	glVertex2f(max.x, max.y);
-	glVertex2f(min.x, max.y);
+	glVertex2f(rb.x, rb.y);
+	glVertex2f(lb.x, lb.y);
 	glEnd();
-
+	// 左
 	glBegin(GL_LINES);
-	glVertex2f(min.x, max.y);
-	glVertex2f(min.x, min.y);
+	glVertex2f(lb.x, lb.y);
+	glVertex2f(lt.x, lt.y);
 	glEnd();
 }

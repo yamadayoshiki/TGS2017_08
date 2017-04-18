@@ -16,7 +16,8 @@ bool BoundingCircle::isCollide(const IBody & other, HitInfo & hitinfo) const {
 	// ‚Ç‚¿‚ç‚©‚Ì”»’è‚ğs‚í‚È‚¢ê‡false
 	if (!other.enabled() || !enabled())return false;
 	
-	return other.intersects(*this, hitinfo);
+	return other.intersects(
+		this, hitinfo);
 }
 
 // Õ“Ë”»’è(‹…)

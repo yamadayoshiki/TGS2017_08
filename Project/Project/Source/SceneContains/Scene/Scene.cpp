@@ -13,6 +13,12 @@ Scene::Scene()
 {
 }
 
+// 仮想デストラクタ     
+
+Scene::~Scene() {
+	delete p_GameManager;
+}
+
 // 開始     
 void Scene::Start()
 {

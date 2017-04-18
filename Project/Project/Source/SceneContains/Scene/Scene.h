@@ -13,9 +13,7 @@ public:
 	//デフォルトコンストラクタ
 	Scene();
 	// 仮想デストラクタ     
-	virtual ~Scene() {
-		delete p_GameManager;
-	}
+	virtual ~Scene();
 	// 開始     
 	virtual void Start() override;
 	// 更新     
