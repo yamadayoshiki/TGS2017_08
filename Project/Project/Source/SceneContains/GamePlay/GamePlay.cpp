@@ -31,7 +31,7 @@ void GamePlay::Draw() const
 // Ÿ‚ÌƒV[ƒ“‚ğ•Ô‚·     
 SceneName GamePlay::Next() const
 {
-	return SceneName::GameTitle;
+	return SceneName::NakayamaScene;
 }
 
 // I—¹     

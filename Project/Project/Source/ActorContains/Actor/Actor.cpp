@@ -187,6 +187,8 @@ IBodyPtr Actor::getBody() const{
 }
 
 
+
+
 // メッセージ処理 
 void Actor::handleMessage(EventMessage message, void* param)
 {
@@ -220,4 +222,8 @@ bool Actor::isCollide(const Actor& other) const
 {
 	// 回転を含む場合
 	return m_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
+}
+
+ActorPtr Actor::clone(const GSvector2&){
+	return nullptr;
 }

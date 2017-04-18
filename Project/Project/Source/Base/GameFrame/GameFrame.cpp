@@ -9,6 +9,7 @@
 #include"../../SceneContains/GameTitle/GameTitle.h"
 #include"../../SceneContains/GamePlay/GamePlay.h"
 #include"../../SceneContains/NaganoScene/NaganoScene.h"
+#include"../../SceneContains/NakayamaScene/NakayamaScene.h"
 
 //コンストラクタ
 GameFrame::GameFrame()
@@ -31,7 +32,8 @@ void GameFrame::start()
 	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>());
 	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>());
 	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>());
-	m_SceneManager.Change(SceneName::GameTitle);
+	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>());
+	m_SceneManager.Change(SceneName::NakayamaScene);
 }
 
 // 更新

@@ -11,9 +11,13 @@ ActorManager::ActorManager()
 // ‰Šú‰» 
 void ActorManager::initialize()
 {
+	m_actors[ActorGroup::None] = std::make_shared<Actor>();
 	m_actors[ActorGroup::Player] = std::make_shared<Actor>();
+	m_actors[ActorGroup::Enemy] = std::make_shared<Actor>(ActorName::EnemyManager);
 	m_root.clearChildren();
+	m_root.addChild(m_actors[ActorGroup::None]);
 	m_root.addChild(m_actors[ActorGroup::Player]);
+	m_root.addChild(m_actors[ActorGroup::Enemy]);
 }
 
 // XV 

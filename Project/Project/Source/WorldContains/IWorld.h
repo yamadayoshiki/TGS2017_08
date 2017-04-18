@@ -8,6 +8,7 @@
 
 enum class ActorGroup;
 enum class EventMessage;
+class Map;
 
 // ワールド抽象インターフェース 
 class IWorld
@@ -27,6 +28,7 @@ public:
 	// メッセージの送信    
 	virtual void sendMessage(EventMessage message, void* param = nullptr) = 0;
 
+	//virtual Map& GetMap() = 0;
 protected:
 	// 終了処理
 	virtual void Finalize() {}

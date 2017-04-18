@@ -4,7 +4,7 @@
 #include "../IWorld.h" 
 #include "../../ActorContains/ActorManager/ActorManager.h"
 #include "../../ActorContains/ActorPtr.h"
-
+#include"../../Map/Map.h"
 enum class EventMessage;
 
 // ワールドクラス
@@ -31,6 +31,8 @@ public:
 	virtual void OptinalCollide(Actor* actor, ActorGroup actorGroup) override;
 	// メッセージの送信    
 	virtual void sendMessage(EventMessage message, void* param = nullptr) override;
+	////マップの取得
+	//Map& GetMap() override;
 	// コピー禁止  
 	World(const World& other) = delete;
 	World& operator = (const World& other) = delete;
@@ -38,5 +40,9 @@ public:
 private:
 	// アクターマネージャー
 	ActorManager* p_Actors;
+	// マップデータ
+	//Map& map;
+	
+	
 };
 #endif

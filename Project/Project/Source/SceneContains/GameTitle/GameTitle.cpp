@@ -16,7 +16,6 @@ void GameTitle::OnStart()
 // XV     
 void GameTitle::OnUpdate(float deltaTime)
 {
-	
 }
 
 // •`‰æ     

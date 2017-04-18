@@ -19,3 +19,8 @@ void NullActor::onUpdate(float deltaTime)
 void NullActor::onDraw() const
 {
 }
+
+ActorPtr NullActor::clone(const GSvector2& position)
+{
+	return std::make_shared<NullActor>(p_World);
+}

@@ -1,9 +1,10 @@
 #include "TestObj.h"
 
 #include "../Body/BoundingBox.h"
+#include "../../Map/Map.h"
 
 TestObj::TestObj(IWorld * world, const GSvector2 & position) :
-	Actor(world, ActorName::None, position, std::make_shared<BoundingBox>(GSvector2{ -1.0f, -1.0f }, GSvector2{ 1.0f, 1.0f })){
+	Actor(world, ActorName::Enemy, position, std::make_shared<BoundingBox>(GSvector2{ -1.0f, -1.0f }, GSvector2{ 1.0f, 1.0f })){
 
 	
 }
@@ -35,4 +36,9 @@ void TestObj::onCollide(Actor &)
 
 void TestObj::onMessage(EventMessage event, void *)
 {
+}
+
+ActorPtr TestObj::clone(const GSvector2 & position)
+{
+	return std::make_shared<TestObj>(p_World, position);
 }
