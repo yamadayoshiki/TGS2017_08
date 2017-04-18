@@ -1,0 +1,43 @@
+#ifndef INPUTSTATE_H_
+#define INPUTSTATE_H_
+
+#include<gslib.h>
+
+class InputState
+{
+public:
+	//コンストラクタ
+	InputState();
+	//デストラクタ
+	~InputState();
+	//キーが押されたら真
+	bool IsKeyTrigger(GKEYCODE key_code);
+	//キーが押されていれば真
+	bool IsKeyState(GKEYCODE key_code);
+	//KeyVelocityのゲッター
+	GSvector2 KeyVelocity();
+
+	//ボタンが押されたら真
+	bool IsPadTrigger(GSushort Button);
+	//ボタンが押されていれば真
+	bool IsPadState(GSushort Button);
+	//PadVelocityのゲッター
+	GSvector2 PadVelocity();
+
+	void Update();
+
+private:
+	//KeyVelocityの更新
+	void UpdateKeyVelocity();
+	//PadVelocityの更新
+	void UpdatePadVelocity();
+
+private:
+	//KeyVelocity
+	GSvector2		mKeyVelocity;
+	//PadVelocity
+	GSvector2		mPadVelocity;
+		
+};
+#endif // !INPUTSTATE_H_
+
