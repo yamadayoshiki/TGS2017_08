@@ -64,4 +64,3 @@ void PlayerState_N_MoveBase::input(){
 	// Œp³æ‚Ì“ü—Íˆ—
 	onInput();
 }
-

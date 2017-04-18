@@ -25,7 +25,9 @@ public:
 	//コンストラクタ
 	explicit Actor(const ActorName& name = ActorName::None);
 	//仮想デストラクタ
-	virtual ~Actor() {	}
+	virtual ~Actor() {
+		delete p_World;
+	}
 	//更新
 	void update(float deltaTime);
 	//描画

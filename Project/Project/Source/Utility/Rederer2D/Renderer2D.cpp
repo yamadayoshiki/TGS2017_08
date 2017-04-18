@@ -63,8 +63,16 @@ void Renderer2D::DrawTexture
 	const Texture2DParameter& parameter		//パラメーター
 	)
 {
+	DrawTexture(m_TextureDic[texName], parameter);
+}
+
+//テクスチャ描画(パラメータ設定)
+void Renderer2D::DrawTexture(
+	const unsigned int texID,						//登録番号
+	const Texture2DParameter& parameter)	//パラメーター
+{
 	gsDrawSprite2D(
-		m_TextureDic[texName],
+		texID,
 		&parameter.GetPosition(),
 		&parameter.GetRect(),
 		&parameter.GetCenter(),
@@ -72,6 +80,14 @@ void Renderer2D::DrawTexture
 		&parameter.GetScale(),
 		parameter.GetRotate()
 		);
+}
+
+//指定のテクスチャIDの取得
+unsigned int Renderer2D::GetTextureID(
+	const std::string& texName	//登録名
+	)
+{
+	return m_TextureDic[texName];
 }
 
 //エラー出力

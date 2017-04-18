@@ -40,6 +40,16 @@ public:
 			const Texture2DParameter& parameter		//パラメーター
 			);
 
+	//テクスチャ描画(パラメータ設定)
+	void DrawTexture(
+		const unsigned int texID,						//登録番号
+		const Texture2DParameter& parameter);	//パラメーター
+
+	//指定のテクスチャIDの取得
+	unsigned int GetTextureID(
+		const std::string& texName	//登録名
+		);
+
 	//エラー出力
 	void ErrorPush(bool flag, const std::string& name);
 

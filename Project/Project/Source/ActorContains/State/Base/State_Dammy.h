@@ -6,28 +6,28 @@
 class State_Dammy : public IState {
 public:
 	// コンストラクタ
-	State_Dammy() : mComponent({ -1, ActionType::None }) {}
+	State_Dammy() : m_ID(-1) {}
 	// 全状態共通の初期化
-	virtual void common_init(Actor & actor, const Component comp) override{}
+	virtual void common_init(Actor & actor, const int id) override {}
 	// 各状態独自の初期化
-	virtual void unique_init(Actor & actor) override{}
+	virtual void unique_init(Actor & actor) override {}
 	// 入力処理
-	virtual void input() override{}
+	virtual void input() override {}
 	// 更新処理
-	virtual void update(Actor & actor, float deltaTime) override{}
+	virtual void update(Actor & actor, float deltaTime) override {}
 	// 更新処理
-	virtual void timer(const float& deltaTime) override{}
+	virtual void timer(const float& deltaTime) override {}
 	// 状態の変更
-	virtual void change(const Component comp) override{}
+	virtual void change_int(const int id) override {}
 	// 状態の変更
 	virtual void collide(const Actor & other) override {}
 	// 終了を返す
 	virtual bool isEnd() override { return false; }
 	// 次のステートの要素
-	virtual Component next() const override { return mComponent; }
+	virtual int next() const override { return m_ID; }
 	// 終了時の処理
-	virtual void end() override{}
+	virtual void end() override {}
 private:
-	// 要素の格納用変数
-	Component mComponent;
+	// ステート
+	int m_ID;
 };

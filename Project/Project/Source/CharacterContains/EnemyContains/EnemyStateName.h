@@ -12,7 +12,7 @@ enum class EnemyStateName
 	Dead,				//€‚É
 	None,				//ƒ_ƒ~[
 
-	//“ËŒ‚“G
+	//“ËŒ‚
 	Rush_Preliminary,	//“ËŒ‚€”õ
 	Rush,				//“ËŒ‚
 

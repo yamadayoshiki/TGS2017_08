@@ -1,41 +1,41 @@
 #include "State.h"
 
 // コンストラクタ
-State::State() : 
-	mComponent({ -1, ActionType::None }), 
-	mNextComponent({ -1, ActionType::None }), 
-	mTimer(0), mIsEnd(false) {}
+State::State() :
+	m_ID(-1),
+	m_NextID(-1),
+	m_Timer(0), m_IsEnd(false) {}
 
 // 全状態共通の初期化
-void State::common_init(Actor & actor, const Component comp){
+void State::common_init(Actor & actor, const int id) {
 	// 変数の初期化
-	mComponent = comp;
-	mTimer = 0;
-	mIsEnd = false;
+	m_ID = id;
+	m_Timer = 0;
+	m_IsEnd = false;
 }
 
 // 入力処理
-void State::input(){}
+void State::input() {}
 
 // 時間管理
-void State::timer(const float& deltaTime){
-	mTimer += deltaTime;
+void State::timer(const float& deltaTime) {
+	m_Timer += deltaTime;
 }
 
 // ステートの変更処理
-void State::change(const Component comp){
-	// ステートの変更処理(template版)
-	change(comp.mID, comp.mType);
+void State::change_int(const int id)
+{
+	change(id);
 }
 
 // ステートが終了したか否か
-bool State::isEnd(){
-	return mIsEnd;
+bool State::isEnd() {
+	return m_IsEnd;
 }
 
 // 次のステートの要素
-IState::Component State::next() const{
-	return mNextComponent;
+int State::next() const {
+	return m_NextID;
 }
 
 

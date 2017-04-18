@@ -3,7 +3,11 @@
 #include "State_Dammy.h"
 
 // コンストラクタ
-StateMgr::StateMgr() : mCurrentState(std::make_shared<State_Dammy>()), mComponent(){}
+StateMgr::StateMgr()
+	: mCurrentState(std::make_shared<State_Dammy>())
+	, m_CurrentID(0)
+{
+}
 
 // 更新処理
 void StateMgr::action(Actor& actor, float deltaTime) {
@@ -18,7 +22,7 @@ void StateMgr::action(Actor& actor, float deltaTime) {
 }
 
 // 衝突判定
-void StateMgr::collide(Actor& actor, const Actor & other){
+void StateMgr::collide(Actor& actor, const Actor & other) {
 	// 衝突判定
 	mCurrentState->collide(other);
 
@@ -26,21 +30,7 @@ void StateMgr::collide(Actor& actor, const Actor & other){
 	if (mCurrentState->isEnd()) change(actor, mCurrentState->next());
 }
 
-// 現在のステートが指定されたステートの場合true
-bool StateMgr::currentActionType(ActionType action_type){
-	return mComponent.mType == action_type;
-}
-
 // 現在の状態の要素
-IState::Component StateMgr::getComponent(){
-	return mComponent;
+int StateMgr::getID() {
+	return m_CurrentID;
 }
-
-// ステートの変更処理
-void StateMgr::change(Actor & actor, const IState::Component element){
-	// ステートの変更処理(template版)
-	change(actor, element.mID, element.mType);
-}
-
-
-
