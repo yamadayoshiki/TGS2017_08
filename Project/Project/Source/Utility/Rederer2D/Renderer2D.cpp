@@ -78,8 +78,7 @@ void Renderer2D::DrawTexture(
 		&parameter.GetCenter(),
 		&parameter.GetColor(),
 		&parameter.GetScale(),
-		parameter.GetRotate()
-		);
+		parameter.GetRotate());
 }
 
 //指定のテクスチャIDの取得
@@ -88,6 +87,12 @@ unsigned int Renderer2D::GetTextureID(
 	)
 {
 	return m_TextureDic[texName];
+}
+
+//指定のテクスチャサイズの取得(登録名)
+GSrect* Renderer2D::GetTextureRect(const std::string& texName)
+{
+	return m_TextureSizeDic[texName];
 }
 
 //エラー出力
@@ -103,42 +108,6 @@ void Renderer2D::ErrorPush(bool flag, const std::string& name)
 		//Assert文でプログラム停止
 		assert(!"No File Found");
 	}
-}
-
-//指定した枚数目のrectを計算(アニメーションの補助)
-GSrect Renderer2D::CalculateAnimationRect(
-	const GSrect& rect,		//切り取るテクスチャのrect
-	int texWidth,			//テクスチャの横幅
-	int texNum				//指定する枚数目
-	)
-{
-	//枚数を座標の計算に置き換える為
-	texNum -= 1;
-
-	//テクスチャの幅と高さ
-	const int texCutWidth = rect.right - rect.left;
-	const int texCutHeight = rect.bottom - rect.top;
-
-	//テクスチャの大きさから横に何分割するか決める
-	const int cutX = texWidth / rect.right;
-
-	//テクスチャの左上座標
-	const GSvector2 texCoord
-		(
-			(texNum % cutX) * texCutWidth,
-			(texNum / cutX) * texCutHeight
-			);
-
-	//テクスチャから切り取る四角形
-	const GSrect result = GSrect
-		(
-			texCoord.x,
-			texCoord.y,
-			texCoord.x + texCutWidth,
-			texCoord.y + texCutHeight
-			);
-
-	return result;
 }
 
 //テクスチャサイズの取得(登録名)

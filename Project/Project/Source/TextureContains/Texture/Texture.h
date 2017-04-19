@@ -9,16 +9,16 @@ class Texture :public Texture_Base
 public:
 	//コンストラクタ
 	Texture(
-		std::string texName,
-		IGameManagerPtr gameManager);
-	//初期化
-	virtual void Initialize() override;
+		const std::string& texName,
+		Renderer2D* renderer);
 	//更新
 	virtual void Update(float deltaTime) override;
-	//描画
-	virtual void Draw() override;
-	//終了
-	virtual void Finalize() override;
+
+protected:
+	//各種固有の初期化
+	virtual void OnInitialize() override;
+	//各種固有の終了処理
+	virtual void OnFinalize() override {}
 };
 
 #endif // !TEXTURE_H_

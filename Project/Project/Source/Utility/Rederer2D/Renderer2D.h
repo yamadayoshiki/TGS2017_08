@@ -43,12 +43,15 @@ public:
 	//テクスチャ描画(パラメータ設定)
 	void DrawTexture(
 		const unsigned int texID,						//登録番号
-		const Texture2DParameter& parameter);	//パラメーター
+		const Texture2DParameter& parameter);			//パラメーター
 
 	//指定のテクスチャIDの取得
 	unsigned int GetTextureID(
 		const std::string& texName	//登録名
 		);
+
+	//指定のテクスチャサイズの取得(登録名)
+	GSrect* GetTextureRect(const std::string& texName);
 
 	//エラー出力
 	void ErrorPush(bool flag, const std::string& name);
@@ -58,13 +61,6 @@ public:
 	Renderer2D(const Renderer2D& other) = delete;
 
 private:
-	//指定した枚数目のrectを計算(アニメーションの補助)
-	GSrect CalculateAnimationRect(
-		const GSrect& rect,		//切り取るテクスチャのrect
-		int texWidth,			//テクスチャの横幅
-		int texNum				//指定する枚数目
-		);
-
 	//テクスチャサイズの取得(登録名)
 	GSvector2 GetTextureSize(const std::string& texName);
 

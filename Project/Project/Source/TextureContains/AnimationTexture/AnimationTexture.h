@@ -1,1 +1,29 @@
-#pragma once
+#ifndef ANIMATIONTEXTURE_H_
+#define ANIMATIONTEXTURE_H_
+
+#include "../Base/Texture_Base.h"
+class GameManager;
+class Animation;
+
+class AnimationTexture :public Texture_Base
+{
+public:
+	//コンストラクタ
+	AnimationTexture(
+		const std::string& texName,
+		Renderer2D* renderer,
+		Animation* animation);
+	//更新
+	virtual void Update(float deltaTime) override;
+
+protected:
+	//各種固有の初期化
+	virtual void OnInitialize() override;
+	//各種固有の終了処理
+	virtual void OnFinalize() override;
+
+protected:
+	Animation* p_Animation;
+};
+
+#endif // !ANIMATIONTEXTURE_H_

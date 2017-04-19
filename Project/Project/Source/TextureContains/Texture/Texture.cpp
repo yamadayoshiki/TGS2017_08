@@ -1,28 +1,16 @@
 #include "Texture.h"
+#include "../../Base/GameManagerContains/GameManager/GameManager.h"
 
 //コンストラクタ
 Texture::Texture(
-	std::string texName,
-	IGameManagerPtr gameManager)
-	:Texture_Base(texName, gameManager)
-{
-}
+	const std::string& texName,
+	Renderer2D* renderer)
+	:Texture_Base(texName, renderer) {}
+
 //初期化
-void Texture::Initialize()
-{
+void Texture::OnInitialize() {
 }
 
 //更新
-void Texture::Update(float deltaTime)
-{
-}
-
-//描画
-void Texture::Draw()
-{
-}
-
-//終了
-void Texture::Finalize()
-{
+void Texture::Update(float deltaTime) {
 }

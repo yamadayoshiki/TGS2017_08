@@ -5,9 +5,7 @@ class ITexture
 {
 public:
 	//仮想デストラクタ
-	virtual ~ITexture() {
-		Finalize();
-	}
+	virtual ~ITexture() {}
 	//初期化
 	virtual void Initialize() = 0;
 	//更新

@@ -4,11 +4,35 @@
 
 //コンストラクタ
 Texture_Base::Texture_Base(
-	std::string texName,
-	IGameManagerPtr gameManager)
-	: p_GameManager(gameManager)
-	, p_Parameter(new Texture2DParameter())
-{
-	m_TexID 
-		= p_GameManager->GetRenderer2D()->GetTextureID(texName);
+	const std::string& texName,
+	Renderer2D* renderer)
+	: m_TexName(texName)
+	, p_Renderer(renderer)
+	, p_Parameter(new Texture2DParameter()) {
+}
+
+//初期化
+void Texture_Base::Initialize() {
+	//画像サイズ通りのRectを設定
+	p_Parameter->SetRect(*(p_Renderer->GetTextureRect(m_TexName)));
+
+	//各種固有の初期化
+	OnInitialize();
+}
+
+//描画
+void Texture_Base::Draw() {
+	p_Renderer->DrawTexture(m_TexName, *p_Parameter);
+}
+
+//終了処理
+void Texture_Base::Finalize() {
+	delete p_Parameter;
+	delete p_Renderer;
+	OnFinalize();
+}
+
+//パラメーターの取得
+Texture2DParameter* Texture_Base::GetParameter() {
+	return p_Parameter;
 }

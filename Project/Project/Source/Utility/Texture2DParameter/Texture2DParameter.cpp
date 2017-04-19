@@ -1,7 +1,7 @@
 #include "Texture2DParameter.h"
 
 Texture2DParameter::Texture2DParameter()
-	: m_Rect(0, 0, 1, 1)				//貼り付ける四角形
+	: m_Rect(0, 0, 0, 0)				//貼り付ける四角形
 	, m_Position(0.0f, 0.f)				//スクリーン座標
 	, m_Center(0.0f, 0.0f)				//テクスチャの中心座標
 	, m_Color(0.0f, 0.0f, 0.0f, 0.0f)	//テクスチャの色
