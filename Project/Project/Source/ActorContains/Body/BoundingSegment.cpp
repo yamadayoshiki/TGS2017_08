@@ -1,7 +1,9 @@
 #include "BoundingCircle.h"
+
 #include "BoundingCapsule.h"
 #include "BoundingSegment.h"
 #include "BoundingBox.h"
+#include "OrientedBoundingBox.h"
 #include "Ray.h"
 
 #include "../Collision/Collision.h"
@@ -41,14 +43,14 @@ bool BoundingSegment::intersects(const BoundingBox & other, HitInfo & hitinfo) c
 	return false;
 }
 
-// 衝突判定(レイ)
-bool BoundingSegment::intersects(const Ray & other, HitInfo & hitinfo) const{
+bool BoundingSegment::intersects(const OrientedBoundingBox & other, HitInfo & hitinfo) const
+{
 	return false;
 }
 
-// Bodyの平行移動
-IBodyPtr BoundingSegment::translate(const GSvector2 & pos) const{
-	return std::make_shared<BoundingSegment>(translate_e(pos));
+// 衝突判定(レイ)
+bool BoundingSegment::intersects(const Ray & other, HitInfo & hitinfo) const{
+	return false;
 }
 
 // Bodyの変換
@@ -56,14 +58,9 @@ IBodyPtr BoundingSegment::transform(const GSmatrix4 & mat) const{
 	return std::make_shared<BoundingSegment>(transform_e(mat));
 }
 
-// Bodyの平行移動
-BoundingSegment BoundingSegment::translate_e(const GSvector2 & pos) const{
-	return BoundingSegment(mPosition + pos, mMatrix, mLength);
-}
-
 // Bodyの変換
 BoundingSegment BoundingSegment::transform_e(const GSmatrix4 & mat) const{
-	return BoundingSegment(mPosition + GSvector2(mat.getPosition().x, mat.getPosition().y), mMatrix * mat.getRotateMatrix(), mLength * mat.getScale().y);
+	return BoundingSegment(mPosition + GSvector2(mat.getPosition()), mat, mLength * mat.getScale().y);
 }
 
 // 始点から終点への方向を返す
@@ -76,8 +73,17 @@ GSvector2 BoundingSegment::Direction() const{
 	return GSvector2();
 }
 
+// 頂点
+GSvector2 BoundingSegment::Point(int index) const {
+	switch (index) {
+	default:
+	case 0: return mPosition + mLength * GSvector2(0.5f, 0.0f) * mMatrix.getRotateMatrix();
+	case 1: return mPosition - mLength * GSvector2(0.5f, 0.0f) * mMatrix.getRotateMatrix();
+	}
+}
+
 // 図形描画
-void BoundingSegment::draw(const GSmatrix4 & mat) const{
+void BoundingSegment::draw() const{
 	//Vector3 p[2];
 	//p[0] = mPosition + Vector3::Up * mLength / 2 * mMatrix;
 	//p[1] = mPosition + Vector3::Down * mLength / 2 * mMatrix;

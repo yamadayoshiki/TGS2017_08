@@ -215,7 +215,7 @@ void Actor::onUpdate(float)
 
 // •`‰æ 
 void Actor::onDraw() const{
-	m_Body->draw(getPose());
+	m_Body->transform(getPose())->draw();
 }
 
 // Õ“Ë‚µ‚½ 

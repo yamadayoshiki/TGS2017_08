@@ -23,6 +23,9 @@ public:
 	// コンストラクタ(AABB)
 	Body(const ShapeType& type, const GSvector2& position, const GSvector2 & min, const GSvector2 & max, const GSmatrix4& mat) :
 		mType(type), mPosition(position), mMatrix(mat), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(min), mMax(max), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+	// コンストラクタ(OBB)
+	Body(const ShapeType& type, const GSvector2& position, const GSvector2& extents, const GSmatrix4& matrix) :
+		mType(type), mPosition(position), mMatrix(matrix), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(GSvector2(0, 0)), mMax(GSvector2(0, 0)), mExtents(extents), mEnabled(true) {}
 	// デストラクタ
 	virtual ~Body(){}
 

@@ -2,6 +2,8 @@
 #include "BoundingCircle.h"
 #include "BoundingCapsule.h"
 #include "BoundingSegment.h"
+#include "OrientedBoundingBox.h"
+
 #include "Ray.h"
 
 #include <cmath>
@@ -55,6 +57,11 @@ bool BoundingBox::intersects(const BoundingBox & aabb, HitInfo & hitinfo) const{
 			aabb.mMin.y + aabb.matrix().getPosition().y < mMax.y + mMatrix.getPosition().y;
 }
 
+bool BoundingBox::intersects(const OrientedBoundingBox & other, HitInfo & hitinfo) const
+{
+	return false;
+}
+
 // 衝突判定(レイ)
 bool BoundingBox::intersects(const Ray & ray, HitInfo & hitinfo) const{
 	float start = 0.0f;
@@ -66,19 +73,9 @@ bool BoundingBox::intersects(const Ray & ray, HitInfo & hitinfo) const{
 	return result;
 }
 
-// Bodyの平行移動
-IBodyPtr BoundingBox::translate(const GSvector2 & pos) const{
-	return std::make_shared<BoundingBox>(translate_e(pos));
-}
-
 // Bodyの変換
 IBodyPtr BoundingBox::transform(const GSmatrix4 & mat) const{
 	return std::make_shared<BoundingBox>(transform_e(mat));
-}
-
-// Bodyの平行移動
-BoundingBox BoundingBox::translate_e(const GSvector2 & pos) const{
-	return BoundingBox(mMin, mMax, mMatrix);
 }
 
 // Bodyの変換
@@ -175,12 +172,12 @@ GSvector2 BoundingBox::Center() const{
 }
 
 // 図形描画
-void BoundingBox::draw(const GSmatrix4 & mat) const{
+void BoundingBox::draw() const{
 	// 座標変換の適応
-	GSvector2 lt = CornerPoint(0) * mat.getRotateMatrix() + GSvector2(mat.getPosition());
-	GSvector2 lb = CornerPoint(1) * mat.getRotateMatrix() + GSvector2(mat.getPosition());
-	GSvector2 rt = CornerPoint(2) * mat.getRotateMatrix() + GSvector2(mat.getPosition());
-	GSvector2 rb = CornerPoint(3) * mat.getRotateMatrix() + GSvector2(mat.getPosition());
+	GSvector2 lt = CornerPoint(0);// * mat.getRotateMatrix() + GSvector2(mat.getPosition());
+	GSvector2 lb = CornerPoint(1);// * mat.getRotateMatrix() + GSvector2(mat.getPosition());
+	GSvector2 rt = CornerPoint(2);// * mat.getRotateMatrix() + GSvector2(mat.getPosition());
+	GSvector2 rb = CornerPoint(3);// * mat.getRotateMatrix() + GSvector2(mat.getPosition());
 
 	// 上
 	glBegin(GL_LINES);

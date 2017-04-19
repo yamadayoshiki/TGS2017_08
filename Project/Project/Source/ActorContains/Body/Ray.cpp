@@ -29,24 +29,19 @@ bool Ray::intersects(const BoundingBox & other, HitInfo & hitinfo) const{
 	return false;
 }
 
+bool Ray::intersects(const OrientedBoundingBox & other, HitInfo & hitinfo) const
+{
+	return false;
+}
+
 // 衝突判定(レイ)
 bool Ray::intersects(const Ray & other, HitInfo & hitinfo) const{
 	return false;
 }
 
-// Bodyの平行移動
-IBodyPtr Ray::translate(const GSvector2 & pos) const {
-	return std::make_shared<Ray>(translate_e(pos));
-}
-
 // Bodyの変換
 IBodyPtr Ray::transform(const GSmatrix4 & mat) const {
 	return std::make_shared<Ray>(transform_e(mat));
-}
-
-// Bodyの平行移動
-Ray Ray::translate_e(const GSvector2 & pos) const {
-	return Ray(mPosition + pos, mDirection);
 }
 
 // Bodyの変換
@@ -55,4 +50,4 @@ Ray Ray::transform_e(const GSmatrix4 & mat) const {
 }
 
 // 図形描画
-void Ray::draw(const GSmatrix4 & mat) const{}
+void Ray::draw() const{}

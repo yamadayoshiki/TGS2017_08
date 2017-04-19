@@ -133,6 +133,7 @@
     <ClInclude Include="Source\ActorContains\Body\BoundingCapsule.h" />
     <ClInclude Include="Source\ActorContains\Body\BoundingCircle.h" />
     <ClInclude Include="Source\ActorContains\Body\BoundingSegment.h" />
+    <ClInclude Include="Source\ActorContains\Body\OrientedBoundingBox.h" />
     <ClInclude Include="Source\ActorContains\Body\Ray.h" />
     <ClInclude Include="Source\ActorContains\Collision\collision.h" />
     <ClInclude Include="Source\ActorContains\NullActor\NullActor.h" />
@@ -200,6 +201,7 @@
     <ClCompile Include="Source\ActorContains\Body\BoundingCapsule.cpp" />
     <ClCompile Include="Source\ActorContains\Body\BoundingCircle.cpp" />
     <ClCompile Include="Source\ActorContains\Body\BoundingSegment.cpp" />
+    <ClCompile Include="Source\ActorContains\Body\OrientedBoundingBox.cpp" />
     <ClCompile Include="Source\ActorContains\Body\Ray.cpp" />
     <ClCompile Include="Source\ActorContains\Collision\Collision.cpp" />
     <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />

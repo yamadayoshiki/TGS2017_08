@@ -1,10 +1,10 @@
 #include "TestObj.h"
 
-#include "../Body/BoundingBox.h"
+#include "../Body/OrientedBoundingBox.h"
 #include "../../Map/Map.h"
 
 TestObj::TestObj(IWorld * world, const GSvector2 & position) :
-	Actor(world, ActorName::Enemy, position, std::make_shared<BoundingBox>(GSvector2{ -1.0f, -1.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)){
+	Actor(world, ActorName::Enemy, position, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)){
 
 	angle = 0.0f;
 }
@@ -12,16 +12,16 @@ TestObj::TestObj(IWorld * world, const GSvector2 & position) :
 void TestObj::onUpdate(float deltaTime)
 {	
 	if (gsGetKeyState(GKEY_LEFT) == GS_TRUE) {
-		m_Position.x -= 1.0f;
+		m_Position.x -= 0.1f;
 	}
 	if (gsGetKeyState(GKEY_RIGHT) == GS_TRUE) {
-		m_Position.x += 1.0f;
+		m_Position.x += 0.1f;
 	}
 	if (gsGetKeyState(GKEY_UP) == GS_TRUE) {
-		m_Position.y += 1.0f;
+		m_Position.y += 0.1f;
 	}
 	if (gsGetKeyState(GKEY_DOWN) == GS_TRUE) {
-		m_Position.y -= 1.0f;
+		m_Position.y -= 0.1f;
 	}
 
 	if (gsGetKeyState(GKEY_A) == GS_TRUE) {
@@ -37,7 +37,6 @@ void TestObj::onUpdate(float deltaTime)
 void TestObj::onDraw() const
 {
 	glDisable(GL_LIGHTING);
-
 	Actor::onDraw();
 	glColor3f(1.0f, 1.0f, 1.0f);
 }

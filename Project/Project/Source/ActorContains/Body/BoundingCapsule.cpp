@@ -2,6 +2,7 @@
 #include "BoundingCapsule.h"
 #include "BoundingSegment.h"
 #include "BoundingBox.h"
+#include "OrientedBoundingBox.h"
 #include "Ray.h"
 
 #include "../Collision/Collision.h"
@@ -40,24 +41,19 @@ bool BoundingCapsule::intersects(const BoundingBox & other, HitInfo & hitinfo) c
 	return false;
 }
 
+bool BoundingCapsule::intersects(const OrientedBoundingBox & other, HitInfo & hitinfo) const
+{
+	return false;
+}
+
 // 衝突判定(レイ)
 bool BoundingCapsule::intersects(const Ray & other, HitInfo & hitinfo) const{
 	return false;
 }
 
-// Bodyの平行移動
-IBodyPtr BoundingCapsule::translate(const GSvector2 & pos) const {
-	return std::make_shared<BoundingCapsule>(translate_e(pos));
-}
-
 // Bodyの変換
 IBodyPtr BoundingCapsule::transform(const GSmatrix4 & mat) const {
 	return std::make_shared<BoundingCapsule>(transform_e(mat));
-}
-
-// Bodyの平行移動
-BoundingCapsule BoundingCapsule::translate_e(const GSvector2 & pos) const{
-	return BoundingCapsule(mPosition + pos, mMatrix, mLength, mRadius);
 }
 
 // Bodyの変換
@@ -66,7 +62,7 @@ BoundingCapsule BoundingCapsule::transform_e(const GSmatrix4 & mat) const{
 }
 
 // 図形描画
-void BoundingCapsule::draw(const GSmatrix4 & mat) const{
+void BoundingCapsule::draw() const{
 	//Vector3 p[2];
 	//p[0] = mPosition + Vector3::Up * mLength / 2 * mMatrix;
 	//p[1] = mPosition + Vector3::Down * mLength / 2 * mMatrix;

@@ -6,6 +6,7 @@ enum class ShapeType {
 	Capsule,
 	Segment,
 	Box,
+	OBB,
 	Ray,
 	Count
 };

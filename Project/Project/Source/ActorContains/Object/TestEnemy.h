@@ -12,4 +12,7 @@ public:
 	virtual void onDraw() const override;
 	virtual void onCollide(Actor&) override;
 	virtual void onMessage(EventMessage event, void*) override;
+private:
+	float angle;
+
 };
