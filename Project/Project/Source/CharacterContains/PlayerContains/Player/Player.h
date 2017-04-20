@@ -4,12 +4,16 @@
 #include"../../../ActorContains/Actor/Actor.h"
 #include"../PlayerState/PlayerStateManager.h"
 #include"../../../WorldContains/IWorld.h"
+#include<memory>
+
+class GameManager;
+class Renderer2D;
 
 class Player :public Actor
 {
 public:
 	//コンストラクタ
-	Player(IWorld& world,const GSvector2& pos);
+	Player(IWorld* world,const GSvector2& position,GameManager* gameManager);
 	//デストラクタ
 	~Player();
 	//更新処理
@@ -20,7 +24,13 @@ public:
 	virtual void onCollide(Actor& other)override;
 
 private:
+	//ゲーム管理者
+	GameManager*			p_GameManager;
 	//状態管理
-	PlayerStateManager* mStateManager;
+	PlayerStateManager*		mStateManager;
+	//レンダラー
+	Renderer2D*				p_Renderer;
+	//回転
+	float angle;
 };
 #endif // !PLAYER_H_

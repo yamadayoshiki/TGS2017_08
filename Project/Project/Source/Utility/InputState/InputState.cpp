@@ -72,7 +72,7 @@ void InputState::UpdatePadVelocity()
 
 	mPadVelocity.y = -mPadVelocity.y;
 
-	mPadVelocity.getNormalized();
+	mPadVelocity.normalize();
 }
 
 void InputState::Update()
