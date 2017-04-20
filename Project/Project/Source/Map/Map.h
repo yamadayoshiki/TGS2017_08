@@ -17,7 +17,7 @@ public:
 	//アンロード
 	void Unload();
 	//更新
-	void Update();
+	void Update(float deltaTime);
 	//描画
 	void Draw() const;
 	//衝突判定

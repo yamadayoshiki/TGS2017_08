@@ -14,7 +14,7 @@ void Map::Unload()
 {
 }
 //XV
-void Map::Update()
+void Map::Update(float deltaTime)
 {
 }
 //•`‰æ
