@@ -17,6 +17,8 @@ public:
 	virtual void collide(const Actor & other) override;
 	// I—¹‚Ìˆ—
 	virtual void end() override;
+	// “ü—Íˆ—
+	virtual void input() override;
 
 protected:
 	// Šeó‘Ô“Æ©‚Ì‰Šú‰»
@@ -27,6 +29,8 @@ protected:
 	virtual void onCollide(const Actor & other) = 0;
 	// I—¹‚Ìˆ—
 	virtual void onEnd() = 0;
+	// “ü—Íˆ—
+	virtual void onInput() = 0;
 };
 
 #endif // !ENEMY_COMMONSTATE_MOVEBASE_H_

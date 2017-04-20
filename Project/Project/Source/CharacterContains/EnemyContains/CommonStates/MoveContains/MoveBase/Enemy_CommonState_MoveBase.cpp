@@ -40,3 +40,11 @@ void Enemy_CommonState_MoveBase::end()
 	//Œp³æ‚ÌI—¹ˆ—
 	onEnd();
 }
+
+// “ü—Íˆ—
+void Enemy_CommonState_MoveBase::input() {
+	//–½—ß‚É‰‚¶‚½s“®
+
+	// Œp³æ‚Ì“ü—Íˆ—
+	onInput();
+}

@@ -8,6 +8,7 @@ class Enemy_CommonState_Walk :public Enemy_CommonState_MoveBase
 public:
 	//コンストラクタ
 	Enemy_CommonState_Walk(GSvector2& pos, GSmatrix4& mat);
+protected:
 	// 各状態独自の初期化
 	virtual void onUniqueInit(Actor & actor)override;
 	// 更新処理
@@ -16,6 +17,8 @@ public:
 	virtual void onCollide(const Actor & other)override {}
 	// 終了時の処理
 	virtual void onEnd()override {}
+	// 入力処理
+	virtual void onInput() override {}
 };
 
 #endif // !ENEMY_COMMONSTATE_WALK

@@ -13,7 +13,8 @@ class Enemy_BaseState :public State
 public:
 	//コンストラクタ
 	Enemy_BaseState(GSvector2& position, GSmatrix4& rotate);
-
+	// 入力処理
+	virtual void input() override;
 protected:
 	//移動処理
 	void Move(Actor& actor, float deltaTime, float speed = 1.0f);

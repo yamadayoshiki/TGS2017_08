@@ -17,6 +17,8 @@ public:
 	virtual void onCollide(const Actor & other)override {}
 	// I—¹‚Ìˆ—
 	virtual void onEnd()override {}
+	// “ü—Íˆ—
+	virtual void onInput() override {}
 };
 
 #endif // !ENEMY_COMMONSTATE_IDLE_H_

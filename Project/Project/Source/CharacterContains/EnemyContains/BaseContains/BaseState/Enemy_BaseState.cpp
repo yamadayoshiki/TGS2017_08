@@ -11,6 +11,10 @@ Enemy_BaseState::Enemy_BaseState(GSvector2& position, GSmatrix4& rotate)
 {
 }
 
+// “ü—Íˆ—
+void Enemy_BaseState::input() {
+}
+
 //ˆÚ“®ˆ—(–¢À‘•)
 void Enemy_BaseState::Move(Actor& actor, float deltaTime, float speed)
 {

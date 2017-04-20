@@ -1,9 +1,10 @@
 #ifndef ACTORNAME_H_
 #define ACTORNAME_H_
 
-enum ActorName
+enum class ActorName
 {
 	Player = 0,			//ƒvƒŒƒCƒ„[
+
 	Enemy_AutoAttack,	//
 	Enemy_Bomb,			//
 	Enemy_Boomerang,	//
@@ -11,8 +12,9 @@ enum ActorName
 	Enemy_Ice,			//
 	Enemy_Leak,			//
 	Enemy_Split,		//
-	Enemy,
-	EnemyManager,
+
+	Neutral_Explosion,	//”š”­
+
 	None,
 };
 

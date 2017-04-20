@@ -19,13 +19,14 @@ public:
 public:
 	//レンダラーの取得
 	Renderer2D* GetRenderer2D() override;
-
+	//インプットステイトの取得
+	virtual InputState* GetInputState() override;
 protected:
 	//終了処理
 	void Finalize() override;
-
 private:
-	Renderer2D* p_Renderer2D;//レンダラー
+	Renderer2D* p_Renderer2D;	//レンダラー
+	InputState* p_InputState;	//インプットステイト
 };
 
 #endif // !GAMEMANAGER_H_
