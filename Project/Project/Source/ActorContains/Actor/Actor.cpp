@@ -27,7 +27,7 @@ Actor::Actor(const ActorName& name)
 //仮想デストラクタ
 
 Actor::~Actor() {
-	delete p_World;
+	/*delete p_World;*/
 }
 
 //更新

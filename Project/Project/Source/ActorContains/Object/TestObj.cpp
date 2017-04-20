@@ -1,16 +1,21 @@
 #include "TestObj.h"
-
 #include "../Body/OrientedBoundingBox.h"
 #include "../../Map/Map.h"
+
 
 TestObj::TestObj(IWorld * world, const GSvector2 & position) :
 	Actor(world, ActorName::Enemy, position, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)){
 
 	angle = 0.0f;
+
+	p_Renderer2D = new Renderer2D();
+	p_Renderer2D->Initialize();
+	p_Renderer2D->LoadTexture("Block5", "Resource/StreamingAssets/Block5.png");
 }
 
 void TestObj::onUpdate(float deltaTime)
 {	
+	
 	if (gsGetKeyState(GKEY_LEFT) == GS_TRUE) {
 		m_Position.x -= 0.1f;
 	}
@@ -37,8 +42,10 @@ void TestObj::onUpdate(float deltaTime)
 void TestObj::onDraw() const
 {
 	glDisable(GL_LIGHTING);
-	Actor::onDraw();
+	//Actor::onDraw();
 	glColor3f(1.0f, 1.0f, 1.0f);
+
+	p_Renderer2D->DrawTexture("Block5",m_Position);
 }
 
 void TestObj::onCollide(Actor &)
