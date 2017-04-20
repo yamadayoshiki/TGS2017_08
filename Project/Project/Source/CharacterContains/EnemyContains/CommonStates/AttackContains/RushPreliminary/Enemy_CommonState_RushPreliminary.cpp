@@ -9,6 +9,9 @@ Enemy_CommonState_RushPreliminary::Enemy_CommonState_RushPreliminary(
 
 // Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void Enemy_CommonState_RushPreliminary::onUniqueInit(Actor & actor) {}
+void Enemy_CommonState_RushPreliminary::onUpdate(Actor & actor, float deltaTime)
+{
+}
 // XVˆ—
 void onUpdate(Actor & actor, float deltaTime) {}
 // Õ“Ë”»’è

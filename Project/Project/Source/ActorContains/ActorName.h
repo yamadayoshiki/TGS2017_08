@@ -15,6 +15,8 @@ enum class ActorName
 
 	Neutral_Explosion,	//”š”­
 
+	EnemyManager,
+	Enemy,
 	None,
 };
 

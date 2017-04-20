@@ -10,6 +10,7 @@
 #include"../../SceneContains/GamePlay/GamePlay.h"
 #include"../../SceneContains/NaganoScene/NaganoScene.h"
 #include"../../SceneContains/NakayamaScene/NakayamaScene.h"
+#include"../../Utility/Rederer2D/Renderer2D.h"
 
 //コンストラクタ
 GameFrame::GameFrame()

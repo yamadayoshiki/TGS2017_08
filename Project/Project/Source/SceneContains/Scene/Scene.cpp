@@ -1,5 +1,7 @@
 #include "Scene.h"
 
+#include<gslib.h>
+
 //コンストラクタ
 Scene::Scene(IGameManager* gameManager)
 	:m_IsEnd(false)
