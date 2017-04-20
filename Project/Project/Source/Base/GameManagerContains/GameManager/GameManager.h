@@ -7,11 +7,13 @@ class GameManager:public IGameManager
 {
 public:
 	//コンストラクタ
-	GameManager(Renderer2D* renderer2D);
+	GameManager(Renderer2D* renderer2D,InputState* inputState);
 	//コンテンツの読み込み
 	void LoadContent() override;
 	//コンテンツの削除
 	void UnLoadContent() override;
+	//更新処理
+	void Update();
 	//コピー禁止
 	GameManager& operator = (const GameManager& other) = delete;
 	GameManager(const GameManager& other) = delete;

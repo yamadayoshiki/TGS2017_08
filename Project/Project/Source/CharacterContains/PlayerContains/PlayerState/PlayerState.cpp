@@ -23,5 +23,4 @@ void PlayerState::input() {}
 void PlayerState::move(Actor& actor, float deltaTime, float speed)
 {
     mPosition += p_Input->PadVelocity() * speed;
-	mMatrix.setRotationZ(5.0f);
 }
