@@ -3,15 +3,16 @@
 #include <string>
 #include "../../ActorPtr.h"
 #include <GStype.h>
+#include <vector>
 
 struct HitInfo
 {
 public:
 	ActorPtr actor;
 	std::string name;
-	GSvector2 intersect;
+	std::vector<GSvector2> intersects;
 	GSvector2 normal;
 
 public:
-	HitInfo() : actor(), name("none"), intersect(GSvector2()), normal(GSvector2()) {}
+	HitInfo() : actor(), name("none"), normal(GSvector2()) {}
 };

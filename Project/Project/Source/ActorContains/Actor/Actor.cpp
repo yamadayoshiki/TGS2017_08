@@ -10,6 +10,7 @@ Actor::Actor(IWorld* world, const ActorName& name, const GSvector2& position, co
 	: p_World(world)
 	, m_Name(name)
 	, m_Position(position)
+	, m_Matrix(GS_MATRIX4_IDENTITY)
 	, m_Body(body)
 	, m_dead(false)
 {
@@ -85,6 +86,14 @@ GSmatrix4 Actor::getMatrix() const{
 
 GSmatrix4 Actor::getPose() const{
 	return GSmatrix4(m_Matrix).setPosition(m_Position);
+}
+
+void Actor::rotate(const float & angle)
+{
+}
+
+void Actor::scale(const GSvector2 & scale)
+{
 }
 
 // Žq‚ÌŒŸõ 
@@ -225,7 +234,7 @@ void Actor::onCollide(Actor&)
 }
 
 // Õ“Ë”»’è 
-bool Actor::isCollide(const Actor& other) const
+bool Actor::isCollide(const Actor& other)
 {
 	// ‰ñ“]‚ðŠÜ‚Þê‡
 	return m_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());

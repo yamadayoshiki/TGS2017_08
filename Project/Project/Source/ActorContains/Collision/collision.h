@@ -12,7 +12,7 @@ public:
 	static bool Capsule_Capsule(const GSvector2& pos1, const GSmatrix4& mat1, const float & len1, const float& radius1, const GSvector2& pos2, const GSmatrix4& mat2, const float & len2, const float& radius2);
 
 	// ü•ª“¯m‚ÌÕ“Ë”»’è
-	static bool Segment_Segment(const GSvector2 p1[], const GSvector2 p2[]);
+	static bool Segment_Segment(const GSvector2 p1[], const GSvector2 p2[], GSvector2& intersect);
 
 	// ‹…‚ÆƒJƒvƒZƒ‹‚ÌÕ“Ë”»’è
 	static bool Sphere_Capsule(const GSvector2& sphere, const float& sphere_r, const GSvector2 capsule[], const float& capsule_r);

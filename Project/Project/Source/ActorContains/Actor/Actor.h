@@ -12,6 +12,7 @@
 
 #include "../Body/Base/IBodyPtr.h"
 #include "../Body/Base/DammyBody.h"
+#include "../Body/Base/HitInfo.h"
 
 enum class EventMessage;
 class IWorld;
@@ -44,6 +45,10 @@ public:
 	GSmatrix4 getMatrix() const;
 	//座標を返す
 	GSmatrix4 getPose() const;
+	//回転
+	void rotate(const float& angle);
+	//拡大、縮小
+	void scale(const GSvector2& scale);
 	//子の検索
 	ActorPtr findChildren_NullActor(const ActorName& name);
 	//子の検索（NullPtrあり）
@@ -88,7 +93,7 @@ protected:
 	//衝突した
 	virtual void onCollide(Actor& other);
 	//衝突判定
-	bool isCollide(const Actor& other) const;
+	bool isCollide(const Actor& other) ;
 
 
 protected:
@@ -102,6 +107,8 @@ protected:
 	GSmatrix4 m_Matrix;
 	//衝突判定
 	IBodyPtr m_Body;
+	// 衝突情報
+	HitInfo m_HitInfo;
 	//死亡フラグ
 	bool m_dead;
 

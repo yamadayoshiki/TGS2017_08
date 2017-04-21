@@ -45,6 +45,8 @@ public:
 	// ワールド座標へ変換
 	GSmatrix4 WorldToLocal() const;
 	
+	GSvector2 size;
+
 	// 図形描画
 	virtual void draw() const override;
 };

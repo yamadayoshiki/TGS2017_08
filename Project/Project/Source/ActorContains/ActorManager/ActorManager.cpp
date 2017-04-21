@@ -61,6 +61,6 @@ void ActorManager::OptionalCollide(Actor* actor, ActorGroup actorGroup)
 // Õ“Ë”»’è 
 void ActorManager::collide()
 {
-	m_actors[ActorGroup::Player]->collideChildren(*m_actors[ActorGroup::None]);
+	m_actors[ActorGroup::Player]->collideChildren(*m_actors[ActorGroup::Enemy]);
 
 }

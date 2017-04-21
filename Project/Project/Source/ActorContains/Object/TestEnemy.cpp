@@ -3,7 +3,7 @@
 #include "../Body/OrientedBoundingBox.h"
 
 TestEnemy::TestEnemy(IWorld * world, const GSvector2 & position) :
-	Actor(world, ActorName::None, position, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
+	Actor(world, ActorName::Enemy, position, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
 	angle = 0.0f;
 
 	
@@ -17,8 +17,6 @@ void TestEnemy::onUpdate(float deltaTime)
 	if (gsGetKeyState(GKEY_K) == GS_TRUE) {
 		angle -= 1.0f;
 	}
-
-	m_Matrix.setRotationZ(angle);
 }
 
 void TestEnemy::onDraw() const

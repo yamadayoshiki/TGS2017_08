@@ -27,8 +27,8 @@ bool BoundingBox::isCollide(const IBody & other, HitInfo & hitinfo) const {
 
 // Õ“Ë”»’è(‹…)
 bool BoundingBox::intersects(const BoundingCircle & sphere, HitInfo & hitinfo) const{
-	const GSvector2 point = ClosestPoint(sphere.position());
-	hitinfo.intersect = point;
+	//const GSvector2 point = ClosestPoint(sphere.position());
+	//hitinfo.intersect = point;
 	return false;// sphere.contains(point);
 }
 
@@ -39,14 +39,14 @@ bool BoundingBox::intersects(const BoundingCapsule & capsule, HitInfo & hitinfo)
 
 // Õ“Ë”»’è(ü•ª)
 bool BoundingBox::intersects(const BoundingSegment & segment, HitInfo & hitinfo) const{
-	float near_ = 0.0f;
-	float far_ = segment.length();
-	const GSvector2 direction = segment.Direction();
-	const bool result = intersects(segment.points(0), direction, near_, far_);
-	if (result) {
-		hitinfo.intersect = segment.points(0) + direction * near_;
-	}
-	return result;
+	//float near_ = 0.0f;
+	//float far_ = segment.length();
+	//const GSvector2 direction = segment.Direction();
+	//const bool result = intersects(segment.points(0), direction, near_, far_);
+	//if (result) {
+	//	hitinfo.intersect = segment.points(0) + direction * near_;
+	//}
+	return false;// result;
 }
 
 // Õ“Ë”»’è(AABB)
@@ -64,13 +64,13 @@ bool BoundingBox::intersects(const OrientedBoundingBox & other, HitInfo & hitinf
 
 // Õ“Ë”»’è(ƒŒƒC)
 bool BoundingBox::intersects(const Ray & ray, HitInfo & hitinfo) const{
-	float start = 0.0f;
-	float end = 0.00001f;// std::numeric_limits<float>::max();
-	const bool result = intersects(ray.position(), ray.direction(), start, end);
-	if (result) {
-		hitinfo.intersect = ray.position() + ray.direction() * start;
-	}
-	return result;
+	//float start = 0.0f;
+	//float end = 0.00001f;// std::numeric_limits<float>::max();
+	//const bool result = intersects(ray.position(), ray.direction(), start, end);
+	//if (result) {
+	//	hitinfo.intersect = ray.position() + ray.direction() * start;
+	//}
+	return false;// result;
 }
 
 // Body‚Ì•ÏŠ·
@@ -143,6 +143,9 @@ bool BoundingBox::intersects(const GSvector2 & position, const GSvector2 & direc
 	//	return false;
 	//}
 	return false;
+
+	GSvector2* a;
+	ClosestPoint(*a);
 }
 
 // ‹ßÚ“_

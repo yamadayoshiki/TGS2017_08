@@ -34,13 +34,41 @@ bool Collision::Capsule_Capsule(const GSvector2 & pos1, const GSmatrix4 & mat1, 
 }
 
 // ü•ª“¯m‚ÌÕ“Ë”»’è
-bool Collision::Segment_Segment(const GSvector2 p1[], const GSvector2 p2[]){
-	float ta = (p2[0].x - p2[1].x) * (p1[0].y - p2[0].y) + (p2[0].y - p2[1].y) * (p2[0].x - p1[0].x);
-	float tb = (p2[0].x - p2[1].x) * (p1[1].y - p2[0].y) + (p2[0].y - p2[1].y) * (p2[0].x - p1[1].x);
-	float tc = (p1[0].x - p1[1].x) * (p2[0].y - p1[0].y) + (p1[0].y - p1[1].y) * (p1[0].x - p2[0].x);
-	float td = (p1[0].x - p1[1].x) * (p2[1].y - p1[0].y) + (p1[0].y - p1[1].y) * (p1[0].x - p2[1].x);
+bool Collision::Segment_Segment(const GSvector2 p1[], const GSvector2 p2[], GSvector2& intersect){
+	//float ta = (p2[0].x - p2[1].x) * (p1[0].y - p2[0].y) + (p2[0].y - p2[1].y) * (p2[0].x - p1[0].x);
+	//float tb = (p2[0].x - p2[1].x) * (p1[1].y - p2[0].y) + (p2[0].y - p2[1].y) * (p2[0].x - p1[1].x);
+	//float tc = (p1[0].x - p1[1].x) * (p2[0].y - p1[0].y) + (p1[0].y - p1[1].y) * (p1[0].x - p2[0].x);
+	//float td = (p1[0].x - p1[1].x) * (p2[1].y - p1[0].y) + (p1[0].y - p1[1].y) * (p1[0].x - p2[1].x);
+	//
+	//return tc * td < 0 && ta * tb < 0;
 
-	return tc * td < 0 && ta * tb < 0;
+	GSvector2 seg1 = p1[0] - p1[1];
+	GSvector2 seg2 = p2[0] - p2[1];
+
+	GSvector2 v = p1[0] - p2[0];
+	float cross_v1_v2 = seg1.CCW(seg2);
+	if (cross_v1_v2 == 0.0f) {
+		return false;
+	}
+
+	float cross_v_v1 = v.CCW(seg1);
+	float cross_v_v2 = v.CCW(seg2);
+
+	float t1 = cross_v_v2 / cross_v1_v2;
+	float t2 = cross_v_v1 / cross_v1_v2;
+
+	float T1 = cross_v_v2 / cross_v1_v2;
+	float T2 = cross_v_v1 / cross_v1_v2;
+
+	const float eps = 0.00001f;
+	if (t1 + eps < 0 || t1 - eps > 1 || t2 + eps < 0 || t2 - eps > 1) {
+		// Œğ·‚µ‚Ä‚¢‚È‚¢
+		return false;
+	}
+
+	intersect = p1[0] + seg1 * t1;
+
+	return true;
 }
 
 // ‹…‚ÆƒJƒvƒZƒ‹‚ÌÕ“Ë”»’è

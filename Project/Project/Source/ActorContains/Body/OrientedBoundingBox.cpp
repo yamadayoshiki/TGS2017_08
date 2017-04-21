@@ -1,5 +1,8 @@
 #include "OrientedBoundingBox.h"
 
+#include <gslib.h>
+#include <vector>
+
 #include "BoundingCircle.h"
 #include "BoundingCapsule.h"
 #include "BoundingSegment.h"
@@ -9,6 +12,9 @@
 #include "Base/HitInfo.h"
 #include "../Collision/Collision.h"
 
+#include "../../Define/Def_Nagano.h"
+#include "../../Define/Def_Nakayama.h"
+
 static const float EPSILON = 1e-3f;
 
 //OBBの判定を作成
@@ -16,6 +22,8 @@ OrientedBoundingBox::OrientedBoundingBox(const GSvector2 & position, const GSvec
 	Body(ShapeType::OBB, position, extents, matrix){
 	mAxis[0] = GSvector2(1.0f, 0.0f);
 	mAxis[1] = GSvector2(0.0f, 1.0f);
+	gsLoadTexture(0, "Resource/Texture/wall.png");
+	size = GSvector2(gsTextureGetWidth(gsGetTexture(0)), gsTextureGetHeight(gsGetTexture(0)));
 }
 
 //OBBの判定を作成(aabbを利用)
@@ -50,14 +58,14 @@ bool OrientedBoundingBox::intersects(const BoundingSegment & other, HitInfo & hi
 	GSvector2 line[2] = {};
 	//GSvector2 segment[2] = { other. };
 
-	for (int i = 0; i < 4; i++) {
-		line[0] = CornerPoint(i);
-		line[1] = CornerPoint(i + 1);
-		if (Collision::Segment_Segment(line, line)) {
-			return true;
+	//for (int i = 0; i < 4; i++) {
+	//	line[0] = CornerPoint(i);
+	//	line[1] = CornerPoint(i + 1);
+	//	if (Collision::Segment_Segment(line, line, hitinfo.intersect)) {
+	//		return true;
 
-		}
-	}
+	//	}
+	//}
 	return false;//result;
 }
 
@@ -67,22 +75,40 @@ bool OrientedBoundingBox::intersects(const BoundingBox & other, HitInfo & hitinf
 }
 
 // 衝突判定(OBB)
-bool OrientedBoundingBox::intersects(const OrientedBoundingBox & other, HitInfo & hitinfo) const{
-	GSvector2 line1[2] = { };
-	GSvector2 line2[2] = { };
+bool OrientedBoundingBox::intersects(const OrientedBoundingBox & other, HitInfo & hitinfo) const {
+	// 線分
+	GSvector2 line1[2] = {};
+	GSvector2 line2[2] = {};
 
+	// 交点
+	GSvector2 intersect;
+
+	// 配列をクリア
+	hitinfo.intersects.clear();
+
+	// 各辺の交差判定
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
+			// 各辺を代入
 			line1[0] = CornerPoint(i);
 			line1[1] = CornerPoint(i + 1);
+			// 各辺を代入
 			line2[0] = other.CornerPoint(j);
 			line2[1] = other.CornerPoint(j + 1);
-			if (Collision::Segment_Segment(line1, line2)) {
-				return true;
+			// 交差の判定
+			if (Collision::Segment_Segment(line1, line2, intersect)) {
+				//  最初の要素へのイテレータを返す
+				auto itr = std::find(hitinfo.intersects.begin(), hitinfo.intersects.end(), intersect);
+				// 発見できなかった場合
+				if (itr == hitinfo.intersects.end()) {
+					// 配列に交点情報を追加
+					hitinfo.intersects.push_back(intersect);
+				}
 			}
 		}
 	}
-	return false;
+	// 配列のサイズが0でない場合交差している
+	return hitinfo.intersects.size() > 0;
 }
 
 // 衝突判定(レイ)
@@ -120,12 +146,12 @@ GSvector2 OrientedBoundingBox::ClosestPoint(const GSvector2 & target) const{
 GSvector2 OrientedBoundingBox::CornerPoint(int cornerIndex) const {
 	switch (cornerIndex) {
 	default:
-	case 0: return mPosition + GSvector2(-mExtents.x, +mExtents.y) * mMatrix.getRotateMatrix();
-	case 1: return mPosition + GSvector2(+mExtents.x, +mExtents.y) * mMatrix.getRotateMatrix();
-	case 2: return mPosition + GSvector2(+mExtents.x, -mExtents.y) * mMatrix.getRotateMatrix();
-	case 3: return mPosition + GSvector2(-mExtents.x, -mExtents.y) * mMatrix.getRotateMatrix();
+	case 0: return mPosition + GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
+	case 1: return mPosition + GSvector2(+mExtents.x, -mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
+	case 2: return mPosition + GSvector2(+mExtents.x, +mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
+	case 3: return mPosition + GSvector2(-mExtents.x, +mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
 	// 0と同じ
-	case 4: return mPosition + GSvector2(-mExtents.x, +mExtents.y) * mMatrix.getRotateMatrix();
+	case 4: return mPosition + GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
 	}
 }
 
@@ -156,30 +182,8 @@ GSmatrix4 OrientedBoundingBox::WorldToLocal() const {
 
 // 図形描画
 void OrientedBoundingBox::draw() const{
-	// 座標変換の適応
-	GSvector2 lt = CornerPoint(0);
-	GSvector2 rt = CornerPoint(1);
-	GSvector2 rb = CornerPoint(2);
-	GSvector2 lb = CornerPoint(3);
-	
-	// 上
-	glBegin(GL_LINES);
-	glVertex2f(lt.x, lt.y);
-	glVertex2f(rt.x, rt.y);
-	glEnd();
-	// 右
-	glBegin(GL_LINES);
-	glVertex2f(rt.x, rt.y);
-	glVertex2f(rb.x, rb.y);
-	glEnd();
-	// 下
-	glBegin(GL_LINES);
-	glVertex2f(rb.x, rb.y);
-	glVertex2f(lb.x, lb.y);
-	glEnd();
-	// 左
-	glBegin(GL_LINES);
-	glVertex2f(lb.x, lb.y);
-	glVertex2f(lt.x, lt.y);
-	glEnd();
+	// 回転角度
+	GSvector3 angle = GSvector3(mMatrix.getRoll(), mMatrix.getPitch(), mMatrix.getYaw());
+	// 描画
+	gsDrawSprite2D(0, &mPosition, &GSrect(0, 0, size.x, size.y), &GSvector2(CHIP_SIZE / 2, CHIP_SIZE / 2), NULL, &mExtents, 90 + mMatrix.getRoll());
 }
