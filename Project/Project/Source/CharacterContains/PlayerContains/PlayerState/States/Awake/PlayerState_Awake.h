@@ -8,7 +8,7 @@ class PlayerState_Awake:public  PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_Awake(GSvector2& pos);
+	PlayerState_Awake(GSvector2& positon,GSmatrix4& matrix,IGameManager* gameManager);
 	//各状態独自の初期化
 	virtual void unique_init(Actor& actor)override;
 	//更新処理

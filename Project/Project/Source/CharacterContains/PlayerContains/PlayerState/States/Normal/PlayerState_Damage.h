@@ -7,7 +7,7 @@ class PlayerState_Damage:public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_Damage(GSvector2& position,GSmatrix4& matrix, GameManager* gameManager);
+	PlayerState_Damage(GSvector2& position,GSmatrix4& matrix, IGameManager* gameManager);
 	//各状態独自の初期化
 	virtual void unique_init(Actor& actor)override;
 	//更新処理

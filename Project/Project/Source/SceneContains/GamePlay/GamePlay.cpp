@@ -8,8 +8,8 @@
 #include"../../CharacterContains/PlayerContains/Player/Player.h"
 
 // コンストラクタ    
-GamePlay::GamePlay(GameManager* GameManager)
-	:p_GameManager(GameManager)
+GamePlay::GamePlay(IGameManager* gameManager)
+	:Scene(gameManager)
 {
 }
 

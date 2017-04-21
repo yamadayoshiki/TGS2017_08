@@ -6,7 +6,7 @@
 // “G
 class TestObj2 : public Actor {
 public:
-	TestObj2(IWorld* world, const GSvector2&  position);
+	TestObj2(IWorld* world, const GSvector2&  position,IGameManager* gameManager);
 
 	virtual void onUpdate(float deltaTime) override;
 	virtual void onDraw() const override;

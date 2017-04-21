@@ -11,6 +11,6 @@ public:
 	//コンストラクタ
 	PlayerStateManager();
 	//コンストラクタ
-	PlayerStateManager(GSvector2& position,GSmatrix4& matrix,GameManager* gameManager);
+	PlayerStateManager(GSvector2& position,GSmatrix4& matrix,IGameManager* gameManager);
 };
 #endif // !PLAYER_STATE_MANAGER_H_

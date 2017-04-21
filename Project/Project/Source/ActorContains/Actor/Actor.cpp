@@ -6,13 +6,15 @@
 #include "../../WorldContains/IWorld.h"
 
 //コンストラクタ
-Actor::Actor(IWorld* world, const ActorName& name, const GSvector2& position, const IBodyPtr& body)
+Actor::Actor(IWorld* world, const ActorName& name, const GSvector2& position, IGameManager* gaemManager, const IBodyPtr& body)
 	: p_World(world)
+	,p_GameManager(gaemManager)
 	, m_Name(name)
 	, m_Position(position)
 	, m_Matrix(GS_MATRIX4_IDENTITY)
 	, m_Body(body)
 	, m_dead(false)
+	//,p_Texture(new )
 {
 }
 
@@ -21,7 +23,8 @@ Actor::Actor(const ActorName& name)
 	:Actor(
 		nullptr,
 		name,
-		{ 0.0f,0.0f })
+		{ 0.0f,0.0f }
+		,nullptr)
 {
 }
 
@@ -102,7 +105,7 @@ ActorPtr Actor::findChildren_NullActor(const ActorName& name)
 	ActorPtr result = findChildren([&](const Actor& actor) {return actor.getName() == name; });
 
 	if (result == nullptr)
-		result = std::make_shared<NullActor>(p_World);
+		result = std::make_shared<NullActor>(p_World,p_GameManager);
 
 	return result;
 }

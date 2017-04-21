@@ -1,7 +1,7 @@
 #include"PlayerState_Run.h"
 
 //コンストラクタ
-PlayerState_Run::PlayerState_Run(GSvector2& position,GSmatrix4& matrix, GameManager* gameManager)
+PlayerState_Run::PlayerState_Run(GSvector2& position,GSmatrix4& matrix, IGameManager* gameManager)
 	:PlayerState_MoveBase(position,matrix,gameManager){
 
 }

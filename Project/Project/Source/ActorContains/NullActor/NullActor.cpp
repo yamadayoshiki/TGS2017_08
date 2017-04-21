@@ -1,14 +1,15 @@
 #include "NullActor.h"
 
-NullActor::NullActor(IWorld* world)
+NullActor::NullActor(IWorld* world,IGameManager* gameManager)
 	:Actor(world
 		, ActorName::None
-		, GSvector2{ 0.0f, 0.0f })
+		, GSvector2{ 0.0f, 0.0f }
+		,gameManager)
 {
 }
 
 NullActor::NullActor()
-	:NullActor(nullptr)
+	:NullActor(nullptr,nullptr)
 {
 }
 
@@ -22,5 +23,5 @@ void NullActor::onDraw() const
 
 ActorPtr NullActor::clone(const GSvector2& position)
 {
-	return std::make_shared<NullActor>(p_World);
+	return std::make_shared<NullActor>(p_World,p_GameManager);
 }

@@ -17,11 +17,7 @@ void NakayamaScene::OnStart()
 {
 	p_World = std::make_shared<World>();
 
-	p_Renderer2D = new Renderer2D();
-	p_Renderer2D->Initialize();
-	p_Renderer2D->LoadTexture("Block5", "Resource/StreamingAssets/Block5.png");
-
-	MapGenerator generator(p_World.get(), "Resource/StreamingAssets/stage1.csv");
+	MapGenerator generator(p_World.get(), "Resource/StreamingAssets/stage1.csv",p_GameManager);
 	//generator.registMap(p_World->GetMap());
 }
 
@@ -49,5 +45,4 @@ SceneName NakayamaScene::Next() const
 void NakayamaScene::End()
 {
 	p_World = nullptr;
-	delete p_Renderer2D;
 }

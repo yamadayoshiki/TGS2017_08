@@ -1,7 +1,7 @@
 #include"PlayerState.h"
 
 //コンストラクタ
-PlayerState::PlayerState(GSvector2& position,GSmatrix4& matrix, GameManager* gameManager)
+PlayerState::PlayerState(GSvector2& position,GSmatrix4& matrix, IGameManager* gameManager)
 	:mPosition(position)
 	,mMatrix(matrix)
 	,mVelocity(GSvector2(0.0f,0.0f))
@@ -23,4 +23,6 @@ void PlayerState::input() {}
 void PlayerState::move(Actor& actor, float deltaTime, float speed)
 {
     mPosition += p_Input->PadVelocity() * speed;
+	mAngle += p_Input->PadVelocity().x;
+	mMatrix.setRotationZ(mAngle);
 }

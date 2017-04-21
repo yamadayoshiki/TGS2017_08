@@ -14,15 +14,18 @@
 #include "../Body/Base/DammyBody.h"
 #include "../Body/Base/HitInfo.h"
 
+#include"../../TextureContains/ITexture.h"
+
 enum class EventMessage;
 class IWorld;
+class IGameManager;
 
 //アクタークラス
 class Actor
 {
 public:
 	//コンストラクタ
-	Actor(IWorld* world, const ActorName& name, const GSvector2& position, const IBodyPtr& body = std::make_shared<DammyBody>());
+	Actor(IWorld* world, const ActorName& name, const GSvector2& position, IGameManager* gaemManager, const IBodyPtr& body = std::make_shared<DammyBody>());
 	//コンストラクタ
 	explicit Actor(const ActorName& name = ActorName::None);
 	//仮想デストラクタ
@@ -99,6 +102,8 @@ protected:
 protected:
 	//ワールド
 	IWorld* p_World;
+	//ゲームマネージャー
+	IGameManager* p_GameManager;
 	//名前
 	ActorName m_Name;
 	//座標
@@ -111,6 +116,9 @@ protected:
 	HitInfo m_HitInfo;
 	//死亡フラグ
 	bool m_dead;
+	//テクスチャ
+	using TexturePtr = std::shared_ptr<ITexture>;
+	TexturePtr	p_Texture;
 
 private:
 	//子アクター

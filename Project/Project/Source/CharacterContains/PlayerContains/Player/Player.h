@@ -6,14 +6,13 @@
 #include"../../../WorldContains/IWorld.h"
 #include<memory>
 
-class GameManager;
 class Renderer2D;
 
 class Player :public Actor
 {
 public:
 	//コンストラクタ
-	Player(IWorld* world,const GSvector2& position,GameManager* gameManager);
+	Player(IWorld* world,const GSvector2& position,IGameManager* gameManager);
 	//デストラクタ
 	~Player();
 	//更新処理
@@ -25,7 +24,7 @@ public:
 
 private:
 	//ゲーム管理者
-	GameManager*			p_GameManager;
+	IGameManager*			p_GameManager;
 	//状態管理
 	PlayerStateManager*		mStateManager;
 	//レンダラー

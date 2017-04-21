@@ -6,8 +6,8 @@
 
 #include <algorithm>
 
-TestObj2::TestObj2(IWorld * world, const GSvector2 & position) :
-	Actor(world, ActorName::Player, position, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 2.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
+TestObj2::TestObj2(IWorld * world, const GSvector2 & position,IGameManager* gameManager) :
+	Actor(world, ActorName::Player, position,gameManager, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 2.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
 
 	angle = 0.0f;
 }
@@ -55,5 +55,5 @@ void TestObj2::onMessage(EventMessage event, void *)
 
 ActorPtr TestObj2::clone(const GSvector2 & position)
 {
-	return std::make_shared<TestObj2>(p_World, position);
+	return std::make_shared<TestObj2>(p_World, position,p_GameManager);
 }

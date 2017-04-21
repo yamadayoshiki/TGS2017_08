@@ -11,7 +11,7 @@ class PlayerState :public State
 {
 public:
 	//コンストラクタ
-	PlayerState(GSvector2& position,GSmatrix4& matrix,GameManager* gameManager);
+	PlayerState(GSvector2& position,GSmatrix4& matrix,IGameManager* gameManager);
 	//パッド入力
 	virtual void input()override;
 
@@ -31,7 +31,7 @@ protected:
 	//回転角度
 	float			mAngle;
 	//GameManager
-	GameManager*	p_GameManager;
+	IGameManager*	p_GameManager;
 	//InoutState
 	InputState*		p_Input;
 };

@@ -5,14 +5,13 @@
 #include <memory>
 
 class World;
-class GameManager;
 
 //ゲーム中
 class GamePlay : public Scene
 {
 public:
 	// コンストラクタ    
-	GamePlay(GameManager* GameManager);
+	GamePlay(IGameManager* gameManager);
 	// 描画     
 	virtual void Draw() const override;
 	// 次のシーンを返す     
@@ -30,8 +29,6 @@ private:
 	using WorldPtr = std::shared_ptr<World>;
 	WorldPtr p_World;
 
-	
-	GameManager*		p_GameManager;
 };
 
 #endif

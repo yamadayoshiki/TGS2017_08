@@ -2,8 +2,8 @@
 
 #include "../Body/OrientedBoundingBox.h"
 
-TestEnemy::TestEnemy(IWorld * world, const GSvector2 & position) :
-	Actor(world, ActorName::Enemy, position, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
+TestEnemy::TestEnemy(IWorld * world, const GSvector2 & position,IGameManager* gameManager) :
+	Actor(world, ActorName::Enemy, position,gameManager, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
 	angle = 0.0f;
 
 	

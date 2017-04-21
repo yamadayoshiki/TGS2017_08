@@ -9,7 +9,8 @@ public:
 	//コンストラクタ
 	Neutral_Explosion(
 		IWorld* world,
-		const GSvector2& position);
+		const GSvector2& position,
+		IGameManager* gameManager);
 };
 
 #endif // !NEUTRAL_EXPLOSION_H_

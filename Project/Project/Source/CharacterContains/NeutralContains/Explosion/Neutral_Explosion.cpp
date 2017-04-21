@@ -3,6 +3,7 @@
 //コンストラクタ
 Neutral_Explosion::Neutral_Explosion(
 	IWorld* world,
-	const GSvector2& position)
-	:Actor(world, ActorName::Neutral_Explosion, position) {
+	const GSvector2& position,
+	IGameManager* gaemManager)
+	:Actor(world, ActorName::Neutral_Explosion, position,gaemManager) {
 }

@@ -1,7 +1,7 @@
 #include"PlayerState_Idol.h"
 
 //コンストラクタ
-PlayerState_Idol::PlayerState_Idol(GSvector2& position,GSmatrix4& matrix, GameManager* gameManager)
+PlayerState_Idol::PlayerState_Idol(GSvector2& position,GSmatrix4& matrix, IGameManager* gameManager)
 	:PlayerState_MoveBase(position,matrix,gameManager){
 }
 

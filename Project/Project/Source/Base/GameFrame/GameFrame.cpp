@@ -36,7 +36,7 @@ void GameFrame::start()
 	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager.get()));
 	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>());
 	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>());
-	m_SceneManager.Change(SceneName::GameTitle);
+	m_SceneManager.Change(SceneName::GamePlay);
 }
 
 // XV

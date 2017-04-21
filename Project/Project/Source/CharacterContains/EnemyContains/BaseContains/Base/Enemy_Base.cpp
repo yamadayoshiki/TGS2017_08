@@ -5,8 +5,9 @@ Enemy_Base::Enemy_Base(
 	IWorld* world
 	, const ActorName& name
 	, const GSvector2& position
+	,IGameManager* gameManager
 	, const IBodyPtr& body)
-	:Actor(world, name, position, body)
+	:Actor(world, name, position,gameManager, body)
 {
 }
 

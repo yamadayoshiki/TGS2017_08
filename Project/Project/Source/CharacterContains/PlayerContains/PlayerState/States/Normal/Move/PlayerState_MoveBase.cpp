@@ -2,7 +2,7 @@
 
 
 //コンストラクタ
-PlayerState_MoveBase::PlayerState_MoveBase(GSvector2& position,GSmatrix4& matrix, GameManager* gameManager)
+PlayerState_MoveBase::PlayerState_MoveBase(GSvector2& position,GSmatrix4& matrix, IGameManager* gameManager)
 	:PlayerState(position,matrix,gameManager) {}
 
 //各状態独自の初期化
@@ -31,6 +31,10 @@ void PlayerState_MoveBase::update(Actor& actor, float deltaTaime)
 //衝突判定
 void PlayerState_MoveBase::collide(const Actor& other)
 {
+	if (other.getName() == ActorName::Enemy)
+	{
+		
+	}
 	//継承先の衝突処理
 	onCollide(other);
 }

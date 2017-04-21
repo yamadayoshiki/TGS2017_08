@@ -2,8 +2,8 @@
 #include"../../../PlayerStateName.h"
 
 //コンストラクタ
-PlayerState_A_MoveBase::PlayerState_A_MoveBase(GSvector2& pos)
-	:PlayerState(pos){}
+PlayerState_A_MoveBase::PlayerState_A_MoveBase(GSvector2& position,GSmatrix4& matrix,IGameManager* gameManager)
+	:PlayerState(position,matrix,gameManager){}
 
 //各状態独自の初期化
 void PlayerState_A_MoveBase::unique_init(Actor& actor)
@@ -15,11 +15,14 @@ void PlayerState_A_MoveBase::unique_init(Actor& actor)
 void PlayerState_A_MoveBase::update(Actor& actor, float deltaTaime)
 {
 	//移動の入力状態によって状態を変更(待機、歩く)
-	if (mInput->PadVelocity().length() <= 0.0f) {
-		change(PlayerStateName::Idol);
+	if (p_Input->IsPadState(GS_XBOX_PAD_A)) {
+		change(PlayerStateName::Run);
 	}
-	else if (mInput->PadVelocity().length() <= 1.0f) {
+	else if (p_Input->PadVelocity().length() <= 1.0f) {
 		change(PlayerStateName::Walk);
+	}
+	else if (p_Input->PadVelocity().length() <= 0.0f) {
+		change(PlayerStateName::Idol);
 	}
 
 	//継承先の更新処理
@@ -41,7 +44,7 @@ void PlayerState_A_MoveBase::end()
 void PlayerState_A_MoveBase::input()
 {
 	//ダッシュ
-	if (mInput->IsPadState(GS_XBOX_PAD_A) && (mInput->PadVelocity().length() >= 1.0f)) change(PlayerStateName::Run);
+	if (p_Input->IsPadState(GS_XBOX_PAD_A) && (p_Input->PadVelocity().length() >= 1.0f)) change(PlayerStateName::Run);
 	//
 
 

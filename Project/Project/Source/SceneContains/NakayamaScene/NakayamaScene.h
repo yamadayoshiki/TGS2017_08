@@ -29,7 +29,6 @@ private:
 	using WorldPtr = std::shared_ptr<World>;
 	WorldPtr p_World;
 
-	Renderer2D* p_Renderer2D;
 
 };
 

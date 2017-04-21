@@ -6,9 +6,8 @@
 #include"../PlayerState/PlayerStateName.h"
 
 //コンストラクタ
-Player::Player(IWorld* world, const GSvector2& position,GameManager* gameManager)
-	:Actor(world,ActorName::Player,position, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY))
-	,p_GameManager(gameManager)
+Player::Player(IWorld* world, const GSvector2& position,IGameManager* gameManager)
+	:Actor(world,ActorName::Player,position,gameManager, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY))
 	,mStateManager(new PlayerStateManager(m_Position, m_Matrix,p_GameManager))
 	,angle(0.0f)
 {
@@ -27,14 +26,14 @@ void Player::onUpdate(float deltaTime)
 	//行動制限
 	m_Position = m_Position.clamp(GSvector2(0.0f, 0.0f), GSvector2(960,704));
 
-	m_Matrix.setRotationZ(angle);
+	//m_Matrix.setRotationZ(angle);
 
 }
 //描画処理
 void Player::onDraw()const
 {
 	//Actor::onDraw();
-	//m_Body->transform(getPose())->draw();
+	m_Body->transform(getPose())->draw();
 	p_Renderer->DrawTexture("Player", m_Position);
 }
 //衝突判定

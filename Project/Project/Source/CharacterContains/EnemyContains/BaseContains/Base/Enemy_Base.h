@@ -11,6 +11,7 @@ public:
 		IWorld* world,
 		const ActorName& name,
 		const GSvector2& position,
+		IGameManager* gameManager,
 		const IBodyPtr& body = std::make_shared<DammyBody>()
 		);
 	//仮想デストラクタ
