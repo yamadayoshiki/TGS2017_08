@@ -2,14 +2,14 @@
 #define SCENE_H_
 
 #include "../IScene.h"
-#include "../../Base/GameManagerContains/IGameManager.h"
+#include "../../Base/GameManagerContains/IGameManagerPtr.h"
 
 //シーンインターフェイス
 class Scene :public IScene
 {
 public:
 	//コンストラクタ
-	Scene(IGameManager* gameManager);
+	Scene(const IGameManagerPtr& gameManager);
 	//デフォルトコンストラクタ
 	Scene();
 	// 仮想デストラクタ     
@@ -37,7 +37,7 @@ protected:
 
 protected:
 	bool m_IsEnd;					//終了フラグ
-	IGameManager* p_GameManager;	//ゲームマネージャー
+	IGameManagerPtr p_GameManager;	//ゲームマネージャー
 };
 
 #endif // !SCENE_H_

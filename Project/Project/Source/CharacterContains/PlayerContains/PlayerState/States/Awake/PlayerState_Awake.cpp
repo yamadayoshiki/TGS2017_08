@@ -1,7 +1,7 @@
 #include"PlayerState_Awake.h"
 
 //コンストラクタ
-PlayerState_Awake::PlayerState_Awake(GSvector2& position,GSmatrix4& matrix,IGameManager* gameManager)
+PlayerState_Awake::PlayerState_Awake(GSvector2& position,GSmatrix4& matrix,IGameManagerPtr gameManager)
 	:PlayerState(position,matrix,gameManager)
 {
 

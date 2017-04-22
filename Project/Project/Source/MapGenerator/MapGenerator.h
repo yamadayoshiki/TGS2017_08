@@ -6,10 +6,11 @@
 
 #include <string>
 #include <map>
+#include "../WorldContains/IWorldPtr.h"
+#include "../Base/GameManagerContains/IGameManagerPtr.h"
 
-class IWorld;
+
 class Map;
-class IGameManager;
 
 // マップ生成クラス
 class MapGenerator
@@ -23,7 +24,7 @@ class MapGenerator
 
 public:
 	//コンストラクタ
-	MapGenerator(IWorld* world, const std::string& file_name,IGameManager* gameManager);
+	MapGenerator(const IWorldPtr& world, const std::string& file_name, const IGameManagerPtr& gameManager);
 	// マップのロード
 	void load(const std::string& file_name);
 	// 生成するアクターの登録
@@ -34,13 +35,13 @@ public:
 	void generate();
 private:
 	//ワールド
-	IWorld* p_World;
+	IWorldPtr p_World;
 	// アクター登録用map
 	std::map<int, ActorData> m_Actors;
 	// csvデータ
 	std::vector<std::vector<int>> m_CsvData;
 	//ゲームマネージャー
-	IGameManager* p_GameManager;
+	IGameManagerPtr p_GameManager;
 };
 
 #endif // !MAP_GENERATOR_H_

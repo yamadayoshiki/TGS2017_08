@@ -1,11 +1,10 @@
 #include "AnimationTexture.h"
-#include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Utility/Animation/Animation.h"
 
 //コンストラクタ
 AnimationTexture::AnimationTexture(
 	const std::string& texName,
-	Renderer2D* renderer,
+	Renderer2DPtr renderer,
 	Animation* animation)
 	:Texture_Base(texName, renderer)
 	, p_Animation(animation) {

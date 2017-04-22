@@ -327,6 +327,33 @@
     <ClInclude Include="Source\ActorContains\Object\TestObj2.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\TextureContains\NullTexture\NullTexture.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\InputState\InputStatePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TextureContains\ITexturePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Idol.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_MoveBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Run.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Walk.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\PlayerState_Awake.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\BaseContains\Enemy_BaseStatePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -528,6 +555,21 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\ActorContains\Object\TestObj2.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Idol.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_MoveBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Run.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Walk.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\PlayerState_Awake.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

@@ -2,9 +2,13 @@
 #include "../SceneName.h"
 
 // コンストラクタ    
+NullScene::NullScene(const IGameManagerPtr& gameManager)
+	:Scene(gameManager) {}
+
+//デフォルトコンストラクタ
 NullScene::NullScene()
-{
-}
+	:Scene(){}
+
 // 描画     
 void NullScene::Draw() const
 {

@@ -3,15 +3,11 @@
 
 #include "../IGameManager.h"
 
-class GameManager:public IGameManager
+class GameManager :public IGameManager
 {
 public:
 	//コンストラクタ
-	GameManager(Renderer2D* renderer2D,InputState* inputState);
-	//コンテンツの読み込み
-	void LoadContent() override;
-	//コンテンツの削除
-	void UnLoadContent() override;
+	GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState);
 	//更新処理
 	void Update();
 	//コピー禁止
@@ -19,16 +15,20 @@ public:
 	GameManager(const GameManager& other) = delete;
 
 public:
+	//コンテンツの読み込み
+	void LoadContent();
+	//コンテンツの削除
+	void UnLoadContent();
 	//レンダラーの取得
-	Renderer2D* GetRenderer2D() override;
+	virtual Renderer2DPtr GetRenderer2D() override;
 	//インプットステイトの取得
-	virtual InputState* GetInputState() override;
+	virtual InputStatePtr GetInputState() override;
 protected:
 	//終了処理
 	void Finalize() override;
 private:
-	Renderer2D* p_Renderer2D;	//レンダラー
-	InputState* p_InputState;	//インプットステイト
+	Renderer2DPtr p_Renderer2D;	//レンダラー
+	InputStatePtr p_InputState;	//インプットステイト
 };
 
 #endif // !GAMEMANAGER_H_

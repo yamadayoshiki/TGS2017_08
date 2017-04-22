@@ -4,38 +4,47 @@
 #include <gslib.h>
 
 #include"GameFrame.h"
+
 #include"../GameManagerContains/GameManager/GameManager.h"
+#include"../../Utility/Rederer2D/Renderer2D.h"
+#include"../../Utility/InputState/InputState.h"
+
 #include"../../SceneContains/SceneName.h"
 #include"../../SceneContains/GameTitle/GameTitle.h"
 #include"../../SceneContains/GamePlay/GamePlay.h"
 #include"../../SceneContains/NaganoScene/NaganoScene.h"
 #include"../../SceneContains/NakayamaScene/NakayamaScene.h"
 #include "../../Define/Def_Nagano.h"
-#include"../../Utility/Rederer2D/Renderer2D.h"
-#include"../../Utility/InputState/InputState.h"
 
 //コンストラクタ
 GameFrame::GameFrame()
 	:Game(SCREEN_SIZE.x, SCREEN_SIZE.y)
-	,m_SceneManager()
-{
-	p_GameManager = std::make_shared<GameManager>(new Renderer2D(),new InputState());
+	, m_SceneManager() {
+	//ゲームマネージャー生成
+	p_GameManager = std::make_shared<GameManager>(
+		std::make_shared<Renderer2D>(),
+		std::make_shared<InputState>());
+
+	//コンテンツの読み込み
 	p_GameManager->LoadContent();
 }
 
 //デストラクタ
-GameFrame::~GameFrame()
-{
+GameFrame::~GameFrame() {
+	// コンテンツの削除
 	p_GameManager->UnLoadContent();
 }
 
 //初期化
 void GameFrame::start()
 {
-	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>());
-	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager.get()));
+	//シーンの追加
+	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>(p_GameManager));
+	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager));
 	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>());
 	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>());
+
+	//初期シーンの設定
 	m_SceneManager.Change(SceneName::GamePlay);
 }
 

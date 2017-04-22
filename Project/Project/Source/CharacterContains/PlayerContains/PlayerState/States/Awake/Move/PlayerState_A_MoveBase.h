@@ -7,7 +7,7 @@ class PlayerState_A_MoveBase:public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_A_MoveBase(GSvector2& position,GSmatrix4& matirx,IGameManager* gameManager);
+	PlayerState_A_MoveBase(GSvector2& position,GSmatrix4& matirx,IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void unique_init(Actor& actor)override;
 	//更新処理

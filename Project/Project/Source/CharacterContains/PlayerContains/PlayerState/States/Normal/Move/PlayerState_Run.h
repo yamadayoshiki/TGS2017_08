@@ -8,7 +8,7 @@ class PlayerState_Run :public PlayerState_MoveBase
 {
 public:
 	//コンストラクタ
-	PlayerState_Run(GSvector2& position,GSmatrix4& matrix, IGameManager* gameManager);
+	PlayerState_Run(GSvector2& position,GSmatrix4& matrix,  IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void onUniqueInit(Actor& actor)override;
 	//更新処理

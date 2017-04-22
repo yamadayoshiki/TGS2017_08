@@ -8,6 +8,8 @@ class GameTitle : public Scene
 {
 public:
 	// コンストラクタ    
+	GameTitle(const IGameManagerPtr& gameManager);
+	// デフォルトコンストラクタ
 	GameTitle();
 	// 描画     
 	virtual void Draw() const override;

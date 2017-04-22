@@ -8,10 +8,10 @@ class Enemy_Base :public Actor
 public:
 	//コンストラクタ
 	Enemy_Base(
-		IWorld* world,
+		const IWorldPtr& world,
 		const ActorName& name,
 		const GSvector2& position,
-		IGameManager* gameManager,
+		const IGameManagerPtr& gameManager,
 		const IBodyPtr& body = std::make_shared<DammyBody>()
 		);
 	//仮想デストラクタ

@@ -5,6 +5,7 @@ enum class SceneName
 {
 	GameTitle = 0,		//タイトル
 	GamePlay,			//ゲーム中
+
 	NaganoScene,
 	NakayamaScene,
 	None,

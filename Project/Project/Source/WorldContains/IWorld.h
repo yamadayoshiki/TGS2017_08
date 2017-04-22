@@ -15,8 +15,7 @@ class IWorld
 {
 public:
 	// 仮想デストラクタ
-	virtual ~IWorld()
-	{
+	virtual ~IWorld() {
 		Finalize();
 	}
 	// アクターの追加   

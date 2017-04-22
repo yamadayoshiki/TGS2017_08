@@ -4,17 +4,24 @@
 #include "../NullActor/NullActor.h"
 #include "../Body/Base/HitInfo.h"
 #include "../../WorldContains/IWorld.h"
+#include "../../TextureContains/NullTexture/NullTexture.h"
 
 //コンストラクタ
-Actor::Actor(IWorld* world, const ActorName& name, const GSvector2& position, IGameManager* gaemManager, const IBodyPtr& body)
+Actor::Actor(
+	const IWorldPtr& world,
+	const ActorName& name,
+	const GSvector2& position,
+	const IGameManagerPtr& gaemManager,
+	const ITexturePtr& texture,
+	const IBodyPtr& body)
 	: p_World(world)
-	,p_GameManager(gaemManager)
+	, p_GameManager(gaemManager)
 	, m_Name(name)
 	, m_Position(position)
 	, m_Matrix(GS_MATRIX4_IDENTITY)
 	, m_Body(body)
 	, m_dead(false)
-	//,p_Texture(new )
+	, p_Texture(texture)
 {
 }
 
@@ -24,14 +31,12 @@ Actor::Actor(const ActorName& name)
 		nullptr,
 		name,
 		{ 0.0f,0.0f }
-		,nullptr)
+		, nullptr)
 {
 }
 
 //仮想デストラクタ
-
 Actor::~Actor() {
-	/*delete p_World;*/
 }
 
 //更新
@@ -83,20 +88,22 @@ GSvector2 Actor::getPosition() const
 	return m_Position;
 }
 
-GSmatrix4 Actor::getMatrix() const{
+//行列の取得
+GSmatrix4 Actor::getMatrix() const {
 	return m_Matrix;
 }
 
-GSmatrix4 Actor::getPose() const{
+//ポーズの取得
+GSmatrix4 Actor::getPose() const {
 	return GSmatrix4(m_Matrix).setPosition(m_Position);
 }
 
-void Actor::rotate(const float & angle)
-{
+//回転を取得
+void Actor::rotate(const float & angle){
 }
 
-void Actor::scale(const GSvector2 & scale)
-{
+//スケールを取得
+void Actor::scale(const GSvector2 & scale){
 }
 
 // 子の検索 
@@ -105,7 +112,7 @@ ActorPtr Actor::findChildren_NullActor(const ActorName& name)
 	ActorPtr result = findChildren([&](const Actor& actor) {return actor.getName() == name; });
 
 	if (result == nullptr)
-		result = std::make_shared<NullActor>(p_World,p_GameManager);
+		result = std::make_shared<NullActor>(p_World, p_GameManager);
 
 	return result;
 }
@@ -196,16 +203,38 @@ void Actor::clearChildren()
 }
 
 //ワールドを設定
-void Actor::SetWorld(IWorld* world)
-{
+void Actor::SetWorld(const IWorldPtr& world) {
 	p_World = world;
 }
 
-IBodyPtr Actor::getBody() const{
+//衝突判定図形の取得
+IBodyPtr Actor::getBody() const {
 	return m_Body;
 }
 
+//クローン生成
+ActorPtr Actor::clone(const ActorPtr& source) {
 
+	//実体生成
+	GSvector2 pos = GSvector2(source->getPosition());
+
+	//クローン生成
+	ActorPtr result = std::make_shared<Actor>(
+		source->p_World,
+		source->getName(),
+		pos,
+		source->p_GameManager,
+		source->p_Texture,
+		source->m_Body);
+
+	//結果を返す
+	return result;
+}
+
+//クローン生成
+ActorPtr Actor::clone(const GSvector2& position) {
+	return nullptr;
+}
 
 
 // メッセージ処理 
@@ -226,7 +255,7 @@ void Actor::onUpdate(float)
 }
 
 // 描画 
-void Actor::onDraw() const{
+void Actor::onDraw() const {
 	m_Body->transform(getPose())->draw();
 }
 
@@ -241,8 +270,4 @@ bool Actor::isCollide(const Actor& other)
 {
 	// 回転を含む場合
 	return m_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
-}
-
-ActorPtr Actor::clone(const GSvector2&){
-	return nullptr;
 }

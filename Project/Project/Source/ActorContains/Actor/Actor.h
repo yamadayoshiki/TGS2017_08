@@ -14,18 +14,25 @@
 #include "../Body/Base/DammyBody.h"
 #include "../Body/Base/HitInfo.h"
 
-#include"../../TextureContains/ITexture.h"
+#include "../../WorldContains/IWorldPtr.h"
+#include "../../Base/GameManagerContains/IGameManagerPtr.h"
+#include "../../TextureContains/ITexturePtr.h"
+#include "../../TextureContains/NullTexture/NullTexture.h"
 
 enum class EventMessage;
-class IWorld;
-class IGameManager;
 
 //アクタークラス
 class Actor
 {
 public:
 	//コンストラクタ
-	Actor(IWorld* world, const ActorName& name, const GSvector2& position, IGameManager* gaemManager, const IBodyPtr& body = std::make_shared<DammyBody>());
+	Actor(
+		const IWorldPtr& world,
+		const ActorName& name,
+		const GSvector2& position,
+		const IGameManagerPtr& gaemManager,
+		const ITexturePtr& texture = std::make_shared<NullTexture>(),
+		const IBodyPtr& body = std::make_shared<DammyBody>());
 	//コンストラクタ
 	explicit Actor(const ActorName& name = ActorName::None);
 	//仮想デストラクタ
@@ -76,11 +83,13 @@ public:
 	void handleMessage(EventMessage message, void* param);
 
 	//ワールドを設定
-	void SetWorld(IWorld* world);
+	void SetWorld(const IWorldPtr& world);
 	// 判定の形の取得
 	IBodyPtr getBody() const;
-
-	virtual ActorPtr Actor::clone(const GSvector2&);
+	//クローン生成
+	virtual ActorPtr clone(const ActorPtr& source);
+	//クローン生成
+	virtual ActorPtr clone(const GSvector2& position);
 
 	//コピー禁止
 	Actor(const Actor& other) = delete;
@@ -96,14 +105,14 @@ protected:
 	//衝突した
 	virtual void onCollide(Actor& other);
 	//衝突判定
-	bool isCollide(const Actor& other) ;
+	bool isCollide(const Actor& other);
 
 
 protected:
 	//ワールド
-	IWorld* p_World;
+	IWorldPtr p_World;
 	//ゲームマネージャー
-	IGameManager* p_GameManager;
+	IGameManagerPtr p_GameManager;
 	//名前
 	ActorName m_Name;
 	//座標
@@ -117,8 +126,7 @@ protected:
 	//死亡フラグ
 	bool m_dead;
 	//テクスチャ
-	using TexturePtr = std::shared_ptr<ITexture>;
-	TexturePtr	p_Texture;
+	ITexturePtr	p_Texture;
 
 private:
 	//子アクター

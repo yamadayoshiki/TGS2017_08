@@ -2,7 +2,6 @@
 #define TEXTURE_H_
 
 #include "../Base/Texture_Base.h"
-class GameManager;
 
 class Texture :public Texture_Base
 {
@@ -10,7 +9,7 @@ public:
 	//コンストラクタ
 	Texture(
 		const std::string& texName,
-		Renderer2D* renderer);
+		Renderer2DPtr renderer);
 	//更新
 	virtual void Update(float deltaTime) override;
 

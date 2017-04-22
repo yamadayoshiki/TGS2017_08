@@ -5,6 +5,7 @@
 enum class Enemy_CommandName
 {
 	//ˆÚ“®
+	Idle,					//~‚Ü‚é
 	Approach_FixedDistance,	//ˆê’è‹——£‚Ü‚Å‹ß‚Ã‚­
 	Leave_FixedDistance,	//ˆê’è‹——£ˆÈã—£‚ê‚é
 

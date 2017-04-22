@@ -3,8 +3,7 @@
 #include <memory>
 
 // コンストラクタ 
-ActorManager::ActorManager()
-{
+ActorManager::ActorManager() {
 	initialize();
 }
 

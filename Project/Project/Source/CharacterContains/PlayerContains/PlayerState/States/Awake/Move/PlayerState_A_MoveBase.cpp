@@ -2,7 +2,7 @@
 #include"../../../PlayerStateName.h"
 
 //コンストラクタ
-PlayerState_A_MoveBase::PlayerState_A_MoveBase(GSvector2& position,GSmatrix4& matrix,IGameManager* gameManager)
+PlayerState_A_MoveBase::PlayerState_A_MoveBase(GSvector2& position,GSmatrix4& matrix,IGameManagerPtr gameManager)
 	:PlayerState(position,matrix,gameManager){}
 
 //各状態独自の初期化

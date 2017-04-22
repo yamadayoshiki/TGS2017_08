@@ -2,16 +2,18 @@
 #define ANIMATIONTEXTURE_H_
 
 #include "../Base/Texture_Base.h"
-class GameManager;
+
+//先行宣言
 class Animation;
 
+//アニメーションテクスチャ
 class AnimationTexture :public Texture_Base
 {
 public:
 	//コンストラクタ
 	AnimationTexture(
 		const std::string& texName,
-		Renderer2D* renderer,
+		Renderer2DPtr renderer,
 		Animation* animation);
 	//更新
 	virtual void Update(float deltaTime) override;

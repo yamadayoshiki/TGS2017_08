@@ -4,9 +4,14 @@
 #include "../SceneName.h"
 
 // コンストラクタ    
-GameTitle::GameTitle()
+GameTitle::GameTitle(const IGameManagerPtr& gameManager)
+	:Scene(gameManager)
 {
 }
+
+//デフォルトコンストラクタ
+GameTitle::GameTitle()
+	: Scene() {}
 
 // 開始     
 void GameTitle::OnStart()

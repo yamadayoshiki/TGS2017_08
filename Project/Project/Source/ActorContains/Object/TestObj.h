@@ -6,7 +6,7 @@
 // “G
 class TestObj : public Actor {
 public:
-	TestObj(IWorld* world, const GSvector2&  position,IGameManager* gameManager);
+	TestObj(const IWorldPtr& world, const GSvector2&  position, const IGameManagerPtr& gameManager);
 
 	virtual void onUpdate(float deltaTime) override;
 	virtual void onDraw() const override;
@@ -17,5 +17,5 @@ public:
 private:
 	float angle;
 
-	Renderer2D* p_Renderer2D;
+	Renderer2DPtr p_Renderer2D;
 };

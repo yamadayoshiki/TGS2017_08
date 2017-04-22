@@ -8,17 +8,21 @@
 #include"../../CharacterContains/PlayerContains/Player/Player.h"
 
 // コンストラクタ    
-GamePlay::GamePlay(IGameManager* gameManager)
-	:Scene(gameManager)
-{
+GamePlay::GamePlay(const IGameManagerPtr& gameManager)
+	:Scene(gameManager) {
 }
+
+// デフォルトコンストラクタ
+GamePlay::GamePlay()
+	: Scene() {}
 
 // 開始     
 void GamePlay::OnStart()
 {
+	// ワールド生成
 	p_World = std::make_shared<World>();
 
-	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World.get(), GSvector2(0.0f, 0.0f), p_GameManager));
+	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World, GSvector2(0.0f, 0.0f), p_GameManager));
 }
 
 // 更新     

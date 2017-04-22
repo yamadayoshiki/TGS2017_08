@@ -6,7 +6,7 @@
 
 // コンストラクタ
 World::World()
-	:p_Actors(new ActorManager())	
+	:p_Actors(new ActorManager())
 {
 }
 
@@ -24,7 +24,7 @@ void World::draw() const
 
 void World::Draw() const
 {
-		p_Actors->draw();
+	p_Actors->draw();
 }
 
 //終了処理

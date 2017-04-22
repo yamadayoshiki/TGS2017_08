@@ -6,7 +6,7 @@
 class NullActor :public Actor
 {
 public:
-	NullActor(IWorld* world,IGameManager* gameManager);
+	NullActor(const IWorldPtr& world, const IGameManagerPtr& gameManager);
 	NullActor();
 
 	virtual void onUpdate(float deltaTime) override;

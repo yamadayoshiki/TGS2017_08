@@ -1,10 +1,9 @@
 #include "Texture.h"
-#include "../../Base/GameManagerContains/GameManager/GameManager.h"
 
 //コンストラクタ
 Texture::Texture(
 	const std::string& texName,
-	Renderer2D* renderer)
+	Renderer2DPtr renderer)
 	:Texture_Base(texName, renderer) {}
 
 //初期化

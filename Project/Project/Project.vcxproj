@@ -151,6 +151,7 @@
     <ClInclude Include="Source\Base\GameManagerContains\IGameManagerPtr.h" />
     <ClInclude Include="Source\Base\GameManager\GameManager.h" />
     <ClInclude Include="Source\CharacterContains\Character\Character.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\BaseContains\Enemy_BaseStatePtr.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Enemy_CommandName.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\AttackBase\Enemy_CommonState_AttackBase.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\RushPreliminary\Enemy_CommonState_RushPreliminary.h" />
@@ -179,6 +180,11 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateName.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStatePtr.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState_Path.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Idol.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_MoveBase.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Run.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Walk.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\PlayerState_Awake.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idol.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Run.h" />
@@ -203,6 +209,8 @@
     <ClInclude Include="Source\TextureContains\AnimationTexture\AnimationTexture.h" />
     <ClInclude Include="Source\TextureContains\Base\Texture_Base.h" />
     <ClInclude Include="Source\TextureContains\ITexture.h" />
+    <ClInclude Include="Source\TextureContains\ITexturePtr.h" />
+    <ClInclude Include="Source\TextureContains\NullTexture\NullTexture.h" />
     <ClInclude Include="Source\TextureContains\TextureManager\TextureManager.h" />
     <ClInclude Include="Source\TextureContains\Texture\Texture.h" />
     <ClInclude Include="Source\UIContains\NullUI\NullUI.h" />
@@ -213,6 +221,7 @@
     <ClInclude Include="Source\UIContains\UI\UI.h" />
     <ClInclude Include="Source\Utility\Animation\Animation.h" />
     <ClInclude Include="Source\Utility\InputState\InputState.h" />
+    <ClInclude Include="Source\Utility\InputState\InputStatePtr.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h" />
     <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h" />
@@ -260,6 +269,11 @@
     <ClCompile Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateManager.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Idol.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_MoveBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Run.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\Move\PlayerState_A_Walk.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Awake\PlayerState_Awake.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idol.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Run.cpp" />

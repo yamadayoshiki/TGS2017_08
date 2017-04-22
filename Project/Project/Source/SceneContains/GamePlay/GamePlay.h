@@ -2,7 +2,6 @@
 #define GAMEPLAY_H_
 
 #include "../Scene/Scene.h"
-#include <memory>
 
 class World;
 
@@ -11,12 +10,14 @@ class GamePlay : public Scene
 {
 public:
 	// コンストラクタ    
-	GamePlay(IGameManager* gameManager);
+	GamePlay(const IGameManagerPtr& gameManager);
+	//デフォルトコンストラクタ
+	GamePlay();
 	// 描画     
 	virtual void Draw() const override;
-	// 次のシーンを返す     
+	// 次のシーンを返す
 	virtual SceneName Next() const override;
-	// 終了     
+	// 終了
 	virtual void End() override;
 
 protected:
@@ -27,8 +28,7 @@ protected:
 
 private:
 	using WorldPtr = std::shared_ptr<World>;
-	WorldPtr p_World;
-
+	WorldPtr p_World;	//ワールド
 };
 
 #endif

@@ -2,7 +2,7 @@
 
 
 //コンストラクタ
-PlayerState_MoveBase::PlayerState_MoveBase(GSvector2& position,GSmatrix4& matrix, IGameManager* gameManager)
+PlayerState_MoveBase::PlayerState_MoveBase(GSvector2& position,GSmatrix4& matrix, IGameManagerPtr gameManager)
 	:PlayerState(position,matrix,gameManager) {}
 
 //各状態独自の初期化

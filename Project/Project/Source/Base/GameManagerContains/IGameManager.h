@@ -1,8 +1,8 @@
 #ifndef IGAMEMANAGER_H_
 #define IGAMEMANAGER_H_
 
-class Renderer2D;
-class InputState;
+#include "../../Utility/Rederer2D/Renderer2DPtr.h"
+#include "../../Utility/InputState/InputStatePtr.h"
 
 //ゲームマネージャーインターフェイス
 class IGameManager
@@ -12,16 +12,13 @@ public:
 	virtual ~IGameManager() {
 		Finalize();
 	}
-	//コンテンツの読み込み
-	virtual void LoadContent() = 0;
-	//コンテンツの削除
-	virtual void UnLoadContent() = 0;
 
 public:
 	//レンダラーの取得
-	virtual Renderer2D* GetRenderer2D() = 0;
+	virtual  Renderer2DPtr GetRenderer2D() = 0;
 	//インプットステイトの取得
-	virtual InputState* GetInputState() = 0;
+	virtual InputStatePtr GetInputState() = 0;
+
 protected:
 	//終了処理
 	virtual void Finalize() {};

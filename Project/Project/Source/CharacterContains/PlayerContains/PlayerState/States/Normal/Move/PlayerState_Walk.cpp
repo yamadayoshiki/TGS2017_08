@@ -1,7 +1,7 @@
 #include"PlayerState_Walk.h"
 
 //コンストラクタ
-PlayerState_Walk::PlayerState_Walk(GSvector2& position,GSmatrix4& matrix, IGameManager* gameManager)
+PlayerState_Walk::PlayerState_Walk(GSvector2& position,GSmatrix4& matrix, IGameManagerPtr gameManager)
 	:PlayerState_MoveBase(position,matrix,gameManager){
 
 }

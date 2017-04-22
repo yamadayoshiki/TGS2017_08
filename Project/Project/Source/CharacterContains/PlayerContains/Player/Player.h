@@ -12,7 +12,7 @@ class Player :public Actor
 {
 public:
 	//コンストラクタ
-	Player(IWorld* world,const GSvector2& position,IGameManager* gameManager);
+	Player(const IWorldPtr& world, const GSvector2& position, const IGameManagerPtr& gameManager);
 	//デストラクタ
 	~Player();
 	//更新処理
@@ -24,11 +24,11 @@ public:
 
 private:
 	//ゲーム管理者
-	IGameManager*			p_GameManager;
+	IGameManagerPtr			p_GameManager;
 	//状態管理
 	PlayerStateManager*		mStateManager;
 	//レンダラー
-	Renderer2D*				p_Renderer;
+	Renderer2DPtr				p_Renderer;
 	//回転
 	float angle;
 };

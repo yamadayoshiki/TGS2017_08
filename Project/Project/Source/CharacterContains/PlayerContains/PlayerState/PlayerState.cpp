@@ -1,7 +1,7 @@
 #include"PlayerState.h"
 
 //コンストラクタ
-PlayerState::PlayerState(GSvector2& position,GSmatrix4& matrix, IGameManager* gameManager)
+PlayerState::PlayerState(GSvector2& position,GSmatrix4& matrix, IGameManagerPtr gameManager)
 	:mPosition(position)
 	,mMatrix(matrix)
 	,mVelocity(GSvector2(0.0f,0.0f))

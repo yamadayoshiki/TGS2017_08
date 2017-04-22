@@ -1,21 +1,27 @@
 #include "TestObj.h"
 #include "../Body/OrientedBoundingBox.h"
 #include "../../Map/Map.h"
+#include "../../Base/GameManagerContains/GameManager/GameManager.h"
 
-
-TestObj::TestObj(IWorld * world, const GSvector2 & position,IGameManager* gameManager) :
-	Actor(world, ActorName::Enemy, position,gameManager, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)){
+TestObj::TestObj(const IWorldPtr& world, const GSvector2 & position, const IGameManagerPtr& gameManager)
+	: Actor(
+		world,
+		ActorName::Enemy,
+		position,
+		gameManager,
+		std::make_shared<NullTexture>(),
+		std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
 
 	angle = 0.0f;
 
-	p_Renderer2D = new Renderer2D();
+	p_Renderer2D = p_GameManager->GetRenderer2D();
 	p_Renderer2D->Initialize();
 	p_Renderer2D->LoadTexture("Block5", "Resource/StreamingAssets/Block5.png");
 }
 
 void TestObj::onUpdate(float deltaTime)
-{	
-	
+{
+
 	if (gsGetKeyState(GKEY_LEFT) == GS_TRUE) {
 		m_Position.x -= 0.1f;
 	}
@@ -45,7 +51,7 @@ void TestObj::onDraw() const
 	//Actor::onDraw();
 	glColor3f(1.0f, 1.0f, 1.0f);
 
-	p_Renderer2D->DrawTexture("Block5",m_Position);
+	p_Renderer2D->DrawTexture("Block5", m_Position);
 }
 
 void TestObj::onCollide(Actor &)
@@ -59,5 +65,5 @@ void TestObj::onMessage(EventMessage event, void *)
 
 ActorPtr TestObj::clone(const GSvector2 & position)
 {
-	return std::make_shared<TestObj>(p_World, position,p_GameManager);
+	return std::make_shared<TestObj>(p_World, position, p_GameManager);
 }

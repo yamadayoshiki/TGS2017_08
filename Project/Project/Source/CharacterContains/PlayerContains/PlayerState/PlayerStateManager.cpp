@@ -6,7 +6,7 @@
 PlayerStateManager::PlayerStateManager() {}
 
 //コンストラクタ
-PlayerStateManager::PlayerStateManager(GSvector2 & position,GSmatrix4& matrix, IGameManager* gameManager)
+PlayerStateManager::PlayerStateManager(GSvector2 & position,GSmatrix4& matrix, IGameManagerPtr gameManager)
 {
 	//ステートの追加
 

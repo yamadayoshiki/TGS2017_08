@@ -1,14 +1,20 @@
 #include "Texture_Base.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include "../../Utility/Rederer2D/Renderer2D.h"
 
 //コンストラクタ
 Texture_Base::Texture_Base(
 	const std::string& texName,
-	Renderer2D* renderer)
+	Renderer2DPtr renderer)
 	: m_TexName(texName)
 	, p_Renderer(renderer)
 	, p_Parameter(new Texture2DParameter()) {
+}
+
+//デフォルトコンストラクタ
+Texture_Base::Texture_Base()
+	:Texture_Base("", nullptr) {
 }
 
 //初期化
@@ -28,7 +34,6 @@ void Texture_Base::Draw() {
 //終了処理
 void Texture_Base::Finalize() {
 	delete p_Parameter;
-	delete p_Renderer;
 	OnFinalize();
 }
 

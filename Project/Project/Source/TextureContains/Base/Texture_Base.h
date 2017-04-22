@@ -4,7 +4,7 @@
 #include "../ITexture.h"
 #include <iostream>
 
-#include "../../Utility/Rederer2D/Renderer2D.h"
+#include "../../Utility/Rederer2D/Renderer2DPtr.h"
 #include "../../Utility/Texture2DParameter/Texture2DParameter.h"
 
 class Texture_Base :public ITexture
@@ -13,7 +13,9 @@ public:
 	//コンストラクタ
 	Texture_Base(
 		const std::string& texName,
-		Renderer2D* renderer);
+		Renderer2DPtr renderer);
+	//デフォルトコンストラクタ
+	Texture_Base();
 	//仮想デストラクタ
 	virtual ~Texture_Base() {
 		Finalize();
@@ -28,6 +30,9 @@ public:
 	virtual void Finalize() override;
 	//パラメーターの取得
 	Texture2DParameter* GetParameter();
+	//コピー禁止
+	Texture_Base(const Texture_Base& other) = delete;
+	Texture_Base& operator = (const Texture_Base& other) = delete;
 
 protected:
 	//各種固有の初期化
@@ -37,7 +42,7 @@ protected:
 
 protected:
 	std::string m_TexName;				//登録名
-	Renderer2D* p_Renderer;				//レンダラー
+	Renderer2DPtr p_Renderer;			//レンダラー
 	Texture2DParameter* p_Parameter;	//パラメーター
 };
 

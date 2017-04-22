@@ -5,8 +5,7 @@
 // コンストラクタ
 StateMgr::StateMgr()
 	: mCurrentState(std::make_shared<State_Dammy>())
-	, m_CurrentID(0)
-{
+	, m_CurrentID(0){
 }
 
 // 更新処理
