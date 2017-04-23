@@ -2,15 +2,12 @@
 
 #include "../Body/OrientedBoundingBox.h"
 
-TestEnemy::TestEnemy(const IWorldPtr& world, const GSvector2 & position, const IGameManagerPtr& gameManager)
-	: Actor(
-		world,
-		ActorName::Enemy,
-		position,
-		gameManager,
-		std::make_shared<NullTexture>(),
-		std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
+TestEnemy::TestEnemy(IWorld * world, const GSvector2 & position) :
+	Actor(world, ActorName::Enemy, position, std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
 	angle = 0.0f;
+
+	gsLoadTexture(1, "Resource/Texture/wall.png");
+
 }
 
 void TestEnemy::onUpdate(float deltaTime)
@@ -25,9 +22,8 @@ void TestEnemy::onUpdate(float deltaTime)
 
 void TestEnemy::onDraw() const
 {
-	glDisable(GL_LIGHTING);
-	Actor::onDraw();
-	glColor3f(1.0f, 1.0f, 1.0f);
+	gsDrawSprite2D(1, &m_Position, NULL, NULL, NULL, NULL, NULL);
+
 }
 
 void TestEnemy::onCollide(Actor &)
@@ -38,4 +34,9 @@ void TestEnemy::onCollide(Actor &)
 
 void TestEnemy::onMessage(EventMessage event, void *)
 {
+}
+
+ActorPtr TestEnemy::clone(const GSvector2 & position)
+{
+	return std::make_shared<TestEnemy>(p_World, position);
 }

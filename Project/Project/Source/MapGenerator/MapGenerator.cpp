@@ -3,28 +3,25 @@
 #include "../FileReader/CsvReader.h"
 #include "../ActorContains/ActorGroup.h"
 #include "../ActorContains/Object/TestObj.h"
+#include"../ActorContains/Object/TestEnemy.h"
 #include "../Map/Map.h"
 #include <GSvector2.h>
 #include <iostream>
 #include <memory>
 
 //コンストラクタ
-MapGenerator::MapGenerator(
-	const IWorldPtr& world,
-	const std::string& file_name,
-	const IGameManagerPtr& gameManager)
-	: p_World(world)
-	, p_GameManager(gameManager) {
-	load(file_name);
+MapGenerator::MapGenerator(IWorld* world/*, const std::string& file_name*/) : 
+	p_World(world){
+	//load(file_name);
 
-	// アクターの登録
-	registActor();
+	//// アクターの登録
+	//registActor();
 
-	// アクターの生成
-	generate();
+	//// アクターの生成
+	//generate();
 }
 
-void MapGenerator::load(const std::string& file_name) {
+void MapGenerator::load(const std::string& file_name){
 	// ファイルの読み込み
 	CsvReader file = CsvReader(file_name);
 
@@ -44,14 +41,15 @@ void MapGenerator::load(const std::string& file_name) {
 }
 
 // 生成するアクターの登録
-void MapGenerator::registActor() {
+void MapGenerator::registActor(){
 	// 親と子を指定
-	m_Actors[1] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>(p_World, GSvector2{ 0.0f, 0.0f },p_GameManager) };
-	m_Actors[2] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>(p_World, GSvector2{ 0.0f, 0.0f },p_GameManager) };
+	//m_Actors[0] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>(p_World, GSvector2{ 0.0f, 0.0f }) };
+	m_Actors[1] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>(p_World, GSvector2{ 0.0f, 0.0f }) };
+	m_Actors[2] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestEnemy>(p_World, GSvector2{ 0.0f, 0.0f }) };
 }
 
 // 生成する地形の登録
-void MapGenerator::registMap(Map & map) {
+void MapGenerator::registMap(Map & map){
 	//// 行のループ
 	//for (int i = 0; i < m_CsvData.size(); i++) {
 	//	std::vector<int> tmp;
