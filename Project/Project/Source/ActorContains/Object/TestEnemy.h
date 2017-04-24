@@ -7,9 +7,7 @@
 // “G
 class TestEnemy : public Actor {
 public:
-	TestEnemy(const IWorldPtr& world,
-		const GSvector2&  position,
-		const IGameManagerPtr& gameManagger);
+	TestEnemy(const IWorldPtr& world, const GSvector2&  position,const IGameManagerPtr& gameManager);
 
 	virtual void onUpdate(float deltaTime) override;
 	virtual void onDraw() const override;
@@ -20,4 +18,6 @@ public:
 
 private:
 	float angle;
+	
+	
 };

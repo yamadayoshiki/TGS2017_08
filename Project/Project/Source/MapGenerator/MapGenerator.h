@@ -1,9 +1,10 @@
 #ifndef MAP_GENERATOR_H_
 #define MAP_GENERATOR_H_
 
-#include "../WorldContains/IWorldPtr.h"
 #include "../ActorContains/ActorPtr.h"
 #include "../Map/Map.h"
+#include"../WorldContains/IWorldPtr.h"
+#include "../Base/GameManagerContains/IGameManagerPtr.h"
 
 #include <string>
 #include <map>
@@ -23,7 +24,7 @@ class MapGenerator
 
 public:
 	//コンストラクタ
-	MapGenerator(const IWorldPtr& world/*, const std::string& file_name*/);
+	MapGenerator(const IWorldPtr world/*, const std::string& file_name*/);
 	// マップのロード
 	void load(const std::string& file_name);
 	// 生成するアクターの登録
@@ -41,6 +42,8 @@ private:
 	std::vector<std::vector<int>> m_CsvData;
 	// マップデータ
 	Map m_Map;
+
+	IGameManagerPtr p_GameManager;
 };
 
 #endif // !MAP_GENERATOR_H_
