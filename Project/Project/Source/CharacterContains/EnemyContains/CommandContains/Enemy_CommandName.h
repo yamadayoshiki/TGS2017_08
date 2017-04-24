@@ -8,6 +8,9 @@ enum class Enemy_CommandName
 	Idle,					//~‚Ü‚é
 	Approach_FixedDistance,	//ˆê’è‹——£‚Ü‚Å‹ß‚Ã‚­
 	Leave_FixedDistance,	//ˆê’è‹——£ˆÈã—£‚ê‚é
+	Translation,			//•½sˆÚ“®
+	Rotation,				//‰ñ“]
+	Chase,					//’Ç‚¢‚©‚¯‚é
 
 	//UŒ‚
 	Rush,					//“ËŒ‚‚·‚é

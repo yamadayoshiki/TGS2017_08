@@ -1,6 +1,7 @@
 #ifndef MAP_GENERATOR_H_
 #define MAP_GENERATOR_H_
 
+#include "../WorldContains/IWorldPtr.h"
 #include "../ActorContains/ActorPtr.h"
 #include "../Map/Map.h"
 
@@ -22,7 +23,7 @@ class MapGenerator
 
 public:
 	//コンストラクタ
-	MapGenerator(IWorld* world/*, const std::string& file_name*/);
+	MapGenerator(const IWorldPtr& world/*, const std::string& file_name*/);
 	// マップのロード
 	void load(const std::string& file_name);
 	// 生成するアクターの登録
@@ -33,7 +34,7 @@ public:
 	void generate();
 private:
 	//ワールド
-	IWorld* p_World;
+	IWorldPtr p_World;
 	// アクター登録用map
 	std::map<int, ActorData> m_Actors;
 	// csvデータ

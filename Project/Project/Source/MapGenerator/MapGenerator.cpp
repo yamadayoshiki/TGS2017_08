@@ -10,7 +10,7 @@
 #include <memory>
 
 //コンストラクタ
-MapGenerator::MapGenerator(IWorld* world/*, const std::string& file_name*/) : 
+MapGenerator::MapGenerator(const IWorldPtr& world/*, const std::string& file_name*/) : 
 	p_World(world){
 	//load(file_name);
 
@@ -44,8 +44,8 @@ void MapGenerator::load(const std::string& file_name){
 void MapGenerator::registActor(){
 	// 親と子を指定
 	//m_Actors[0] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>(p_World, GSvector2{ 0.0f, 0.0f }) };
-	m_Actors[1] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>(p_World, GSvector2{ 0.0f, 0.0f }) };
-	m_Actors[2] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestEnemy>(p_World, GSvector2{ 0.0f, 0.0f }) };
+	m_Actors[1] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>(p_World, GSvector2{ 0.0f, 0.0f },nullptr) };
+	m_Actors[2] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestEnemy>(p_World, GSvector2{ 0.0f, 0.0f },nullptr) };
 }
 
 // 生成する地形の登録

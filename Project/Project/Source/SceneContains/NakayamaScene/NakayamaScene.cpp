@@ -17,7 +17,7 @@ void NakayamaScene::OnStart()
 {
 	p_World = std::make_shared<World>();
 
-	MapGenerator generator(p_World, "Resource/StreamingAssets/stage1.csv",p_GameManager);
+	//MapGenerator generator(p_World, "Resource/StreamingAssets/stage1.csv",p_GameManager);
 	//generator.registMap(p_World->GetMap());
 }
 

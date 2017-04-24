@@ -13,10 +13,13 @@ public:
 	//コンストラクタ
 	AnimationTexture(
 		const std::string& texName,
-		Renderer2DPtr renderer,
+		const Renderer2DPtr& renderer,
 		Animation* animation);
 	//更新
 	virtual void Update(float deltaTime) override;
+	//ループ回数の取得
+	unsigned int GetLoopCount();
+
 
 protected:
 	//各種固有の初期化

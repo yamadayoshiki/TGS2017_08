@@ -7,7 +7,9 @@
 // “G
 class TestEnemy : public Actor {
 public:
-	TestEnemy(IWorld* world, const GSvector2&  position);
+	TestEnemy(const IWorldPtr& world,
+		const GSvector2&  position,
+		const IGameManagerPtr& gameManagger);
 
 	virtual void onUpdate(float deltaTime) override;
 	virtual void onDraw() const override;

@@ -3,18 +3,18 @@
 
 enum class ActorName
 {
+	/* プレイヤーグループ */
 	Player = 0,			//プレイヤー
 
-	Enemy_AutoAttack,	//
-	Enemy_Bomb,			//
-	Enemy_Boomerang,	//
-	Enemy_Electric,		//
-	Enemy_Ice,			//
-	Enemy_Leak,			//
-	Enemy_Split,		//
+	/* エネミーグループ */
+	Enemy_01,			//横から挟めないやつ
+	Enemy_02,			//回転しながら打つやつ
+	Enemy_03,			//ストーカー
 
+	/* ニュートラルグループ */
 	Neutral_Explosion,	//爆発
 
+	/* テスト用 */
 	EnemyManager,
 	Enemy,
 	None,

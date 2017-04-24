@@ -3,6 +3,10 @@
 
 #include "../../../../ActorContains/Actor/Actor.h"
 
+//先行宣言
+class Enemy_StateManager;
+
+//エネミー基底クラス
 class Enemy_Base :public Actor
 {
 public:
@@ -12,6 +16,7 @@ public:
 		const ActorName& name,
 		const GSvector2& position,
 		const IGameManagerPtr& gameManager,
+		const ITexturePtr& texture,
 		const IBodyPtr& body = std::make_shared<DammyBody>()
 		);
 	//仮想デストラクタ
@@ -26,6 +31,6 @@ protected:
 	virtual void onCollide(Actor& other) override;
 
 protected:
-
+	Enemy_StateManager* p_Enemy_StateManager;	//ステートマネージャー
 };
 #endif // !ENEMY_H_
