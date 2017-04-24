@@ -1,13 +1,13 @@
-#ifndef PLAYERSTATE_A_IDOL_H_
-#define PLAYERSTATE_A_IDOL_H_
+#ifndef PLAYERSTATE_O_IDOL_H_
+#define PLAYERSTATE_O_IDOL_H_
 
-#include"PlayerState_A_MoveBase.h"
+#include"PlayerState_O_MoveBase.h"
 
-class PlayerState_A_Idol:public PlayerState_A_MoveBase
+class PlayerState_O_Idol:public PlayerState_O_MoveBase
 {
 public:
 	//コンストラクタ
-	PlayerState_A_Idol(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager);
+	PlayerState_O_Idol(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void onUniqueInit(Actor& actor)override;
 	//更新処理

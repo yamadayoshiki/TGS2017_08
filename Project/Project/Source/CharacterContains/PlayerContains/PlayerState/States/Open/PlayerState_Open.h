@@ -1,14 +1,14 @@
-#ifndef PLAYERSTATE_AWAKE_H_
-#define PLAYERSTATE_AWAKE_H_
+#ifndef PLAYERSTATE_OPEN_H_
+#define PLAYERSTATE_OPEN_H_
 
 #include"../../PlayerState.h"
 
 //アーム解放
-class PlayerState_Awake:public  PlayerState
+class PlayerState_Open:public  PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_Awake(GSvector2& positon,GSmatrix4& matrix,IGameManagerPtr gameManager);
+	PlayerState_Open(GSvector2& positon,GSmatrix4& matrix,IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void unique_init(Actor& actor)override;
 	//更新処理

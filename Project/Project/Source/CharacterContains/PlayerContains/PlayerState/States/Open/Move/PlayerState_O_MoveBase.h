@@ -1,13 +1,13 @@
-#ifndef PLAYERSTATE_A_MOVEBASE_H_
-#define PLAYERSTATE_A_MOVEBASE_H_
+#ifndef PLAYERSTATE_0_MOVEBASE_H_
+#define PLAYERSTATE_0_MOVEBASE_H_
 
 #include"../../../PlayerState.h"
 
-class PlayerState_A_MoveBase:public PlayerState
+class PlayerState_O_MoveBase:public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_A_MoveBase(GSvector2& position,GSmatrix4& matirx,IGameManagerPtr gameManager);
+	PlayerState_O_MoveBase(GSvector2& position,GSmatrix4& matirx, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void unique_init(Actor& actor)override;
 	//更新処理

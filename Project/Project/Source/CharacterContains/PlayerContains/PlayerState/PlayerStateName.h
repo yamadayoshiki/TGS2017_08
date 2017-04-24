@@ -7,19 +7,25 @@ enum class PlayerStateName
 	Idol,		//静止状態
 	Walk,		//移動状態(歩く)
 	Run,		//移動状態(走る)
-	Open,		//アームを開いてる状態
 	Closed,		//アームを閉めている状態
-	Rounds,		//はさんでいる状態
-	Crush,		//潰す状態
-	Throw,		//投げる状態
-	Damage,		//ダメージ状態
-	Dead,		//死に
 				
 	//アームが開いている状態
-	A_Idol,			//静止状態
-	A_Walk,			//移動状態(歩く)
-	A_Run,			//移動状態(走る)
+	Open,		//アームを開いてる状態
+	O_Idol,			//静止状態
+	O_Walk,			//移動状態(歩く)
+	O_Run,			//移動状態(走る)
 
+	//何か挟んでいる状態
+	Rounds,		//はさんでいる状態
+	R_Idol,		//静止状態
+	R_Walk,		//移動状態(歩く)
+	R_Run,		//移動状態(走る)
+	Crush,		//潰す状態
+	Throw,		//投げる状態
+
+	//共通
+	Damage,		//ダメージ状態
+	Dead,		//死に
 	None		//ダミー
 };
 #endif // !PLAYER_STATE_NAME

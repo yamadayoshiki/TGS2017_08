@@ -9,10 +9,12 @@
 #include"States/Normal/Move/PlayerState_Walk.h"
 
 //ƒA[ƒ€‚ªŠJ‚¢‚Ä‚¢‚éó‘Ô
-#include"States\Awake\PlayerState_Awake.h"
-#include"States\Awake\Move\PlayerState_A_Idol.h"
-#include"States\Awake\Move\PlayerState_A_Walk.h"
-#include"States\Awake\Move\PlayerState_A_Run.h"
+#include"States\Open\PlayerState_Open.h"
+#include"States\Open\Move\PlayerState_O_Idol.h"
+#include"States\Open\Move\PlayerState_O_Walk.h"
+#include"States\Open\Move\PlayerState_O_Run.h"
 
+//‹¤’Ê
+#include"States\Normal\PlayerState_Damage.h"
 
 #endif // !PLAYERSTATE_PATH_H_

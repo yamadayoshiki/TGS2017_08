@@ -16,6 +16,7 @@ Player::Player(const IWorldPtr& world, const GSvector2& position, const IGameMan
 		std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY))
 	, mStateManager(new PlayerStateManager(m_Position, m_Matrix, gameManager))
 	, angle(0.0f)
+	, child(new Arm(p_World, m_Position, m_Matrix, p_GameManager))
 {
 	p_Renderer = gameManager->GetRenderer2D();
 	mStateManager->change(*this, PlayerStateName::Idol);
@@ -23,6 +24,7 @@ Player::Player(const IWorldPtr& world, const GSvector2& position, const IGameMan
 //デストラクタ
 Player::~Player() {
 	delete mStateManager;
+	//delete child;
 }
 //更新処理
 void Player::onUpdate(float deltaTime)
@@ -32,15 +34,17 @@ void Player::onUpdate(float deltaTime)
 	//行動制限
 	m_Position = m_Position.clamp(GSvector2(0.0f, 0.0f), GSvector2(960, 704));
 
-	//m_Matrix.setRotationZ(angle);
+	child->setMatrix(m_Matrix);
+	child->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
 
+	//m_Matrix.setRotationZ(angle);
 }
 //描画処理
 void Player::onDraw()const
 {
-	//Actor::onDraw();
 	m_Body->transform(getPose())->draw();
 	p_Renderer->DrawTexture("Player", m_Position);
+	child->onDraw();
 }
 //衝突判定
 void Player::onCollide(Actor& other)

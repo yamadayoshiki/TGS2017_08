@@ -4,6 +4,8 @@
 #include"../../../ActorContains/Actor/Actor.h"
 #include"../PlayerState/PlayerStateManager.h"
 #include"../../../WorldContains/IWorld.h"
+#include"../Arm/Arm.h"
+
 #include<memory>
 
 class Renderer2D;
@@ -28,8 +30,10 @@ private:
 	//ó‘ÔŠÇ—
 	PlayerStateManager*		mStateManager;
 	//ƒŒƒ“ƒ_ƒ‰[
-	Renderer2DPtr				p_Renderer;
+	Renderer2DPtr			p_Renderer;
 	//‰ñ“]
-	float angle;
+	float					angle;
+	//q
+	Arm*					child;
 };
 #endif // !PLAYER_H_
