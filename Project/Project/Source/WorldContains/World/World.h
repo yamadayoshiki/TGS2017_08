@@ -5,6 +5,7 @@
 #include "../../ActorContains/ActorManager/ActorManager.h"
 #include "../../ActorContains/ActorPtr.h"
 #include"../../Map/Map.h"
+#include"../../MapGenerator/MapGenerator.h"
 enum class EventMessage;
 
 // ワールドクラス
@@ -19,6 +20,8 @@ public:
 	void draw() const;
 	// 描画
 	void Draw() const;
+	//生成
+	void generate();
 	//終了処理
 	void Finalize() override;
 	// メッセージ処理  
@@ -33,6 +36,8 @@ public:
 	virtual void sendMessage(EventMessage message, void* param = nullptr) override;
 	////マップの取得
 	//Map& GetMap() override;
+	//マップジェネレーターの設定
+	void setMapGenerator(MapGenerator* mapGenerator);
 	// コピー禁止  
 	World(const World& other) = delete;
 	World& operator = (const World& other) = delete;
@@ -41,8 +46,8 @@ private:
 	// アクターマネージャー
 	ActorManager* p_Actors;
 	// マップデータ
-	//Map& map;
-	
-	
+	Map& m_Map;
+	//マップジェネレータ
+	MapGenerator* p_MapGenerator;
 };
 #endif

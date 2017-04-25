@@ -8,9 +8,8 @@ class GameTitle : public Scene
 {
 public:
 	// コンストラクタ    
-	GameTitle(const IGameManagerPtr& gameManager);
-	// デフォルトコンストラクタ
-	GameTitle();
+	GameTitle(const IGameManagerPtr& gameManager, const WorldPtr& world);
+	
 	// 描画     
 	virtual void Draw() const override;
 	// 次のシーンを返す     

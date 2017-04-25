@@ -4,14 +4,16 @@
 #include "../IScene.h"
 #include "../../Base/GameManagerContains/IGameManagerPtr.h"
 
+class World;
+
+using WorldPtr = std::shared_ptr<World>;
+
 //シーンインターフェイス
 class Scene :public IScene
 {
 public:
 	//コンストラクタ
-	Scene(const IGameManagerPtr& gameManager);
-	//デフォルトコンストラクタ
-	Scene();
+	Scene(const IGameManagerPtr& gameManager,const WorldPtr& world);
 	// 仮想デストラクタ     
 	virtual ~Scene();
 	// 開始     
@@ -38,6 +40,8 @@ protected:
 protected:
 	bool m_IsEnd;					//終了フラグ
 	IGameManagerPtr p_GameManager;	//ゲームマネージャー
+	
+	WorldPtr p_World;
 };
 
 #endif // !SCENE_H_

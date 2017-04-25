@@ -8,23 +8,24 @@
 
 
 // コンストラクタ    
-NakayamaScene::NakayamaScene()
-{
+NakayamaScene::NakayamaScene(const IGameManagerPtr& gameManager, const WorldPtr& world)
+	:Scene(gameManager, world) {
 }
 
 // 開始     
 void NakayamaScene::OnStart()
 {
-	p_World = std::make_shared<World>();
-
-	MapGenerator generator = MapGenerator(p_World/*, "Resource/StreamingAssets/stage1.csv", p_GameManager*/);
+	MapGenerator* generator = new MapGenerator(p_World/*, "Resource/StreamingAssets/stage1.csv"*/, p_GameManager);
 	//generator.registMap(p_World->GetMap());
+	p_World->setMapGenerator(generator);
+	p_World->generate();
 }
 
 // 更新     
 void NakayamaScene::OnUpdate(float deltaTime)
 {
 	p_World->update(deltaTime);
+
 }
 
 // 描画     
@@ -44,5 +45,4 @@ SceneName NakayamaScene::Next() const
 // 終了     
 void NakayamaScene::End()
 {
-	p_World = nullptr;
 }

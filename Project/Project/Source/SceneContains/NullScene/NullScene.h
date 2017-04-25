@@ -7,10 +7,10 @@
 class NullScene : public Scene
 {
 public:
-	// コンストラクタ
+	// デフォルトコンストラクタ
 	NullScene();
-	//デフォルトコンストラクタ
-	NullScene(const IGameManagerPtr& gameManager);
+	//コンストラクタ
+	NullScene(const IGameManagerPtr& gameManager, const WorldPtr& world);
 	// 描画     
 	virtual void Draw() const override;
 	// 次のシーンを返す     

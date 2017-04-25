@@ -15,6 +15,8 @@
 #include"../../SceneContains/NaganoScene/NaganoScene.h"
 #include"../../SceneContains/NakayamaScene/NakayamaScene.h"
 #include "../../Define/Def_Nagano.h"
+#include"../../WorldContains/World/World.h"
+
 
 //コンストラクタ
 GameFrame::GameFrame()
@@ -38,11 +40,15 @@ GameFrame::~GameFrame() {
 //初期化
 void GameFrame::start()
 {
+	
+	using WorldPtr = std::shared_ptr<World>;
+	WorldPtr p_World;
+	p_World = std::make_shared<World>();
 	//シーンの追加
-	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>(p_GameManager));
-	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager));
-	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>());
-	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>());
+	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>(p_GameManager,p_World));
+	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager, p_World));
+	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>(p_GameManager, p_World));
+	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>(p_GameManager, p_World));
 
 	//初期シーンの設定
 	m_SceneManager.Change(SceneName::GamePlay);
