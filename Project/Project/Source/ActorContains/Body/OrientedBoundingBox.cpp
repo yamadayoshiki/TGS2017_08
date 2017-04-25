@@ -22,8 +22,8 @@ OrientedBoundingBox::OrientedBoundingBox(const GSvector2 & position, const GSvec
 	Body(ShapeType::OBB, position, extents, matrix){
 	mAxis[0] = GSvector2(1.0f, 0.0f);
 	mAxis[1] = GSvector2(0.0f, 1.0f);
-	gsLoadTexture(0, "Resource/Texture/wall.png");
-	size = GSvector2(gsTextureGetWidth(gsGetTexture(0)), gsTextureGetHeight(gsGetTexture(0)));
+	gsLoadTexture(1000, "Resource/Texture/wall.png");
+	size = GSvector2(gsTextureGetWidth(gsGetTexture(1000)), gsTextureGetHeight(gsGetTexture(1000)));
 }
 
 //OBBÇÃîªíËÇçÏê¨(aabbÇóòóp)
@@ -185,5 +185,5 @@ void OrientedBoundingBox::draw() const{
 	// âÒì]äpìx
 	GSvector3 angle = GSvector3(mMatrix.getRoll(), mMatrix.getPitch(), mMatrix.getYaw());
 	// ï`âÊ
-	gsDrawSprite2D(0, &mPosition, &GSrect(0, 0, size.x, size.y), &GSvector2(CHIP_SIZE / 2, CHIP_SIZE / 2), NULL, &mExtents, 90 + mMatrix.getRoll());
+	gsDrawSprite2D(1000, &mPosition, &GSrect(0, 0, size.x, size.y), &GSvector2(CHIP_SIZE / 2, CHIP_SIZE / 2), NULL, &mExtents, 90 - mMatrix.getRoll());
 }

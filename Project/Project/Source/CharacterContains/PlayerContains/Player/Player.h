@@ -4,8 +4,7 @@
 #include"../../../ActorContains/Actor/Actor.h"
 #include"../PlayerState/PlayerStateManager.h"
 #include"../../../WorldContains/IWorld.h"
-#include"../Arm/Arm.h"
-
+#include"../Arm/ArmPtr.h"
 #include<memory>
 
 class Renderer2D;
@@ -17,6 +16,8 @@ public:
 	Player(const IWorldPtr& world, const GSvector2& position, const IGameManagerPtr& gameManager);
 	//デストラクタ
 	~Player();
+	//
+	virtual void initialize()override;
 	//更新処理
 	virtual void onUpdate(float deltaTime)override;
 	//描画処理
@@ -34,6 +35,6 @@ private:
 	//回転
 	float					angle;
 	//子
-	Arm*					child;
+	ArmPtr				child;
 };
 #endif // !PLAYER_H_

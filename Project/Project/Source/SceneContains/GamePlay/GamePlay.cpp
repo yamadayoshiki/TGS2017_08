@@ -6,6 +6,7 @@
 #include "../../WorldContains/World/World.h"
 #include"../../ActorContains/ActorGroup.h"
 #include"../../CharacterContains/PlayerContains/Player/Player.h"
+#include"../../ActorContains/Object/TestEnemy.h"
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
@@ -23,6 +24,7 @@ void GamePlay::OnStart()
 	p_World = std::make_shared<World>();
 
 	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World, GSvector2(0.0f, 0.0f), p_GameManager));
+	p_World->addActor(ActorGroup::Enemy, std::make_shared<TestEnemy>(p_World, GSvector2(100.0f, 300.0f), p_GameManager));
 }
 
 // 更新     

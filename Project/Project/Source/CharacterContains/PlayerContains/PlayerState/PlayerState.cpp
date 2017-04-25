@@ -1,7 +1,7 @@
 #include"PlayerState.h"
-
 #include <algorithm>
 #include<GSmath.h>
+
 
 //コンストラクタ
 PlayerState::PlayerState(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager)
@@ -50,4 +50,11 @@ void PlayerState::move(Actor& actor, float deltaTime, float speed)
 		//座標移動
 		mPosition += p_Input->PadVelocity() * speed;
 	}
+
+}
+
+//アームの取得
+void PlayerState::getArm(Actor& actor)
+{
+	p_Arm = std::dynamic_pointer_cast<ArmPtr>(actor.findChildren(ActorName::Player_Arm));
 }

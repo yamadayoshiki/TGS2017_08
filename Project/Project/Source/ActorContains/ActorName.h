@@ -5,6 +5,7 @@ enum class ActorName
 {
 	/* プレイヤーグループ */
 	Player = 0,			//プレイヤー
+	Player_Arm,			//アーム
 
 	/* エネミーグループ */
 	Enemy_01,			//横から挟めないやつ

@@ -37,6 +37,8 @@ public:
 	explicit Actor(const ActorName& name = ActorName::None);
 	//仮想デストラクタ
 	virtual ~Actor();
+	//初期化
+	virtual void initialize();
 	//更新
 	void update(float deltaTime);
 	//描画

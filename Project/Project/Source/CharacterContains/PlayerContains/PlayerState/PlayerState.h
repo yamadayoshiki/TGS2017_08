@@ -4,6 +4,8 @@
 #include"../../../ActorContains/State/Base/State.h"
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/InputState/InputState.h"
+#include"../Arm/Arm.h"
+#include"../Arm/ArmPtr.h"
 
 
 // 各プレイヤーステートの基底クラス
@@ -20,6 +22,8 @@ protected:
 	//void motion_change(Actor& actor, const PlayerStateID);
 	//移動処理
 	void move(Actor& actor, float deltaTime, float speed = 1.0f);
+	//アームの取得
+	void getArm(Actor& actor);
 
 protected:
 	//座標の参照
@@ -34,6 +38,8 @@ protected:
 	IGameManagerPtr		p_GameManager;
 	//InoutState
 	InputStatePtr		p_Input;
+	//
+	ArmPtr				p_Arm;
 };
 
 #endif // !PLAYER_STATE_H_

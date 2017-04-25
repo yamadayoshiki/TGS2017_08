@@ -18,7 +18,7 @@ void PlayerState_MoveBase::update(Actor& actor, float deltaTaime)
 	if (p_Input->IsPadState(GS_XBOX_PAD_A)) {
 		change(PlayerStateName::Run);
 	}
-	else if (p_Input->PadVelocity().length() <= 1.0f) {
+	else if (p_Input->PadVelocity().length() >= 0.5f) {
 		change(PlayerStateName::Walk);
 	}
 	else if (p_Input->PadVelocity().length() <= 0.0f) {

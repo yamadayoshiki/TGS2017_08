@@ -18,4 +18,4 @@ public:
 	//I—¹ˆ—
 	virtual void end()override;
 };
-#endif // !PLAYERSTATE_AWAKE_H_
+#endif // !PLAYERSTATE_OPEN_H_

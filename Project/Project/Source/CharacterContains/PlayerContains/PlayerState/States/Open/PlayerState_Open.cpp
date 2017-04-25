@@ -1,4 +1,5 @@
 #include"PlayerState_Open.h"
+#include"../../PlayerStateName.h"
 
 //コンストラクタ
 PlayerState_Open::PlayerState_Open(GSvector2& position,GSmatrix4& matrix,IGameManagerPtr gameManager)
@@ -16,7 +17,7 @@ void PlayerState_Open::unique_init(Actor& actor)
 //更新処理
 void PlayerState_Open::update(Actor& actor, float deltaTaime)
 {
-
+	change(PlayerStateName::O_Idol);
 }
 
 //衝突判定

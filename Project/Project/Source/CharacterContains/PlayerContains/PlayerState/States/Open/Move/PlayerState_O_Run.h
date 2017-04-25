@@ -19,4 +19,4 @@ public:
 	//“ü—Íˆ—
 	virtual void onInput() override {}
 };
-#endif // !PLAYERSTATE_A_RUN_H_
+#endif // !PLAYERSTATE_O_RUN_H_

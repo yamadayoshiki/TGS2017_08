@@ -20,5 +20,5 @@ public:
 	virtual void onInput() override {}
 
 };
-#endif // !PLAYERSTATE_A_WALK_H_
+#endif // !PLAYERSTATE_O_WALK_H_
 

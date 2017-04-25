@@ -39,6 +39,11 @@ Actor::Actor(const ActorName& name)
 Actor::~Actor() {
 }
 
+//初期化
+void Actor::initialize()
+{
+
+}
 //更新
 void Actor::update(float deltaTime)
 {
@@ -95,7 +100,7 @@ GSmatrix4 Actor::getMatrix() const {
 
 //ポーズの取得
 GSmatrix4 Actor::getPose() const {
-	return GSmatrix4(m_Matrix).setPosition(m_Position);
+	return GSmatrix4(m_Matrix).translate(m_Position);
 }
 
 //回転を取得

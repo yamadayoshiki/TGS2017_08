@@ -4,6 +4,7 @@
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include"../PlayerState/PlayerStateName.h"
+#include"../Arm/Arm.h"
 
 //コンストラクタ
 Player::Player(const IWorldPtr& world, const GSvector2& position, const IGameManagerPtr& gameManager)
@@ -13,18 +14,21 @@ Player::Player(const IWorldPtr& world, const GSvector2& position, const IGameMan
 		position,
 		gameManager,
 		std::make_shared<NullTexture>(),
-		std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY))
+		std::make_shared<OrientedBoundingBox>(GSvector2{ 32.0f, 32.0f }, GSvector2{ 2.0f, 2.0f }, GS_MATRIX4_IDENTITY))
 	, mStateManager(new PlayerStateManager(m_Position, m_Matrix, gameManager))
 	, angle(0.0f)
-	, child(new Arm(p_World, m_Position, m_Matrix, p_GameManager))
 {
 	p_Renderer = gameManager->GetRenderer2D();
 	mStateManager->change(*this, PlayerStateName::Idol);
+	
 }
 //デストラクタ
 Player::~Player() {
 	delete mStateManager;
-	//delete child;
+}
+void Player::initialize()
+{
+	addChild(std::make_shared<Arm>(p_World, m_Position, m_Matrix, p_GameManager));
 }
 //更新処理
 void Player::onUpdate(float deltaTime)
@@ -36,8 +40,6 @@ void Player::onUpdate(float deltaTime)
 
 	child->setMatrix(m_Matrix);
 	child->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
-
-	//m_Matrix.setRotationZ(angle);
 }
 //描画処理
 void Player::onDraw()const
@@ -51,5 +53,6 @@ void Player::onCollide(Actor& other)
 {
 	//状態ごとの衝突判定
 	mStateManager->collide(*this, other);
+	//dynamic_cast<Arm*>(child.get())->onCollide(other);
 }
 

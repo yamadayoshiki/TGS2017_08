@@ -31,5 +31,5 @@ protected:
 	// “ü—Íˆ—
 	virtual void onInput() = 0;
 };
-#endif // !PLAYERSTATE_A_MOVEBASE_H_
+#endif // !PLAYERSTATE_O_MOVEBASE_H_
 

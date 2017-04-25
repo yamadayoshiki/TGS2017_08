@@ -8,6 +8,9 @@ PlayerState_O_MoveBase::PlayerState_O_MoveBase(GSvector2& position,GSmatrix4& ma
 //各状態独自の初期化
 void PlayerState_O_MoveBase::unique_init(Actor& actor)
 {
+	//アームの取得
+	getArm(actor);
+
 	// 継承先の各状態独自の初期化
 	onUniqueInit(actor);
 }
@@ -16,13 +19,13 @@ void PlayerState_O_MoveBase::update(Actor& actor, float deltaTaime)
 {
 	//移動の入力状態によって状態を変更(待機、歩く)
 	if (p_Input->IsPadState(GS_XBOX_PAD_A)) {
-		change(PlayerStateName::Run);
+		change(PlayerStateName::O_Run);
 	}
-	else if (p_Input->PadVelocity().length() <= 1.0f) {
-		change(PlayerStateName::Walk);
+	else if (p_Input->PadVelocity().length() >= 0.5f) {
+		change(PlayerStateName::O_Walk);
 	}
 	else if (p_Input->PadVelocity().length() <= 0.0f) {
-		change(PlayerStateName::Idol);
+		change(PlayerStateName::O_Idol);
 	}
 
 	//継承先の更新処理

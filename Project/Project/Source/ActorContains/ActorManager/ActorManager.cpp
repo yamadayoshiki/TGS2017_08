@@ -37,6 +37,7 @@ void ActorManager::draw() const
 void ActorManager::addActor(ActorGroup group, const ActorPtr& actor)
 {
 	m_actors[group]->addChild(actor);
+	actor->initialize();
 }
 
 // アクターの検索 
