@@ -39,9 +39,6 @@
     <ClInclude Include="Source\Base\GameManager\GameManager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\FileReader\CsvReader.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -366,6 +363,39 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Approach_FixedDistance\Enemy_Command_Approach_FixedDistance.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\Lists\AstarOpenList.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\Lists\DijkstraOpenList.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\Lists\RangeOpenList.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\Node\Node.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\Node\NodeGrid.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\Node\NodePriorityQueue.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\Node\NodePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\Node\PriorityQueue.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\PathFinder.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\PathFinder\Point2.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FileReader\CsvReader.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -381,9 +411,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\FileReader\CsvReader.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp">
@@ -591,6 +618,33 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Approach_FixedDistance\Enemy_Command_Approach_FixedDistance.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\PathFinder\Lists\AstarOpenList.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\PathFinder\Lists\DijkstraOpenList.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\PathFinder\Lists\RangeOpenList.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\PathFinder\Node\Node.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\PathFinder\Node\NodeGrid.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\PathFinder\Node\NodePriorityQueue.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\PathFinder\PathFinder.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\PathFinder\Point2.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FileReader\CsvReader.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

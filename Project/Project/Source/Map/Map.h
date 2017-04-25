@@ -6,6 +6,9 @@
 #include<iostream>
 #include <vector>
 
+//グリッド座標
+class Point2;
+
 class Map
 {
 
@@ -24,6 +27,15 @@ public:
 	void Collide();
 	//マップの取得
 	std::vector<std::vector<int>> getmap();
+
+	//神保
+public:
+	// データの取得
+	int operator [] (const Point2& position) const;
+	// 幅の取得
+	int Width() const;
+	// 高さの取得
+	int Height() const;
 	
 private:
 	Renderer2DPtr p_Renderer2D;
