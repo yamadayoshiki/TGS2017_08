@@ -10,7 +10,6 @@ enum class Enemy_CommandName
 	Leave_FixedDistance,	//ˆê’è‹——£ˆÈã—£‚ê‚é
 	Translation,			//•½sˆÚ“®
 	Rotation,				//‰ñ“]
-	Chase,					//’Ç‚¢‚©‚¯‚é
 
 	//UŒ‚
 	Rush,					//“ËŒ‚‚·‚é

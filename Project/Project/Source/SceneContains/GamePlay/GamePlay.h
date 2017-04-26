@@ -11,9 +11,6 @@ class GamePlay : public Scene
 public:
 	// コンストラクタ    
 	GamePlay(const IGameManagerPtr& gameManager, const WorldPtr& world);
-	
-	// 描画     
-	virtual void Draw() const override;
 	// 次のシーンを返す
 	virtual SceneName Next() const override;
 	// 終了

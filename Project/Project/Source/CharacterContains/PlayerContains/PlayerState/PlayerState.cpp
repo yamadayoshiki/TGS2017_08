@@ -56,5 +56,5 @@ void PlayerState::move(Actor& actor, float deltaTime, float speed)
 //ƒA[ƒ€‚Ìæ“¾
 void PlayerState::getArm(Actor& actor)
 {
-	p_Arm = std::dynamic_pointer_cast<ArmPtr>(actor.findChildren(ActorName::Player_Arm));
+	//p_Arm = std::dynamic_pointer_cast<ArmPtr>(actor.findChildren(ActorName::Player_Arm));
 }

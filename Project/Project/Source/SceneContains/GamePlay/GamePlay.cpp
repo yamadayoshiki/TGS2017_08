@@ -15,22 +15,13 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager, const WorldPtr& world)
 // 開始     
 void GamePlay::OnStart()
 {
-	// ワールド生成
-	p_World = std::make_shared<World>();
-
-	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World, GSvector2(0.0f, 0.0f), p_GameManager));
+	//プレイヤー生成
+	//p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World, GSvector2(0.0f, 0.0f), p_GameManager));
 }
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime)
 {
-	p_World->update(deltaTime);
-}
-
-// 描画     
-void GamePlay::Draw() const
-{
-	p_World->Draw();
 }
 
 // 次のシーンを返す     
@@ -42,5 +33,4 @@ SceneName GamePlay::Next() const
 // 終了     
 void GamePlay::End()
 {
-	p_World = nullptr;
 }

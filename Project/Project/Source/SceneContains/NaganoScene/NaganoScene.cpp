@@ -18,20 +18,13 @@ NaganoScene::NaganoScene(const IGameManagerPtr& gameManager, const WorldPtr& wor
 void NaganoScene::OnStart()
 {
 	p_World = std::make_shared<World>();
-	p_World->addActor(ActorGroup::Player, std::make_shared<TestObj2>(p_World, GSvector2(50, 100),p_GameManager));
-	p_World->addActor(ActorGroup::Enemy, std::make_shared<TestEnemy>(p_World, GSvector2(100, 100),p_GameManager));
+	p_World->addActor(ActorGroup::Player, std::make_shared<TestObj2>(p_World, GSvector2(50, 100), p_GameManager));
+	p_World->addActor(ActorGroup::Enemy, std::make_shared<TestEnemy>(p_World, GSvector2(100, 100), p_GameManager));
 }
 
 // 更新     
 void NaganoScene::OnUpdate(float deltaTime)
 {
-	p_World->update(deltaTime);
-}
-
-// 描画     
-void NaganoScene::Draw() const
-{
-	p_World->Draw();
 }
 
 // 次のシーンを返す     
@@ -43,5 +36,4 @@ SceneName NaganoScene::Next() const
 // 終了     
 void NaganoScene::End()
 {
-	p_World = nullptr;
 }

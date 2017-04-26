@@ -88,6 +88,10 @@ public:
 	void SetWorld(const IWorldPtr& world);
 	// 判定の形の取得
 	IBodyPtr getBody() const;
+	// 行列の設定
+	void setMatrix(const GSmatrix4& mat);
+	// 座標の設定
+	void setPosition(const GSvector2& pos);
 	//クローン生成
 	virtual ActorPtr clone(const ActorPtr& source);
 	//クローン生成

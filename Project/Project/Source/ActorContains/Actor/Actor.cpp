@@ -104,11 +104,11 @@ GSmatrix4 Actor::getPose() const {
 }
 
 //回転を取得
-void Actor::rotate(const float & angle){
+void Actor::rotate(const float & angle) {
 }
 
 //スケールを取得
-void Actor::scale(const GSvector2 & scale){
+void Actor::scale(const GSvector2 & scale) {
 }
 
 // 子の検索 
@@ -216,6 +216,17 @@ void Actor::SetWorld(const IWorldPtr& world) {
 IBodyPtr Actor::getBody() const {
 	return m_Body;
 }
+
+// 行列の設定
+void Actor::setMatrix(const GSmatrix4& mat) {
+	m_Matrix = mat;
+}
+
+// 座標の設定
+void Actor::setPosition(const GSvector2& pos) {
+	m_Position = pos;
+}
+
 
 //クローン生成
 ActorPtr Actor::clone(const ActorPtr& source) {

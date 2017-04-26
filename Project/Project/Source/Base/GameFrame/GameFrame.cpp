@@ -40,18 +40,18 @@ GameFrame::~GameFrame() {
 //初期化
 void GameFrame::start()
 {
-	
+	//ワールド生成
 	using WorldPtr = std::shared_ptr<World>;
 	WorldPtr p_World;
 	p_World = std::make_shared<World>();
 	//シーンの追加
-	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>(p_GameManager,p_World));
+	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>(p_GameManager, p_World));
 	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager, p_World));
 	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>(p_GameManager, p_World));
 	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>(p_GameManager, p_World));
 
 	//初期シーンの設定
-	m_SceneManager.Change(SceneName::GamePlay);
+	m_SceneManager.Change(SceneName::GameTitle);
 }
 
 // 更新

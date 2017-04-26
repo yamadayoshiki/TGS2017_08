@@ -19,11 +19,6 @@ void GameTitle::OnUpdate(float deltaTime)
 {
 }
 
-// •`‰æ     
-void GameTitle::Draw() const
-{
-}
-
 // Ÿ‚ÌƒV[ƒ“‚ğ•Ô‚·     
 SceneName GameTitle::Next() const
 {
