@@ -14,5 +14,5 @@ void PlayerState_O_Run::onUniqueInit(Actor& actor)
 //XVˆ—
 void PlayerState_O_Run::onUpdate(Actor& actor, float deltaTime)
 {
-	move(actor, deltaTime, 1.5);
+	move(actor, deltaTime, 3.5);
 }

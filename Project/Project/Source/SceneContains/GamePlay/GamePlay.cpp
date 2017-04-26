@@ -16,12 +16,13 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager, const WorldPtr& world)
 void GamePlay::OnStart()
 {
 	//プレイヤー生成
-	//p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World, GSvector2(0.0f, 0.0f), p_GameManager));
+	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World, GSvector2(0.0f, 0.0f), p_GameManager));
 }
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime)
 {
+	p_World->update(deltaTime);
 }
 
 // 次のシーンを返す     

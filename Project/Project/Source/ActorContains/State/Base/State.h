@@ -24,6 +24,9 @@ public:
 	virtual bool isEnd() override;
 	// 次のステートの要素
 	virtual int next() const override;
+	// 子の追加
+	virtual void addChild(const ActorName& name, const ActorPtr& child) override;
+
 protected:
 	// ステートの要素
 	int m_ID;
@@ -33,6 +36,8 @@ protected:
 	bool m_IsEnd;
 	// タイマー
 	float m_Timer;
+	// 子リスト
+	std::unordered_map<ActorName, ActorPtr> m_Children;
 };
 
 // ステートの変更処理(template版)

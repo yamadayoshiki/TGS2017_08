@@ -21,10 +21,6 @@ protected:
 	virtual void OnStart();
 	// 更新     
 	virtual void OnUpdate(float deltaTime);
-
-private:
-	using WorldPtr = std::shared_ptr<World>;
-	WorldPtr p_World;	//ワールド
 };
 
 #endif

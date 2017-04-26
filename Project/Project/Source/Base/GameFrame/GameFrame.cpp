@@ -14,6 +14,7 @@
 #include"../../SceneContains/GamePlay/GamePlay.h"
 #include"../../SceneContains/NaganoScene/NaganoScene.h"
 #include"../../SceneContains/NakayamaScene/NakayamaScene.h"
+#include"../../SceneContains/yamadaScene/yamadaScene.h"
 #include "../../Define/Def_Nagano.h"
 #include"../../WorldContains/World/World.h"
 
@@ -49,9 +50,10 @@ void GameFrame::start()
 	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager, p_World));
 	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>(p_GameManager, p_World));
 	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>(p_GameManager, p_World));
+	m_SceneManager.Add(SceneName::YamadaScene, std::make_shared<yamadaScene>(p_GameManager, p_World));
 
 	//初期シーンの設定
-	m_SceneManager.Change(SceneName::GameTitle);
+	m_SceneManager.Change(SceneName::YamadaScene);
 }
 
 // 更新

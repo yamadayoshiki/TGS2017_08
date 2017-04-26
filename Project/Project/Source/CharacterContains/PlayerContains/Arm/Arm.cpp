@@ -36,9 +36,10 @@ void Arm::onCollide(Actor& other)
 	mHitFlag = true;
 }
 //Õ“Ë‚µ‚Ä‚¢‚½‚ç•Ô‚·
-bool Arm::is_Hit()
+bool Arm::isCollide(const Actor& other)
 {
-	return mHitFlag;
+	// ‰ñ“]‚ğŠÜ‚Şê‡
+	return m_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
 }
 //À•W‚Ìİ’è
 void Arm::setPosition(GSvector2 position)

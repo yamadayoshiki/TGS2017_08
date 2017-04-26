@@ -27,7 +27,11 @@ public:
 	virtual int next() const override { return m_ID; }
 	// 終了時の処理
 	virtual void end() override {}
+	// IState を介して継承されました
+	virtual void addChild(const ActorName& name, const ActorPtr& child) override{}
+
 private:
 	// ステート
 	int m_ID;
+
 };

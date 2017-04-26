@@ -28,7 +28,10 @@ Player::~Player() {
 }
 void Player::initialize()
 {
-	addChild(std::make_shared<Arm>(p_World, m_Position, m_Matrix, p_GameManager));
+	auto arm = std::make_shared<Arm>(p_World, m_Position, m_Matrix, p_GameManager);
+	arm->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
+	addChild(arm);
+	mStateManager->addChild(ActorName::Player_Arm, arm);
 }
 //XVˆ—
 void Player::onUpdate(float deltaTime)
@@ -38,15 +41,15 @@ void Player::onUpdate(float deltaTime)
 	//s“®§ŒÀ
 	m_Position = m_Position.clamp(GSvector2(0.0f, 0.0f), GSvector2(960, 704));
 
-	child->setMatrix(m_Matrix);
-	child->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
+	//child->setMatrix(m_Matrix);
+	//child->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
 }
 //•`‰æˆ—
 void Player::onDraw()const
 {
 	m_Body->transform(getPose())->draw();
 	p_Renderer->DrawTexture("Player", m_Position);
-	child->onDraw();
+	//child->onDraw();
 }
 //Õ“Ë”»’è
 void Player::onCollide(Actor& other)

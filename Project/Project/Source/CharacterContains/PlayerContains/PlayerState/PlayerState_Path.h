@@ -14,6 +14,11 @@
 #include"States\Open\Move\PlayerState_O_Walk.h"
 #include"States\Open\Move\PlayerState_O_Run.h"
 
+//ÇÕÇ≥ÇÒÇ≈Ç¢ÇÈèÛë‘
+#include"States\Rounds\PlayerState_R_Idol.h"
+#include"States\Rounds\PlayerState_R_Walk.h"
+#include"States\Rounds\PlayterState_R_Run.h"
+
 //ã§í 
 #include"States\Normal\PlayerState_Damage.h"
 

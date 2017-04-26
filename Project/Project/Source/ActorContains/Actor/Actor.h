@@ -110,6 +110,7 @@ protected:
 	virtual void onDraw() const;
 	//Õ“Ë‚µ‚½
 	virtual void onCollide(Actor& other);
+public:
 	//Õ“Ë”»’è
 	bool isCollide(const Actor& other);
 

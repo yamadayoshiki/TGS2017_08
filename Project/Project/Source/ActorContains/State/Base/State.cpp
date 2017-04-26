@@ -38,4 +38,8 @@ int State::next() const {
 	return m_NextID;
 }
 
+void State::addChild(const ActorName& name, const ActorPtr& child){
+	m_Children[name] = child;
+}
+
 

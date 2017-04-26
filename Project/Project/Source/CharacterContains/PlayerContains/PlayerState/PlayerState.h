@@ -2,11 +2,13 @@
 #define PLAYER_STATE_H_
 
 #include"../../../ActorContains/State/Base/State.h"
+#include"../PlayerState/PlayerStateName.h"
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/InputState/InputState.h"
 #include"../Arm/Arm.h"
 #include"../Arm/ArmPtr.h"
 
+#include <unordered_map>
 
 // 各プレイヤーステートの基底クラス
 class PlayerState :public State
@@ -40,6 +42,7 @@ protected:
 	InputStatePtr		p_Input;
 	//
 	ArmPtr				p_Arm;
+
 };
 
 #endif // !PLAYER_STATE_H_

@@ -50,7 +50,8 @@ void PlayerState::move(Actor& actor, float deltaTime, float speed)
 		//À•WˆÚ“®
 		mPosition += p_Input->PadVelocity() * speed;
 	}
-
+	m_Children[ActorName::Player_Arm]->setMatrix(mMatrix);
+	m_Children[ActorName::Player_Arm]->setPosition(mPosition - GSvector2(mMatrix.getAxisY()) * 16);
 }
 
 //ƒA[ƒ€‚Ìæ“¾

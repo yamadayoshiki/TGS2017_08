@@ -8,6 +8,7 @@ enum class SceneName
 
 	NaganoScene,
 	NakayamaScene,
+	YamadaScene,
 	None,
 };
 

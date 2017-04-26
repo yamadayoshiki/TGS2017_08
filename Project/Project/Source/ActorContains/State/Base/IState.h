@@ -3,6 +3,11 @@
 // 先行宣言
 class Actor;
 
+#include <unordered_map>
+#include "../../ActorPtr.h"
+
+enum class ActorName;
+
 // ステートクラスのインターフェース
 class IState {
 public:
@@ -28,4 +33,6 @@ public:
 	virtual int next() const = 0;
 	// 終了時の処理
 	virtual void end() = 0;
+	// 子の追加
+	virtual void addChild(const ActorName& name, const ActorPtr& child) = 0;
 };

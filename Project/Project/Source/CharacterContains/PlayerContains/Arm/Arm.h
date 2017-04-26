@@ -17,8 +17,8 @@ public:
 	virtual void onDraw()const override;
 	//Õ“Ë”»’è
 	virtual void onCollide(Actor& other)override;
-	//Õ“Ë‚µ‚Ä‚¢‚½‚ç•Ô‚·
-	bool is_Hit();
+	//Õ“Ë”»’è
+	bool isCollide(const Actor& other);
 	//À•W‚Ìİ’è
 	void setPosition(GSvector2 position);
 	//s—ñ
