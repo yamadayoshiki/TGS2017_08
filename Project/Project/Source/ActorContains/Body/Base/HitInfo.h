@@ -11,6 +11,7 @@ public:
 	ActorPtr actor;
 	std::string name;
 	std::vector<GSvector2> intersects;
+	GSvector2 closest;
 	GSvector2 normal;
 
 public:

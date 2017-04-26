@@ -19,6 +19,10 @@ Scene::~Scene() {
 void Scene::Start()
 {
 	m_IsEnd = false;
+
+	//UICreator ui = UICreator(p_World, p_GameManager);
+	//ui.create(SceneName::NaganoScene);
+
 	OnStart();
 }
 

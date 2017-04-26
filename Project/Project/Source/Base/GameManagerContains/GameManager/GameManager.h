@@ -29,6 +29,7 @@ protected:
 private:
 	Renderer2DPtr p_Renderer2D;	//レンダラー
 	InputStatePtr p_InputState;	//インプットステイト
+
 };
 
 #endif // !GAMEMANAGER_H_

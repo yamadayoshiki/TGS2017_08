@@ -10,7 +10,7 @@
 #include "Ray.h"
 
 #include "Base/HitInfo.h"
-#include "../Collision/Collision.h"
+#include "Collision/Collision.h"
 
 #include "../../Define/Def_Nagano.h"
 #include "../../Define/Def_Nakayama.h"
@@ -132,16 +132,6 @@ OrientedBoundingBox OrientedBoundingBox::transform_e(const GSmatrix4 & mat) cons
 	return OrientedBoundingBox(mPosition + GSvector2(mat.getPosition()), mExtents, mat);
 }
 
-// 近接点
-GSvector2 OrientedBoundingBox::ClosestPoint(const GSvector2 & target) const{
-	//const Vector3& d = target - mPosition;
-	GSvector2 result = mPosition;
-	//result += MathHelper::Clamp(Vector3::Dot(d, mAxis[0]), -mExtents.x, mExtents.x) * mAxis[0];
-	//result += MathHelper::Clamp(Vector3::Dot(d, mAxis[1]), -mExtents.y, mExtents.y) * mAxis[1];
-	//result += MathHelper::Clamp(Vector3::Dot(d, mAxis[2]), -mExtents.z, mExtents.z) * mAxis[2];
-	return result;
-}
-
 // 頂点
 GSvector2 OrientedBoundingBox::CornerPoint(int cornerIndex) const {
 	switch (cornerIndex) {
@@ -163,21 +153,6 @@ GSvector2 OrientedBoundingBox::Size() const{
 // 中心座標
 GSvector2 OrientedBoundingBox::Center() const{
 	return mPosition;
-}
-
-// ローカル座標へ変換
-GSmatrix4 OrientedBoundingBox::LocalToWorld() const {
-	return GSmatrix4(GS_MATRIX4_IDENTITY
-		//mAxis[0].x, mAxis[0].y, mAxis[0].z, 0.0f,
-		//mAxis[1].x, mAxis[1].y, mAxis[1].z, 0.0f,
-		//mAxis[2].x, mAxis[2].y, mAxis[2].z, 0.0f,
-		//mPosition.x, mPosition.y, mPosition.z, 1.0f
-		);
-}
-
-// ワールド座標へ変換
-GSmatrix4 OrientedBoundingBox::WorldToLocal() const {
-	return GSmatrix4(GS_MATRIX4_IDENTITY);// Matrix::InvertFast(LocalToWorld());
 }
 
 // 図形描画

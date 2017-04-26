@@ -6,7 +6,7 @@
 #include "OrientedBoundingBox.h"
 #include "Ray.h"
 
-#include "../Collision/Collision.h"
+#include "Collision/Collision.h"
 
 // コンストラクタ
 BoundingSegment::BoundingSegment(const GSvector2 & pos, const GSmatrix4 & mat, const float& len):

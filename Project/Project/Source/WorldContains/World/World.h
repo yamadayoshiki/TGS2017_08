@@ -14,6 +14,8 @@ class World :public IWorld
 public:
 	// コンストラクタ  
 	World();
+	// デストラクタ
+	World::~World();
 	// 更新    
 	void update(float deltaTime);
 	// 描画     

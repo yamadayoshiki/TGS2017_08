@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Base/Body.h"
+#include <vector>
 
 // OBB
 class OrientedBoundingBox : public Body {
@@ -31,19 +32,14 @@ public:
 	// Bodyの変換
 	OrientedBoundingBox transform_e(const GSmatrix4& mat) const;
 
-	// 近接点
-	GSvector2 ClosestPoint(const GSvector2& target)const;
 	// 頂点
 	GSvector2 CornerPoint(int cornerIndex)const;
+	// 四頂点の取得
+	std::vector<GSvector2> CornerPoints()const;
 	// 矩形のサイズ
 	GSvector2 Size()const;
 	// 中心座標
 	GSvector2 Center()const;
-
-	// ローカル座標へ変換
-	GSmatrix4 LocalToWorld() const;
-	// ワールド座標へ変換
-	GSmatrix4 WorldToLocal() const;
 	
 	GSvector2 size;
 

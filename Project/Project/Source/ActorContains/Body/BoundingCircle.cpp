@@ -6,7 +6,7 @@
 #include "OrientedBoundingBox.h"
 #include "Ray.h"
 
-#include "../Collision/Collision.h"
+#include "Collision/Collision.h"
 
 //‹…‚Ì”»’è‚ğì¬‚·‚é
 BoundingCircle::BoundingCircle(const GSvector2& pos, const float& rad) :

@@ -6,6 +6,7 @@ enum class ActorGroup
 	Player = 0,		//ƒvƒŒƒCƒ„[
 	Enemy,			//“G
 	EnemyBullet,	//“G‚Ì’e
+	UI,	//“G‚Ì’e
 
 	None,
 };

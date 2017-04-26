@@ -22,7 +22,8 @@ public:
 	int rows() const;
 	// —ñ”‚ğ•Ô‚·
 	int columns(int row = 0) const;
-
+	// ”z—ñ‚ğ•Ô‚·
+	std::vector<std::vector<std::string>> data()const;
 private:
 	using Row = std::vector<std::string>;
 	using Rows = std::vector<Row>;

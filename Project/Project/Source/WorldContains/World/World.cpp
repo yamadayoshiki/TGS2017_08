@@ -12,6 +12,11 @@ World::World()
 {
 }
 
+// デストラクタ
+World::~World() {
+	Finalize();
+}
+
 // 更新
 void World::update(float deltaTime)
 {

@@ -53,3 +53,8 @@ int CsvReader::rows() const {
 int CsvReader::columns(int row) const {
 	return (int)m_Rows[row].size();
 }
+
+// ”z—ñ‚ð•Ô‚·
+std::vector<std::vector<std::string>> CsvReader::data() const{
+	return m_Rows;
+}
