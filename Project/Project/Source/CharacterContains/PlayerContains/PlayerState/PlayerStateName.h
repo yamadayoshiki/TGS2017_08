@@ -28,6 +28,7 @@ enum class PlayerStateName
 
 	//共通
 	Damage,			//ダメージ状態
+	Swich,			//切り替え
 	Dead,			//死に
 	None			//ダミー
 };

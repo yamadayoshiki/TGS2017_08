@@ -48,7 +48,12 @@ void PlayerState_MoveBase::end()
 void PlayerState_MoveBase::input()
 {
 	//ƒA[ƒ€‚ğŠJ‚­
-	if (p_Input->IsPadTrigger(GS_XBOX_PAD_B)) change(PlayerStateName::Open);
+	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B)) 
+		change(PlayerStateName::Open);
+
+	//if (p_Input->IsPadStatesDetach(GS_XBOX_PAD_B)) {
+	//	change(PlayerStateName::Swich);
+	//}
 
 	//Œp³æ‚Ì“ü—Íˆ—
 	onInput();

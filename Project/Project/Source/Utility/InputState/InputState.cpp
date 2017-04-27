@@ -58,7 +58,7 @@ void InputState::UpdateKeyVelocity()
 }
 
 //ボタンが押されたら真
-bool InputState::IsPadTrigger(GSushort Button)
+bool InputState::IsPadStateTrigger(GSushort Button)
 {
 	return gsXBoxPadButtonTrigger(0,Button);
 }
@@ -70,7 +70,7 @@ bool InputState::IsPadState(GSushort Button)
 }
 
 //ボタンが離されたら真
-bool InputState::IsPadStatemStatesDetach(GSushort Button)
+bool InputState::IsPadStatesDetach(GSushort Button)
 {
 	return gsXBoxPadButtonDetach(0,Button);
 }

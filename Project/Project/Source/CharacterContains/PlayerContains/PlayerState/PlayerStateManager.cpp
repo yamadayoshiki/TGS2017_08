@@ -33,6 +33,8 @@ PlayerStateManager::PlayerStateManager(GSvector2 & position, GSmatrix4& matrix, 
 	add(PlayerStateName::Crush_Barrage, std::make_shared<PlayerState_Crush_Barrage> (position, matrix, gameManager));
 	add(PlayerStateName::Crush_Hold,	std::make_shared<PlayerState_Crush_Hold>	(position, matrix, gameManager));
 
+	//‹¤’Ê
+	add(PlayerStateName::Swich, std::make_shared<PlayerState_Swich>(position, matrix, gameManager));
 }
 
 void PlayerStateManager::addChild(const ActorName & name, const ActorPtr & child) {
@@ -50,4 +52,5 @@ void PlayerStateManager::addChild(const ActorName & name, const ActorPtr & child
 	mStates[(int)PlayerStateName::Crush]->addChild(name, child);
 	mStates[(int)PlayerStateName::Crush_Barrage]->addChild(name, child);
 	mStates[(int)PlayerStateName::Crush_Hold]->addChild(name, child);
+	mStates[(int)PlayerStateName::Swich]->addChild(name, child);
 }

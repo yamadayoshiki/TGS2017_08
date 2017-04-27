@@ -8,8 +8,6 @@ PlayerState_O_MoveBase::PlayerState_O_MoveBase(GSvector2& position,GSmatrix4& ma
 //各状態独自の初期化
 void PlayerState_O_MoveBase::unique_init(Actor& actor)
 {
-	//アームの取得
-	getArm(actor);
 
 	// 継承先の各状態独自の初期化
 	onUniqueInit(actor);
@@ -34,10 +32,6 @@ void PlayerState_O_MoveBase::update(Actor& actor, float deltaTaime)
 //衝突判定
 void PlayerState_O_MoveBase::collide(const Actor& other)
 {
-	if (m_Children[ActorName::Player_Arm]->isCollide(other)) {
-		change(PlayerStateName::R_Idol);
-	}
-
 	//継承先の衝突処理
 	onCollide(other);
 }
@@ -50,8 +44,8 @@ void PlayerState_O_MoveBase::end()
 //入力処理
 void PlayerState_O_MoveBase::input()
 {
-	if (p_Input->IsPadTrigger(GS_XBOX_PAD_B)) {
-		change(PlayerStateName::Close);
+	if (p_Input->IsPadStatesDetach(GS_XBOX_PAD_B)) {
+		change(PlayerStateName::Swich);
 	}
 	//継承先の入力処理
 	onInput();

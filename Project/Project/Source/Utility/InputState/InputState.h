@@ -20,11 +20,11 @@ public:
 	GSvector2 KeyVelocity();
 
 	//ボタンが押されたら真
-	bool IsPadTrigger(GSushort Button);
+	bool IsPadStateTrigger(GSushort Button);
 	//ボタンが押されていれば真
 	bool IsPadState(GSushort Button);
 	//ボタンが離されたら真
-	bool IsPadStatemStatesDetach(GSushort Button);
+	bool IsPadStatesDetach(GSushort Button);
 	//PadVelocityのゲッター
 	GSvector2 PadVelocity();
 

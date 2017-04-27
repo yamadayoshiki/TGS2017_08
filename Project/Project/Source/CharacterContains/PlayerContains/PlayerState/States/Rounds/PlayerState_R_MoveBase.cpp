@@ -7,9 +7,6 @@ PlayerState_R_MoveBase::PlayerState_R_MoveBase(GSvector2& position, GSmatrix4& m
 //各状態独自の初期化
 void PlayerState_R_MoveBase::unique_init(Actor& actor)
 {
-	//アームの取得
-	getArm(actor);
-
 	// 継承先の各状態独自の初期化
 	onUniqueInit(actor);
 }
@@ -46,6 +43,8 @@ void PlayerState_R_MoveBase::end()
 //入力処理
 void PlayerState_R_MoveBase::input()
 {
+	//潰す状態に遷移
+
 
 	//継承先の入力処理
 	onInput();

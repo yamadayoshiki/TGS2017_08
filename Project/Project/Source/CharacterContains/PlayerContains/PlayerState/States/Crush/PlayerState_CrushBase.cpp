@@ -40,7 +40,7 @@ void PlayerState_CrushBase::end()
 void PlayerState_CrushBase::input()
 {
 	//ƒA[ƒ€‚ğŠJ‚­
-	if (p_Input->IsPadTrigger(GS_XBOX_PAD_B)) change(PlayerStateName::Open);
+	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B)) change(PlayerStateName::Open);
 
 	//Œp³æ‚Ì“ü—Íˆ—
 	onInput();

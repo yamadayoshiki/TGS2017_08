@@ -54,8 +54,9 @@ void PlayerState::move(Actor& actor, float deltaTime, float speed)
 	m_Children[ActorName::Player_Arm]->setPosition(mPosition - GSvector2(mMatrix.getAxisY()) * 16);
 }
 
-//ƒA[ƒ€‚Ìæ“¾
-void PlayerState::getArm(Actor& actor)
+void PlayerState::Rounds(const Actor & actor)
 {
-	//p_Arm = std::dynamic_pointer_cast<ArmPtr>(actor.findChildren(ActorName::Player_Arm));
+	if (m_Children[ActorName::Player_Arm]->isCollide(actor)&& p_Input->IsPadStatesDetach(GS_XBOX_PAD_B)) {
+		change(PlayerStateName::R_Idol);
+	}
 }

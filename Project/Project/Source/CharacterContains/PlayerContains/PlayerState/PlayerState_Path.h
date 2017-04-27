@@ -26,6 +26,7 @@
 #include"States\Crush\PlayerState_Crush_Hold.h"
 
 //‹¤’Ê
-#include"States\Normal\PlayerState_Damage.h"
+#include"States\Common\PlayerState_Damage.h"
+#include"States\Common\PlayerState_Swich.h"
 
 #endif // !PLAYERSTATE_PATH_H_

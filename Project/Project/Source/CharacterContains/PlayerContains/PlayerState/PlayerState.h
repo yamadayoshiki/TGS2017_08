@@ -24,8 +24,8 @@ protected:
 	//void motion_change(Actor& actor, const PlayerStateID);
 	//移動処理
 	void move(Actor& actor, float deltaTime, float speed = 1.0f);
-	//アームの取得
-	void getArm(Actor& actor);
+	//挟む処理
+	void Rounds(const Actor& actor);
 
 protected:
 	//座標の参照
