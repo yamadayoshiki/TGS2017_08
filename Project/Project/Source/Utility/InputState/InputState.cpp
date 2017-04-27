@@ -20,7 +20,15 @@ bool InputState::IsKeyTrigger(GKEYCODE key_code)
 bool InputState::IsKeyState(GKEYCODE key_code)
 {
 	return gsGetKeyState(key_code);
+	
 }
+
+//キーが離されたら真
+bool InputState::IsKeyStateDetach(GKEYCODE key_code)
+{
+	return gsGetKeyDetach(key_code);
+}
+
 //KeyVelocityのゲッター
 GSvector2 InputState::KeyVelocity()
 {
@@ -54,11 +62,19 @@ bool InputState::IsPadTrigger(GSushort Button)
 {
 	return gsXBoxPadButtonTrigger(0,Button);
 }
+
 //ボタンが押されていれば真
 bool InputState::IsPadState(GSushort Button)
 {
 	return gsXBoxPadButtonState(0,Button);
 }
+
+//ボタンが離されたら真
+bool InputState::IsPadStatemStatesDetach(GSushort Button)
+{
+	return gsXBoxPadButtonDetach(0,Button);
+}
+
 //PadVelocityのゲッター
 GSvector2 InputState::PadVelocity()
 {

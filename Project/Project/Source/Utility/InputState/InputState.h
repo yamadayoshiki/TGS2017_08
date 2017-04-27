@@ -14,6 +14,8 @@ public:
 	bool IsKeyTrigger(GKEYCODE key_code);
 	//キーが押されていれば真
 	bool IsKeyState(GKEYCODE key_code);
+	//キーが離されたら真
+	bool IsKeyStateDetach(GKEYCODE key_code);
 	//KeyVelocityのゲッター
 	GSvector2 KeyVelocity();
 
@@ -21,6 +23,8 @@ public:
 	bool IsPadTrigger(GSushort Button);
 	//ボタンが押されていれば真
 	bool IsPadState(GSushort Button);
+	//ボタンが離されたら真
+	bool IsPadStatemStatesDetach(GSushort Button);
 	//PadVelocityのゲッター
 	GSvector2 PadVelocity();
 

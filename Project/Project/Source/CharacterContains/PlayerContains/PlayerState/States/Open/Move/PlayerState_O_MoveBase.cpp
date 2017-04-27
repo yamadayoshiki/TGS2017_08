@@ -50,7 +50,9 @@ void PlayerState_O_MoveBase::end()
 //“ü—Íˆ—
 void PlayerState_O_MoveBase::input()
 {
-
+	if (p_Input->IsPadTrigger(GS_XBOX_PAD_B)) {
+		change(PlayerStateName::Close);
+	}
 	//Œp³æ‚Ì“ü—Íˆ—
 	onInput();
 }
