@@ -7,8 +7,8 @@ TestEnemy::TestEnemy(const IWorldPtr& world, const GSvector2 & position,const IG
 	Actor(world, ActorName::Enemy, position,gameManager, std::make_shared<NullTexture>(),std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
 	angle = 0.0f;
 
-	gsLoadTexture(1, "Resource/Texture/wall.png");
-
+	
+	p_GameManager->GetRenderer2D()->LoadTexture("wall", "Resource/Texture/wall.png");
 }
 
 void TestEnemy::onUpdate(float deltaTime)
@@ -23,8 +23,9 @@ void TestEnemy::onUpdate(float deltaTime)
 
 void TestEnemy::onDraw() const
 {
-	gsDrawSprite2D(1, &m_Position, NULL, NULL, NULL, NULL, NULL);
+	
 
+	p_GameManager->GetRenderer2D()->DrawTexture("wall", m_Position);
 }
 
 void TestEnemy::onCollide(Actor &)

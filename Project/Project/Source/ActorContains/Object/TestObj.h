@@ -17,5 +17,4 @@ public:
 private:
 	float angle;
 
-	Renderer2DPtr p_Renderer2D;
 };

@@ -14,9 +14,7 @@ TestObj::TestObj(const IWorldPtr& world, const GSvector2 & position, const IGame
 
 	angle = 0.0f;
 
-	p_Renderer2D = p_GameManager->GetRenderer2D();
-	p_Renderer2D->Initialize();
-	p_Renderer2D->LoadTexture("Block5", "Resource/StreamingAssets/Block5.png");
+	p_GameManager->GetRenderer2D()->LoadTexture("Block5", "Resource/StreamingAssets/Block5.png");
 }
 
 void TestObj::onUpdate(float deltaTime)
@@ -51,7 +49,8 @@ void TestObj::onDraw() const
 	//Actor::onDraw();
 	glColor3f(1.0f, 1.0f, 1.0f);
 
-	p_Renderer2D->DrawTexture("Block5", m_Position);
+	p_GameManager->GetRenderer2D()->DrawTexture("Block5", m_Position);
+	
 }
 
 void TestObj::onCollide(Actor &)
