@@ -16,7 +16,7 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager, const WorldPtr& world)
 void GamePlay::OnStart()
 {
 	//プレイヤー生成
-	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World, GSvector2(0.0f, 0.0f), p_GameManager));
+	//p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World, GSvector2(0.0f, 0.0f), p_GameManager));
 }
 
 // 更新     

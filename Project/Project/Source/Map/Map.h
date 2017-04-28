@@ -26,7 +26,7 @@ public:
 	//衝突判定
 	void Collide();
 	//マップの取得
-	std::vector<std::vector<int>> getmap();
+	std::vector<std::vector<int>>& getmap();
 
 	//神保
 public:

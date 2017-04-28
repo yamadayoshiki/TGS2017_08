@@ -69,12 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\nakayama\Documents\gslib_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\nakayama\Documents\gslib_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\nakayama\Documents\gslib_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\nakayama\Documents\gslib_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -234,6 +234,8 @@
     <ClInclude Include="Source\TextureContains\NullTexture\NullTexture.h" />
     <ClInclude Include="Source\TextureContains\TextureManager\TextureManager.h" />
     <ClInclude Include="Source\TextureContains\Texture\Texture.h" />
+    <ClInclude Include="Source\Tile\Tile.h" />
+    <ClInclude Include="Source\Tile\TileData.h" />
     <ClInclude Include="Source\UIContains\Base\UI_Base.h" />
     <ClInclude Include="Source\UIContains\Button\Button.h" />
     <ClInclude Include="Source\UIContains\UICreator\UICreator.h" />
@@ -348,6 +350,7 @@
     <ClCompile Include="Source\TextureContains\Base\Texture_Base.cpp" />
     <ClCompile Include="Source\TextureContains\TextureManager\TextureManager.cpp" />
     <ClCompile Include="Source\TextureContains\Texture\Texture.cpp" />
+    <ClCompile Include="Source\Tile\TileData.cpp" />
     <ClCompile Include="Source\UIContains\Base\UI_Base.cpp" />
     <ClCompile Include="Source\UIContains\Button\Button.cpp" />
     <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp" />

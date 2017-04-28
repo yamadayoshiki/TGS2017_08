@@ -24,17 +24,19 @@ class MapGenerator
 
 public:
 	//コンストラクタ
-	MapGenerator(const IWorldPtr world,const IGameManagerPtr& gameManager/*, const std::string& file_name*/);
+	MapGenerator(const IWorldPtr world,const IGameManagerPtr& gameManager);
 	// マップのロード
 	void load(const std::string& file_name);
 	// 生成するアクターの登録
 	void registActor();
 	// 生成する地形の登録
-	void registMap(Map& map);
+	void registMap();
 	// アクターの生成
 	void generate();
 	//ワールドを設定
 	void setWorld(const IWorldPtr& world);
+	//マップの登録
+	Map & getMap();
 private:
 	//ワールド
 	IWorldPtr p_World;

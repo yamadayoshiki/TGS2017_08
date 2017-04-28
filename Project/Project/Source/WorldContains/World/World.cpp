@@ -3,12 +3,12 @@
 #include"../../FileReader/CsvReader.h"
 #include"../../Map/Map.h"
 
+
 #include <iostream>
 
 // コンストラクタ
 World::World()
 	:p_Actors(new ActorManager())
-	, m_Map(Map())
 {
 }
 
@@ -21,7 +21,6 @@ World::~World() {
 void World::update(float deltaTime)
 {
 	p_Actors->update(deltaTime);
-
 }
 
 // 描画
@@ -33,14 +32,6 @@ void World::draw() const
 void World::Draw() const
 {
 	p_Actors->draw();
-}
-
-void World::generate()
-{
-	p_MapGenerator->load("Resource/StreamingAssets/stage1.csv");
-	p_MapGenerator->registActor();
-	p_MapGenerator->registMap(m_Map);
-	p_MapGenerator->generate();
 }
 
 //終了処理
@@ -82,12 +73,26 @@ void World::sendMessage(EventMessage message, void* param)
 	handleMessage(message, param);
 }
 
+void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name)
+{
+	p_MapGenerator = new MapGenerator(world, gameManager);
+	p_MapGenerator->load(file_name);
+	p_MapGenerator->registActor();
+	p_MapGenerator->generate();
+
+	p_MapGenerator->registMap();
+}
+
+Map & World::GetMap(){
+	return p_MapGenerator->getMap();
+}
+
 //Map& World::GetMap()
 //{
 //	return ;
 //}
 
-//マップジェネレーターの設定
-void World::setMapGenerator(MapGenerator* mapGenerator) {
-	p_MapGenerator = mapGenerator;
-}
+////マップジェネレーターの設定
+//void World::setMapGenerator(MapGenerator* mapGenerator) {
+//	p_MapGenerator = mapGenerator;
+//}

@@ -15,12 +15,17 @@ NakayamaScene::NakayamaScene(const IGameManagerPtr& gameManager, const WorldPtr&
 // 開始     
 void NakayamaScene::OnStart()
 {
-	//マップジェネレータ生成
-	MapGenerator* generator = new MapGenerator(p_World, p_GameManager);
-	//マップジェネレータ設定
-	p_World->setMapGenerator(generator);
+	////マップジェネレータ生成
+	//MapGenerator* generator = new MapGenerator(p_World, p_GameManager);
+	////マップジェネレータ設定
+	//p_World->setMapGenerator(generator);
 	//マップデータによる生成
-	p_World->generate();
+ 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage1.csv");
+
+	Map map = p_World->GetMap();
+
+	int a;
+	a = 0;
 }
 
 // 更新     

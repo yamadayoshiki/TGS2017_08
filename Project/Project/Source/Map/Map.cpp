@@ -27,7 +27,7 @@ void Map::Collide()
 {
 }
 
-std::vector<std::vector<int>> Map::getmap()
+std::vector<std::vector<int>>& Map::getmap()
 {
 	return m_Map;
 }

@@ -22,8 +22,6 @@ public:
 	void draw() const;
 	// 描画
 	void Draw() const;
-	//生成
-	void generate();
 	//終了処理
 	void Finalize() override;
 	// メッセージ処理  
@@ -36,10 +34,16 @@ public:
 	virtual void OptinalCollide(Actor* actor, ActorGroup actorGroup) override;
 	// メッセージの送信    
 	virtual void sendMessage(EventMessage message, void* param = nullptr) override;
-	////マップの取得
-	//Map& GetMap() override;
-	//マップジェネレーターの設定
-	void setMapGenerator(MapGenerator* mapGenerator);
+
+
+	//生成
+	void generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name);
+	//マップの取得
+	Map& GetMap();
+	////マップジェネレーターの設定
+	//void setMapGenerator(MapGenerator* mapGenerator);
+
+
 	// コピー禁止  
 	World(const World& other) = delete;
 	World& operator = (const World& other) = delete;
@@ -47,9 +51,9 @@ public:
 private:
 	// アクターマネージャー
 	ActorManager* p_Actors;
-	// マップデータ
-	Map& m_Map;
 	//マップジェネレータ
 	MapGenerator* p_MapGenerator;
+
+	
 };
 #endif

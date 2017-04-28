@@ -11,16 +11,9 @@
 #include <memory>
 
 //コンストラクタ
-MapGenerator::MapGenerator(const IWorldPtr world, const IGameManagerPtr& gameManager/*, const std::string& file_name*/)
+MapGenerator::MapGenerator(const IWorldPtr world, const IGameManagerPtr& gameManager)
 	: p_World(world)
 	, p_GameManager(gameManager) {
-	//load(file_name);
-
-	//// アクターの登録
-	//registActor();
-
-	//// アクターの生成
-	//generate();
 }
 
 void MapGenerator::load(const std::string& file_name) {
@@ -51,21 +44,36 @@ void MapGenerator::registActor() {
 }
 
 // 生成する地形の登録
-void MapGenerator::registMap(Map & map) {
-	//// 行のループ
-	//for (int i = 0; i < m_CsvData.size(); i++) {
-	//	std::vector<int> tmp;
+void MapGenerator::registMap() {
+	// 行のループ
+	for (int i = 0; i < m_CsvData.size(); i++) {
+		std::vector<int> tmp = m_CsvData[i];
 
-	//	// 列のループ
-	//	for (int j = 0; j < m_CsvData[i].size(); j++) {
-	//		if (m_CsvData[i][j] == 1) {
-	//			tmp.push_back(1);
-	//		}
-	//		else {
-	//			tmp.push_back(0);
-	//		}
+		// 列のループ
+		for (int j = 0; j < tmp.size(); j++) {
+			if (tmp[j] != 1) {
+				tmp[j] = 0;
+			}
+		}
+		m_Map.getmap().push_back(tmp);
+	}
+
+	//for (int i = 0; i < m_CsvData.size(); i++)
+	//{
+	//	std::vector<int> tmp;
+	//}
+
+	//for (int j = 0; j < m_CsvData[i].size(); j++)
+	//{
+	//	if (m_CsvData[i][j] == 1)
+	//	{
+	//		m_CsvData.push_back(1);
 	//	}
-	//	map.getmap().push_back(tmp);
+	//	else
+	//	{
+	//		m_CsvData.push_back(0);
+	//	}
+	//	m_CsvData.getmap().push_back(m_CsvData);
 	//}
 }
 
@@ -91,4 +99,8 @@ void MapGenerator::generate()
 void MapGenerator::setWorld(const IWorldPtr & world)
 {
 	p_World = world;
+}
+
+Map & MapGenerator::getMap(){
+	return m_Map;
 }
