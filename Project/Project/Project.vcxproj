@@ -119,6 +119,7 @@
   <ItemGroup>
     <ClInclude Include="Source\ActorContains\ActorGroup.h" />
     <ClInclude Include="Source\ActorContains\ActorManager\ActorManager.h" />
+    <ClInclude Include="Source\ActorContains\ActorManager\ActorManagerPtr.h" />
     <ClInclude Include="Source\ActorContains\ActorName.h" />
     <ClInclude Include="Source\ActorContains\ActorPtr.h" />
     <ClInclude Include="Source\ActorContains\Actor_Ptr.h" />
@@ -212,6 +213,7 @@
     <ClInclude Include="Source\Define\Def_Nakayama.h" />
     <ClInclude Include="Source\FileReader\CsvReader.h" />
     <ClInclude Include="Source\MapGenerator\MapGenerator.h" />
+    <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h" />
     <ClInclude Include="Source\Map\Map.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\GamePlay.h" />
     <ClInclude Include="Source\SceneContains\GameTitle\GameTitle.h" />

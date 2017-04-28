@@ -3,9 +3,12 @@
 
 #include "../IWorld.h" 
 #include "../../ActorContains/ActorManager/ActorManager.h"
+#include"../../MapGenerator/MapGenerator.h"
 #include "../../ActorContains/ActorPtr.h"
 #include"../../Map/Map.h"
-#include"../../MapGenerator/MapGenerator.h"
+
+#include"../../ActorContains/ActorManager/ActorManagerPtr.h"
+#include"../../MapGenerator/MapGeneratorPtr.h"
 enum class EventMessage;
 
 // ワールドクラス
@@ -50,9 +53,9 @@ public:
 
 private:
 	// アクターマネージャー
-	ActorManager* p_Actors;
+	ActorManagerPtr p_Actors;
 	//マップジェネレータ
-	MapGenerator* p_MapGenerator;
+	MapGeneratorPtr p_MapGenerator;
 
 	
 };

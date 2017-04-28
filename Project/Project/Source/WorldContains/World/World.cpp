@@ -2,13 +2,14 @@
 #include"../../Define/Def_Nakayama.h"
 #include"../../FileReader/CsvReader.h"
 #include"../../Map/Map.h"
-
+#include "../../ActorContains/ActorManager/ActorManager.h"
+#include"../../MapGenerator/MapGenerator.h"
 
 #include <iostream>
 
 // コンストラクタ
 World::World()
-	:p_Actors(new ActorManager())
+	:p_Actors(std::make_shared<ActorManager>())
 {
 }
 
@@ -37,7 +38,7 @@ void World::Draw() const
 //終了処理
 void World::Finalize()
 {
-	delete p_Actors;
+	
 }
 
 // メッセージ処理 
@@ -75,7 +76,7 @@ void World::sendMessage(EventMessage message, void* param)
 
 void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name)
 {
-	p_MapGenerator = new MapGenerator(world, gameManager);
+	p_MapGenerator = std::make_shared<MapGenerator>(world, gameManager);
 	p_MapGenerator->load(file_name);
 	p_MapGenerator->registActor();
 	p_MapGenerator->generate();
