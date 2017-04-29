@@ -18,9 +18,6 @@ void SceneManager::Initialize()
 void SceneManager::Update(float deltaTime)
 {
 	m_CurrentScene->Update(deltaTime);
-
-	if (m_CurrentScene->IsEnd() == true)
-		Change(m_CurrentScene->Next());
 }
 
 // •`‰æ     
@@ -40,6 +37,7 @@ void SceneManager::End()
 void SceneManager::Add(SceneName name, const IScenePtr& scene)
 {
 	m_SceneDic[name] = scene;
+	m_SceneDic[name]->SetName(name);
 }
 
 // ƒV[ƒ“‚Ì•ÏX     

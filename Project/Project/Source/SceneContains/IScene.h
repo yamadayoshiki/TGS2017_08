@@ -21,6 +21,8 @@ public:
 	virtual SceneName Next() const = 0;
 	// I—¹     
 	virtual void End() = 0;
+	// –¼‘O‚Ìİ’è
+	virtual void SetName(const SceneName& name) = 0;
 };
 
 

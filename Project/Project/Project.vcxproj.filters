@@ -387,9 +387,6 @@
     <ClInclude Include="Source\UIContains\Button\Button.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\UIContains\UICreator\UICreator.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\UIContains\UIManager\GameTitle\UIManager_Title.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -472,6 +469,12 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StagingContains\TransitionStaging\SceneTransition.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Selector\Selector.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -713,9 +716,6 @@
     <ClCompile Include="Source\UIContains\Button\Button.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\UIContains\UIManager\GameTitle\UIManager_Title.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -780,6 +780,15 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Tile\TileData.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StagingContains\TransitionStaging\Transition\Transition.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StagingContains\TransitionStaging\SceneTransition.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Selector\Selector.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

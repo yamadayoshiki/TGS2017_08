@@ -69,12 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\nakayama\Documents\gslib_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\nakayama\Documents\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\nakayama\Documents\gslib_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\nakayama\Documents\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -226,6 +226,7 @@
     <ClInclude Include="Source\SceneContains\SceneName.h" />
     <ClInclude Include="Source\SceneContains\Scene\Scene.h" />
     <ClInclude Include="Source\SceneContains\yamadaScene\yamadaScene.h" />
+    <ClInclude Include="Source\StagingContains\TransitionStaging\SceneTransition.h" />
     <ClInclude Include="Source\StagingContains\TransitionStaging\TransitionManager\TransitionManager.h" />
     <ClInclude Include="Source\StagingContains\TransitionStaging\TransitionPtr.h" />
     <ClInclude Include="Source\StagingContains\TransitionStaging\Transition\Transition.h" />
@@ -240,7 +241,7 @@
     <ClInclude Include="Source\Tile\TileData.h" />
     <ClInclude Include="Source\UIContains\Base\UI_Base.h" />
     <ClInclude Include="Source\UIContains\Button\Button.h" />
-    <ClInclude Include="Source\UIContains\UICreator\UICreator.h" />
+    <ClInclude Include="Source\UIContains\Selector\Selector.h" />
     <ClInclude Include="Source\UIContains\UIGroup.h" />
     <ClInclude Include="Source\UIContains\UIManager\Base\UIManager.h" />
     <ClInclude Include="Source\UIContains\UIManager\GamePlay\UIManager_Play.h" />
@@ -347,7 +348,9 @@
     <ClCompile Include="Source\SceneContains\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Source\SceneContains\Scene\Scene.cpp" />
     <ClCompile Include="Source\SceneContains\yamadaScene\yamadaScene.cpp" />
+    <ClCompile Include="Source\StagingContains\TransitionStaging\SceneTransition.cpp" />
     <ClCompile Include="Source\StagingContains\TransitionStaging\TransitionManager\TransitionManager.cpp" />
+    <ClCompile Include="Source\StagingContains\TransitionStaging\Transition\Transition.cpp" />
     <ClCompile Include="Source\TextureContains\AnimationTexture\AnimationTexture.cpp" />
     <ClCompile Include="Source\TextureContains\Base\Texture_Base.cpp" />
     <ClCompile Include="Source\TextureContains\TextureManager\TextureManager.cpp" />
@@ -355,7 +358,7 @@
     <ClCompile Include="Source\Tile\TileData.cpp" />
     <ClCompile Include="Source\UIContains\Base\UI_Base.cpp" />
     <ClCompile Include="Source\UIContains\Button\Button.cpp" />
-    <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp" />
+    <ClCompile Include="Source\UIContains\Selector\Selector.cpp" />
     <ClCompile Include="Source\UIContains\UIManager\Base\UIManager.cpp" />
     <ClCompile Include="Source\UIContains\UIManager\GamePlay\UIManager_Play.cpp" />
     <ClCompile Include="Source\UIContains\UIManager\GameSelect\UIManager_Select.cpp" />

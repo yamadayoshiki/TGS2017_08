@@ -4,7 +4,7 @@
 
 //コンストラクタ
 GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState)
-	:p_Renderer2D(renderer2D), p_InputState(inputState) {
+	:p_Renderer2D(renderer2D), p_InputState(inputState), m_IsEnd(false){
 }
 
 //コンテンツの読み込み
@@ -14,6 +14,7 @@ void GameManager::LoadContent() {
 
 //コンテンツの削除
 void GameManager::UnLoadContent() {
+	p_Renderer2D->Initialize();
 }
 
 //更新処理
@@ -32,6 +33,16 @@ InputStatePtr GameManager::GetInputState() {
 	return p_InputState;
 }
 
+bool GameManager::IsEndScene()
+{
+	return m_IsEnd;
+}
+
+void GameManager::EndScene(bool end){
+	m_IsEnd = end;
+}
+
 //終了処理
 void GameManager::Finalize() {
+	p_Renderer2D->Initialize();
 }

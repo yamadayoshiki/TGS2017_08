@@ -1,7 +1,7 @@
 #ifndef SCENEMANAGER_H_ 
 #define SCENEMANAGER_H_ 
 
-#include "../IScenePtr.h" 
+#include "../IScenePtr.h"
 #include <unordered_map> 
 
 enum class SceneName;

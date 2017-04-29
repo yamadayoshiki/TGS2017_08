@@ -23,13 +23,18 @@ public:
 	virtual Renderer2DPtr GetRenderer2D() override;
 	//インプットステイトの取得
 	virtual InputStatePtr GetInputState() override;
+	// シーンの終了の取得
+	virtual bool IsEndScene() override;
+	// シーンの終了
+	virtual void EndScene(bool end = false) override;
+
 protected:
 	//終了処理
 	void Finalize() override;
 private:
 	Renderer2DPtr p_Renderer2D;	//レンダラー
 	InputStatePtr p_InputState;	//インプットステイト
-
+	bool m_IsEnd;				//シーンの終了
 };
 
 #endif // !GAMEMANAGER_H_

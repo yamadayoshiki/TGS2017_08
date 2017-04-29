@@ -2,7 +2,7 @@
 
 #include "../Base/UIManager.h"
 
-class UIManager_Play : public UIManager {
+class UIManager_Play : public Actor {
 public:
 	UIManager_Play(const IWorldPtr& world, const IGameManagerPtr& gameManager);
 

@@ -1,7 +1,7 @@
 #include "UIManager_Play.h"
 
 UIManager_Play::UIManager_Play(const IWorldPtr & world, const IGameManagerPtr & gameManager) :
-	UIManager(world, gameManager) {
+	Actor(world, ActorName::UIManager, GSvector2(), gameManager) {
 }
 
 //void UIManager_GamePlay::regist()

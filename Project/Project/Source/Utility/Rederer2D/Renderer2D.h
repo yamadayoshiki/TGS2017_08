@@ -76,7 +76,7 @@ private:
 	unsigned int m_TextureID;
 
 	//ìoò^ñºÅEÉTÉCÉY
-	std::map<std::string, GSrect*> m_TextureSizeDic;
+	std::map<std::string, GSrect> m_TextureSizeDic;
 };
 
 #endif

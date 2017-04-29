@@ -49,7 +49,7 @@ void Renderer2D::DrawTexture(
 		(
 			m_TextureDic[texName],
 			&position,
-			m_TextureSizeDic[texName],
+			&m_TextureSizeDic[texName],
 			NULL,
 			NULL,
 			NULL,
@@ -92,7 +92,7 @@ unsigned int Renderer2D::GetTextureID(
 //指定のテクスチャサイズの取得(登録名)
 GSrect* Renderer2D::GetTextureRect(const std::string& texName)
 {
-	return m_TextureSizeDic[texName];
+	return &m_TextureSizeDic[texName];
 }
 
 //エラー出力
@@ -120,9 +120,8 @@ GSvector2 Renderer2D::GetTextureSize(const std::string& texName)
 GSvector2 Renderer2D::GetTextureSize(const unsigned int textureID)
 {
 	GSvector2 result = GSvector2();
-	GStexture* tex = gsGetTexture(textureID);
-	result.x = gsTextureGetWidth(tex);
-	result.y = gsTextureGetHeight(tex);
+	result.x = gsTextureGetWidth(gsGetTexture(textureID));
+	result.y = gsTextureGetHeight(gsGetTexture(textureID));
 
 	return result;
 }
@@ -131,8 +130,8 @@ GSvector2 Renderer2D::GetTextureSize(const unsigned int textureID)
 void Renderer2D::RecordTextureSize(const std::string& texName)
 {
 	GSvector2 size = GetTextureSize(texName);
-	GSrect* rectSize = new GSrect();
-	rectSize->right = size.x;
-	rectSize->bottom = size.y;
+	GSrect rectSize;
+	rectSize.right = size.x;
+	rectSize.bottom = size.y;
 	m_TextureSizeDic[texName] = rectSize;
 }

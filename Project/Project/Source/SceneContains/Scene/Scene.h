@@ -3,6 +3,7 @@
 
 #include "../IScene.h"
 #include "../../Base/GameManagerContains/IGameManagerPtr.h"
+#include "../../StagingContains/TransitionStaging/TransitionPtr.h"
 
 class World;
 
@@ -30,6 +31,8 @@ public:
 	virtual SceneName Next() const override = 0;
 	// 終了     
 	virtual void End() override = 0;
+	// 名前を設定
+	virtual void SetName(const SceneName & name) override;
 
 protected:
 	// 各種固有の開始     
@@ -40,7 +43,13 @@ protected:
 protected:
 	bool m_IsEnd;					//終了フラグ
 	IGameManagerPtr p_GameManager;	//ゲームマネージャー
-	WorldPtr p_World;				//ワールド
+	WorldPtr p_World;
+	//ワールド
+	// シーンの名前
+	SceneName m_SceneName;
+	// 遷移演出
+	TransitionPtr m_Transition;
+
 };
 
 #endif // !SCENE_H_

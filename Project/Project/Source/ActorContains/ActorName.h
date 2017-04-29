@@ -17,6 +17,7 @@ enum class ActorName
 
 	/* UIグループ */
 	UIManager,
+	UISelector,
 
 	/* テスト用 */
 	EnemyManager,

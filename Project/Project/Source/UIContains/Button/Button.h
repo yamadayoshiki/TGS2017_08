@@ -2,16 +2,16 @@
 
 #include "../Base/UI_Base.h"
 
+#include <unordered_map>
+
 class Button : public UI_Base {
 public:
 	struct ButtonData {
 		std::string file_name;
 		int number;
-		int up;
-		int down;
-		int left;
-		int right;
 		int anim;
+		std::string next;
+		std::unordered_map<GKEYCODE, int> key;
 		Texture2DParameter param;
 	};
 public:
@@ -22,7 +22,12 @@ public:
 private:
 	virtual void onUpdate(float deltaTime)override;
 	virtual void onDraw()const override;
-private:
-	std::vector<ButtonData> m_Buttons;
 
+	int getIndex(int index, int next);
+	void moveSelector(GKEYCODE key);
+private:
+	std::unordered_map<int, ButtonData> m_Buttons;
+	ActorPtr m_Selector;
+	int m_Index;
+	float m_Timer;
 };
