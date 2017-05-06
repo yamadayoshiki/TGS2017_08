@@ -23,6 +23,11 @@ void NakayamaScene::OnStart()
  	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage1.csv");
 
 	Map map = p_World->GetMap();
+	std::unordered_map<Tile, TileData> tmp = map.GetAroundTile(GSvector2(70, 90));
+		
+	GSvector2 tilePos = tmp[Tile::Down].Position();
+	GSrect tileRect = tmp[Tile::Down].Rectangle();
+	bool tileFlag = tmp[Tile::Down].Flag();
 
 	int a;
 	a = 0;

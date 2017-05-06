@@ -1,18 +1,24 @@
 #include "TileData.h"
 
+#include<gslib.h>
+
+
 TileData::TileData()
 {
 
 }
 
-void TileData::Position()
+GSvector2 TileData::Position()
 {
+	return position;
 }
 
-void TileData::Rectangle()
+GSrect TileData::Rectangle()
 {
+	return rectangle;
 }
 
-void TileData::Flag()
+int TileData::Flag()
 {
+	return flag;
 }

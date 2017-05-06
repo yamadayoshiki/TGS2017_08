@@ -2,9 +2,12 @@
 #define MAP_H_
 
 #include"../Utility/Rederer2D/Renderer2DPtr.h"
+#include"../Tile/Tile.h"
+#include"../Tile/TileData.h"
 
 #include<iostream>
 #include <vector>
+#include<unordered_map>
 
 //グリッド座標
 class Point2;
@@ -27,6 +30,10 @@ public:
 	void Collide();
 	//マップの取得
 	std::vector<std::vector<int>>& getmap();
+	//
+	std::unordered_map<Tile, TileData>GetAroundTile (const GSvector2& position);
+	//
+	TileData GetTileData(int x, int y);
 
 	//神保
 public:
