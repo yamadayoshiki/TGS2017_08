@@ -1,18 +1,18 @@
 #include"PlayerState_Swich.h"
 
 //コンストラクタ
-PlayerState_Swich::PlayerState_Swich(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager)
-	:PlayerState(position,matrix,gameManager){
+PlayerState_Swich::PlayerState_Swich(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(position, matrix, player, gameManager) {
 }
 
 //各状態独自の初期化
-void PlayerState_Swich::unique_init(Actor& actor)
+void PlayerState_Swich::unique_init()
 {
 
 }
 
 //更新処理
-void PlayerState_Swich::update(Actor& actor, float deltaTaime)
+void PlayerState_Swich::update(float deltaTaime)
 {
 	if (m_Flag == true) {
 		change(PlayerStateName::R_Idol);

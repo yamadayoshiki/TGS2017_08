@@ -14,13 +14,13 @@ public:
 	StateMgr();
 public:
 	// 更新処理
-	void action(Actor& actor, float deltaTime);
+	void action(float deltaTime);
 	// ステートの追加(template版)
 	template <class STATE>
 	void add(STATE id, const IStatePtr& state);
 	// ステートの変更処理(template版)
 	template <class STATE>
-	void change(Actor& actor, const STATE id);
+	void change(const STATE id);
 	// 指定されたステートの場合true(template版)
 	template <class STATE>
 	bool currentState(STATE state);
@@ -51,7 +51,7 @@ inline void StateMgr::add(STATE id, const IStatePtr & state) {
 
 // ステートの変更処理(template版)
 template<class STATE>
-inline void StateMgr::change(Actor & actor, const STATE id) {
+inline void StateMgr::change(const STATE id) {
 	// 前ステートの終了処理
 	mCurrentState->end();
 	// 要素の格納
@@ -59,9 +59,9 @@ inline void StateMgr::change(Actor & actor, const STATE id) {
 	// 実行ステートを変更
 	mCurrentState = mStates[m_CurrentID];
 	// 共通の初期化
-	mCurrentState->common_init(actor, m_CurrentID);
+	mCurrentState->common_init(m_CurrentID);
 	// 固有の初期化
-	mCurrentState->unique_init(actor);
+	mCurrentState->unique_init();
 }
 
 // 指定されたステートの場合true(template版)

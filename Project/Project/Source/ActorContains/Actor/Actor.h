@@ -53,7 +53,7 @@ public:
 	const ActorName getName() const;
 	//座標を返す
 	GSvector2 getPosition() const;
-	//座標を返す
+	//行列を返す
 	GSmatrix4 getMatrix() const;
 	//座標を返す
 	GSmatrix4 getPose() const;
@@ -86,18 +86,20 @@ public:
 
 	//ワールドを設定
 	void SetWorld(const IWorldPtr& world);
-	// 判定の形の取得
+	//判定の形の取得
 	IBodyPtr getBody() const;
-	// 行列の設定
+	//行列の設定
 	void setMatrix(const GSmatrix4& mat);
-	// 座標の設定
+	//座標の設定
 	void setPosition(const GSvector2& pos);
-	//クローン生成
-	virtual ActorPtr clone(const ActorPtr& source);
-	//クローン生成
+	//テクスチャを取得
+	ITexturePtr getTexture() const;
+	// クローン生成
+	ActorPtr clone(const ActorPtr& source);
+	// クローン生成
 	virtual ActorPtr clone(const GSvector2& position);
 
-	//コピー禁止
+	// コピー禁止
 	Actor(const Actor& other) = delete;
 	Actor& operator = (const Actor& other) = delete;
 
@@ -127,7 +129,7 @@ protected:
 	//変換行列
 	GSmatrix4 m_Matrix;
 	//衝突判定
-	IBodyPtr m_Body;
+	IBodyPtr p_Body;
 	// 衝突情報
 	HitInfo m_HitInfo;
 	//死亡フラグ

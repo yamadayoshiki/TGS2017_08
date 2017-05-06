@@ -1,17 +1,17 @@
 #include"PlayerState_R_MoveBase.h"
 
 //コンストラクタ
-PlayerState_R_MoveBase::PlayerState_R_MoveBase(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager)
-	:PlayerState(position, matrix, gameManager) {}
+PlayerState_R_MoveBase::PlayerState_R_MoveBase(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(position, matrix,player, gameManager) {}
 
 //各状態独自の初期化
-void PlayerState_R_MoveBase::unique_init(Actor& actor)
+void PlayerState_R_MoveBase::unique_init()
 {
 	// 継承先の各状態独自の初期化
-	onUniqueInit(actor);
+	onUniqueInit();
 }
 //更新処理
-void PlayerState_R_MoveBase::update(Actor& actor, float deltaTaime)
+void PlayerState_R_MoveBase::update(float deltaTaime)
 {
 	//移動の入力状態によって状態を変更(待機、歩く)
 	if (p_Input->IsPadState(GS_XBOX_PAD_A)) {
@@ -25,7 +25,7 @@ void PlayerState_R_MoveBase::update(Actor& actor, float deltaTaime)
 	}
 
 	//継承先の更新処理
-	onUpdate(actor, deltaTaime);
+	onUpdate(deltaTaime);
 }
 //衝突判定
 void PlayerState_R_MoveBase::collide(const Actor& other)

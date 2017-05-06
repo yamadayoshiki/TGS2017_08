@@ -10,7 +10,7 @@ public:
 	// コンストラクタ
 	State();
 	// 全状態共通の初期化
-	virtual void common_init(Actor& actor, const int id) override;
+	virtual void common_init(const int id) override;
 	// 入力処理
 	virtual void input() override;
 	// 時間管理
@@ -35,7 +35,7 @@ protected:
 	// ステートが終了したか否か
 	bool m_IsEnd;
 	// タイマー
-	float m_Timer;
+	float m_EndTimer;
 	// 子リスト
 	std::unordered_map<ActorName, ActorPtr> m_Children;
 };

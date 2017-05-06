@@ -39,7 +39,7 @@ void Arm::onCollide(Actor& other)
 bool Arm::isCollide(const Actor& other)
 {
 	// ‰ñ“]‚ğŠÜ‚Şê‡
-	return m_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
+	return p_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
 }
 //À•W‚Ìİ’è
 void Arm::setPosition(GSvector2 position)

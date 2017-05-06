@@ -1,20 +1,20 @@
 #include"PlayerState_Walk.h"
 
 //コンストラクタ
-PlayerState_Walk::PlayerState_Walk(GSvector2& position,GSmatrix4& matrix, IGameManagerPtr gameManager)
-	:PlayerState_MoveBase(position,matrix,gameManager){
+PlayerState_Walk::PlayerState_Walk(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState_MoveBase(position, matrix, player, gameManager) {
 
 }
 //各状態独自の初期化
-void PlayerState_Walk::onUniqueInit(Actor& actor) {
+void PlayerState_Walk::onUniqueInit() {
 
 }
 //更新処理
-void PlayerState_Walk::onUpdate(Actor& actor, float deltaTime)
+void PlayerState_Walk::onUpdate(float deltaTime)
 {
 	//if (p_Input->IsPadState(GS_XBOX_PAD_A)) {
 	//	change(PlayerStateName::Run);
 	//}
 	//移動処理
-	move(actor, deltaTime, 1.0f);
+	move(deltaTime, 1.0f);
 }

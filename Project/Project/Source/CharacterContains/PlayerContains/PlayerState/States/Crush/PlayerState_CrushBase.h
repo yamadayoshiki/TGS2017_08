@@ -4,15 +4,15 @@
 #include"../../PlayerState.h"
 #include"../../PlayerStateName.h"
 
-class PlayerState_CrushBase:public PlayerState
+class PlayerState_CrushBase :public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_CrushBase(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager);
+	PlayerState_CrushBase(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
-	virtual void unique_init(Actor& actor)override;
+	virtual void unique_init()override;
 	//更新処理
-	virtual void update(Actor& actor, float deltaTime)override;
+	virtual void update(float deltaTime)override;
 	//衝突判定
 	virtual void collide(const Actor& other)override;
 	//終了処理
@@ -22,9 +22,9 @@ public:
 
 protected:
 	//各状態の初期化
-	virtual void onUniqueInit(Actor& actor) = 0;
+	virtual void onUniqueInit() = 0;
 	// 更新処理
-	virtual void onUpdate(Actor & actor, float deltaTime) = 0;
+	virtual void onUpdate(float deltaTime) = 0;
 	// 衝突判定
 	virtual void onCollide(const Actor & other) = 0;
 	// 終了時の処理

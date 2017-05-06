@@ -27,7 +27,7 @@ public:
 	//描画
 	virtual void Draw() override;
 	//終了
-	virtual void Finalize() override;
+	void Finalize() override;
 	//パラメーターの取得
 	Texture2DParameter* GetParameter();
 	//コピー禁止

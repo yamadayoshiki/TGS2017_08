@@ -69,8 +69,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\gslib_2015_ver1.4\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\gslib_2015_ver1.4\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
@@ -117,6 +117,41 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyCommandName.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Leave_FixedDistance\EnemyCommandLeaveFixedDistance.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\NullCommand\Enemy_NullCommand.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Shot\EnemyCommandShot.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBase.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBasePtr.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\AttackBase\EnemyStateAttackBase.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBasePtr.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Caught\EnemyStateCaught.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Crush\EnemyStateCrush.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Dead\EnemyStateDead.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\EnemyStateName.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\Utility\MathSupport\MathSupport.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Idle\EnemyStateIdle.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\MoveBase\EnemyStateMoveBase.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Run\EnemyStateRun.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Walk\EnemyStateWalk.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Repel\EnemyStateRepel.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Thrown\EnemyStateThrown.h" />
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\PlayerContains\Player\PlayerPtr.h" />
     <ClInclude Include="Source\ActorContains\ActorGroup.h" />
     <ClInclude Include="Source\ActorContains\ActorManager\ActorManager.h" />
     <ClInclude Include="Source\ActorContains\ActorManager\ActorManagerPtr.h" />
@@ -273,6 +308,33 @@
     <ClInclude Include="Source\WorldContains\World\World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Leave_FixedDistance\EnemyCommandLeaveFixedDistance.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Shot\EnemyCommandShot.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBase.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\AttackBase\EnemyStateAttackBase.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Caught\EnemyStateCaught.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Crush\EnemyStateCrush.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Dead\EnemyStateDead.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\Utility\MathSupport\MathSupport.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Idle\EnemyStateIdle.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\MoveBase\EnemyStateMoveBase.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Run\EnemyStateRun.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Walk\EnemyStateWalk.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Repel\EnemyStateRepel.cpp" />
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Thrown\EnemyStateThrown.cpp" />
     <ClCompile Include="Source\ActorContains\ActorManager\ActorManager.cpp" />
     <ClCompile Include="Source\ActorContains\Actor\Actor.cpp" />
     <ClCompile Include="Source\ActorContains\Body\BoundingBox.cpp" />
@@ -291,26 +353,6 @@
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
     <ClCompile Include="Source\CharacterContains\Character\Character.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Approach_FixedDistance\Enemy_Command_Approach_FixedDistance.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Base\Enemy_Command_Base.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Idle\Enemy_Command_Idle.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\AttackBase\Enemy_CommonState_AttackBase.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\RushPreliminary\Enemy_CommonState_RushPreliminary.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\Rush\Enemy_CommonState_Rush.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\Shot\Enemy_CommonState_Shot.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\BaseContains\BaseState\Enemy_BaseState.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Caught\Enemy_CommonState_Caught.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Crush\Enemy_CommonState_Crush.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Dead\Enemy_CommonState_Dead.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\MoveContains\Idle\Enemy_CommonState_Idle.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\MoveContains\MoveBase\Enemy_CommonState_MoveBase.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\MoveContains\Run\Enemy_CommonState_Run.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\MoveContains\Walk\Enemy_CommonState_Walk.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Repel\Enemy_CommonState_Repel.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Thrown\Enemy_CommonState_Thrown.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\BaseContains\Base\Enemy_Base.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_01\Enemy_01.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\StateManager\Enemy_StateManager.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\Arm\Arm.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState.cpp" />

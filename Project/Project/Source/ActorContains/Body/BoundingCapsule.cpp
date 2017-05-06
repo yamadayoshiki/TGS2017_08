@@ -10,7 +10,8 @@
 // コンストラクタ
 BoundingCapsule::BoundingCapsule(const GSvector2& pos, const GSmatrix4& mat, const float& len, const float& rad) :
 	Body(ShapeType::Capsule, pos, mat, rad, len) {
-	//mPoints[0] = pos + GSvector2(0, 1) * (len - rad);
+	//mPoints[0] = pos + GSvector2(0, 1) 
+	(len - rad);
 	//mPoints[1] = pos - GSvector2(0, 1) * (len - rad);
 }
 

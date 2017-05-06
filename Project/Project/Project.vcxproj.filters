@@ -477,6 +477,111 @@
     <ClInclude Include="Source\UIContains\Selector\Selector.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\PlayerContains\Player\PlayerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Leave_FixedDistance\EnemyCommandLeaveFixedDistance.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\NullCommand\Enemy_NullCommand.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Shot\EnemyCommandShot.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyCommandName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBasePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\AttackBase\EnemyStateAttackBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBasePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Caught\EnemyStateCaught.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Crush\EnemyStateCrush.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Dead\EnemyStateDead.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\MoveBase\EnemyStateMoveBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Run\EnemyStateRun.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Walk\EnemyStateWalk.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Repel\EnemyStateRepel.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Thrown\EnemyStateThrown.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\EnemyStateName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Idle\EnemyStateIdle.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\Utility\MathSupport\MathSupport.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -548,48 +653,6 @@
     <ClCompile Include="Source\ActorContains\Object\TestObj.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\Rush\Enemy_CommonState_Rush.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\RushPreliminary\Enemy_CommonState_RushPreliminary.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\Shot\Enemy_CommonState_Shot.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Caught\Enemy_CommonState_Caught.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Crush\Enemy_CommonState_Crush.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Dead\Enemy_CommonState_Dead.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\MoveContains\Idle\Enemy_CommonState_Idle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\MoveContains\MoveBase\Enemy_CommonState_MoveBase.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\MoveContains\Run\Enemy_CommonState_Run.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\MoveContains\Walk\Enemy_CommonState_Walk.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Thrown\Enemy_CommonState_Thrown.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\BaseContains\Base\Enemy_Base.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\BaseContains\BaseState\Enemy_BaseState.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\AttackContains\AttackBase\Enemy_CommonState_AttackBase.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\ActorContains\Object\TestEnemy.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -632,21 +695,6 @@
     <ClCompile Include="Source\ActorContains\Object\TestObj2.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommonStates\Repel\Enemy_CommonState_Repel.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemy_01\Enemy_01.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\StateManager\Enemy_StateManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Base\Enemy_Command_Base.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Approach_FixedDistance\Enemy_Command_Approach_FixedDistance.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Utility\PathFinder\Lists\AstarOpenList.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -672,9 +720,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\FileReader\CsvReader.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Idle\Enemy_Command_Idle.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player.cpp">
@@ -789,6 +834,87 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\UIContains\Selector\Selector.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Leave_FixedDistance\EnemyCommandLeaveFixedDistance.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Shot\EnemyCommandShot.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\AttackBase\EnemyStateAttackBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Caught\EnemyStateCaught.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Crush\EnemyStateCrush.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Dead\EnemyStateDead.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\MoveBase\EnemyStateMoveBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Run\EnemyStateRun.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Walk\EnemyStateWalk.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Repel\EnemyStateRepel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Thrown\EnemyStateThrown.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Idle\EnemyStateIdle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\Utility\MathSupport\MathSupport.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

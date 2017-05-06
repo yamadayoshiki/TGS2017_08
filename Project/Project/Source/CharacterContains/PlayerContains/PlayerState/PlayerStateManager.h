@@ -5,13 +5,15 @@
 #include"../../../ActorContains/State/Base/StateMgr.h"
 #include<gslib.h>
 
+#include "../Player/PlayerPtr.h"
+
 class PlayerStateManager :public StateMgr
 {
 public:
 	//コンストラクタ
 	PlayerStateManager();
 	//コンストラクタ
-	PlayerStateManager(GSvector2& position,GSmatrix4& matrix,IGameManagerPtr gameManager);
+	PlayerStateManager(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager);
 	void addChild(const ActorName& name, const ActorPtr& child);
 };
 #endif // !PLAYER_STATE_MANAGER_H_

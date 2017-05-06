@@ -7,11 +7,11 @@ class PlayerState_O_MoveBase:public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_O_MoveBase(GSvector2& position,GSmatrix4& matirx, IGameManagerPtr gameManager);
+	PlayerState_O_MoveBase(GSvector2& position,GSmatrix4& matirx, const PlayerPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
-	virtual void unique_init(Actor& actor)override;
+	virtual void unique_init()override;
 	//更新処理
-	virtual void update(Actor& actor, float deltaTaime)override;
+	virtual void update(float deltaTaime)override;
 	//衝突判定
 	virtual void collide(const Actor& other)override;
 	//終了処理
@@ -21,9 +21,9 @@ public:
 
 protected:
 	//各状態の初期化
-	virtual void onUniqueInit(Actor& actor) = 0;
+	virtual void onUniqueInit() = 0;
 	// 更新処理
-	virtual void onUpdate(Actor & actor, float deltaTime) = 0;
+	virtual void onUpdate(float deltaTime) = 0;
 	// 衝突判定
 	virtual void onCollide(const Actor & other) = 0;
 	// 終了時の処理

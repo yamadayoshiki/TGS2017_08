@@ -1,15 +1,15 @@
 #include "PlayerState_Crush.h"
 
-PlayerState_Crush::PlayerState_Crush(GSvector2 & position, GSmatrix4 & matrix, IGameManagerPtr gameManager)
-	:PlayerState_CrushBase(position,matrix,gameManager)
+PlayerState_Crush::PlayerState_Crush(GSvector2 & position, GSmatrix4 & matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState_CrushBase(position, matrix, player, gameManager)
 {
 }
 
-void PlayerState_Crush::onUniqueInit(Actor & actor)
+void PlayerState_Crush::onUniqueInit()
 {
 }
 
-void PlayerState_Crush::onUpdate(Actor & actor, float deltaTime)
+void PlayerState_Crush::onUpdate(float deltaTime)
 {
 	if (p_Input->IsPadState(GS_XBOX_PAD_B)) {
 		m_FrameCounter += deltaTime;

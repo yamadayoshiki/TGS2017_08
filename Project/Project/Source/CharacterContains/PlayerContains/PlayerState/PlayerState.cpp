@@ -4,26 +4,27 @@
 
 
 //コンストラクタ
-PlayerState::PlayerState(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager)
+PlayerState::PlayerState(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, const IGameManagerPtr& gameManager)
 	:mPosition(position)
 	, mMatrix(matrix)
 	, mVelocity(GSvector2(0.0f, 0.0f))
 	, mAngle(0)
+	, p_Player(player)
 	, p_GameManager(gameManager)
 {
-	p_Input = p_GameManager->GetInputState();
+	p_Input = gameManager->GetInputState();
 }
 
 //パッド入力
 void PlayerState::input() {}
 
 ////モーション変更
-//void PlayerState::motion_change(Actor& actor, const PlayerStateID)
+//void PlayerState::motion_change(Actor& other, const PlayerStateID)
 //{
 //
 //}
 //移動処理
-void PlayerState::move(Actor& actor, float deltaTime, float speed)
+void PlayerState::move(float deltaTime, float speed)
 {
 	GSvector2 v1;
 	GSvector2 v2;
@@ -54,9 +55,9 @@ void PlayerState::move(Actor& actor, float deltaTime, float speed)
 	m_Children[ActorName::Player_Arm]->setPosition(mPosition - GSvector2(mMatrix.getAxisY()) * 16);
 }
 
-void PlayerState::Rounds(const Actor & actor)
+void PlayerState::Rounds(const Actor & other)
 {
-	if (m_Children[ActorName::Player_Arm]->isCollide(actor)&& p_Input->IsPadStatesDetach(GS_XBOX_PAD_B)) {
+	if (m_Children[ActorName::Player_Arm]->isCollide(other)&& p_Input->IsPadStatesDetach(GS_XBOX_PAD_B)) {
 		change(PlayerStateName::R_Idol);
 	}
 }

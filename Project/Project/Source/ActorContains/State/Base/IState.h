@@ -14,13 +14,13 @@ public:
 	// 仮想デストラクタ
 	virtual ~IState() {}
 	// 全状態共通の初期化
-	virtual void common_init(Actor& actor, const int id) = 0;
+	virtual void common_init(const int id) = 0;
 	// 各状態独自の初期化
-	virtual void unique_init(Actor& actor) = 0;
+	virtual void unique_init() = 0;
 	// 入力処理
 	virtual void input() = 0;
 	// 更新処理
-	virtual void update(Actor & actor, float deltaTime) = 0;
+	virtual void update(float deltaTime) = 0;
 	// 時間更新処理
 	virtual void timer(const float& deltaTime) = 0;
 	// 状態の変更

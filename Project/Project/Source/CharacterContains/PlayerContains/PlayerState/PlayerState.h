@@ -8,6 +8,8 @@
 #include"../Arm/Arm.h"
 #include"../Arm/ArmPtr.h"
 
+#include "../Player/PlayerPtr.h"
+
 #include <unordered_map>
 
 // 各プレイヤーステートの基底クラス
@@ -15,7 +17,7 @@ class PlayerState :public State
 {
 public:
 	//コンストラクタ
-	PlayerState(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager);
+	PlayerState(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, const IGameManagerPtr& gameManager);
 	//パッド入力
 	virtual void input()override;
 
@@ -23,11 +25,14 @@ protected:
 	//モーション変更
 	//void motion_change(Actor& actor, const PlayerStateID);
 	//移動処理
-	void move(Actor& actor, float deltaTime, float speed = 1.0f);
+	void move(float deltaTime, float speed = 1.0f);
 	//挟む処理
-	void Rounds(const Actor& actor);
+	void Rounds(const Actor& other);
 
 protected:
+	//プレイヤー本体
+	PlayerPtr			p_Player;
+
 	//座標の参照
 	GSvector2&			mPosition;
 	//行列
@@ -40,7 +45,7 @@ protected:
 	IGameManagerPtr		p_GameManager;
 	//InoutState
 	InputStatePtr		p_Input;
-	//
+	//アーム
 	ArmPtr				p_Arm;
 
 };

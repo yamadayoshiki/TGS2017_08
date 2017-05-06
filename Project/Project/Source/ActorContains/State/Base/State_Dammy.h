@@ -8,13 +8,13 @@ public:
 	// コンストラクタ
 	State_Dammy() : m_ID(-1) {}
 	// 全状態共通の初期化
-	virtual void common_init(Actor & actor, const int id) override {}
+	virtual void common_init(const int id) override {}
 	// 各状態独自の初期化
-	virtual void unique_init(Actor & actor) override {}
+	virtual void unique_init() override {}
 	// 入力処理
 	virtual void input() override {}
 	// 更新処理
-	virtual void update(Actor & actor, float deltaTime) override {}
+	virtual void update(float deltaTime) override {}
 	// 更新処理
 	virtual void timer(const float& deltaTime) override {}
 	// 状態の変更
@@ -28,7 +28,7 @@ public:
 	// 終了時の処理
 	virtual void end() override {}
 	// IState を介して継承されました
-	virtual void addChild(const ActorName& name, const ActorPtr& child) override{}
+	virtual void addChild(const ActorName& name, const ActorPtr& child) override {}
 
 private:
 	// ステート

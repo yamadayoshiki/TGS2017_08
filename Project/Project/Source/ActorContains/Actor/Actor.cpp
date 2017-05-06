@@ -19,9 +19,9 @@ Actor::Actor(
 	, m_Name(name)
 	, m_Position(position)
 	, m_Matrix(GS_MATRIX4_IDENTITY)
-	, m_Body(body)
-	, m_dead(false)
 	, p_Texture(texture)
+	, p_Body(body)
+	, m_dead(false)
 {
 }
 
@@ -40,10 +40,9 @@ Actor::~Actor() {
 }
 
 //初期化
-void Actor::initialize()
-{
-
+void Actor::initialize() {
 }
+
 //更新
 void Actor::update(float deltaTime)
 {
@@ -70,26 +69,22 @@ void Actor::collide(Actor& other)
 }
 
 // 死亡しているか？ 
-bool Actor::GetDead() const
-{
+bool Actor::GetDead() const {
 	return m_dead;
 }
 
 // 死亡する 
-void Actor::dead()
-{
+void Actor::dead() {
 	m_dead = true;
 }
 
 // 名前を返す 
-const ActorName Actor::getName() const
-{
+const ActorName Actor::getName() const {
 	return m_Name;
 }
 
 // 座標を返す 
-GSvector2 Actor::getPosition() const
-{
+GSvector2 Actor::getPosition() const {
 	return m_Position;
 }
 
@@ -214,7 +209,7 @@ void Actor::SetWorld(const IWorldPtr& world) {
 
 //衝突判定図形の取得
 IBodyPtr Actor::getBody() const {
-	return m_Body;
+	return p_Body;
 }
 
 // 行列の設定
@@ -227,6 +222,10 @@ void Actor::setPosition(const GSvector2& pos) {
 	m_Position = pos;
 }
 
+//テクスチャを取得
+ITexturePtr Actor::getTexture() const {
+	return p_Texture;
+}
 
 //クローン生成
 ActorPtr Actor::clone(const ActorPtr& source) {
@@ -241,7 +240,7 @@ ActorPtr Actor::clone(const ActorPtr& source) {
 		pos,
 		source->p_GameManager,
 		source->p_Texture,
-		source->m_Body);
+		source->p_Body);
 
 	//結果を返す
 	return result;
@@ -272,7 +271,7 @@ void Actor::onUpdate(float)
 
 // 描画 
 void Actor::onDraw() const {
-	m_Body->transform(getPose())->draw();
+	p_Body->transform(getPose())->draw();
 }
 
 // 衝突した 
@@ -282,8 +281,7 @@ void Actor::onCollide(Actor&)
 }
 
 // 衝突判定 
-bool Actor::isCollide(const Actor& other)
-{
+bool Actor::isCollide(const Actor& other) {
 	// 回転を含む場合
-	return m_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
+	return p_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
 }

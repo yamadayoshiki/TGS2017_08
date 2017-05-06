@@ -9,7 +9,7 @@
 
 class Renderer2D;
 
-class Player :public Actor
+class Player :public Actor, public std::enable_shared_from_this<Player>
 {
 public:
 	//コンストラクタ
@@ -26,8 +26,6 @@ public:
 	virtual void onCollide(Actor& other)override;
 
 private:
-	//ゲーム管理者
-	IGameManagerPtr			p_GameManager;
 	//状態管理
 	PlayerStateManager*		mStateManager;
 	//レンダラー

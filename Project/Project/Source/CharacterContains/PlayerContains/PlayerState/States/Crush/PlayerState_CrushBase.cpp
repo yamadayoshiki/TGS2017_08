@@ -1,24 +1,22 @@
 #include"PlayerState_CrushBase.h"
 
 //コンストラクタ
-PlayerState_CrushBase::PlayerState_CrushBase(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager)
-	:PlayerState(position, matrix, gameManager) ,m_FrameCounter(0.0f){}
+PlayerState_CrushBase::PlayerState_CrushBase(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(position, matrix, player, gameManager), m_FrameCounter(0.0f) {}
 
 //各状態独自の初期化
-void PlayerState_CrushBase::unique_init(Actor& actor)
+void PlayerState_CrushBase::unique_init()
 {
 	// 継承先の各状態独自の初期化
-	onUniqueInit(actor);
+	onUniqueInit();
 }
 //更新処理
-void PlayerState_CrushBase::update(Actor& actor, float deltaTaime)
+void PlayerState_CrushBase::update(float deltaTaime)
 {
-
-
-	move(actor, deltaTaime);
+	move(deltaTaime);
 
 	//継承先の更新処理
-	onUpdate(actor, deltaTaime);
+	onUpdate(deltaTaime);
 }
 //衝突判定
 void PlayerState_CrushBase::collide(const Actor& other)

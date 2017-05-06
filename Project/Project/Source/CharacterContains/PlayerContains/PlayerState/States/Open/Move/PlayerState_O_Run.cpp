@@ -1,18 +1,18 @@
 #include"PlayerState_O_Run.h"
 
 //コンストラクタ
-PlayerState_O_Run::PlayerState_O_Run(GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager)
-	:PlayerState_O_MoveBase(position,matrix,gameManager)
+PlayerState_O_Run::PlayerState_O_Run(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState_O_MoveBase(position, matrix, player, gameManager)
 {
 
 }
 //各状態独自の初期化
-void PlayerState_O_Run::onUniqueInit(Actor& actor)
+void PlayerState_O_Run::onUniqueInit()
 {
 
 }
 //更新処理
-void PlayerState_O_Run::onUpdate(Actor& actor, float deltaTime)
+void PlayerState_O_Run::onUpdate(float deltaTime)
 {
-	move(actor, deltaTime, 3.5);
+	move(deltaTime, 3.5);
 }
