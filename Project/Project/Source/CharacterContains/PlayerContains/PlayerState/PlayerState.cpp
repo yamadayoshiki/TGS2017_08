@@ -8,7 +8,6 @@ PlayerState::PlayerState(GSvector2& position, GSmatrix4& matrix, const PlayerPtr
 	:mPosition(position)
 	, mMatrix(matrix)
 	, mVelocity(GSvector2(0.0f, 0.0f))
-	, mAngle(0)
 	, p_Player(player)
 	, p_GameManager(gameManager)
 {
@@ -53,11 +52,4 @@ void PlayerState::move(float deltaTime, float speed)
 	}
 	m_Children[ActorName::Player_Arm]->setMatrix(mMatrix);
 	m_Children[ActorName::Player_Arm]->setPosition(mPosition - GSvector2(mMatrix.getAxisY()) * 16);
-}
-
-void PlayerState::Rounds(const Actor & other)
-{
-	if (m_Children[ActorName::Player_Arm]->isCollide(other)&& p_Input->IsPadStatesDetach(GS_XBOX_PAD_B)) {
-		change(PlayerStateName::R_Idle);
-	}
 }

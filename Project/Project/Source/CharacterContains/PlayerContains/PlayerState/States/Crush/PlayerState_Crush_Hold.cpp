@@ -14,5 +14,7 @@ void PlayerState_Crush_Hold::onUniqueInit()
 //XVˆ—
 void PlayerState_Crush_Hold::onUpdate(float deltaTime)
 {
-
+	if (p_Input->IsPadStatesDetach(GS_XBOX_PAD_Y)) {
+		change(PlayerStateName::Rounds);
+	}
 }

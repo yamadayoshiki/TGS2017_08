@@ -1,13 +1,13 @@
-#ifndef PLAYERSTATE_CRUSH_H_
-#define PLAYERSTATE_CRUSH_H_
+#ifndef PLAYERSTATE_ROUND_H_
+#define PLAYERSTATE_ROUND_H_
 
 #include"../../PlayerState.h"
 
-class PlayerState_Crush:public PlayerState
+class PlayerState_Round :public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_Crush(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerState_Round(GSvector2& position, GSmatrix4& matirx, const PlayerPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void unique_init()override;
 	//更新処理
@@ -18,9 +18,5 @@ public:
 	virtual void end()override;
 	//入力処理
 	virtual void input() override;
-
-private:
-	//フレームカウンター
-	float m_FrameCounter{ 0.0f };
 };
-#endif // !PLAYERSTATE_CRUSH_H_
+#endif // !PLAYERSTATE_ROUND_H_

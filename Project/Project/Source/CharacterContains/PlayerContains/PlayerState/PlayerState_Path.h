@@ -8,6 +8,7 @@
 #include"States\Normal\Move\PlayerState_Idle.h"
 #include"States\Normal\Move\PlayerState_Run.h"
 #include"States/Normal/Move/PlayerState_Walk.h"
+#include"States\Normal\Move\PlayerState_Dash.h"
 
 //ƒA[ƒ€‚ªŠJ‚¢‚Ä‚¢‚éó‘Ô
 #include"States\Open\PlayerState_Open.h"
@@ -16,6 +17,7 @@
 #include"States\Open\Move\PlayerState_O_Run.h"
 
 //‚Í‚³‚ñ‚Å‚¢‚éó‘Ô
+#include"States\Rounds\PlayerState_Round.h"
 #include"States\Rounds\PlayerState_R_Idle.h"
 #include"States\Rounds\PlayerState_R_Walk.h"
 #include"States\Rounds\PlayterState_R_Run.h"

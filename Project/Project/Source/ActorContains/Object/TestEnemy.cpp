@@ -25,7 +25,12 @@ void TestEnemy::onDraw() const
 {
 	
 
-	p_GameManager->GetRenderer2D()->DrawTexture("wall", m_Position);
+	//p_GameManager->GetRenderer2D()->DrawTexture("wall", m_Position);
+
+	Actor::onDraw();
+	gsTextPos(m_Position.x, m_Position.y);
+	gsDrawText("a");
+
 }
 
 void TestEnemy::onCollide(Actor &)

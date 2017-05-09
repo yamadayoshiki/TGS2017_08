@@ -44,7 +44,13 @@ void PlayerState_R_MoveBase::end()
 void PlayerState_R_MoveBase::input()
 {
 	//’×‚·ó‘Ô‚É‘JˆÚ
-
+	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_Y)) {
+		change(PlayerStateName::Crush);
+	}
+	//—£‚·ó‘Ô‚É‘JˆÚ
+	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+		change(PlayerStateName::Release);
+	}
 
 	//Œp³æ‚Ì“ü—Íˆ—
 	onInput();

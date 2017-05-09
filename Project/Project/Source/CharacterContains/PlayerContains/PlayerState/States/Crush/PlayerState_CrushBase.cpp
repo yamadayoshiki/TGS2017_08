@@ -13,8 +13,6 @@ void PlayerState_CrushBase::unique_init()
 //更新処理
 void PlayerState_CrushBase::update(float deltaTaime)
 {
-	move(deltaTaime);
-
 	//継承先の更新処理
 	onUpdate(deltaTaime);
 }
@@ -37,9 +35,6 @@ void PlayerState_CrushBase::end()
 //入力処理
 void PlayerState_CrushBase::input()
 {
-	//アームを開く
-	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B)) change(PlayerStateName::Open);
-
 	//継承先の入力処理
 	onInput();
 }

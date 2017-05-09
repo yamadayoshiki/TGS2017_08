@@ -15,10 +15,10 @@ void PlayerState_MoveBase::unique_init()
 void PlayerState_MoveBase::update(float deltaTaime)
 {
 	//移動の入力状態によって状態を変更(待機、歩く)
-	if (p_Input->IsPadState(GS_XBOX_PAD_A)) {
+	/*if (p_Input->IsPadState(GS_XBOX_PAD_A)) {
 		change(PlayerStateName::Run);
-	}
-	else if (p_Input->PadVelocity().length() >= 0.5f) {
+	}*/
+	if (p_Input->PadVelocity().length() >= 0.5f) {
 		change(PlayerStateName::Walk);
 	}
 	else if (p_Input->PadVelocity().length() <= 0.0f) {
@@ -50,10 +50,10 @@ void PlayerState_MoveBase::input()
 	//アームを開く
 	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B))
 		change(PlayerStateName::Open);
-
-	//if (p_Input->IsPadStatesDetach(GS_XBOX_PAD_B)) {
-	//	change(PlayerStateName::Swich);
-	//}
+	//ダッシュ
+	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_A)) {
+		change(PlayerStateName::Dash);
+	}
 
 	//継承先の入力処理
 	onInput();

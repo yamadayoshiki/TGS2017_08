@@ -9,7 +9,7 @@ PlayerState_Release::PlayerState_Release(GSvector2& position, GSmatrix4& matrix,
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Release::unique_init()
 {
-
+	change(PlayerStateName::Close);
 }
 //XVˆ—
 void PlayerState_Release::update(float deltaTaime)

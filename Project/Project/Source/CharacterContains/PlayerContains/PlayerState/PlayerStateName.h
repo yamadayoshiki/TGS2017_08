@@ -7,6 +7,7 @@ enum class PlayerStateName
 	Idle,				//静止状態
 	Walk,				//移動状態(歩く)
 	Run,				//移動状態(走る)
+	Dash,				//
 	Close,				//アームを閉めている状態
 				
 	//アームが開いている状態
@@ -28,6 +29,7 @@ enum class PlayerStateName
 
 	//共通
 	Damage,			//ダメージ状態
+	Release,		//離す状態
 	Swich,			//切り替え
 	Dead,			//死に
 	None			//ダミー

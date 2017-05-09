@@ -16,5 +16,5 @@ void PlayerState_Crush_Barrage::onUniqueInit()
 //XVˆ—
 void PlayerState_Crush_Barrage::onUpdate(float deltaTime)
 {
-
+	change(PlayerStateName::Rounds);
 }
