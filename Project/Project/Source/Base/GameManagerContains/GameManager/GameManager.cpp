@@ -1,10 +1,11 @@
 #include"GameManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include"../../../Utility/InputState/InputState.h"
+#include"../../../Utility/EnumRap/EnumRap.h"
 
 //コンストラクタ
 GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState)
-	:p_Renderer2D(renderer2D), p_InputState(inputState), m_IsEnd(false){
+	:p_Renderer2D(renderer2D), p_InputState(inputState), p_SceneEnum(std::make_shared<EnumRap<SceneName>>()){
 }
 
 //コンテンツの読み込み
@@ -33,13 +34,9 @@ InputStatePtr GameManager::GetInputState() {
 	return p_InputState;
 }
 
-bool GameManager::IsEndScene()
-{
-	return m_IsEnd;
-}
-
-void GameManager::EndScene(bool end){
-	m_IsEnd = end;
+//シーンのEnumの取得
+EnumRapPtr<SceneName> GameManager::GetSceneEnum(){
+	return p_SceneEnum;
 }
 
 //終了処理

@@ -1,6 +1,3 @@
-#include <GL/GLAux.h>
-#include <GL\GL.h>
-#include <GL/GLU.h>
 #include <gslib.h>
 
 #include"GameFrame.h"
@@ -8,20 +5,24 @@
 #include"../GameManagerContains/GameManager/GameManager.h"
 #include"../../Utility/Rederer2D/Renderer2D.h"
 #include"../../Utility/InputState/InputState.h"
+#include"../../Utility/EnumRap/EnumRap.h"
 
 #include"../../SceneContains/SceneName.h"
 #include"../../SceneContains/GameTitle/GameTitle.h"
+#include"../../SceneContains/GameSelect/GameSelect.h"
 #include"../../SceneContains/GamePlay/GamePlay.h"
+#include"../../SceneContains/GameCredit/GameCredit.h"
+#include"../../SceneContains/GameEnd/GameEnd.h"
+
 #include"../../SceneContains/NaganoScene/NaganoScene.h"
 #include"../../SceneContains/NakayamaScene/NakayamaScene.h"
 #include"../../SceneContains/yamadaScene/yamadaScene.h"
+
 #include "../../Define/Def_Nagano.h"
 #include"../../WorldContains/World/World.h"
 
-
 //コンストラクタ
-GameFrame::GameFrame()
-	:Game(SCREEN_SIZE.x, SCREEN_SIZE.y)
+GameFrame::GameFrame() : Game(SCREEN_SIZE.x, SCREEN_SIZE.y)
 	, m_SceneManager() {
 	//ゲームマネージャー生成
 	p_GameManager = std::make_shared<GameManager>(
@@ -39,21 +40,27 @@ GameFrame::~GameFrame() {
 }
 
 //初期化
-void GameFrame::start()
-{
-	//ワールド生成
-	using WorldPtr = std::shared_ptr<World>;
-	WorldPtr p_World;
-	p_World = std::make_shared<World>();
+void GameFrame::start(){
+	// シーンのstring対応の登録
+	p_GameManager->GetSceneEnum()->AddEnum("GameTitle", SceneName::GameTitle);
+	p_GameManager->GetSceneEnum()->AddEnum("GameSelect", SceneName::GameSelect);
+	p_GameManager->GetSceneEnum()->AddEnum("GamePlay", SceneName::GamePlay);
+	p_GameManager->GetSceneEnum()->AddEnum("GameCredit", SceneName::GameCredit);
+	p_GameManager->GetSceneEnum()->AddEnum("GameEnd", SceneName::GameEnd);
+
 	//シーンの追加
-	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>(p_GameManager, p_World));
-	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager, p_World));
-	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>(p_GameManager, p_World));
-	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>(p_GameManager, p_World));
-	m_SceneManager.Add(SceneName::YamadaScene, std::make_shared<yamadaScene>(p_GameManager, p_World));
+	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>(p_GameManager));
+	m_SceneManager.Add(SceneName::GameSelect, std::make_shared<GameSelect>(p_GameManager));
+	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager));
+	m_SceneManager.Add(SceneName::GameCredit, std::make_shared<GameCredit>(p_GameManager));
+	m_SceneManager.Add(SceneName::GameEnd, std::make_shared<GameEnd>(p_GameManager));
+
+	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>(p_GameManager));
+	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>(p_GameManager));
+	m_SceneManager.Add(SceneName::YamadaScene, std::make_shared<yamadaScene>(p_GameManager));
 
 	//初期シーンの設定
-	m_SceneManager.Change(SceneName::NakayamaScene);
+	m_SceneManager.Change(SceneName::GameTitle);
 }
 
 // 更新
@@ -70,13 +77,12 @@ void GameFrame::draw()
 }
 
 // 終了
-void GameFrame::end()
-{
+void GameFrame::end(){
 	m_SceneManager.End();
 }
 
 // 実行中か
-bool GameFrame::isRunning()
-{
-	return GetAsyncKeyState(VK_ESCAPE) == 0;
+bool GameFrame::isRunning(){
+	// Endシーンでない場合は実行中
+	return m_SceneManager.GetSceneName() != SceneName::GameEnd && GetAsyncKeyState(VK_ESCAPE) == 0;
 }

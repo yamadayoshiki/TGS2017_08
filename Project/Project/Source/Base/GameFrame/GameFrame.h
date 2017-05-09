@@ -25,7 +25,7 @@ private:
 	// I—¹
 	void end() override;
 	// Às’†‚©
-	bool isRunning() override;
+	virtual bool isRunning() override;
 
 private:
 	using GameManagerPtr = std::shared_ptr<GameManager>;
