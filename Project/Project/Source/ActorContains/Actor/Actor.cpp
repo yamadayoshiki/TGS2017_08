@@ -17,8 +17,7 @@ Actor::Actor(
 	: p_World(world)
 	, p_GameManager(gaemManager)
 	, m_Name(name)
-	, m_Position(position)
-	, m_Matrix(GS_MATRIX4_IDENTITY)
+	, m_Transform({ position, 0.0f, GSvector2(1.0f, 0.0f)})
 	, p_Texture(texture)
 	, p_Body(body)
 	, m_dead(false)
@@ -83,27 +82,12 @@ const ActorName Actor::getName() const {
 	return m_Name;
 }
 
-// 座標を返す 
-GSvector2 Actor::getPosition() const {
-	return m_Position;
+GSvector2 Actor::getPosition() const{
+	return m_Transform.m_Position;
 }
 
-//行列の取得
-GSmatrix4 Actor::getMatrix() const {
-	return m_Matrix;
-}
-
-//ポーズの取得
-GSmatrix4 Actor::getPose() const {
-	return GSmatrix4(m_Matrix).translate(m_Position);
-}
-
-//回転を取得
-void Actor::rotate(const float & angle) {
-}
-
-//スケールを取得
-void Actor::scale(const GSvector2 & scale) {
+Transform Actor::getTransform() const{
+	return m_Transform;
 }
 
 // 子の検索 
@@ -212,14 +196,18 @@ IBodyPtr Actor::getBody() const {
 	return p_Body;
 }
 
-// 行列の設定
-void Actor::setMatrix(const GSmatrix4& mat) {
-	m_Matrix = mat;
-}
+//// 行列の設定
+//void Actor::setMatrix(const GSmatrix4& mat) {
+//	m_Matrix = mat;
+//}
 
 // 座標の設定
 void Actor::setPosition(const GSvector2& pos) {
-	m_Position = pos;
+	m_Transform.m_Position = pos;
+}
+
+void Actor::setAngle(const float & angle){
+	m_Transform.m_Angle = angle;
 }
 
 //テクスチャを取得
@@ -271,7 +259,7 @@ void Actor::onUpdate(float)
 
 // 描画 
 void Actor::onDraw() const {
-	p_Body->transform(getPose())->draw();
+	p_Body->transform(getTransform())->draw();
 }
 
 // 衝突した 
@@ -283,5 +271,5 @@ void Actor::onCollide(Actor&)
 // 衝突判定 
 bool Actor::isCollide(const Actor& other) {
 	// 回転を含む場合
-	return p_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
+	return p_Body->transform(getTransform())->isCollide(*other.getBody()->transform(other.getTransform()).get(), HitInfo());
 }

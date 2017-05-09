@@ -4,7 +4,7 @@
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 
 TestEnemy::TestEnemy(const IWorldPtr& world, const GSvector2 & position,const IGameManagerPtr& gameManager) :
-	Actor(world, ActorName::Enemy, position,gameManager, std::make_shared<NullTexture>(),std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
+	Actor(world, ActorName::Enemy, position,gameManager, std::make_shared<NullTexture>(),std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, 0.0f, GSvector2{ 1.0f, 1.0f })) {
 	angle = 0.0f;
 
 	
@@ -28,7 +28,7 @@ void TestEnemy::onDraw() const
 	//p_GameManager->GetRenderer2D()->DrawTexture("wall", m_Position);
 
 	Actor::onDraw();
-	gsTextPos(m_Position.x, m_Position.y);
+	gsTextPos(m_Transform.m_Position.x, m_Transform.m_Position.y);
 	gsDrawText("a");
 
 }

@@ -18,6 +18,7 @@
 #include "../../Base/GameManagerContains/IGameManagerPtr.h"
 #include "../../TextureContains/ITexturePtr.h"
 #include "../../TextureContains/NullTexture/NullTexture.h"
+#include "../Transform/Transform.h"
 
 enum class EventMessage;
 
@@ -53,14 +54,18 @@ public:
 	const ActorName getName() const;
 	//座標を返す
 	GSvector2 getPosition() const;
-	//行列を返す
-	GSmatrix4 getMatrix() const;
-	//座標を返す
-	GSmatrix4 getPose() const;
-	//回転
-	void rotate(const float& angle);
-	//拡大、縮小
-	void scale(const GSvector2& scale);
+	////行列を返す
+	//GSmatrix4 getMatrix() const;
+	////座標を返す
+	//GSmatrix4 getPose() const;
+	////回転
+	//void rotate(const float& angle);
+	////拡大、縮小
+	//void scale(const GSvector2& scale);
+
+	//変換情報を返す
+	Transform getTransform() const;
+
 	//子の検索
 	ActorPtr findChildren_NullActor(const ActorName& name);
 	//子の検索（NullPtrあり）
@@ -88,10 +93,14 @@ public:
 	void SetWorld(const IWorldPtr& world);
 	//判定の形の取得
 	IBodyPtr getBody() const;
-	//行列の設定
-	void setMatrix(const GSmatrix4& mat);
+
+	////行列の設定
+	//void setMatrix(const GSmatrix4& mat);
 	//座標の設定
 	void setPosition(const GSvector2& pos);
+	//角度の設定
+	void setAngle(const float& angle);
+
 	//テクスチャを取得
 	ITexturePtr getTexture() const;
 	// クローン生成
@@ -124,10 +133,14 @@ protected:
 	IGameManagerPtr p_GameManager;
 	//名前
 	ActorName m_Name;
-	//座標
-	GSvector2 m_Position;
-	//変換行列
-	GSmatrix4 m_Matrix;
+
+	// 変換
+	Transform m_Transform;
+
+	////座標
+	//GSvector2 m_Position;
+	////変換行列
+	//GSmatrix4 m_Matrix;
 	//衝突判定
 	IBodyPtr p_Body;
 	// 衝突情報

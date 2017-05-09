@@ -10,7 +10,7 @@ TestObj::TestObj(const IWorldPtr& world, const GSvector2 & position, const IGame
 		position,
 		gameManager,
 		std::make_shared<NullTexture>(),
-		std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, GSvector2{ 1.0f, 1.0f }, GS_MATRIX4_IDENTITY)) {
+		std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, 0.0f, GSvector2{ 1.0f, 1.0f })) {
 
 	angle = 0.0f;
 
@@ -21,16 +21,16 @@ void TestObj::onUpdate(float deltaTime)
 {
 
 	if (gsGetKeyState(GKEY_LEFT) == GS_TRUE) {
-		m_Position.x -= 0.1f;
+		m_Transform.m_Position.x -= 1.0f;
 	}
 	if (gsGetKeyState(GKEY_RIGHT) == GS_TRUE) {
-		m_Position.x += 0.1f;
+		m_Transform.m_Position.x += 1.0f;
 	}
 	if (gsGetKeyState(GKEY_UP) == GS_TRUE) {
-		m_Position.y += 0.1f;
+		m_Transform.m_Position.y -= 1.0f;
 	}
 	if (gsGetKeyState(GKEY_DOWN) == GS_TRUE) {
-		m_Position.y -= 0.1f;
+		m_Transform.m_Position.y += 1.0f;
 	}
 
 	if (gsGetKeyState(GKEY_A) == GS_TRUE) {
@@ -40,16 +40,16 @@ void TestObj::onUpdate(float deltaTime)
 		angle -= 1.0f;
 	}
 
-	m_Matrix.setRotationZ(angle);
+	m_Transform.m_Angle = angle;
 }
 
 void TestObj::onDraw() const
 {
 	glDisable(GL_LIGHTING);
-	//Actor::onDraw();
+	Actor::onDraw();
 	glColor3f(1.0f, 1.0f, 1.0f);
 
-	p_GameManager->GetRenderer2D()->DrawTexture("Block5", m_Position);
+	p_GameManager->GetRenderer2D()->DrawTexture("Block5", m_Transform.m_Position);
 	
 }
 

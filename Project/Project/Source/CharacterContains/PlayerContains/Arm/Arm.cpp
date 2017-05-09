@@ -9,7 +9,7 @@ Arm::Arm(const IWorldPtr& world, GSvector2& position, GSmatrix4& matrix, IGameMa
 	, position
 	, gameManager
 	, std::make_shared<NullTexture>()
-		, std::make_shared<OrientedBoundingBox>(GSvector2{32.0f,32.0f}, GSvector2{ 2.0f, 1.0f }, GS_MATRIX4_IDENTITY))
+		, std::make_shared<OrientedBoundingBox>(GSvector2{32.0f,32.0f}, 0.0f, GSvector2{ 2.0f, 1.0f }))
 	,m_Angle(0.0f)
 	,mHitFlag(false)
 {
@@ -39,17 +39,17 @@ void Arm::onCollide(Actor& other)
 bool Arm::isCollide(const Actor& other)
 {
 	// âÒì]Çä‹ÇﬁèÍçá
-	return p_Body->transform(getPose())->isCollide(*other.getBody()->transform(other.getPose()).get(), HitInfo());
+	return p_Body->transform(getTransform())->isCollide(*other.getBody()->transform(other.getTransform()).get(), HitInfo());
 }
 //ç¿ïWÇÃê›íË
 void Arm::setPosition(GSvector2 position)
 {
-	m_Position = position;
+	m_Transform.m_Position = position;
 }
 //çsóÒ
 void Arm::setMatrix(GSmatrix4 matrix)
 {
-	m_Matrix = matrix;
+	//m_Matrix = matrix;
 }
 //âÒì]äpìx
 void Arm::setAngle(float angle)

@@ -14,7 +14,7 @@ Player::Player(const IWorldPtr& world, const GSvector2& position, const IGameMan
 		position,
 		gameManager,
 		std::make_shared<NullTexture>(),
-		std::make_shared<OrientedBoundingBox>(GSvector2{ 32.0f, 32.0f }, GSvector2{ 2.0f, 2.0f }, GS_MATRIX4_IDENTITY)), angle(0.0f)
+		std::make_shared<OrientedBoundingBox>(GSvector2{ 32.0f, 32.0f }, 0.0f, GSvector2{ 2.0f, 2.0f })), angle(0.0f)
 {
 	p_Renderer = gameManager->GetRenderer2D();
 }
@@ -25,12 +25,15 @@ Player::~Player() {
 void Player::initialize()
 {
 	//ステートマネージャ生成、初期化
-	mStateManager = new PlayerStateManager(m_Position, m_Matrix, shared_from_this(), p_GameManager);
+	//mStateManager = new PlayerStateManager(m_Position, m_Matrix, shared_from_this(), p_GameManager);
+	mStateManager = new PlayerStateManager(m_Transform.m_Position, GSmatrix4(GS_MATRIX4_IDENTITY), shared_from_this(), p_GameManager);
 	mStateManager->change(PlayerStateName::Idle);
 
 	//アーム生成
-	auto arm = std::make_shared<Arm>(p_World, m_Position, m_Matrix, p_GameManager);
-	arm->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
+	//auto arm = std::make_shared<Arm>(p_World, m_Position, m_Matrix, p_GameManager);
+	auto arm = std::make_shared<Arm>(p_World, m_Transform.m_Position, GSmatrix4(GS_MATRIX4_IDENTITY), p_GameManager);
+	//arm->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
+	arm->setPosition(m_Transform.m_Position - m_Transform.m_Forward * 16);
 	addChild(arm);
 	mStateManager->addChild(ActorName::Player_Arm, arm);
 }
@@ -40,7 +43,8 @@ void Player::onUpdate(float deltaTime)
 	//状態管理の更新処理
 	mStateManager->action(deltaTime);
 	//行動制限
-	m_Position = m_Position.clamp(GSvector2(0.0f, 0.0f), GSvector2(960, 704));
+	//m_Position = m_Position.clamp(GSvector2(0.0f, 0.0f), GSvector2(960, 704));
+	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(0.0f, 0.0f), GSvector2(960, 704));
 
 	//child->setMatrix(m_Matrix);
 	//child->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
@@ -48,8 +52,9 @@ void Player::onUpdate(float deltaTime)
 //描画処理
 void Player::onDraw()const
 {
-	p_Body->transform(getPose())->draw();
-	p_Renderer->DrawTexture("Player", m_Position);
+	p_Body->transform(getTransform())->draw();
+	//p_Renderer->DrawTexture("Player", m_Position);
+	p_Renderer->DrawTexture("Player", m_Transform.m_Position);
 	//child->onDraw();
 }
 //衝突判定
