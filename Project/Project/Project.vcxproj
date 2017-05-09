@@ -81,7 +81,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\gslib_2015\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\gslib_2015\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -97,10 +101,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\gslib_2015\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\gslib_2015\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -117,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\ActorContains\Transform\Transform.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h" />
@@ -251,7 +258,10 @@
     <ClInclude Include="Source\MapGenerator\MapGenerator.h" />
     <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h" />
     <ClInclude Include="Source\Map\Map.h" />
+    <ClInclude Include="Source\SceneContains\GameCredit\GameCredit.h" />
+    <ClInclude Include="Source\SceneContains\GameEnd\GameEnd.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\GamePlay.h" />
+    <ClInclude Include="Source\SceneContains\GameSelect\GameSelect.h" />
     <ClInclude Include="Source\SceneContains\GameTitle\GameTitle.h" />
     <ClInclude Include="Source\SceneContains\IScene.h" />
     <ClInclude Include="Source\SceneContains\IScenePtr.h" />
@@ -287,6 +297,8 @@
     <ClInclude Include="Source\UIContains\UIPtr.h" />
     <ClInclude Include="Source\UIContains\UIType.h" />
     <ClInclude Include="Source\Utility\Animation\Animation.h" />
+    <ClInclude Include="Source\Utility\EnumRap\EnumRap.h" />
+    <ClInclude Include="Source\Utility\EnumRap\EnumRapPtr.h" />
     <ClInclude Include="Source\Utility\InputState\InputState.h" />
     <ClInclude Include="Source\Utility\InputState\InputStatePtr.h" />
     <ClInclude Include="Source\Utility\MathSupport\MathSupport.h" />
@@ -385,7 +397,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Source\MapGenerator\MapGenerator.cpp" />
     <ClCompile Include="Source\Map\Map.cpp" />
+    <ClCompile Include="Source\SceneContains\GameCredit\GameCredit.cpp" />
+    <ClCompile Include="Source\SceneContains\GameEnd\GameEnd.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp" />
+    <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
     <ClCompile Include="Source\SceneContains\NaganoScene\NaganoScene.cpp" />
     <ClCompile Include="Source\SceneContains\NakayamaScene\NakayamaScene.cpp" />
