@@ -33,8 +33,10 @@ public:
 private:
 	//KeyVelocityの更新
 	void UpdateKeyVelocity();
-	//PadVelocityの更新
+	//PadVelocityの更新(アナログスティック)
 	void UpdatePadVelocity();
+	//PadVelpcityの更新(十字キー)
+	void UpdatePadVelocity_Button();
 
 private:
 	//KeyVelocity

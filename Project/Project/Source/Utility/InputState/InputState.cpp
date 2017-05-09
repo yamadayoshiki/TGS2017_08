@@ -81,9 +81,11 @@ GSvector2 InputState::PadVelocity()
 	return mPadVelocity;
 }
 
-//PadVelocityの更新
+//PadVelocityの更新(アナログスティック)
 void InputState::UpdatePadVelocity()
 {
+	mPadVelocity = GSvector2(0.0f, 0.0f);
+
 	gsXBoxPadGetLeftAxis(0, &mPadVelocity);
 
 	mPadVelocity.y = -mPadVelocity.y;
@@ -91,8 +93,30 @@ void InputState::UpdatePadVelocity()
 	mPadVelocity.normalize();
 }
 
+//PadVelpcityの更新(十字キー)
+void InputState::UpdatePadVelocity_Button()
+{
+	mPadVelocity = GSvector2(0.0f, 0.0f);
+
+	if (gsXBoxPadButtonState(0,GS_XBOX_PAD_UP)) {
+		mPadVelocity.y = -1.0f;
+	}
+	else if (gsXBoxPadButtonState(0,GS_XBOX_PAD_DOWN)) {
+		mPadVelocity.y = 1.0f;
+	}
+	else if (gsXBoxPadButtonState(0, GS_XBOX_PAD_LEFT)) {
+		mPadVelocity.x = -1.0f;
+	}
+	else if (gsXBoxPadButtonState(0, GS_XBOX_PAD_RIGHT)) {
+		mPadVelocity.x = 1.0f;
+	}
+	mPadVelocity.normalize();
+}
+
+
 void InputState::Update()
 {
 	UpdateKeyVelocity();
-	UpdatePadVelocity();
+	//UpdatePadVelocity();
+	UpdatePadVelocity_Button();
 }

@@ -21,7 +21,7 @@ void PlayerState_R_MoveBase::update(float deltaTaime)
 		change(PlayerStateName::R_Walk);
 	}
 	else if (p_Input->PadVelocity().length() <= 0.0f) {
-		change(PlayerStateName::R_Idol);
+		change(PlayerStateName::R_Idle);
 	}
 
 	//Œp³æ‚ÌXVˆ—

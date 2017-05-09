@@ -5,18 +5,18 @@
 
 //’Êíó‘Ô
 #include"States\Normal\PlayerState_Close.h"
-#include"States\Normal\Move\PlayerState_Idol.h"
+#include"States\Normal\Move\PlayerState_Idle.h"
 #include"States\Normal\Move\PlayerState_Run.h"
 #include"States/Normal/Move/PlayerState_Walk.h"
 
 //ƒA[ƒ€‚ªŠJ‚¢‚Ä‚¢‚éó‘Ô
 #include"States\Open\PlayerState_Open.h"
-#include"States\Open\Move\PlayerState_O_Idol.h"
+#include"States\Open\Move\PlayerState_O_Idle.h"
 #include"States\Open\Move\PlayerState_O_Walk.h"
 #include"States\Open\Move\PlayerState_O_Run.h"
 
 //‚Í‚³‚ñ‚Å‚¢‚éó‘Ô
-#include"States\Rounds\PlayerState_R_Idol.h"
+#include"States\Rounds\PlayerState_R_Idle.h"
 #include"States\Rounds\PlayerState_R_Walk.h"
 #include"States\Rounds\PlayterState_R_Run.h"
 
@@ -28,5 +28,6 @@
 //‹¤’Ê
 #include"States\Common\PlayerState_Damage.h"
 #include"States\Common\PlayerState_Swich.h"
+#include"States\Common\PlayerState_Release.h"
 
 #endif // !PLAYERSTATE_PATH_H_

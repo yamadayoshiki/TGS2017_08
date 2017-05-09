@@ -13,18 +13,18 @@ PlayerStateManager::PlayerStateManager(GSvector2 & position, GSmatrix4& matrix, 
 
 	//’Êíó‘Ô
 	add(PlayerStateName::Close, std::make_shared<PlayerState_Close>(position, matrix, player, gameManager));
-	add(PlayerStateName::Idol, std::make_shared<PlayerState_Idol>(position, matrix, player, gameManager));
+	add(PlayerStateName::Idle, std::make_shared<PlayerState_Idle>(position, matrix, player, gameManager));
 	add(PlayerStateName::Walk, std::make_shared<PlayerState_Walk>(position, matrix, player, gameManager));
 	add(PlayerStateName::Run, std::make_shared<PlayerState_Run>(position, matrix, player, gameManager));
 
 	//ƒA[ƒ€‚ğŠJ‚¢‚Ä‚¢‚éó‘Ô
 	add(PlayerStateName::Open, std::make_shared<PlayerState_Open>(position, matrix, player, gameManager));
-	add(PlayerStateName::O_Idol, std::make_shared<PlayerState_O_Idol>(position, matrix, player, gameManager));
+	add(PlayerStateName::O_Idle, std::make_shared<PlayerState_O_Idle>(position, matrix, player, gameManager));
 	add(PlayerStateName::O_Walk, std::make_shared<PlayerState_O_Walk>(position, matrix, player, gameManager));
 	add(PlayerStateName::O_Run, std::make_shared<PlayerState_O_Run>(position, matrix, player, gameManager));
 
 	//‚Í‚³‚ñ‚Å‚¢‚éó‘Ô
-	add(PlayerStateName::R_Idol, std::make_shared<PlayerState_R_Idol>(position, matrix, player, gameManager));
+	add(PlayerStateName::R_Idle, std::make_shared<PlayerState_R_Idle>(position, matrix, player, gameManager));
 	add(PlayerStateName::R_Walk, std::make_shared<PlayerState_R_Walk>(position, matrix, player, gameManager));
 	add(PlayerStateName::R_Run, std::make_shared<PlayerState_R_Run>(position, matrix, player, gameManager));
 
@@ -38,14 +38,14 @@ PlayerStateManager::PlayerStateManager(GSvector2 & position, GSmatrix4& matrix, 
 }
 
 void PlayerStateManager::addChild(const ActorName & name, const ActorPtr & child) {
-	mStates[(int)PlayerStateName::Idol]->addChild(name, child);
+	mStates[(int)PlayerStateName::Idle]->addChild(name, child);
 	mStates[(int)PlayerStateName::Run]->addChild(name, child);
 	mStates[(int)PlayerStateName::Walk]->addChild(name, child);
 	mStates[(int)PlayerStateName::Open]->addChild(name, child);
-	mStates[(int)PlayerStateName::O_Idol]->addChild(name, child);
+	mStates[(int)PlayerStateName::O_Idle]->addChild(name, child);
 	mStates[(int)PlayerStateName::O_Walk]->addChild(name, child);
 	mStates[(int)PlayerStateName::O_Run]->addChild(name, child);
-	mStates[(int)PlayerStateName::R_Idol]->addChild(name, child);
+	mStates[(int)PlayerStateName::R_Idle]->addChild(name, child);
 	mStates[(int)PlayerStateName::R_Walk]->addChild(name, child);
 	mStates[(int)PlayerStateName::R_Run]->addChild(name, child);
 	mStates[(int)PlayerStateName::Close]->addChild(name, child);

@@ -15,7 +15,7 @@ void PlayerState_Swich::unique_init()
 void PlayerState_Swich::update(float deltaTaime)
 {
 	if (m_Flag == true) {
-		change(PlayerStateName::R_Idol);
+		change(PlayerStateName::R_Idle);
 	}
 	else {
 		change(PlayerStateName::Close);

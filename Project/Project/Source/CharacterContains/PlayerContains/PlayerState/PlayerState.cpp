@@ -58,6 +58,6 @@ void PlayerState::move(float deltaTime, float speed)
 void PlayerState::Rounds(const Actor & other)
 {
 	if (m_Children[ActorName::Player_Arm]->isCollide(other)&& p_Input->IsPadStatesDetach(GS_XBOX_PAD_B)) {
-		change(PlayerStateName::R_Idol);
+		change(PlayerStateName::R_Idle);
 	}
 }

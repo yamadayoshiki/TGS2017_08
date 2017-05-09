@@ -23,7 +23,7 @@ void PlayerState_O_MoveBase::update(float deltaTaime)
 		change(PlayerStateName::O_Walk);
 	}
 	else if (p_Input->PadVelocity().length() <= 0.0f) {
-		change(PlayerStateName::O_Idol);
+		change(PlayerStateName::O_Idle);
 	}
 
 	//Œp³æ‚ÌXVˆ—

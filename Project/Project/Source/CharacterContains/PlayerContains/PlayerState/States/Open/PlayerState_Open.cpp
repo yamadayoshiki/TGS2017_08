@@ -17,7 +17,7 @@ void PlayerState_Open::unique_init()
 //XVˆ—
 void PlayerState_Open::update(float deltaTaime)
 {
-	change(PlayerStateName::O_Idol);
+	change(PlayerStateName::O_Idle);
 }
 
 //Õ“Ë”»’è

@@ -26,7 +26,7 @@ void Player::initialize()
 {
 	//ステートマネージャ生成、初期化
 	mStateManager = new PlayerStateManager(m_Position, m_Matrix, shared_from_this(), p_GameManager);
-	mStateManager->change(PlayerStateName::Idol);
+	mStateManager->change(PlayerStateName::Idle);
 
 	//アーム生成
 	auto arm = std::make_shared<Arm>(p_World, m_Position, m_Matrix, p_GameManager);
