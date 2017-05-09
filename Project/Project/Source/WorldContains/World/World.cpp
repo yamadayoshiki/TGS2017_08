@@ -4,13 +4,14 @@
 #include"../../Map/Map.h"
 #include "../../ActorContains/ActorManager/ActorManager.h"
 #include"../../MapGenerator/MapGenerator.h"
+#include "../EventMessage/EventMessage.h"
 
 #include <iostream>
 
 // コンストラクタ
 World::World()
-	:p_Actors(std::make_shared<ActorManager>())
-{
+	:p_Actors(std::make_shared<ActorManager>()),
+	m_IsEnd(false){
 }
 
 // デストラクタ
@@ -45,6 +46,12 @@ void World::Finalize()
 void World::handleMessage(EventMessage message, void* param)
 {
 	// ワールドのメッセージ処理 
+	switch (message)
+	{
+	case EventMessage::END_SCENE : EndRequest((const SceneName&)param);
+	default:
+		break;
+	}
 
 	// アクターのメッセージ処理    
 	p_Actors->handleMessage(message, param);
@@ -86,6 +93,24 @@ void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, 
 
 Map & World::GetMap(){
 	return p_MapGenerator->getMap();
+}
+
+bool World::IsEnd(){
+	return m_IsEnd;
+}
+
+void World::EndRequest(const SceneName & name){
+	m_NextScene = name;
+	m_IsEnd = true;
+}
+
+void World::ResetEnd()
+{
+	m_IsEnd = false;
+}
+
+SceneName World::NextScene(){
+	return m_NextScene;
 }
 
 //Map& World::GetMap()

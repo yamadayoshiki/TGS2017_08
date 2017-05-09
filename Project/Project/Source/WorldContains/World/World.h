@@ -9,7 +9,9 @@
 
 #include"../../ActorContains/ActorManager/ActorManagerPtr.h"
 #include"../../MapGenerator/MapGeneratorPtr.h"
+
 enum class EventMessage;
+enum class SceneName;
 
 // ワールドクラス
 class World :public IWorld
@@ -38,14 +40,19 @@ public:
 	// メッセージの送信    
 	virtual void sendMessage(EventMessage message, void* param = nullptr) override;
 
-
 	//生成
 	void generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name);
 	//マップの取得
 	Map& GetMap();
-	////マップジェネレーターの設定
-	//void setMapGenerator(MapGenerator* mapGenerator);
 
+	// シーンの終了の取得
+	virtual bool IsEnd();
+	// シーンの終了
+	virtual void EndRequest(const SceneName& name);
+	// シーンの終了
+	virtual void ResetEnd();
+	// シーンの終了
+	virtual SceneName NextScene();
 
 	// コピー禁止  
 	World(const World& other) = delete;
@@ -56,7 +63,9 @@ private:
 	ActorManagerPtr p_Actors;
 	//マップジェネレータ
 	MapGeneratorPtr p_MapGenerator;
-
-	
+	// 
+	SceneName m_NextScene;
+	// 
+	bool m_IsEnd;	
 };
 #endif
