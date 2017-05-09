@@ -6,17 +6,17 @@
 #include "../../Utility/Rederer2D/Renderer2D.h"
 #include "../Selector/Selector.h"
 #include "../../WorldContains/EventMessage/EventMessage.h"
-
+#include "../../SceneContains/SceneName.h"
 #include <algorithm>
 
 #define STR(var) #var
 
 Button::Button(const IWorldPtr & world, const ActorName & name, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name) :
 	UI_Base(world, name, position, gameManager) {
-	//m_Selector = std::make_shared<Selector>(world, GSvector2(0.0f, 0.0f), gameManager);
-	//addChild(m_Selector);
+	m_Selector = std::make_shared<Selector>(world, GSvector2(0.0f, 0.0f), gameManager);
+	addChild(m_Selector);
 
-	//regist(file_name);
+	regist(file_name);
 }
 
 void Button::regist(const std::string & file_name){
@@ -28,7 +28,7 @@ void Button::regist(const std::string & file_name){
 
 		data.file_name = "Resource/Texture/UI/" + csv.get(row, 0);
 		data.number = csv.geti(row, 1);
-		data.next = csv.get(row, 2);
+		data.next = p_GameManager->GetSceneEnum()->GetEnum(csv.get(row, 2));
 		data.key[GKEY_UP] = csv.geti(row, 3);
 		data.key[GKEY_DOWN] = csv.geti(row, 4);
 		data.key[GKEY_LEFT] = csv.geti(row, 5);
@@ -51,24 +51,24 @@ void Button::regist(const std::string & file_name){
 }
 
 void Button::onUpdate(float deltaTime){
-	//moveSelector(GKEY_UP);
-	//moveSelector(GKEY_DOWN);
-	//moveSelector(GKEY_RIGHT);
-	//moveSelector(GKEY_LEFT);
+	moveSelector(GKEY_UP);
+	moveSelector(GKEY_DOWN);
+	moveSelector(GKEY_RIGHT);
+	moveSelector(GKEY_LEFT);
 
-	//m_Selector->setPosition(m_Selector->getPosition().lerp(m_Buttons[m_Index].param.GetPosition(), 0.5f));
+	m_Selector->setPosition(m_Selector->getPosition().lerp(m_Buttons[m_Index].param.GetPosition(), 0.5f));
 
-	//if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) && 
-	//	m_Selector->getPosition() == m_Buttons[m_Index].param.GetPosition()) {
-	//	m_Selector->handleMessage(EventMessage::SELECT, &m_Buttons[m_Index].next);
-	//}
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) && 
+		m_Selector->getPosition() == m_Buttons[m_Index].param.GetPosition()) {
+		p_World->sendMessage(EventMessage::END_SCENE, (void*)m_Buttons[m_Index].next);
+	}
 }
 
 void Button::onDraw() const
 {
-	//for (auto button : m_Buttons) {
-	//	p_GameManager->GetRenderer2D()->DrawTexture(button.second.file_name, button.second.param);
-	//}
+	for (auto button : m_Buttons) {
+		p_GameManager->GetRenderer2D()->DrawTexture(button.second.file_name, button.second.param);
+	}
 }
 
 void Button::moveSelector(GKEYCODE key) {

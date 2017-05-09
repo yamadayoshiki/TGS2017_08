@@ -39,6 +39,6 @@ private:
 	//std::vector<SpriteData> m_SpriteDatas;
 
 	// UI“o˜^—p‚Ìmap
-	//std::unordered_map<SceneName, ActorPtr>m_UIManagers;
+	std::unordered_map<SceneName, ActorPtr>m_UIManagers;
 
 };

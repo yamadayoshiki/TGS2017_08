@@ -37,7 +37,8 @@ public:
 	// モードの切りかえ
 	void changeMode(const Mode& mode);
 	// 終了フラグ
-	bool isEnd();
+	virtual bool isEnd();
+
 protected:
 	// 開始     
 	virtual void onStart();
@@ -45,7 +46,6 @@ protected:
 	virtual void onUpdate(float deltaTime);
 	//描画
 	virtual void onDraw() const;
-
 protected:
 	//ゲームマネージャー
 	IGameManagerPtr p_GameManager;

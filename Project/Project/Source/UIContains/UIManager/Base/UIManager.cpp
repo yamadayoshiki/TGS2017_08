@@ -13,21 +13,21 @@
 UIManager::UIManager(const IWorldPtr& world, const IGameManagerPtr& gameManager, const SceneName& scene) :
 	Actor(world, ActorName::UIManager, GSvector2({ 0.0f, 0.0f }), gameManager) {
 
-	//registActor();
+	registActor();
 
-	//create(scene);
+	create(scene);
 }
 
 void UIManager::registActor(){
-	//m_UIManagers[SceneName::GameTitle] = std::make_shared<UIManager_Title>(p_World, p_GameManager);
-	//m_UIManagers[SceneName::GamePlay] = std::make_shared<UIManager_Select>(p_World, p_GameManager);
-	//m_UIManagers[SceneName::NaganoScene] = std::make_shared<UIManager_Title>(p_World, p_GameManager);
+	m_UIManagers[SceneName::GameTitle] = std::make_shared<UIManager_Title>(p_World, p_GameManager);
+	m_UIManagers[SceneName::GamePlay] = std::make_shared<UIManager_Select>(p_World, p_GameManager);
+	m_UIManagers[SceneName::NaganoScene] = std::make_shared<UIManager_Title>(p_World, p_GameManager);
 
 }
 
 // ƒV[ƒ“‚É‘Î‰‚µ‚½UI‚Ì¶¬
 void UIManager::create(const SceneName & scene_name){
-	//addChild(m_UIManagers[scene_name]);
+	addChild(m_UIManagers[scene_name]);
 }
 
 void UIManager::addFile(const UIType & type, const CsvReaderPtr & csv_reader){

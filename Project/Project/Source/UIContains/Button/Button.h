@@ -1,6 +1,8 @@
 #pragma once
 
 #include "../Base/UI_Base.h"
+#include "../../SceneContains/SceneName.h"
+#include "../../Utility/EnumRap/EnumRap.h"
 
 #include <unordered_map>
 
@@ -10,7 +12,7 @@ public:
 		std::string file_name;
 		int number;
 		int anim;
-		std::string next;
+		SceneName next;
 		std::unordered_map<GKEYCODE, int> key;
 		Texture2DParameter param;
 	};
