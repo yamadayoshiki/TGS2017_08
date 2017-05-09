@@ -24,6 +24,8 @@ OrientedBoundingBox::OrientedBoundingBox(const GSvector2& position, const float 
 	mAxis[1] = GSvector2(0.0f, 1.0f);
 	gsLoadTexture(1000, "Resource/Texture/wall.png");
 	size = GSvector2(gsTextureGetWidth(gsGetTexture(1000)), gsTextureGetHeight(gsGetTexture(1000)));
+
+	
 }
 
 //OBBÇÃîªíËÇçÏê¨(aabbÇóòóp)
@@ -151,10 +153,6 @@ GSvector2 OrientedBoundingBox::Center() const{
 	return mTransform.m_Position;
 }
 
-GSvector2 OrientedBoundingBox::Rotate(const GSvector2 & pos, const float & angle) const{
-	return GSvector2(pos.x * gsCos(angle) - pos.y * gsSin(angle), pos.x * gsSin(angle) + pos.y * gsCos(angle));
-}
-
 // ê}å`ï`âÊ
 void OrientedBoundingBox::draw() const{
 	// ï`âÊ
@@ -169,4 +167,7 @@ void OrientedBoundingBox::draw() const{
 	//gsTextPos(CornerPoint(3).x, CornerPoint(3).y);
 	//gsDrawText("a");
 
+	GSvector2 tmp = mTransform.m_Position + forward() * 100;
+	gsTextPos(tmp.x, tmp.y);
+	gsDrawText("ÅE");
 }

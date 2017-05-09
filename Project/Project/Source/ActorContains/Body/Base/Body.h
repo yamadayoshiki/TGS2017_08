@@ -9,25 +9,25 @@
 class Body : public IBody {
 public:
 	// コンストラクタ
-	Body() : mType(ShapeType::None), mTransform({ GSvector2(0.0f, 0.0f), 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(false){}
+	Body() : mType(ShapeType::None), mTransform({ GSvector2(0.0f, 0.0f), 0.0f }), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(false){}
 	// コンストラクタ(球)
 	Body(const ShapeType& type, const GSvector2& position, const float& radius) :
-		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(radius), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f }), mRadius(radius), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(線分)
 	Body(const ShapeType& type, const GSvector2& position, const GSmatrix4& mat, const float& length) :
-		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(0.0f), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f}), mRadius(0.0f), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(レイ)
 	Body(const ShapeType& type, const GSvector2& position, const GSmatrix4& mat, const GSvector2& direction) :
-		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(0.0f), mLength(0.0f), mDirection(direction), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f }), mRadius(0.0f), mLength(0.0f), mDirection(direction), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(カプセル)
 	Body(const ShapeType& type, const GSvector2& position, const GSmatrix4& mat, const float& radius, const float& length) :
-		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(radius), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f }), mRadius(radius), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(AABB)
 	Body(const ShapeType& type, const GSvector2& position, const GSvector2& extents) :
-		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f }), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(OBB)
 	Body(const ShapeType& type, const GSvector2& position, const float& angle, const GSvector2& extents) :
-		mType(type), mTransform({ position, angle, GSvector2(1.0f, 0.0f) }), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(extents), mEnabled(true) {}
+		mType(type), mTransform({ position, angle }), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(extents), mEnabled(true) {}
 	// デストラクタ
 	virtual ~Body(){}
 
@@ -46,7 +46,7 @@ public:
 	// 角度の取得
 	virtual float angle() const override{ return mTransform.m_Angle; }
 	// 前方ベクトルの取得
-	virtual GSvector2 forward() const override { return mTransform.m_Forward; }
+	virtual GSvector2 forward() const override { return Rotate(GSvector2(1.0f, 0.0f), mTransform.m_Angle).normalize(); }
 
 	// 半径の取得
 	virtual float radius() const override { return mRadius; }
@@ -67,6 +67,12 @@ public:
 	// 点の取得
 	virtual GSvector2 points(const int index) const override { return mPoints[index]; }
 	
+protected:
+	// 回転
+	GSvector2 Rotate(const GSvector2 & pos, const float & angle) const {
+		return GSvector2(pos.x * gsCos(angle) - pos.y * gsSin(angle), pos.x * gsSin(angle) + pos.y * gsCos(angle));
+	}
+
 protected:
 	// 形状
 	ShapeType mType;

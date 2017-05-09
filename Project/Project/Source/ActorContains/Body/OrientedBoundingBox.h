@@ -37,8 +37,6 @@ public:
 	GSvector2 Size()const;
 	// ’†SÀ•W
 	GSvector2 Center()const;
-	// ‰ñ“]
-	GSvector2 Rotate(const GSvector2& pos, const float& angle)const;
 	
 	// }Œ`•`‰æ
 	virtual void draw() const override;

@@ -33,7 +33,7 @@ void Player::initialize()
 	//auto arm = std::make_shared<Arm>(p_World, m_Position, m_Matrix, p_GameManager);
 	auto arm = std::make_shared<Arm>(p_World, m_Transform.m_Position, GSmatrix4(GS_MATRIX4_IDENTITY), p_GameManager);
 	//arm->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
-	arm->setPosition(m_Transform.m_Position - m_Transform.m_Forward * 16);
+	arm->setPosition(m_Transform.m_Position - p_Body->forward() * 16);
 	addChild(arm);
 	mStateManager->addChild(ActorName::Player_Arm, arm);
 }

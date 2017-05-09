@@ -17,7 +17,7 @@ Actor::Actor(
 	: p_World(world)
 	, p_GameManager(gaemManager)
 	, m_Name(name)
-	, m_Transform({ position, 0.0f, GSvector2(1.0f, 0.0f)})
+	, m_Transform({ position, 0.0f })
 	, p_Texture(texture)
 	, p_Body(body)
 	, m_dead(false)
