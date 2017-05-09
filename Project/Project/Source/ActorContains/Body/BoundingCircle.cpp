@@ -23,17 +23,17 @@ bool BoundingCircle::isCollide(const IBody & other, HitInfo & hitinfo) const {
 
 // 衝突判定(球)
 bool BoundingCircle::intersects(const BoundingCircle & other, HitInfo & hitinfo) const {
-	return Collision::Sphere_Sphere(mPosition, mRadius, other.mPosition, other.mRadius);
+	return Collision::Sphere_Sphere(mTransform.m_Position, mRadius, other.position(), other.mRadius);
 }
 
 // 衝突判定(カプセル)
 bool BoundingCircle::intersects(const BoundingCapsule & other, HitInfo & hitinfo) const {
-	return Collision::Sphere_Capsule(mPosition, mRadius, other.position(), other.matrix(), other.length(), other.radius());
+	return Collision::Sphere_Capsule(mTransform.m_Position, mRadius, other.position(), GS_MATRIX4_IDENTITY, other.length(), other.radius());
 }
 
 // 衝突判定(線分)
 bool BoundingCircle::intersects(const BoundingSegment & other, HitInfo & hitinfo) const {
-	return Collision::Sphere_Segment(mPosition, mRadius, other.position(), other.matrix(), other.length());
+	return Collision::Sphere_Segment(mTransform.m_Position, mRadius, other.position(), GS_MATRIX4_IDENTITY, other.length());
 }
 
 // 衝突判定(AABB)
@@ -52,13 +52,13 @@ bool BoundingCircle::intersects(const Ray & other, HitInfo & hitinfo) const{
 }
 
 // Bodyの変換
-IBodyPtr BoundingCircle::transform(const GSmatrix4 & mat) const {
-	return std::make_shared<BoundingCircle>(transform_e(mat));
+IBodyPtr BoundingCircle::transform(const Transform& transform) const {
+	return std::make_shared<BoundingCircle>(transform_e(transform));
 }
 
 // Bodyの変換
-BoundingCircle BoundingCircle::transform_e(const GSmatrix4 & mat) const {
-	return BoundingCircle(mPosition + GSvector2(mat.getPosition().x, mat.getPosition().y), mRadius * mat.getScale().y);
+BoundingCircle BoundingCircle::transform_e(const Transform& transform) const {
+	return BoundingCircle(mTransform.m_Position + transform.m_Position, mRadius);
 }
 
 // 図形描画

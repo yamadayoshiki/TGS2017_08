@@ -23,10 +23,10 @@ public:
 	virtual bool intersects(const Ray& other, HitInfo& hitinfo) const override;
 
 	// Body‚Ì•ÏŠ·
-	virtual IBodyPtr transform(const GSmatrix4& mat) const override;
+	virtual IBodyPtr transform(const Transform& transform) const override;
 
 	// Body‚Ì•ÏŠ·
-	BoundingCircle transform_e(const GSmatrix4& mat) const;
+	BoundingCircle transform_e(const Transform& transform) const;
 
 	// }Œ`•`‰æ
 	virtual void draw() const override;

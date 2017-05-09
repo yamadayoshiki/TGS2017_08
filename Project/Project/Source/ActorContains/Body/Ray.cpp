@@ -40,13 +40,13 @@ bool Ray::intersects(const Ray & other, HitInfo & hitinfo) const{
 }
 
 // Body‚Ì•ÏŠ·
-IBodyPtr Ray::transform(const GSmatrix4 & mat) const {
-	return std::make_shared<Ray>(transform_e(mat));
+IBodyPtr Ray::transform(const Transform& transform) const {
+	return std::make_shared<Ray>(transform_e(transform));
 }
 
 // Body‚Ì•ÏŠ·
-Ray Ray::transform_e(const GSmatrix4 & mat) const {
-	return Ray(mPosition + GSvector2(mat.getPosition().x, mat.getPosition().y), mDirection);
+Ray Ray::transform_e(const Transform& transform) const {
+	return Ray(mTransform.m_Position + transform.m_Position, mDirection);
 }
 
 // }Œ`•`‰æ

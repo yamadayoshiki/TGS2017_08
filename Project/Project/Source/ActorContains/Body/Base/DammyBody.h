@@ -8,7 +8,7 @@ public:
 	// コンストラクタ
 	DammyBody() {}
 	// Bodyの変換
-	virtual IBodyPtr transform(const GSmatrix4& matrix) const override { return std::make_shared<DammyBody>(); }
+	virtual IBodyPtr transform(const Transform & transform) const override { return std::make_shared<DammyBody>(); }
 	// 衝突判定
 	virtual bool isCollide(const IBody& other, HitInfo& hitinfo) const override { return false; }
 	// 衝突判定(球)

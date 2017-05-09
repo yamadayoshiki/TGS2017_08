@@ -1,31 +1,33 @@
 #pragma once
 
 #include "IBody.h"
+
+#include "../../Transform/Transform.h"
 #include <GStype.h>
 #include <GSmatrix4.h>
 
 class Body : public IBody {
 public:
 	// コンストラクタ
-	Body() : mType(ShapeType::None), mPosition(GSvector2(0, 0)), mMatrix(GS_MATRIX4_IDENTITY), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(GSvector2(0, 0)), mMax(GSvector2(0, 0)), mExtents(GSvector2(0, 0)), mEnabled(false){}
+	Body() : mType(ShapeType::None), mTransform({ GSvector2(0.0f, 0.0f), 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(false){}
 	// コンストラクタ(球)
 	Body(const ShapeType& type, const GSvector2& position, const float& radius) :
-		mType(type), mPosition(position), mMatrix(GS_MATRIX4_IDENTITY), mRadius(radius), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(GSvector2(0, 0)), mMax(GSvector2(0, 0)), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(radius), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(線分)
 	Body(const ShapeType& type, const GSvector2& position, const GSmatrix4& mat, const float& length) :
-		mType(type), mPosition(position), mMatrix(mat), mRadius(0.0f), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(GSvector2(0, 0)), mMax(GSvector2(0, 0)), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(0.0f), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(レイ)
 	Body(const ShapeType& type, const GSvector2& position, const GSmatrix4& mat, const GSvector2& direction) :
-		mType(type), mPosition(position), mMatrix(GS_MATRIX4_IDENTITY), mRadius(0.0f), mLength(0.0f), mDirection(direction), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(GSvector2(0, 0)), mMax(GSvector2(0, 0)), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(0.0f), mLength(0.0f), mDirection(direction), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(カプセル)
 	Body(const ShapeType& type, const GSvector2& position, const GSmatrix4& mat, const float& radius, const float& length) :
-		mType(type), mPosition(position), mMatrix(mat), mRadius(radius), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(GSvector2(0, 0)), mMax(GSvector2(0, 0)), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mRadius(radius), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(AABB)
-	Body(const ShapeType& type, const GSvector2& position, const GSvector2 & min, const GSvector2 & max, const GSmatrix4& mat) :
-		mType(type), mPosition(position), mMatrix(mat), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(min), mMax(max), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+	Body(const ShapeType& type, const GSvector2& position, const GSvector2& extents) :
+		mType(type), mTransform({ position, 0.0f, GSvector2(1.0f, 0.0f) }), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(OBB)
-	Body(const ShapeType& type, const GSvector2& position, const GSvector2& extents, const GSmatrix4& matrix) :
-		mType(type), mPosition(position), mMatrix(matrix), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mDepth(0.0f), mMin(GSvector2(0, 0)), mMax(GSvector2(0, 0)), mExtents(extents), mEnabled(true) {}
+	Body(const ShapeType& type, const GSvector2& position, const float& angle, const GSvector2& extents) :
+		mType(type), mTransform({ position, angle, GSvector2(1.0f, 0.0f) }), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(extents), mEnabled(true) {}
 	// デストラクタ
 	virtual ~Body(){}
 
@@ -36,10 +38,16 @@ public:
 
 	// 形状の取得
 	virtual ShapeType type() const override { return mType; }
+
 	// 中心座標の取得
-	virtual GSvector2 position() const override { return mPosition; }
-	// 変換行列の取得
-	virtual GSmatrix4 matrix() const override { return mMatrix; }
+	virtual Transform transform() const override{ return mTransform; }
+	// 座標の取得
+	virtual GSvector2 position() const override{ return mTransform.m_Position; }
+	// 角度の取得
+	virtual float angle() const override{ return mTransform.m_Angle; }
+	// 前方ベクトルの取得
+	virtual GSvector2 forward() const override { return mTransform.m_Forward; }
+
 	// 半径の取得
 	virtual float radius() const override { return mRadius; }
 	// 長さの取得
@@ -51,12 +59,7 @@ public:
 	virtual float height() const override { return mHeight; }
 	// 横幅の取得
 	virtual float width() const override { return mWidth; }
-	// 奥行の取得
-	virtual float depth() const override { return mDepth; }
-	// 矩形の最小点の取得
-	virtual GSvector2 box_min() const override { return mMin; }
-	// 矩形の最大点の取得
-	virtual GSvector2 box_max() const override { return mMax; }
+
 	// 矩形の大きさの取得
 	virtual GSvector2 extents() const override { return mExtents; }
 	// 矩形の軸の取得
@@ -67,10 +70,13 @@ public:
 protected:
 	// 形状
 	ShapeType mType;
-	// 中心座標
-	GSvector2 mPosition;
-	// 変換行列
-	GSmatrix4 mMatrix;
+	//// 中心座標
+	//GSvector2 mPosition;
+	//// 変換行列
+	//GSmatrix4 mMatrix;
+
+	Transform mTransform;
+
 	// 半径
 	float mRadius;
 	// 長さ
@@ -85,13 +91,6 @@ protected:
 	float mHeight;
 	// 横幅
 	float mWidth;
-	// 奥行
-	float mDepth;
-
-	// 矩形の最小点
-	GSvector2 mMin;
-	// 矩形の最大点
-	GSvector2 mMax;
 
 	// 矩形の大きさ
 	GSvector2 mExtents;

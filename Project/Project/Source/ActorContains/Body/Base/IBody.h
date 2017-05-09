@@ -5,7 +5,7 @@
 #include "ShapeType.h"
 
 struct GSvector2;
-struct GSmatrix4;
+struct Transform;
 struct HitInfo;
 
 class BoundingCircle;
@@ -24,7 +24,7 @@ public:
 	virtual ~IBody() = default;
 public:
 	// Bodyの変換
-	virtual IBodyPtr transform(const GSmatrix4& matrix) const = 0;
+	virtual IBodyPtr transform(const Transform& matrix) const = 0;
 	// 衝突判定
 	virtual bool isCollide(const IBody& other, HitInfo& hitinfo) const = 0;
 	// 衝突判定(球)
@@ -47,10 +47,16 @@ public:
 	virtual void draw() const = 0;
 	// 形状の取得
 	virtual ShapeType type() const = 0;
+
 	// 中心座標の取得
+	virtual Transform transform() const = 0;
+	// 座標の取得
 	virtual GSvector2 position() const = 0;
-	// 変換行列の取得
-	virtual GSmatrix4 matrix() const = 0;
+	// 角度の取得
+	virtual float angle() const = 0;
+	// 前方ベクトルの取得
+	virtual GSvector2 forward() const = 0;
+
 	// 半径の取得
 	virtual float radius() const = 0;
 	// 長さの取得
@@ -61,12 +67,6 @@ public:
 	virtual float height() const = 0;
 	// 横幅の取得
 	virtual float width() const = 0;
-	// 奥行の取得
-	virtual float depth() const = 0;
-	// 矩形の最小点の取得
-	virtual GSvector2 box_min() const = 0;
-	// 矩形の最大点の取得
-	virtual GSvector2 box_max() const = 0;
 	// 矩形の大きさの取得
 	virtual GSvector2 extents() const = 0;
 	// 矩形の軸の取得

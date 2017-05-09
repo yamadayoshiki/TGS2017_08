@@ -1,8 +1,5 @@
 #include "OrientedBoundingBox.h"
 
-#include <gslib.h>
-#include <vector>
-
 #include "BoundingCircle.h"
 #include "BoundingCapsule.h"
 #include "BoundingSegment.h"
@@ -15,11 +12,14 @@
 #include "../../Define/Def_Nagano.h"
 #include "../../Define/Def_Nakayama.h"
 
+#include <gslib.h>
+#include <vector>
+
 static const float EPSILON = 1e-3f;
 
 //OBBÇÃîªíËÇçÏê¨
-OrientedBoundingBox::OrientedBoundingBox(const GSvector2 & position, const GSvector2 & extents, const GSmatrix4& matrix) :
-	Body(ShapeType::OBB, position, extents, matrix){
+OrientedBoundingBox::OrientedBoundingBox(const GSvector2& position, const float & angle, const GSvector2 & extents) :
+	Body(ShapeType::OBB, position, angle, extents){
 	mAxis[0] = GSvector2(1.0f, 0.0f);
 	mAxis[1] = GSvector2(0.0f, 1.0f);
 	gsLoadTexture(1000, "Resource/Texture/wall.png");
@@ -28,10 +28,7 @@ OrientedBoundingBox::OrientedBoundingBox(const GSvector2 & position, const GSvec
 
 //OBBÇÃîªíËÇçÏê¨(aabbÇóòóp)
 OrientedBoundingBox::OrientedBoundingBox(const BoundingBox & aabb) :
-	Body(ShapeType::OBB, GSvector2(0, 0), GSvector2(1.0f, 1.0f), GS_MATRIX4_IDENTITY) {
-	mAxis[0] = GSvector2(1.0f, 0.0f);
-	mAxis[1] = GSvector2(0.0f, 1.0f);
-}
+	OrientedBoundingBox(aabb.position(), 0.0f, aabb.extents()) {}
 
 // è’ìÀîªíË
 bool OrientedBoundingBox::isCollide(const IBody & other, HitInfo & hitinfo) const{
@@ -71,7 +68,7 @@ bool OrientedBoundingBox::intersects(const BoundingSegment & other, HitInfo & hi
 
 // è’ìÀîªíË(AABB)
 bool OrientedBoundingBox::intersects(const BoundingBox & other, HitInfo & hitinfo) const{
-	return false;// intersects(OrientedBoundingBox(other), hitinfo);
+	return intersects(OrientedBoundingBox(other), hitinfo);
 }
 
 // è’ìÀîªíË(OBB)
@@ -122,26 +119,25 @@ bool OrientedBoundingBox::intersects(const Ray & other, HitInfo & hitinfo) const
 }
 
 // BodyÇÃïœä∑
-IBodyPtr OrientedBoundingBox::transform(const GSmatrix4 & mat) const {
-	return std::make_shared<OrientedBoundingBox>(transform_e(mat));
+IBodyPtr OrientedBoundingBox::transform(const Transform& transform) const {
+	return std::make_shared<OrientedBoundingBox>(transform_e(transform));
 }
 
 // BodyÇÃïœä∑
-OrientedBoundingBox OrientedBoundingBox::transform_e(const GSmatrix4 & mat) const{
-	//const Vector3 scale = mat.Scale();
-	return OrientedBoundingBox(mPosition + GSvector2(mat.getPosition()), mExtents, mat);
+OrientedBoundingBox OrientedBoundingBox::transform_e(const Transform& transform) const{
+	return OrientedBoundingBox(mTransform.m_Position + transform.m_Position, mTransform.m_Angle + transform.m_Angle, mExtents);
 }
 
 // í∏ì_
 GSvector2 OrientedBoundingBox::CornerPoint(int cornerIndex) const {
 	switch (cornerIndex) {
 	default:
-	case 0: return mPosition + GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
-	case 1: return mPosition + GSvector2(+mExtents.x, -mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
-	case 2: return mPosition + GSvector2(+mExtents.x, +mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
-	case 3: return mPosition + GSvector2(-mExtents.x, +mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
-	// 0Ç∆ìØÇ∂
-	case 4: return mPosition + GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2 * mMatrix.getRotateMatrix();
+	case 0: return mTransform.m_Position + Rotate(GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
+	case 1: return mTransform.m_Position + Rotate(GSvector2(+mExtents.x, -mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
+	case 2: return mTransform.m_Position + Rotate(GSvector2(+mExtents.x, +mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
+	case 3: return mTransform.m_Position + Rotate(GSvector2(-mExtents.x, +mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
+		// 0Ç∆ìØÇ∂
+	case 4: return mTransform.m_Position + Rotate(GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
 	}
 }
 
@@ -152,13 +148,25 @@ GSvector2 OrientedBoundingBox::Size() const{
 
 // íÜêSç¿ïW
 GSvector2 OrientedBoundingBox::Center() const{
-	return mPosition;
+	return mTransform.m_Position;
+}
+
+GSvector2 OrientedBoundingBox::Rotate(const GSvector2 & pos, const float & angle) const{
+	return GSvector2(pos.x * gsCos(angle) - pos.y * gsSin(angle), pos.x * gsSin(angle) + pos.y * gsCos(angle));
 }
 
 // ê}å`ï`âÊ
 void OrientedBoundingBox::draw() const{
-	// âÒì]äpìx
-	GSvector3 angle = GSvector3(mMatrix.getRoll(), mMatrix.getPitch(), mMatrix.getYaw());
 	// ï`âÊ
-	gsDrawSprite2D(1000, &mPosition, &GSrect(0, 0, size.x, size.y), &GSvector2(CHIP_SIZE / 2, CHIP_SIZE / 2), NULL, &mExtents, 90 - mMatrix.getRoll());
+	gsDrawSprite2D(1000, &mTransform.m_Position, &GSrect(0, 0, size.x, size.y), &GSvector2(CHIP_SIZE / 2, CHIP_SIZE / 2), NULL, &mExtents, mTransform.m_Angle);
+
+	//gsTextPos(CornerPoint(0).x, CornerPoint(0).y);
+	//gsDrawText("a");
+	//gsTextPos(CornerPoint(1).x, CornerPoint(1).y);
+	//gsDrawText("a");
+	//gsTextPos(CornerPoint(2).x, CornerPoint(2).y);
+	//gsDrawText("a");
+	//gsTextPos(CornerPoint(3).x, CornerPoint(3).y);
+	//gsDrawText("a");
+
 }

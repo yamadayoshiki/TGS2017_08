@@ -24,10 +24,10 @@ public:
 	virtual bool intersects(const Ray& other, HitInfo& hitinfo) const override;
 
 	// Bodyの変換
-	virtual IBodyPtr transform(const GSmatrix4& mat) const override;
+	virtual IBodyPtr transform(const Transform& transform) const override;
 
 	// Bodyの変換
-	BoundingSegment transform_e(const GSmatrix4& mat) const;
+	BoundingSegment transform_e(const Transform& transform) const;
 
 	// 始点から終点への方向を返す
 	GSvector2 Direction()const;

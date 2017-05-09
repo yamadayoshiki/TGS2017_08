@@ -24,17 +24,17 @@ bool BoundingCapsule::isCollide(const IBody & other, HitInfo & hitinfo) const {
 
 // 衝突判定(球)
 bool BoundingCapsule::intersects(const BoundingCircle & other, HitInfo & hitinfo) const {
-	return Collision::Sphere_Capsule(other.position(), other.radius(), mPosition, mMatrix, mLength, mRadius);
+	return Collision::Sphere_Capsule(other.position(), other.radius(), mTransform.m_Position, GS_MATRIX4_IDENTITY, mLength, mRadius);
 }
 
 // 衝突判定(カプセル)
 bool BoundingCapsule::intersects(const BoundingCapsule & other, HitInfo & hitinfo) const {
-	return Collision::Capsule_Capsule(mPosition, mMatrix, mLength, mRadius, other.mPosition, other.mMatrix, other.mLength, other.mRadius);
+	return Collision::Capsule_Capsule(mTransform.m_Position, GS_MATRIX4_IDENTITY, mLength, mRadius, other.position(), GS_MATRIX4_IDENTITY, other.mLength, other.mRadius);
 }
 
 // 衝突判定(線分)
 bool BoundingCapsule::intersects(const BoundingSegment & other, HitInfo & hitinfo) const {
-	return Collision::Capsule_Segment(other.position(), other.matrix(), other.length(), mPosition, mMatrix, mLength, mRadius);
+	return Collision::Capsule_Segment(other.position(), GS_MATRIX4_IDENTITY, other.length(), mTransform.m_Position, GS_MATRIX4_IDENTITY, mLength, mRadius);
 }
 
 // 衝突判定(AABB)
@@ -53,13 +53,13 @@ bool BoundingCapsule::intersects(const Ray & other, HitInfo & hitinfo) const{
 }
 
 // Bodyの変換
-IBodyPtr BoundingCapsule::transform(const GSmatrix4 & mat) const {
-	return std::make_shared<BoundingCapsule>(transform_e(mat));
+IBodyPtr BoundingCapsule::transform(const Transform& transform) const {
+	return std::make_shared<BoundingCapsule>(transform_e(transform));
 }
 
 // Bodyの変換
-BoundingCapsule BoundingCapsule::transform_e(const GSmatrix4 & mat) const{
-	return BoundingCapsule(mPosition + GSvector2(mat.getPosition().x, mat.getPosition().y), mMatrix * mat.getRotateMatrix(), mLength * mat.getScale().y, mRadius * mat.getScale().x);
+BoundingCapsule BoundingCapsule::transform_e(const Transform& transform) const{
+	return BoundingCapsule(mTransform.m_Position + transform.m_Position, GS_MATRIX4_IDENTITY, mLength, mRadius);
 }
 
 // 図形描画

@@ -25,12 +25,12 @@ bool BoundingSegment::isCollide(const IBody & other, HitInfo & hitinfo) const {
 
 // 衝突判定(球)
 bool BoundingSegment::intersects(const BoundingCircle & other, HitInfo & hitinfo) const {
-	return Collision::Sphere_Segment(other.position(), other.radius(), mPosition, mMatrix, mLength);
+	return Collision::Sphere_Segment(other.position(), other.radius(), mTransform.m_Position, GS_MATRIX4_IDENTITY, mLength);
 }
 
 // 衝突判定(カプセル)
 bool BoundingSegment::intersects(const BoundingCapsule & other, HitInfo & hitinfo) const {
-	return Collision::Capsule_Segment(mPosition, mMatrix, mLength, other.position(), other.matrix(), other.length(), other.radius());
+	return Collision::Capsule_Segment(mTransform.m_Position, GS_MATRIX4_IDENTITY, mLength, other.position(), GS_MATRIX4_IDENTITY, other.length(), other.radius());
 }
 
 // 衝突判定(線分)
@@ -54,13 +54,13 @@ bool BoundingSegment::intersects(const Ray & other, HitInfo & hitinfo) const {
 }
 
 // Bodyの変換
-IBodyPtr BoundingSegment::transform(const GSmatrix4 & mat) const {
-	return std::make_shared<BoundingSegment>(transform_e(mat));
+IBodyPtr BoundingSegment::transform(const Transform& transform) const {
+	return std::make_shared<BoundingSegment>(transform_e(transform));
 }
 
 // Bodyの変換
-BoundingSegment BoundingSegment::transform_e(const GSmatrix4 & mat) const {
-	return BoundingSegment(mPosition + GSvector2(mat.getPosition()), mat, mLength * mat.getScale().y);
+BoundingSegment BoundingSegment::transform_e(const Transform& transform) const {
+	return BoundingSegment(mTransform.m_Position + transform.m_Position, GS_MATRIX4_IDENTITY, mLength);
 }
 
 // 始点から終点への方向を返す
@@ -77,8 +77,8 @@ GSvector2 BoundingSegment::Direction() const {
 GSvector2 BoundingSegment::Point(int index) const {
 	switch (index) {
 	default:
-	case 0: return mPosition + mLength * GSvector2(0.5f, 0.0f) * mMatrix.getRotateMatrix();
-	case 1: return mPosition - mLength * GSvector2(0.5f, 0.0f) * mMatrix.getRotateMatrix();
+	case 0: return  mTransform.m_Position + mLength * GSvector2(0.5f, 0.0f);// * mMatrix.getRotateMatrix();
+	case 1: return  mTransform.m_Position - mLength * GSvector2(0.5f, 0.0f);// * mMatrix.getRotateMatrix();
 	}
 }
 

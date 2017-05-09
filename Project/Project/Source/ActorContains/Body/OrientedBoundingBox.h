@@ -1,13 +1,12 @@
 #pragma once
 
 #include "Base/Body.h"
-#include <vector>
 
 // OBB
 class OrientedBoundingBox : public Body {
 public:
 	//OBBの判定を作成
-	OrientedBoundingBox(const GSvector2& position, const GSvector2& extents, const GSmatrix4& matrix);
+	OrientedBoundingBox(const GSvector2& position, const float & angle, const GSvector2 & extents);
 	//OBBの判定を作成(aabbを利用)
 	explicit OrientedBoundingBox(const BoundingBox& aabb);
 public:
@@ -27,22 +26,23 @@ public:
 	virtual bool intersects(const Ray& other, HitInfo& hitinfo) const override;
 
 	// Bodyの変換
-	virtual IBodyPtr transform(const GSmatrix4& mat) const override;
+	virtual IBodyPtr transform(const Transform& transform) const override;
 
 	// Bodyの変換
-	OrientedBoundingBox transform_e(const GSmatrix4& mat) const;
+	OrientedBoundingBox transform_e(const Transform& transform) const;
 
 	// 頂点
 	GSvector2 CornerPoint(int cornerIndex)const;
-	// 四頂点の取得
-	std::vector<GSvector2> CornerPoints()const;
 	// 矩形のサイズ
 	GSvector2 Size()const;
 	// 中心座標
 	GSvector2 Center()const;
+	// 回転
+	GSvector2 Rotate(const GSvector2& pos, const float& angle)const;
 	
-	GSvector2 size;
-
 	// 図形描画
 	virtual void draw() const override;
+
+	// 画像サイズ
+	GSvector2 size;
 };
