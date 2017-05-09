@@ -175,7 +175,6 @@
     <ClInclude Include="Source\ActorContains\NullActor\NullActor.h" />
     <ClInclude Include="Source\ActorContains\Object\TestEnemy.h" />
     <ClInclude Include="Source\ActorContains\Object\TestObj.h" />
-    <ClInclude Include="Source\ActorContains\Object\TestObj2.h" />
     <ClInclude Include="Source\ActorContains\State\Base\IState.h" />
     <ClInclude Include="Source\ActorContains\State\Base\IStatePtr.h" />
     <ClInclude Include="Source\ActorContains\State\Base\State.h" />
@@ -234,6 +233,7 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_CrushBase.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_Barrage.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_Hold.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idle.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Run.h" />
@@ -246,6 +246,7 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Walk.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\PlayerState_Open.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Swich.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_R_Idle.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_R_MoveBase.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_R_Walk.h" />
@@ -355,7 +356,6 @@
     <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />
     <ClCompile Include="Source\ActorContains\Object\TestEnemy.cpp" />
     <ClCompile Include="Source\ActorContains\Object\TestObj.cpp" />
-    <ClCompile Include="Source\ActorContains\Object\TestObj2.cpp" />
     <ClCompile Include="Source\ActorContains\State\Base\State.cpp" />
     <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp" />
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
@@ -376,6 +376,7 @@
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_CrushBase.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_Barrage.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_Hold.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idle.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Run.cpp" />
@@ -388,6 +389,7 @@
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Walk.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\PlayerState_Open.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Swich.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_R_Idle.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_R_MoveBase.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_R_Run.cpp" />
