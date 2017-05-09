@@ -117,34 +117,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyCommandName.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Leave_FixedDistance\EnemyCommandLeaveFixedDistance.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\NullCommand\Enemy_NullCommand.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Shot\EnemyCommandShot.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBase.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBasePtr.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\AttackBase\EnemyStateAttackBase.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBasePtr.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Caught\EnemyStateCaught.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Crush\EnemyStateCrush.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Dead\EnemyStateDead.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\EnemyStateName.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\Utility\MathSupport\MathSupport.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h" />
@@ -173,12 +145,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Dead\EnemyStateDead.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\EnemyStateName.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Idle\EnemyStateIdle.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\MoveBase\EnemyStateMoveBase.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Run\EnemyStateRun.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Walk\EnemyStateWalk.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Repel\EnemyStateRepel.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\EnemyContains\StateContains\States\Thrown\EnemyStateThrown.h" />
-    <ClInclude Include="..\..\..\No.04.1 %2717_TGS_SourceTree\Project\Project\Source\CharacterContains\PlayerContains\Player\PlayerPtr.h" />
     <ClInclude Include="Source\ActorContains\ActorGroup.h" />
     <ClInclude Include="Source\ActorContains\ActorManager\ActorManager.h" />
     <ClInclude Include="Source\ActorContains\ActorManager\ActorManagerPtr.h" />

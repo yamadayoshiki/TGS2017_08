@@ -18,7 +18,7 @@ GSmatrix4 CharacterManager::GetPlayerMat() {
 
 //プレイヤーに挟まれているActorを取得
 ActorPtr CharacterManager::GetRoundActor() {
-
+	return nullptr;
 }
 
 //プレイヤーのステートを取得
