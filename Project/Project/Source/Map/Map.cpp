@@ -1,38 +1,13 @@
 #include"Map.h"
 #include "../Utility/PathFinder/Point2.h"
 #include"../Define/Def_Nakayama.h"
-//コンストラクタ
-Map::Map()
-{
 
-}
-//ロード
-void Map::Load()
-{
-}
-//アンロード
-void Map::Unload()
-{
-}
-//更新
-void Map::Update(float deltaTime)
-{
-}
-//描画
-void Map::Draw() const
-{
-
-}
-//衝突判定
-void Map::Collide()
-{
-}
-
+//マップの取得
 std::vector<std::vector<int>>& Map::getmap()
 {
 	return m_Map;
 }
-
+//周りのタイルデータの取得
 std::unordered_map<Tile, TileData> Map::GetAroundTile(const GSvector2& position)
 {
 	int x = position.x / CHIP_SIZE;
@@ -52,7 +27,7 @@ std::unordered_map<Tile, TileData> Map::GetAroundTile(const GSvector2& position)
 
 	return datas;
 }
-
+//タイルデータの取得
 TileData Map::GetTileData(int x, int y)
 {
 	TileData result;

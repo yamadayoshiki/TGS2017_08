@@ -3,13 +3,9 @@
 
 #include<gslib.h>
 
-
-
 class TileData
 {
 public:
-	//コンストラクタ
-	TileData();
 	//座標
 	GSvector2 Position();
 	//矩形

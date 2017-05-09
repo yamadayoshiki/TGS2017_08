@@ -14,25 +14,13 @@ class Point2;
 
 class Map
 {
-
 public:
-	//コンストラクタ
-	Map();
-	//ロード
-	void Load();
-	//アンロード
-	void Unload();
-	//更新
-	void Update(float deltaTime);
-	//描画
-	void Draw() const;
-	//衝突判定
-	void Collide();
+	
 	//マップの取得
 	std::vector<std::vector<int>>& getmap();
-	//
+	//周りのタイルデータの取得
 	std::unordered_map<Tile, TileData>GetAroundTile (const GSvector2& position);
-	//
+	//タイルデータの取得
 	TileData GetTileData(int x, int y);
 
 	//神保
