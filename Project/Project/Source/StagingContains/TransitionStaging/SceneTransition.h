@@ -16,6 +16,8 @@ public:
 	virtual void onUpdate(float deltaTime)override;
 	//描画
 	virtual void onDraw() const override;
+	// 終了フラグ
+	virtual bool isEnd() override;
 private:
 	// α値
 	GScolor m_Color;

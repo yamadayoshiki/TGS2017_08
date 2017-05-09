@@ -24,6 +24,8 @@ public:
 	void Add(SceneName name, const IScenePtr& scene);
 	// シーンの変更     
 	void Change(SceneName name);
+	// シーン名の取得     
+	SceneName GetSceneName();
 	// コピー禁止     
 	SceneManager(const SceneManager& other) = delete;
 	SceneManager& operator = (const SceneManager& other) = delete;

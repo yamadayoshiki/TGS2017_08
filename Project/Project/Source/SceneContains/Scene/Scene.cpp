@@ -3,17 +3,14 @@
 
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../StagingContains/TransitionStaging/SceneTransition.h"
-#include "../../UIContains/UIManager/Base/UIManager.h"
-#include "../../ActorContains/ActorGroup.h"
 
 #include <gslib.h>
 #include <memory>
 
 //コンストラクタ
-Scene::Scene(const IGameManagerPtr& gameManager, const WorldPtr& world)
+Scene::Scene(const IGameManagerPtr& gameManager)
 	: m_IsEnd(false)
 	, p_GameManager(gameManager)
-	, p_World(world)
 	, m_Transition(std::make_shared<SceneTransition>(gameManager)){
 }
 
@@ -24,14 +21,19 @@ Scene::~Scene() {
 // 開始     
 void Scene::Start()
 {
+
 	m_IsEnd = false;
 	// 遷移演出の開始
 	m_Transition->start();
 	// 遷移演出モードの切り替え
 	m_Transition->changeMode(Transition::Mode::In);
 
-	//// UIの生成
-	//p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World, p_GameManager, m_SceneName));	
+	//ワールド生成
+	//using WorldPtr = std::shared_ptr<World>;
+	//WorldPtr p_World;
+	p_World = std::make_shared<World>();
+
+	p_World->ResetEnd();
 
 	OnStart();
 }
@@ -40,9 +42,10 @@ void Scene::Start()
 void Scene::Update(float deltaTime)
 {
 	//スペースキーを押したら次のシーン
-	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE || p_GameManager->IsEndScene())
+	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE || p_World->IsEnd()) {
 		m_IsEnd = true;
-
+	}
+		
 	//ワールド更新
 	p_World->update(deltaTime);
 
@@ -65,12 +68,26 @@ void Scene::Draw() const
 	m_Transition->draw();
 }
 
+void Scene::End(){
+	OnEnd();
+
+	p_World = nullptr;
+}
+
 // 終了しているか？     
 bool Scene::IsEnd() const
 {
 	return m_Transition->isEnd();
 }
 
+SceneName Scene::Next() const{
+	return p_World->NextScene();
+}
+
 void Scene::SetName(const SceneName & name){
 	m_SceneName = name;
+}
+
+SceneName Scene::GetName(){
+	return m_SceneName;
 }

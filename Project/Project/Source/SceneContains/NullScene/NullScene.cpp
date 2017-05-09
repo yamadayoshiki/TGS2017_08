@@ -2,12 +2,12 @@
 #include "../SceneName.h"
 
 // デフォルトコンストラクタ    
-NullScene::NullScene(const IGameManagerPtr& gameManager, const WorldPtr& world)
-	:Scene(gameManager,world) {}
+NullScene::NullScene(const IGameManagerPtr& gameManager)
+	:Scene(gameManager) {}
 
 //コンストラクタ
 NullScene::NullScene()
-	:Scene(nullptr,nullptr){}
+	:Scene(nullptr){}
 
 // 描画     
 void NullScene::Draw() const
@@ -30,5 +30,9 @@ void NullScene::OnStart()
 
 // 更新     
 void NullScene::OnUpdate(float deltaTime)
+{
+}
+
+void NullScene::OnEnd()
 {
 }

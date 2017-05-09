@@ -6,28 +6,33 @@
 #include "../../WorldContains/World/World.h"
 #include"../../ActorContains/ActorGroup.h"
 #include"../../CharacterContains/PlayerContains/Player/Player.h"
+#include "../../Utility/InputState/InputState.h"
+#include "../../Base/GameManagerContains/GameManager/GameManager.h"
+
 
 // コンストラクタ    
-GamePlay::GamePlay(const IGameManagerPtr& gameManager, const WorldPtr& world)
-	:Scene(gameManager, world) {
+GamePlay::GamePlay(const IGameManagerPtr& gameManager)
+	:Scene(gameManager) {
 }
 
 // 開始     
-void GamePlay::OnStart()
-{
-	//プレイヤー生成
-	//p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World, GSvector2(0.0f, 0.0f), p_GameManager));
+void GamePlay::OnStart(){
 }
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime)
 {
-	p_World->update(deltaTime);
+	gsTextPos(100, 100);
+	gsDrawText("GamePlay");
+
+
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
+		p_World->EndRequest(SceneName::NakayamaScene);
+	}
 }
 
 // 次のシーンを返す     
-SceneName GamePlay::Next() const
-{
+SceneName GamePlay::Next() const{
 	return SceneName::NakayamaScene;
 }
 

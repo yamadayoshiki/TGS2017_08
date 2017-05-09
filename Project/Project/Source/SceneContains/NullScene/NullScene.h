@@ -10,7 +10,7 @@ public:
 	// デフォルトコンストラクタ
 	NullScene();
 	//コンストラクタ
-	NullScene(const IGameManagerPtr& gameManager, const WorldPtr& world);
+	NullScene(const IGameManagerPtr& gameManager);
 	// 描画     
 	virtual void Draw() const override;
 	// 次のシーンを返す     
@@ -23,6 +23,8 @@ protected:
 	virtual void OnStart();
 	// 更新     
 	virtual void OnUpdate(float deltaTime);
+	// 終了     
+	virtual void OnEnd();
 };
 
 #endif

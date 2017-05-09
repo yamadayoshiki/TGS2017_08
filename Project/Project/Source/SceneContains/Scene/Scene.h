@@ -14,7 +14,7 @@ class Scene :public IScene
 {
 public:
 	//コンストラクタ
-	Scene(const IGameManagerPtr& gameManager,const WorldPtr& world);
+	Scene(const IGameManagerPtr& gameManager);
 	// 仮想デストラクタ     
 	virtual ~Scene();
 	// 開始     
@@ -23,22 +23,26 @@ public:
 	virtual void Update(float deltaTime) override;
 	// 描画     
 	virtual void Draw() const override;
+	// 終了     
+	virtual void End() override;
 	// 終了しているか？     
 	virtual bool IsEnd() const override;
+	// 次のシーンを返す     
+	virtual SceneName Next() const override;
 
 public:
-	// 次のシーンを返す     
-	virtual SceneName Next() const override = 0;
-	// 終了     
-	virtual void End() override = 0;
 	// 名前を設定
 	virtual void SetName(const SceneName & name) override;
+	// 名前の取得
+	virtual SceneName GetName() override;
 
 protected:
 	// 各種固有の開始     
 	virtual void OnStart() = 0;
 	// 各種固有の更新     
 	virtual void OnUpdate(float deltaTime) = 0;
+	// 各種固有の終了     
+	virtual void OnEnd() {}
 
 protected:
 	bool m_IsEnd;					//終了フラグ

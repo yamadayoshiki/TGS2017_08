@@ -9,8 +9,8 @@
 #include"../../ActorContains/Object/TestEnemy.h"
 
 // コンストラクタ    
-yamadaScene::yamadaScene(const IGameManagerPtr& gameManager, const WorldPtr& world)
-	:Scene(gameManager, world) {
+yamadaScene::yamadaScene(const IGameManagerPtr& gameManager)
+	:Scene(gameManager) {
 }
 
 // 開始     

@@ -9,8 +9,8 @@
 #include "../../ActorContains/Object/TestEnemy.h"
 
 // コンストラクタ    
-NaganoScene::NaganoScene(const IGameManagerPtr& gameManager, const WorldPtr& world)
-	:Scene(gameManager, world)
+NaganoScene::NaganoScene(const IGameManagerPtr& gameManager)
+	:Scene(gameManager)
 {
 }
 

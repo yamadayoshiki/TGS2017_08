@@ -1,16 +1,16 @@
-#ifndef GAMEPLAY_H_
-#define GAMEPLAY_H_
+#ifndef GAMESELECT_H_
+#define GAMESELECT_H_
 
 #include "../Scene/Scene.h"
 
 class World;
 
 //ゲーム中
-class GamePlay : public Scene
+class GameSelect : public Scene
 {
 public:
 	// コンストラクタ    
-	GamePlay(const IGameManagerPtr& gameManager);
+	GameSelect(const IGameManagerPtr& gameManager);
 	// 次のシーンを返す
 	virtual SceneName Next() const override;
 	// 終了

@@ -18,6 +18,10 @@ void SceneManager::Initialize()
 void SceneManager::Update(float deltaTime)
 {
 	m_CurrentScene->Update(deltaTime);
+
+	if (m_CurrentScene->IsEnd()) {
+		Change(m_CurrentScene->Next());
+	}
 }
 
 // •`‰æ     
@@ -46,4 +50,9 @@ void SceneManager::Change(SceneName name)
 	End();
 	m_CurrentScene = m_SceneDic[name];
 	m_CurrentScene->Start();
+}
+
+SceneName SceneManager::GetSceneName()
+{
+	return m_CurrentScene->GetName();
 }

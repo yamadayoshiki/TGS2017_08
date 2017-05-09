@@ -11,7 +11,7 @@ class NaganoScene : public Scene
 {
 public:
 	// コンストラクタ    
-	NaganoScene(const IGameManagerPtr& gameManager, const WorldPtr& world);
+	NaganoScene(const IGameManagerPtr& gameManager);
 	// 次のシーンを返す     
 	virtual SceneName Next() const override;
 	// 終了     

@@ -8,8 +8,8 @@
 
 
 // コンストラクタ    
-NakayamaScene::NakayamaScene(const IGameManagerPtr& gameManager, const WorldPtr& world)
-	:Scene(gameManager, world) {
+NakayamaScene::NakayamaScene(const IGameManagerPtr& gameManager)
+	:Scene(gameManager) {
 }
 
 // 開始     

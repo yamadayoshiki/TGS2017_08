@@ -11,7 +11,7 @@ class NakayamaScene : public Scene
 {
 public:
 	// コンストラクタ    
-	NakayamaScene(const IGameManagerPtr& gameManager, const WorldPtr& world);
+	NakayamaScene(const IGameManagerPtr& gameManager);
 	// 次のシーンを返す     
 	virtual SceneName Next() const override;
 	// 終了     

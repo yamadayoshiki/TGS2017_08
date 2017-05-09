@@ -23,6 +23,8 @@ public:
 	virtual void End() = 0;
 	// –¼‘O‚Ìİ’è
 	virtual void SetName(const SceneName& name) = 0;
+	// –¼‘O‚Ìæ“¾
+	virtual SceneName GetName() = 0;
 };
 
 

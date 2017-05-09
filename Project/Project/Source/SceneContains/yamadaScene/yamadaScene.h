@@ -9,7 +9,7 @@ class yamadaScene:public Scene
 {
 public:
 	// コンストラクタ    
-	yamadaScene(const IGameManagerPtr& gameManager, const WorldPtr& world);
+	yamadaScene(const IGameManagerPtr& gameManager);
 	// 次のシーンを返す
 	virtual SceneName Next() const override;
 	// 終了
