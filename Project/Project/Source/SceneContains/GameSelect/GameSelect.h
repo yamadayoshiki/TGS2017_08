@@ -11,10 +11,6 @@ class GameSelect : public Scene
 public:
 	// コンストラクタ    
 	GameSelect(const IGameManagerPtr& gameManager);
-	// 次のシーンを返す
-	virtual SceneName Next() const override;
-	// 終了
-	virtual void End() override;
 
 protected:
 	// 開始     

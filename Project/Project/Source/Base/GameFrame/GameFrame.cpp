@@ -60,7 +60,7 @@ void GameFrame::start(){
 	m_SceneManager.Add(SceneName::YamadaScene, std::make_shared<yamadaScene>(p_GameManager));
 
 	//初期シーンの設定
-	m_SceneManager.Change(SceneName::YamadaScene);
+	m_SceneManager.Change(SceneName::GameTitle);
 }
 
 // 更新

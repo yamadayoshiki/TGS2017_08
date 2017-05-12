@@ -41,6 +41,8 @@ protected:
 	virtual void OnStart() = 0;
 	// 各種固有の更新     
 	virtual void OnUpdate(float deltaTime) = 0;
+	// 各種固有の描画     
+	virtual void OnDraw()const {}
 	// 各種固有の終了     
 	virtual void OnEnd() {}
 

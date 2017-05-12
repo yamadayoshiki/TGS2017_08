@@ -5,30 +5,36 @@
 #include "../../UIContains/UIManager/Base/UIManager.h"
 #include "../../ActorContains/ActorGroup.h"
 #include"../../WorldContains/World/World.h"
-
+#include "../../Utility/Rederer2D/Renderer2D.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
+#include "../../Define/Def_Nagano.h"
 
 // コンストラクタ    
 GameTitle::GameTitle(const IGameManagerPtr& gameManager)
-	:Scene(gameManager)
-{
+	:Scene(gameManager){
+
+	gameManager->GetRenderer2D()->LoadTexture("logo", "Resource/Texture/UI/Title/logo.png");
 }
 
 // 開始     
-void GameTitle::OnStart()
-{
+void GameTitle::OnStart(){
 	// UIの生成
 	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
 }
 
-// 更新     
-void GameTitle::OnUpdate(float deltaTime)
-{
+// 更新
+void GameTitle::OnUpdate(float deltaTime){
 	gsTextPos(100, 100);
 	gsDrawText("title");
 }
 
-// 終了     
-void GameTitle::End()
+void GameTitle::OnDraw()const
 {
+	p_GameManager->GetRenderer2D()->DrawTexture(
+		"logo",
+		GSvector2(SCREEN_SIZE / 2) - 
+		GSvector2(p_GameManager->GetRenderer2D()->GetTextureRect("logo")->right, p_GameManager->GetRenderer2D()->GetTextureRect("logo")->bottom) / 2 - 
+		GSvector2(0, 1) * 200
+		);
 }
+

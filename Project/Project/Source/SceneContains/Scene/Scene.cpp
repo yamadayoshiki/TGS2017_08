@@ -59,6 +59,8 @@ void Scene::Update(float deltaTime)
 // •`‰æ     
 void Scene::Draw() const
 {
+	OnDraw();
+
 	//ƒ[ƒ‹ƒh•`‰æ
 	p_World->draw();
 	// ‘JˆÚ‰‰o‚Ì•`‰æ

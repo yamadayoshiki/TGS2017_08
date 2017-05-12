@@ -6,6 +6,8 @@
 #include "../../WorldContains/World/World.h"
 #include"../../ActorContains/ActorGroup.h"
 #include"../../CharacterContains/PlayerContains/Player/Player.h"
+#include "../../Utility/InputState/InputState.h"
+#include "../../Base/GameManagerContains/GameManager/GameManager.h"
 
 // コンストラクタ    
 GameCredit::GameCredit(const IGameManagerPtr& gameManager)
@@ -23,16 +25,7 @@ void GameCredit::OnUpdate(float deltaTime)
 	gsTextPos(100, 100);
 	gsDrawText("credit");
 
-	//p_World->update(deltaTime);
-}
-
-// 次のシーンを返す     
-SceneName GameCredit::Next() const
-{
-	return SceneName::NakayamaScene;
-}
-
-// 終了     
-void GameCredit::End()
-{
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
+		p_World->EndRequest(SceneName::GameTitle);
+	}
 }
