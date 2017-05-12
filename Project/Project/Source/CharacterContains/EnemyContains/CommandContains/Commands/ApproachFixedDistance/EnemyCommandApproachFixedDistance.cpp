@@ -3,7 +3,7 @@
 //コンストラクタ
 EnemyCommandApproachFixedDistance::EnemyCommandApproachFixedDistance(const EnemyBasePtr& enemy, float fixedDistance)
 	: EnemyCommandBase(enemy)
-	, m_TargetPos(GSvector2(0.0f, 0.0f))
+	, m_NextTargetPos(GSvector2(0.0f, 0.0f))
 	, m_FixedDistance(fixedDistance) {
 }
 
@@ -21,19 +21,14 @@ void EnemyCommandApproachFixedDistance::Update(float deltaTime) {
 void EnemyCommandApproachFixedDistance::Finalize() {
 }
 
-//終了チェック
-bool EnemyCommandApproachFixedDistance::IsEnd() {
-	return false;
-}
-
 //命令ステート
 EnemyStateName EnemyCommandApproachFixedDistance::GetCurrentStateName() const {
-	return EnemyStateName::Move;
+	return EnemyStateName::None;
 }
 
 //目標座標の指定
 void EnemyCommandApproachFixedDistance::SetTargetPos(const GSvector2& targetPos) {
-	m_TargetPos = targetPos;
+	m_NextTargetPos = targetPos;
 }
 
 //近づく距離の設定

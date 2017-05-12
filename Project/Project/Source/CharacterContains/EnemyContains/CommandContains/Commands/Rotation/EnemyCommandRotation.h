@@ -16,10 +16,6 @@ public:
 	virtual void Update(float deltaTime) override;
 	//終了
 	virtual void Finalize() override;
-	//終了チェック
-	virtual bool IsEnd() override;
-	//命令ステート
-	virtual EnemyStateName GetCurrentStateName() const override;
 
 protected:
 	//各種固有の初期化
@@ -32,4 +28,4 @@ protected:
 	float m_Timer;			//タイマー
 };
 
-#endif // !ENEMY_COMMAND_ROTATION_H_
+#endif

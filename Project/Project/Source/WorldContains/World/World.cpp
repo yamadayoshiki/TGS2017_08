@@ -104,8 +104,7 @@ void World::EndRequest(const SceneName & name){
 	m_IsEnd = true;
 }
 
-void World::ResetEnd()
-{
+void World::ResetEnd(){
 	m_IsEnd = false;
 }
 

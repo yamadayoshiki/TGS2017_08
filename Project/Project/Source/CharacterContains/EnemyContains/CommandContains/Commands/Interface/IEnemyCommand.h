@@ -2,6 +2,7 @@
 #define IENEMYCOMMAND_H_
 
 enum class EnemyStateName;
+enum class EnemyCommandName;
 struct GSvector2;
 class EnemyBase;
 
@@ -19,6 +20,8 @@ public:
 	virtual void Finalize() = 0;
 	//終了チェック
 	virtual bool IsEnd() = 0;
+	//次コマンドの取得
+	virtual EnemyCommandName GetNextCommand() const = 0;
 	//命令ステート
 	virtual EnemyStateName GetCurrentStateName() const = 0;
 	//移動ベクトルの取得

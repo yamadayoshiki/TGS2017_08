@@ -1,14 +1,20 @@
 #include "EnemyCommandBase.h"
+#include "../../../../../Define/Def_GSvector2.h"
 
 //コンストラクタ
 EnemyCommandBase::EnemyCommandBase(const EnemyBasePtr& enemy)
 	:p_Enemy(enemy)
-	, m_Velocity(GSvector2(0.0f, 0.0f))
-	, m_RotateAngle(0.0f) {
+	, m_Velocity(GSVECTOR2_ZERO)
+	, m_RotateAngle(0.0f)
+	, m_Next(EnemyCommandName::None)
+	, m_IsEnd(false) {
 }
 
 //初期化
 void EnemyCommandBase::Initialize() {
+	m_Next = EnemyCommandName::None;
+	m_IsEnd = false;
+	//各種固有の初期化
 	OnInitialize();
 }
 
@@ -20,4 +26,25 @@ GSvector2 EnemyCommandBase::GetVelocity() const {
 //回転角度の取得
 float EnemyCommandBase::GetRotateAngle() const {
 	return m_RotateAngle;
+}
+
+//終了チェック
+bool EnemyCommandBase::IsEnd() {
+	return m_IsEnd;
+}
+
+//次コマンドの取得
+EnemyCommandName EnemyCommandBase::GetNextCommand() const{
+	return m_Next;
+}
+
+//命令ステート
+EnemyStateName EnemyCommandBase::GetCurrentStateName() const {
+	return EnemyStateName::None;
+}
+
+//次コマンドの設定
+void EnemyCommandBase::Change(EnemyCommandName next) {
+	m_Next = next;
+	m_IsEnd = true;
 }

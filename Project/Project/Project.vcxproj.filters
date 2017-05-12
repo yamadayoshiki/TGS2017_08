@@ -219,9 +219,6 @@
     <ClInclude Include="Source\ActorContains\Body\OrientedBoundingBox.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Utility\InputState\InputState.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -465,9 +462,6 @@
     <ClInclude Include="Source\UIContains\Selector\Selector.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Idle\EnemyStateIdle.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Dead.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -481,6 +475,81 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_R_Idle.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\MathSupport\MathSupport.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\EnumRap\EnumRap.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\EnumRap\EnumRapPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameCredit\GameCredit.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameEnd\GameEnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameSelect\GameSelect.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\Transform\Transform.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Define\Def_GSvector2.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\AlongWallMove\EnemyCommandAlongWallMove.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Base\EnemyCommandEnemy01Base.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\LeaveFixedDistance\EnemyCommandLeaveFixedDistance.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\NullCommand\Enemy_NullCommand.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Straight\EnemyCommandStraight.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyCommandName.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBase.h">
@@ -528,85 +597,19 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Dead\EnemyStateDead.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Idle\EnemyStateIdle.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Move\EnemyStateMove.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\MoveBase\EnemyStateMoveBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Run\EnemyStateRun.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Walk\EnemyStateWalk.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Repel\EnemyStateRepel.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Thrown\EnemyStateThrown.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\EnemyStateName.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Leave_FixedDistance\EnemyCommandLeaveFixedDistance.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\NullCommand\Enemy_NullCommand.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Shot\EnemyCommandShot.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyCommandName.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Utility\MathSupport\MathSupport.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Utility\EnumRap\EnumRap.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Utility\EnumRap\EnumRapPtr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SceneContains\GameCredit\GameCredit.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SceneContains\GameEnd\GameEnd.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SceneContains\GameSelect\GameSelect.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\ActorContains\Transform\Transform.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -684,9 +687,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\ActorContains\Body\OrientedBoundingBox.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Utility\InputState\InputState.cpp">
@@ -851,9 +851,6 @@
     <ClCompile Include="Source\UIContains\Selector\Selector.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Idle\EnemyStateIdle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Dead.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -869,22 +866,28 @@
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_R_Idle.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\MoveBase\EnemyStateMoveBase.cpp">
+    <ClCompile Include="Source\Utility\MathSupport\MathSupport.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Run\EnemyStateRun.cpp">
+    <ClCompile Include="Source\SceneContains\GameCredit\GameCredit.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Walk\EnemyStateWalk.cpp">
+    <ClCompile Include="Source\SceneContains\GameEnd\GameEnd.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Repel\EnemyStateRepel.cpp">
+    <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Thrown\EnemyStateThrown.cpp">
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\AlongWallMove\EnemyCommandAlongWallMove.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.cpp">
@@ -893,16 +896,22 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Leave_FixedDistance\EnemyCommandLeaveFixedDistance.cpp">
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Base\EnemyCommandEnemy01Base.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\LeaveFixedDistance\EnemyCommandLeaveFixedDistance.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Shot\EnemyCommandShot.cpp">
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.cpp">
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Straight\EnemyCommandStraight.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Base\EnemyBase.cpp">
@@ -944,22 +953,16 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Dead\EnemyStateDead.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Utility\MathSupport\MathSupport.cpp">
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Idle\EnemyStateIdle.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\SceneContains\GameCredit\GameCredit.cpp">
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Move\EnemyStateMove.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\SceneContains\GameEnd\GameEnd.cpp">
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\MoveBase\EnemyStateMoveBase.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.cpp">
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Repel\EnemyStateRepel.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

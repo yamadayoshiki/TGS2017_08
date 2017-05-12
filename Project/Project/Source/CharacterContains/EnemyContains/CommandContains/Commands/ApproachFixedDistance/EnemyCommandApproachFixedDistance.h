@@ -15,8 +15,6 @@ public:
 	virtual void Update(float deltaTime) override;
 	//終了
 	virtual void Finalize() override;
-	//終了チェック
-	virtual bool IsEnd() override;
 	//命令ステート
 	virtual EnemyStateName GetCurrentStateName() const override;
 	//目標座標の指定
@@ -28,7 +26,7 @@ protected:
 	virtual void OnInitialize() override;
 
 protected:
-	GSvector2 m_TargetPos;		//目標座標
+	GSvector2 m_NextTargetPos;		//目標座標
 	float  m_FixedDistance;		//目標までの距離
 };
 

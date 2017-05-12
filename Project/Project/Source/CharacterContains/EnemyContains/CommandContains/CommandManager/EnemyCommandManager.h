@@ -24,7 +24,7 @@ public:
 	void Update(float deltaTime);
 	//終了処理
 	void Finalize();
-	//コマンド辞書登録	
+	//コマンド辞書登録
 	void AddDic(EnemyCommandName name, const IEnemyCommandPtr& command);
 	//コマンド順序登録
 	void AddList(EnemyCommandName name);

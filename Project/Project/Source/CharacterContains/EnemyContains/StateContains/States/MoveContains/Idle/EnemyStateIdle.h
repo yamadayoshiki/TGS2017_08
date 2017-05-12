@@ -4,7 +4,7 @@
 #include "../MoveBase/EnemyStateMoveBase.h"
 
 //待機状態
-class EnemyStateIdle :EnemyStateMoveBase
+class EnemyStateIdle :public EnemyStateMoveBase
 {
 public:
 	//コンストラクタ
@@ -21,4 +21,4 @@ public:
 	virtual void onInput() override {}
 };
 
-#endif // !ENEMY_COMMONSTATE_IDLE_H_
+#endif

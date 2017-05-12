@@ -5,6 +5,7 @@
 #include "../Interface/IEnemyCommand.h"
 #include "../../../StateContains/States/EnemyStateName.h"
 #include "../../../Enemys/Base/EnemyBasePtr.h"
+#include "../EnemyCommandName.h"
 
 class EnemyCommandBase :public IEnemyCommand
 {
@@ -26,18 +27,24 @@ public:
 	//終了
 	virtual void Finalize()override {};
 	//終了チェック
-	virtual bool IsEnd() override = 0;
+	bool IsEnd() override;
+	//次コマンドの取得
+	EnemyCommandName GetNextCommand() const override;
 	//命令ステート
-	virtual EnemyStateName GetCurrentStateName() const override = 0;
+	virtual EnemyStateName GetCurrentStateName() const override;
 
 protected:
 	//各種固有の初期化
 	virtual void OnInitialize() {};
+	//コマンド変更
+	void Change(EnemyCommandName next);
 
 protected:
 	EnemyBasePtr p_Enemy;		//エネミー本体
 	GSvector2 m_Velocity;		//目標地点までの移動ベクトル
 	float m_RotateAngle;		//回転角度
+	EnemyCommandName m_Next;	//次のコマンド
+	bool m_IsEnd;				//終了フラグ
 };
 
 #endif

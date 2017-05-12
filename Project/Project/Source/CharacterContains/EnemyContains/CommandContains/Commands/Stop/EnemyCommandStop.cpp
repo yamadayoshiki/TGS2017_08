@@ -21,17 +21,3 @@ void EnemyCommandStop::Update(float deltaTime) {
 //終了
 void EnemyCommandStop::Finalize() {
 }
-
-//終了チェック
-bool EnemyCommandStop::IsEnd() {
-	//指定の時間が経過した場合終了
-	if (m_EndTimer >= m_StopTimer)
-		return true;
-
-	return false;
-}
-
-//命令ステート
-EnemyStateName EnemyCommandStop::GetCurrentStateName() const {
-	return EnemyStateName::Idle;
-}

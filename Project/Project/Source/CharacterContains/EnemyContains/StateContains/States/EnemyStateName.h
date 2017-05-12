@@ -7,7 +7,6 @@ enum class EnemyStateName
 	Idle,				//‚»‚Ìê‚É~‚Ü‚é
 	Move,				//“®‚­
 	Caught,				//‹²‚Ü‚ê‚Ä‚¢‚é
-	Thrown,				//“Š‚°‚ç‚ê‚Ä‚¢‚é
 	Crush,				//Ó‚©‚ê‚é
 	Dead,				//€‚É
 	None,				//ƒ_ƒ~[
