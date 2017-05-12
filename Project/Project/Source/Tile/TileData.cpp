@@ -2,6 +2,11 @@
 
 #include<gslib.h>
 
+TileData::TileData()
+{
+
+}
+
 GSvector2 TileData::Position()
 {
 	return position;

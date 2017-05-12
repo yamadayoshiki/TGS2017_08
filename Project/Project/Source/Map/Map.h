@@ -4,6 +4,8 @@
 #include"../Utility/Rederer2D/Renderer2DPtr.h"
 #include"../Tile/Tile.h"
 #include"../Tile/TileData.h"
+#include "../ActorContains/ActorPtr.h"
+#include "../Base/GameManagerContains/IGameManagerPtr.h"
 
 #include<iostream>
 #include <vector>
@@ -15,7 +17,11 @@ class Point2;
 class Map
 {
 public:
-	
+
+	//コンストラクタ
+	Map(const IGameManagerPtr& gameManager);
+	//描画
+	 void draw();
 	//マップの取得
 	std::vector<std::vector<int>>& getmap();
 	//周りのタイルデータの取得
@@ -35,6 +41,8 @@ public:
 private:
 	Renderer2DPtr p_Renderer2D;
 	std::vector<std::vector<int>> m_Map;
+	//ゲームマネージャーポインタ
+	IGameManagerPtr p_GameManager;
 };
 
 #endif // !MAP_H_

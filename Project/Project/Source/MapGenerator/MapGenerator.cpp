@@ -13,7 +13,8 @@
 //コンストラクタ
 MapGenerator::MapGenerator(const IWorldPtr world, const IGameManagerPtr& gameManager)
 	: p_World(world)
-	, p_GameManager(gameManager) {
+	, p_GameManager(gameManager)
+	, m_Map(gameManager){
 }
 
 void MapGenerator::load(const std::string& file_name) {

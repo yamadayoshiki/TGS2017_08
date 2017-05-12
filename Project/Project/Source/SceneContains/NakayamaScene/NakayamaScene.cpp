@@ -36,6 +36,7 @@ void NakayamaScene::OnStart()
 // 更新     
 void NakayamaScene::OnUpdate(float deltaTime)
 {
+	p_World->GetMap().draw();
 }
 
 // 次のシーンを返す     

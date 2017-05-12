@@ -1,6 +1,33 @@
 #include"Map.h"
 #include "../Utility/PathFinder/Point2.h"
 #include"../Define/Def_Nakayama.h"
+#include"../Base/GameManagerContains/GameManager/GameManager.h"
+#include"../Utility/Rederer2D/Renderer2D.h"
+
+//コンストラクタ
+Map::Map(const IGameManagerPtr& gameManager):
+	p_GameManager(gameManager)
+{
+	p_GameManager->GetRenderer2D()->LoadTexture("chip", "Resource/Texture/wall.png");
+}
+//描画
+void Map::draw()
+{
+	// 行のループ
+	for (int i = 0;i < m_Map.size(); i++)
+	{
+		// 列のループ
+		for (int j = 0; j < m_Map[i].size(); j++)
+		{
+			if (m_Map[i][j] == 1)
+			{
+				//gsTextPos(j * CHIP_SIZE, i * CHIP_SIZE);
+				p_GameManager->GetRenderer2D()->DrawTexture("chip", GSvector2(j, i)* CHIP_SIZE);
+			}
+		}
+		
+	}
+}
 
 //マップの取得
 std::vector<std::vector<int>>& Map::getmap()
@@ -46,10 +73,10 @@ int Map::operator [] (const Point2& position) const{
 }
 // 幅の取得
 int Map::Width() const {
-	return 17;
+	return m_Map[0].size();
 }
 
 // 高さの取得
 int Map::Height() const {
-	return 13;
+	return m_Map.size();
 }
