@@ -27,3 +27,9 @@ float MathSupport::GetAngle(const GSvector2& dynamic, const GSvector2& base) {
 	//結果を返す
 	return result;
 }
+
+// ベクトルの回転
+GSvector2 MathSupport::RotateVector(const GSvector2 & pos, const float & angle){
+	// 回転後のベクトルを返す
+	return GSvector2(pos.x * gsCos(angle) - pos.y * gsSin(angle), pos.x * gsSin(angle) + pos.y * gsCos(angle));
+}

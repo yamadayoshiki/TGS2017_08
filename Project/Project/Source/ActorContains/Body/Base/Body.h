@@ -3,6 +3,7 @@
 #include "IBody.h"
 
 #include "../../Transform/Transform.h"
+#include "../../../Utility/MathSupport/MathSupport.h"
 #include <GStype.h>
 #include <GSmatrix4.h>
 
@@ -46,7 +47,7 @@ public:
 	// 角度の取得
 	virtual float angle() const override{ return mTransform.m_Angle; }
 	// 前方ベクトルの取得
-	virtual GSvector2 forward() const override { return Rotate(GSvector2(1.0f, 0.0f), mTransform.m_Angle).normalize(); }
+	virtual GSvector2 forward() const override { return MathSupport::RotateVector(GSvector2(1.0f, 0.0f), mTransform.m_Angle).normalize(); }
 
 	// 半径の取得
 	virtual float radius() const override { return mRadius; }
@@ -67,12 +68,6 @@ public:
 	// 点の取得
 	virtual GSvector2 points(const int index) const override { return mPoints[index]; }
 	
-protected:
-	// 回転
-	GSvector2 Rotate(const GSvector2 & pos, const float & angle) const {
-		return GSvector2(pos.x * gsCos(angle) - pos.y * gsSin(angle), pos.x * gsSin(angle) + pos.y * gsCos(angle));
-	}
-
 protected:
 	// 形状
 	ShapeType mType;

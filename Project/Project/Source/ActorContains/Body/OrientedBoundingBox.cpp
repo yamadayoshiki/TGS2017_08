@@ -134,12 +134,12 @@ OrientedBoundingBox OrientedBoundingBox::transform_e(const Transform& transform)
 GSvector2 OrientedBoundingBox::CornerPoint(int cornerIndex) const {
 	switch (cornerIndex) {
 	default:
-	case 0: return mTransform.m_Position + Rotate(GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
-	case 1: return mTransform.m_Position + Rotate(GSvector2(+mExtents.x, -mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
-	case 2: return mTransform.m_Position + Rotate(GSvector2(+mExtents.x, +mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
-	case 3: return mTransform.m_Position + Rotate(GSvector2(-mExtents.x, +mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
+	case 0: return mTransform.m_Position + MathSupport::RotateVector(GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
+	case 1: return mTransform.m_Position + MathSupport::RotateVector(GSvector2(+mExtents.x, -mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
+	case 2: return mTransform.m_Position + MathSupport::RotateVector(GSvector2(+mExtents.x, +mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
+	case 3: return mTransform.m_Position + MathSupport::RotateVector(GSvector2(-mExtents.x, +mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
 		// 0‚Æ“¯‚¶
-	case 4: return mTransform.m_Position + Rotate(GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
+	case 4: return mTransform.m_Position + MathSupport::RotateVector(GSvector2(-mExtents.x, -mExtents.y) * CHIP_SIZE / 2, mTransform.m_Angle);
 	}
 }
 
