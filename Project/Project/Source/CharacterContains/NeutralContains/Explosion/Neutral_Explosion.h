@@ -8,7 +8,7 @@ class Neutral_Explosion :public Actor
 public:
 	//コンストラクタ
 	Neutral_Explosion(
-		const IWorldPtr& world, 
+		IWorld* world,
 		const GSvector2& position,
 		IGameManagerPtr gameManager);
 };

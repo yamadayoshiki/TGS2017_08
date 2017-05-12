@@ -8,7 +8,7 @@ class Arm:public Actor
 {
 public:
 	//コンストラクタ
-	Arm(const IWorldPtr& world, GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager);
+	Arm(IWorld* world, GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager);
 	//デストラクタ
 	~Arm();
 	//更新処理

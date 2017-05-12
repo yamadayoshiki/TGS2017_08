@@ -5,7 +5,7 @@
 
 //コンストラクタ
 Enemy01::Enemy01(
-	const IWorldPtr& world,
+	IWorld* world,
 	const GSvector2& position,
 	const IGameManagerPtr& gameManager)
 	:EnemyBase(

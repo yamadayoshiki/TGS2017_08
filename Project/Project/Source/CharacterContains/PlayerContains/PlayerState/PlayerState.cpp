@@ -1,15 +1,14 @@
 #include"PlayerState.h"
 #include <algorithm>
 #include<GSmath.h>
+#include"../../../Utility/MathSupport/MathSupport.h"
 
 
 //コンストラクタ
 PlayerState::PlayerState(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, const IGameManagerPtr& gameManager)
-	:mPosition(position)
-	, mMatrix(matrix)
-	, mVelocity(GSvector2(0.0f, 0.0f))
-	, p_Player(player)
+	: p_Player(player)
 	, p_GameManager(gameManager)
+	,m_TransForm(player->getTransform())
 {
 	p_Input = gameManager->GetInputState();
 }
@@ -45,12 +44,15 @@ void PlayerState::move(float deltaTime, float speed)
 		//符号入れ替え
 		if (cross < 0)
 			mAngle = -mAngle;
+
 		//角度設定
-		mMatrix.setRotationZ(mAngle);
+		p_Player->setAngle(mAngle);
 		//座標移動
-		mPosition += p_Input->PadVelocity() * speed * deltaTime;
+		m_TransForm.m_Position += p_Input->PadVelocity() * speed * deltaTime;
+		p_Player->setPosition(m_TransForm.m_Position);
 	}
+	v = p_Player->getBody()->forward() * 16;
 	//m_Children[ActorName::Player_Arm]->setMatrix(mMatrix);
-	m_Children[ActorName::Player_Arm]->setAngle(mAngle);
-	m_Children[ActorName::Player_Arm]->setPosition(mPosition - GSvector2(mMatrix.getAxisY()) * 16);
+	m_Children[ActorName::Player_Arm]->setAngle(p_Player->getTransform().m_Angle);
+	m_Children[ActorName::Player_Arm]->setPosition(m_TransForm.m_Position + v);
 }

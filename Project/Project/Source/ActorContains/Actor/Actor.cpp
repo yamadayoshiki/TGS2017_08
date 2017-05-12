@@ -195,7 +195,7 @@ void Actor::SetWorld(const IWorldPtr& world) {
 
 //Õ“Ë”»’è}Œ`‚Ìæ“¾
 IBodyPtr Actor::getBody() const {
-	return p_Body;
+	return p_Body->transform(getTransform());
 }
 
 //// s—ñ‚Ìİ’è

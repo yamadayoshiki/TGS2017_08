@@ -8,7 +8,7 @@ class Enemy01 : public EnemyBase
 public:
 	//コンストラクタ
 	Enemy01(
-		const IWorldPtr& world,
+		IWorld* world,
 		const GSvector2& position,
 		const IGameManagerPtr& gameManager);
 protected:

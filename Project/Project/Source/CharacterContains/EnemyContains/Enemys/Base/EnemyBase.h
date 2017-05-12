@@ -14,7 +14,7 @@ class EnemyBase :public Actor, std::enable_shared_from_this<EnemyBase>
 public:
 	//コンストラクタ
 	EnemyBase(
-		const IWorldPtr& world,
+		IWorld* world,
 		const ActorName& name,
 		const GSvector2& position,
 		const float speed,

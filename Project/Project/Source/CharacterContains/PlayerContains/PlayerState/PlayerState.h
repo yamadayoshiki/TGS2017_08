@@ -7,7 +7,7 @@
 #include"../../../Utility/InputState/InputState.h"
 #include"../Arm/Arm.h"
 #include"../Arm/ArmPtr.h"
-
+#include"../Player/Player.h"
 #include "../Player/PlayerPtr.h"
 
 #include <unordered_map>
@@ -26,27 +26,18 @@ protected:
 	//void motion_change(Actor& actor, const PlayerStateID);
 	//移動処理
 	void move(float deltaTime, float speed = 1.0f);
-	//挟む処理
-	void Rounds(const Actor& other);
 
 protected:
 	//プレイヤー本体
 	PlayerPtr			p_Player;
-
-	//座標の参照
-	GSvector2&			mPosition;
-	//行列
-	GSmatrix4&			mMatrix;
-	//速度
-	GSvector2			mVelocity;
+	//変換
+	Transform			m_TransForm;
 	//回転角度
 	float				mAngle;
 	//GameManager
 	IGameManagerPtr		p_GameManager;
 	//InoutState
 	InputStatePtr		p_Input;
-	//アーム
-	ArmPtr				p_Arm;
 
 };
 

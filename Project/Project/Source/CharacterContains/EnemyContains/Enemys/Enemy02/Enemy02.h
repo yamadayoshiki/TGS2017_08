@@ -7,7 +7,7 @@ class Enemy02 : public EnemyBase
 {
 	//コンストラクタ
 	Enemy02(
-		const IWorldPtr& world,
+		IWorld* world,
 		const GSvector2& position,
 		const IGameManagerPtr& gameManager);
 protected:

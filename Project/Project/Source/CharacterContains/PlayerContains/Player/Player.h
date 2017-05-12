@@ -13,7 +13,7 @@ class Player :public Actor, public std::enable_shared_from_this<Player>
 {
 public:
 	//コンストラクタ
-	Player(const IWorldPtr& world, const GSvector2& position, const IGameManagerPtr& gameManager);
+	Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& gameManager);
 	//デストラクタ
 	~Player();
 	//

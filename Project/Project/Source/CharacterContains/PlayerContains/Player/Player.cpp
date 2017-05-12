@@ -7,14 +7,14 @@
 #include"../Arm/Arm.h"
 
 //コンストラクタ
-Player::Player(const IWorldPtr& world, const GSvector2& position, const IGameManagerPtr& gameManager)
+Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& gameManager)
 	:Actor(
 		world,
 		ActorName::Player,
 		position,
 		gameManager,
 		std::make_shared<NullTexture>(),
-		std::make_shared<OrientedBoundingBox>(GSvector2{ 32.0f, 32.0f }, 0.0f, GSvector2{ 2.0f, 2.0f })), angle(0.0f)
+		std::make_shared<OrientedBoundingBox>(GSvector2{ 32.0f, 32.0f }, -90.0f, GSvector2{ 2.0f, 2.0f })), angle(0.0f)
 {
 	p_Renderer = gameManager->GetRenderer2D();
 }
@@ -33,7 +33,7 @@ void Player::initialize()
 	//auto arm = std::make_shared<Arm>(p_World, m_Position, m_Matrix, p_GameManager);
 	auto arm = std::make_shared<Arm>(p_World, m_Transform.m_Position, GSmatrix4(GS_MATRIX4_IDENTITY), p_GameManager);
 	//arm->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
-	arm->setPosition(m_Transform.m_Position - p_Body->forward() * 16);
+	arm->setPosition(m_Transform.m_Position + p_Body->forward() * 16);
 	addChild(arm);
 	mStateManager->addChild(ActorName::Player_Arm, arm);
 }

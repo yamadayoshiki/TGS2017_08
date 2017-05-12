@@ -3,7 +3,7 @@
 
 //コンストラクタ
 EnemyBase::EnemyBase(
-	const IWorldPtr& world,
+	IWorld* world,
 	const ActorName& name,
 	const GSvector2& position,
 	const float speed,

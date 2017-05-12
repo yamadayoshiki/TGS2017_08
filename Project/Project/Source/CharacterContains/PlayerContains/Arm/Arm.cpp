@@ -3,13 +3,13 @@
 
 
 //コンストラクタ
-Arm::Arm(const IWorldPtr& world, GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager)
+Arm::Arm(IWorld* world, GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager)
 	:Actor(world
 	,ActorName::Player_Arm
 	, position
 	, gameManager
 	, std::make_shared<NullTexture>()
-		, std::make_shared<OrientedBoundingBox>(GSvector2{32.0f,32.0f}, 0.0f, GSvector2{ 2.0f, 1.0f }))
+		, std::make_shared<OrientedBoundingBox>(GSvector2{32.0f,32.0f}, -90.0f, GSvector2{ 1.0f, 2.0f }))
 	,m_Angle(0.0f)
 	,mHitFlag(false)
 {
