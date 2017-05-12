@@ -25,7 +25,11 @@ public:
 	//マップの取得
 	std::vector<std::vector<int>>& getmap();
 	//周りのタイルデータの取得
-	std::unordered_map<Tile, TileData>GetAroundTile (const GSvector2& position);
+	std::unordered_map<Tile, TileData>GetAroundTile(const GSvector2& position);
+	//指定された座標の縦軸のブロックの取得
+	std::vector<int>GetRow(const GSvector2& position);
+	//指定された座標の横軸のブロックの取得
+	std::vector<int>GetColumn(const GSvector2& position);
 	//タイルデータの取得
 	TileData GetTileData(int x, int y);
 

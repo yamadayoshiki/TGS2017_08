@@ -54,6 +54,27 @@ std::unordered_map<Tile, TileData> Map::GetAroundTile(const GSvector2& position)
 
 	return datas;
 }
+
+//指定された座標の縦軸のブロックの取得
+std::vector<int> Map::GetRow(const GSvector2 & position){
+	int x = position.x / CHIP_SIZE;
+	
+	std::vector<int> tmp;
+	
+	for (int i = 0; i < m_Map.size(); i++) {
+		tmp.push_back(m_Map[i][x]);
+	}
+
+	return tmp;
+}
+
+//指定された座標の横軸のブロックの取得
+std::vector<int> Map::GetColumn(const GSvector2 & position){
+	int y = position.y / CHIP_SIZE;
+
+	return m_Map[y];
+}
+
 //タイルデータの取得
 TileData Map::GetTileData(int x, int y)
 {
