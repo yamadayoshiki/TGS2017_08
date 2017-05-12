@@ -2,7 +2,7 @@
 
 #include "../../StagingContains/TransitionStaging/Transition/Transition.h"
 
-UI_Base::UI_Base(const IWorldPtr& world, const ActorName& name, const GSvector2 & position, const IGameManagerPtr& gameManager):
+UI_Base::UI_Base(IWorld* world, const ActorName& name, const GSvector2 & position, const IGameManagerPtr& gameManager):
 	Actor(world, name, position, gameManager){
 	//m_Transition.addTransition(std::make_shared<Transition>(new Texture2DParameter()));
 }

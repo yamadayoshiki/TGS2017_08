@@ -3,7 +3,7 @@
 #include "../Body/OrientedBoundingBox.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 
-TestEnemy::TestEnemy(const IWorldPtr& world, const GSvector2 & position,const IGameManagerPtr& gameManager) :
+TestEnemy::TestEnemy(IWorld* world, const GSvector2 & position,const IGameManagerPtr& gameManager) :
 	Actor(world, ActorName::Enemy, position,gameManager, std::make_shared<NullTexture>(),std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, 0.0f, GSvector2{ 1.0f, 1.0f })) {
 	angle = 0.0f;
 

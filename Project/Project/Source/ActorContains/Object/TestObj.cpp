@@ -3,7 +3,7 @@
 #include "../../Map/Map.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 
-TestObj::TestObj(const IWorldPtr& world, const GSvector2 & position, const IGameManagerPtr& gameManager)
+TestObj::TestObj(IWorld* world, const GSvector2 & position, const IGameManagerPtr& gameManager)
 	: Actor(
 		world,
 		ActorName::Enemy,

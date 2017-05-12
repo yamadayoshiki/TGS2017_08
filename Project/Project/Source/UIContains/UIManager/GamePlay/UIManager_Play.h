@@ -4,7 +4,7 @@
 
 class UIManager_Play : public Actor {
 public:
-	UIManager_Play(const IWorldPtr& world, const IGameManagerPtr& gameManager);
+	UIManager_Play(IWorld* world, const IGameManagerPtr& gameManager);
 
 private:
 	//virtual void regist() override;

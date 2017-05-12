@@ -16,6 +16,7 @@ Scene::Scene(const IGameManagerPtr& gameManager)
 
 // 仮想デストラクタ     
 Scene::~Scene() {
+	p_World = nullptr;
 }
 
 // 開始     
@@ -29,11 +30,7 @@ void Scene::Start()
 	m_Transition->changeMode(Transition::Mode::In);
 
 	//ワールド生成
-	//using WorldPtr = std::shared_ptr<World>;
-	//WorldPtr p_World;
 	p_World = std::make_shared<World>();
-
-	p_World->ResetEnd();
 
 	OnStart();
 }

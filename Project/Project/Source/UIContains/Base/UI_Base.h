@@ -7,7 +7,7 @@
 
 class UI_Base : public Actor {
 public:
-	UI_Base(const IWorldPtr& world, const ActorName& name, const GSvector2& position, const IGameManagerPtr& gameManager);
+	UI_Base(IWorld* world, const ActorName& name, const GSvector2& position, const IGameManagerPtr& gameManager);
 
 	virtual void onUpdate(float deltaTime) override;
 	virtual void onDraw() const override;

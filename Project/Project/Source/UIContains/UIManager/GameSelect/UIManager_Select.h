@@ -4,7 +4,7 @@
 
 class UIManager_Select : public Actor {
 public:
-	UIManager_Select(const IWorldPtr& world, const IGameManagerPtr& gameManager);
+	UIManager_Select(IWorld* world, const IGameManagerPtr& gameManager);
 
 private:
 	//virtual void regist() override;

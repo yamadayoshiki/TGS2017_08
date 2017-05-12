@@ -4,7 +4,7 @@
 #include "../../Utility/Rederer2D/Renderer2D.h"
 #include "../../WorldContains/EventMessage/EventMessage.h"
 
-Selector::Selector(const IWorldPtr & world, const GSvector2 & position, const IGameManagerPtr & gameManager) :
+Selector::Selector(IWorld* world, const GSvector2 & position, const IGameManagerPtr & gameManager) :
 	UI_Base(world, ActorName::UISelector, position, gameManager) {
 	p_GameManager->GetRenderer2D()->LoadTexture("Resource/Texture/UI/Block5.png", "Resource/Texture/UI/Block5.png");
 }

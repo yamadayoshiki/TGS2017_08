@@ -28,7 +28,7 @@ class Actor
 public:
 	//コンストラクタ
 	Actor(
-		const IWorldPtr& world,
+		IWorld* world,
 		const ActorName& name,
 		const GSvector2& position,
 		const IGameManagerPtr& gaemManager,
@@ -128,7 +128,7 @@ public:
 
 protected:
 	//ワールド
-	IWorldPtr p_World;
+	IWorld* p_World;
 	//ゲームマネージャー
 	IGameManagerPtr p_GameManager;
 	//名前

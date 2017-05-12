@@ -18,8 +18,8 @@ NaganoScene::NaganoScene(const IGameManagerPtr& gameManager)
 void NaganoScene::OnStart()
 {
 	//p_World = std::make_shared<World>();
-	p_World->addActor(ActorGroup::Player, std::make_shared<TestObj>(p_World, GSvector2(50, 100), p_GameManager));
-	p_World->addActor(ActorGroup::Enemy, std::make_shared<TestEnemy>(p_World, GSvector2(100, 100), p_GameManager));
+	p_World->addActor(ActorGroup::Player, std::make_shared<TestObj>(p_World.get(), GSvector2(50, 100), p_GameManager));
+	p_World->addActor(ActorGroup::Enemy, std::make_shared<TestEnemy>(p_World.get(), GSvector2(100, 100), p_GameManager));
 }
 
 // çXêV     

@@ -10,7 +10,7 @@
 
 #include <vector>
 
-UIManager::UIManager(const IWorldPtr& world, const IGameManagerPtr& gameManager, const SceneName& scene) :
+UIManager::UIManager(IWorld* world, const IGameManagerPtr& gameManager, const SceneName& scene) :
 	Actor(world, ActorName::UIManager, GSvector2({ 0.0f, 0.0f }), gameManager) {
 
 	registActor();

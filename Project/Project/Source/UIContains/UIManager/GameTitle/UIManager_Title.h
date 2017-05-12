@@ -4,7 +4,7 @@
 
 class UIManager_Title : public Actor {
 public:
-	UIManager_Title(const IWorldPtr& world, const IGameManagerPtr& gameManager);
+	UIManager_Title(IWorld* world, const IGameManagerPtr& gameManager);
 
 private:
 	//

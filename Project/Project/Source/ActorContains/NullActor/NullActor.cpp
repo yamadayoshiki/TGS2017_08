@@ -1,6 +1,6 @@
 #include "NullActor.h"
 
-NullActor::NullActor(const IWorldPtr& world, const IGameManagerPtr& gameManager)
+NullActor::NullActor(IWorld* world, const IGameManagerPtr& gameManager)
 	:Actor(world
 		, ActorName::None
 		, GSvector2{ 0.0f, 0.0f }

@@ -6,9 +6,11 @@
 #include "../../WorldContains/IWorld.h"
 #include "../../TextureContains/NullTexture/NullTexture.h"
 
+#include <memory>
+
 //コンストラクタ
 Actor::Actor(
-	const IWorldPtr& world,
+	IWorld* world,
 	const ActorName& name,
 	const GSvector2& position,
 	const IGameManagerPtr& gaemManager,
@@ -188,7 +190,7 @@ void Actor::clearChildren()
 
 //ワールドを設定
 void Actor::SetWorld(const IWorldPtr& world) {
-	p_World = world;
+	//p_World = world;
 }
 
 //衝突判定図形の取得

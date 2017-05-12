@@ -4,7 +4,7 @@
 
 class Selector : public UI_Base {
 public:
-	Selector(const IWorldPtr& world, const GSvector2& position, const IGameManagerPtr& gameManager);
+	Selector(IWorld* world, const GSvector2& position, const IGameManagerPtr& gameManager);
 
 private:
 	virtual void onUpdate(float deltaTime)override;

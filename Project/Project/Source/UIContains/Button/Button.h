@@ -17,7 +17,7 @@ public:
 		Texture2DParameter param;
 	};
 public:
-	Button(const IWorldPtr& world, const ActorName& name, const GSvector2& position, const IGameManagerPtr& gameManager, const std::string & file_name);
+	Button(IWorld* world, const ActorName& name, const GSvector2& position, const IGameManagerPtr& gameManager, const std::string & file_name);
 
 	void regist(const std::string & file_name);
 

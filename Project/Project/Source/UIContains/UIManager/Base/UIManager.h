@@ -13,17 +13,7 @@ enum class SceneName;
 
 class UIManager : public Actor {
 public:
-	struct SpriteData {
-		std::string file_name;
-		GSvector2 position;
-		float alpha;
-		float angle;
-		std::unordered_map<std::string, std::string> customize;
-	};
-
-
-public:
-	UIManager(const IWorldPtr& world, const IGameManagerPtr& gameManager, const SceneName& scene);
+	UIManager(IWorld* world, const IGameManagerPtr& gameManager, const SceneName& scene);
 protected:
 	void registActor();
 
@@ -36,8 +26,6 @@ protected:
 	virtual void registText(const std::string& file_name);
 
 private:
-	//std::vector<SpriteData> m_SpriteDatas;
-
 	// UI“o˜^—p‚Ìmap
 	std::unordered_map<SceneName, ActorPtr>m_UIManagers;
 

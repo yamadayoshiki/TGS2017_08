@@ -11,7 +11,7 @@
 
 #define STR(var) #var
 
-Button::Button(const IWorldPtr & world, const ActorName & name, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name) :
+Button::Button(IWorld* world, const ActorName & name, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name) :
 	UI_Base(world, name, position, gameManager) {
 	m_Selector = std::make_shared<Selector>(world, GSvector2(0.0f, 0.0f), gameManager);
 	addChild(m_Selector);
