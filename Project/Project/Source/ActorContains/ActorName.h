@@ -18,6 +18,7 @@ enum class ActorName
 	/* UIグループ */
 	UI_Manager,
 	UI_Selector,
+	UI_Button,
 	UI_Sprite,
 
 	/* テスト用 */

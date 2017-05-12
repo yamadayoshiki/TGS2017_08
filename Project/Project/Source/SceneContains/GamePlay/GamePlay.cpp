@@ -31,11 +31,8 @@ void GamePlay::OnUpdate(float deltaTime)
 	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
 		p_World->EndRequest(SceneName::GameTitle);
 	}
-
-
 }
 
-void GamePlay::OnDraw() const
-{
+void GamePlay::OnDraw() const{
 	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
 }

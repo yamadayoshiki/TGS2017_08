@@ -2,7 +2,7 @@
 #include <gslib.h>
 
 #include "../SceneName.h"
-#include "../../UIContains/UIManager/Base/UIManager.h"
+#include "../../UIContains/UIManager/UIManager.h"
 #include "../../ActorContains/ActorGroup.h"
 #include"../../WorldContains/World/World.h"
 #include "../../Utility/Rederer2D/Renderer2D.h"
