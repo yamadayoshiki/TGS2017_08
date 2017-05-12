@@ -5,7 +5,7 @@
 #include "../../WorldContains/EventMessage/EventMessage.h"
 
 Selector::Selector(IWorld* world, const GSvector2 & position, const IGameManagerPtr & gameManager) :
-	UI_Base(world, ActorName::UISelector, position, gameManager) {
+	UI_Base(world, ActorName::UI_Selector, position, gameManager) {
 	p_GameManager->GetRenderer2D()->LoadTexture("Resource/Texture/UI/Block5.png", "Resource/Texture/UI/Block5.png");
 }
 

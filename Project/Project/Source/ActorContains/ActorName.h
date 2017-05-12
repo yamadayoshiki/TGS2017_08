@@ -16,8 +16,9 @@ enum class ActorName
 	Neutral_Explosion,	//爆発
 
 	/* UIグループ */
-	UIManager,
-	UISelector,
+	UI_Manager,
+	UI_Selector,
+	UI_Sprite,
 
 	/* テスト用 */
 	EnemyManager,
