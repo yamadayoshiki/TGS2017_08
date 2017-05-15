@@ -25,7 +25,6 @@ void Map::draw()
 				p_GameManager->GetRenderer2D()->DrawTexture("chip", GSvector2(j, i)* CHIP_SIZE);
 			}
 		}
-		
 	}
 }
 
