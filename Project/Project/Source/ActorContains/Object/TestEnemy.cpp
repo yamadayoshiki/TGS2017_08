@@ -6,8 +6,6 @@
 TestEnemy::TestEnemy(IWorld* world, const GSvector2 & position,const IGameManagerPtr& gameManager) :
 	Actor(world, ActorName::Enemy, position,gameManager, std::make_shared<NullTexture>(),std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, 0.0f, GSvector2{ 1.0f, 1.0f })) {
 	angle = 0.0f;
-
-	
 	p_GameManager->GetRenderer2D()->LoadTexture("wall", "Resource/Texture/wall.png");
 }
 

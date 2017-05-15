@@ -316,6 +316,7 @@
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h" />
     <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h" />
+    <ClInclude Include="Source\Wall\BreakWall.h" />
     <ClInclude Include="Source\Wall\Wall.h" />
     <ClInclude Include="Source\WorldContains\IWorld.h" />
     <ClInclude Include="Source\WorldContains\IWorldPtr.h" />
@@ -436,6 +437,7 @@
     <ClCompile Include="Source\Utility\PathFinder\Point2.cpp" />
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
     <ClCompile Include="Source\Utility\Texture2DParameter\Texture2DParameter.cpp" />
+    <ClCompile Include="Source\Wall\BreakWall.cpp" />
     <ClCompile Include="Source\Wall\Wall.cpp" />
     <ClCompile Include="Source\WorldContains\World\World.cpp" />
   </ItemGroup>

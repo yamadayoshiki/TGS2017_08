@@ -4,6 +4,7 @@
 #include "../ActorContains/ActorGroup.h"
 #include "../ActorContains/Object/TestObj.h"
 #include "../ActorContains/Object/TestEnemy.h"
+#include "../Wall/BreakWall.h"
 #include "../Map/Map.h"
 
 #include <GSvector2.h>
@@ -42,6 +43,7 @@ void MapGenerator::registActor() {
 	//m_Actors[0] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>(p_World, GSvector2{ 0.0f, 0.0f }) };
 	m_Actors[2] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>	 (p_World.get(), GSvector2{ 0.0f, 0.0f },p_GameManager) };
 	m_Actors[3] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestEnemy>(p_World.get(), GSvector2{ 0.0f, 0.0f },p_GameManager) };
+	m_Actors[4] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<BreakWall>(p_World.get(), GSvector2{ 0.0f, 0.0f },p_GameManager) };
 }
 
 // ê∂ê¨Ç∑ÇÈínå`ÇÃìoò^
