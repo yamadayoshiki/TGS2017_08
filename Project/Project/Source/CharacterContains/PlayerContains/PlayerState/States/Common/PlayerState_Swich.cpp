@@ -1,14 +1,17 @@
 #include"PlayerState_Swich.h"
+#include"../../../../../Utility/MathSupport/MathSupport.h"
+
 
 //コンストラクタ
-PlayerState_Swich::PlayerState_Swich(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position, matrix, player, gameManager) {
+PlayerState_Swich::PlayerState_Swich(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player, gameManager)
+	,m_Flag(false){
 }
 
 //各状態独自の初期化
 void PlayerState_Swich::unique_init()
 {
-
+	m_Flag = false;
 }
 
 //更新処理
@@ -25,40 +28,24 @@ void PlayerState_Swich::update(float deltaTaime)
 //衝突判定
 void PlayerState_Swich::collide(const Actor& other)
 {
+	//フラグ
+	bool flag = false;
+	//自分の方向ベクトル
+	GSvector2 tmp = p_Player->getBody()->forward();
+	tmp.normalize();
 
-	//bool flag = false;
-
-	//GSvector3 l = mMatrix.getAxisY();
-	//GSvector2 tmp = GSvector2(l.x, l.y);
-	//tmp.normalize();
-
-	//GSvector2	V = GSvector2(1.0f,0.0f);
-	//float angle1 = (tmp + m_Angle) * 3.14 / 180;
-	//float angle2 = (tmp - m_Angle) * 3.14 / 180;
-	////視野ベクトル
-	//GSvector2 v1 = GSvector2(V.x * cosf(angle1) - V.y * sinf(angle1),
-	//	V.x  * sinf(angle1) + V.y * cosf(angle1)).normalize();
-	//GSvector2 v2 = GSvector2(V.x * cosf(angle2) - V.y * sinf(angle2),
-	//	V.x  * sinf(angle2) + V.y * cosf(angle2)).normalize();
 
 	//相手のベクトル
-	//GSvector2 v = other.getPosition() - mPosition;
-	//v.normalize();
-	//float l_result = tmp.innerDegree(v);
-	//if (l_result <= 45.0f) {
-	//	flag = true;
-	//}
+	GSvector2 v = other.getPosition() - p_Player->getPosition();
+	v.normalize();
+	//自分と相手のベクトルからなす角を取る
+	float l_result1 = tmp.innerDegree(v);
+	//視野角内(30度)にいるか？
+	if (l_result1 <= 30.0f) {
+		flag = true;
+	}
 
-	//////外積
-	//float cross1 = v.normalize().CCW(v1.normalize());
-	//float cross2 = v.normalize().CCW(v2.normalize());
-	////結果
-	//float result = cross1 * cross2;
-	//if (result < 0) {
-	//	flag = true;
-	//}
-
-	if (m_Children[ActorName::Player_Arm]->isCollide(other)) {
+	if (m_Children[ActorName::Player_Arm]->isCollide(other) && flag == true) {
 		m_Flag = true;
 		//相手に挟んだ情報を送る
 	}

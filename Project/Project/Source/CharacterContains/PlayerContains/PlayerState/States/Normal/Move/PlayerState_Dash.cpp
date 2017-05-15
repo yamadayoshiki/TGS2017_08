@@ -2,8 +2,8 @@
 
 
 //コンストラクタ
-PlayerState_Dash::PlayerState_Dash(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState_MoveBase(position,matrix,player,gameManager)
+PlayerState_Dash::PlayerState_Dash(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState_MoveBase(player,gameManager)
 {
 
 }

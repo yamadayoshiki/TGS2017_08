@@ -1,7 +1,7 @@
 #include "PlayerState_Crush.h"
 
-PlayerState_Crush::PlayerState_Crush(GSvector2 & position, GSmatrix4 & matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position, matrix, player, gameManager)
+PlayerState_Crush::PlayerState_Crush(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player, gameManager)
 {
 }
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
@@ -18,10 +18,6 @@ void PlayerState_Crush::update(float deltaTime)
 
 	if (m_FrameCounter < 10 && p_Input->IsPadStatesDetach(GS_XBOX_PAD_Y)) {
 		change(PlayerStateName::Crush_Barrage);
-		m_FrameCounter = 0;
-	}
-	else if (m_FrameCounter > 10) {
-		change(PlayerStateName::Crush_Hold);
 		m_FrameCounter = 0;
 	}
 }

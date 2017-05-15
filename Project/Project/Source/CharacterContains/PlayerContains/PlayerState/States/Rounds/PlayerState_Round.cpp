@@ -1,8 +1,8 @@
 #include"PlayerState_Round.h"
 
 //コンストラクタ
-PlayerState_Round::PlayerState_Round(GSvector2& position, GSmatrix4& matirx, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position, matirx, player, gameManager)
+PlayerState_Round::PlayerState_Round(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player, gameManager)
 {
 
 }

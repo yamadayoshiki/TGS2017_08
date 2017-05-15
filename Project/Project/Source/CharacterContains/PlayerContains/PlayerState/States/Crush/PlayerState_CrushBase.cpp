@@ -1,8 +1,8 @@
 #include"PlayerState_CrushBase.h"
 
 //コンストラクタ
-PlayerState_CrushBase::PlayerState_CrushBase(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position, matrix, player, gameManager), m_FrameCounter(0.0f) {}
+PlayerState_CrushBase::PlayerState_CrushBase(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player, gameManager), m_FrameCounter(0.0f) {}
 
 //各状態独自の初期化
 void PlayerState_CrushBase::unique_init()

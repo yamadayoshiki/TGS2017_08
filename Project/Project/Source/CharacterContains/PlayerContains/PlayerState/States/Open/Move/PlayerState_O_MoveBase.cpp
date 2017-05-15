@@ -2,24 +2,19 @@
 #include"../../../PlayerStateName.h"
 
 //コンストラクタ
-PlayerState_O_MoveBase::PlayerState_O_MoveBase(GSvector2& position,GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position,matrix,player,gameManager){}
+PlayerState_O_MoveBase::PlayerState_O_MoveBase(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player,gameManager){}
 
 //各状態独自の初期化
 void PlayerState_O_MoveBase::unique_init()
 {
-
 	// 継承先の各状態独自の初期化
 	onUniqueInit();
 }
 //更新処理
 void PlayerState_O_MoveBase::update(float deltaTaime)
 {
-	//移動の入力状態によって状態を変更(待機、歩く)
-	if (p_Input->IsPadState(GS_XBOX_PAD_A)) {
-		change(PlayerStateName::O_Run);
-	}
-	else if (p_Input->PadVelocity().length() >= 0.5f) {
+	if (p_Input->PadVelocity().length() >= 0.5f) {
 		change(PlayerStateName::O_Walk);
 	}
 	else if (p_Input->PadVelocity().length() <= 0.0f) {

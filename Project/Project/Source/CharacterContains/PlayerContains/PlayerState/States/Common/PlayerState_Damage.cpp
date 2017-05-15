@@ -1,8 +1,8 @@
 #include"PlayerState_Damage.h"
 
 //コンストラクタ
-PlayerState_Damage::PlayerState_Damage(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position, matrix, player, gameManager)
+PlayerState_Damage::PlayerState_Damage(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player, gameManager)
 {
 
 }

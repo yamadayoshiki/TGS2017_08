@@ -6,7 +6,6 @@
 //’Êíó‘Ô
 #include"States\Normal\PlayerState_Close.h"
 #include"States\Normal\Move\PlayerState_Idle.h"
-#include"States\Normal\Move\PlayerState_Run.h"
 #include"States/Normal/Move/PlayerState_Walk.h"
 #include"States\Normal\Move\PlayerState_Dash.h"
 
@@ -14,18 +13,13 @@
 #include"States\Open\PlayerState_Open.h"
 #include"States\Open\Move\PlayerState_O_Idle.h"
 #include"States\Open\Move\PlayerState_O_Walk.h"
-#include"States\Open\Move\PlayerState_O_Run.h"
 
 //‚Í‚³‚ñ‚Å‚¢‚éó‘Ô
 #include"States\Rounds\PlayerState_Round.h"
-#include"States\Rounds\PlayerState_R_Idle.h"
-#include"States\Rounds\PlayerState_R_Walk.h"
-#include"States\Rounds\PlayterState_R_Run.h"
 
 //’×‚·ó‘Ô
 #include"States\Crush\PlayerState_Crush.h"
 #include"States\Crush\PlayerState_Crush_Barrage.h"
-#include"States\Crush\PlayerState_Crush_Hold.h"
 
 //‹¤’Ê
 #include"States\Common\PlayerState_Damage.h"

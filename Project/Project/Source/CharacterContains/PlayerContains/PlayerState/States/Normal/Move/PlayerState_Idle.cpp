@@ -1,8 +1,8 @@
 #include"PlayerState_Idle.h"
 
 //コンストラクタ
-PlayerState_Idle::PlayerState_Idle(GSvector2& position,GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState_MoveBase(position,matrix,player,gameManager){
+PlayerState_Idle::PlayerState_Idle(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState_MoveBase(player,gameManager){
 }
 
 //各状態独自の初期化

@@ -8,7 +8,7 @@ class PlayerState_Idle:public PlayerState_MoveBase
 {
 public:
 	//コンストラクタ
-	PlayerState_Idle(GSvector2& position,GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerState_Idle(const PlayerPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void onUniqueInit()override;
 	//更新処理

@@ -1,8 +1,8 @@
 #include"PlayerState_Close.h"
 
 //コンストラクタ
-PlayerState_Close::PlayerState_Close(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position, matrix, player, gameManager)
+PlayerState_Close::PlayerState_Close(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player, gameManager)
 {
 
 }

@@ -9,6 +9,7 @@
 enum class ActorGroup;
 enum class EventMessage;
 class Map;
+class CharacterManager;
 
 // ワールド抽象インターフェース 
 class IWorld
@@ -26,6 +27,10 @@ public:
 	virtual void OptinalCollide(Actor* actor, ActorGroup actorGroup) = 0;
 	// メッセージの送信    
 	virtual void sendMessage(EventMessage message, void* param = nullptr) = 0;
+	//キャラクターマネージャーの取得
+	virtual CharacterManager* getCharacterManager() = 0;
+	//キャラクターマネージャーの設定
+	virtual void setCharacterManager(CharacterManager* characterManager) = 0;
 
 	//virtual Map& GetMap() = 0;
 protected:

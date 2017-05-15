@@ -2,8 +2,8 @@
 
 
 //コンストラクタ
-PlayerState_Crush_Barrage::PlayerState_Crush_Barrage(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState_CrushBase(position, matrix, player, gameManager)
+PlayerState_Crush_Barrage::PlayerState_Crush_Barrage(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState_CrushBase(player, gameManager)
 {
 
 }

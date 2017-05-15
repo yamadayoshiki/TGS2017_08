@@ -5,6 +5,7 @@
 #include"../PlayerState/PlayerStateManager.h"
 #include"../../../WorldContains/IWorld.h"
 #include"../Arm/ArmPtr.h"
+#include"../../CharacterManagerContains/CharacterManager/CharacterManager.h"
 #include<memory>
 
 class Renderer2D;
@@ -28,6 +29,8 @@ public:
 private:
 	//ó‘ÔŠÇ—
 	PlayerStateManager*		mStateManager;
+	//
+	CharacterManager*		p_CharacterManager;
 	//ƒŒƒ“ƒ_ƒ‰[
 	Renderer2DPtr			p_Renderer;
 	//‰ñ“]

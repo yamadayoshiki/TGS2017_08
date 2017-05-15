@@ -7,7 +7,7 @@ class PlayerState_Swich : public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_Swich(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerState_Swich(const PlayerPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void unique_init()override;
 	//更新処理
@@ -17,6 +17,6 @@ public:
 	//終了処理
 	virtual void end()override {}
 private:
-	bool		m_Flag{ false };
+	bool		m_Flag;
 };
 #endif // !PLAYERSTATE_SWICH_H_

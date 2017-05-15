@@ -7,7 +7,7 @@ class PlayerState_Release:public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_Release(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerState_Release(const PlayerPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void unique_init()override;
 	//更新処理

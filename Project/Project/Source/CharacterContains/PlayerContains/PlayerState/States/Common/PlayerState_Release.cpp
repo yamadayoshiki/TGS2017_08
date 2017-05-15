@@ -1,8 +1,8 @@
 #include"PlayerState_Release.h"
 
 //コンストラクタ
-PlayerState_Release::PlayerState_Release(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position,matrix,player,gameManager)
+PlayerState_Release::PlayerState_Release(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player,gameManager)
 {
 
 }

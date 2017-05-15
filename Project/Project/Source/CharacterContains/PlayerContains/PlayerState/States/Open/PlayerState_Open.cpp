@@ -2,8 +2,8 @@
 #include"../../PlayerStateName.h"
 
 //コンストラクタ
-PlayerState_Open::PlayerState_Open(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position, matrix, player, gameManager)
+PlayerState_Open::PlayerState_Open(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player, gameManager)
 {
 
 }

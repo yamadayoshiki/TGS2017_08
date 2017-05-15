@@ -273,5 +273,5 @@ void Actor::onCollide(Actor&)
 // Õ“Ë”»’è 
 bool Actor::isCollide(const Actor& other) {
 	// ‰ñ“]‚ðŠÜ‚Þê‡
-	return p_Body->transform(getTransform())->isCollide(*other.getBody()->transform(other.getTransform()).get(), HitInfo());
+	return p_Body->transform(getTransform())->isCollide(*other.getBody().get(), HitInfo());
 }

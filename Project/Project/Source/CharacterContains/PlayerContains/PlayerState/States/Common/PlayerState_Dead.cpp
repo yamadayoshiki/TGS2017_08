@@ -1,8 +1,8 @@
 #include"PlayerState_Dead.h"
 
 //コンストラクタ
-PlayerState_Dead::PlayerState_Dead(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position,matrix,player,gameManager)
+PlayerState_Dead::PlayerState_Dead(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player,gameManager)
 {
 
 }

@@ -17,7 +17,7 @@ class PlayerState :public State
 {
 public:
 	//コンストラクタ
-	PlayerState(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, const IGameManagerPtr& gameManager);
+	PlayerState(const PlayerPtr& player, const IGameManagerPtr& gameManager);
 	//パッド入力
 	virtual void input()override;
 
@@ -26,6 +26,8 @@ protected:
 	//void motion_change(Actor& actor, const PlayerStateID);
 	//移動処理
 	void move(float deltaTime, float speed = 1.0f);
+	//アーム更新
+	void armUpdate();
 
 protected:
 	//プレイヤー本体
@@ -38,6 +40,10 @@ protected:
 	IGameManagerPtr		p_GameManager;
 	//InoutState
 	InputStatePtr		p_Input;
+
+private:
+	GSvector2			inputVelocity;
+	GSvector2			m_Position;
 
 };
 

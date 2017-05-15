@@ -2,8 +2,8 @@
 
 
 //コンストラクタ
-PlayerState_MoveBase::PlayerState_MoveBase(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager)
-	:PlayerState(position, matrix, player, gameManager) {}
+PlayerState_MoveBase::PlayerState_MoveBase(const PlayerPtr& player, IGameManagerPtr gameManager)
+	:PlayerState(player, gameManager) {}
 
 //各状態独自の初期化
 void PlayerState_MoveBase::unique_init()
@@ -24,6 +24,7 @@ void PlayerState_MoveBase::update(float deltaTaime)
 	else if (p_Input->PadVelocity().length() <= 0.0f) {
 		change(PlayerStateName::Idle);
 	}
+	
 
 	//継承先の更新処理
 	onUpdate(deltaTaime);

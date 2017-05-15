@@ -8,7 +8,7 @@ class PlayerState_Walk :public PlayerState_MoveBase
 {
 public:
 	//コンストラクタ
-	PlayerState_Walk(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerState_Walk(const PlayerPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void onUniqueInit()override;
 	//更新処理

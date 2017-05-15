@@ -11,7 +11,8 @@
 // コンストラクタ
 World::World()
 	:p_Actors(std::make_shared<ActorManager>()),
-	m_IsEnd(false){
+	m_IsEnd(false)
+{
 }
 
 // デストラクタ
@@ -39,7 +40,7 @@ void World::Draw() const
 //終了処理
 void World::Finalize()
 {
-	
+	delete p_CharacterManager;
 }
 
 // メッセージ処理 
@@ -110,6 +111,17 @@ void World::ResetEnd(){
 
 SceneName World::NextScene(){
 	return m_NextScene;
+}
+
+//キャラクターマネージャーの取得
+CharacterManager* World::getCharacterManager()
+{
+	return p_CharacterManager;
+}
+//キャラクターマネージャーの設定
+void World::setCharacterManager(CharacterManager* characterManager)
+{
+	p_CharacterManager = characterManager;
 }
 
 //Map& World::GetMap()

@@ -7,7 +7,7 @@ class PlayerState_O_Walk:public PlayerState_O_MoveBase
 {
 public:
 	//コンストラクタ
-	PlayerState_O_Walk(GSvector2& position, GSmatrix4& matrix, const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerState_O_Walk(const PlayerPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void onUniqueInit()override;
 	//更新処理
