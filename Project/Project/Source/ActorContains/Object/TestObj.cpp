@@ -2,6 +2,7 @@
 #include "../Body/OrientedBoundingBox.h"
 #include "../../Map/Map.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
+#include"../../Define/Def_Nakayama.h"
 
 TestObj::TestObj(IWorld* world, const GSvector2 & position, const IGameManagerPtr& gameManager)
 	: Actor(
@@ -48,8 +49,13 @@ void TestObj::onDraw() const
 	glDisable(GL_LIGHTING);
 	Actor::onDraw();
 	glColor3f(1.0f, 1.0f, 1.0f);
-
-	p_GameManager->GetRenderer2D()->DrawTexture("Block5", m_Transform.m_Position);
+	Texture2DParameter tposition;
+	tposition.SetPosition(m_Transform.m_Position);
+	tposition.SetCenter({ CHIP_SIZE / 2, CHIP_SIZE / 2 });
+	tposition.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Block5"));
+	tposition.SetScale({ 1.0f , 1.0f });
+	tposition.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	p_GameManager->GetRenderer2D()->DrawTexture("Block5", tposition);
 	
 }
 
