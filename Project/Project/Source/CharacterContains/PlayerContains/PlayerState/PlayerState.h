@@ -9,6 +9,7 @@
 #include"../Arm/ArmPtr.h"
 #include"../Player/Player.h"
 #include "../Player/PlayerPtr.h"
+#include"../Player/Player_Parameter.h"
 
 #include <unordered_map>
 
@@ -34,6 +35,8 @@ protected:
 	PlayerPtr			p_Player;
 	//変換
 	Transform			m_TransForm;
+	//プレイヤーパラメーター
+	Player_Parameter	m_Parameter;
 	//回転角度
 	float				mAngle;
 	//GameManager

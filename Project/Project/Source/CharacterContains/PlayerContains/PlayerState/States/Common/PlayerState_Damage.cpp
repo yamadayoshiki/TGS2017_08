@@ -9,7 +9,8 @@ PlayerState_Damage::PlayerState_Damage(const PlayerPtr& player, IGameManagerPtr 
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Damage::unique_init()
 {
-
+	m_Parameter.m_Remainig -= 1;
+	p_GameManager->SetPlayerParameter(m_Parameter);
 }
 //XVˆ—
 void PlayerState_Damage::update(float deltaTaime)

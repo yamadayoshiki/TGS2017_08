@@ -2,6 +2,7 @@
 #define PLAYER_H_
 
 #include"../../../ActorContains/Actor/Actor.h"
+#include"Player_Parameter.h"
 #include"../PlayerState/PlayerStateManager.h"
 #include"../../../WorldContains/IWorld.h"
 #include"../Arm/ArmPtr.h"
@@ -25,6 +26,9 @@ public:
 	virtual void onDraw()const override;
 	//衝突判定
 	virtual void onCollide(Actor& other)override;
+	
+	//プレイヤーパラメーターの取得
+	Player_Parameter getParameter();
 
 private:
 	//状態管理
@@ -33,6 +37,8 @@ private:
 	CharacterManager*		p_CharacterManager;
 	//レンダラー
 	Renderer2DPtr			p_Renderer;
+	//プレイヤーパラメター
+	Player_Parameter		m_Parameter;
 	//回転
 	float					angle;
 	//子

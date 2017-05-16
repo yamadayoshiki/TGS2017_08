@@ -6,6 +6,7 @@
 //コンストラクタ
 GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState)
 	:p_Renderer2D(renderer2D), p_InputState(inputState), p_SceneEnum(std::make_shared<EnumRap<SceneName>>()){
+	m_Parameter.m_Remainig = 3;
 }
 
 //コンテンツの読み込み
@@ -37,6 +38,17 @@ InputStatePtr GameManager::GetInputState() {
 //シーンのEnumの取得
 EnumRapPtr<SceneName> GameManager::GetSceneEnum(){
 	return p_SceneEnum;
+}
+
+//プレイヤーパラメーターの取得
+Player_Parameter GameManager::GetPlayerParameter()
+{
+	return m_Parameter;
+}
+//プレイヤーパラメーターの設定				
+void GameManager::SetPlayerParameter(const Player_Parameter& parameter)
+{
+	m_Parameter = parameter;
 }
 
 //終了処理

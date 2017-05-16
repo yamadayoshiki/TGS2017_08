@@ -25,6 +25,10 @@ public:
 	virtual InputStatePtr GetInputState() override;
 	//シーンのEnumの取得
 	virtual EnumRapPtr<SceneName> GetSceneEnum() override;
+	//プレイヤーパラメーターの取得
+	virtual Player_Parameter GetPlayerParameter() override;
+	//プレイヤーパラメーターの設定				
+	virtual void SetPlayerParameter(const Player_Parameter& parameter) override;
 
 protected:
 	//終了処理
@@ -33,6 +37,7 @@ private:
 	Renderer2DPtr p_Renderer2D;		//レンダラー
 	InputStatePtr p_InputState;		//インプットステイト
 	EnumRapPtr<SceneName> p_SceneEnum;	//シーンEnum
+	Player_Parameter	m_Parameter;	//プレイヤーパラメーター
 };
 
 #endif // !GAMEMANAGER_H_

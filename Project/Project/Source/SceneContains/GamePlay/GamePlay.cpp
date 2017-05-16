@@ -44,7 +44,6 @@ void GamePlay::OnUpdate(float deltaTime)
 	gsTextPos(100, 100);
 	gsDrawText("GamePlay");
 
-	p_World->update(deltaTime);
 
 	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
 		p_World->EndRequest(SceneName::GameTitle);
@@ -53,8 +52,6 @@ void GamePlay::OnUpdate(float deltaTime)
 
 void GamePlay::OnDraw() const{
 	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
-
-	p_World->draw();
 
 	p_World->GetMap().draw();
 }

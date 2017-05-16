@@ -255,6 +255,7 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayterState_R_Run.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.h" />
     <ClInclude Include="Source\Define\Def_GSvector2.h" />
     <ClInclude Include="Source\Define\Def_Nagano.h" />
     <ClInclude Include="Source\Define\Def_Nakayama.h" />

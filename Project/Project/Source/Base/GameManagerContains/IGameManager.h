@@ -5,6 +5,7 @@
 #include "../../Utility/InputState/InputStatePtr.h"
 #include "../../Utility/EnumRap/EnumRapPtr.h"
 #include "../../SceneContains/SceneName.h"
+#include"../../CharacterContains/PlayerContains/Player/Player_Parameter.h"
 
 //ゲームマネージャーインターフェイス
 class IGameManager
@@ -22,6 +23,10 @@ public:
 	virtual InputStatePtr GetInputState() = 0;
 	//シーンのEnumの取得
 	virtual EnumRapPtr<SceneName> GetSceneEnum() = 0;
+	//プレイヤーパラメーターの取得
+	virtual Player_Parameter GetPlayerParameter() = 0;
+	//プレイヤーパラメーターの設定
+	virtual void SetPlayerParameter(const Player_Parameter& parameter) = 0;
 
 protected:
 	//終了処理

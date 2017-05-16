@@ -3,7 +3,7 @@
 
 
 //ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-Arm::Arm(IWorld* world, GSvector2& position, GSmatrix4& matrix, IGameManagerPtr gameManager)
+Arm::Arm(IWorld* world, GSvector2& position, IGameManagerPtr gameManager)
 	:Actor(world
 	,ActorName::Player_Arm
 	, position
@@ -23,7 +23,7 @@ Arm::~Arm()
 //XVˆ—
 void Arm::onUpdate(float deltaTime)
 {
-	
+	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(16.0f, 16.0f), GSvector2(1280 - 16, 960 - 16));
 }
 //•`‰æˆ—
 void Arm::onDraw()const
@@ -35,24 +35,9 @@ void Arm::onCollide(Actor& other)
 {
 	mHitFlag = true;
 }
-//Õ“Ë‚µ‚Ä‚¢‚½‚ç•Ô‚·
-bool Arm::isCollide(const Actor& other)
-{
-	// ‰ñ“]‚ðŠÜ‚Þê‡
-	return p_Body->transform(getTransform())->isCollide(*other.getBody()->transform(other.getTransform()).get(), HitInfo());
-}
-//À•W‚ÌÝ’è
-void Arm::setPosition(GSvector2 position)
-{
-	m_Transform.m_Position = position;
-}
-//s—ñ
-void Arm::setMatrix(GSmatrix4 matrix)
-{
-	//m_Matrix = matrix;
-}
-//‰ñ“]Šp“x
-void Arm::setAngle(float angle)
-{
-	m_Angle = angle;
-}
+////Õ“Ë‚µ‚Ä‚¢‚½‚ç•Ô‚·
+//bool Arm::isCollide(const Actor& other)
+//{
+//	// ‰ñ“]‚ðŠÜ‚Þê‡
+//	//return p_Body->transform(getTransform())->isCollide(*other.getBody()->transform(other.getTransform()).get(), HitInfo());
+//}

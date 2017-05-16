@@ -24,17 +24,18 @@ Player::~Player() {
 }
 void Player::initialize()
 {
+	//キャラクターマネージャーの設定
 	//p_CharacterManager = p_World->getCharacterManager();
+
+	//プレイヤーパラメーターの設定
+	m_Parameter = p_GameManager->GetPlayerParameter();
+
 	//ステートマネージャ生成、初期化
-	//mStateManager = new PlayerStateManager(m_Position, m_Matrix, shared_from_this(), p_GameManager);
 	mStateManager = new PlayerStateManager(shared_from_this(), p_GameManager);
 	mStateManager->change(PlayerStateName::Idle);
 
-
 	//アーム生成
-	//auto arm = std::make_shared<Arm>(p_World, m_Position, m_Matrix, p_GameManager);
-	auto arm = std::make_shared<Arm>(p_World, m_Transform.m_Position, GSmatrix4(GS_MATRIX4_IDENTITY), p_GameManager);
-	//arm->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
+	auto arm = std::make_shared<Arm>(p_World, m_Transform.m_Position, p_GameManager);
 	arm->setPosition(m_Transform.m_Position + p_Body->forward() * 16);
 	addChild(arm);
 	mStateManager->addChild(ActorName::Player_Arm, arm);
@@ -44,21 +45,14 @@ void Player::onUpdate(float deltaTime)
 {
 	//状態管理の更新処理
 	mStateManager->action(deltaTime);
+
 	//行動制限
-	//m_Position = m_Position.clamp(GSvector2(0.0f, 0.0f), GSvector2(960, 704));
-	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(0.0f, 0.0f), GSvector2(960, 704));
-
-	if (mStateManager->currentState(PlayerStateName::Rounds) == true) {
-	}
-
-	
-	//child->setMatrix(m_Matrix);
-	//child->setPosition(m_Position - GSvector2(m_Matrix.getAxisY()) * 16);
+	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));
 }
 //描画処理
 void Player::onDraw()const
 {
-	p_Body->transform(getTransform())->draw();
+	//p_Body->transform(getTransform())->draw();
 	//p_Renderer->DrawTexture("Player", m_Position);
 
 	Texture2DParameter param;
@@ -70,8 +64,8 @@ void Player::onDraw()const
 	p_Renderer->DrawTexture("Player", param);
 	//child->onDraw();
 
-	gsTextPos(m_Transform.m_Position.x, m_Transform.m_Position.y);
-	gsDrawText("a");
+	/*gsTextPos(m_Transform.m_Position.x, m_Transform.m_Position.y);
+	gsDrawText("a");*/
 }
 //衝突判定
 void Player::onCollide(Actor& other)
@@ -79,8 +73,14 @@ void Player::onCollide(Actor& other)
 	//状態ごとの衝突判定
 	mStateManager->collide(*this, other);
 	//dynamic_cast<Arm*>(child.get())->onCollide(other);
+
 	if (mStateManager->currentState(PlayerStateName::Rounds) == true) {
 		//p_CharacterManager->SetRoundActor(other);
 	}
 }
 
+//プレイヤーパラメーターの取得
+Player_Parameter Player::getParameter()
+{
+	return m_Parameter;
+}
