@@ -35,7 +35,7 @@ public:
 	void generate();
 	//ワールドを設定
 	void setWorld(const IWorldPtr& world);
-	//マップの登録
+	//マップの取得
 	Map & getMap();
 private:
 	//ワールド

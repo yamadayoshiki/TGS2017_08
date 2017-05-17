@@ -34,9 +34,9 @@ private:
 	void collide();
 
 private:
-	// ルートノード     
+	// ルートノード
 	Actor m_root;
-	// アクターグループ     
+	// アクターグループ
 	std::unordered_map<ActorGroup, ActorPtr> m_actors;
 };
 

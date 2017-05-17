@@ -22,6 +22,8 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 Player::~Player() {
 	delete mStateManager;
 }
+
+//初期化
 void Player::initialize()
 {
 	//キャラクターマネージャーの設定
@@ -83,4 +85,10 @@ void Player::onCollide(Actor& other)
 Player_Parameter Player::getParameter()
 {
 	return m_Parameter;
+}
+
+//メッセージ処理
+void Player::onMessage(EventMessage message, void* param) {
+	//メッセージ処理
+	mStateManager->handleMessage(message, param);
 }

@@ -2,8 +2,8 @@
 #include "../../../Map/Map.h"
 
 NodeGrid::NodeGrid(const Map& map) :
-	width_(map.Width()),
-	height_(map.Height()) {
+	width_(map.GetWidth()),
+	height_(map.GetHeight()) {
 	createNode(map);
 }
 

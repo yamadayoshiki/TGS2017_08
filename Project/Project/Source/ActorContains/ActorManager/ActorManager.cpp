@@ -1,5 +1,6 @@
 #include "ActorManager.h" 
 #include "../ActorGroup.h"
+#include "../NullActor/NullActor.h"
 #include <memory>
 
 // コンストラクタ 
@@ -39,7 +40,9 @@ void ActorManager::draw() const
 // アクターの追加 
 void ActorManager::addActor(ActorGroup group, const ActorPtr& actor)
 {
+	//初期化
 	actor->initialize();
+	//追加
 	m_actors[group]->addChild(actor);
 }
 
@@ -55,11 +58,11 @@ void ActorManager::handleMessage(EventMessage message, void* param)
 	m_root.handleMessage(message, param);
 }
 
+//任意の衝突判定
 void ActorManager::OptionalCollide(Actor* actor, ActorGroup actorGroup)
 {
 	actor->collideChildren(*m_actors[actorGroup]);
 }
-
 
 // 衝突判定 
 void ActorManager::collide()

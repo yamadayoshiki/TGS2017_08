@@ -3,13 +3,13 @@
 
 #include "../../../../ActorContains/State/Base/State.h"
 #include "../../StateContains/StateManager/EnemyStateManager.h"
-#include "../../CommandContains/CommandManager/EnemyCommandManager.h"
+#include "../../CommandContains/CommandManagers/Interface/IEnemyCommandManagerPtr.h"
 
 //先行宣言
 class EnemyStateManager;
 
 //エネミー基底クラス
-class EnemyBase :public Actor, std::enable_shared_from_this<EnemyBase>
+class EnemyBase :public Actor, public std::enable_shared_from_this<EnemyBase>
 {
 public:
 	//コンストラクタ
@@ -28,19 +28,25 @@ public:
 	//ステートマネージャーを取得する
 	EnemyStateManager* GetStateManager();
 	//コマンドマネージャーを取得する
-	EnemyCommandManager* GetCommandManager();
+	IEnemyCommandManagerPtr GetCommandManager();
 
 protected:
+	//各種固有のコマンドの設定
+	virtual void SetUpCommand() = 0;
+	//各種固有のStateの設定
+	virtual void SetUpState() = 0;
 	//更新
 	virtual void onUpdate(float deltaTime) override;
 	//描画
 	virtual void onDraw() const override;
 	//衝突した
 	virtual void onCollide(Actor& other) override;
+	//メッセージ処理
+	virtual void onMessage(EventMessage message, void* param) override;
 
 protected:
-	float m_Speed;								//スピード
-	EnemyStateManager* p_StateManager;			//ステートマネージャー
-	EnemyCommandManager* p_CommandManager;		//コマンドマネージャー
+	float m_Speed;									//スピード
+	EnemyStateManager* p_StateManager;				//ステートマネージャー
+	IEnemyCommandManagerPtr p_CommandManager;		//コマンドマネージャー
 };
 #endif

@@ -30,6 +30,10 @@ public:
 	//プレイヤーパラメーターの取得
 	Player_Parameter getParameter();
 
+protected:
+	//メッセージ処理
+	virtual void onMessage(EventMessage message, void* param) override;
+
 private:
 	//状態管理
 	PlayerStateManager*		mStateManager;

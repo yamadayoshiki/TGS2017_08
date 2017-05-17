@@ -5,7 +5,7 @@
 #include"../Utility/Rederer2D/Renderer2D.h"
 
 //コンストラクタ
-Map::Map(const IGameManagerPtr& gameManager):
+Map::Map(const IGameManagerPtr& gameManager) :
 	p_GameManager(gameManager)
 {
 	p_GameManager->GetRenderer2D()->LoadTexture("chip", "Resource/Texture/wall.png");
@@ -14,7 +14,7 @@ Map::Map(const IGameManagerPtr& gameManager):
 void Map::draw()
 {
 	// 行のループ
-	for (int i = 0;i < m_Map.size(); i++)
+	for (int i = 0; i < m_Map.size(); i++)
 	{
 		// 列のループ
 		for (int j = 0; j < m_Map[i].size(); j++)
@@ -33,33 +33,34 @@ std::vector<std::vector<int>>& Map::getmap()
 {
 	return m_Map;
 }
+
 //周りのタイルデータの取得
-std::unordered_map<Tile, TileData> Map::GetAroundTile(const GSvector2& position)
+std::unordered_map<FourDirection, TileData> Map::GetAroundTile(const GSvector2& position)
 {
 	int x = position.x / CHIP_SIZE;
 	int y = position.y / CHIP_SIZE;
 
-	TileData left = GetTileData(x -1,y);
-	TileData right = GetTileData(x + 1,y);
-	TileData top = GetTileData(x,y -1);
-	TileData down = GetTileData(x,y +1);
-	
-	std::unordered_map<Tile, TileData> datas;
+	TileData left = GetTileData(x - 1, y);
+	TileData right = GetTileData(x + 1, y);
+	TileData top = GetTileData(x, y - 1);
+	TileData down = GetTileData(x, y + 1);
 
-	datas[Tile::Left] = left;
-	datas[Tile::Right] = right;
-	datas[Tile::Top] = top;
-	datas[Tile::Down] = down;
+	std::unordered_map<FourDirection, TileData> datas;
+
+	datas[FourDirection(FourDirectionName::Left)] = left;
+	datas[FourDirection(FourDirectionName::Right)] = right;
+	datas[FourDirection(FourDirectionName::Up)] = top;
+	datas[FourDirection(FourDirectionName::Down)] = down;
 
 	return datas;
 }
 
 //指定された座標の縦軸のブロックの取得
-std::vector<int> Map::GetRow(const GSvector2 & position){
+std::vector<int> Map::GetRow(const GSvector2 & position) {
 	int x = position.x / CHIP_SIZE;
-	
+
 	std::vector<int> tmp;
-	
+
 	for (int i = 0; i < m_Map.size(); i++) {
 		tmp.push_back(m_Map[i][x]);
 	}
@@ -68,7 +69,7 @@ std::vector<int> Map::GetRow(const GSvector2 & position){
 }
 
 //指定された座標の横軸のブロックの取得
-std::vector<int> Map::GetColumn(const GSvector2 & position){
+std::vector<int> Map::GetColumn(const GSvector2 & position) {
 	int y = position.y / CHIP_SIZE;
 
 	return m_Map[y];
@@ -88,15 +89,15 @@ TileData Map::GetTileData(int x, int y)
 
 //神保
 // データの取得
-int Map::operator [] (const Point2& position) const{
+int Map::operator [] (const Point2& position) const {
 	return m_Map[position.y][position.x];
 }
 // 幅の取得
-int Map::Width() const {
+int Map::GetWidth() const {
 	return m_Map[0].size();
 }
 
 // 高さの取得
-int Map::Height() const {
+int Map::GetHeight() const {
 	return m_Map.size();
 }

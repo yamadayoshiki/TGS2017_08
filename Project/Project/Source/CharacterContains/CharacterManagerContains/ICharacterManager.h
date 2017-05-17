@@ -21,7 +21,7 @@ public:
 	//プレイヤーのステートを取得
 	virtual PlayerStateName GetPlayerStateName() = 0;
 	//プレイヤーの挟まれているActorを設定
-	virtual void SetRoundActor(const Actor& actor) = 0;
+	virtual void SetRoundActor(const ActorPtr& actor) = 0;
 };
 
 #endif // !CHARACTERMANAGER_H_

@@ -3,6 +3,8 @@
 
 #include "../Base/EnemyBase.h"
 
+struct FourDirection;
+
 class Enemy01 : public EnemyBase
 {
 public:
@@ -10,8 +12,14 @@ public:
 	Enemy01(
 		IWorld* world,
 		const GSvector2& position,
+		FourDirection& front,
 		const IGameManagerPtr& gameManager);
+
 protected:
+	//各種固有のコマンドの設定
+	virtual void SetUpCommand() override;
+	//各種固有のStateの設定
+	virtual void SetUpState() override;
 	//更新
 	virtual void onUpdate(float deltaTime) override;
 	//描画

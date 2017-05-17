@@ -29,6 +29,8 @@ public:
 	virtual void end() override {}
 	// IState を介して継承されました
 	virtual void addChild(const ActorName& name, const ActorPtr& child) override {}
+	// メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param) override {};
 
 private:
 	// ステート

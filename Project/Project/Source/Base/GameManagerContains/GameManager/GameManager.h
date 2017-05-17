@@ -8,6 +8,8 @@ class GameManager :public IGameManager
 public:
 	//コンストラクタ
 	GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState);
+	//仮想デストラクタ
+	virtual ~GameManager() { Finalize(); }
 	//更新処理
 	void Update();
 	//コピー禁止

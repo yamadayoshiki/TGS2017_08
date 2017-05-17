@@ -15,14 +15,14 @@ public:
 	~CharacterManager();
 	//プレイヤーの座標を取得
 	GSvector2 GetPlayerPos() override;
-	//プレイヤーの行列を取得
-	//GSmatrix4 GetPlayerMat() override;
+	//プレイヤーに挟まれた時の座標
+	GSvector2 GetRoundPos() const;
 	//プレイヤーに挟まれているActorを取得
 	ActorPtr GetRoundActor() override;
 	//プレイヤーのステートを取得
 	PlayerStateName GetPlayerStateName() override;
 	//プレイヤーの挟まれているActorを設定
-	virtual void SetRoundActor(const Actor& actor)override;
+	virtual void SetRoundActor(const ActorPtr& actor)override;
 
 	//プレイヤーの設定
 	virtual void SetPlayer(const ActorPtr& player);
@@ -30,6 +30,6 @@ public:
 private:
 	Player* p_Player;							//プレイヤー
 
-	std::vector<Actor> m_RoundActorList;		//挟まれたアクターリスト
+	std::vector<ActorPtr> m_RoundActorList;		//挟まれたアクターリスト
 };
 #endif // !CHARACTERMANAGER_H_

@@ -1,6 +1,7 @@
 #ifndef IENEMYCOMMAND_H_
 #define IENEMYCOMMAND_H_
 
+//先行宣言
 enum class EnemyStateName;
 enum class EnemyCommandName;
 struct GSvector2;
@@ -24,7 +25,7 @@ public:
 	virtual EnemyCommandName GetNextCommand() const = 0;
 	//命令ステート
 	virtual EnemyStateName GetCurrentStateName() const = 0;
-	//移動ベクトルの取得
+	//目標地点までの移動ベクトルの取得
 	virtual GSvector2 GetVelocity() const = 0;
 	//回転角度の取得
 	virtual float GetRotateAngle() const = 0;

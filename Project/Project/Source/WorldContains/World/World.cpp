@@ -32,11 +32,6 @@ void World::draw() const
 	p_Actors->draw();
 }
 
-void World::Draw() const
-{
-	p_Actors->draw();
-}
-
 //終了処理
 void World::Finalize()
 {
@@ -49,7 +44,7 @@ void World::handleMessage(EventMessage message, void* param)
 	// ワールドのメッセージ処理 
 	switch (message)
 	{
-	case EventMessage::END_SCENE : EndRequest((const SceneName&)param);
+	case EventMessage::END_SCENE: EndRequest((const SceneName&)param);
 	default:
 		break;
 	}
@@ -82,6 +77,12 @@ void World::sendMessage(EventMessage message, void* param)
 	handleMessage(message, param);
 }
 
+// メッセージの送信(指定アクター)
+void World::sendMessage(EventMessage message, Actor& actor, void* param) {
+	actor.handleMessage(message, param);
+}
+
+
 void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name)
 {
 	p_MapGenerator = std::make_shared<MapGenerator>(world, gameManager);
@@ -92,24 +93,26 @@ void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, 
 	p_MapGenerator->registMap();
 }
 
-Map & World::GetMap(){
+//マップの取得
+Map & World::GetMap() {
 	return p_MapGenerator->getMap();
 }
 
-bool World::IsEnd(){
+
+bool World::IsEnd() {
 	return m_IsEnd;
 }
 
-void World::EndRequest(const SceneName & name){
+void World::EndRequest(const SceneName & name) {
 	m_NextScene = name;
 	m_IsEnd = true;
 }
 
-void World::ResetEnd(){
+void World::ResetEnd() {
 	m_IsEnd = false;
 }
 
-SceneName World::NextScene(){
+SceneName World::NextScene() {
 	return m_NextScene;
 }
 
@@ -123,11 +126,6 @@ void World::setCharacterManager(CharacterManager* characterManager)
 {
 	p_CharacterManager = characterManager;
 }
-
-//Map& World::GetMap()
-//{
-//	return ;
-//}
 
 ////マップジェネレーターの設定
 //void World::setMapGenerator(MapGenerator* mapGenerator) {

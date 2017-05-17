@@ -9,13 +9,8 @@ public:
 	//コンストラクタ
 	EnemyCommandNull(const EnemyBasePtr& enemy)
 		:EnemyCommandBase(enemy) {}
-	//更新
-	virtual void Update(float deltaTime) override {};
-	//命令ステート
-	virtual EnemyStateName GetCurrentStateName() const override { return EnemyStateName::None; };
 	//各種固有の初期化
 	void OnInitialize() override { m_IsEnd = true; }
-
 };
 
 

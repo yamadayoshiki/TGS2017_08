@@ -2,6 +2,8 @@
 #define ENEMYSTATECAUGHT_H_
 
 #include "../Base/EnemyStateBase.h"
+#include "../../../../CharacterManagerContains/CharacterManager/CharacterManager.h"
+
 
 class EnemyStateCaught :public EnemyStateBase
 {
@@ -16,6 +18,8 @@ public:
 	virtual void collide(const Actor & other) override;
 	// 終了時の処理
 	virtual void end() override;
+	// メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param) override;
 };
 
 #endif

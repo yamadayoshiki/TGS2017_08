@@ -29,6 +29,15 @@ void StateMgr::collide(Actor& actor, const Actor & other) {
 	if (mCurrentState->isEnd()) change(mCurrentState->next());
 }
 
+// メッセージ処理
+void StateMgr::handleMessage(EventMessage message, void* param) {
+	//メッセージ処理
+	mCurrentState->handleMessage(message,param);
+
+	// 終了判定がtrueになった場合ステートを変更
+	if (mCurrentState->isEnd()) change(mCurrentState->next());
+}
+
 // 現在の状態の要素
 int StateMgr::getID() {
 	return m_CurrentID;

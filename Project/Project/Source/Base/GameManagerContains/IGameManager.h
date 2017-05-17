@@ -12,9 +12,7 @@ class IGameManager
 {
 public:
 	//仮想デストラクタ
-	virtual ~IGameManager() {
-		Finalize();
-	}
+	virtual ~IGameManager() {}
 
 public:
 	//レンダラーの取得

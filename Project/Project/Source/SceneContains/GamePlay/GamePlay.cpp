@@ -12,6 +12,8 @@
 #include "../../Define/Def_Nakayama.h"
 #include "../../Utility/Rederer2D/Renderer2D.h"
 #include"../../MapGenerator/MapGenerator.h"
+#include "../../Utility/FourDirection/FourDirection.h"
+#include "../../CharacterContains/EnemyContains/Enemys/Enemy01/Enemy01.h"
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
@@ -21,8 +23,7 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 }
 
 // 開始     
-void GamePlay::OnStart(){
-
+void GamePlay::OnStart() {
 	//キャラクターマネージャー
 	p_World->setCharacterManager(new CharacterManager());
 	//プレイヤー生成
@@ -31,11 +32,11 @@ void GamePlay::OnStart(){
 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage1.csv");
 
 	Map map = p_World->GetMap();
-	std::unordered_map<Tile, TileData> tmp = map.GetAroundTile(GSvector2(70, 90));
+	std::unordered_map<FourDirection, TileData> tmp = map.GetAroundTile(GSvector2(70, 90));
 
-	GSvector2 tilePos = tmp[Tile::Down].Position();
-	GSrect tileRect = tmp[Tile::Down].Rectangle();
-	bool tileFlag = tmp[Tile::Down].Flag();
+	GSvector2 tilePos = tmp[FourDirection(FourDirectionName::Down)].Position();
+	GSrect tileRect = tmp[FourDirection(FourDirectionName::Down)].Rectangle();
+	bool tileFlag = tmp[FourDirection(FourDirectionName::Down)].Flag();
 }
 
 // 更新     
@@ -50,7 +51,7 @@ void GamePlay::OnUpdate(float deltaTime)
 	}
 }
 
-void GamePlay::OnDraw() const{
+void GamePlay::OnDraw() const {
 	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
 
 	p_World->GetMap().draw();

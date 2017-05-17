@@ -1,5 +1,7 @@
 #include "EnemyStateMoveBase.h"
 #include "../../../../Enemys/Base/EnemyBase.h"
+#include "../../../../../../WorldContains/EventMessage/EventMessage.h"
+#include "../../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
 
 // コンストラクタ
 EnemyStateMoveBase::EnemyStateMoveBase(const EnemyBasePtr& enemy)
@@ -14,7 +16,7 @@ void EnemyStateMoveBase::unique_init() {
 
 // 更新処理
 void EnemyStateMoveBase::update(float deltaTime) {
-	//移動ベクトル
+	//目的地までのベクトル
 	GSvector2 velocity = p_Enemy->GetCommandManager()->GetCommandVector();
 
 	//移動の速度によって状態を変更（待機、動く）
@@ -27,7 +29,7 @@ void EnemyStateMoveBase::update(float deltaTime) {
 	onUpdate(deltaTime);
 }
 
-// 衝突判定(未実装)
+// 衝突判定
 void EnemyStateMoveBase::collide(const Actor & other) {
 	// 継承先の衝突判定
 	onCollide(other);
@@ -48,4 +50,15 @@ void EnemyStateMoveBase::input() {
 
 	// 継承先の入力処理
 	onInput();
+}
+
+// メッセージ処理
+void EnemyStateMoveBase::handleMessage(EventMessage message, void* param) {
+	switch (message)
+	{
+		//プレイヤーに挟まれたとき
+	case EventMessage::PLAYER_ROUNDS:
+		change(EnemyStateName::Caught);
+		break;
+	}
 }

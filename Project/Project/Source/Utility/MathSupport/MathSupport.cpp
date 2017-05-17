@@ -1,8 +1,10 @@
 #include "MathSupport.h"
 #include <gslib.h>
+#include "../../Define/Def_Nakayama.h"
+#include "../PathFinder/Point2.h"
 
-
-float MathSupport::GetAngle(const GSvector2& dynamic, const GSvector2& base) {
+// 二つのベクトルの角度を求める(-180<value<=180)
+float MathSupport::GetVec2ToVec2Angle(const GSvector2& dynamic, const GSvector2& base) {
 	//結果
 	float result = 0;
 
@@ -18,7 +20,7 @@ float MathSupport::GetAngle(const GSvector2& dynamic, const GSvector2& base) {
 
 	//内積から角度へ変換
 	result = acosf(dot);
-	result = result * 180.0f / 3.14f;
+	result = result * 180.0f / PI;
 
 	//符号入れ替え
 	if (cross < 0)
@@ -29,7 +31,36 @@ float MathSupport::GetAngle(const GSvector2& dynamic, const GSvector2& base) {
 }
 
 // ベクトルの回転
-GSvector2 MathSupport::RotateVector(const GSvector2 & pos, const float & angle){
+GSvector2 MathSupport::RotateVector(const GSvector2 & pos, const float & angle) {
 	// 回転後のベクトルを返す
 	return GSvector2(pos.x * gsCos(angle) - pos.y * gsSin(angle), pos.x * gsSin(angle) + pos.y * gsCos(angle));
+}
+
+
+// 度数法をGSvector2に変換
+GSvector2 MathSupport::GetAngleToVector2(const float& angle)
+{
+	//変換
+	float x = gsCos(angle * PI / 180);
+	float y = gsSin(angle * PI / 180);
+
+	//結果を返す
+	return GSvector2(x, y);
+}
+
+
+// 座標をマスに変換
+Point2 MathSupport::GetVector2ToPoint2(const GSvector2 vector)
+{
+	//結果変数
+	Point2 result;
+
+	//マスに合わせる
+	int x = vector.x / CHIP_SIZE + 1;
+	int y = vector.y / CHIP_SIZE + 1;
+
+	result.x = x;
+	result.y = y;
+
+	return result;
 }

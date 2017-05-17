@@ -621,6 +621,33 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Utility\FourDirection\FourDirection.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\TurnDirection\TurnDirection.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManagerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Null\EnemyCommandNull.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\TestEnemy01\TestEnemy01.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -860,9 +887,6 @@
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\AlongWallMove\EnemyCommandAlongWallMove.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -951,6 +975,24 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\CharacterManagerContains\CharacterManager\CharacterManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\TurnDirection\TurnDirection.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\TestEnemy01\TestEnemy01.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

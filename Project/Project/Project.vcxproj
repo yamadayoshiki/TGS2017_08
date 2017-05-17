@@ -163,6 +163,11 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\BaseContains\Enemy_BaseStatePtr.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Approach_FixedDistance\Enemy_Command_Approach_FixedDistance.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Base\Enemy_Command_Base.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManager.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManagerPtr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\AlongWallMove\EnemyCommandAlongWallMove.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.h" />
@@ -174,6 +179,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\LeaveFixedDistance\EnemyCommandLeaveFixedDistance.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\NullCommand\Enemy_NullCommand.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Null\EnemyCommandNull.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Straight\EnemyCommandStraight.h" />
@@ -201,6 +207,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\TestEnemy01\TestEnemy01.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_01\Enemy_01.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_ForDirectionShot\Enemy_ForDirectionShot.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_Rush\Enemy_Rush.h" />
@@ -303,6 +310,7 @@
     <ClInclude Include="Source\Utility\Animation\Animation.h" />
     <ClInclude Include="Source\Utility\EnumRap\EnumRap.h" />
     <ClInclude Include="Source\Utility\EnumRap\EnumRapPtr.h" />
+    <ClInclude Include="Source\Utility\FourDirection\FourDirection.h" />
     <ClInclude Include="Source\Utility\InputState\InputState.h" />
     <ClInclude Include="Source\Utility\InputState\InputStatePtr.h" />
     <ClInclude Include="Source\Utility\MathSupport\MathSupport.h" />
@@ -319,6 +327,7 @@
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h" />
     <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h" />
+    <ClInclude Include="Source\Utility\TurnDirection\TurnDirection.h" />
     <ClInclude Include="Source\Wall\BreakWall.h" />
     <ClInclude Include="Source\Wall\Wall.h" />
     <ClInclude Include="Source\WorldContains\IWorld.h" />
@@ -345,7 +354,9 @@
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
     <ClCompile Include="Source\CharacterContains\CharacterManagerContains\CharacterManager\CharacterManager.cpp" />
     <ClCompile Include="Source\CharacterContains\Character\Character.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManager\EnemyCommandManager.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\AlongWallMove\EnemyCommandAlongWallMove.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\ApproachFixedDistance\EnemyCommandApproachFixedDistance.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.cpp" />
@@ -359,6 +370,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\TestEnemy01\TestEnemy01.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\AttackBase\EnemyStateAttackBase.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.cpp" />
@@ -422,6 +434,7 @@
     <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp" />
     <ClCompile Include="Source\UIContains\UIManager\UIManager.cpp" />
     <ClCompile Include="Source\Utility\Animation\Animation.cpp" />
+    <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp" />
     <ClCompile Include="Source\Utility\InputState\InputState.cpp" />
     <ClCompile Include="Source\Utility\MathSupport\MathSupport.cpp" />
     <ClCompile Include="Source\Utility\PathFinder\Lists\AstarOpenList.cpp" />
@@ -434,6 +447,7 @@
     <ClCompile Include="Source\Utility\PathFinder\Point2.cpp" />
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
     <ClCompile Include="Source\Utility\Texture2DParameter\Texture2DParameter.cpp" />
+    <ClCompile Include="Source\Utility\TurnDirection\TurnDirection.cpp" />
     <ClCompile Include="Source\Wall\BreakWall.cpp" />
     <ClCompile Include="Source\Wall\Wall.cpp" />
     <ClCompile Include="Source\WorldContains\World\World.cpp" />

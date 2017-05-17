@@ -6,7 +6,7 @@ CharacterManager::CharacterManager() {
 
 }
 
-CharacterManager::~CharacterManager() { 
+CharacterManager::~CharacterManager() {
 	delete p_Player;
 }
 
@@ -16,10 +16,11 @@ GSvector2 CharacterManager::GetPlayerPos() {
 	return p_Player->getPosition();
 }
 
-//プレイヤーの行列を取得
-//GSmatrix4 CharacterManager::GetPlayerMat() {
-//	return/* p_Player->getMatrix();*/
-//}
+//プレイヤーに挟まれた時の座標
+GSvector2 CharacterManager::GetRoundPos() const {
+	GSvector2 result = p_Player->getPosition() + p_Player->getBody()->forward() * 10.0f;
+	return result;
+}
 
 //プレイヤーに挟まれているActorを取得
 ActorPtr CharacterManager::GetRoundActor() {
@@ -32,8 +33,8 @@ PlayerStateName CharacterManager::GetPlayerStateName() {
 }
 
 //プレイヤーの挟まれているActorを設定
-void CharacterManager::SetRoundActor(const Actor& actor) {
-	//m_RoundActorList.push_back(actor);
+void CharacterManager::SetRoundActor(const ActorPtr& actor) {
+	m_RoundActorList.push_back(actor);
 }
 
 

@@ -40,7 +40,7 @@ void PlayerState::move(float deltaTime, float speed)
 		inputVelocity = p_Input->PadVelocity();
 
 		//Šp“xÝ’è
-		p_Player->setAngle(MathSupport::GetAngle(inputVelocity));
+		p_Player->setAngle(MathSupport::GetVec2ToVec2Angle(inputVelocity));
 
 		//À•WˆÚ“®
 		m_Position = m_TransForm.m_Position + p_Input->PadVelocity() * speed * deltaTime;

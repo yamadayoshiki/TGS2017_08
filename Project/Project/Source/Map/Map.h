@@ -2,7 +2,7 @@
 #define MAP_H_
 
 #include"../Utility/Rederer2D/Renderer2DPtr.h"
-#include"../Tile/Tile.h"
+#include"../Utility/FourDirection/FourDirection.h"
 #include"../Tile/TileData.h"
 #include "../ActorContains/ActorPtr.h"
 #include "../Base/GameManagerContains/IGameManagerPtr.h"
@@ -21,11 +21,11 @@ public:
 	//コンストラクタ
 	Map(const IGameManagerPtr& gameManager);
 	//描画
-	 void draw();
+	void draw();
 	//マップの取得
 	std::vector<std::vector<int>>& getmap();
 	//周りのタイルデータの取得
-	std::unordered_map<Tile, TileData>GetAroundTile(const GSvector2& position);
+	std::unordered_map<FourDirection, TileData>GetAroundTile(const GSvector2& position);
 	//指定された座標の縦軸のブロックの取得
 	std::vector<int>GetRow(const GSvector2& position);
 	//指定された座標の横軸のブロックの取得
@@ -38,10 +38,10 @@ public:
 	// データの取得
 	int operator [] (const Point2& position) const;
 	// 幅の取得
-	int Width() const;
+	int GetWidth() const;
 	// 高さの取得
-	int Height() const;
-	
+	int GetHeight() const;
+
 private:
 	Renderer2DPtr p_Renderer2D;
 	std::vector<std::vector<int>> m_Map;

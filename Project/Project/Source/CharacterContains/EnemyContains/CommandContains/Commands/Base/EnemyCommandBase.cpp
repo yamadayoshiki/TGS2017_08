@@ -3,19 +3,26 @@
 
 //コンストラクタ
 EnemyCommandBase::EnemyCommandBase(const EnemyBasePtr& enemy)
-	:p_Enemy(enemy)
+	: IEnemyCommand()
+	, p_Enemy(enemy)
 	, m_Velocity(GSVECTOR2_ZERO)
 	, m_RotateAngle(0.0f)
-	, m_Next(EnemyCommandName::None)
+	, m_NextCommand(EnemyCommandName::None)
 	, m_IsEnd(false) {
 }
 
 //初期化
 void EnemyCommandBase::Initialize() {
-	m_Next = EnemyCommandName::None;
+	m_NextCommand = EnemyCommandName::None;
 	m_IsEnd = false;
 	//各種固有の初期化
 	OnInitialize();
+}
+
+//更新
+void EnemyCommandBase::Update(float deltaTime) {
+	//各種固有の更新
+	OnUpdate(deltaTime);
 }
 
 //目標地点までの移動ベクトルの取得
@@ -34,8 +41,8 @@ bool EnemyCommandBase::IsEnd() {
 }
 
 //次コマンドの取得
-EnemyCommandName EnemyCommandBase::GetNextCommand() const{
-	return m_Next;
+EnemyCommandName EnemyCommandBase::GetNextCommand() const {
+	return m_NextCommand;
 }
 
 //命令ステート
@@ -45,6 +52,6 @@ EnemyStateName EnemyCommandBase::GetCurrentStateName() const {
 
 //次コマンドの設定
 void EnemyCommandBase::Change(EnemyCommandName next) {
-	m_Next = next;
+	m_NextCommand = next;
 	m_IsEnd = true;
 }

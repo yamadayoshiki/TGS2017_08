@@ -26,6 +26,8 @@ public:
 	virtual int next() const override;
 	// 子の追加
 	virtual void addChild(const ActorName& name, const ActorPtr& child) override;
+	// メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param) override {}
 
 protected:
 	// ステートの要素

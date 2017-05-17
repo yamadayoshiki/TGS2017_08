@@ -4,8 +4,7 @@
 //エネミーに対する入力コマンド
 enum class EnemyCommandName
 {
-	XAxiallyMove,			//X軸移動
-	YAxiallyMove,			//Y軸移動
+	Straight,						//直進
 
 	AlongWallMoveClockwise,			//時計回りに壁沿い移動
 	AlongWallMoveAntiClockwise,		//半時計周りに壁沿い移動

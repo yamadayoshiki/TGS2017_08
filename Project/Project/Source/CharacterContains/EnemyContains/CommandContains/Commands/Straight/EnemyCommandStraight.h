@@ -2,13 +2,14 @@
 #define ENMYCOMMANDSTRAIGHT_H_
 
 #include "../Base/EnemyCommandBase.h"
+#include "../../../../../Utility/FourDirection/FourDirection.h"
 
 //直進クラス
 class EnemyCommandStraight :public EnemyCommandBase
 {
 public:
 	//コンストラクタ
-	EnemyCommandStraight(const EnemyBasePtr& enemy, GSvector2 velocity);
+	EnemyCommandStraight(const EnemyBasePtr& enemy, const FourDirection front);
 	//更新
 	virtual void Update(float deltaTime) override;
 	//終了
@@ -21,6 +22,14 @@ protected:
 	virtual void HitWallReaction();
 	//折り返す
 	void TurnBack();
+	//正面に壁があるか
+	bool CheckFrontWall();
+	//次の目標地点を設定する
+	void SetNextTargetPos();
+
+protected:
+	GSvector2 m_NextTargetPos;		//次の目標地点
+	FourDirection m_CurFront;		//現在向いている方向
 };
 
 #endif // !ENMYCOMMANDSTRAIGHT_H_

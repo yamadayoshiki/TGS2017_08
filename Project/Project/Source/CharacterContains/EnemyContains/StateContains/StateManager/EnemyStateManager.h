@@ -7,6 +7,7 @@
 //先行宣言
 struct GSvector2;
 struct GSmatrix4;
+enum class EnemyStateName;
 
 //エネミーステートマネージャー
 class EnemyStateManager :public StateMgr
@@ -14,8 +15,6 @@ class EnemyStateManager :public StateMgr
 public:
 	// デフォルトコンストラクタ
 	EnemyStateManager();
-	// コンストラクタ
-	EnemyStateManager(const EnemyBasePtr& enemy);
 };
 
 #endif

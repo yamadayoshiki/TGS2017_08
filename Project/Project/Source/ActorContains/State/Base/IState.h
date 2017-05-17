@@ -2,6 +2,7 @@
 
 // 先行宣言
 class Actor;
+enum class EventMessage;
 
 #include <unordered_map>
 #include "../../ActorPtr.h"
@@ -35,4 +36,6 @@ public:
 	virtual void end() = 0;
 	// 子の追加
 	virtual void addChild(const ActorName& name, const ActorPtr& child) = 0;
+	// メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param) = 0;
 };

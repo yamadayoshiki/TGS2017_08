@@ -10,13 +10,13 @@
 class Body : public IBody {
 public:
 	// コンストラクタ
-	Body() : mType(ShapeType::None), mTransform({ GSvector2(0.0f, 0.0f), 0.0f }), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(false){}
+	Body() : mType(ShapeType::None), mTransform({ GSvector2(0.0f, 0.0f), 0.0f }), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(false) {}
 	// コンストラクタ(球)
 	Body(const ShapeType& type, const GSvector2& position, const float& radius) :
 		mType(type), mTransform({ position, 0.0f }), mRadius(radius), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(線分)
 	Body(const ShapeType& type, const GSvector2& position, const GSmatrix4& mat, const float& length) :
-		mType(type), mTransform({ position, 0.0f}), mRadius(0.0f), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
+		mType(type), mTransform({ position, 0.0f }), mRadius(0.0f), mLength(length), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
 	// コンストラクタ(レイ)
 	Body(const ShapeType& type, const GSvector2& position, const GSmatrix4& mat, const GSvector2& direction) :
 		mType(type), mTransform({ position, 0.0f }), mRadius(0.0f), mLength(0.0f), mDirection(direction), mHeight(0.0f), mWidth(0.0f), mExtents(GSvector2(0, 0)), mEnabled(true) {}
@@ -30,7 +30,7 @@ public:
 	Body(const ShapeType& type, const GSvector2& position, const float& angle, const GSvector2& extents) :
 		mType(type), mTransform({ position, angle }), mRadius(0.0f), mLength(0.0f), mDirection(GSvector2(0, 0)), mHeight(0.0f), mWidth(0.0f), mExtents(extents), mEnabled(true) {}
 	// デストラクタ
-	virtual ~Body(){}
+	virtual ~Body() {}
 
 	// 判定のON、OFF
 	virtual void active(bool active) override { mEnabled = active; }
@@ -41,11 +41,11 @@ public:
 	virtual ShapeType type() const override { return mType; }
 
 	// 中心座標の取得
-	virtual Transform transform() const override{ return mTransform; }
+	virtual Transform transform() const override { return mTransform; }
 	// 座標の取得
-	virtual GSvector2 position() const override{ return mTransform.m_Position; }
+	virtual GSvector2 position() const override { return mTransform.m_Position; }
 	// 角度の取得
-	virtual float angle() const override{ return mTransform.m_Angle; }
+	virtual float angle() const override { return mTransform.m_Angle; }
 	// 前方ベクトルの取得
 	virtual GSvector2 forward() const override { return MathSupport::RotateVector(GSvector2(1.0f, 0.0f), mTransform.m_Angle).normalize(); }
 
@@ -67,7 +67,7 @@ public:
 	virtual GSvector2 axis(const int index) const override { return mAxis[index]; }
 	// 点の取得
 	virtual GSvector2 points(const int index) const override { return mPoints[index]; }
-	
+
 protected:
 	// 形状
 	ShapeType mType;
@@ -86,7 +86,7 @@ protected:
 	// レイ用
 	// 方向
 	GSvector2 mDirection;
-	
+
 	// ボックス用
 	// 縦幅
 	float mHeight;

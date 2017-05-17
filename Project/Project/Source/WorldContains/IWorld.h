@@ -27,12 +27,14 @@ public:
 	virtual void OptinalCollide(Actor* actor, ActorGroup actorGroup) = 0;
 	// メッセージの送信    
 	virtual void sendMessage(EventMessage message, void* param = nullptr) = 0;
+	// メッセージの送信(指定アクター)
+	virtual void sendMessage(EventMessage message, Actor& actor, void* param = nullptr) = 0;
 	//キャラクターマネージャーの取得
 	virtual CharacterManager* getCharacterManager() = 0;
 	//キャラクターマネージャーの設定
 	virtual void setCharacterManager(CharacterManager* characterManager) = 0;
-
-	//virtual Map& GetMap() = 0;
+	//マップの取得
+	virtual Map& GetMap() = 0;
 protected:
 	// 終了処理
 	virtual void Finalize() {}

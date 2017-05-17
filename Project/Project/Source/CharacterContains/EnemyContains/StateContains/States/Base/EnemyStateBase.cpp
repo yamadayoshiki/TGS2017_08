@@ -1,6 +1,7 @@
 #include "EnemyStateBase.h"
 #include "../../../Enemys/Base/EnemyBase.h"
 #include "../../../../../Utility/MathSupport/MathSupport.h"
+#include "../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
 
 //コンストラクタ
 EnemyStateBase::EnemyStateBase(const EnemyBasePtr& enemy)
@@ -22,8 +23,8 @@ void EnemyStateBase::Move(float deltaTime, float speed)
 	GSvector2 move = p_Enemy->GetCommandManager()->GetCommandVector().getNormalized() * speed;
 
 	//移動ベクトル方向に向きを変換,本体に設定
-	//p_Enemy->getMatrix().setRotationZ(MathSupport::GetAngle(move));
-	p_Enemy->setAngle(MathSupport::GetAngle(move));
+	//p_Enemy->getMatrix().setRotationZ(MathSupport::GetVec2ToVec2Angle(move));
+	p_Enemy->setAngle(MathSupport::GetVec2ToVec2Angle(move));
 
 	//移動後座標計算
 	move = p_Enemy->getPosition() + move;

@@ -14,13 +14,13 @@
 #include "../Body/Base/DammyBody.h"
 #include "../Body/Base/HitInfo.h"
 
-#include "../../WorldContains/IWorldPtr.h"
 #include "../../Base/GameManagerContains/IGameManagerPtr.h"
 #include "../../TextureContains/ITexturePtr.h"
 #include "../../TextureContains/NullTexture/NullTexture.h"
 #include "../Transform/Transform.h"
 
 enum class EventMessage;
+class IWorld;
 
 //アクタークラス
 class Actor
@@ -50,20 +50,12 @@ public:
 	bool GetDead() const;
 	//死亡する
 	void dead();
-	//名前を返す
+	//名前を取得
 	const ActorName getName() const;
-	//座標を返す
+	//座標を取得
 	GSvector2 getPosition() const;
-	////行列を返す
-	//GSmatrix4 getMatrix() const;
-	////座標を返す
-	//GSmatrix4 getPose() const;
-	////回転
-	//void rotate(const float& angle);
-	////拡大、縮小
-	//void scale(const GSvector2& scale);
 
-	//変換情報を返す
+	//変換情報を取得
 	Transform getTransform() const;
 
 	//子の検索
@@ -90,12 +82,12 @@ public:
 	void handleMessage(EventMessage message, void* param);
 
 	//ワールドを設定
-	void SetWorld(const IWorldPtr& world);
+	void SetWorld(IWorld* world);
+	//ワールドを取得
+	IWorld* getWorld() const;
 	//判定の形の取得
 	IBodyPtr getBody() const;
 
-	////行列の設定
-	//void setMatrix(const GSmatrix4& mat);
 	//座標の設定
 	void setPosition(const GSvector2& pos);
 	//角度の設定
@@ -103,8 +95,6 @@ public:
 
 	//テクスチャを取得
 	ITexturePtr getTexture() const;
-	// クローン生成
-	ActorPtr clone(const ActorPtr& source);
 	// クローン生成
 	virtual ActorPtr clone(const GSvector2& position);
 
@@ -137,10 +127,6 @@ protected:
 	// 変換
 	Transform m_Transform;
 
-	////座標
-	//GSvector2 m_Position;
-	////変換行列
-	//GSmatrix4 m_Matrix;
 	//衝突判定
 	IBodyPtr p_Body;
 	// 衝突情報

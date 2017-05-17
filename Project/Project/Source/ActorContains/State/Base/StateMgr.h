@@ -6,6 +6,7 @@
 #include <unordered_map>
 
 class Actor;
+enum class EventMessage;
 
 // ステートの処理管理
 class StateMgr {
@@ -28,6 +29,8 @@ public:
 	int getID();
 	// 衝突判定
 	void collide(Actor& actor, const Actor& other);
+	// メッセージ処理
+	void handleMessage(EventMessage message, void* param);
 private:
 	// コピー禁止
 	StateMgr(const StateMgr& other) = delete;

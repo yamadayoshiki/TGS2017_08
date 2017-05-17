@@ -12,7 +12,7 @@ public:
 	virtual void onUpdate(float deltaTime) override;
 	virtual void onDraw() const override;
 
-	virtual ActorPtr clone(const GSvector2& position) override;
+	//virtual ActorPtr clone(const GSvector2& position) override;
 
 private:
 

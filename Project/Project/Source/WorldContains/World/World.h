@@ -27,8 +27,6 @@ public:
 	void update(float deltaTime);
 	// 描画     
 	void draw() const;
-	// 描画
-	void Draw() const;
 	//終了処理
 	void Finalize() override;
 	// メッセージ処理  
@@ -41,6 +39,8 @@ public:
 	virtual void OptinalCollide(Actor* actor, ActorGroup actorGroup) override;
 	// メッセージの送信    
 	virtual void sendMessage(EventMessage message, void* param = nullptr) override;
+	// メッセージの送信(指定アクター)
+	virtual void sendMessage(EventMessage message, Actor& actor, void* param = nullptr) override;
 
 	//キャラクターマネージャーの取得
 	virtual CharacterManager* getCharacterManager()override;
@@ -50,7 +50,7 @@ public:
 	//生成
 	void generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name);
 	//マップの取得
-	Map& GetMap();
+	Map& GetMap() override;
 
 	// シーンの終了の取得
 	virtual bool IsEnd();
@@ -75,6 +75,6 @@ private:
 	//キャラクターマネージャー
 	CharacterManager* p_CharacterManager;
 	// 
-	bool m_IsEnd;	
+	bool m_IsEnd;
 };
 #endif
