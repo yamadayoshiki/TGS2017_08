@@ -5,9 +5,8 @@ Sprite::Sprite(IWorld * world, const GSvector2 & position, const IGameManagerPtr
 
 }
 
+void Sprite::onUpdate(float deltaTime){
 
-void Sprite::onUpdate(float deltaTime)
-{
 }
 
 void Sprite::onDraw() const

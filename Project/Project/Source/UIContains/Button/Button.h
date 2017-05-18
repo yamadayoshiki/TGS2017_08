@@ -8,7 +8,7 @@
 
 class Button : public UI_Base {
 public:
-	struct ButtonData {
+	struct Data {
 		std::string file_name;
 		int number;
 		int anim;
@@ -17,7 +17,7 @@ public:
 		Texture2DParameter param;
 	};
 public:
-	Button(IWorld* world, const GSvector2& position, const IGameManagerPtr& gameManager, const std::string & file_name);
+	Button(IWorld* world, const IGameManagerPtr& gameManager, const std::string & file_name);
 
 	void regist(const std::string & file_name);
 
@@ -28,7 +28,7 @@ private:
 	int getIndex(int index, int next);
 	void moveSelector(GKEYCODE key);
 private:
-	std::unordered_map<int, ButtonData> m_Buttons;
+	std::unordered_map<int, Data> m_Buttons;
 	ActorPtr m_Selector;
 	int m_Index;
 	float m_Timer;

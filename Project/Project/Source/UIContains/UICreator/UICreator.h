@@ -9,9 +9,25 @@
 #include <unordered_map>
 #include <string>
 
-struct UIFilePaths;
-
+// UI生成クラス
+template<typename T>
 class UICreator : public Actor {
 public:
-	UICreator(IWorld* world, const IGameManagerPtr& gameManager, const UIFilePaths& path);
+	// コンストラクタ
+	UICreator(IWorld* world, const IGameManagerPtr& gameManager, const std::string& path);
+	// 生成
+	void create(const std::string& path);
 };
+
+// コンストラクタ
+template<typename T>
+inline UICreator<T>::UICreator(IWorld * world, const IGameManagerPtr & gameManager, const std::string & path) :
+	Actor(world, ActorName::UI_Manager, GSvector2({ 0.0f, 0.0f }), gameManager) {
+	create(path);
+}
+
+// 生成
+template<typename T>
+inline void UICreator<T>::create(const std::string & path) {
+	addChild(std::make_shared<T>(p_World, p_GameManager, path));
+}

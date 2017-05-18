@@ -11,8 +11,8 @@
 
 #define STR(var) #var
 
-Button::Button(IWorld* world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name) :
-	UI_Base(world, ActorName::UI_Button, position, gameManager) {
+Button::Button(IWorld* world, const IGameManagerPtr & gameManager, const std::string & file_name) :
+	UI_Base(world, ActorName::UI_Button, GSvector2(0.0f, 0.0f), gameManager) {
 	m_Selector = std::make_shared<Selector>(world, GSvector2(0.0f, 0.0f), gameManager);
 	addChild(m_Selector);
 
@@ -24,7 +24,7 @@ void Button::regist(const std::string & file_name){
 
 	// çsÇÃÉãÅ[Év
 	for (int row = 1; row < csv.rows(); row++) {
-		ButtonData data;
+		Data data;
 
 		data.file_name = "Resource/Texture/UI/" + csv.get(row, 0);
 		data.number = csv.geti(row, 1);
@@ -64,8 +64,7 @@ void Button::onUpdate(float deltaTime){
 	}
 }
 
-void Button::onDraw() const
-{
+void Button::onDraw() const{
 	for (auto button : m_Buttons) {
 		p_GameManager->GetRenderer2D()->DrawTexture(button.second.file_name, button.second.param);
 	}

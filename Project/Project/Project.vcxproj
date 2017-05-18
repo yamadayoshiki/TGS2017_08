@@ -299,6 +299,8 @@
     <ClInclude Include="Source\Tile\TileData.h" />
     <ClInclude Include="Source\UIContains\Base\UI_Base.h" />
     <ClInclude Include="Source\UIContains\Button\Button.h" />
+    <ClInclude Include="Source\UIContains\Sprite\Sprite.h" />
+    <ClInclude Include="Source\UIContains\Text\Text.h" />
     <ClInclude Include="Source\UIContains\UIFilePaths.h" />
     <ClInclude Include="Source\UIContains\Selector\Selector.h" />
     <ClInclude Include="Source\UIContains\UICreator\UICreator.h" />
@@ -326,10 +328,12 @@
     <ClInclude Include="Source\Utility\PathFinder\Point2.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h" />
+    <ClInclude Include="Source\Utility\SharedTemplate\SharedTemplate.h" />
     <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h" />
     <ClInclude Include="Source\Utility\TurnDirection\TurnDirection.h" />
     <ClInclude Include="Source\Wall\BreakWall.h" />
     <ClInclude Include="Source\Wall\Wall.h" />
+    <ClInclude Include="Source\WorldContains\EventMessage\EventMessage.h" />
     <ClInclude Include="Source\WorldContains\IWorld.h" />
     <ClInclude Include="Source\WorldContains\IWorldPtr.h" />
     <ClInclude Include="Source\WorldContains\World_Ptr.h" />
@@ -431,7 +435,8 @@
     <ClCompile Include="Source\UIContains\Base\UI_Base.cpp" />
     <ClCompile Include="Source\UIContains\Button\Button.cpp" />
     <ClCompile Include="Source\UIContains\Selector\Selector.cpp" />
-    <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp" />
+    <ClCompile Include="Source\UIContains\Sprite\Sprite.cpp" />
+    <ClCompile Include="Source\UIContains\Text\Text.cpp" />
     <ClCompile Include="Source\UIContains\UIManager\UIManager.cpp" />
     <ClCompile Include="Source\Utility\Animation\Animation.cpp" />
     <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp" />

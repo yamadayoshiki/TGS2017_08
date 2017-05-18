@@ -4,6 +4,14 @@
 
 class Sprite : public UI_Base {
 public:
+	struct Data {
+		std::string file_name;
+		int anim;
+		GSvector2 size;
+		GSvector2 rect;
+		Texture2DParameter param;
+	};
+public:
 	Sprite(IWorld* world, const GSvector2& position, const IGameManagerPtr& gameManager);
 
 private:
