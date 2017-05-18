@@ -22,12 +22,12 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 	p_GameManager->GetRenderer2D()->LoadTexture("chip", "Resource/Texture/wall.png");
 }
 
-// 開始     
+// 開始
 void GamePlay::OnStart() {
 	//キャラクターマネージャー
 	p_World->setCharacterManager(new CharacterManager());
 	//プレイヤー生成
-	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World.get(), GSvector2(100.0f, 100.0f), p_GameManager));
+	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World.get(), GSvector2(CHIP_SIZE * 3, CHIP_SIZE * 7), p_GameManager));
 	//マップデータによる生成
 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage1.csv");
 
@@ -37,6 +37,9 @@ void GamePlay::OnStart() {
 	GSvector2 tilePos = tmp[FourDirection(FourDirectionName::Down)].Position();
 	GSrect tileRect = tmp[FourDirection(FourDirectionName::Down)].Rectangle();
 	bool tileFlag = tmp[FourDirection(FourDirectionName::Down)].Flag();
+
+	//エネミー生成
+	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy01>(p_World.get(), GSvector2(CHIP_SIZE * 2 + CHIP_SIZE / 2, CHIP_SIZE * 15 + CHIP_SIZE / 2), FourDirection(FourDirectionName::Right), p_GameManager));
 }
 
 // 更新     

@@ -12,6 +12,7 @@ GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& i
 //コンテンツの読み込み
 void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Player", "Resource/white.png");
+	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy01.png");
 }
 
 //コンテンツの削除

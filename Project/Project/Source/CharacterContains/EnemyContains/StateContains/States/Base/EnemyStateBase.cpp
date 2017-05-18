@@ -15,15 +15,19 @@ void EnemyStateBase::input() {
 //移動処理
 void EnemyStateBase::Move(float deltaTime, float speed)
 {
+	//目的地までのベクトル
+	GSvector2 targetVector = p_Enemy->GetCommandManager()->GetCommandVector();
+
 	//入力がない場合はreturn
-	if (p_Enemy->GetCommandManager()->GetCommandVector() != GSvector2(0.0f, 0.0f))
+	if (targetVector == GSvector2(0.0f, 0.0f))
 		return;
 
 	//移動ベクトルを算出
-	GSvector2 move = p_Enemy->GetCommandManager()->GetCommandVector().getNormalized() * speed;
+	GSvector2 move = targetVector.getNormalized() * speed * deltaTime;
+	if (move.length() > targetVector.length())
+		move = targetVector;
 
 	//移動ベクトル方向に向きを変換,本体に設定
-	//p_Enemy->getMatrix().setRotationZ(MathSupport::GetVec2ToVec2Angle(move));
 	p_Enemy->setAngle(MathSupport::GetVec2ToVec2Angle(move));
 
 	//移動後座標計算
