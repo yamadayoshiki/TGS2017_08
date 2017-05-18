@@ -24,6 +24,8 @@ public:
 	void draw();
 	//マップの取得
 	std::vector<std::vector<int>>& getmap();
+	// 
+	void registMapForPlayer();
 	//周りのタイルデータの取得
 	std::unordered_map<FourDirection, TileData>GetAroundTile(const GSvector2& position);
 	//指定された座標の縦軸のブロックの取得
@@ -34,6 +36,16 @@ public:
 	TileData GetTileData(int x, int y);
 	// 正面に壁があるか無いか
 	bool IsInFrontOfTheWall(const GSvector2& pos, FourDirection direction);
+
+	//周りのタイルデータの取得
+	std::unordered_map<FourDirection, TileData>GetAroundTileForPlayer(const GSvector2& position);
+	//タイルデータの取得
+	TileData GetTileDataForPlayer(int x, int y);
+	// 正面に壁があるか無いか
+	bool IsInFrontOfTheWallForPlayer(const GSvector2& pos, FourDirection direction);
+	// 押し出し処理
+	GSvector2 PushForPlayer(const GSvector2& current_pos, const GSvector2& target_pos);
+
 	//神保
 public:
 	// データの取得
@@ -46,6 +58,7 @@ public:
 private:
 	Renderer2DPtr p_Renderer2D;
 	std::vector<std::vector<int>> m_Map;
+	std::vector<std::vector<int>> m_MapForPlayer;
 	//ゲームマネージャーポインタ
 	IGameManagerPtr p_GameManager;
 };

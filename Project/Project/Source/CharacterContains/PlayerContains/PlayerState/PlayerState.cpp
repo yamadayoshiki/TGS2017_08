@@ -44,18 +44,23 @@ void PlayerState::move(float deltaTime, float speed)
 		if (inputVelocity.length() <= 0) return;
 
 		FourDirection velocity = FourDirection(inputVelocity);
-		auto deta = m_Map.GetAroundTile(p_Player->getPosition());
-		TileData frontWall = deta[velocity];
 
-		if (frontWall.Flag() == 1) {
-			//p_Player->setPosition();
-			return;
-		}
+
+		//if (frontWall.Flag() == 1) {
+		//	return;
+		//}
+
 		//Šp“xÝ’è
 		p_Player->setAngle(MathSupport::GetVec2ToVec2Angle(inputVelocity));
 
 		//À•WˆÚ“®
 		m_Position = p_Player->getTransform().m_Position + p_Input->PadVelocity() * speed * deltaTime;
+		
+		/******************************************************************************************************************************/
+		/*’Ç‚µo‚µˆ—*/
+		m_Position = m_Map.PushForPlayer(p_Player->getPosition(), m_Position);
+		/*******************************************************************************************************************************/
+
 		p_Player->setPosition(m_Position);
 	}
 	//armUpdate();

@@ -1,5 +1,6 @@
 #include"PlayerState_Dash.h"
 
+#include "../../../../../../Define/Def_Nakayama.h"
 
 //コンストラクタ
 PlayerState_Dash::PlayerState_Dash(const PlayerPtr& player, IGameManagerPtr gameManager)
@@ -27,6 +28,12 @@ void PlayerState_Dash::unique_init()
 void PlayerState_Dash::update(float deltaTime)
 {
 	GSvector2 setPos = p_Player->getTransform().m_Position += m_Direction * speed * deltaTime;
+
+	/******************************************************************************************************************************/
+	/*追し出し処理*/
+	setPos = m_Map.PushForPlayer(p_Player->getPosition(), setPos);
+	/*******************************************************************************************************************************/
+	
 	p_Player->setPosition(setPos);
 	if (speed >= 8.0f && m_FrameCounter > 3) {
 		speed = speed / 2.0f;
@@ -37,9 +44,10 @@ void PlayerState_Dash::update(float deltaTime)
 	if (result <= 1.0f) {
 		change(PlayerStateName::Walk);
 	}
-	if (m_Map.IsInFrontOfTheWall(p_Player->getPosition(), FourDirection(p_Player->getBody()->forward()))) {
+	if (m_Map.IsInFrontOfTheWallForPlayer(p_Player->getPosition(), FourDirection(p_Player->getBody()->forward()))) {
 		change(PlayerStateName::Walk);
 	}
+
 	m_FrameCounter += deltaTime;
 }
 //衝突処理

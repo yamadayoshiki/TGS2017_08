@@ -52,7 +52,8 @@ void PlayerState_MoveBase::input()
 	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B))
 		change(PlayerStateName::Open);
 	//ƒ_ƒbƒVƒ…
-	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_A)) {
+	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_A) || 
+		gsGetKeyState(GKEY_Z)) {
 		change(PlayerStateName::Dash);
 	}
 

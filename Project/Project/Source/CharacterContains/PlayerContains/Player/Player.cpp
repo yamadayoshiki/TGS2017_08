@@ -6,6 +6,9 @@
 #include"../PlayerState/PlayerStateName.h"
 #include"../Arm/Arm.h"
 #include"../../../Utility/FourDirection/FourDirection.h"
+#include "../../../Define/Def_Nakayama.h"
+
+#include <algorithm>
 
 //コンストラクタ
 Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& gameManager)
@@ -52,8 +55,6 @@ void Player::onUpdate(float deltaTime)
 
 	//行動制限
 	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));
-
-
 }
 //描画処理
 void Player::onDraw()const

@@ -78,6 +78,21 @@ bool InputState::IsPadStatesDetach(GSushort Button)
 //PadVelocityÇÃÉQÉbÉ^Å[
 GSvector2 InputState::PadVelocity()
 {
+	//GSvector2 input = GSvector2(0,0);
+	//if (gsGetKeyState(GKEY_RIGHTARROW)) {
+	//	input.x = 1;
+	//}
+	//else if (gsGetKeyState(GKEY_LEFTARROW)) {
+	//	input.x = -1;
+	//}
+	//else if (gsGetKeyState(GKEY_UPARROW)) {
+	//	input.y = -1;
+	//}
+	//else if (gsGetKeyState(GKEY_DOWNARROW)) {
+	//	input.y = 1;
+	//}
+
+	//return input;
 	return mPadVelocity;
 }
 
