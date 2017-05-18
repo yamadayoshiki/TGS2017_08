@@ -91,7 +91,6 @@ void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, 
 	p_MapGenerator->generate();
 
 	p_MapGenerator->registMap();
-	p_MapGenerator->getMap().registMapForPlayer();
 }
 
 //ƒ}ƒbƒv‚ÌŽæ“¾

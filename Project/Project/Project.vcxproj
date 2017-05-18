@@ -270,6 +270,8 @@
     <ClInclude Include="Source\MapGenerator\MapGenerator.h" />
     <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h" />
     <ClInclude Include="Source\Map\Map.h" />
+    <ClInclude Include="Source\Map\MapData.h" />
+    <ClInclude Include="Source\Map\MapType.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\GameCredit.h" />
     <ClInclude Include="Source\SceneContains\GameEnd\GameEnd.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\GamePlay.h" />

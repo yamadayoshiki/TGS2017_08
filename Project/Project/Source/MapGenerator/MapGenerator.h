@@ -33,8 +33,6 @@ public:
 	void registMap();
 	// アクターの生成
 	void generate();
-	//ワールドを設定
-	void setWorld(const IWorldPtr& world);
 	//マップの取得
 	Map & getMap();
 private:
@@ -43,7 +41,7 @@ private:
 	// アクター登録用map
 	std::map<int, ActorData> m_Actors;
 	// csvデータ
-	std::vector<std::vector<int>> m_CsvData;
+	MapData m_CsvData;
 	// マップデータ
 	Map m_Map;
 	//ゲームマネージャーポインタ

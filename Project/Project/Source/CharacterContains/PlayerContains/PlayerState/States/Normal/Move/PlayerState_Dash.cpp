@@ -44,7 +44,7 @@ void PlayerState_Dash::update(float deltaTime)
 	if (result <= 1.0f) {
 		change(PlayerStateName::Walk);
 	}
-	if (m_Map.IsInFrontOfTheWallForPlayer(p_Player->getPosition(), FourDirection(p_Player->getBody()->forward()))) {
+	if (m_Map.IsInFrontOfTheWall(p_Player->getPosition(), FourDirection(p_Player->getBody()->forward()), MapType::Double)) {
 		change(PlayerStateName::Walk);
 	}
 

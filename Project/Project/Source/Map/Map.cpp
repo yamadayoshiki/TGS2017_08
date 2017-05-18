@@ -6,20 +6,20 @@
 #include <algorithm>
 //コンストラクタ
 Map::Map(const IGameManagerPtr& gameManager) :
-	p_GameManager(gameManager)
-{
+	p_GameManager(gameManager){
 	p_GameManager->GetRenderer2D()->LoadTexture("chip", "Resource/Texture/wall.png");
 }
+
 //描画
-void Map::draw()
+void Map::draw(const MapType& type)
 {
 	// 行のループ
-	for (int i = 0; i < m_Map.size(); i++)
+	for (int i = 0; i < m_Maps[type].size(); i++)
 	{
 		// 列のループ
-		for (int j = 0; j < m_Map[i].size(); j++)
+		for (int j = 0; j < m_Maps[type][i].size(); j++)
 		{
-			if (m_Map[i][j] == 1)
+			if (m_Maps[type][i][j] == 1)
 			{
 				//gsTextPos(j * CHIP_SIZE, i * CHIP_SIZE);
 				p_GameManager->GetRenderer2D()->DrawTexture("chip", GSvector2(j, i)* CHIP_SIZE);
@@ -29,35 +29,32 @@ void Map::draw()
 }
 
 //マップの取得
-std::vector<std::vector<int>>& Map::getmap()
-{
-	return m_Map;
+MapData& Map::getmap(const MapType& type){
+	return m_Maps[type];
 }
 
-void Map::registMapForPlayer(){
+void Map::regist(const MapData& data, const MapType& type){
 	// 行のループ
-	for (int i = 0; i < m_Map.size(); i += 2)
-	{
+	for (int i = 0; i < data.size(); i += ((int)type + 1)) {
 		std::vector<int> tmp;
 		// 列のループ
-		for (int j = 0; j < m_Map[i].size(); j += 2)
-		{
-			tmp.push_back(m_Map[i][j]);
+		for (int j = 0; j < data[i].size(); j += ((int)type + 1)) {
+			tmp.push_back(data[i][j] != 1 ? 0 : 1);
 		}
-		m_MapForPlayer.push_back(tmp);
+		m_Maps[type].push_back(tmp);
 	}
 }
 
 //周りのタイルデータの取得
-std::unordered_map<FourDirection, TileData> Map::GetAroundTile(const GSvector2& position)
+std::unordered_map<FourDirection, TileData> Map::GetAroundTile(const GSvector2& position, const MapType& type)
 {
-	int x = position.x / CHIP_SIZE;
-	int y = position.y / CHIP_SIZE;
+	int x = position.x / (CHIP_SIZE * ((int)type + 1));
+	int y = position.y / (CHIP_SIZE * ((int)type + 1));
 
-	TileData left = GetTileData(x - 1, y);
-	TileData right = GetTileData(x + 1, y);
-	TileData top = GetTileData(x, y - 1);
-	TileData down = GetTileData(x, y + 1);
+	TileData left = GetTileData(x - 1, y, type);
+	TileData right = GetTileData(x + 1, y, type);
+	TileData top = GetTileData(x, y - 1, type);
+	TileData down = GetTileData(x, y + 1, type);
 
 	std::unordered_map<FourDirection, TileData> datas;
 
@@ -75,8 +72,8 @@ std::vector<int> Map::GetRow(const GSvector2 & position) {
 
 	std::vector<int> tmp;
 
-	for (int i = 0; i < m_Map.size(); i++) {
-		tmp.push_back(m_Map[i][x]);
+	for (int i = 0; i < m_Maps[MapType::Default].size(); i++) {
+		tmp.push_back(m_Maps[MapType::Default][i][x]);
 	}
 
 	return tmp;
@@ -86,63 +83,27 @@ std::vector<int> Map::GetRow(const GSvector2 & position) {
 std::vector<int> Map::GetColumn(const GSvector2 & position) {
 	int y = position.y / CHIP_SIZE;
 
-	return m_Map[y];
+	return m_Maps[MapType::Default][y];
 }
 
 //タイルデータの取得
-TileData Map::GetTileData(int x, int y)
-{
+TileData Map::GetTileData(int column, int row, const MapType& type){
+	int size = CHIP_SIZE * ((int)type + 1);
+	int x = CLAMP(column, 0, 100000);
+	int y = CLAMP(row, 0, 100000);
+
 	TileData result;
 
-	result.position = GSvector2(x, y) * CHIP_SIZE + GSvector2(CHIP_SIZE / 2, CHIP_SIZE / 2);
-	result.rectangle = GSrect(0, 0, CHIP_SIZE, CHIP_SIZE);
-	result.flag = m_Map[y][x];
+	result.position = GSvector2(x, y) * size + GSvector2(1, 1) * size / 2;
+	result.rectangle = GSrect(0, 0, size, size);
+	result.flag = m_Maps[type][y][x];
 
 	return result;
 }
 
-bool Map::IsInFrontOfTheWall(const GSvector2 & pos, FourDirection direction)
+bool Map::IsInFrontOfTheWall(const GSvector2 & pos, FourDirection direction, const MapType& type)
 {
-	auto tile_deta = GetAroundTile(pos);
-	if (tile_deta[direction].Flag() == 1) {
-		return true;
-	}
-	return false;
-}
-
-std::unordered_map<FourDirection, TileData> Map::GetAroundTileForPlayer(const GSvector2 & position)
-{
-	int x = position.x / (CHIP_SIZE * 2);
-	int y = position.y / (CHIP_SIZE * 2);
-
-	TileData left = GetTileDataForPlayer(std::max<int>(0, x - 1), y);
-	TileData right = GetTileDataForPlayer(std::min<int>(1000, x + 1), y);
-	TileData top = GetTileDataForPlayer(x, std::max<int>(0, y - 1));
-	TileData down = GetTileDataForPlayer(x, std::min<int>(1000, y + 1));
-
-	std::unordered_map<FourDirection, TileData> datas;
-
-	datas[FourDirection(FourDirectionName::Left)] = left;
-	datas[FourDirection(FourDirectionName::Right)] = right;
-	datas[FourDirection(FourDirectionName::Up)] = top;
-	datas[FourDirection(FourDirectionName::Down)] = down;
-
-	return datas;
-}
-
-TileData Map::GetTileDataForPlayer(int x, int y){
-	TileData result;
-
-	result.position = GSvector2(x, y) * CHIP_SIZE * 2 + GSvector2(CHIP_SIZE, CHIP_SIZE);
-	result.rectangle = GSrect(0, 0, CHIP_SIZE * 2, CHIP_SIZE * 2);
-	result.flag = m_MapForPlayer[y][x];
-
-	return result;
-}
-
-bool Map::IsInFrontOfTheWallForPlayer(const GSvector2 & pos, FourDirection direction)
-{
-	auto tile_deta = GetAroundTileForPlayer(pos);
+	auto tile_deta = GetAroundTile(pos, type);
 	if (tile_deta[direction].Flag() == 1) {
 		return true;
 	}
@@ -152,7 +113,7 @@ bool Map::IsInFrontOfTheWallForPlayer(const GSvector2 & pos, FourDirection direc
 GSvector2 Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& target_pos){
 	GSvector2 result = target_pos;
 
-	auto deta = GetAroundTileForPlayer(current_pos);
+	auto deta = GetAroundTile(current_pos, MapType::Double);
 
 	if (deta[FourDirection(FourDirectionName::Up)].Flag() == 1) {
 		result.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * 2, result.y);
@@ -173,14 +134,14 @@ GSvector2 Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& tar
 //神保
 // データの取得
 int Map::operator [] (const Point2& position) const {
-	return m_Map[position.y][position.x];
+	return m_Maps.at(MapType::Default)[position.y][position.x];
 }
 // 幅の取得
-int Map::GetWidth() const {
-	return m_Map[0].size();
+int Map::GetWidth(const MapType& type) const {
+	return m_Maps.at(type)[0].size();
 }
 
 // 高さの取得
-int Map::GetHeight() const {
-	return m_Map.size();
+int Map::GetHeight(const MapType& type) const {
+	return m_Maps.at(type).size();
 }

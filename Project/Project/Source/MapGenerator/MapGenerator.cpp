@@ -5,7 +5,6 @@
 #include "../ActorContains/Object/TestObj.h"
 #include "../ActorContains/Object/TestEnemy.h"
 #include "../Wall/BreakWall.h"
-#include "../Map/Map.h"
 
 #include <GSvector2.h>
 #include <iostream>
@@ -48,36 +47,8 @@ void MapGenerator::registActor() {
 
 // 生成する地形の登録
 void MapGenerator::registMap() {
-	// 行のループ
-	for (int i = 0; i < m_CsvData.size(); i++) {
-		std::vector<int> tmp = m_CsvData[i];
-
-		// 列のループ
-		for (int j = 0; j < tmp.size(); j++) {
-			if (tmp[j] != 1) {
-				tmp[j] = 0;
-			}
-		}
-		m_Map.getmap().push_back(tmp);
-	}
-
-	//for (int i = 0; i < m_CsvData.size(); i++)
-	//{
-	//	std::vector<int> tmp;
-	//}
-
-	//for (int j = 0; j < m_CsvData[i].size(); j++)
-	//{
-	//	if (m_CsvData[i][j] == 1)
-	//	{
-	//		m_CsvData.push_back(1);
-	//	}
-	//	else
-	//	{
-	//		m_CsvData.push_back(0);
-	//	}
-	//	m_CsvData.getmap().push_back(m_CsvData);
-	//}
+	m_Map.regist(m_CsvData);
+	m_Map.regist(m_CsvData, MapType::Double);
 }
 
 // アクターの生成
@@ -98,11 +69,7 @@ void MapGenerator::generate()
 		}
 	}
 }
-//ワールドを設定
-void MapGenerator::setWorld(const IWorldPtr & world)
-{
-	p_World = world;
-}
+
 //マップの登録
 Map & MapGenerator::getMap(){
 	return m_Map;
