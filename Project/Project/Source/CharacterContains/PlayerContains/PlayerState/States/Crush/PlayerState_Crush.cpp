@@ -1,4 +1,5 @@
 #include "PlayerState_Crush.h"
+#include"../../../../../WorldContains/EventMessage/EventMessage.h"
 
 PlayerState_Crush::PlayerState_Crush(const PlayerPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
@@ -7,7 +8,7 @@ PlayerState_Crush::PlayerState_Crush(const PlayerPtr& player, IGameManagerPtr ga
 //各状態独自の初期化
 void PlayerState_Crush::unique_init()
 {
-
+	p_Player->getWorld()->sendMessage(EventMessage::PLAYER_CRUSH);
 }
 //更新処理
 void PlayerState_Crush::update(float deltaTime)
@@ -35,4 +36,15 @@ void PlayerState_Crush::end()
 void PlayerState_Crush::input()
 {
 
+}
+
+//メッセージ処理
+void PlayerState_Crush::handleMessage(EventMessage massege, void* param)
+{
+	switch (massege)
+	{
+	case EventMessage::PLAYER_ROUNDSLOST:
+		change(PlayerStateName::Close);
+		break;
+	}
 }

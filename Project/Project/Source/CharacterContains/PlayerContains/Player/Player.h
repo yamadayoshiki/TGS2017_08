@@ -7,6 +7,7 @@
 #include"../../../WorldContains/IWorld.h"
 #include"../Arm/ArmPtr.h"
 #include"../../CharacterManagerContains/CharacterManager/CharacterManager.h"
+#include"../../../Map/Map.h"
 #include<memory>
 
 class Renderer2D;
@@ -41,6 +42,8 @@ private:
 	CharacterManager*		p_CharacterManager;
 	//レンダラー
 	Renderer2DPtr			p_Renderer;
+	//マップデータ
+	Map						p_Map;
 	//プレイヤーパラメター
 	Player_Parameter		m_Parameter;
 	//回転

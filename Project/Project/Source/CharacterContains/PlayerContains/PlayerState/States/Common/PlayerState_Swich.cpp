@@ -1,4 +1,5 @@
 #include"PlayerState_Swich.h"
+#include"../../../../../WorldContains/EventMessage/EventMessage.h"
 #include"../../../../../Utility/MathSupport/MathSupport.h"
 
 
@@ -48,5 +49,6 @@ void PlayerState_Swich::collide(const Actor& other)
 	if (m_Children[ActorName::Player_Arm]->isCollide(other) && flag == true) {
 		m_Flag = true;
 		//‘ŠŽè‚É‹²‚ñ‚¾î•ñ‚ð‘—‚é
+		p_Player->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));
 	}
 }

@@ -87,6 +87,15 @@ TileData Map::GetTileData(int x, int y)
 	return result;
 }
 
+bool Map::IsInFrontOfTheWall(const GSvector2 & pos, FourDirection direction)
+{
+	auto tile_deta = GetAroundTile(pos);
+	if (tile_deta[direction].Flag() == 1) {
+		return true;
+	}
+	return false;
+}
+
 //神保
 // データの取得
 int Map::operator [] (const Point2& position) const {

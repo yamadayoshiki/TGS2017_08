@@ -25,5 +25,6 @@
 #include"States\Common\PlayerState_Damage.h"
 #include"States\Common\PlayerState_Swich.h"
 #include"States\Common\PlayerState_Release.h"
+#include"States\Common\PlayerState_Dead.h"
 
 #endif // !PLAYERSTATE_PATH_H_

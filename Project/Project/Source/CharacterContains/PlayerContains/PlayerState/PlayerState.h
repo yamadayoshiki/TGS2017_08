@@ -10,8 +10,9 @@
 #include"../Player/Player.h"
 #include "../Player/PlayerPtr.h"
 #include"../Player/Player_Parameter.h"
-
 #include <unordered_map>
+
+class Map;
 
 // 各プレイヤーステートの基底クラス
 class PlayerState :public State
@@ -34,7 +35,7 @@ protected:
 	//プレイヤー本体
 	PlayerPtr			p_Player;
 	//変換
-	Transform			m_TransForm;
+	Transform&			m_TransForm;
 	//プレイヤーパラメーター
 	Player_Parameter	m_Parameter;
 	//回転角度
@@ -43,6 +44,8 @@ protected:
 	IGameManagerPtr		p_GameManager;
 	//InoutState
 	InputStatePtr		p_Input;
+	//Map
+	Map&				m_Map;
 
 private:
 	GSvector2			inputVelocity;

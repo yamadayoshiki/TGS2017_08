@@ -648,6 +648,9 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\TestEnemy01\TestEnemy01.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\WorldContains\EventMessage\EventMessage.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

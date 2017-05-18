@@ -32,7 +32,8 @@ public:
 	std::vector<int>GetColumn(const GSvector2& position);
 	//タイルデータの取得
 	TileData GetTileData(int x, int y);
-
+	// 正面に壁があるか無いか
+	bool IsInFrontOfTheWall(const GSvector2& pos, FourDirection direction);
 	//神保
 public:
 	// データの取得

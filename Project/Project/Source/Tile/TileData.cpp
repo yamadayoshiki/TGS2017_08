@@ -22,3 +22,4 @@ int TileData::Flag()
 {
 	return flag;
 }
+

@@ -24,10 +24,7 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 
 // 開始     
 void GamePlay::OnStart() {
-	//キャラクターマネージャー
-	p_World->setCharacterManager(new CharacterManager());
-	//プレイヤー生成
-	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World.get(), GSvector2(CHIP_SIZE * 3, CHIP_SIZE * 7), p_GameManager));
+	
 	//マップデータによる生成
 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage1.csv");
 
@@ -38,8 +35,13 @@ void GamePlay::OnStart() {
 	GSrect tileRect = tmp[FourDirection(FourDirectionName::Down)].Rectangle();
 	bool tileFlag = tmp[FourDirection(FourDirectionName::Down)].Flag();
 
+	//キャラクターマネージャー
+	//p_World->setCharacterManager(new CharacterManager());
+	//プレイヤー生成
+	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World.get(), GSvector2(CHIP_SIZE * 3, CHIP_SIZE * 7), p_GameManager));
+
 	//エネミー生成
-	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy01>(p_World.get(), GSvector2(CHIP_SIZE * 2 + CHIP_SIZE / 2, CHIP_SIZE * 15 + CHIP_SIZE / 2), FourDirection(FourDirectionName::Right), p_GameManager));
+	//p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy01>(p_World.get(), GSvector2(CHIP_SIZE * 2 + CHIP_SIZE / 2, CHIP_SIZE * 15 + CHIP_SIZE / 2), FourDirection(FourDirectionName::Right), p_GameManager));
 }
 
 // 更新     

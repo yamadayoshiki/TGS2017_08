@@ -330,6 +330,7 @@
     <ClInclude Include="Source\Utility\TurnDirection\TurnDirection.h" />
     <ClInclude Include="Source\Wall\BreakWall.h" />
     <ClInclude Include="Source\Wall\Wall.h" />
+    <ClInclude Include="Source\WorldContains\EventMessage\EventMessage.h" />
     <ClInclude Include="Source\WorldContains\IWorld.h" />
     <ClInclude Include="Source\WorldContains\IWorldPtr.h" />
     <ClInclude Include="Source\WorldContains\World_Ptr.h" />

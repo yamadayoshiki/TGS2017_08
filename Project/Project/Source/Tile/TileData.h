@@ -14,7 +14,6 @@ public:
 	GSrect Rectangle();
 	//0=‹ó,1=•Ç
 	int Flag();
-
 public:
 	GSvector2 position;
 	GSrect rectangle;

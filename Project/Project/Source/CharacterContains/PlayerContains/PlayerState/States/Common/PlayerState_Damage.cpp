@@ -15,7 +15,11 @@ void PlayerState_Damage::unique_init()
 //XVˆ—
 void PlayerState_Damage::update(float deltaTaime)
 {
-
+	if (m_Parameter.m_Remainig <= 0) {
+		change(PlayerStateName::Dead);
+		return;
+	}
+	change(PlayerStateName::Dash);
 }
 //Õ“Ë”»’è
 void PlayerState_Damage::collide(const Actor& other) {}

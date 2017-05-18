@@ -5,6 +5,7 @@
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include"../PlayerState/PlayerStateName.h"
 #include"../Arm/Arm.h"
+#include"../../../Utility/FourDirection/FourDirection.h"
 
 //コンストラクタ
 Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& gameManager)
@@ -15,6 +16,7 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 		gameManager,
 		std::make_shared<NullTexture>(),
 		std::make_shared<OrientedBoundingBox>(GSvector2{ 0, 0 }, -90.0f, GSvector2{ 2.0f, 2.0f })), angle(0.0f)
+	,p_Map(p_World->GetMap())
 {
 	p_Renderer = gameManager->GetRenderer2D();
 }
@@ -50,12 +52,13 @@ void Player::onUpdate(float deltaTime)
 
 	//行動制限
 	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));
+
+
 }
 //描画処理
 void Player::onDraw()const
 {
-	//p_Body->transform(getTransform())->draw();
-	//p_Renderer->DrawTexture("Player", m_Position);
+	p_Body->transform(getTransform())->draw();
 
 	Texture2DParameter param;
 	param.SetPosition(m_Transform.m_Position);
@@ -75,10 +78,6 @@ void Player::onCollide(Actor& other)
 	//状態ごとの衝突判定
 	mStateManager->collide(*this, other);
 	//dynamic_cast<Arm*>(child.get())->onCollide(other);
-
-	if (mStateManager->currentState(PlayerStateName::Rounds) == true) {
-		//p_CharacterManager->SetRoundActor(other);
-	}
 }
 
 //プレイヤーパラメーターの取得

@@ -19,6 +19,7 @@
 #include "../../StateContains/States/MoveContains/Idle/EnemyStateIdle.h"
 #include "../../StateContains/States/MoveContains/Move/EnemyStateMove.h"
 #include "../../../../Utility/TurnDirection/TurnDirection.h"
+#include "../../../../ActorContains/Body/OrientedBoundingBox.h"
 
 //コンストラクタ
 Enemy01::Enemy01(
@@ -32,7 +33,8 @@ Enemy01::Enemy01(
 		position,
 		1.0f,
 		gameManager,
-		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D())) {
+		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
+		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
 	m_Transform.m_Angle = MathSupport::GetVec2ToVec2Angle(front.GetVector2());
 }
 

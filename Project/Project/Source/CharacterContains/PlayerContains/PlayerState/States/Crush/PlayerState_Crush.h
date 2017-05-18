@@ -18,6 +18,8 @@ public:
 	virtual void end()override;
 	//入力処理
 	virtual void input() override;
+	//メッセージ処理
+	virtual void handleMessage(EventMessage massege, void* param)override;
 
 private:
 	//フレームカウンター

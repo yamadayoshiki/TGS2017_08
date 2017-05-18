@@ -14,7 +14,7 @@ void PlayerState_Dead::unique_init()
 //XVˆ—
 void PlayerState_Dead::update(float deltaTaime)
 {
-
+	p_Player->dead();
 }
 
 //I—¹ˆ—

@@ -37,7 +37,7 @@ void PlayerState_Dash::update(float deltaTime)
 	if (result <= 1.0f) {
 		change(PlayerStateName::Walk);
 	}
-	else if (m_FrameCounter > 30) {
+	if (m_Map.IsInFrontOfTheWall(p_Player->getPosition(), FourDirection(p_Player->getBody()->forward()))) {
 		change(PlayerStateName::Walk);
 	}
 	m_FrameCounter += deltaTime;
@@ -47,6 +47,6 @@ void PlayerState_Dash::collide(const Actor& other)
 {
 	if (m_FrameCounter > 8) {
 		//“G‚Æ‚ÌÕ“Ëˆ—
-		change(PlayerStateName::Idle);
+		change(PlayerStateName::Damage);
 	}
 }

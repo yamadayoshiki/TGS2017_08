@@ -1,4 +1,5 @@
 #include"PlayerState_Round.h"
+#include"../../../../../WorldContains/EventMessage/EventMessage.h"
 
 //コンストラクタ
 PlayerState_Round::PlayerState_Round(const PlayerPtr& player, IGameManagerPtr gameManager)
@@ -35,6 +36,19 @@ void PlayerState_Round::input()
 	}
 	//離す状態に遷移
 	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+		p_Player->getWorld()->sendMessage(EventMessage::PLAYER_RELEASE);
 		change(PlayerStateName::Release);
 	}
 }
+
+//メッセージ処理
+void PlayerState_Round::handleMessage(EventMessage massege, void * param)
+{
+	switch (massege)
+	{
+	case EventMessage::PLAYER_ROUNDSLOST:
+		change(PlayerStateName::Close);
+		break;
+	}
+}
+
