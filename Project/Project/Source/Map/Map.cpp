@@ -80,7 +80,7 @@ TileData Map::GetTileData(int x, int y)
 {
 	TileData result;
 
-	result.position = GSvector2(x, y) * CHIP_SIZE;
+	result.position = GSvector2(x, y) * CHIP_SIZE + GSvector2(CHIP_SIZE / 2, CHIP_SIZE / 2);
 	result.rectangle = GSrect(0, 0, CHIP_SIZE, CHIP_SIZE);
 	result.flag = m_Map[y][x];
 

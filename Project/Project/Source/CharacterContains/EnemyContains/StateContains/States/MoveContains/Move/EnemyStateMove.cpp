@@ -16,5 +16,5 @@ void EnemyStateMove::onUniqueInit()
 // XVˆ—
 void EnemyStateMove::onUpdate(float deltaTime) {
 	//ˆÚ“®ˆ—
-	Move(deltaTime, 1.0f);
+	Move(deltaTime, 5.0f);
 }

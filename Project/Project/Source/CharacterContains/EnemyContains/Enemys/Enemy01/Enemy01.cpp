@@ -5,16 +5,20 @@
 #include "../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../Utility/MathSupport/MathSupport.h"
+
 //CommandContains
 #include "../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../CommandContains/Commands/EnemyCommandName.h"
 #include "../../CommandContains/Commands/Straight/EnemyCommandStraight.h"
+#include "../../CommandContains/Commands/AlongWallMove/EnemyCommandAlongWallMove.h"
+
 //State
 #include "../../StateContains/States/Caught/EnemyStateCaught.h"
 #include "../../StateContains/States/Crush/EnemyStateCrush.h"
 #include "../../StateContains/States/Dead/EnemyStateDead.h"
 #include "../../StateContains/States/MoveContains/Idle/EnemyStateIdle.h"
 #include "../../StateContains/States/MoveContains/Move/EnemyStateMove.h"
+#include "../../../../Utility/TurnDirection/TurnDirection.h"
 
 //コンストラクタ
 Enemy01::Enemy01(
@@ -38,8 +42,10 @@ void Enemy01::SetUpCommand() {
 	p_CommandManager = std::make_shared<EnemyCommandManagerNormal>(shared_from_this());
 	//Command追加
 	p_CommandManager->AddDic(EnemyCommandName::Straight, std::make_shared<EnemyCommandStraight>(shared_from_this(), FourDirection(p_Body->forward())));
+	p_CommandManager->AddDic(EnemyCommandName::AlongWallMoveAntiClockwise, std::make_shared<EnemyCommandAlongWallMove>(shared_from_this(), TurnDirection(TurnDirectionName::AntiClockwise)));
+	p_CommandManager->AddDic(EnemyCommandName::AlongWallMoveClockwise, std::make_shared<EnemyCommandAlongWallMove>(shared_from_this(), TurnDirection(TurnDirectionName::Clockwise)));
 	//初期Command設定
-	p_CommandManager->Change(EnemyCommandName::Straight);
+	p_CommandManager->Change(EnemyCommandName::AlongWallMoveAntiClockwise);
 }
 
 //各種固有のStateの設定
@@ -56,18 +62,13 @@ void Enemy01::SetUpState() {
 	p_StateManager->change(EnemyStateName::Idle);
 }
 
-//更新
-void Enemy01::onUpdate(float deltaTime) {
-
-}
-
 //描画
 void Enemy01::onDraw() const {
 	p_Body->transform(getTransform())->draw();
 
 	Texture2DParameter param;
 	param.SetPosition(m_Transform.m_Position);
-	param.SetCenter({ 32.0f, 32.0f });
+	param.SetCenter({ 16.0f, 16.0f });
 	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy01"));
 	param.SetScale({ 1.0f , 1.0f });
 	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
