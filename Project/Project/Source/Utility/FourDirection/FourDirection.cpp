@@ -124,7 +124,7 @@ GSvector2 FourDirection::GetVector2() {
 		return DIRECTION_DOWN;
 
 	case FourDirectionName::Left:
-		return DIRECTION_LEFT;
+		return DIRECTION_DOWN;
 
 	default:
 		return GSVECTOR2_ZERO;

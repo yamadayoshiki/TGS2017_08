@@ -8,14 +8,13 @@ class TileData
 public:
 	//コンストラクタ
 	TileData();
-	//タイル中心座標
+	//座標
 	GSvector2 Position();
-	//矩形の取得
+	//矩形
 	GSrect Rectangle();
-	//0=空,1=壁
+	//フラグ
 	int Flag();
 
-public:
 	GSvector2 position;
 	GSrect rectangle;
 	int flag;

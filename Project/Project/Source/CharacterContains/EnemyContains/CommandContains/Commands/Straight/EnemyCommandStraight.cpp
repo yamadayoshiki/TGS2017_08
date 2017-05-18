@@ -20,7 +20,8 @@ void EnemyCommandStraight::Update(float deltaTime) {
 	//目標地点までの距離
 	m_Velocity = m_NextTargetPos - p_Enemy->getPosition();
 	//目標地点にたどり着いているか
-	if (m_Velocity.length() <= FLOAT_EPSILON) {
+	if (m_Velocity.length() <= FLOAT_EPSILON)
+	{
 		HitWallReaction();
 		SetNextTargetPos();
 	}
@@ -64,7 +65,7 @@ bool EnemyCommandStraight::CheckFrontWall() {
 //次の目標地点を設定する
 void EnemyCommandStraight::SetNextTargetPos() {
 	//エネミー本体の座標
-	GSvector2 pos = p_Enemy->getPosition();
+	GSvector2 pos=p_Enemy->getPosition();
 	//マップ
 	Map& map = p_Enemy->getWorld()->GetMap();
 	//自分+背面のマス数
