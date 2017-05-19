@@ -72,5 +72,6 @@ HitPoint & EnemyBase::GetHitPoint() {
 //メッセージ処理
 void EnemyBase::onMessage(EventMessage message, void* param) {
 	//メッセージ処理
+	p_CommandManager->handleMessage(message, param);
 	p_StateManager->handleMessage(message, param);
 }

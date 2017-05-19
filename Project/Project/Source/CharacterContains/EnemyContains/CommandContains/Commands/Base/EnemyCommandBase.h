@@ -28,6 +28,8 @@ public:
 	bool IsEnd() override;
 	//次コマンドの取得
 	EnemyCommandName GetNextCommand() const override;
+	//メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param)override {}
 	//命令ステート
 	virtual EnemyStateName GetCurrentStateName() const override;
 	//目標地点までの移動ベクトルの取得

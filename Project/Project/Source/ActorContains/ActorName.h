@@ -11,6 +11,7 @@ enum class ActorName
 	Enemy_01,			//横から挟めないやつ
 	Enemy_02,			//回転しながら打つやつ
 	Enemy_03,			//ストーカー
+	Enemy_04,			//挟まれたら動くやつ
 
 	/* ニュートラルグループ */
 	Neutral_Explosion,	//爆発

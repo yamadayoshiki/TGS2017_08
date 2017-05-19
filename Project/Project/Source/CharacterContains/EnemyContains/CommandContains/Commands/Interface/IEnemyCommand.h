@@ -6,6 +6,7 @@ enum class EnemyStateName;
 enum class EnemyCommandName;
 struct GSvector2;
 class EnemyBase;
+enum class EventMessage;
 
 //エネミーに対するコマンドインターフェイス
 class IEnemyCommand
@@ -23,6 +24,8 @@ public:
 	virtual bool IsEnd() = 0;
 	//次コマンドの取得
 	virtual EnemyCommandName GetNextCommand() const = 0;
+	//メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param) = 0;
 	//命令ステート
 	virtual EnemyStateName GetCurrentStateName() const = 0;
 	//目標地点までの移動ベクトルの取得

@@ -59,3 +59,8 @@ void EnemyCommandManagerBase::Change(const EnemyCommandName name) {
 	p_CurCommand = m_CommandDic[name];
 	p_CurCommand->Initialize();
 }
+
+//メッセージ処理
+void EnemyCommandManagerBase::handleMessage(EventMessage message, void * param) {
+	p_CurCommand->handleMessage(message, param);
+}

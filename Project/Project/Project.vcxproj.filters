@@ -549,12 +549,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -652,6 +646,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Define\Def_Float.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy04\Enemy04.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -926,12 +923,6 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -996,6 +987,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\ActorContains\HitPoint\HitPoint.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy04\Enemy04.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

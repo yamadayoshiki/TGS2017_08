@@ -7,6 +7,7 @@
 enum class EnemyCommandName;
 enum class EnemyStateName;
 struct GSvector2;
+enum class EventMessage;
 
 //エネミーコマンドマネージャインターフェイス
 class IEnemyCommandManager
@@ -24,6 +25,8 @@ public:
 	virtual void AddDic(EnemyCommandName name, const IEnemyCommandPtr& command) = 0;
 	//コマンド変更
 	virtual void Change(const EnemyCommandName name) = 0;
+	//メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param) = 0;
 
 public:
 	//命令ステートの取得

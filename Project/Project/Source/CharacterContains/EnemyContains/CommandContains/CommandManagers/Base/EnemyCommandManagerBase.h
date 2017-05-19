@@ -26,6 +26,8 @@ public:
 	void AddDic(EnemyCommandName name, const IEnemyCommandPtr& command) override;
 	//コマンド変更
 	void Change(const EnemyCommandName name) override;
+	//メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param) override;
 
 public:
 	//命令ステートの取得
