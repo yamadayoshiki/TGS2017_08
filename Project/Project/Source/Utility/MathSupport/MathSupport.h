@@ -21,6 +21,9 @@ namespace MathSupport
 
 	// 座標をマスに変換
 	Point2 GetVector2ToPoint2(const GSvector2 vector);
+
+	//角度の正規化(-180<value<=180)
+	float GetAngleNomalize(const float angle);
 }
 
 #endif

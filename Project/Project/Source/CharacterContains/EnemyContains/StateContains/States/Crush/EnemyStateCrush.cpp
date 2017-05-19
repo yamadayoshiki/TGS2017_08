@@ -1,4 +1,8 @@
 #include "EnemyStateCrush.h"
+#include "../../../Enemys/Base/EnemyBase.h"
+#include "../../../../../WorldContains/IWorld.h"
+#include "../../../../../WorldContains/EventMessage/EventMessage.h"
+
 
 //コンストラクタ
 EnemyStateCrush::EnemyStateCrush(
@@ -10,15 +14,17 @@ EnemyStateCrush::EnemyStateCrush(
 void EnemyStateCrush::unique_init() {
 	//モーションの変更
 
+	//ダメージを受ける
+	p_Enemy->GetHitPoint().Decrease(1);
 }
 
 // 更新処理
 void EnemyStateCrush::update(float deltaTime) {
-	//ダメージによるHPの減少
+	if (p_Enemy->GetHitPoint().IsDead() == true)
+		change(EnemyStateName::Dead);
 
-
-	//離されたら待機状態に遷移
-
+	else
+		change(EnemyStateName::Caught);
 }
 
 // 衝突判定

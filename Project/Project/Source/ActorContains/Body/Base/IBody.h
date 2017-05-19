@@ -16,7 +16,7 @@ class OrientedBoundingBox;
 class Ray;
 
 // Bodyインターフェースクラス
-class IBody{
+class IBody {
 public:
 	// コンストラクタ
 	IBody() {}

@@ -612,12 +612,6 @@
     <ClInclude Include="Source\Wall\BreakWall.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\CharacterManagerContains\CharacterManager\CharacterManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\CharacterManagerContains\ICharacterManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -645,9 +639,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Null\EnemyCommandNull.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\TestEnemy01\TestEnemy01.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\WorldContains\EventMessage\EventMessage.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -655,6 +646,12 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Map\MapType.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\HitPoint\HitPoint.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Define\Def_Float.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -983,9 +980,6 @@
     <ClCompile Include="Source\Wall\BreakWall.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\CharacterManagerContains\CharacterManager\CharacterManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -1001,7 +995,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\TestEnemy01\TestEnemy01.cpp">
+    <ClCompile Include="Source\ActorContains\HitPoint\HitPoint.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

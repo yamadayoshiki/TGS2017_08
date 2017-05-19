@@ -10,7 +10,6 @@
 #include"../../ActorContains/ActorManager/ActorManagerPtr.h"
 #include"../../MapGenerator/MapGeneratorPtr.h"
 
-#include"../../CharacterContains/CharacterManagerContains/CharacterManager/CharacterManager.h"
 
 enum class EventMessage;
 enum class SceneName;
@@ -42,11 +41,6 @@ public:
 	// メッセージの送信(指定アクター)
 	virtual void sendMessage(EventMessage message, Actor& actor, void* param = nullptr) override;
 
-	//キャラクターマネージャーの取得
-	virtual CharacterManager* getCharacterManager()override;
-	//キャラクターマネージャーの設定
-	virtual void setCharacterManager(CharacterManager* characterManager)override;
-
 	//生成
 	void generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name);
 	//マップの取得
@@ -72,8 +66,6 @@ private:
 	MapGeneratorPtr p_MapGenerator;
 	// 
 	SceneName m_NextScene;
-	//キャラクターマネージャー
-	CharacterManager* p_CharacterManager;
 	// 
 	bool m_IsEnd;
 };

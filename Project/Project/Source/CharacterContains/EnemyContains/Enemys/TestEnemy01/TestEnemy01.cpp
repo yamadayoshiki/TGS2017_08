@@ -15,6 +15,7 @@ TestEnemy01::TestEnemy01(
 		ActorName::Enemy_01,
 		position,
 		1.0f,
+		10,
 		gameManager,
 		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()))
 	, command(new EnemyCommandStraight(std::enable_shared_from_this<EnemyBase>::shared_from_this(), FourDirection(FourDirectionName::Right))) {

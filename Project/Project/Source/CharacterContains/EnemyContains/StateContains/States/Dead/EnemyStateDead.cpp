@@ -1,4 +1,7 @@
 #include "EnemyStateDead.h"
+#include "../../../Enemys/Base/EnemyBase.h"
+#include "../../../../../WorldContains/IWorld.h"
+#include "../../../../../WorldContains/EventMessage/EventMessage.h"
 
 //コンストラクタ
 EnemyStateDead::EnemyStateDead(
@@ -11,15 +14,19 @@ void EnemyStateDead::unique_init() {
 	//アニメーションの変更
 
 }
+
 // 更新処理
 void EnemyStateDead::update(float deltaTime) {
+	p_Enemy->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDSLOST);
 	//アニメーションが終了したらActorから削除
-
+	p_Enemy->dead();
 }
+
 // 衝突判定
 void EnemyStateDead::collide(const Actor & other) {
 
 }
+
 // 終了時の処理
 void EnemyStateDead::end() {
 

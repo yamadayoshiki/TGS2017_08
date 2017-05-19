@@ -6,7 +6,6 @@
 #include"../PlayerState/PlayerStateManager.h"
 #include"../../../WorldContains/IWorld.h"
 #include"../Arm/ArmPtr.h"
-#include"../../CharacterManagerContains/CharacterManager/CharacterManager.h"
 #include"../../../Map/Map.h"
 #include<memory>
 
@@ -38,8 +37,6 @@ protected:
 private:
 	//状態管理
 	PlayerStateManager*		mStateManager;
-	//
-	CharacterManager*		p_CharacterManager;
 	//レンダラー
 	Renderer2DPtr			p_Renderer;
 	//マップデータ

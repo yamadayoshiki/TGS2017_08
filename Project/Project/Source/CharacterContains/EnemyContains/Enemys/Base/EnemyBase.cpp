@@ -9,11 +9,13 @@ EnemyBase::EnemyBase(
 	const ActorName& name,
 	const GSvector2& position,
 	const float speed,
+	const int maxHp,
 	const IGameManagerPtr& gameManager,
 	const ITexturePtr& texture,
 	const IBodyPtr& body)
 	: Actor(world, name, position, gameManager, texture, body)
-	, m_Speed(speed) {
+	, m_Speed(speed)
+	, m_HitPoint(maxHp) {
 }
 
 //デストラクタ
@@ -60,6 +62,11 @@ EnemyStateManager* EnemyBase::GetStateManager() {
 //コマンドマネージャーを取得する
 IEnemyCommandManagerPtr EnemyBase::GetCommandManager() {
 	return p_CommandManager;
+}
+
+//ヒットポイントを取得する
+HitPoint & EnemyBase::GetHitPoint() {
+	return m_HitPoint;
 }
 
 //メッセージ処理

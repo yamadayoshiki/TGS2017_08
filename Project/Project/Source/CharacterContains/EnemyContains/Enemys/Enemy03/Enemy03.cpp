@@ -13,6 +13,7 @@ Enemy03::Enemy03(
 		ActorName::Enemy_03,
 		position,
 		1.0f,
+		10,
 		gameManager,
 		std::make_shared<Texture>("Enemy03", gameManager->GetRenderer2D())) {
 }

@@ -2,6 +2,7 @@
 #include <gslib.h>
 #include "../../Define/Def_Nakayama.h"
 #include "../PathFinder/Point2.h"
+#include "../../Define/Def_Float.h"
 
 // 二つのベクトルの角度を求める(-180<value<=180)
 float MathSupport::GetVec2ToVec2Angle(const GSvector2& dynamic, const GSvector2& base) {
@@ -32,8 +33,10 @@ float MathSupport::GetVec2ToVec2Angle(const GSvector2& dynamic, const GSvector2&
 
 // ベクトルの回転
 GSvector2 MathSupport::RotateVector(const GSvector2 & pos, const float & angle) {
+	float f_angle = GetAngleNomalize(angle);
+
 	// 回転後のベクトルを返す
-	return GSvector2(pos.x * gsCos(angle) - pos.y * gsSin(angle), pos.x * gsSin(angle) + pos.y * gsCos(angle));
+	return GSvector2(pos.x * gsCos(f_angle) - pos.y * gsSin(f_angle), pos.x * gsSin(f_angle) + pos.y * gsCos(f_angle));
 }
 
 
@@ -61,6 +64,21 @@ Point2 MathSupport::GetVector2ToPoint2(const GSvector2 vector)
 
 	result.x = x;
 	result.y = y;
+
+	return result;
+}
+
+//角度の正規化(-180<value<=180)
+float MathSupport::GetAngleNomalize(const float angle) {
+	float result = angle;
+	if (result >= 180.0f)
+		result = 180.0f;
+
+	else if (-180.0f >= result)
+		result = -180.0f;
+
+	if (-180.0f == result)
+		result = 180.0f;
 
 	return result;
 }

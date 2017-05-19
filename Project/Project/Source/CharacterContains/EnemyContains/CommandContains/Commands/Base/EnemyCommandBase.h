@@ -2,10 +2,13 @@
 #define ENEMYCOMMANDBASE_H_
 
 #include <gslib.h>
+#include <vector>
 #include "../Interface/IEnemyCommand.h"
 #include "../../../StateContains/States/EnemyStateName.h"
 #include "../../../Enemys/Base/EnemyBasePtr.h"
 #include "../EnemyCommandName.h"
+#include "../../../../../Map/MapType.h"
+#include "../../../../../Utility/FourDirection/FourDirection.h"
 
 //エネミーに対するコマンド基底クラス
 class EnemyCommandBase :public IEnemyCommand
@@ -38,6 +41,10 @@ protected:
 	virtual void OnInitialize() {}
 	//コマンド変更
 	void Change(EnemyCommandName next);
+
+protected:
+	//指定方向,自身からのマップ配列
+	std::vector<int> GetFrontMapData(const FourDirectionName fourDirectionName, MapType type = MapType::Default);
 
 protected:
 	EnemyBasePtr p_Enemy;			//エネミー本体

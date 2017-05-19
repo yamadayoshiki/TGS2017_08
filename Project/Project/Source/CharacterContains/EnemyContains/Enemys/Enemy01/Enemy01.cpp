@@ -32,6 +32,7 @@ Enemy01::Enemy01(
 		ActorName::Enemy_01,
 		position,
 		1.0f,
+		10,
 		gameManager,
 		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
 		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
@@ -43,11 +44,11 @@ void Enemy01::SetUpCommand() {
 	//ê∂ê¨
 	p_CommandManager = std::make_shared<EnemyCommandManagerNormal>(shared_from_this());
 	//Commandí«â¡
-	p_CommandManager->AddDic(EnemyCommandName::Straight, std::make_shared<EnemyCommandStraight>(shared_from_this(), FourDirection(p_Body->forward())));
+	p_CommandManager->AddDic(EnemyCommandName::Straight, std::make_shared<EnemyCommandStraight>(shared_from_this(), FourDirection(m_Transform.m_Angle), MapType::Double));
 	p_CommandManager->AddDic(EnemyCommandName::AlongWallMoveAntiClockwise, std::make_shared<EnemyCommandAlongWallMove>(shared_from_this(), TurnDirection(TurnDirectionName::AntiClockwise)));
 	p_CommandManager->AddDic(EnemyCommandName::AlongWallMoveClockwise, std::make_shared<EnemyCommandAlongWallMove>(shared_from_this(), TurnDirection(TurnDirectionName::Clockwise)));
 	//èâä˙Commandê›íË
-	p_CommandManager->Change(EnemyCommandName::AlongWallMoveAntiClockwise);
+	p_CommandManager->Change(EnemyCommandName::Straight);
 }
 
 //äeéÌå≈óLÇÃStateÇÃê›íË
@@ -68,13 +69,13 @@ void Enemy01::SetUpState() {
 void Enemy01::onDraw() const {
 	p_Body->transform(getTransform())->draw();
 
-	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
-	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy01"));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy01", param);
+	//Texture2DParameter param;
+	//param.SetPosition(m_Transform.m_Position);
+	//param.SetCenter({ 16.0f, 16.0f });
+	//param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy01"));
+	//param.SetScale({ 1.0f , 1.0f });
+	//param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	//p_GameManager->GetRenderer2D()->DrawTexture("Enemy01", param);
 }
 
 //è’ìÀÇµÇΩ

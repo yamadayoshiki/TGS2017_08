@@ -6,12 +6,14 @@
 #include "../../../../../Define/Def_GSvector2.h"
 #include"../../../../../Define/Def_Nakayama.h"	//for CHIP_SIZE
 #include "../../../../../Define/Def_Float.h"	//for FLOAT_EPSILON
+#include "../../../../../Map/MapType.h"
 
 //コンストラクタ
-EnemyCommandStraight::EnemyCommandStraight(const EnemyBasePtr& enemy, const FourDirection front)
+EnemyCommandStraight::EnemyCommandStraight(const EnemyBasePtr& enemy, const FourDirection front, const MapType type)
 	: EnemyCommandBase(enemy)
 	, m_NextTargetPos(GSVECTOR2_ZERO)
-	, m_CurFront(front) {
+	, m_CurFront(front)
+	, m_Type(type) {
 	SetNextTargetPos();
 }
 
@@ -64,55 +66,8 @@ bool EnemyCommandStraight::CheckFrontWall() {
 
 //次の目標地点を設定する
 void EnemyCommandStraight::SetNextTargetPos() {
-	//エネミー本体の座標
-	GSvector2 pos=p_Enemy->getPosition();
-	//マップ
-	Map& map = p_Enemy->getWorld()->GetMap();
-	//自分+背面のマス数
-	int backChipNum;
-	//正面進行方向の配列の作成
-	std::vector<int> line;
-	switch (m_CurFront.name)
-	{
-	case FourDirectionName::Up:
-		//縦軸Map配列
-		line = map.GetRow(pos);
-		//逆順に整理
-		std::reverse(begin(line), end(line));
-		//自分を含めない上からのマス数
-		backChipNum = pos.y / CHIP_SIZE;
-		//自分を含めた背面のマス数
-		backChipNum = map.GetHeight() - backChipNum;
-		break;
-
-	case FourDirectionName::Down:
-		//縦軸Map配列
-		line = map.GetRow(pos);
-		//自分を含めた上からのマス数
-		backChipNum = pos.y / CHIP_SIZE + 1;
-		break;
-
-	case FourDirectionName::Left:
-		//横軸Map配列
-		line = map.GetColumn(pos);
-		//逆順に整理
-		std::reverse(begin(line), end(line));
-		//自分を含めない左からのマス数
-		backChipNum = pos.x / CHIP_SIZE;
-		//自分を含めた背面のマス数
-		backChipNum = map.GetWidth() - backChipNum;
-		break;
-
-	case FourDirectionName::Right:
-		//横軸Map配列
-		line = map.GetColumn(pos);
-		//自分を含めた左からのマス数
-		backChipNum = pos.x / CHIP_SIZE + 1;
-		break;
-
-	default:
-		return;
-	}
+	//正面のマップ配列
+	std::vector<int> line = GetFrontMapData(m_CurFront.name, m_Type);
 
 	//進行可能マス数
 	int chipNum = 0;
@@ -120,10 +75,6 @@ void EnemyCommandStraight::SetNextTargetPos() {
 	//正面何マス目まで進めるか
 	for (int i = 0; i < line.size(); i++)
 	{
-		//背面のマスは無視
-		if (backChipNum > i)
-			continue;
-
 		//壁マスか
 		if (line[i] == 1)
 			break;
@@ -133,7 +84,8 @@ void EnemyCommandStraight::SetNextTargetPos() {
 	}
 
 	//進行ベクトル
-	GSvector2 frontVector = m_CurFront.GetVector2()*CHIP_SIZE*chipNum;
+	GSvector2 frontVector = m_CurFront.GetVector2();
+	frontVector = frontVector * (CHIP_SIZE* ((int)m_Type + 1)) * chipNum;
 	//次の目標地点の設定
-	m_NextTargetPos = pos + frontVector;
+	m_NextTargetPos = p_Enemy->getPosition() + frontVector;
 }

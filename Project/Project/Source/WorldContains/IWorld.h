@@ -9,7 +9,6 @@
 enum class ActorGroup;
 enum class EventMessage;
 class Map;
-class CharacterManager;
 
 // ワールド抽象インターフェース 
 class IWorld
@@ -29,10 +28,6 @@ public:
 	virtual void sendMessage(EventMessage message, void* param = nullptr) = 0;
 	// メッセージの送信(指定アクター)
 	virtual void sendMessage(EventMessage message, Actor& actor, void* param = nullptr) = 0;
-	//キャラクターマネージャーの取得
-	virtual CharacterManager* getCharacterManager() = 0;
-	//キャラクターマネージャーの設定
-	virtual void setCharacterManager(CharacterManager* characterManager) = 0;
 	//マップの取得
 	virtual Map& GetMap() = 0;
 protected:

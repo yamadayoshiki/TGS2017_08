@@ -19,7 +19,7 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 		gameManager,
 		std::make_shared<NullTexture>(),
 		std::make_shared<OrientedBoundingBox>(GSvector2{ 0, 0 }, -90.0f, GSvector2{ 2.0f, 2.0f })), angle(0.0f)
-	,p_Map(p_World->GetMap())
+	, p_Map(p_World->GetMap())
 {
 	p_Renderer = gameManager->GetRenderer2D();
 }
@@ -31,9 +31,6 @@ Player::~Player() {
 //初期化
 void Player::initialize()
 {
-	//キャラクターマネージャーの設定
-	//p_CharacterManager = p_World->getCharacterManager();
-
 	//プレイヤーパラメーターの設定
 	m_Parameter = p_GameManager->GetPlayerParameter();
 

@@ -35,7 +35,6 @@ void World::draw() const
 //終了処理
 void World::Finalize()
 {
-	delete p_CharacterManager;
 }
 
 // メッセージ処理 
@@ -114,17 +113,6 @@ void World::ResetEnd() {
 
 SceneName World::NextScene() {
 	return m_NextScene;
-}
-
-//キャラクターマネージャーの取得
-CharacterManager* World::getCharacterManager()
-{
-	return p_CharacterManager;
-}
-//キャラクターマネージャーの設定
-void World::setCharacterManager(CharacterManager* characterManager)
-{
-	p_CharacterManager = characterManager;
 }
 
 ////マップジェネレーターの設定

@@ -2,7 +2,6 @@
 #define ENEMYSTATECAUGHT_H_
 
 #include "../Base/EnemyStateBase.h"
-#include "../../../../CharacterManagerContains/CharacterManager/CharacterManager.h"
 
 
 class EnemyStateCaught :public EnemyStateBase

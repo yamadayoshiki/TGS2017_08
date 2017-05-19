@@ -8,7 +8,6 @@
 #include"../../CharacterContains/PlayerContains/Player/Player.h"
 #include"../../ActorContains/Object/TestEnemy.h"
 #include"../../CharacterContains/EnemyContains/Enemys/Enemy01/Enemy01.h"
-#include"../../CharacterContains/CharacterManagerContains/CharacterManager/CharacterManager.h"
 
 // コンストラクタ    
 yamadaScene::yamadaScene(const IGameManagerPtr& gameManager)
@@ -18,8 +17,6 @@ yamadaScene::yamadaScene(const IGameManagerPtr& gameManager)
 // 開始     
 void yamadaScene::OnStart()
 {
-	//キャラクターマネージャー
-	p_World->setCharacterManager(new CharacterManager());
 	//プレイヤー生成
 	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World.get(), GSvector2(0.0f, 0.0f), p_GameManager));
 	//TestEnemyの生成

@@ -16,7 +16,7 @@
 //グリッド座標
 class Point2;
 
-class Map{
+class Map {
 public:
 	//コンストラクタ
 	Map(const IGameManagerPtr& gameManager);
@@ -29,9 +29,9 @@ public:
 	//周りのタイルデータの取得
 	std::unordered_map<FourDirection, TileData>GetAroundTile(const GSvector2& position, const MapType& type = MapType::Default);
 	//指定された座標の縦軸のブロックの取得
-	std::vector<int>GetRow(const GSvector2& position);
+	std::vector<int>GetRow(const GSvector2& position, const MapType& type = MapType::Default);
 	//指定された座標の横軸のブロックの取得
-	std::vector<int>GetColumn(const GSvector2& position);
+	std::vector<int>GetColumn(const GSvector2& position, const MapType& type = MapType::Default);
 	//タイルデータの取得
 	TileData GetTileData(int column, int row, const MapType& type = MapType::Default);
 	// 正面に壁があるか無いか

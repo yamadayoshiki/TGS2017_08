@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\ActorContains\HitPoint\HitPoint.h" />
     <ClInclude Include="Source\ActorContains\Transform\Transform.h" />
     <ClInclude Include="Source\ActorContains\ActorGroup.h" />
     <ClInclude Include="Source\ActorContains\ActorManager\ActorManager.h" />
@@ -157,8 +158,6 @@
     <ClInclude Include="Source\Base\GameManagerContains\IGameManager.h" />
     <ClInclude Include="Source\Base\GameManagerContains\IGameManagerPtr.h" />
     <ClInclude Include="Source\Base\GameManager\GameManager.h" />
-    <ClInclude Include="Source\CharacterContains\CharacterManagerContains\CharacterManager\CharacterManager.h" />
-    <ClInclude Include="Source\CharacterContains\CharacterManagerContains\ICharacterManager.h" />
     <ClInclude Include="Source\CharacterContains\Character\Character.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\BaseContains\Enemy_BaseStatePtr.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Approach_FixedDistance\Enemy_Command_Approach_FixedDistance.h" />
@@ -207,7 +206,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.h" />
-    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\TestEnemy01\TestEnemy01.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_01\Enemy_01.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_ForDirectionShot\Enemy_ForDirectionShot.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemy_Rush\Enemy_Rush.h" />
@@ -263,6 +261,7 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.h" />
+    <ClInclude Include="Source\Define\Def_Float.h" />
     <ClInclude Include="Source\Define\Def_GSvector2.h" />
     <ClInclude Include="Source\Define\Def_Nagano.h" />
     <ClInclude Include="Source\Define\Def_Nakayama.h" />
@@ -348,6 +347,7 @@
     <ClCompile Include="Source\ActorContains\Body\Collision\Collision.cpp" />
     <ClCompile Include="Source\ActorContains\Body\OrientedBoundingBox.cpp" />
     <ClCompile Include="Source\ActorContains\Body\Ray.cpp" />
+    <ClCompile Include="Source\ActorContains\HitPoint\HitPoint.cpp" />
     <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />
     <ClCompile Include="Source\ActorContains\Object\TestEnemy.cpp" />
     <ClCompile Include="Source\ActorContains\Object\TestObj.cpp" />
@@ -355,7 +355,6 @@
     <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp" />
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
-    <ClCompile Include="Source\CharacterContains\CharacterManagerContains\CharacterManager\CharacterManager.cpp" />
     <ClCompile Include="Source\CharacterContains\Character\Character.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.cpp" />
@@ -373,7 +372,6 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy01\Enemy01.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\TestEnemy01\TestEnemy01.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\AttackBase\EnemyStateAttackBase.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.cpp" />

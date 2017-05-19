@@ -47,7 +47,10 @@ public:
 	// 角度の取得
 	virtual float angle() const override { return mTransform.m_Angle; }
 	// 前方ベクトルの取得
-	virtual GSvector2 forward() const override { return MathSupport::RotateVector(GSvector2(1.0f, 0.0f), mTransform.m_Angle).normalize(); }
+	virtual GSvector2 forward() const override {
+		GSvector2 result = MathSupport::RotateVector(GSvector2(1.0f, 0.0f), mTransform.m_Angle);
+		return result.getNormalized();
+	}
 
 	// 半径の取得
 	virtual float radius() const override { return mRadius; }

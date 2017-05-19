@@ -4,6 +4,7 @@
 #include "../../../../ActorContains/State/Base/State.h"
 #include "../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../CommandContains/CommandManagers/Interface/IEnemyCommandManagerPtr.h"
+#include "../../../../ActorContains/HitPoint/HitPoint.h"
 
 //先行宣言
 class EnemyStateManager;
@@ -14,14 +15,15 @@ class EnemyBase :public Actor, public std::enable_shared_from_this<EnemyBase>
 public:
 	//コンストラクタ
 	EnemyBase(
-		IWorld* world,
-		const ActorName& name,
-		const GSvector2& position,
-		const float speed,
-		const IGameManagerPtr& gameManager,
-		const ITexturePtr& texture,
-		const IBodyPtr& body = std::make_shared<DammyBody>());
-	//デストラクタ
+		IWorld* world,													//ワールド
+		const ActorName& name,											//名前
+		const GSvector2& position,										//座標
+		const float speed,												//移動速度
+		const int maxHp,												//ヒットポイント
+		const IGameManagerPtr& gameManager,								//ゲームマネージャ
+		const ITexturePtr& texture,										//テクスチャ
+		const IBodyPtr& body = std::make_shared<DammyBody>());			//衝突判定図形
+																		//デストラクタ
 	virtual ~EnemyBase();
 	//初期化
 	virtual void initialize() override;
@@ -29,6 +31,8 @@ public:
 	EnemyStateManager* GetStateManager();
 	//コマンドマネージャーを取得する
 	IEnemyCommandManagerPtr GetCommandManager();
+	//ヒットポイントを取得する
+	HitPoint& GetHitPoint();
 
 protected:
 	//各種固有のコマンドの設定
@@ -46,6 +50,7 @@ protected:
 
 protected:
 	float m_Speed;									//スピード
+	HitPoint m_HitPoint;							//ヒットポイント
 	EnemyStateManager* p_StateManager;				//ステートマネージャー
 	IEnemyCommandManagerPtr p_CommandManager;		//コマンドマネージャー
 };

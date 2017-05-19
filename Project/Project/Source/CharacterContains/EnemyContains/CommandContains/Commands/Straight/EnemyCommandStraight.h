@@ -3,13 +3,14 @@
 
 #include "../Base/EnemyCommandBase.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
+#include "../../../../../Map/MapType.h"
 
 //直進クラス
 class EnemyCommandStraight :public EnemyCommandBase
 {
 public:
 	//コンストラクタ
-	EnemyCommandStraight(const EnemyBasePtr& enemy, const FourDirection front);
+	EnemyCommandStraight(const EnemyBasePtr& enemy, const FourDirection front, const MapType type);
 	//更新
 	virtual void Update(float deltaTime) override;
 	//終了
@@ -30,6 +31,7 @@ protected:
 protected:
 	GSvector2 m_NextTargetPos;		//次の目標地点
 	FourDirection m_CurFront;		//現在向いている方向
+	MapType m_Type;
 };
 
 #endif // !ENMYCOMMANDSTRAIGHT_H_

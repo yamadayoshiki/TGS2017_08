@@ -6,7 +6,7 @@
 #include <algorithm>
 //コンストラクタ
 Map::Map(const IGameManagerPtr& gameManager) :
-	p_GameManager(gameManager){
+	p_GameManager(gameManager) {
 	p_GameManager->GetRenderer2D()->LoadTexture("chip", "Resource/Texture/wall.png");
 }
 
@@ -29,11 +29,11 @@ void Map::draw(const MapType& type)
 }
 
 //マップの取得
-MapData& Map::getmap(const MapType& type){
+MapData& Map::getmap(const MapType& type) {
 	return m_Maps[type];
 }
 
-void Map::regist(const MapData& data, const MapType& type){
+void Map::regist(const MapData& data, const MapType& type) {
 	// 行のループ
 	for (int i = 0; i < data.size(); i += ((int)type + 1)) {
 		std::vector<int> tmp;
@@ -67,27 +67,27 @@ std::unordered_map<FourDirection, TileData> Map::GetAroundTile(const GSvector2& 
 }
 
 //指定された座標の縦軸のブロックの取得
-std::vector<int> Map::GetRow(const GSvector2 & position) {
-	int x = position.x / CHIP_SIZE;
+std::vector<int> Map::GetRow(const GSvector2 & position, const MapType& type) {
+	int x = position.x / (CHIP_SIZE* ((int)type + 1));
 
 	std::vector<int> tmp;
 
-	for (int i = 0; i < m_Maps[MapType::Default].size(); i++) {
-		tmp.push_back(m_Maps[MapType::Default][i][x]);
+	for (int i = 0; i < m_Maps[type].size(); i++) {
+		tmp.push_back(m_Maps[type][i][x]);
 	}
 
 	return tmp;
 }
 
 //指定された座標の横軸のブロックの取得
-std::vector<int> Map::GetColumn(const GSvector2 & position) {
-	int y = position.y / CHIP_SIZE;
+std::vector<int> Map::GetColumn(const GSvector2 & position, const MapType& type) {
+	int y = position.y / (CHIP_SIZE* ((int)type + 1));
 
-	return m_Maps[MapType::Default][y];
+	return m_Maps[type][y];
 }
 
 //タイルデータの取得
-TileData Map::GetTileData(int column, int row, const MapType& type){
+TileData Map::GetTileData(int column, int row, const MapType& type) {
 	int size = CHIP_SIZE * ((int)type + 1);
 	int x = CLAMP(column, 0, 100000);
 	int y = CLAMP(row, 0, 100000);
@@ -110,7 +110,7 @@ bool Map::IsInFrontOfTheWall(const GSvector2 & pos, FourDirection direction, con
 	return false;
 }
 
-GSvector2 Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& target_pos){
+GSvector2 Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& target_pos) {
 	GSvector2 result = target_pos;
 
 	auto deta = GetAroundTile(current_pos, MapType::Double);
