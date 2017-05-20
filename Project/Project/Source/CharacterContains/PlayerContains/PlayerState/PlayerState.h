@@ -30,6 +30,8 @@ protected:
 	void move(float deltaTime, float speed = 1.0f);
 	//アーム更新
 	void armUpdate();
+	//視野角内にいるか
+	bool is_Scorp_Angle(GSvector2 myVector,GSvector2 targetVector);
 
 protected:
 	//プレイヤー本体
@@ -46,6 +48,8 @@ protected:
 	InputStatePtr		p_Input;
 	//Map
 	Map&				m_Map;
+	//フレームカウンター
+	float				m_FramConter{0.0f};
 
 private:
 	GSvector2			inputVelocity;

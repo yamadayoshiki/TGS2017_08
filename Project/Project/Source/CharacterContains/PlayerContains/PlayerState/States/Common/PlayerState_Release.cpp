@@ -9,12 +9,16 @@ PlayerState_Release::PlayerState_Release(const PlayerPtr& player, IGameManagerPt
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Release::unique_init()
 {
-	change(PlayerStateName::Close);
+	m_FramConter = 0.0f;
 }
 //XVˆ—
 void PlayerState_Release::update(float deltaTaime)
 {
-
+	/*if (m_FramConter > 10)
+	{*/
+		change(PlayerStateName::Open);
+	//}
+	m_FramConter += deltaTaime;
 }
 //Õ“Ë”»’è
 void PlayerState_Release::collide(const Actor& other)

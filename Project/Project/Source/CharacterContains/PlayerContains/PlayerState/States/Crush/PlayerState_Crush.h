@@ -15,9 +15,9 @@ public:
 	//衝突判定
 	virtual void collide(const Actor& other)override;
 	//終了処理
-	virtual void end()override;
+	virtual void end()override{}
 	//入力処理
-	virtual void input() override;
+	virtual void input() override{}
 	//メッセージ処理
 	virtual void handleMessage(EventMessage massege, void* param)override;
 

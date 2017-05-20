@@ -60,6 +60,7 @@ void Player::onDraw()const
 
 	Texture2DParameter param;
 	param.SetPosition(m_Transform.m_Position);
+	param.SetRotate(m_Transform.m_Angle - 90);
 	param.SetCenter({ 32.0f, 32.0f });
 	param.SetRect(*p_Renderer->GetTextureRect("Player"));
 	param.SetScale({ 1.0f , 1.0f });

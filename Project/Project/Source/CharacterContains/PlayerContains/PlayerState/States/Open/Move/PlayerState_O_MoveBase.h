@@ -2,6 +2,7 @@
 #define PLAYERSTATE_0_MOVEBASE_H_
 
 #include"../../../PlayerState.h"
+#include"../../Normal/Move/PlayerState_MoveBase.h"
 
 class PlayerState_O_MoveBase:public PlayerState
 {

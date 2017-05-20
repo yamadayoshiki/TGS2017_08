@@ -10,13 +10,15 @@ PlayerState_Close::PlayerState_Close(const PlayerPtr& player, IGameManagerPtr ga
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Close::unique_init()
 {
-
+	m_FramConter = 0;
 }
 
 //XVˆ—
 void PlayerState_Close::update(float deltaTaime)
 {
-	change(PlayerStateName::Idle);
+	if (m_FramConter > 10)
+		change(PlayerStateName::Idle);
+	m_FramConter += deltaTaime;
 }
 
 //Õ“Ë”»’è

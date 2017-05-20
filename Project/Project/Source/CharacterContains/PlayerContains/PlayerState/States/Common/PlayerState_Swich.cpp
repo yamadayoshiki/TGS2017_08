@@ -29,24 +29,15 @@ void PlayerState_Swich::update(float deltaTaime)
 //衝突判定
 void PlayerState_Swich::collide(const Actor& other)
 {
-	//フラグ
-	bool flag = false;
 	//自分の方向ベクトル
-	GSvector2 tmp = p_Player->getBody()->forward();
-	tmp.normalize();
-
+	GSvector2 myVec = p_Player->getBody()->forward();
+	myVec.normalize();
 
 	//相手のベクトル
-	GSvector2 v = other.getPosition() - p_Player->getPosition();
-	v.normalize();
-	//自分と相手のベクトルからなす角を取る
-	float l_result1 = tmp.innerDegree(v);
-	//視野角内(30度)にいるか？
-	if (l_result1 <= 30.0f) {
-		flag = true;
-	}
-
-	if (m_Children[ActorName::Player_Arm]->isCollide(other) && flag == true) {
+	GSvector2 targetVec = other.getPosition() - p_Player->getPosition();
+	targetVec.normalize();
+	
+	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(myVec, targetVec)) {
 		m_Flag = true;
 		//相手に挟んだ情報を送る
 		p_Player->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));

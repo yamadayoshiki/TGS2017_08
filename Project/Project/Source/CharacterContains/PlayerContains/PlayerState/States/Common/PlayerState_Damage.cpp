@@ -15,7 +15,7 @@ void PlayerState_Damage::unique_init()
 //XVˆ—
 void PlayerState_Damage::update(float deltaTaime)
 {
-	if (m_Parameter.m_Remainig <= 0) {
+	if (m_Parameter.m_Remainig < 0) {
 		change(PlayerStateName::Dead);
 		return;
 	}

@@ -65,3 +65,23 @@ void PlayerState::move(float deltaTime, float speed)
 	}
 	//armUpdate();
 }
+
+//視野角内にいるか
+bool PlayerState::is_Scorp_Angle(GSvector2 myVector, GSvector2 targetVector)
+{
+	//自分の方向ベクトル
+	myVector.normalize();
+
+	//相手のベクトル
+	targetVector.normalize();
+
+	//自分と相手のベクトルからなす角を取る
+	float result = myVector.innerDegree(targetVector);
+
+	//視野角内(30度)にいるか？
+	if (result <= 30.0f) {
+		return true;
+	}
+
+	return false;
+}

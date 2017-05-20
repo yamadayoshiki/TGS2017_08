@@ -13,29 +13,22 @@ void PlayerState_Crush::unique_init()
 //更新処理
 void PlayerState_Crush::update(float deltaTime)
 {
-	if (p_Input->IsPadState(GS_XBOX_PAD_Y)) {
-		m_FrameCounter += deltaTime;
-	}
-
-	if (m_FrameCounter < 10 && p_Input->IsPadStatesDetach(GS_XBOX_PAD_Y)) {
-		change(PlayerStateName::Crush_Barrage);
-		m_FrameCounter = 0;
-	}
+	p_Player->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS);
 }
 //衝突判定
 void PlayerState_Crush::collide(const Actor& other)
 {
-	
-}
-//終了処理
-void PlayerState_Crush::end()
-{
+	//自分の方向ベクトル
+	GSvector2 myVec = p_Player->getBody()->forward();
+	myVec.normalize();
 
-}
-//入力処理
-void PlayerState_Crush::input()
-{
+	//相手のベクトル
+	GSvector2 targetVec = other.getPosition() - p_Player->getPosition();
+	targetVec.normalize();
+	//アームに当たっているかつ視野角内なら返す
+	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(myVec, targetVec))return;
 
+	if (other.getName() == ActorName::Enemy_01) change(PlayerStateName::Damage);
 }
 
 //メッセージ処理
@@ -43,6 +36,10 @@ void PlayerState_Crush::handleMessage(EventMessage massege, void* param)
 {
 	switch (massege)
 	{
+	case EventMessage::PLAYER_ROUNDS:
+		change(PlayerStateName::Rounds);
+		break;
+
 	case EventMessage::PLAYER_ROUNDSLOST:
 		change(PlayerStateName::Close);
 		break;

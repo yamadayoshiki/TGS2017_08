@@ -17,8 +17,6 @@ public:
 	//終了処理
 	virtual void end()override {}
 private:
-	//フレームカウンター
-	float		m_FrameCounter{ 0.0f };
 	//スタート地点
 	GSvector2	startPos;
 	//エンド地点

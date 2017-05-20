@@ -11,7 +11,7 @@ GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& i
 
 //ƒRƒ“ƒeƒ“ƒc‚Ì“Ç‚Ýž‚Ý
 void GameManager::LoadContent() {
-	p_Renderer2D->LoadTexture("Player", "Resource/white.png");
+	p_Renderer2D->LoadTexture("Player", "Resource/Texture/Player/jiki_close.png");
 	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy01.png");
 }
 

@@ -12,7 +12,7 @@ PlayerState_Dash::PlayerState_Dash(const PlayerPtr& player, IGameManagerPtr game
 void PlayerState_Dash::unique_init()
 {
 	//フレームカウンターの初期化
-	m_FrameCounter = 0.0f;
+	m_FramConter = 0.0f;
 	//スピード初期化
 	speed = 32.0f;
 	//Playerの方向ベクトル
@@ -35,7 +35,7 @@ void PlayerState_Dash::update(float deltaTime)
 	/*******************************************************************************************************************************/
 	
 	p_Player->setPosition(setPos);
-	if (speed >= 8.0f && m_FrameCounter > 3) {
+	if (speed >= 8.0f && m_FramConter > 3) {
 		speed = speed / 2.0f;
 	}
 	armUpdate();
@@ -48,12 +48,12 @@ void PlayerState_Dash::update(float deltaTime)
 		change(PlayerStateName::Walk);
 	}
 
-	m_FrameCounter += deltaTime;
+	m_FramConter += deltaTime;
 }
 //衝突処理
 void PlayerState_Dash::collide(const Actor& other)
 {
-	if (m_FrameCounter > 8) {
+	if (m_FramConter > 8) {
 		//敵との衝突処理
 		change(PlayerStateName::Damage);
 	}
