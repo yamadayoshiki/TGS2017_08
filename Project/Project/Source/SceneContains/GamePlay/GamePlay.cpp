@@ -31,10 +31,6 @@ void GamePlay::OnStart() {
 	Map map = p_World->GetMap();
 	std::unordered_map<FourDirection, TileData> tmp = map.GetAroundTile(GSvector2(70, 90));
 
-	GSvector2 tilePos = tmp[FourDirection(FourDirectionName::Down)].Position();
-	GSrect tileRect = tmp[FourDirection(FourDirectionName::Down)].Rectangle();
-	bool tileFlag = tmp[FourDirection(FourDirectionName::Down)].Flag();
-
 	//ƒvƒŒƒCƒ„[¶¬
 	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World.get(), GSvector2(CHIP_SIZE * 3, CHIP_SIZE * 7), p_GameManager));
 
@@ -48,10 +44,12 @@ void GamePlay::OnUpdate(float deltaTime)
 	gsTextPos(100, 100);
 	gsDrawText("GamePlay");
 
-
-	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
-		p_World->EndRequest(SceneName::GameTitle);
+	if (p_World->findActor(ActorName::Player) == nullptr || 
+		p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
+		p_World->EndRequest(SceneName::GameResult);
 	}
+
+	
 }
 
 void GamePlay::OnDraw() const {

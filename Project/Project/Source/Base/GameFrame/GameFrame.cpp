@@ -11,6 +11,7 @@
 #include"../../SceneContains/GameTitle/GameTitle.h"
 #include"../../SceneContains/GameSelect/GameSelect.h"
 #include"../../SceneContains/GamePlay/GamePlay.h"
+#include"../../SceneContains/GameResult/GameResult.h"
 #include"../../SceneContains/GameCredit/GameCredit.h"
 #include"../../SceneContains/GameEnd/GameEnd.h"
 
@@ -45,6 +46,7 @@ void GameFrame::start(){
 	p_GameManager->GetSceneEnum()->AddEnum("GameTitle", SceneName::GameTitle);
 	p_GameManager->GetSceneEnum()->AddEnum("GameSelect", SceneName::GameSelect);
 	p_GameManager->GetSceneEnum()->AddEnum("GamePlay", SceneName::GamePlay);
+	p_GameManager->GetSceneEnum()->AddEnum("GameResult", SceneName::GameResult);
 	p_GameManager->GetSceneEnum()->AddEnum("GameCredit", SceneName::GameCredit);
 	p_GameManager->GetSceneEnum()->AddEnum("GameEnd", SceneName::GameEnd);
 
@@ -52,6 +54,7 @@ void GameFrame::start(){
 	m_SceneManager.Add(SceneName::GameTitle, std::make_shared<GameTitle>(p_GameManager));
 	m_SceneManager.Add(SceneName::GameSelect, std::make_shared<GameSelect>(p_GameManager));
 	m_SceneManager.Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager));
+	m_SceneManager.Add(SceneName::GameResult, std::make_shared<GameResult>(p_GameManager));
 	m_SceneManager.Add(SceneName::GameCredit, std::make_shared<GameCredit>(p_GameManager));
 	m_SceneManager.Add(SceneName::GameEnd, std::make_shared<GameEnd>(p_GameManager));
 

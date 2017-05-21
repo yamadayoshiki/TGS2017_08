@@ -273,6 +273,7 @@
     <ClInclude Include="Source\SceneContains\GameCredit\GameCredit.h" />
     <ClInclude Include="Source\SceneContains\GameEnd\GameEnd.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\GamePlay.h" />
+    <ClInclude Include="Source\SceneContains\GameResult\GameResult.h" />
     <ClInclude Include="Source\SceneContains\GameSelect\GameSelect.h" />
     <ClInclude Include="Source\SceneContains\GameTitle\GameTitle.h" />
     <ClInclude Include="Source\SceneContains\IScene.h" />
@@ -411,6 +412,7 @@
     <ClCompile Include="Source\SceneContains\GameCredit\GameCredit.cpp" />
     <ClCompile Include="Source\SceneContains\GameEnd\GameEnd.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp" />
+    <ClCompile Include="Source\SceneContains\GameResult\GameResult.cpp" />
     <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
     <ClCompile Include="Source\SceneContains\NaganoScene\NaganoScene.cpp" />

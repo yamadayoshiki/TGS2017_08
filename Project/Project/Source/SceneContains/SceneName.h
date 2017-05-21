@@ -6,6 +6,7 @@ enum class SceneName
 	GameTitle = 0,		//タイトル
 	GameSelect,
 	GamePlay,			//ゲーム中
+	GameResult,
 	GameCredit,
 	GameEnd,
 
