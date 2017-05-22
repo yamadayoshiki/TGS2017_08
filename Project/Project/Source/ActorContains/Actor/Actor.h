@@ -88,6 +88,8 @@ public:
 	//”»’è‚ÌŒ`‚Ìæ“¾
 	IBodyPtr getBody() const;
 
+	int getCount() const;
+
 	//À•W‚Ìİ’è
 	void setPosition(const GSvector2& pos);
 	//Šp“x‚Ìİ’è

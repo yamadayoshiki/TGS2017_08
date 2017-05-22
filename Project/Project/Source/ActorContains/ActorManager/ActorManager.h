@@ -24,6 +24,8 @@ public:
 	// メッセージ処理     
 	void handleMessage(EventMessage message, void* param);
 
+	int getCount(ActorGroup group)const;
+
 	// コピー禁止     
 	ActorManager(const ActorManager& other) = delete;
 	ActorManager& operator = (const ActorManager& other) = delete;

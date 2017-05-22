@@ -201,6 +201,10 @@ IBodyPtr Actor::getBody() const {
 	return p_Body->transform(getTransform());
 }
 
+int Actor::getCount() const{
+	return std::distance(m_children.begin(), m_children.end());
+}
+
 //À•W‚ğİ’è
 void Actor::setPosition(const GSvector2 & pos) {
 	m_Transform.m_Position = pos;

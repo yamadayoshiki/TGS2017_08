@@ -58,6 +58,9 @@ void ActorManager::handleMessage(EventMessage message, void* param)
 	m_root.handleMessage(message, param);
 }
 
+int ActorManager::getCount(ActorGroup group) const{
+	return m_actors.at(group)->getCount();
+}
 
 //”CˆÓ‚ÌÕ“Ë”»’è
 void ActorManager::OptionalCollide(Actor* actor, ActorGroup actorGroup)

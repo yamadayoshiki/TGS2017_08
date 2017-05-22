@@ -42,7 +42,12 @@ void GamePlay::OnUpdate(float deltaTime)
 	gsTextPos(100, 100);
 	gsDrawText("GamePlay");
 
-	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
+	//if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_P)) {
+	//	p_World->findActor(ActorName::Enemy_01)->dead();
+	//}
+
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) || 
+		p_World->findActor(ActorName::EnemyManager)->getCount() <= 0) {
 		p_World->EndRequest(SceneName::GameResult);
 	}	
 }
