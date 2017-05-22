@@ -23,6 +23,7 @@ public:
 	ActorPtr findActor(const ActorName& name);
 	// メッセージ処理     
 	void handleMessage(EventMessage message, void* param);
+
 	// コピー禁止     
 	ActorManager(const ActorManager& other) = delete;
 	ActorManager& operator = (const ActorManager& other) = delete;

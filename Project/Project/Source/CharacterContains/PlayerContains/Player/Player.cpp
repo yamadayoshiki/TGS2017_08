@@ -85,6 +85,12 @@ Player_Parameter Player::getParameter()
 	return m_Parameter;
 }
 
+ActorPtr Player::clone(const GSvector2 & position)
+{
+	m_Transform.m_Position = position;
+	return shared_from_this();
+}
+
 //メッセージ処理
 void Player::onMessage(EventMessage message, void* param) {
 	//メッセージ処理

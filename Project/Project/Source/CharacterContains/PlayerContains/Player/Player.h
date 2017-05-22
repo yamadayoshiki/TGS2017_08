@@ -30,6 +30,8 @@ public:
 	//プレイヤーパラメーターの取得
 	Player_Parameter getParameter();
 
+	virtual ActorPtr clone(const GSvector2& position) override;
+
 protected:
 	//メッセージ処理
 	virtual void onMessage(EventMessage message, void* param) override;

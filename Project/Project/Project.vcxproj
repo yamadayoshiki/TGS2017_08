@@ -405,6 +405,7 @@
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Swich.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.cpp" />
     <ClCompile Include="Source\FileReader\CsvReader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Source\MapGenerator\MapGenerator.cpp" />

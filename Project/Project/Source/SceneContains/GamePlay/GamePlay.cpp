@@ -31,11 +31,9 @@ void GamePlay::OnStart() {
 	Map map = p_World->GetMap();
 	std::unordered_map<FourDirection, TileData> tmp = map.GetAroundTile(GSvector2(70, 90));
 
-	//プレイヤー生成
-	p_World->addActor(ActorGroup::Player, std::make_shared<Player>(p_World.get(), GSvector2(CHIP_SIZE * 3, CHIP_SIZE * 7), p_GameManager));
-
 	//エネミー生成
 	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy01>(p_World.get(), GSvector2(CHIP_SIZE * 3, CHIP_SIZE * 15), FourDirection(FourDirectionName::Up), p_GameManager));
+
 }
 
 // 更新     
@@ -44,16 +42,15 @@ void GamePlay::OnUpdate(float deltaTime)
 	gsTextPos(100, 100);
 	gsDrawText("GamePlay");
 
-	if (p_World->findActor(ActorName::Player) == nullptr || 
-		p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
 		p_World->EndRequest(SceneName::GameResult);
-	}
-
-	
+	}	
 }
 
 void GamePlay::OnDraw() const {
 	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
 
 	p_World->GetMap().draw();
+
+	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
 }

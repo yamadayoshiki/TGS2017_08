@@ -39,6 +39,10 @@ Enemy01::Enemy01(
 	m_Transform.m_Angle = MathSupport::GetVec2ToVec2Angle(front.GetVector2());
 }
 
+ActorPtr Enemy01::clone(const GSvector2 & position){
+	return std::make_shared<Enemy01>(p_World, position, FourDirection(m_Transform.m_Angle), p_GameManager);
+}
+
 //各種固有のコマンドの設定
 void Enemy01::SetUpCommand() {
 	//生成

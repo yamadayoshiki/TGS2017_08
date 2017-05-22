@@ -14,6 +14,9 @@ public:
 		const GSvector2& position,
 		FourDirection& front,
 		const IGameManagerPtr& gameManager);
+	
+	// クローン追加しました（永野）
+	virtual ActorPtr clone(const GSvector2& position) override;
 
 protected:
 	//各種固有のコマンドの設定

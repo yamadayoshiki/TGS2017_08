@@ -6,7 +6,7 @@
 //コンストラクタ
 GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState)
 	:p_Renderer2D(renderer2D), p_InputState(inputState), p_SceneEnum(std::make_shared<EnumRap<SceneName>>()){
-	m_Parameter.m_Remainig = 3;
+	m_Parameter.m_Remaining = 3;
 }
 
 //コンテンツの読み込み

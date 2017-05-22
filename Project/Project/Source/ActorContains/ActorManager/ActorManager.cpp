@@ -13,7 +13,7 @@ void ActorManager::initialize()
 {
 	m_actors[ActorGroup::None] = std::make_shared<Actor>();
 	m_actors[ActorGroup::UI] = std::make_shared<Actor>();
-	m_actors[ActorGroup::Player] = std::make_shared<Actor>();
+	m_actors[ActorGroup::Player] = std::make_shared<Actor>(ActorName::Player_Manager);
 	m_actors[ActorGroup::Enemy] = std::make_shared<Actor>(ActorName::EnemyManager);
 	// •`‰æ‡‚Í‰º‚©‚ç
 	m_root.clearChildren();
@@ -57,6 +57,7 @@ void ActorManager::handleMessage(EventMessage message, void* param)
 {
 	m_root.handleMessage(message, param);
 }
+
 
 //”CˆÓ‚ÌÕ“Ë”»’è
 void ActorManager::OptionalCollide(Actor* actor, ActorGroup actorGroup)

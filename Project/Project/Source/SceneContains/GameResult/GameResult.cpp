@@ -17,7 +17,7 @@ GameResult::GameResult(const IGameManagerPtr& gameManager)
 
 // ŠJŽn     
 void GameResult::OnStart(){
-	if (p_GameManager->GetPlayerParameter().m_Remainig <= 0) {
+	if (p_GameManager->GetPlayerParameter().m_Remaining <= 0) {
 		m_Text = "GameOver";
 	}
 	else {

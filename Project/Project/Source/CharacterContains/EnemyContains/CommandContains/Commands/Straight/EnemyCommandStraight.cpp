@@ -14,7 +14,13 @@ EnemyCommandStraight::EnemyCommandStraight(const EnemyBasePtr& enemy, const Four
 	, m_NextTargetPos(GSVECTOR2_ZERO)
 	, m_CurFront(front)
 	, m_Type(type) {
+	//SetNextTargetPos();
+}
+
+void EnemyCommandStraight::Initialize()
+{
 	SetNextTargetPos();
+
 }
 
 //çXêV

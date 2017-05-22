@@ -49,7 +49,7 @@ public:
 	// シーンの終了の取得
 	virtual bool IsEnd();
 	// シーンの終了
-	virtual void EndRequest(const SceneName& name);
+	virtual void EndRequest(const SceneName& name) override;
 	// シーンの終了
 	virtual void ResetEnd();
 	// シーンの終了

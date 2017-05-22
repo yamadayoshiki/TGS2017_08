@@ -8,6 +8,7 @@
 
 enum class ActorGroup;
 enum class EventMessage;
+enum class SceneName;
 class Map;
 
 // ワールド抽象インターフェース 
@@ -28,6 +29,8 @@ public:
 	virtual void sendMessage(EventMessage message, void* param = nullptr) = 0;
 	// メッセージの送信(指定アクター)
 	virtual void sendMessage(EventMessage message, Actor& actor, void* param = nullptr) = 0;
+	// シーンの終了
+	virtual void EndRequest(const SceneName& name) = 0;
 	//マップの取得
 	virtual Map& GetMap() = 0;
 protected:

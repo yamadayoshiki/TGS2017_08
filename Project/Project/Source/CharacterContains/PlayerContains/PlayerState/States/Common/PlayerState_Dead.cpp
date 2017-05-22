@@ -9,7 +9,7 @@ PlayerState_Dead::PlayerState_Dead(const PlayerPtr& player, IGameManagerPtr game
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Dead::unique_init()
 {
-	
+	p_Player->getWorld()->EndRequest(SceneName::GameResult);
 }
 //XVˆ—
 void PlayerState_Dead::update(float deltaTaime)

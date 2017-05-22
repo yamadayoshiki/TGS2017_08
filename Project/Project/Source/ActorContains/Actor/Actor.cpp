@@ -148,6 +148,7 @@ void Actor::collideSibling() {
 
 //子を追加する
 void Actor::addChild(const ActorPtr & child) {
+	child->initialize();
 	m_children.push_front(child);
 }
 
@@ -176,6 +177,8 @@ void Actor::removeChildren() {
 void Actor::clearChildren() {
 	m_children.clear();
 }
+
+
 
 //メッセージ処理
 void Actor::handleMessage(EventMessage message, void * param) {

@@ -11,6 +11,8 @@ class EnemyCommandStraight :public EnemyCommandBase
 public:
 	//コンストラクタ
 	EnemyCommandStraight(const EnemyBasePtr& enemy, const FourDirection front, const MapType type);
+
+	virtual void Initialize() override;
 	//更新
 	virtual void Update(float deltaTime) override;
 	//終了
