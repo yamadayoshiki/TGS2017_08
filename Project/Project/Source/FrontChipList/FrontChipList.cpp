@@ -91,7 +91,7 @@ int FrontChipList::GetSpeaceNum()
 	for (auto itr = m_List.cbegin(); itr != m_List.cend(); ++itr)
 	{
 		if (*itr == 1)
-			break;
+			break;	
 
 		else
 			result++;

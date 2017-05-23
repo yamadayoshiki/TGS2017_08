@@ -1052,5 +1052,8 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy05\Enemy05.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandStandby.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

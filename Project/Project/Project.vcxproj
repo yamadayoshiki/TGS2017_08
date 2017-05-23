@@ -375,6 +375,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandStandby.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\LeaveFixedDistance\EnemyCommandLeaveFixedDistance.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.cpp" />

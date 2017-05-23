@@ -2,6 +2,7 @@
 #define ENEMY04_H_
 
 #include "../Base/EnemyBase.h"
+
 struct FourDirection;
 
 class Enemy04:public EnemyBase
