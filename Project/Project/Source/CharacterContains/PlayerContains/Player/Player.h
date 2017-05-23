@@ -28,7 +28,7 @@ public:
 	virtual void onCollide(Actor& other)override;
 	
 	//プレイヤーパラメーターの取得
-	Player_Parameter getParameter();
+	Player_Parameter& getParameter();
 
 	virtual ActorPtr clone(const GSvector2& position) override;
 
@@ -44,7 +44,7 @@ private:
 	//マップデータ
 	Map						p_Map;
 	//プレイヤーパラメター
-	Player_Parameter		m_Parameter;
+	Player_Parameter&		m_Parameter;
 	//回転
 	float					angle;
 	//子

@@ -39,7 +39,7 @@ protected:
 	//変換
 	Transform&			m_TransForm;
 	//プレイヤーパラメーター
-	Player_Parameter	m_Parameter;
+	Player_Parameter&	m_Parameter;
 	//回転角度
 	float				mAngle;
 	//GameManager

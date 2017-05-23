@@ -22,7 +22,7 @@ public:
 	//シーンのEnumの取得
 	virtual EnumRapPtr<SceneName> GetSceneEnum() = 0;
 	//プレイヤーパラメーターの取得
-	virtual Player_Parameter GetPlayerParameter() = 0;
+	virtual Player_Parameter& GetPlayerParameter() = 0;
 	//プレイヤーパラメーターの設定
 	virtual void SetPlayerParameter(const Player_Parameter& parameter) = 0;
 

@@ -34,9 +34,11 @@ void PlayerState_MoveBase::update(float deltaTaime)
 //è’ìÀîªíË
 void PlayerState_MoveBase::collide(const Actor& other)
 {
-	if (other.getName() == ActorName::Enemy_01)
+	if (m_FramConter <= 10) return;
+	if (other.getName() == ActorName::Enemy_01 || other.getName() == ActorName::Enemy_03)
 	{
 		change(PlayerStateName::Damage);
+		m_FramConter = 0;
 	}
 	//åpè≥êÊÇÃè’ìÀèàóù
 	onCollide(other);
@@ -56,7 +58,6 @@ void PlayerState_MoveBase::input()
 	//É_ÉbÉVÉÖ
 	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_A ) ||
 		gsGetKeyState(GKEY_Z)) {
-		m_FramConter = 0;
 		change(PlayerStateName::Dash);
 	}
 

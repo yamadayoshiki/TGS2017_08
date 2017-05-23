@@ -6,10 +6,13 @@
 //プレイヤーパラメーター
 struct Player_Parameter
 {
+public:
+	Player_Parameter();
 	//残機数
 	int m_Remaining;
 public:
 	void DrawRemaining(const Renderer2DPtr& renderer);
+	void setRemaining(int remaining);
 };
 
 #endif // !PLAYER_PARAMETER_H_

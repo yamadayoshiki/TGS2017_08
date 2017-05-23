@@ -68,13 +68,13 @@ void Enemy01::SetUpState() {
 
 //•`‰æ
 void Enemy01::onDraw() const {
-	p_Body->transform(getTransform())->draw();
+	//p_Body->transform(getTransform())->draw();
 
-	//Texture2DParameter param;
-	//param.SetPosition(m_Transform.m_Position);
-	//param.SetCenter({ 16.0f, 16.0f });
-	//param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy01"));
-	//param.SetScale({ 1.0f , 1.0f });
-	//param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	//p_GameManager->GetRenderer2D()->DrawTexture("Enemy01", param);
+	Texture2DParameter param;
+	param.SetPosition(m_Transform.m_Position);
+	param.SetCenter({ 16.0f, 16.0f });
+	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy01"));
+	param.SetScale({ 1.0f , 1.0f });
+	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	p_GameManager->GetRenderer2D()->DrawTexture("Enemy01", param);
 }

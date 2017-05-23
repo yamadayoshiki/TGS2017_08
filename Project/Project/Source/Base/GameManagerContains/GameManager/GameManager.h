@@ -28,7 +28,7 @@ public:
 	//シーンのEnumの取得
 	virtual EnumRapPtr<SceneName> GetSceneEnum() override;
 	//プレイヤーパラメーターの取得
-	virtual Player_Parameter GetPlayerParameter() override;
+	virtual Player_Parameter& GetPlayerParameter() override;
 	//プレイヤーパラメーターの設定				
 	virtual void SetPlayerParameter(const Player_Parameter& parameter) override;
 

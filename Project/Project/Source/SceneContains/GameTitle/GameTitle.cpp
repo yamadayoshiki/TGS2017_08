@@ -20,6 +20,7 @@ GameTitle::GameTitle(const IGameManagerPtr& gameManager)
 void GameTitle::OnStart(){
 	// UI‚Ì¶¬
 	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
+	p_GameManager->GetPlayerParameter().setRemaining(3);
 }
 
 // XV

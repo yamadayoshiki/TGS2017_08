@@ -20,6 +20,7 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 		std::make_shared<NullTexture>(),
 		std::make_shared<OrientedBoundingBox>(GSvector2{ 0, 0 }, -90.0f, GSvector2{ 2.0f, 2.0f })), angle(0.0f)
 	, p_Map(p_World->GetMap())
+	,m_Parameter(gameManager->GetPlayerParameter())
 {
 	p_Renderer = gameManager->GetRenderer2D();
 }
@@ -32,7 +33,7 @@ Player::~Player() {
 void Player::initialize()
 {
 	//プレイヤーパラメーターの設定
-	m_Parameter = p_GameManager->GetPlayerParameter();
+	//m_Parameter = p_GameManager->GetPlayerParameter();
 
 	//ステートマネージャ生成、初期化
 	mStateManager = new PlayerStateManager(shared_from_this(), p_GameManager);
@@ -56,16 +57,16 @@ void Player::onUpdate(float deltaTime)
 //描画処理
 void Player::onDraw()const
 {
-	p_Body->transform(getTransform())->draw();
+	//p_Body->transform(getTransform())->draw();
 
 	Texture2DParameter param;
 	param.SetPosition(m_Transform.m_Position);
 	param.SetRotate(m_Transform.m_Angle - 90);
 	param.SetCenter({ 32.0f, 32.0f });
-	param.SetRect(*p_Renderer->GetTextureRect("Player"));
+	param.SetRect(*p_Renderer->GetTextureRect("Player_Clip"));
 	param.SetScale({ 1.0f , 1.0f });
 	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_Renderer->DrawTexture("Player", param);
+	p_Renderer->DrawTexture("Player_Clip", param);
 	//child->onDraw();
 
 	/*gsTextPos(m_Transform.m_Position.x, m_Transform.m_Position.y);
@@ -80,7 +81,7 @@ void Player::onCollide(Actor& other)
 }
 
 //プレイヤーパラメーターの取得
-Player_Parameter Player::getParameter()
+Player_Parameter& Player::getParameter()
 {
 	return m_Parameter;
 }

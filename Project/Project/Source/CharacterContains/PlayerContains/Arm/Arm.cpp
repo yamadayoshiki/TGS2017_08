@@ -28,7 +28,7 @@ void Arm::onUpdate(float deltaTime)
 //•`‰æˆ—
 void Arm::onDraw()const
 {
-	Actor::onDraw();
+	//Actor::onDraw();
 }
 //Õ“Ë”»’è
 void Arm::onCollide(Actor& other)

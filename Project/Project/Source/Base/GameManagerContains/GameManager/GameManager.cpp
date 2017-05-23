@@ -11,8 +11,12 @@ GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& i
 
 //コンテンツの読み込み
 void GameManager::LoadContent() {
-	p_Renderer2D->LoadTexture("Player", "Resource/Texture/Player/jiki_close.png");
-	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy01.png");
+	p_Renderer2D->LoadTexture("Player_Close", "Resource/Texture/Player/jiki_close.png");
+	p_Renderer2D->LoadTexture("Player_Open", "Resource/Texture/Player/jiki_open.png");
+	p_Renderer2D->LoadTexture("Player_Clip", "Resource/Texture/Player/jiki_clip.png");
+
+	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy1.png");
+	p_Renderer2D->LoadTexture("Enemy03", "Resource/Texture/Enemys/Enemy3.png");
 }
 
 //コンテンツの削除
@@ -42,7 +46,7 @@ EnumRapPtr<SceneName> GameManager::GetSceneEnum(){
 }
 
 //プレイヤーパラメーターの取得
-Player_Parameter GameManager::GetPlayerParameter()
+Player_Parameter& GameManager::GetPlayerParameter()
 {
 	return m_Parameter;
 }

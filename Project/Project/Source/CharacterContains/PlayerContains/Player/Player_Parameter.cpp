@@ -7,13 +7,18 @@
 #include <sstream>
 #include <algorithm>
 
+Player_Parameter::Player_Parameter()
+{
+
+}
+
 void Player_Parameter::DrawRemaining(const Renderer2DPtr& renderer) {
 	std::stringstream ss;
 	ss << "×" << std::max<int>(0, m_Remaining);
 
 	// 画像の描画
 	GSvector2 pos = GSvector2(100, 50);
-	renderer->DrawTexture("Player", pos);
+	renderer->DrawTexture("Player_Clip", pos);
 
 	// パラメーターの描画
 	gsTextPos(pos.x + 100, pos.y);
@@ -22,4 +27,9 @@ void Player_Parameter::DrawRemaining(const Renderer2DPtr& renderer) {
 	
 	// パラメータを戻す
 	gsFontParameter(GS_FONT_BOLD, 10, "HG明朝B");
+}
+
+void Player_Parameter::setRemaining(int remaining)
+{
+	m_Remaining = remaining;
 }

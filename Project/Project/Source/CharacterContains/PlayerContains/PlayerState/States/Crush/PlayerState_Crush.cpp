@@ -13,7 +13,7 @@ void PlayerState_Crush::unique_init()
 //XVˆ—
 void PlayerState_Crush::update(float deltaTime)
 {
-	p_Player->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS);
+	change(PlayerStateName::Rounds);
 }
 //Õ“Ë”»’è
 void PlayerState_Crush::collide(const Actor& other)

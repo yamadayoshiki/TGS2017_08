@@ -9,8 +9,9 @@ PlayerState_Damage::PlayerState_Damage(const PlayerPtr& player, IGameManagerPtr 
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Damage::unique_init()
 {
+	m_FramConter = 0;
 	m_Parameter.m_Remaining -= 1;
-	p_GameManager->SetPlayerParameter(m_Parameter);
+	//p_GameManager->SetPlayerParameter(m_Parameter);
 }
 //XVˆ—
 void PlayerState_Damage::update(float deltaTaime)
@@ -19,7 +20,7 @@ void PlayerState_Damage::update(float deltaTaime)
 		change(PlayerStateName::Dead);
 		return;
 	}
-	change(PlayerStateName::Idle);
+		change(PlayerStateName::Idle);
 }
 //Õ“Ë”»’è
 void PlayerState_Damage::collide(const Actor& other) {}
