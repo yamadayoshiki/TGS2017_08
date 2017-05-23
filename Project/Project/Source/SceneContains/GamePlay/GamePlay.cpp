@@ -15,6 +15,8 @@
 #include "../../Utility/FourDirection/FourDirection.h"
 #include "../../CharacterContains/EnemyContains/Enemys/Enemy01/Enemy01.h"
 #include "../../CharacterContains/EnemyContains/Enemys/Enemy03/Enemy03.h"
+#include "../../CharacterContains/EnemyContains/Enemys/Enemy05/Enemy05.h"
+
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
@@ -36,6 +38,8 @@ void GamePlay::OnStart() {
 	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy01>(p_World.get(), GSvector2(CHIP_SIZE * 19, CHIP_SIZE * 11), FourDirection(FourDirectionName::Left), p_GameManager));
 
 	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy03>(p_World.get(), GSvector2(CHIP_SIZE * 30, CHIP_SIZE * 15 + CHIP_SIZE / 2), FourDirection(FourDirectionName::Up), TurnDirection(TurnDirectionName::Clockwise), p_GameManager));
+
+	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy05>(p_World.get(), GSvector2(CHIP_SIZE * 19, CHIP_SIZE * 15), FourDirection(FourDirectionName::Left), p_GameManager));
 }
 
 // 更新     
@@ -48,10 +52,10 @@ void GamePlay::OnUpdate(float deltaTime)
 	//	p_World->findActor(ActorName::Enemy_01)->dead();
 	//}
 
-	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) || 
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) ||
 		p_World->findActor(ActorName::EnemyManager)->getCount() <= 0) {
 		p_World->EndRequest(SceneName::GameResult);
-	}	
+	}
 }
 
 void GamePlay::OnDraw() const {
