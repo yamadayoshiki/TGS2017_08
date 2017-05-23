@@ -15,7 +15,7 @@ void PlayerState_O_Walk::onUniqueInit()
 void PlayerState_O_Walk::onUpdate(float deltaTime)
 {
 	//移動処理
-	PlayerState::move(deltaTime, 5.0f);
+	PlayerState::move(deltaTime, 8.0f);
 	//アームの更新
 	PlayerState::armUpdate();
 }

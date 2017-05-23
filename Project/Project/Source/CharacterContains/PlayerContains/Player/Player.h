@@ -7,6 +7,8 @@
 #include"../../../WorldContains/IWorld.h"
 #include"../Arm/ArmPtr.h"
 #include"../../../Map/Map.h"
+#include"../../../TextureContains/AnimationTexture/AnimationTexture.h"
+
 #include<memory>
 
 class Renderer2D;
@@ -45,9 +47,9 @@ private:
 	Map						p_Map;
 	//プレイヤーパラメター
 	Player_Parameter&		m_Parameter;
+	//アニメーションテクスチャ
+	AnimationTexture*		p_Animation;
 	//回転
 	float					angle;
-	//子
-	ArmPtr				child;
 };
 #endif // !PLAYER_H_

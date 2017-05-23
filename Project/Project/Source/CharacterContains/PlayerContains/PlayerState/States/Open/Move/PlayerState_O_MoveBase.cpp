@@ -28,9 +28,10 @@ void PlayerState_O_MoveBase::update(float deltaTaime)
 void PlayerState_O_MoveBase::collide(const Actor& other)
 {
 	//ƒA[ƒ€‚É“–‚½‚Á‚Ä‚¢‚½‚ç•Ô‚·
-	if (m_Children[ActorName::Player_Arm]->isCollide(other)) return;
+	if (m_Children[ActorName::Player_Arm]->isCollide(other) && 
+		is_Scorp_Angle(p_Player->getBody()->forward(),other.getPosition() - p_Player->getPosition())) return;
 
-	if (other.getName() == ActorName::Enemy_01)
+	if (other.getName() == ActorName::Enemy_01 || other.getName() == ActorName::Enemy_03)
 	{
 		change(PlayerStateName::Damage);
 	}

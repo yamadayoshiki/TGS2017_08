@@ -13,7 +13,7 @@ void PlayerState_Walk::onUniqueInit() {
 void PlayerState_Walk::onUpdate(float deltaTime)
 {
 	//移動処理
-	move(deltaTime, 5.0f);
+	move(deltaTime, 8.0f);
 	//アームの更新
 	armUpdate();
 }

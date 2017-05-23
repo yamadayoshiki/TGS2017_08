@@ -34,7 +34,7 @@ void PlayerState_MoveBase::update(float deltaTaime)
 //Õ“Ë”»’è
 void PlayerState_MoveBase::collide(const Actor& other)
 {
-	if (m_FramConter <= 10) return;
+	if (m_FramConter <= 20) return;
 	if (other.getName() == ActorName::Enemy_01 || other.getName() == ActorName::Enemy_03)
 	{
 		change(PlayerStateName::Damage);

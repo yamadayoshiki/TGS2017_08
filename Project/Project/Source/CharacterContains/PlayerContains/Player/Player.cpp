@@ -7,6 +7,7 @@
 #include"../Arm/Arm.h"
 #include"../../../Utility/FourDirection/FourDirection.h"
 #include "../../../Define/Def_Nakayama.h"
+#include"../../../Utility/Animation/Animation.h"
 
 #include <algorithm>
 
@@ -27,11 +28,14 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 //デストラクタ
 Player::~Player() {
 	delete mStateManager;
+	delete p_Animation;
 }
 
 //初期化
 void Player::initialize()
 {
+	//Animation	
+
 	//プレイヤーパラメーターの設定
 	//m_Parameter = p_GameManager->GetPlayerParameter();
 

@@ -20,7 +20,7 @@ void PlayerState_Damage::update(float deltaTaime)
 		change(PlayerStateName::Dead);
 		return;
 	}
-		change(PlayerStateName::Idle);
+		change(PlayerStateName::Walk);
 }
 //Õ“Ë”»’è
 void PlayerState_Damage::collide(const Actor& other) {}

@@ -14,8 +14,10 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Player_Close", "Resource/Texture/Player/jiki_close.png");
 	p_Renderer2D->LoadTexture("Player_Open", "Resource/Texture/Player/jiki_open.png");
 	p_Renderer2D->LoadTexture("Player_Clip", "Resource/Texture/Player/jiki_clip.png");
+	p_Renderer2D->LoadTexture("Player", "Resource/Texture/Player/Player.png");
 
 	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy1.png");
+	p_Renderer2D->LoadTexture("Enemy02", "Resource/Texture/Enemys/Enemy2_4.png");
 	p_Renderer2D->LoadTexture("Enemy03", "Resource/Texture/Enemys/Enemy3.png");
 }
 

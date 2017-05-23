@@ -30,7 +30,7 @@ Enemy05::Enemy05(IWorld * world, const GSvector2 & position, const FourDirection
 	1.0f,
 	10,
 	gameManager,
-	std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
+	std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
 	std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
 }
 
@@ -65,9 +65,10 @@ void Enemy05::onDraw() const {
 
 	Texture2DParameter param;
 	param.SetPosition(m_Transform.m_Position);
+	param.SetRotate(m_Transform.m_Angle + 90);
 	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy01"));
+	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy02"));
 	param.SetScale({ 1.0f , 1.0f });
 	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy01", param);
+	p_GameManager->GetRenderer2D()->DrawTexture("Enemy02", param);
 }
