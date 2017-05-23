@@ -6,7 +6,7 @@
 struct GSvector2;
 
 //目標に一定距離近づく
-class EnemyCommandApproachFixedDistance :public EnemyCommandBase
+class EnemyCommandApproachFixedDistance :public virtual EnemyCommandBase
 {
 public:
 	//コンストラクタ

@@ -8,7 +8,9 @@ class EnemyStateMove :public EnemyStateMoveBase
 {
 public:
 	//コンストラクタ
-	EnemyStateMove(const EnemyBasePtr& enemy);
+	EnemyStateMove(
+		const EnemyBasePtr& enemy,
+		const float speed);
 	// 各状態独自の初期化
 	virtual void onUniqueInit()override;
 	// 更新処理
@@ -19,6 +21,9 @@ public:
 	virtual void onEnd()override {}
 	// 入力処理
 	virtual void onInput() override {}
+
+protected:
+	float m_Speed;		//スピード
 };
 
 #endif

@@ -5,9 +5,11 @@
 #include "../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../CommandContains/CommandManagers/Interface/IEnemyCommandManagerPtr.h"
 #include "../../../../ActorContains/HitPoint/HitPoint.h"
+#include "../../../../Utility/FourDirection/FourDirection.h"
 
 //先行宣言
 class EnemyStateManager;
+class PlayerWatch;
 
 //エネミー基底クラス
 class EnemyBase :public Actor, public std::enable_shared_from_this<EnemyBase>
@@ -18,6 +20,7 @@ public:
 		IWorld* world,													//ワールド
 		const ActorName& name,											//名前
 		const GSvector2& position,										//座標
+		const FourDirection front,										//向き
 		const float speed,												//移動速度
 		const int maxHp,												//ヒットポイント
 		const IGameManagerPtr& gameManager,								//ゲームマネージャ
@@ -33,6 +36,11 @@ public:
 	IEnemyCommandManagerPtr GetCommandManager();
 	//ヒットポイントを取得する
 	HitPoint& GetHitPoint();
+	//プレイヤー監視クラスを取得する
+	PlayerWatch* GetPlayerWatch();
+	//向き管理
+	FourDirection GetDirection() const;
+	void SetDirection(FourDirection dir);
 
 protected:
 	//各種固有のコマンドの設定
@@ -51,7 +59,10 @@ protected:
 protected:
 	float m_Speed;									//スピード
 	HitPoint m_HitPoint;							//ヒットポイント
+	PlayerWatch* p_PlayerWatch;						//プレイヤー監視
 	EnemyStateManager* p_StateManager;				//ステートマネージャー
 	IEnemyCommandManagerPtr p_CommandManager;		//コマンドマネージャー
+
+	FourDirection m_FourDirection;					//向き
 };
 #endif

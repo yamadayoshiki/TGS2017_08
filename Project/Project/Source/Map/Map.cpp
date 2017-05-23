@@ -131,6 +131,20 @@ GSvector2 Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& tar
 	return result;
 }
 
+// 指定された座標をタイルの中心座標に補正
+GSvector2 Map::GetTilePos(const GSvector2& pos, const MapType type) {
+	//1マスの幅
+	int chipSize = CHIP_SIZE* ((int)type + 1);
+	//結果変数
+	int x = pos.x / chipSize;
+	int y = pos.y / chipSize;
+
+	x = x * chipSize + chipSize / 2;
+	y = y * chipSize + chipSize / 2;
+
+	return GSvector2(x, y);
+}
+
 //神保
 // データの取得
 int Map::operator [] (const Point2& position) const {

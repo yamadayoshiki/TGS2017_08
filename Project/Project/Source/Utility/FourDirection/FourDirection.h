@@ -40,13 +40,15 @@ struct FourDirection
 	//Žw’è•ûŒü‚É‰ñ“](90“x)
 	FourDirection Turn(TurnDirection turnDirection);
 	//Žw’è•ûŒü‚É‰ñ“](90“x)
-	FourDirection GetTurn(TurnDirection turnDirection);
+	FourDirection GetTurn(TurnDirection turnDirection) const;
 	//”½“]
 	FourDirection TurnOver();
 	//”½“]
-	FourDirection GetTurnOver();
+	FourDirection GetTurnOver() const;
 	//GSvector2‚É’u‚«Š·‚¦
-	GSvector2 GetVector2();
+	GSvector2 GetVector2() const;
+	//Šp“x‚É’u‚«Š·‚¦
+	float GetAngle() const;
 	//Gsvector2‚ðFourDirectionName‚É•ÏŠ·
 	static FourDirection GetVector2ToFourDirection(const GSvector2& vector);
 

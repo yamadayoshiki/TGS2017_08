@@ -40,6 +40,9 @@ public:
 	// 押し出し処理
 	GSvector2 PushForPlayer(const GSvector2& current_pos, const GSvector2& target_pos);
 
+	// 指定された座標をタイルの中心座標に補正
+	GSvector2 GetTilePos(const GSvector2& pos,const MapType type = MapType::Default);
+
 	//神保
 public:
 	// データの取得

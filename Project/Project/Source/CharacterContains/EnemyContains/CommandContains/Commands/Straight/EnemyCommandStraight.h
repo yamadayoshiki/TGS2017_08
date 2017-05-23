@@ -10,30 +10,27 @@ class EnemyCommandStraight :public EnemyCommandBase
 {
 public:
 	//コンストラクタ
-	EnemyCommandStraight(const EnemyBasePtr& enemy, const FourDirection front, const MapType type);
-
-	virtual void Initialize() override;
-	//更新
-	virtual void Update(float deltaTime) override;
+	EnemyCommandStraight(
+		const EnemyBasePtr& enemy,
+		const MapType type);
 	//終了
 	virtual void Finalize() override;
 
 protected:
 	//各種固有の初期化
 	virtual void OnInitialize() override;
+	//各種固有の更新
+	virtual void OnUpdate(float deltaTime) override;
+	//目標地点に到着したリアクション
+	virtual void ArriveReaction();
 	//正面に壁があった場合のリアクション
 	virtual void HitWallReaction();
-	//折り返す
-	void TurnBack();
-	//正面に壁があるか
-	bool CheckFrontWall();
 	//次の目標地点を設定する
 	void SetNextTargetPos();
 
 protected:
 	GSvector2 m_NextTargetPos;		//次の目標地点
-	FourDirection m_CurFront;		//現在向いている方向
-	MapType m_Type;
+	MapType m_Type;					//マップタイプ
 };
 
-#endif // !ENMYCOMMANDSTRAIGHT_H_
+#endif

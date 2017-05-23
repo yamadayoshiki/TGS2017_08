@@ -20,6 +20,7 @@ Enemy04::Enemy04(IWorld * world, const GSvector2 & position, FourDirection & fro
 		world,
 		ActorName::Enemy_04,
 		position,
+		front,
 		1.0f,
 		10,
 		gameManager,

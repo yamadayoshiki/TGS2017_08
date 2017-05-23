@@ -30,7 +30,7 @@ FourDirection FourDirection::Turn(TurnDirection turnDirection) {
 }
 
 //指定方向に回転(90度)
-FourDirection FourDirection::GetTurn(TurnDirection turnDirection) {
+FourDirection FourDirection::GetTurn(TurnDirection turnDirection) const {
 	//結果変数
 	FourDirection result;
 
@@ -87,7 +87,7 @@ FourDirection FourDirection::TurnOver() {
 }
 
 //反転
-FourDirection FourDirection::GetTurnOver() {
+FourDirection FourDirection::GetTurnOver() const {
 	FourDirection result;
 	switch (name)
 	{
@@ -111,7 +111,7 @@ FourDirection FourDirection::GetTurnOver() {
 }
 
 //GSvector2に置き換え
-GSvector2 FourDirection::GetVector2() {
+GSvector2 FourDirection::GetVector2() const {
 	switch (name)
 	{
 	case FourDirectionName::Up:
@@ -129,6 +129,13 @@ GSvector2 FourDirection::GetVector2() {
 	default:
 		return GSVECTOR2_ZERO;
 	}
+}
+
+//角度に置き換え
+float FourDirection::GetAngle() const {
+	float result;
+	result = MathSupport::GetVec2ToVec2Angle(GetVector2(), DIRECTION_RIGHT);
+	return result;
 }
 
 //Gsvector2をFourDirectionNameに変換

@@ -2,12 +2,14 @@
 #include "../../../../WorldContains/World/World.h"
 #include "../../../../WorldContains/EventMessage/EventMessage.h"
 #include "../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
+#include "../../PlayerWatch/PlayerWatch.h"
 
 //コンストラクタ
 EnemyBase::EnemyBase(
 	IWorld* world,
 	const ActorName& name,
 	const GSvector2& position,
+	const FourDirection front,
 	const float speed,
 	const int maxHp,
 	const IGameManagerPtr& gameManager,
@@ -15,16 +17,20 @@ EnemyBase::EnemyBase(
 	const IBodyPtr& body)
 	: Actor(world, name, position, gameManager, texture, body)
 	, m_Speed(speed)
-	, m_HitPoint(maxHp) {
+	, m_HitPoint(maxHp)
+	, m_FourDirection(front) {
 }
 
 //デストラクタ
 EnemyBase::~EnemyBase() {
 	delete p_StateManager;
+	delete p_PlayerWatch;
 }
 
 //初期化
 void EnemyBase::initialize() {
+	//プレイヤー監視
+	p_PlayerWatch = new PlayerWatch(getWorld()->GetMap(), shared_from_this());
 	//各種固有のコマンドの設定
 	SetUpCommand();
 	//各種固有のStateの設定
@@ -67,6 +73,19 @@ IEnemyCommandManagerPtr EnemyBase::GetCommandManager() {
 //ヒットポイントを取得する
 HitPoint & EnemyBase::GetHitPoint() {
 	return m_HitPoint;
+}
+
+//プレイヤー監視クラスを取得する
+PlayerWatch* EnemyBase::GetPlayerWatch() {
+	return p_PlayerWatch;
+}
+
+FourDirection EnemyBase::GetDirection() const {
+	return m_FourDirection;
+}
+
+void EnemyBase::SetDirection(FourDirection dir) {
+	m_FourDirection = dir;
 }
 
 //メッセージ処理

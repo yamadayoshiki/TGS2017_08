@@ -1,7 +1,19 @@
 //#ifndef ENEMYCOMMANDENEMY01BASE_H_
 //#define ENEMYCOMMANDENEMY01BASE_H_
 //
-////エネミー01用コマンド基底クラス
-//class EnemyCommandEnemy01Base
+//#include "../../Base/EnemyCommandBase.h"
+//
+////エネミー01基底クラス
+//class EnemyCommandEnemy01Base : public virtual EnemyCommandBase
+//{
+//public:
+//	//コンストラクタ
+//	EnemyCommandEnemy01Base(const EnemyBasePtr& enemy);
+//	//デストラクタ
+//	~EnemyCommandEnemy01Base();
+//
+//protected:
+//	//
+//};
 //
 //#endif

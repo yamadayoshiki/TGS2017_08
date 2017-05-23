@@ -40,7 +40,7 @@ void EnemyStateCaught::handleMessage(EventMessage message, void* param) {
 		break;
 
 	case EventMessage::PLAYER_RELEASE:
-		change(EnemyStateName::Idle);
+		change(EnemyStateName::Stop);
 		break;
 	}
 }

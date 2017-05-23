@@ -19,9 +19,9 @@ public:
 	//仮想デストラクタ
 	virtual ~EnemyCommandBase() { Finalize(); }
 	//初期化
-	virtual void Initialize() override;
+	void Initialize() override;
 	//更新
-	virtual void Update(float deltaTime) override;
+	void Update(float deltaTime) override;
 	//終了
 	virtual void Finalize()override {}
 	//終了チェック
@@ -37,16 +37,12 @@ public:
 	//回転角度の取得
 	float GetRotateAngle() const override;
 protected:
-	//各種固有の更新
-	virtual void OnUpdate(float deltaTime) {}
 	//各種固有の初期化
 	virtual void OnInitialize() {}
+	//各種固有の更新
+	virtual void OnUpdate(float deltaTime) {}
 	//コマンド変更
 	void Change(EnemyCommandName next);
-
-protected:
-	//指定方向,自身からのマップ配列
-	std::vector<int> GetFrontMapData(const FourDirectionName fourDirectionName, MapType type = MapType::Default);
 
 protected:
 	EnemyBasePtr p_Enemy;			//エネミー本体

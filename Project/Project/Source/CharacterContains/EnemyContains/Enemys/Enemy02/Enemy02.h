@@ -9,14 +9,19 @@ class Enemy02 : public EnemyBase
 	Enemy02(
 		IWorld* world,
 		const GSvector2& position,
+		const FourDirection front,
+		const FourDirection turnDirection,
 		const IGameManagerPtr& gameManager);
 protected:
-	//更新
-	virtual void onUpdate(float deltaTime) override;
+	//各種固有のコマンドの設定
+	virtual void SetUpCommand() override;
+	//各種固有のStateの設定
+	virtual void SetUpState() override;
 	//描画
 	virtual void onDraw() const override;
-	//衝突した
-	virtual void onCollide(Actor& other) override;
+
+protected:
+	FourDirection m_TurnDirection;
 };
 
 #endif

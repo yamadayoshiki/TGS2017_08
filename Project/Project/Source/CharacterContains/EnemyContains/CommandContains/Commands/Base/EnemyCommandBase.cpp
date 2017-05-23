@@ -5,6 +5,7 @@
 #include "../../../../../Map/Map.h"
 #include "../../../../../WorldContains/IWorld.h"
 #include "../../../../../Define/Def_Nakayama.h"
+#include "../../../../../Define/Def_GSvector2.h"
 
 //コンストラクタ
 EnemyCommandBase::EnemyCommandBase(const EnemyBasePtr& enemy)
@@ -26,6 +27,9 @@ void EnemyCommandBase::Initialize() {
 
 //更新
 void EnemyCommandBase::Update(float deltaTime) {
+	//変数の初期化
+	m_Velocity = GSVECTOR2_ZERO;
+	m_RotateAngle = 0;
 	//各種固有の更新
 	OnUpdate(deltaTime);
 }
@@ -59,72 +63,4 @@ EnemyStateName EnemyCommandBase::GetCurrentStateName() const {
 void EnemyCommandBase::Change(EnemyCommandName next) {
 	m_NextCommand = next;
 	m_IsEnd = true;
-}
-
-//指定方向,自身からのマップ配列
-std::vector<int> EnemyCommandBase::GetFrontMapData(const FourDirectionName fourDirectionName, MapType type) {
-	//エネミー本体の座標
-	GSvector2 pos = p_Enemy->getPosition();
-	//エネミー本体の向き
-	FourDirection dir = FourDirection(fourDirectionName);
-	//マップ
-	Map& map = p_Enemy->getWorld()->GetMap();
-	//自分+背面のマス数
-	int backChipNum;
-
-	//正面進行方向の配列の作成
-	std::vector<int> result;
-	switch (dir.name)
-	{
-	case FourDirectionName::Up:
-		//縦軸Map配列
-		result = map.GetRow(pos, type);
-		//逆順に整理
-		std::reverse(begin(result), end(result));
-		//自分を含めない上からのマス数
-		backChipNum = pos.y / (CHIP_SIZE* ((int)type + 1));
-		//自分を含めた背面のマス数
-		backChipNum = map.GetHeight(type) - backChipNum;
-		break;
-
-	case FourDirectionName::Down:
-		//縦軸Map配列
-		result = map.GetRow(pos, type);
-		//自分を含めた上からのマス数
-		backChipNum = pos.y / (CHIP_SIZE* ((int)type + 1)) + 1;
-		break;
-
-	case FourDirectionName::Left:
-		//横軸Map配列
-		result = map.GetColumn(pos, type);
-		//逆順に整理
-		std::reverse(begin(result), end(result));
-		//自分を含めない左からのマス数
-		backChipNum = pos.x / (CHIP_SIZE* ((int)type + 1));
-		//自分を含めた背面のマス数
-		backChipNum = map.GetWidth(type) - backChipNum;
-		break;
-
-	case FourDirectionName::Right:
-		//横軸Map配列
-		result = map.GetColumn(pos, type);
-		//自分を含めた左からのマス数
-		backChipNum = pos.x / (CHIP_SIZE* ((int)type + 1)) + 1;
-		break;
-
-	default:
-		break;
-	}
-
-	//背面マスの削除
-	for (int i = 0; i < result.size(); i++)
-	{
-		if (backChipNum > i)
-			result.erase(result.begin());
-
-		else
-			break;
-	}
-
-	return result;
 }

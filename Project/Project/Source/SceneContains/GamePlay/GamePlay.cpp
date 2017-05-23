@@ -14,6 +14,7 @@
 #include"../../MapGenerator/MapGenerator.h"
 #include "../../Utility/FourDirection/FourDirection.h"
 #include "../../CharacterContains/EnemyContains/Enemys/Enemy01/Enemy01.h"
+#include "../../CharacterContains/EnemyContains/Enemys/Enemy03/Enemy03.h"
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
@@ -32,8 +33,9 @@ void GamePlay::OnStart() {
 	std::unordered_map<FourDirection, TileData> tmp = map.GetAroundTile(GSvector2(70, 90));
 
 	//エネミー生成
-	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy01>(p_World.get(), GSvector2(CHIP_SIZE * 3, CHIP_SIZE * 15), FourDirection(FourDirectionName::Up), p_GameManager));
+	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy01>(p_World.get(), GSvector2(CHIP_SIZE * 19, CHIP_SIZE * 11), FourDirection(FourDirectionName::Left), p_GameManager));
 
+	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy03>(p_World.get(), GSvector2(CHIP_SIZE * 30, CHIP_SIZE * 15 + CHIP_SIZE / 2), FourDirection(FourDirectionName::Up), TurnDirection(TurnDirectionName::Clockwise), p_GameManager));
 }
 
 // 更新     

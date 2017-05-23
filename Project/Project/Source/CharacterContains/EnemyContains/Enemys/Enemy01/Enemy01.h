@@ -3,8 +3,6 @@
 
 #include "../Base/EnemyBase.h"
 
-struct FourDirection;
-
 class Enemy01 : public EnemyBase
 {
 public:
@@ -12,11 +10,8 @@ public:
 	Enemy01(
 		IWorld* world,
 		const GSvector2& position,
-		FourDirection& front,
+		const FourDirection front,
 		const IGameManagerPtr& gameManager);
-	
-	// クローン追加しました（永野）
-	virtual ActorPtr clone(const GSvector2& position) override;
 
 protected:
 	//各種固有のコマンドの設定
@@ -25,8 +20,6 @@ protected:
 	virtual void SetUpState() override;
 	//描画
 	virtual void onDraw() const override;
-	//衝突した
-	virtual void onCollide(Actor& other) override;
 };
 
 #endif

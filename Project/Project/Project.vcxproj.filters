@@ -648,10 +648,31 @@
     <ClInclude Include="Source\Define\Def_Float.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy04\Enemy04.h">
+    <ClInclude Include="Source\SceneContains\GameResult\GameResult.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SceneContains\GameResult\GameResult.h">
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandStandby.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Stop\EnemyStateStop.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FrontChipList\FrontChipList.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TargetPosition\TargetPosition.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -992,13 +1013,31 @@
     <ClCompile Include="Source\ActorContains\HitPoint\HitPoint.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy04\Enemy04.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\SceneContains\GameResult\GameResult.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Stop\EnemyStateStop.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FrontChipList\FrontChipList.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TargetPosition\TargetPosition.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

@@ -8,8 +8,10 @@ enum class EnemyStateName
 	Move,				//“®‚­
 	Caught,				//‹²‚Ü‚ê‚Ä‚¢‚é
 	Crush,				//Ó‚©‚ê‚é
+	Repel,				//’e‚­
 	Dead,				//€‚É
 	None,				//ƒ_ƒ~[
+	Stop,				//~‚Ü‚é
 
 	//“ËŒ‚
 	RushPreliminary,	//“ËŒ‚€”õ
