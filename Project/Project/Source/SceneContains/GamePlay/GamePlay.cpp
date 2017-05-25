@@ -67,4 +67,10 @@ void GamePlay::OnDraw() const {
 	p_World->GetMap().draw();
 
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
+
+	//p_World->findActor(ActorName::EnemyManager)->eachChildren([&](EnemyBase& child) {
+	//	if (child.GetHitPoint().IsDead()) {
+	//		return;
+	//	}
+	//});
 }

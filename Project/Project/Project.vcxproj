@@ -309,6 +309,9 @@
     <ClInclude Include="Source\Tile\TileData.h" />
     <ClInclude Include="Source\UIContains\Base\UI_Base.h" />
     <ClInclude Include="Source\UIContains\Button\Button.h" />
+    <ClInclude Include="Source\UIContains\Sprite\Sprite.h" />
+    <ClInclude Include="Source\UIContains\Sprite\SpriteCreator.h" />
+    <ClInclude Include="Source\UIContains\Sprite\SpriteData.h" />
     <ClInclude Include="Source\UIContains\UIFilePaths.h" />
     <ClInclude Include="Source\UIContains\Selector\Selector.h" />
     <ClInclude Include="Source\UIContains\UICreator\UICreator.h" />
@@ -451,6 +454,8 @@
     <ClCompile Include="Source\UIContains\Base\UI_Base.cpp" />
     <ClCompile Include="Source\UIContains\Button\Button.cpp" />
     <ClCompile Include="Source\UIContains\Selector\Selector.cpp" />
+    <ClCompile Include="Source\UIContains\Sprite\Sprite.cpp" />
+    <ClCompile Include="Source\UIContains\Sprite\SpriteCreator.cpp" />
     <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp" />
     <ClCompile Include="Source\UIContains\UIManager\UIManager.cpp" />
     <ClCompile Include="Source\Utility\Animation\Animation.cpp" />

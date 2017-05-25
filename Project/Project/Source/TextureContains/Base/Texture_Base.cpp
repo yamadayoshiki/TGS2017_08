@@ -26,6 +26,10 @@ void Texture_Base::Initialize() {
 	OnInitialize();
 }
 
+void Texture_Base::Update(float deltaTime)
+{
+}
+
 //•`‰æ
 void Texture_Base::Draw() {
 	p_Renderer->DrawTexture(m_TexName, *p_Parameter);

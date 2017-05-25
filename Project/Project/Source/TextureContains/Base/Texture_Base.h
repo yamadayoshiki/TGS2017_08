@@ -23,7 +23,7 @@ public:
 	//‰Šú‰»
 	virtual void Initialize() override;
 	//XV
-	virtual void Update(float deltaTime) override = 0;
+	virtual void Update(float deltaTime) override;
 	//•`‰æ
 	virtual void Draw() override;
 	//I—¹

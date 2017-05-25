@@ -19,11 +19,11 @@ UIManager::UIManager(IWorld* world, const IGameManagerPtr& gameManager, const Sc
 
 // 各シーンのパスの登録
 void UIManager::regist(){
-	m_FilePaths[SceneName::GameTitle] = { "TitleScene/UI_Title_Button.csv", "", "" };
-	m_FilePaths[SceneName::GameSelect] = { "TitleScene/UI_Title_Button.csv", "", "" };
-	m_FilePaths[SceneName::GamePlay] = { "TitleScene/UI_Title_Button.csv", "", "" };
-	m_FilePaths[SceneName::GameCredit] = { "TitleScene/UI_Title_Button.csv", "", "" };
-	m_FilePaths[SceneName::GameEnd] = { "TitleScene/UI_Title_Button.csv", "", "" };
+	m_FilePaths[SceneName::GameTitle] = { "Title/UI_Button.csv", "", "" };
+	m_FilePaths[SceneName::GameSelect] = { "Title/UI_Button.csv", "", "" };
+	m_FilePaths[SceneName::GamePlay] = { "Title/UI_Button.csv", "", "" };
+	m_FilePaths[SceneName::GameCredit] = { "Title/UI_Button.csv", "", "" };
+	m_FilePaths[SceneName::GameEnd] = { "Title/UI_Button.csv", "", "" };
 }
 
 // シーンに対応したUIの生成
