@@ -6,21 +6,16 @@
 
 Sprite::Sprite(IWorld * world, const IGameManagerPtr & gameManager, const GSvector2& position, const ITexturePtr & texture) :
 	UI_Base(world, ActorName::UI_Sprite, position, gameManager, texture) {
+	texture->Initialize();
 
+	texture->GetParameter()->SetPosition(position);
 }
 
-void Sprite::regist(const std::string & file_name){
+void Sprite::onUpdate(float deltaTime){
+	p_Texture->Update(deltaTime);
 }
 
-
-void Sprite::onUpdate(float deltaTime)
-{
+void Sprite::onDraw() const{
+	p_Texture->Draw();
 }
 
-void Sprite::onDraw() const
-{
-}
-
-void Sprite::onMessage(EventMessage message, void * param)
-{
-}

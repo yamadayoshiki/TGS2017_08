@@ -31,11 +31,11 @@ void GameTitle::OnUpdate(float deltaTime){
 
 void GameTitle::OnDraw()const
 {
-	p_GameManager->GetRenderer2D()->DrawTexture(
-		"logo",
-		GSvector2(SCREEN_SIZE / 2) - 
-		GSvector2(p_GameManager->GetRenderer2D()->GetTextureRect("logo")->right, p_GameManager->GetRenderer2D()->GetTextureRect("logo")->bottom) / 2 - 
-		GSvector2(0, 1) * 200
-		);
+	//p_GameManager->GetRenderer2D()->DrawTexture(
+	//	"logo",
+	//	GSvector2(SCREEN_SIZE / 2) - 
+	//	GSvector2(p_GameManager->GetRenderer2D()->GetTextureRect("logo")->right, p_GameManager->GetRenderer2D()->GetTextureRect("logo")->bottom) / 2 - 
+	//	GSvector2(0, 1) * 200
+	//	);
 }
 

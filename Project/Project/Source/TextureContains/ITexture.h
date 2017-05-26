@@ -1,6 +1,8 @@
 #ifndef ITEXTURE_H_
 #define ITEXTURE_H_
 
+class Texture2DParameter;
+
 class ITexture
 {
 public:
@@ -14,6 +16,8 @@ public:
 	virtual void Draw() = 0;
 	//終了
 	virtual void Finalize() = 0;
+	//パラメーターの取得
+	virtual Texture2DParameter* GetParameter() = 0;
 };
 
 #endif // !ITEXTURE_H_

@@ -64,6 +64,7 @@ void GamePlay::OnDraw() const {
 
 	p_World->GetMap().draw();
 
+	// UI•`‰æ
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
 	gsFontParameter(GS_FONT_BOLD, 50, "HG–¾’©B");
 	gsTextPos(900, 50);

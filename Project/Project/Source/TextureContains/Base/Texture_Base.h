@@ -29,7 +29,7 @@ public:
 	//終了
 	void Finalize() override;
 	//パラメーターの取得
-	Texture2DParameter* GetParameter();
+	virtual Texture2DParameter* GetParameter() override;
 	//コピー禁止
 	Texture_Base(const Texture_Base& other) = delete;
 	Texture_Base& operator = (const Texture_Base& other) = delete;

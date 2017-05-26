@@ -59,6 +59,7 @@ void Animation::Change() {
 	if (left >= m_TexRect.right)
 	{
 		m_LoopCount++;
+		m_AnimationTimer = 0;
 		m_CurrentNum = 0;
 		left = m_CutWidth * m_CurrentNum;
 	}
