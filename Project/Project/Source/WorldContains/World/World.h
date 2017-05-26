@@ -54,6 +54,8 @@ public:
 	virtual void ResetEnd();
 	// シーンの終了
 	virtual SceneName NextScene();
+	
+	int GetSurviverSum();
 
 	// コピー禁止  
 	World(const World& other) = delete;

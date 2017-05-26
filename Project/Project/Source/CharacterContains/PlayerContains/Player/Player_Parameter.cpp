@@ -26,7 +26,7 @@ void Player_Parameter::DrawRemaining(const Renderer2DPtr& renderer) {
 	gsDrawText(ss.str().c_str());
 	
 	// ƒpƒ‰ƒ[ƒ^‚ğ–ß‚·
-	gsFontParameter(GS_FONT_BOLD, 10, "HG–¾’©B");
+	gsFontParameter(GS_FONT_BOLD, 20, "HG–¾’©B");
 }
 
 void Player_Parameter::setRemaining(int remaining)

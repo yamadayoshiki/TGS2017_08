@@ -47,9 +47,9 @@ public:
 
 protected:
 	//各種固有のコマンドの設定
-	virtual void SetUpCommand() = 0;
+	virtual void SetUpCommand(){}
 	//各種固有のStateの設定
-	virtual void SetUpState() = 0;
+	virtual void SetUpState(){}
 	//更新
 	virtual void onUpdate(float deltaTime) override;
 	//描画

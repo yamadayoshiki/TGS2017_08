@@ -51,17 +51,10 @@ void GamePlay::OnStart() {
 }
 
 // 更新     
-void GamePlay::OnUpdate(float deltaTime)
-{
-	gsTextPos(100, 100);
-	gsDrawText("GamePlay");
-
-	//if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_P)) {
-	//	p_World->findActor(ActorName::Enemy_01)->dead();
-	//}
-
+void GamePlay::OnUpdate(float deltaTime){
+	// Enterキーを押下、もしくは討伐可能な敵が０以下の場合クリア
 	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) ||
-		p_World->findActor(ActorName::EnemyManager)->getCount() <= 0) {
+		p_World->GetSurviverSum() <= 0){
 		p_World->EndRequest(SceneName::GameResult);
 	}
 }
@@ -72,10 +65,8 @@ void GamePlay::OnDraw() const {
 	p_World->GetMap().draw();
 
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
-
-	//p_World->findActor(ActorName::EnemyManager)->eachChildren([&](EnemyBase& child) {
-	//	if (child.GetHitPoint().IsDead()) {
-	//		return;
-	//	}
-	//});
+	gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
+	gsTextPos(900, 50);
+	gsDrawText("あと %d 体", p_World->GetSurviverSum());
+	gsFontParameter(GS_FONT_BOLD, 20, "HG明朝B");
 }

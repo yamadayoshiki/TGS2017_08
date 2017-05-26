@@ -5,7 +5,7 @@
 #include "../../ActorContains/ActorManager/ActorManager.h"
 #include"../../MapGenerator/MapGenerator.h"
 #include "../EventMessage/EventMessage.h"
-
+#include "../../CharacterContains/EnemyContains/Enemys/Base/EnemyBase.h"
 #include <iostream>
 
 // コンストラクタ
@@ -115,7 +115,12 @@ SceneName World::NextScene() {
 	return m_NextScene;
 }
 
-////マップジェネレーターの設定
-//void World::setMapGenerator(MapGenerator* mapGenerator) {
-//	p_MapGenerator = mapGenerator;
-//}
+int World::GetSurviverSum(){
+	int sum = 0;
+	findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child) {
+		EnemyBase* enemy = dynamic_cast<EnemyBase*>(&child);
+		if (enemy->CanDead() && !enemy->GetHitPoint().IsDead()) { sum++; }
+	});
+	return sum;
+}
+
