@@ -19,6 +19,7 @@ EnemyBase::EnemyBase(
 	, m_Speed(speed)
 	, m_HitPoint(maxHp)
 	, m_FourDirection(front) {
+	SetDirection(m_FourDirection);
 }
 
 //デストラクタ
@@ -75,6 +76,11 @@ HitPoint & EnemyBase::GetHitPoint() {
 	return m_HitPoint;
 }
 
+//倒せるか倒せないか
+bool EnemyBase::CanDead() {
+	return m_HitPoint.CanDead();
+}
+
 //プレイヤー監視クラスを取得する
 PlayerWatch* EnemyBase::GetPlayerWatch() {
 	return p_PlayerWatch;
@@ -84,8 +90,10 @@ FourDirection EnemyBase::GetDirection() const {
 	return m_FourDirection;
 }
 
+
 void EnemyBase::SetDirection(FourDirection dir) {
 	m_FourDirection = dir;
+	setAngle(m_FourDirection.GetTurn(TurnDirection(TurnDirectionName::Clockwise)).GetAngle());
 }
 
 //メッセージ処理

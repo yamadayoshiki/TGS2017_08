@@ -3,7 +3,7 @@
 
 #include "../Base/EnemyBase.h"
 
-//エネミー05
+//直進する敵
 class Enemy05 : public EnemyBase
 {
 public:

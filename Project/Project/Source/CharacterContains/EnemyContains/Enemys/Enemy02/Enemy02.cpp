@@ -13,7 +13,7 @@
 //State
 #include "../../StateContains/States/Caught/EnemyStateCaught.h"
 #include "../../StateContains/States/Crush/EnemyStateCrush.h"
-#include "../../StateContains/States/Dead/EnemyStateDead.h"
+#include "../../StateContains/States/Enemy02Contains/Dead/EnemyStateEnemy02Dead.h"
 #include "../../StateContains/States/Enemy02Contains/MoveContains/Idle/EnemyStateEnemy02Idle.h"
 #include "../../StateContains/States/Enemy02Contains/MoveContains/Move/EnemyStateEnemy02Move.h"
 #include "../../StateContains/States/Repel/EnemyStateRepel.h"
@@ -58,7 +58,7 @@ void Enemy02::SetUpState() {
 	//State’Ç‰Á
 	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaught>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrush>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDead>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateEnemy02Dead>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateEnemy02Idle>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateEnemy02Move>(shared_from_this(), 10.0f));
 	p_StateManager->add(EnemyStateName::Repel, std::make_shared<EnemyStateRepel>(shared_from_this()));
@@ -69,6 +69,5 @@ void Enemy02::SetUpState() {
 
 void Enemy02::onDraw() const {
 	p_Body->transform(getTransform())->draw();
-
 }
 

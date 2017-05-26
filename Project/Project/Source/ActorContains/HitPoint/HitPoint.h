@@ -5,8 +5,9 @@
 struct HitPoint
 {
 private:
-	int maxHp;	//最大HP
-	int hp;		//HP
+	int maxHp;		//最大HP
+	int hp;			//HP
+	bool canDead;	//死ぬことができるか
 
 public:
 	//コンストラクタ
@@ -17,6 +18,8 @@ public:
 	void Increase(int recover);
 	//HPが0以下か
 	bool IsDead();
+	//倒せるか倒せないか
+	bool CanDead();
 };
 
 #endif // !HITPOINT_H_

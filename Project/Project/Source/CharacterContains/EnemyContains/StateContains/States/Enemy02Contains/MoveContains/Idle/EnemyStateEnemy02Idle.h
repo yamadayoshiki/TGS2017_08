@@ -1,7 +1,7 @@
 #ifndef ENEMYSTATEENEMY02IDLE_H_
 #define ENEMYSTATEENEMY02IDLE_H_
 
-#include "../MoveBase/EnemyStateEnemy02MoveBase.h"
+#include "../Base/EnemyStateEnemy02MoveBase.h"
 
 //Enemy02êÍópIdle
 class EnemyStateEnemy02Idle : public EnemyStateEnemy02MoveBase

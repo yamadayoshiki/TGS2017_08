@@ -3,11 +3,17 @@
 //コンストラクタ
 HitPoint::HitPoint(int maxHp)
 	: maxHp(maxHp)
-	, hp(maxHp) {
+	, hp(maxHp)
+	, canDead(true) {
+	if (maxHp == 0)
+		canDead = false;
 }
 
 //HPを減らす
 void HitPoint::Decrease(int damage) {
+	if (canDead == false)
+		return;
+
 	hp = hp - damage;
 	if (0 >= hp)
 		hp = 0;
@@ -15,6 +21,9 @@ void HitPoint::Decrease(int damage) {
 
 //HPを増やす
 void HitPoint::Increase(int recover) {
+	if (canDead == false)
+		return;
+
 	hp = hp + recover;
 	if (hp >= maxHp)
 		hp = maxHp;
@@ -22,5 +31,14 @@ void HitPoint::Increase(int recover) {
 
 //HPが0以下か
 bool HitPoint::IsDead() {
-	return 0 >= hp;
+	if (canDead == false)
+		return false;
+
+	else
+		return 0 >= hp;
+}
+
+//倒せるか倒せないか
+bool HitPoint::CanDead(){
+	return canDead;
 }

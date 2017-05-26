@@ -6,6 +6,7 @@
 #include "../../CommandContains/CommandManagers/Interface/IEnemyCommandManagerPtr.h"
 #include "../../../../ActorContains/HitPoint/HitPoint.h"
 #include "../../../../Utility/FourDirection/FourDirection.h"
+#include "../../../../ActorContains/Actor/Actor.h"
 
 //先行宣言
 class EnemyStateManager;
@@ -36,6 +37,8 @@ public:
 	IEnemyCommandManagerPtr GetCommandManager();
 	//ヒットポイントを取得する
 	HitPoint& GetHitPoint();
+	//倒せるか倒せないか
+	bool CanDead();
 	//プレイヤー監視クラスを取得する
 	PlayerWatch* GetPlayerWatch();
 	//向き管理

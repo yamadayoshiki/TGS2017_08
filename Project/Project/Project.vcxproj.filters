@@ -690,6 +690,33 @@
     <ClInclude Include="Source\UIContains\Sprite\SpriteData.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Enemy02Contains\Dead\EnemyStateEnemy02Dead.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Enemy02Contains\MoveContains\Base\EnemyStateEnemy02MoveBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Enemy02Contains\MoveContains\Idle\EnemyStateEnemy02Idle.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Enemy02Contains\MoveContains\Move\EnemyStateEnemy02Move.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Base\EnemyStateMoveBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveRepelContains\Base\EnemyStateMoveRepelBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveRepelContains\Idle\EnemyStateMoveRepelIdle.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveRepelContains\Move\EnemyStateMoveRepelMove.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -995,9 +1022,6 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Move\EnemyStateMove.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\MoveBase\EnemyStateMoveBase.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Repel\EnemyStateRepel.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -1068,6 +1092,33 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\UIContains\Sprite\SpriteCreator.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Enemy02Contains\Dead\EnemyStateEnemy02Dead.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Enemy02Contains\MoveContains\Base\EnemyStateEnemy02MoveBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Enemy02Contains\MoveContains\Idle\EnemyStateEnemy02Idle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Enemy02Contains\MoveContains\Move\EnemyStateEnemy02Move.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Base\EnemyStateMoveBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveRepelContains\Base\EnemyStateMoveRepelBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveRepelContains\Idle\EnemyStateMoveRepelIdle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveRepelContains\Move\EnemyStateMoveRepelMove.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

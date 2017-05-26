@@ -5,6 +5,7 @@
 
 class Enemy02 : public EnemyBase
 {
+public:
 	//コンストラクタ
 	Enemy02(
 		IWorld* world,

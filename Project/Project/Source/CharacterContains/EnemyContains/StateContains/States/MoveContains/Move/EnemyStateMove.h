@@ -1,7 +1,7 @@
 #ifndef ENEMYSTATEMOVE_H_
 #define ENEMYSTATEMOVE_H_
 
-#include "../MoveBase/EnemyStateMoveBase.h"
+#include "../Base/EnemyStateMoveBase.h"
 
 //エネミーが動く状態
 class EnemyStateMove :public EnemyStateMoveBase

@@ -11,12 +11,10 @@
 #include "../../CommandContains/Commands/AlongWallMove/EnemyCommandAlongWallMove.h"
 
 //State
-#include "../../StateContains/States/Caught/EnemyStateCaught.h"
-#include "../../StateContains/States/Crush/EnemyStateCrush.h"
-#include "../../StateContains/States/Dead/EnemyStateDead.h"
-#include "../../StateContains/States/MoveContains/Idle/EnemyStateIdle.h"
-#include "../../StateContains/States/MoveContains/Move/EnemyStateMove.h"
+#include "../../StateContains/States/MoveRepelContains/Idle/EnemyStateMoveRepelIdle.h"
+#include "../../StateContains/States/MoveRepelContains/Move/EnemyStateMoveRepelMove.h"
 #include "../../StateContains/States/Stop/EnemyStateStop.h"
+#include "../../StateContains/States/Repel/EnemyStateRepel.h"
 
 #include "../../../../Utility/TurnDirection/TurnDirection.h"
 #include "../../../../ActorContains/Body/OrientedBoundingBox.h"
@@ -34,7 +32,7 @@ Enemy03::Enemy03(
 		position,
 		front,
 		1.0f,
-		10,
+		0,
 		gameManager,
 		std::make_shared<Texture>("Enemy03", gameManager->GetRenderer2D()),
 		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f)))
@@ -55,12 +53,10 @@ void Enemy03::SetUpState()
 	//¶¬
 	p_StateManager = new EnemyStateManager();
 	//State’Ç‰Á
-	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaught>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrush>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDead>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdle>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMove>(shared_from_this(), 10.0f));
+	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateMoveRepelIdle>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveRepelMove>(shared_from_this(), 10.0f));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStop>(shared_from_this(), 120));
+	p_StateManager->add(EnemyStateName::Repel, std::make_shared<EnemyStateRepel>(shared_from_this()));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }

@@ -30,6 +30,5 @@ void EnemyCommandEnemy02Standby::handleMessage(EventMessage message, void * para
 			p_Enemy->SetDirection(p_Enemy->GetDirection().GetTurnOver());
 			break;
 		}
-		p_Enemy->setAngle(p_Enemy->GetDirection().GetAngle());
 	}
 }

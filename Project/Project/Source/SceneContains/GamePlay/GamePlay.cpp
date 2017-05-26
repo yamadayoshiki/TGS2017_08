@@ -14,6 +14,7 @@
 #include"../../MapGenerator/MapGenerator.h"
 #include "../../Utility/FourDirection/FourDirection.h"
 #include "../../CharacterContains/EnemyContains/Enemys/Enemy01/Enemy01.h"
+#include "../../CharacterContains/EnemyContains/Enemys/Enemy02/Enemy02.h"
 #include "../../CharacterContains/EnemyContains/Enemys/Enemy03/Enemy03.h"
 #include "../../CharacterContains/EnemyContains/Enemys/Enemy05/Enemy05.h"
 
@@ -43,6 +44,10 @@ void GamePlay::OnStart() {
 	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy05>(p_World.get(), GSvector2(CHIP_SIZE * 18, CHIP_SIZE * 5), FourDirection(FourDirectionName::Left), p_GameManager));
 	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy05>(p_World.get(), GSvector2(CHIP_SIZE * 10, CHIP_SIZE * 11), FourDirection(FourDirectionName::Left), p_GameManager));
 	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy05>(p_World.get(), GSvector2(CHIP_SIZE * 19, CHIP_SIZE * 23), FourDirection(FourDirectionName::Right), p_GameManager));
+
+	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy02>(p_World.get(), GSvector2(CHIP_SIZE * 11, CHIP_SIZE * 5), FourDirection(FourDirectionName::Right), FourDirection(FourDirectionName::Right), p_GameManager));
+	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy02>(p_World.get(), GSvector2(CHIP_SIZE * 15, CHIP_SIZE * 5), FourDirection(FourDirectionName::Right), FourDirection(FourDirectionName::Right), p_GameManager));
+
 }
 
 // çXêV     
