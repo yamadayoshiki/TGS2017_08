@@ -43,6 +43,11 @@ EnemyStateName EnemyCommandManagerBase::GetCommandState() {
 	return p_CurCommand->GetCurrentStateName();
 }
 
+//’Ž‹ˆÚ“®‚©
+bool EnemyCommandManagerBase::IsRegard() const {
+	return p_CurCommand->IsRegard();
+}
+
 //–½—ßƒxƒNƒgƒ‹‚ÌŽæ“¾
 GSvector2 & EnemyCommandManagerBase::GetCommandVector() {
 	return p_CurCommand->GetVelocity();

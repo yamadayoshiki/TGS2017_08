@@ -175,7 +175,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.h" />
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandStandby.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyCommandName.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h" />
@@ -282,6 +282,7 @@
     <ClInclude Include="Source\Define\Def_Nakayama.h" />
     <ClInclude Include="Source\FileReader\CsvReader.h" />
     <ClInclude Include="Source\FrontChipList\FrontChipList.h" />
+    <ClInclude Include="Source\MapGenerator\ArrangeData.h" />
     <ClInclude Include="Source\MapGenerator\MapGenerator.h" />
     <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h" />
     <ClInclude Include="Source\Map\Map.h" />
@@ -387,7 +388,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandStandby.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\LeaveFixedDistance\EnemyCommandLeaveFixedDistance.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Rotation\EnemyCommandRotation.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Stop\EnemyCommandStop.cpp" />

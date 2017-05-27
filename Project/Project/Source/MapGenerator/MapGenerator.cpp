@@ -1,11 +1,15 @@
 #include "MapGenerator.h"
 #include "../Define/Def_Nakayama.h"
 #include "../FileReader/CsvReader.h"
+#include "ArrangeData.h"
 #include "../ActorContains/ActorGroup.h"
-#include "../ActorContains/Object/TestObj.h"
-#include "../ActorContains/Object/TestEnemy.h"
 #include "../CharacterContains/PlayerContains/Player/Player.h"
 #include "../CharacterContains/EnemyContains/Enemys/Enemy01/Enemy01.h"
+#include "../CharacterContains/EnemyContains/Enemys/Enemy02/Enemy02.h"
+#include "../CharacterContains/EnemyContains/Enemys/Enemy03/Enemy03.h"
+#include "../CharacterContains/EnemyContains/Enemys/Enemy04/Enemy04.h"
+#include "../CharacterContains/EnemyContains/Enemys/Enemy05/Enemy05.h"
+
 #include "../Wall/BreakWall.h"
 
 #include <GSvector2.h>
@@ -16,7 +20,7 @@
 MapGenerator::MapGenerator(const IWorldPtr world, const IGameManagerPtr& gameManager)
 	: p_World(world)
 	, p_GameManager(gameManager)
-	, m_Map(gameManager){
+	, m_Map(gameManager) {
 }
 
 void MapGenerator::load(const std::string& file_name) {
@@ -40,13 +44,19 @@ void MapGenerator::load(const std::string& file_name) {
 
 // 生成するアクターの登録
 void MapGenerator::registActor() {
+	/*0=空,1=壁*/
 	// 親と子を指定
-	//m_Actors[0] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>(p_World, GSvector2{ 0.0f, 0.0f }) };
-	m_Actors[2] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestObj>	 (p_World.get(), GSvector2{ 0.0f, 0.0f },p_GameManager) };
-	m_Actors[3] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<TestEnemy>(p_World.get(), GSvector2{ 0.0f, 0.0f },p_GameManager) };
 	m_Actors[4] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<BreakWall>(p_World.get(), GSvector2{ 0.0f, 0.0f },p_GameManager) };
 	m_Actors[5] = ActorData{ p_World->findActor(ActorName::Player_Manager), std::make_shared<Player>(p_World.get(), GSvector2{ 0.0f, 0.0f },p_GameManager) };
-	//m_Actors[6] = ActorData{ p_World->findActor(ActorName::EnemyManager), std::make_shared<Enemy01>(p_World.get(), GSvector2{ 0.0f, 0.0f }, FourDirection(FourDirectionName::Up), p_GameManager) };
+	//エネミー
+	m_Actors[11] = ActorData{ p_World->findActor(ActorName::EnemyManager),std::make_shared<Enemy01>(p_World.get(),GSvector2(0.0f,0.0f),FourDirection(FourDirectionName::None),p_GameManager) };
+	m_Actors[12] = ActorData{ p_World->findActor(ActorName::EnemyManager),std::make_shared<Enemy02>(p_World.get(),GSvector2(0.0f,0.0f),FourDirection(FourDirectionName::None),FourDirection(FourDirectionName::Right),p_GameManager) };
+	m_Actors[13] = ActorData{ p_World->findActor(ActorName::EnemyManager),std::make_shared<Enemy02>(p_World.get(),GSvector2(0.0f,0.0f),FourDirection(FourDirectionName::None),FourDirection(FourDirectionName::Left),p_GameManager) };
+	m_Actors[14] = ActorData{ p_World->findActor(ActorName::EnemyManager),std::make_shared<Enemy02>(p_World.get(),GSvector2(0.0f,0.0f),FourDirection(FourDirectionName::None),FourDirection(FourDirectionName::Down),p_GameManager) };
+	m_Actors[15] = ActorData{ p_World->findActor(ActorName::EnemyManager),std::make_shared<Enemy03>(p_World.get(),GSvector2(0.0f,0.0f),FourDirection(FourDirectionName::None),TurnDirection(TurnDirectionName::Clockwise),p_GameManager) };
+	m_Actors[16] = ActorData{ p_World->findActor(ActorName::EnemyManager),std::make_shared<Enemy03>(p_World.get(),GSvector2(0.0f,0.0f),FourDirection(FourDirectionName::None),TurnDirection(TurnDirectionName::AntiClockwise),p_GameManager) };
+	m_Actors[17] = ActorData{ p_World->findActor(ActorName::EnemyManager),std::make_shared<Enemy04>(p_World.get(),GSvector2(0.0f,0.0f),FourDirection(FourDirectionName::None),p_GameManager) };
+	m_Actors[18] = ActorData{ p_World->findActor(ActorName::EnemyManager),std::make_shared<Enemy05>(p_World.get(),GSvector2(0.0f,0.0f),FourDirection(FourDirectionName::None),p_GameManager) };
 }
 
 // 生成する地形の登録
@@ -63,11 +73,12 @@ void MapGenerator::generate()
 		// 列のループ
 		for (unsigned int j = 0; j < m_CsvData[i].size(); j++) {
 			// 指定したマスの番号
-			int index = m_CsvData[i][j];
+			ArrangeData data;
+			data.SetData(m_CsvData[i][j]);
 			// 番号が見つかったどうか
-			if (m_Actors.find(index) != m_Actors.end()) {
-				m_Actors[index].parent->addChild(
-					m_Actors[index].child->clone(GSvector2(j, i) * CHIP_SIZE)
+			if (m_Actors.find(data.actorKey) != m_Actors.end()) {
+				m_Actors[data.actorKey].parent->addChild(
+					m_Actors[data.actorKey].child->clone(GSvector2(j, i) * CHIP_SIZE, data.front)
 					);
 			}
 		}
@@ -75,6 +86,6 @@ void MapGenerator::generate()
 }
 
 //マップの登録
-Map & MapGenerator::getMap(){
+Map & MapGenerator::getMap() {
 	return m_Map;
 }

@@ -31,6 +31,8 @@ public:
 public:
 	//命令ステートの取得
 	virtual EnemyStateName GetCommandState() = 0;
+	//注視移動か
+	virtual bool IsRegard() const = 0;
 	//命令ベクトルの取得
 	virtual GSvector2& GetCommandVector() = 0;
 	//命令回転角度の取得

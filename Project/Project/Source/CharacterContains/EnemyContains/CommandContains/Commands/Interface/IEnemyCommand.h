@@ -28,6 +28,8 @@ public:
 	virtual void handleMessage(EventMessage message, void* param) = 0;
 	//命令ステート
 	virtual EnemyStateName GetCurrentStateName() const = 0;
+	//注視移動か
+	virtual bool IsRegard() const = 0;
 	//目標地点までの移動ベクトルの取得
 	virtual GSvector2 GetVelocity() const = 0;
 	//回転角度の取得

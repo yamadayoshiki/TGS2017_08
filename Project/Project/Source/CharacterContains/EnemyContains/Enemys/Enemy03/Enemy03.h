@@ -3,6 +3,7 @@
 
 #include "../Base/EnemyBase.h"
 
+//壁沿いに動く敵
 class Enemy03 : public EnemyBase
 {
 public:
@@ -13,6 +14,10 @@ public:
 		const FourDirection front,
 		const TurnDirection turnDirection,
 		const IGameManagerPtr& gameManager);
+
+	//クローン生成(使用時継承先でoverride)
+	virtual ActorPtr clone(const GSvector2& position, const FourDirection& front = FourDirection(FourDirectionName::None)) override;
+
 protected:
 	//各種固有のコマンドの設定
 	virtual void SetUpCommand() override;

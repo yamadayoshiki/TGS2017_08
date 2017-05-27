@@ -1,24 +1,23 @@
 #include "Enemy01.h"
+//コンストラクタ
 #include "../../../../ActorContains/ActorName.h"
 #include "../../../../TextureContains/Texture/Texture.h"
+#include "../../../../ActorContains/Body/OrientedBoundingBox.h"
+//描画
 #include "../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../Utility/Rederer2D/Renderer2D.h"
+//Command
 #include "../../../../Utility/FourDirection/FourDirection.h"
-
 //CommandContains
 #include "../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../CommandContains/Commands/EnemyCommandName.h"
 #include "../../CommandContains/Commands/Enemy01Contains/Detour/EnemyCommandEnemy01Detour.h"
 #include "../../CommandContains/Commands/Enemy01Contains/Straight/EnemyCommandEnemy01Straight.h"
-
 //State
 #include "../../StateContains/States/MoveRepelContains/Idle/EnemyStateMoveRepelIdle.h"
 #include "../../StateContains/States/MoveRepelContains/Move/EnemyStateMoveRepelMove.h"
 #include "../../StateContains/States/Stop/EnemyStateStop.h"
 #include "../../StateContains/States/Repel/EnemyStateRepel.h"
-
-#include "../../../../Utility/TurnDirection/TurnDirection.h"
-#include "../../../../ActorContains/Body/OrientedBoundingBox.h"
 
 //コンストラクタ
 Enemy01::Enemy01(
@@ -36,6 +35,12 @@ Enemy01::Enemy01(
 		gameManager,
 		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
 		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
+}
+
+//クローン生成(使用時継承先でoverride)
+ActorPtr Enemy01::clone(const GSvector2 & position, const FourDirection & front)
+{
+	return std::make_shared<Enemy01>(p_World, position, front, p_GameManager);
 }
 
 //各種固有のコマンドの設定

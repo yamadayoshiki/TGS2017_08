@@ -29,7 +29,6 @@ protected:
 	void SetNextTargetPos();
 
 protected:
-	GSvector2 m_NextTargetPos;		//次の目標地点
 	MapType m_Type;					//マップタイプ
 };
 

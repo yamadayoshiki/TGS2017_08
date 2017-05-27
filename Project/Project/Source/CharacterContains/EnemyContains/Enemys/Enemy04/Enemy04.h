@@ -5,6 +5,7 @@
 
 struct FourDirection;
 
+//3回挟まれる(離される)と1マス移動
 class Enemy04:public EnemyBase
 {
 public:
@@ -12,8 +13,11 @@ public:
 	Enemy04(
 		IWorld* world,
 		const GSvector2& position,
-		FourDirection& front,
+		const FourDirection& front,
 		const IGameManagerPtr& gameManager);
+
+	//クローン生成(使用時継承先でoverride)
+	virtual ActorPtr clone(const GSvector2& position, const FourDirection& front = FourDirection(FourDirectionName::None)) override;
 protected:
 	//各種固有のコマンドの設定
 	virtual void SetUpCommand() override;
@@ -23,4 +27,4 @@ protected:
 	virtual void onDraw() const override;
 };
 
-#endif // !ENEMY04_H_
+#endif

@@ -86,10 +86,9 @@ void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, 
 {
 	p_MapGenerator = std::make_shared<MapGenerator>(world, gameManager);
 	p_MapGenerator->load(file_name);
+	p_MapGenerator->registMap();
 	p_MapGenerator->registActor();
 	p_MapGenerator->generate();
-
-	p_MapGenerator->registMap();
 }
 
 //ƒ}ƒbƒv‚ÌŽæ“¾

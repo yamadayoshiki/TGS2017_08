@@ -3,6 +3,7 @@
 
 #include "../Base/EnemyBase.h"
 
+//追跡する敵
 class Enemy01 : public EnemyBase
 {
 public:
@@ -12,6 +13,9 @@ public:
 		const GSvector2& position,
 		const FourDirection front,
 		const IGameManagerPtr& gameManager);
+
+	//クローン生成(使用時継承先でoverride)
+	virtual ActorPtr clone(const GSvector2& position, const FourDirection& front = FourDirection(FourDirectionName::None)) override;
 
 protected:
 	//各種固有のコマンドの設定

@@ -13,7 +13,6 @@ EnemyCommandStraight::EnemyCommandStraight(
 	const EnemyBasePtr& enemy,
 	const MapType type)
 	: EnemyCommandBase(enemy)
-	, m_NextTargetPos(GSVECTOR2_ZERO)
 	, m_Type(type) {
 }
 

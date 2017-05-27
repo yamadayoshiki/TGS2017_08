@@ -1,4 +1,6 @@
 #include "EnemyStateMove.h"
+#include "../../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
+#include "../../../../Enemys/Base/EnemyBase.h"
 
 //コンストラクタ
 EnemyStateMove::EnemyStateMove(const EnemyBasePtr& enemy, const float speed)
@@ -15,6 +17,9 @@ void EnemyStateMove::onUniqueInit()
 
 // 更新処理
 void EnemyStateMove::onUpdate(float deltaTime) {
-	//移動処理
-	Move(deltaTime, m_Speed);
+	if (p_Enemy->GetCommandManager()->IsRegard() == false)
+		ForwardMove(deltaTime, m_Speed);
+
+	else
+		RegardMove(p_Enemy->GetDirection(), deltaTime, m_Speed);
 }

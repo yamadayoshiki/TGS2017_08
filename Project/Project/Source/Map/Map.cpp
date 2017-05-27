@@ -131,6 +131,31 @@ GSvector2 Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& tar
 	return result;
 }
 
+// 押し出し処理(マス準拠)
+ResultPushDirection Map::PushForChara(const GSvector2 & current_pos, const GSvector2 & target_pos, const MapType & charaSize)
+{
+	//結果変数
+	ResultPushDirection result;
+	result.position = target_pos;
+	//周辺のタイルデータ取得
+	auto deta = GetAroundTile(current_pos, charaSize);
+
+	if (deta[FourDirection(FourDirectionName::Up)].Flag() == 1) {
+		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize)+1), result.position.y);
+	}
+	if (deta[FourDirection(FourDirectionName::Down)].Flag() == 1) {
+		result.position.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
+	}
+	if (deta[FourDirection(FourDirectionName::Left)].Flag() == 1) {
+		result.position.x = std::max<float>(deta[FourDirection(FourDirectionName::Left)].Position().x + CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
+	}
+	if (deta[FourDirection(FourDirectionName::Right)].Flag() == 1) {
+		result.position.x = std::min<float>(deta[FourDirection(FourDirectionName::Right)].Position().x - CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
+	}
+
+	return result;
+}
+
 // 指定された座標をタイルの中心座標に補正
 GSvector2 Map::GetTilePos(const GSvector2& pos, const MapType type) {
 	//1マスの幅

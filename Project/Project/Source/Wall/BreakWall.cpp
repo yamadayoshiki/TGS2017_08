@@ -30,7 +30,7 @@ void BreakWall::onMessage(EventMessage event, void *)
 {
 }
 
-ActorPtr BreakWall::clone(const GSvector2 & position)
+ActorPtr BreakWall::clone(const GSvector2 & position, const FourDirection& front)
 {
 	return std::make_shared<BreakWall>(p_World, position, p_GameManager);
 }

@@ -39,6 +39,12 @@ Enemy03::Enemy03(
 	, m_TurnDirection(turnDirection) {
 }
 
+//クローン生成(使用時継承先でoverride)
+ActorPtr Enemy03::clone(const GSvector2 & position, const FourDirection & front)
+{
+	return std::make_shared<Enemy03>(p_World, position, front, m_TurnDirection, p_GameManager);
+}
+
 void Enemy03::SetUpCommand() {
 	//生成
 	p_CommandManager = std::make_shared<EnemyCommandManagerNormal>(shared_from_this());

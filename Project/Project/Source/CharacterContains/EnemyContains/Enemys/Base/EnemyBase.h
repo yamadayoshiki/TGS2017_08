@@ -41,15 +41,16 @@ public:
 	bool CanDead();
 	//プレイヤー監視クラスを取得する
 	PlayerWatch* GetPlayerWatch();
-	//向き管理
+	//向きを取得
 	FourDirection GetDirection() const;
+	//向きを設定
 	void SetDirection(FourDirection dir);
 
 protected:
 	//各種固有のコマンドの設定
-	virtual void SetUpCommand(){}
+	virtual void SetUpCommand() {}
 	//各種固有のStateの設定
-	virtual void SetUpState(){}
+	virtual void SetUpState() {}
 	//更新
 	virtual void onUpdate(float deltaTime) override;
 	//描画

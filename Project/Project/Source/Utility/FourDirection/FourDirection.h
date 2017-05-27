@@ -6,19 +6,20 @@
 
 struct GSvector2;
 
-/*
+/***********************************
 ‚S•ûŒü—ñ‹“
 size_t(unsigned int)‚É‘ã“ü‚·‚é‚½‚ß
 ebum class‚Å‚Í‚È‚­enum/0ˆÈã‚Å’è‹`
-*/
+************************************/
+
 enum FourDirectionName
 {
-	Up = 0,		//ã
+	Up = 1,		//ã
 	Right,		//‰E
 	Down,		//‰º
 	Left,		//¶
 
-	None,		//‚È‚µ
+	None = 0,		//‚È‚µ
 };
 
 //‚S•ûŒü

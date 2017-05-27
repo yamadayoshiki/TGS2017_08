@@ -68,7 +68,7 @@ void TestObj::onMessage(EventMessage event, void *)
 {
 }
 
-ActorPtr TestObj::clone(const GSvector2 & position)
+ActorPtr TestObj::clone(const GSvector2 & position, const FourDirection& front)
 {
 	return std::make_shared<TestObj>(p_World, position, p_GameManager);
 }

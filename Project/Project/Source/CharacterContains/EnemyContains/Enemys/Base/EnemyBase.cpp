@@ -16,7 +16,6 @@ EnemyBase::EnemyBase(
 	const ITexturePtr& texture,
 	const IBodyPtr& body)
 	: Actor(world, name, position, gameManager, texture, body)
-	, m_Speed(speed)
 	, m_HitPoint(maxHp)
 	, m_FourDirection(front) {
 	SetDirection(m_FourDirection);
@@ -86,14 +85,16 @@ PlayerWatch* EnemyBase::GetPlayerWatch() {
 	return p_PlayerWatch;
 }
 
+//向きを取得
 FourDirection EnemyBase::GetDirection() const {
 	return m_FourDirection;
 }
 
-
+//向きを設定
 void EnemyBase::SetDirection(FourDirection dir) {
 	m_FourDirection = dir;
-	setAngle(m_FourDirection.GetTurn(TurnDirection(TurnDirectionName::Clockwise)).GetAngle());
+	setAngle(m_FourDirection.GetTurn(
+		TurnDirection(TurnDirectionName::Clockwise)).GetAngle());
 }
 
 //メッセージ処理

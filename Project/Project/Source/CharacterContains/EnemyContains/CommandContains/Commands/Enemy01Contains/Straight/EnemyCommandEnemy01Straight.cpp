@@ -39,7 +39,10 @@ void EnemyCommandEnemy01Straight::OnUpdate(float deltaTime) {
 void EnemyCommandEnemy01Straight::ArriveReaction() {
 	//ƒvƒŒƒCƒ„[‚Æ‚Ì²‚ªˆê’v‚µ‚½ê‡
 	if (m_AxisChangeFlag == true)
+	{
 		Change(EnemyCommandName::Straight);
+		return;
+	}
 
 	else
 		HitWallReaction();

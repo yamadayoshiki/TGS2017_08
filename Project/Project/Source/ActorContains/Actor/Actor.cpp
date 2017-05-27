@@ -220,8 +220,9 @@ ITexturePtr Actor::getTexture() const {
 	return p_Texture;
 }
 
-//クローン生成
-ActorPtr Actor::clone(const GSvector2 & position) {
+//クローン生成(使用時継承先でoverride)
+ActorPtr Actor::clone(const GSvector2 & position, const FourDirection & front)
+{
 	return nullptr;
 }
 

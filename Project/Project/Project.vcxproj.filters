@@ -657,9 +657,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandStandby.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy03\Enemy03.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -715,6 +712,12 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveRepelContains\Move\EnemyStateMoveRepelMove.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MapGenerator\ArrangeData.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1085,9 +1088,6 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\Enemys\Enemy05\Enemy05.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandStandby.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\UIContains\Sprite\Sprite.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -1119,6 +1119,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveRepelContains\Move\EnemyStateMoveRepelMove.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

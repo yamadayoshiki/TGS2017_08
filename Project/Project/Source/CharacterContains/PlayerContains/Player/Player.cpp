@@ -90,7 +90,7 @@ Player_Parameter& Player::getParameter()
 	return m_Parameter;
 }
 
-ActorPtr Player::clone(const GSvector2 & position)
+ActorPtr Player::clone(const GSvector2 & position, const FourDirection& front)
 {
 	m_Transform.m_Position = position;
 	return shared_from_this();

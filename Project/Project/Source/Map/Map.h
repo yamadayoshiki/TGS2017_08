@@ -16,6 +16,14 @@
 //グリッド座標
 class Point2;
 
+//押し出し結果構造体
+struct ResultPushDirection
+{
+	bool flag;						//押し出されたか
+	GSvector2 position;				//結果座標
+	FourDirection pushDirection;	//押し出された方向
+};
+
 class Map {
 public:
 	//コンストラクタ
@@ -39,7 +47,8 @@ public:
 
 	// 押し出し処理
 	GSvector2 PushForPlayer(const GSvector2& current_pos, const GSvector2& target_pos);
-
+	// 押し出し処理(マス準拠)
+	ResultPushDirection PushForChara(const GSvector2& current_pos, const GSvector2& target_pos,const MapType& charaSize);
 	// 指定された座標をタイルの中心座標に補正
 	GSvector2 GetTilePos(const GSvector2& pos,const MapType type = MapType::Default);
 

@@ -19,6 +19,8 @@
 #include "../../TextureContains/NullTexture/NullTexture.h"
 #include "../Transform/Transform.h"
 
+#include "../../Utility/FourDirection/FourDirection.h"
+
 enum class EventMessage;
 class IWorld;
 
@@ -97,8 +99,8 @@ public:
 
 	//テクスチャを取得
 	ITexturePtr getTexture() const;
-	// クローン生成
-	virtual ActorPtr clone(const GSvector2& position);
+	//クローン生成(使用時継承先でoverride)
+	virtual ActorPtr clone(const GSvector2& position,const FourDirection& front = FourDirection(FourDirectionName::None));
 
 	// コピー禁止
 	Actor(const Actor& other) = delete;

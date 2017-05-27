@@ -32,6 +32,8 @@ public:
 	virtual void handleMessage(EventMessage message, void* param)override {}
 	//命令ステート
 	virtual EnemyStateName GetCurrentStateName() const override;
+	//注視移動か
+	virtual bool IsRegard() const override;
 	//目標地点までの移動ベクトルの取得
 	GSvector2 GetVelocity() const override;
 	//回転角度の取得
@@ -46,7 +48,9 @@ protected:
 
 protected:
 	EnemyBasePtr p_Enemy;			//エネミー本体
+	bool m_Regard;					//注視中か
 	GSvector2 m_Velocity;			//目標地点までの移動ベクトル
+	GSvector2 m_NextTargetPos;		//目標地点
 	float m_RotateAngle;			//回転角度
 	EnemyCommandName m_NextCommand;	//次のコマンド
 	bool m_IsEnd;					//終了フラグ

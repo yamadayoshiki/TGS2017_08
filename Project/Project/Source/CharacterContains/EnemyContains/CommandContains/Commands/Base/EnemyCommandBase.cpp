@@ -11,7 +11,9 @@
 EnemyCommandBase::EnemyCommandBase(const EnemyBasePtr& enemy)
 	: IEnemyCommand()
 	, p_Enemy(enemy)
+	, m_Regard(false)
 	, m_Velocity(GSVECTOR2_ZERO)
+	, m_NextTargetPos(GSVECTOR2_ZERO)
 	, m_RotateAngle(0.0f)
 	, m_NextCommand(EnemyCommandName::None)
 	, m_IsEnd(false) {
@@ -19,6 +21,7 @@ EnemyCommandBase::EnemyCommandBase(const EnemyBasePtr& enemy)
 
 //初期化
 void EnemyCommandBase::Initialize() {
+	//変数の初期化
 	m_NextCommand = EnemyCommandName::None;
 	m_IsEnd = false;
 	//各種固有の初期化
@@ -57,6 +60,11 @@ EnemyCommandName EnemyCommandBase::GetNextCommand() const {
 //命令ステート
 EnemyStateName EnemyCommandBase::GetCurrentStateName() const {
 	return EnemyStateName::None;
+}
+
+//注視移動か
+bool EnemyCommandBase::IsRegard() const{
+	return m_Regard;
 }
 
 //次コマンドの設定

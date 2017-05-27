@@ -41,7 +41,7 @@ void TestEnemy::onMessage(EventMessage event, void *)
 {
 }
 
-ActorPtr TestEnemy::clone(const GSvector2 & position)
+ActorPtr TestEnemy::clone(const GSvector2 & position, const FourDirection& front)
 {
 	return std::make_shared<TestEnemy>(p_World, position,p_GameManager);
 }
