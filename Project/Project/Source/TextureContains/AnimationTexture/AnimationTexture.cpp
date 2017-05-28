@@ -12,6 +12,7 @@ AnimationTexture::AnimationTexture(
 
 //‰Šú‰»
 void AnimationTexture::OnInitialize() {
+	p_Parameter->SetRect(*p_Animation->GetCurrentRect());
 	p_Animation->Initialize();
 }
 

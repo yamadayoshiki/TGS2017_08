@@ -100,7 +100,7 @@ public:
 	//テクスチャを取得
 	ITexturePtr getTexture() const;
 	//クローン生成(使用時継承先でoverride)
-	virtual ActorPtr clone(const GSvector2& position,const FourDirection& front = FourDirection(FourDirectionName::None));
+	virtual ActorPtr clone(const GSvector2& position, const FourDirection& front = FourDirection(FourDirectionName::None));
 
 	// コピー禁止
 	Actor(const Actor& other) = delete;

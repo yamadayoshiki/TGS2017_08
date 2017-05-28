@@ -23,6 +23,11 @@ GSrect Texture2DParameter::GetRect() const
 	return m_Rect;
 }
 
+GSvector2 Texture2DParameter::GetSize() const
+{
+	return GSvector2(m_Rect.right, m_Rect.bottom);
+}
+
 //スクリーン座標の設定
 void Texture2DParameter::SetPosition(const GSvector2 position)
 {

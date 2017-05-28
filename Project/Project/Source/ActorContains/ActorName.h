@@ -21,7 +21,8 @@ enum class ActorName
 	UI_Manager,
 	UI_Selector,
 	UI_Button,
-	UI_Sprite,
+	UI_Sprite, 
+	UI_Text,
 
 	/* テスト用 */
 	EnemyManager,

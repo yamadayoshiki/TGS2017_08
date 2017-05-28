@@ -13,14 +13,21 @@
 
 Button::Button(IWorld* world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name) :
 	UI_Base(world, ActorName::UI_Button, position, gameManager) {
-	m_Selector = std::make_shared<Selector>(world, GSvector2(0.0f, 0.0f), gameManager);
-	addChild(m_Selector);
-
 	regist(file_name);
 }
 
 void Button::regist(const std::string & file_name){
 	CsvReader csv = CsvReader(file_name);
+
+	// ボタンが指定されていないときのみカーソルを生成
+	if (csv.rows() == 1) {
+		dead();
+		return;
+	}
+
+	// セレクタを生成
+	m_Selector = std::make_shared<Selector>(p_World, GSvector2(0.0f, 0.0f), p_GameManager);
+	addChild(m_Selector);
 
 	// 行のループ
 	for (int row = 1; row < csv.rows(); row++) {
@@ -51,6 +58,11 @@ void Button::regist(const std::string & file_name){
 }
 
 void Button::onUpdate(float deltaTime){
+	if (getCount() == 0) {
+		dead();
+		return;
+	}
+
 	moveSelector(GKEY_UP);
 	moveSelector(GKEY_DOWN);
 	moveSelector(GKEY_RIGHT);

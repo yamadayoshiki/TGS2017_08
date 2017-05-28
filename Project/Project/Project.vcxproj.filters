@@ -684,9 +684,6 @@
     <ClInclude Include="Source\UIContains\Sprite\SpriteCreator.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\UIContains\Sprite\SpriteData.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\Enemys\Enemy02\Enemy02.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>

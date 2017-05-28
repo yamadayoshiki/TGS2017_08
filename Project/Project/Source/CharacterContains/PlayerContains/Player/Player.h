@@ -32,7 +32,7 @@ public:
 	//プレイヤーパラメーターの取得
 	Player_Parameter& getParameter();
 
-	virtual ActorPtr clone(const GSvector2& position) override;
+	virtual ActorPtr clone(const GSvector2& position, const FourDirection& front = FourDirection(FourDirectionName::None)) override;
 
 protected:
 	//メッセージ処理

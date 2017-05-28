@@ -16,6 +16,9 @@ public:
 	//貼り付ける四角形の取得
 	GSrect GetRect() const;
 
+	//テクスチャのサイズの取得
+	GSvector2 GetSize() const;
+
 	//スクリーン座標の設定
 	void SetPosition(const GSvector2 position);
 

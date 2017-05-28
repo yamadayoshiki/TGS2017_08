@@ -3,6 +3,9 @@
 
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../StagingContains/TransitionStaging/SceneTransition.h"
+#include "../../ActorContains/ActorGroup.h"
+#include "../../UIContains/UIManager/UIManager.h"
+
 
 #include <gslib.h>
 #include <memory>
@@ -31,6 +34,9 @@ void Scene::Start()
 
 	//ƒ[ƒ‹ƒh¶¬
 	p_World = std::make_shared<World>();
+
+	// UI‚Ì¶¬
+	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
 
 	OnStart();
 }

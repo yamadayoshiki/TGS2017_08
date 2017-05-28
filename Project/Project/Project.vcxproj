@@ -321,7 +321,6 @@
     <ClInclude Include="Source\UIContains\Button\Button.h" />
     <ClInclude Include="Source\UIContains\Sprite\Sprite.h" />
     <ClInclude Include="Source\UIContains\Sprite\SpriteCreator.h" />
-    <ClInclude Include="Source\UIContains\Sprite\SpriteData.h" />
     <ClInclude Include="Source\UIContains\UIFilePaths.h" />
     <ClInclude Include="Source\UIContains\Selector\Selector.h" />
     <ClInclude Include="Source\UIContains\UICreator\UICreator.h" />
