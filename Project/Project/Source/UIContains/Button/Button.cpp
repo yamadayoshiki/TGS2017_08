@@ -45,8 +45,6 @@ void Button::regist(const std::string & file_name){
 		data.param.SetPosition(GSvector2(csv.getf(row, 10), csv.getf(row, 11)));
 		data.param.SetCenter(GSvector2(0.0f, 0.0f));
 		data.param.SetScale(GSvector2(1.0f, 1.0f));
-		data.param.SetRotate(csv.getf(row, 12));
-		data.param.SetColor(GScolor(1.0f, 1.0f, 1.0f, csv.getf(row, 13)));
 
 		m_Buttons[data.number] = data;
 
