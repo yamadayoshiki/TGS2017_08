@@ -24,6 +24,7 @@ enum class PlayerStateName
 	//共通
 	Damage,			//ダメージ状態
 	Release,		//離す状態
+	Invincible,		//無敵状態
 	Swich,			//切り替え
 	Dead,			//死に
 	None			//ダミー

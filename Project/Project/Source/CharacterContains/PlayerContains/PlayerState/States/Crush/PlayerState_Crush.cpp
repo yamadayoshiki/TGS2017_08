@@ -43,5 +43,9 @@ void PlayerState_Crush::handleMessage(EventMessage massege, void* param)
 	case EventMessage::PLAYER_ROUNDSLOST:
 		change(PlayerStateName::Close);
 		break;
+
+	case EventMessage::ENEMY_REPEL:
+		change(PlayerStateName::Idle);
+		break;
 	}
 }

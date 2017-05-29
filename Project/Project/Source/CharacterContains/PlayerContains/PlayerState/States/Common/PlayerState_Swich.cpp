@@ -43,3 +43,14 @@ void PlayerState_Swich::collide(const Actor& other)
 		p_Player->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));
 	}
 }
+
+//メッセージ処理
+void PlayerState_Swich::handleMessage(EventMessage message, void * param)
+{
+	switch (message)
+	{
+	case EventMessage::ENEMY_REPEL:
+		change(PlayerStateName::Idle);
+		break;
+	}
+}

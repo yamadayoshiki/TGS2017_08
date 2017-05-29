@@ -3,6 +3,7 @@
 
 #include"../../../ActorContains/State/Base/State.h"
 #include"../PlayerState/PlayerStateName.h"
+#include"PlayerMotion_ID.h"
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/InputState/InputState.h"
 #include"../Arm/Arm.h"
@@ -25,13 +26,15 @@ public:
 
 protected:
 	//モーション変更
-	//void motion_change(Actor& actor, const PlayerStateID);
+	void motion_change(const PlayerMotion_ID id);
 	//移動処理
 	void move(float deltaTime, float speed = 1.0f);
 	//アーム更新
 	void armUpdate();
 	//視野角内にいるか
 	bool is_Scorp_Angle(GSvector2 myVector,GSvector2 targetVector);
+	//テクスチャ名前変更
+	void TextureName_Change(const std::string& name);
 
 protected:
 	//プレイヤー本体

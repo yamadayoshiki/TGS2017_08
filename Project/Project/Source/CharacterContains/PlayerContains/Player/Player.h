@@ -10,6 +10,7 @@
 #include"../../../TextureContains/AnimationTexture/AnimationTexture.h"
 
 #include<memory>
+#include<string>
 
 class Renderer2D;
 
@@ -31,6 +32,8 @@ public:
 	
 	//プレイヤーパラメーターの取得
 	Player_Parameter& getParameter();
+	//テクスチャの名前の設定
+	void setName(const std::string& name);
 
 	virtual ActorPtr clone(const GSvector2& position, const FourDirection& front = FourDirection(FourDirectionName::None)) override;
 
@@ -51,5 +54,7 @@ private:
 	AnimationTexture*		p_Animation;
 	//回転
 	float					angle;
+	//名前
+	std::string				m_Name;
 };
 #endif // !PLAYER_H_

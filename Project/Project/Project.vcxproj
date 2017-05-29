@@ -244,12 +244,14 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\Arm.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\ArmPtr.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerStateName.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerMotion_ID.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateManager.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateName.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStatePtr.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState_Path.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Dead.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Invincible.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Release.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_CrushBase.h" />
@@ -424,6 +426,7 @@
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateManager.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Dead.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Invincible.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Release.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_CrushBase.cpp" />

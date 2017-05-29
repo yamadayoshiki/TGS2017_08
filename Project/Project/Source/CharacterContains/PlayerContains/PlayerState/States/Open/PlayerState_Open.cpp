@@ -11,6 +11,7 @@ PlayerState_Open::PlayerState_Open(const PlayerPtr& player, IGameManagerPtr game
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Open::unique_init()
 {
+	TextureName_Change("Player_Open");
 
 }
 

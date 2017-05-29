@@ -34,6 +34,11 @@ Player::~Player() {
 //初期化
 void Player::initialize()
 {
+	//名前の設定
+	setName("Player_Close");
+	//スタート地点の補間
+	m_Parameter.m_StratPosition = m_Transform.m_Position;
+
 	//Animation	
 
 	//プレイヤーパラメーターの設定
@@ -67,10 +72,10 @@ void Player::onDraw()const
 	param.SetPosition(m_Transform.m_Position);
 	param.SetRotate(m_Transform.m_Angle - 90);
 	param.SetCenter({ 32.0f, 32.0f });
-	param.SetRect(*p_Renderer->GetTextureRect("Player_Clip"));
+	param.SetRect(*p_Renderer->GetTextureRect(m_Name));
 	param.SetScale({ 1.0f , 1.0f });
 	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_Renderer->DrawTexture("Player_Clip", param);
+	p_Renderer->DrawTexture(m_Name, param);
 	//child->onDraw();
 
 	/*gsTextPos(m_Transform.m_Position.x, m_Transform.m_Position.y);
@@ -88,6 +93,12 @@ void Player::onCollide(Actor& other)
 Player_Parameter& Player::getParameter()
 {
 	return m_Parameter;
+}
+
+//テクスチャの名前の設定
+void Player::setName(const std::string& name)
+{
+	m_Name = name;
 }
 
 ActorPtr Player::clone(const GSvector2 & position, const FourDirection& front)

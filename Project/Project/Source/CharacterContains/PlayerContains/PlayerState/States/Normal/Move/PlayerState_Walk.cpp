@@ -7,7 +7,7 @@ PlayerState_Walk::PlayerState_Walk(const PlayerPtr& player, IGameManagerPtr game
 }
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Walk::onUniqueInit() {
-
+	TextureName_Change("Player_Close");
 }
 //XVˆ—
 void PlayerState_Walk::onUpdate(float deltaTime)

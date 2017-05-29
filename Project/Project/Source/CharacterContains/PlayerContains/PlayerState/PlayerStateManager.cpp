@@ -32,6 +32,7 @@ PlayerStateManager::PlayerStateManager(const PlayerPtr& player, IGameManagerPtr 
 	//‹¤’Ê
 	add(PlayerStateName::Swich, std::make_shared<PlayerState_Swich>		(player, gameManager));
 	add(PlayerStateName::Release, std::make_shared<PlayerState_Release> (player, gameManager));
+	add(PlayerStateName::Invincible, std::make_shared<PlayerState_Invincible>(player, gameManager));
 	add(PlayerStateName::Damage, std::make_shared<PlayerState_Damage>(player, gameManager));
 	add(PlayerStateName::Dead, std::make_shared<PlayerState_Dead>(player, gameManager));
 }
@@ -49,6 +50,7 @@ void PlayerStateManager::addChild(const ActorName & name, const ActorPtr & child
 	mStates[(int)PlayerStateName::Crush_Barrage]->addChild(name, child);
 	mStates[(int)PlayerStateName::Swich]->addChild(name, child);
 	mStates[(int)PlayerStateName::Release]->addChild(name, child);
+	mStates[(int)PlayerStateName::Invincible]->addChild(name, child);
 	mStates[(int)PlayerStateName::Damage]->addChild(name, child);
 	mStates[(int)PlayerStateName::Dead]->addChild(name, child);
 }

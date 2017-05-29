@@ -10,7 +10,7 @@ PlayerState_Round::PlayerState_Round(const PlayerPtr& player, IGameManagerPtr ga
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Round::unique_init()
 {
-
+	TextureName_Change("Player_Clip");
 }
 //XVˆ—
 void PlayerState_Round::update(float deltaTime)

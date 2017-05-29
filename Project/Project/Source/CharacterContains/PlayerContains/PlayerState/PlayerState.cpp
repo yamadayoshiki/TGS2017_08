@@ -20,11 +20,11 @@ PlayerState::PlayerState(const PlayerPtr& player, const IGameManagerPtr& gameMan
 //パッド入力
 void PlayerState::input() {}
 
-////モーション変更
-//void PlayerState::motion_change(Actor& other, const PlayerStateID)
-//{
-//
-//}
+//モーション変更
+void PlayerState::motion_change(const PlayerMotion_ID id)
+{
+
+}
 
 //アーム更新
 void PlayerState::armUpdate()
@@ -63,7 +63,6 @@ void PlayerState::move(float deltaTime, float speed)
 
 		p_Player->setPosition(m_Position);
 	}
-	//armUpdate();
 }
 
 //視野角内にいるか
@@ -78,10 +77,16 @@ bool PlayerState::is_Scorp_Angle(GSvector2 myVector, GSvector2 targetVector)
 	//自分と相手のベクトルからなす角を取る
 	float result = myVector.innerDegree(targetVector);
 
-	//視野角内(30度)にいるか？
-	if (result <= 30.0f) {
+	//視野角内(40度)にいるか？
+	if (result <= 40.0f) {
 		return true;
 	}
 
 	return false;
+}
+
+//テクスチャ名前変更
+void PlayerState::TextureName_Change(const std::string& name)
+{
+	p_Player->setName(name);
 }

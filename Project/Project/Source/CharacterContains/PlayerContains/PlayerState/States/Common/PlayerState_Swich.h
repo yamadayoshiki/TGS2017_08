@@ -16,6 +16,8 @@ public:
 	virtual void collide(const Actor& other)override;
 	//終了処理
 	virtual void end()override {}
+	//メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param)override;
 private:
 	bool		m_Flag;
 };

@@ -10,6 +10,8 @@ PlayerState_Close::PlayerState_Close(const PlayerPtr& player, IGameManagerPtr ga
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Close::unique_init()
 {
+	TextureName_Change("Player_Close");
+
 	m_FramConter = 0;
 }
 
