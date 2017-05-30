@@ -27,7 +27,6 @@ PlayerStateManager::PlayerStateManager(const PlayerPtr& player, IGameManagerPtr 
 
 	//’×‚·ó‘Ô
 	add(PlayerStateName::Crush, std::make_shared<PlayerState_Crush>(player, gameManager));
-	add(PlayerStateName::Crush_Barrage, std::make_shared<PlayerState_Crush_Barrage>(player, gameManager));
 
 	//‹¤’Ê
 	add(PlayerStateName::Swich, std::make_shared<PlayerState_Swich>		(player, gameManager));
@@ -47,7 +46,6 @@ void PlayerStateManager::addChild(const ActorName & name, const ActorPtr & child
 	mStates[(int)PlayerStateName::Rounds]->addChild(name, child);
 	mStates[(int)PlayerStateName::Close]->addChild(name, child);
 	mStates[(int)PlayerStateName::Crush]->addChild(name, child);
-	mStates[(int)PlayerStateName::Crush_Barrage]->addChild(name, child);
 	mStates[(int)PlayerStateName::Swich]->addChild(name, child);
 	mStates[(int)PlayerStateName::Release]->addChild(name, child);
 	mStates[(int)PlayerStateName::Invincible]->addChild(name, child);

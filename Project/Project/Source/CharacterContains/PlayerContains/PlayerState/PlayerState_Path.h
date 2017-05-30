@@ -19,7 +19,6 @@
 
 //’×‚·ó‘Ô
 #include"States\Crush\PlayerState_Crush.h"
-#include"States\Crush\PlayerState_Crush_Barrage.h"
 
 //‹¤’Ê
 #include"States\Common\PlayerState_Damage.h"

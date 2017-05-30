@@ -6,12 +6,9 @@
 #include"PlayerMotion_ID.h"
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/InputState/InputState.h"
-#include"../Arm/Arm.h"
-#include"../Arm/ArmPtr.h"
 #include"../Player/Player.h"
 #include "../Player/PlayerPtr.h"
 #include"../Player/Player_Parameter.h"
-#include <unordered_map>
 
 class Map;
 
@@ -28,13 +25,15 @@ protected:
 	//モーション変更
 	void motion_change(const PlayerMotion_ID id);
 	//移動処理
-	void move(float deltaTime, float speed = 1.0f);
+	void move(float deltaTime, float speed = 8.0f);
 	//アーム更新
 	void armUpdate();
 	//視野角内にいるか
 	bool is_Scorp_Angle(GSvector2 myVector,GSvector2 targetVector);
 	//テクスチャ名前変更
 	void TextureName_Change(const std::string& name);
+	//敵との衝突処理
+	void Collide(const Actor& other);
 
 protected:
 	//プレイヤー本体

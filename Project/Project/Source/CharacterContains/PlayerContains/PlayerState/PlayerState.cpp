@@ -45,11 +45,6 @@ void PlayerState::move(float deltaTime, float speed)
 
 		FourDirection velocity = FourDirection(inputVelocity);
 
-
-		//if (frontWall.Flag() == 1) {
-		//	return;
-		//}
-
 		//Šp“xİ’è
 		p_Player->setAngle(MathSupport::GetVec2ToVec2Angle(inputVelocity));
 
@@ -81,7 +76,6 @@ bool PlayerState::is_Scorp_Angle(GSvector2 myVector, GSvector2 targetVector)
 	if (result <= 40.0f) {
 		return true;
 	}
-
 	return false;
 }
 
@@ -89,4 +83,14 @@ bool PlayerState::is_Scorp_Angle(GSvector2 myVector, GSvector2 targetVector)
 void PlayerState::TextureName_Change(const std::string& name)
 {
 	p_Player->setName(name);
+}
+
+//“G‚Æ‚ÌÕ“Ëˆ—
+void PlayerState::Collide(const Actor& other)
+{
+	if (other.getName() == ActorName::Enemy_01 || other.getName() == ActorName::Enemy_02
+		|| other.getName() == ActorName::Enemy_03 || other.getName() == ActorName::Enemy_04)
+	{
+		change(PlayerStateName::Damage);
+	}
 }

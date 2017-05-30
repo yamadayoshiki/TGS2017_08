@@ -19,7 +19,7 @@ void PlayerState_Close::unique_init()
 void PlayerState_Close::update(float deltaTaime)
 {
 	if (m_FramConter > 10)
-		change(PlayerStateName::Idle);
+		change(PlayerStateName::Walk);
 	m_FramConter += deltaTaime;
 }
 

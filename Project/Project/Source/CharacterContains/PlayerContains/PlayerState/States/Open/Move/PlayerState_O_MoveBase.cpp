@@ -31,10 +31,9 @@ void PlayerState_O_MoveBase::collide(const Actor& other)
 	if (m_Children[ActorName::Player_Arm]->isCollide(other) && 
 		is_Scorp_Angle(p_Player->getBody()->forward(),other.getPosition() - p_Player->getPosition())) return;
 
-	if (other.getName() == ActorName::Enemy_01 || other.getName() == ActorName::Enemy_03)
-	{
-		change(PlayerStateName::Damage);
-	}
+	//“G‚Æ‚ÌÕ“Ëˆ—
+	Collide(other);
+
 	//Œp³æ‚ÌÕ“Ëˆ—
 	onCollide(other);
 }
@@ -47,7 +46,7 @@ void PlayerState_O_MoveBase::end()
 //“ü—Íˆ—
 void PlayerState_O_MoveBase::input()
 {
-	if (p_Input->IsPadStatesDetach(GS_XBOX_PAD_B)) {
+	if (!p_Input->IsPadState(GS_XBOX_PAD_B)) {
 		change(PlayerStateName::Swich);
 	}
 	//Œp³æ‚Ì“ü—Íˆ—

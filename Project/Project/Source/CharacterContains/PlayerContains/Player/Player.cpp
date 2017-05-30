@@ -39,10 +39,9 @@ void Player::initialize()
 	//スタート地点の補間
 	m_Parameter.m_StratPosition = m_Transform.m_Position;
 
-	//Animation	
-
-	//プレイヤーパラメーターの設定
-	//m_Parameter = p_GameManager->GetPlayerParameter();
+	//アニメーションのパラメータの設定
+	Animation* animation = new Animation(*p_Renderer->GetTextureRect("Player"), 64, 10);
+	p_Animation = new AnimationTexture("Player", p_Renderer, animation);
 
 	//ステートマネージャ生成、初期化
 	mStateManager = new PlayerStateManager(shared_from_this(), p_GameManager);
@@ -62,21 +61,34 @@ void Player::onUpdate(float deltaTime)
 
 	//行動制限
 	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));
+
+	if (p_Animation->GetLoopCount() <= 0) {
+		//アニメーションの更新
+		p_Animation->Update(deltaTime);
+	}
 }
 //描画処理
 void Player::onDraw()const
 {
 	//p_Body->transform(getTransform())->draw();
 
-	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
-	param.SetRotate(m_Transform.m_Angle - 90);
-	param.SetCenter({ 32.0f, 32.0f });
-	param.SetRect(*p_Renderer->GetTextureRect(m_Name));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_Renderer->DrawTexture(m_Name, param);
-	//child->onDraw();
+	//Texture2DParameter param;
+	//param.SetPosition(m_Transform.m_Position);
+	//param.SetRotate(m_Transform.m_Angle - 90);
+	//param.SetCenter({ 32.0f, 32.0f });
+	//param.SetRect(*p_Renderer->GetTextureRect(m_Name));
+	//param.SetScale({ 1.0f , 1.0f });
+	//param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	//p_Renderer->DrawTexture(m_Name, param);
+
+	p_Animation->GetParameter()->SetPosition(m_Transform.m_Position);
+	p_Animation->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
+	p_Animation->GetParameter()->SetCenter({ 32.0f, 32.0f });
+	//p_Animation->GetParameter()->SetRect(*p_Renderer->GetTextureRect("Player"));
+	p_Animation->GetParameter()->SetScale({ 1.0f , 1.0f });
+	p_Animation->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	//アニメーションの描画
+	p_Animation->Draw();
 
 	/*gsTextPos(m_Transform.m_Position.x, m_Transform.m_Position.y);
 	gsDrawText("a");*/
@@ -86,7 +98,6 @@ void Player::onCollide(Actor& other)
 {
 	//状態ごとの衝突判定
 	mStateManager->collide(*this, other);
-	//dynamic_cast<Arm*>(child.get())->onCollide(other);
 }
 
 //プレイヤーパラメーターの取得

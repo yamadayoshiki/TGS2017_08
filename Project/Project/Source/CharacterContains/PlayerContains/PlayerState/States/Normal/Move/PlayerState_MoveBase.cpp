@@ -12,7 +12,6 @@ PlayerState_MoveBase::PlayerState_MoveBase(const PlayerPtr& player, IGameManager
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_MoveBase::unique_init()
 {
-
 	// Œp³æ‚ÌŠeó‘Ô“Æ©‚Ì‰Šú‰»
 	onUniqueInit();
 }
@@ -35,12 +34,9 @@ void PlayerState_MoveBase::update(float deltaTaime)
 //Õ“Ë”»’è
 void PlayerState_MoveBase::collide(const Actor& other)
 {
-	if (m_FramConter <= 20) return;
-	if (other.getName() == ActorName::Enemy_01 || other.getName() == ActorName::Enemy_03)
-	{
-		change(PlayerStateName::Damage);
-		//m_FramConter = 0;
-	}
+	//“G‚Æ‚ÌÕ“Ëˆ—
+	Collide(other);
+
 	//Œp³æ‚ÌÕ“Ëˆ—
 	onCollide(other);
 }

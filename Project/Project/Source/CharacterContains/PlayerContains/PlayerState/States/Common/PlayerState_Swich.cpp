@@ -22,7 +22,7 @@ void PlayerState_Swich::update(float deltaTaime)
 		change(PlayerStateName::Rounds);
 	}
 	else {
-		change(PlayerStateName::Close);
+		change(PlayerStateName::Idle);
 	}
 }
 

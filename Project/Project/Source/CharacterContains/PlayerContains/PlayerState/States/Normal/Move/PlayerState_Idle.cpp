@@ -8,5 +8,5 @@ PlayerState_Idle::PlayerState_Idle(const PlayerPtr& player, IGameManagerPtr game
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Idle::onUniqueInit()
 {
-
+	TextureName_Change("Player_Close");
 }
