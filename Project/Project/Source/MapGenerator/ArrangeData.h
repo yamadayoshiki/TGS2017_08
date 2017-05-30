@@ -18,7 +18,7 @@ struct ArrangeData
 	void SetData(const int index)
 	{
 		//下1桁を向きデータに変換
-		front = FourDirection(index % 10);
+		front = FourDirection((FourDirectionName)(index % 10));
 		//それ以外をキーに変換
 		actorKey = index / 10;
 	}

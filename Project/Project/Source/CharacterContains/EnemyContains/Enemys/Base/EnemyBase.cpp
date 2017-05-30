@@ -18,7 +18,7 @@ EnemyBase::EnemyBase(
 	: Actor(world, name, position, gameManager, texture, body)
 	, m_HitPoint(maxHp)
 	, m_FourDirection(front) {
-	SetDirection(m_FourDirection);
+	SetDirection(front);
 }
 
 //デストラクタ

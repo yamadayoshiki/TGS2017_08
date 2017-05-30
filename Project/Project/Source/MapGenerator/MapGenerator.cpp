@@ -74,6 +74,11 @@ void MapGenerator::generate()
 		for (unsigned int j = 0; j < m_CsvData[i].size(); j++) {
 			// w’è‚µ‚½ƒ}ƒX‚Ì”Ô†
 			ArrangeData data;
+			if (m_CsvData[i][j] == 121)
+			{
+				int i = 0;
+			}
+
 			data.SetData(m_CsvData[i][j]);
 			// ”Ô†‚ªŒ©‚Â‚©‚Á‚½‚Ç‚¤‚©
 			if (m_Actors.find(data.actorKey) != m_Actors.end()) {

@@ -35,28 +35,13 @@ void GamePlay::OnStart() {
 
 	Map map = p_World->GetMap();
 	std::unordered_map<FourDirection, TileData> tmp = map.GetAroundTile(GSvector2(70, 90));
-
-	//エネミー生成
-	//p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy01>(p_World.get(), GSvector2(CHIP_SIZE * 19, CHIP_SIZE * 11), FourDirection(FourDirectionName::Left), p_GameManager));
-
-	//p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy02>(p_World.get(), GSvector2(CHIP_SIZE * 11, CHIP_SIZE * 5), FourDirection(FourDirectionName::Right), FourDirection(FourDirectionName::Right), p_GameManager));
-	//p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy02>(p_World.get(), GSvector2(CHIP_SIZE * 15, CHIP_SIZE * 5), FourDirection(FourDirectionName::Right), FourDirection(FourDirectionName::Left), p_GameManager));
-
-	//p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy03>(p_World.get(), GSvector2(CHIP_SIZE * 14, CHIP_SIZE * 16 + CHIP_SIZE / 2), FourDirection(FourDirectionName::Up), TurnDirection(TurnDirectionName::Clockwise), p_GameManager));
-
-	//p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy04>(p_World.get(), GSvector2(CHIP_SIZE * 8, CHIP_SIZE * 5), FourDirection(FourDirectionName::Right), p_GameManager));
-
-	//p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy05>(p_World.get(), GSvector2(CHIP_SIZE * 22, CHIP_SIZE * 23), FourDirection(FourDirectionName::Left), p_GameManager));
-	//p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy05>(p_World.get(), GSvector2(CHIP_SIZE * 18, CHIP_SIZE * 5), FourDirection(FourDirectionName::Left), p_GameManager));
-	//p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy05>(p_World.get(), GSvector2(CHIP_SIZE * 10, CHIP_SIZE * 11), FourDirection(FourDirectionName::Left), p_GameManager));
-	p_World->addActor(ActorGroup::Enemy, std::make_shared<Enemy05>(p_World.get(), GSvector2(CHIP_SIZE * 19, CHIP_SIZE * 23), FourDirection(FourDirectionName::Right), p_GameManager));
 }
 
 // 更新     
-void GamePlay::OnUpdate(float deltaTime){
+void GamePlay::OnUpdate(float deltaTime) {
 	// Enterキーを押下、もしくは討伐可能な敵が０以下の場合クリア
 	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) ||
-		p_World->GetSurviverSum() <= 0){
+		p_World->GetSurviverSum() <= 0) {
 		p_World->EndRequest(SceneName::GameResult);
 	}
 }

@@ -68,8 +68,6 @@ void Enemy03::SetUpState()
 }
 
 void Enemy03::onDraw() const {
-	//p_Body->transform(getTransform())->draw();
-
 	Texture2DParameter param;
 	param.SetPosition(m_Transform.m_Position);
 	param.SetCenter({ 16.0f, 16.0f });
