@@ -17,9 +17,9 @@ void EnemyStateDead::unique_init() {
 
 // 更新処理
 void EnemyStateDead::update(float deltaTime) {
-	p_Enemy->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDSLOST);
+	p_Enemy.lock()->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDSLOST);
 	//アニメーションが終了したらActorから削除
-	p_Enemy->dead();
+	p_Enemy.lock()->dead();
 }
 
 // 衝突判定

@@ -34,7 +34,7 @@ private:
 
 protected:
 	//エネミー本体
-	EnemyBasePtr p_Enemy;
+	EnemyBaseWPtr p_Enemy;
 };
 
 #endif

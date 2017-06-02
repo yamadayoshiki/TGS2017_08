@@ -15,7 +15,7 @@ public:
 	//コンストラクタ
 	EnemyCommandManagerBase(const EnemyBasePtr& enemy);
 	//デストラクタ
-	virtual ~EnemyCommandManagerBase() { Finalize(); }
+	virtual ~EnemyCommandManagerBase();
 	//初期化
 	void Initialize() override;
 	//更新
@@ -48,7 +48,7 @@ protected:
 	virtual EnemyCommandName GetNextCommand() = 0;
 
 protected:
-	EnemyBasePtr p_Enemy;										//エネミー本体
+	EnemyBaseWPtr p_Enemy;										//エネミー本体
 	std::map<EnemyCommandName, IEnemyCommandPtr> m_CommandDic;	//コマンド辞書
 	IEnemyCommandPtr p_CurCommand;								//現在のコマンド
 };

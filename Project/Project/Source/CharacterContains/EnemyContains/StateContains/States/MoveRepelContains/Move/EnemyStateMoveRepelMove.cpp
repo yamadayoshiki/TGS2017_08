@@ -3,7 +3,7 @@
 #include "../../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
 
 EnemyStateMoveRepelMove::EnemyStateMoveRepelMove(const EnemyBasePtr & enemy, const float speed)
-	:EnemyStateMoveRepelBase(enemy)
+	: EnemyStateMoveRepelBase(enemy)
 	, m_Speed(speed) {
 }
 
@@ -12,9 +12,9 @@ void EnemyStateMoveRepelMove::onUniqueInit()
 }
 
 void EnemyStateMoveRepelMove::onUpdate(float deltaTime) {
-	if (p_Enemy->GetCommandManager()->IsRegard() == false)
+	if (p_Enemy.lock()->GetCommandManager()->IsRegard() == false)
 		ForwardMove(deltaTime, m_Speed);
 
 	else
-		RegardMove(p_Enemy->GetDirection(),deltaTime, m_Speed);
+		RegardMove(p_Enemy.lock()->GetDirection(),deltaTime, m_Speed);
 }

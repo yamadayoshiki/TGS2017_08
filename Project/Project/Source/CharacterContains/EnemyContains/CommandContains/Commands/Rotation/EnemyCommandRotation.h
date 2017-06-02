@@ -3,7 +3,7 @@
 
 #include "../Base/EnemyCommandBase.h"
 
-class EnemyCommandRotation :public virtual EnemyCommandBase
+class EnemyCommandRotation :public EnemyCommandBase
 {
 public:
 	//コンストラクタ

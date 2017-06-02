@@ -178,8 +178,6 @@ void Actor::clearChildren() {
 	m_children.clear();
 }
 
-
-
 //メッセージ処理
 void Actor::handleMessage(EventMessage message, void * param) {
 	onMessage(message, param);

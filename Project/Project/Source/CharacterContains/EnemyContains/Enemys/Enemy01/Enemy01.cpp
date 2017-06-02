@@ -14,6 +14,7 @@
 #include "../../CommandContains/Commands/Enemy01Contains/Detour/EnemyCommandEnemy01Detour.h"
 #include "../../CommandContains/Commands/Enemy01Contains/Straight/EnemyCommandEnemy01Straight.h"
 //State
+#include "../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../StateContains/States/MoveRepelContains/Idle/EnemyStateMoveRepelIdle.h"
 #include "../../StateContains/States/MoveRepelContains/Move/EnemyStateMoveRepelMove.h"
 #include "../../StateContains/States/Stop/EnemyStateStop.h"
@@ -46,7 +47,7 @@ ActorPtr Enemy01::clone(const GSvector2 & position, const FourDirection & front)
 //各種固有のコマンドの設定
 void Enemy01::SetUpCommand() {
 	//生成
-	p_CommandManager = std::make_shared<EnemyCommandManagerNormal>(shared_from_this());
+	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command追加
 	p_CommandManager->AddDic(EnemyCommandName::Straight, std::make_shared<EnemyCommandEnemy01Straight>(shared_from_this()));
 	p_CommandManager->AddDic(EnemyCommandName::AlongWallMoveShoest, std::make_shared<EnemyCommandEnemy01Detour>(shared_from_this()));
@@ -57,7 +58,7 @@ void Enemy01::SetUpCommand() {
 //各種固有のStateの設定
 void Enemy01::SetUpState() {
 	//生成
-	p_StateManager = new EnemyStateManager();
+	p_StateManager.reset(new EnemyStateManager());
 	//State追加
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateMoveRepelIdle>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveRepelMove>(shared_from_this(), 4.0f));

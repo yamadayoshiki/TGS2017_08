@@ -2,8 +2,7 @@
 
 //コンストラクタ
 EnemyStateIdle::EnemyStateIdle(const EnemyBasePtr& enemy)
-	:EnemyStateMoveBase(enemy)
-{
+	: EnemyStateMoveBase(enemy){
 }
 
 //各状態固有の初期化

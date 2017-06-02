@@ -11,6 +11,7 @@
 #include "../../CommandContains/Commands/AlongWallMove/EnemyCommandAlongWallMove.h"
 
 //State
+#include "../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../StateContains/States/MoveRepelContains/Idle/EnemyStateMoveRepelIdle.h"
 #include "../../StateContains/States/MoveRepelContains/Move/EnemyStateMoveRepelMove.h"
 #include "../../StateContains/States/Stop/EnemyStateStop.h"
@@ -47,7 +48,7 @@ ActorPtr Enemy03::clone(const GSvector2 & position, const FourDirection & front)
 
 void Enemy03::SetUpCommand() {
 	//ê∂ê¨
-	p_CommandManager = std::make_shared<EnemyCommandManagerNormal>(shared_from_this());
+	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Commandí«â¡
 	p_CommandManager->AddDic(EnemyCommandName::AlongWall, std::make_shared<EnemyCommandAlongWallMove>(shared_from_this(), MapType::Default, m_TurnDirection));
 	//èâä˙Commandê›íË
@@ -57,7 +58,7 @@ void Enemy03::SetUpCommand() {
 void Enemy03::SetUpState()
 {
 	//ê∂ê¨
-	p_StateManager = new EnemyStateManager();
+	p_StateManager.reset(new EnemyStateManager());
 	//Stateí«â¡
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateMoveRepelIdle>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveRepelMove>(shared_from_this(), 10.0f));
@@ -68,6 +69,8 @@ void Enemy03::SetUpState()
 }
 
 void Enemy03::onDraw() const {
+	//p_Body->transform(getTransform())->draw();
+
 	Texture2DParameter param;
 	param.SetPosition(m_Transform.m_Position);
 	param.SetCenter({ 16.0f, 16.0f });

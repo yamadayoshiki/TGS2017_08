@@ -1,4 +1,5 @@
 #include "EnemyBase.h"
+#include "../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../../../WorldContains/World/World.h"
 #include "../../../../WorldContains/EventMessage/EventMessage.h"
 #include "../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
@@ -18,19 +19,20 @@ EnemyBase::EnemyBase(
 	: Actor(world, name, position, gameManager, texture, body)
 	, m_HitPoint(maxHp)
 	, m_FourDirection(front) {
-	SetDirection(front);
+	SetDirection(m_FourDirection);
 }
 
 //デストラクタ
 EnemyBase::~EnemyBase() {
-	delete p_StateManager;
-	delete p_PlayerWatch;
+	p_StateManager.reset();
+	p_CommandManager.reset();
+	p_PlayerWatch.reset();
 }
 
 //初期化
 void EnemyBase::initialize() {
 	//プレイヤー監視
-	p_PlayerWatch = new PlayerWatch(getWorld()->GetMap(), shared_from_this());
+	p_PlayerWatch.reset(new PlayerWatch(getWorld()->GetMap(), shared_from_this()));
 	//各種固有のコマンドの設定
 	SetUpCommand();
 	//各種固有のStateの設定
@@ -62,12 +64,12 @@ void EnemyBase::onCollide(Actor& other) {
 
 //ステートマネージャーを取得する
 EnemyStateManager* EnemyBase::GetStateManager() {
-	return p_StateManager;
+	return p_StateManager.get();
 }
 
 //コマンドマネージャーを取得する
-IEnemyCommandManagerPtr EnemyBase::GetCommandManager() {
-	return p_CommandManager;
+IEnemyCommandManager* EnemyBase::GetCommandManager() {
+	return p_CommandManager.get();
 }
 
 //ヒットポイントを取得する
@@ -81,8 +83,8 @@ bool EnemyBase::CanDead() {
 }
 
 //プレイヤー監視クラスを取得する
-PlayerWatch* EnemyBase::GetPlayerWatch() {
-	return p_PlayerWatch;
+const PlayerWatch* EnemyBase::GetPlayerWatch()const {
+	return p_PlayerWatch.get();
 }
 
 //向きを取得

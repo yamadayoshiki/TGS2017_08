@@ -11,6 +11,7 @@
 #include "../../CommandContains/Commands/Straight/EnemyCommandStraight.h"
 
 //State
+#include "../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../StateContains/States/Caught/EnemyStateCaught.h"
 #include "../../StateContains/States/Crush/EnemyStateCrush.h"
 #include "../../StateContains/States/Dead/EnemyStateDead.h"
@@ -43,7 +44,7 @@ ActorPtr Enemy05::clone(const GSvector2 & position, const FourDirection & front)
 //各種固有のコマンドの設定
 void Enemy05::SetUpCommand() {
 	//生成
-	p_CommandManager = std::make_shared<EnemyCommandManagerNormal>(shared_from_this());
+	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command追加
 	p_CommandManager->AddDic(EnemyCommandName::Straight, std::make_shared<EnemyCommandStraight>(shared_from_this(), MapType::Double));
 	//初期Command設定
@@ -53,7 +54,7 @@ void Enemy05::SetUpCommand() {
 //各種固有のStateの設定
 void Enemy05::SetUpState() {
 	//生成
-	p_StateManager = new EnemyStateManager();
+	p_StateManager.reset(new EnemyStateManager());
 	//State追加
 	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaught>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrush>(shared_from_this()));

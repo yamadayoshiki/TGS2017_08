@@ -23,8 +23,8 @@ public:
 	GSvector2 GetToPlayerChipDis(MapType type) const;
 
 private:
-	ActorPtr p_User;		//ユーザー
-	ActorPtr p_Player;		//プレイヤー
+	ActorWPtr p_User;		//ユーザー
+	ActorWPtr p_Player;		//プレイヤー
 	Map& m_Map;				//マップ
 };
 

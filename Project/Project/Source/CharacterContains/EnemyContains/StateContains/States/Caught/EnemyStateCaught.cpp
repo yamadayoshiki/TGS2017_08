@@ -13,9 +13,9 @@ EnemyStateCaught::EnemyStateCaught(
 // 各状態独自の初期化
 void EnemyStateCaught::unique_init() {
 	// プレイヤーの取得
-	ActorPtr player = p_Enemy->getWorld()->findActor(ActorName::Player);
+	ActorPtr player = p_Enemy.lock()->getWorld()->findActor(ActorName::Player);
 	// プレイヤーの座標+前方
-	p_Enemy->setPosition(player->getPosition() + player->getBody()->forward()*20.0f);
+	p_Enemy.lock()->setPosition(player->getPosition() + player->getBody()->forward()*20.0f);
 }
 
 // 更新処理

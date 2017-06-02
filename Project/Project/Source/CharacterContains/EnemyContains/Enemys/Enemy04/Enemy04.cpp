@@ -14,6 +14,7 @@
 #include "../../CommandContains/Commands/Enemy04Contains/Standby/EnemyCommandEnemy04Standby.h"
 
 //State
+#include "../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../StateContains/States/Caught/EnemyStateCaught.h"
 #include "../../StateContains/States/Crush/EnemyStateCrush.h"
 #include "../../StateContains/States/Dead/EnemyStateDead.h"
@@ -34,7 +35,7 @@ Enemy04::Enemy04(
 		1.0f,
 		100,
 		gameManager,
-		std::make_shared<Texture>("Enemy04", gameManager->GetRenderer2D()),
+		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
 		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
 }
 
@@ -46,7 +47,7 @@ ActorPtr Enemy04::clone(const GSvector2 & position, const FourDirection & front)
 
 void Enemy04::SetUpCommand() {
 	//ê∂ê¨
-	p_CommandManager = std::make_shared<EnemyCommandManagerNormal>(shared_from_this());
+	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Commandí«â¡
 	p_CommandManager->AddDic(EnemyCommandName::Standby, std::make_shared<EnemyCommandEnemy04Standby>(shared_from_this(), m_FourDirection));
 	//èâä˙Commandê›íË
@@ -55,7 +56,7 @@ void Enemy04::SetUpCommand() {
 
 void Enemy04::SetUpState() {
 	//ê∂ê¨
-	p_StateManager = new EnemyStateManager();
+	p_StateManager.reset(new EnemyStateManager());
 	//Stateí«â¡
 	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaught>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrush>(shared_from_this()));
@@ -72,8 +73,8 @@ void Enemy04::onDraw() const {
 	param.SetPosition(m_Transform.m_Position);
 	param.SetRotate(m_Transform.m_Angle + 90);
 	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy04"));
+	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy02"));
 	param.SetScale({ 1.0f , 1.0f });
 	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy04", param);
+	p_GameManager->GetRenderer2D()->DrawTexture("Enemy02", param);
 }

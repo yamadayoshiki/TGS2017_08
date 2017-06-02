@@ -4,6 +4,6 @@
 #include <memory>
 
 class IEnemyCommandManager;
-using IEnemyCommandManagerPtr = std::shared_ptr<IEnemyCommandManager>;
+using IEnemyCommandManagerUPtr = std::unique_ptr<IEnemyCommandManager>;
 
 #endif

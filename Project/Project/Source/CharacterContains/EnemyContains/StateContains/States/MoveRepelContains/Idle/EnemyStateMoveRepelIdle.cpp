@@ -1,7 +1,7 @@
 #include "EnemyStateMoveRepelIdle.h"
 
 EnemyStateMoveRepelIdle::EnemyStateMoveRepelIdle(const EnemyBasePtr & enemy)
-	:EnemyStateMoveRepelBase(enemy) {
+	: EnemyStateMoveRepelBase(enemy) {
 }
 
 void EnemyStateMoveRepelIdle::onUniqueInit()

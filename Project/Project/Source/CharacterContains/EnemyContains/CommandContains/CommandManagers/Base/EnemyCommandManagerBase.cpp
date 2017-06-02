@@ -9,6 +9,12 @@ EnemyCommandManagerBase::EnemyCommandManagerBase(const EnemyBasePtr& enemy)
 	Initialize();
 }
 
+//デストラクタ
+EnemyCommandManagerBase::~EnemyCommandManagerBase() {
+	Finalize();
+	p_Enemy.reset();
+}
+
 //初期化
 void EnemyCommandManagerBase::Initialize() {
 	m_CommandDic.clear();

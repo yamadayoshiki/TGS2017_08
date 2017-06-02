@@ -2,15 +2,12 @@
 #define ENEMYBASE_H_
 
 #include "../../../../ActorContains/State/Base/State.h"
-#include "../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../CommandContains/CommandManagers/Interface/IEnemyCommandManagerPtr.h"
 #include "../../../../ActorContains/HitPoint/HitPoint.h"
 #include "../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../ActorContains/Actor/Actor.h"
-
-//先行宣言
-class EnemyStateManager;
-class PlayerWatch;
+#include "../../PlayerWatch/PlayerWatchPtr.h"
+#include "../../StateContains/StateManager/EnemyStateManagerPtr.h"
 
 //エネミー基底クラス
 class EnemyBase :public Actor, public std::enable_shared_from_this<EnemyBase>
@@ -34,13 +31,13 @@ public:
 	//ステートマネージャーを取得する
 	EnemyStateManager* GetStateManager();
 	//コマンドマネージャーを取得する
-	IEnemyCommandManagerPtr GetCommandManager();
+	IEnemyCommandManager* GetCommandManager();
 	//ヒットポイントを取得する
 	HitPoint& GetHitPoint();
 	//倒せるか倒せないか
 	bool CanDead();
 	//プレイヤー監視クラスを取得する
-	PlayerWatch* GetPlayerWatch();
+	const PlayerWatch* GetPlayerWatch() const;
 	//向きを取得
 	FourDirection GetDirection() const;
 	//向きを設定
@@ -63,9 +60,9 @@ protected:
 protected:
 	float m_Speed;									//スピード
 	HitPoint m_HitPoint;							//ヒットポイント
-	PlayerWatch* p_PlayerWatch;						//プレイヤー監視
-	EnemyStateManager* p_StateManager;				//ステートマネージャー
-	IEnemyCommandManagerPtr p_CommandManager;		//コマンドマネージャー
+	PlayerWatchUPtr p_PlayerWatch;					//プレイヤー監視
+	EnemyStateManagerUPtr p_StateManager;			//ステートマネージャー
+	IEnemyCommandManagerUPtr p_CommandManager;		//コマンドマネージャー
 
 	FourDirection m_FourDirection;					//向き
 };

@@ -11,6 +11,7 @@
 #include "../../CommandContains/Commands/Enemy02Contains/Standby/EnemyCommandEnemy02Standby.h"
 
 //State
+#include "../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../StateContains/States/Caught/EnemyStateCaught.h"
 #include "../../StateContains/States/Crush/EnemyStateCrush.h"
 #include "../../StateContains/States/Enemy02Contains/Dead/EnemyStateEnemy02Dead.h"
@@ -38,7 +39,7 @@ Enemy02::Enemy02(
 		1.0f,
 		10,
 		gameManager,
-		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
+		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
 		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f)))
 	, m_TurnDirection(turnDirection) {
 }
@@ -51,7 +52,7 @@ ActorPtr Enemy02::clone(const GSvector2 & position, const FourDirection & front)
 
 void Enemy02::SetUpCommand() {
 	//ê∂ê¨
-	p_CommandManager = std::make_shared<EnemyCommandManagerNormal>(shared_from_this());
+	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//ÉRÉ}ÉìÉhí«â¡
 	p_CommandManager->AddDic(EnemyCommandName::Standby, std::make_shared<EnemyCommandEnemy02Standby>(shared_from_this(), m_TurnDirection));
 	//èâä˙ê›íË
@@ -60,7 +61,7 @@ void Enemy02::SetUpCommand() {
 
 void Enemy02::SetUpState() {
 	//ê∂ê¨
-	p_StateManager = new EnemyStateManager();
+	p_StateManager.reset(new EnemyStateManager());
 	//Stateí«â¡
 	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaught>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrush>(shared_from_this()));
@@ -74,13 +75,6 @@ void Enemy02::SetUpState() {
 }
 
 void Enemy02::onDraw() const {
-	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
-	param.SetRotate(m_FourDirection.GetAngle()+90);
-	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy02"));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy02", param);
+	p_Body->transform(getTransform())->draw();
 }
 

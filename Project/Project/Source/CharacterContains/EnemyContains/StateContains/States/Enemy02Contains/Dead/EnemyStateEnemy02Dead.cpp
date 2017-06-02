@@ -11,5 +11,5 @@ EnemyStateEnemy02Dead::EnemyStateEnemy02Dead(const EnemyBasePtr & enemy)
 
 // ŠeŽíŒÅ—L‚Ì‰Šú‰»
 void EnemyStateEnemy02Dead::unique_init() {
-	p_Enemy->getWorld()->sendMessage(EventMessage::ENEMY02_DEAD);
+	p_Enemy.lock()->getWorld()->sendMessage(EventMessage::ENEMY02_DEAD);
 }

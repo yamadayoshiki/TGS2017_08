@@ -17,7 +17,7 @@ void EnemyStateMoveBase::unique_init() {
 // 更新処理
 void EnemyStateMoveBase::update(float deltaTime) {
 	//目的地までのベクトル
-	GSvector2 velocity = p_Enemy->GetCommandManager()->GetCommandVector();
+	GSvector2 velocity = p_Enemy.lock()->GetCommandManager()->GetCommandVector();
 
 	//移動の速度によって状態を変更（待機、動く）
 	if (velocity.length() <= 0)
@@ -44,7 +44,7 @@ void EnemyStateMoveBase::end() {
 // 入力処理
 void EnemyStateMoveBase::input() {
 	// コマンド指定のState
-	EnemyStateName name = p_Enemy->GetCommandManager()->GetCommandState();
+	EnemyStateName name = p_Enemy.lock()->GetCommandManager()->GetCommandState();
 	if (name != EnemyStateName::None)
 		change(name);
 

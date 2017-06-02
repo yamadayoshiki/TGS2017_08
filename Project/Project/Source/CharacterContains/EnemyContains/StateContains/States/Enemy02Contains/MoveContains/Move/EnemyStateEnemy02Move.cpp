@@ -12,9 +12,9 @@ void EnemyStateEnemy02Move::onUniqueInit() {
 }
 
 void EnemyStateEnemy02Move::onUpdate(float deltaTime) {
-	if (p_Enemy->GetCommandManager()->IsRegard() == false)
+	if (p_Enemy.lock()->GetCommandManager()->IsRegard() == false)
 		ForwardMove(deltaTime, m_Speed);
 
 	else
-		RegardMove(p_Enemy->GetDirection(), deltaTime, m_Speed);
+		RegardMove(p_Enemy.lock()->GetDirection(), deltaTime, m_Speed);
 }

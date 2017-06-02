@@ -10,7 +10,7 @@ EnemyStateRepel::EnemyStateRepel(const EnemyBasePtr& enemy)
 // Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void EnemyStateRepel::unique_init() {
 	//’e‚­
-	p_Enemy->getWorld()->sendMessage(EventMessage::ENEMY_REPEL);
+	p_Enemy.lock()->getWorld()->sendMessage(EventMessage::ENEMY_REPEL);
 }
 
 // XVˆ—
