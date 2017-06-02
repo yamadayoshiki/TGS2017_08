@@ -3,7 +3,10 @@
 #include"../Define/Def_Nakayama.h"
 #include"../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../Utility/Rederer2D/Renderer2D.h"
+#include"../WorldContains/EventMessage/EventMessage.h"
+
 #include <algorithm>
+
 //コンストラクタ
 Map::Map(const IGameManagerPtr& gameManager) :
 	p_GameManager(gameManager) {
@@ -168,6 +171,17 @@ GSvector2 Map::GetTilePos(const GSvector2& pos, const MapType type) {
 	y = y * chipSize + chipSize / 2;
 
 	return GSvector2(x, y);
+}
+
+//指定されたcsv座標の情報更新
+void Map::SetcsvParameter(GSvector2 position, int parameter, MapType type,IWorld* world)
+{
+	int x = position.x / (CHIP_SIZE * ((int)type + 1));
+	int y = position.y / (CHIP_SIZE * ((int)type + 1));
+
+	m_Maps[type][y][x] = parameter;
+	
+	world->sendMessage(EventMessage::MapDataUpdate);
 }
 
 //神保

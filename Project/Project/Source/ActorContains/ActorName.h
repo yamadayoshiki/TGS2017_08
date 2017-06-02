@@ -27,7 +27,7 @@ enum class ActorName
 	/* テスト用 */
 	EnemyManager,
 	Enemy,
-	BreakBlock,
+	BreakWall,
 	None,
 };
 

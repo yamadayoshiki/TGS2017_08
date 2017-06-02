@@ -20,6 +20,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Enemy02", "Resource/Texture/Enemys/Enemy02.png");
 	p_Renderer2D->LoadTexture("Enemy03", "Resource/Texture/Enemys/Enemy03.png");
 	p_Renderer2D->LoadTexture("Enemy04", "Resource/Texture/Enemys/Enemy04.png");
+	p_Renderer2D->LoadTexture("Block5", "Resource/Texture/UI/Block5.png");
 }
 
 //ƒRƒ“ƒeƒ“ƒc‚Ìíœ

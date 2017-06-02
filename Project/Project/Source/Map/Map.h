@@ -6,6 +6,7 @@
 #include "../Tile/TileData.h"
 #include "../ActorContains/ActorPtr.h"
 #include "../Base/GameManagerContains/IGameManagerPtr.h"
+#include"../WorldContains/IWorld.h"
 
 #include "MapData.h"
 #include "MapType.h"
@@ -48,9 +49,11 @@ public:
 	// 押し出し処理
 	GSvector2 PushForPlayer(const GSvector2& current_pos, const GSvector2& target_pos);
 	// 押し出し処理(マス準拠)
-	ResultPushDirection PushForChara(const GSvector2& current_pos, const GSvector2& target_pos,const MapType& charaSize);
+	ResultPushDirection PushForChara(const GSvector2& current_pos, const GSvector2& target_pos, const MapType& charaSize);
 	// 指定された座標をタイルの中心座標に補正
-	GSvector2 GetTilePos(const GSvector2& pos,const MapType type = MapType::Default);
+	GSvector2 GetTilePos(const GSvector2& pos, const MapType type = MapType::Default);
+	//指定されたcsv座標の情報更新
+	void SetcsvParameter(GSvector2 position, int parameter, MapType type, IWorld* world);
 
 	//神保
 public:

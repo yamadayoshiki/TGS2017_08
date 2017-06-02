@@ -11,13 +11,14 @@ EnemyStateDead::EnemyStateDead(
 }
 // 各状態独自の初期化
 void EnemyStateDead::unique_init() {
+	p_Enemy.lock()->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDSLOST);
+
 	//アニメーションの変更
 
 }
 
 // 更新処理
 void EnemyStateDead::update(float deltaTime) {
-	p_Enemy.lock()->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDSLOST);
 	//アニメーションが終了したらActorから削除
 	p_Enemy.lock()->dead();
 }
