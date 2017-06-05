@@ -1,6 +1,6 @@
 #include "EnemyCommandEnemy04Standby.h"
 #include "../../../../../../WorldContains/EventMessage/EventMessage.h"
-#include "../../../../Enemys/Base/EnemyBase.h"
+#include "../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../../Define/Def_Float.h"	//for FLOAT_EPSILON
 #include "../../../../../../WorldContains/IWorld.h"
 #include "../../../../../../Map/Map.h"
@@ -10,7 +10,7 @@
 EnemyCommandEnemy04Standby::EnemyCommandEnemy04Standby(
 	const EnemyBasePtr & enemy,
 	const FourDirection front)
-	:EnemyCommandBase(enemy)
+	:EnemyCommandMoveBase(enemy,MapType::Double)
 	, m_Front(front)
 	, m_Counter(0)
 	, m_Flag(false) {
@@ -43,14 +43,7 @@ void EnemyCommandEnemy04Standby::OnUpdate(float deltaTime) {
 
 	//挟まれた回数が指定回数以上の場合行動
 	else if (m_Counter >= 3)
-	{
-		//目標地点までの距離
-		m_Velocity = m_NextTargetPos - p_Enemy->getPosition();
-		//目標地点にたどり着いたか
-		if (m_Velocity.length() <= FLOAT_EPSILON)
-			//目標地点に到達したときのリアクション
-			ArriveReaction();
-	}
+		EnemyCommandMoveBase::OnUpdate(deltaTime);
 }
 
 //目標地点に到達したときのリアクション
@@ -65,15 +58,15 @@ void EnemyCommandEnemy04Standby::SetNextTargetPos() {
 	if (m_Flag == true) return;
 
 	//進行方向にあるマスが壁か
-	if (p_Enemy->getWorld()->GetMap().IsInFrontOfTheWall(p_Enemy->getPosition(), m_Front, MapType::Double) == true)
+	if (p_Enemy.lock()->getWorld()->GetMap().IsInFrontOfTheWall(p_Enemy.lock()->getPosition(), m_Front, MapType::Double) == true)
 		m_Flag = true;
 
 	//正面にあるタイルの座標を設定
 	else
 	{
 		//移動量
-		GSvector2 velocity = p_Enemy->GetDirection().GetVector2() * CHIP_SIZE * 2;
+		GSvector2 velocity = p_Enemy.lock()->GetDirection().GetVector2() * CHIP_SIZE * 2;
 		//座標設定
-		m_NextTargetPos = p_Enemy->getPosition() + velocity;
+		m_NextTargetPos = p_Enemy.lock()->getPosition() + velocity;
 	}
 }

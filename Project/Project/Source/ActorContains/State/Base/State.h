@@ -4,7 +4,7 @@
 #include "../../Actor/Actor.h"
 
 // 各プレイヤーステートの基底クラス
-class State : public IState
+class State : virtual public IState
 {
 public:
 	// コンストラクタ

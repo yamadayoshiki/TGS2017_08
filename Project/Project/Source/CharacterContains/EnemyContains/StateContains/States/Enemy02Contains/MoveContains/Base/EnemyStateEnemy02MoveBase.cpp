@@ -1,5 +1,6 @@
 #include "EnemyStateEnemy02MoveBase.h"
-#include "../../../../../Enemys/Base/EnemyBase.h"
+#include "../../../../../../../Utility/FourDirection/FourDirection.h"
+#include "../../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../../../WorldContains/EventMessage/EventMessage.h"
 #include "../../../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
 #include "../../../../../PlayerWatch/PlayerWatch.h"
@@ -8,7 +9,8 @@
 
 //コンストラクタ
 EnemyStateEnemy02MoveBase::EnemyStateEnemy02MoveBase(const EnemyBasePtr & enemy)
-	: EnemyStateMoveBase(enemy) {
+	: EnemyStateBase(enemy)
+	, EnemyStateMoveBase(enemy) {
 }
 
 //メッセージ処理
@@ -17,7 +19,8 @@ void EnemyStateEnemy02MoveBase::handleMessage(EventMessage message, void * param
 	{
 		//プレイヤーに挟まれたとき
 	case EventMessage::PLAYER_ROUNDS:
-		FourDirection toPlayerDir = FourDirection(p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis(MapType::Default));
+		FourDirection toPlayerDir 
+			= FourDirection(p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis(MapType::Default));
 		//背後にプレイヤーがいる
 		if (p_Enemy.lock()->GetDirection() == toPlayerDir.GetTurnOver())
 			change(EnemyStateName::Caught);

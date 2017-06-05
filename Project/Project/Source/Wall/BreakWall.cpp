@@ -3,7 +3,7 @@
 #include "../WorldContains/IWorld.h"
 #include "../Map/Map.h"
 #include"../Map/MapType.h"
-#include"../CharacterContains/EnemyContains/Enemys/Base/EnemyBase.h"
+#include"../CharacterContains/EnemyContains/Entity/Enemys/Base/EnemyBase.h"
 
 //コンストラクタ
 #include"../ActorContains/ActorName.h"
@@ -35,7 +35,6 @@ BreakWall::BreakWall(
 		ActorName::BreakWall,
 		position,
 		FourDirection(),
-		0.0f,
 		3,
 		gameManager,
 		std::make_shared<Texture>("Block5", gameManager->GetRenderer2D()),

@@ -15,6 +15,8 @@ public:
 		const std::string& texName,
 		const Renderer2DPtr& renderer,
 		Animation* animation);
+	//デストラクタ
+	~AnimationTexture();
 	//更新
 	virtual void Update(float deltaTime) override;
 	//ループ回数の取得
@@ -24,8 +26,6 @@ public:
 protected:
 	//各種固有の初期化
 	virtual void OnInitialize() override;
-	//各種固有の終了処理
-	virtual void OnFinalize() override;
 
 protected:
 	Animation* p_Animation;

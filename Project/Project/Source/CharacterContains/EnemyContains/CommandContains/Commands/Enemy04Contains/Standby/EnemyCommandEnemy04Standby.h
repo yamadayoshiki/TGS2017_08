@@ -1,10 +1,10 @@
 #ifndef ENEMYCOMMANDENEMY04STANDBY_H_
 #define ENEMYCOMMANDENEMY04STANDBY_H_
 
-#include "../../Base/EnemyCommandBase.h"
+#include "../../Common/MoveContains/Base/EnemyCommandMoveBase.h"
 
 //3回挟まれたら指定方向に動く
-class EnemyCommandEnemy04Standby : public EnemyCommandBase
+class EnemyCommandEnemy04Standby : public EnemyCommandMoveBase
 {
 public:
 	//コンストラクタ

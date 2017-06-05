@@ -1,7 +1,7 @@
 #ifndef ENEMYCOMMANDENEMY01STRAIGHT_H_
 #define ENEMYCOMMANDENEMY01STRAIGHT_H_
 
-#include "../../Straight/EnemyCommandStraight.h"
+#include "../../Common/MoveContains/Straight/EnemyCommandStraight.h"
 
 class EnemyCommandEnemy01Straight : public EnemyCommandStraight
 {

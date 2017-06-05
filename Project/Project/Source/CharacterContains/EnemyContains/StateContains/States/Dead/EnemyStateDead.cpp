@@ -1,5 +1,5 @@
 #include "EnemyStateDead.h"
-#include "../../../Enemys/Base/EnemyBase.h"
+#include "../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../WorldContains/IWorld.h"
 #include "../../../../../WorldContains/EventMessage/EventMessage.h"
 

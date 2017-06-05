@@ -3,7 +3,7 @@
 #include "../../../../../../WorldContains/IWorld.h"
 #include "../../../../../../ActorContains/Transform/Transform.h"
 #include "../../../../../../TargetPosition/TargetPosition.h"
-#include "../../../../Enemys/Base/EnemyBase.h"
+#include "../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../../FrontChipList/FrontChipList.h"
 #include "../../../../../../Define/Def_Nakayama.h"
 #include "../../../../../../Utility/TurnDirection/TurnDirection.h"
@@ -65,23 +65,23 @@ void EnemyCommandEnemy01Detour::SetTargetPos() {
 		Change(EnemyCommandName::Straight);
 
 	else
-		m_Velocity = m_NextTargetPos - p_Enemy->getPosition();
+		m_Velocity = m_NextTargetPos - p_Enemy.lock()->getPosition();
 }
 
 //目標地点管理の設定
 TargetPosition EnemyCommandEnemy01Detour::GetTargetPositionManager() {
 	//時計回り
-	TargetPosition targetPositionClockwise = TargetPosition(p_Enemy->getWorld()->GetMap(), TurnDirection(TurnDirectionName::Clockwise), MapType::Double);
-	targetPositionClockwise.AlongWall(p_Enemy->getPosition(), p_Enemy->GetDirection().GetTurnOver());
+	TargetPosition targetPositionClockwise = TargetPosition(p_Enemy.lock()->getWorld()->GetMap(), TurnDirection(TurnDirectionName::Clockwise), MapType::Double);
+	targetPositionClockwise.AlongWall(p_Enemy.lock()->getPosition(), p_Enemy.lock()->GetDirection().GetTurnOver());
 	//反時計回り方向
-	TargetPosition targetPositionAntiClockwise = TargetPosition(p_Enemy->getWorld()->GetMap(), TurnDirection(TurnDirectionName::AntiClockwise), MapType::Double);
-	targetPositionAntiClockwise.AlongWall(p_Enemy->getPosition(), p_Enemy->GetDirection().GetTurnOver());
+	TargetPosition targetPositionAntiClockwise = TargetPosition(p_Enemy.lock()->getWorld()->GetMap(), TurnDirection(TurnDirectionName::AntiClockwise), MapType::Double);
+	targetPositionAntiClockwise.AlongWall(p_Enemy.lock()->getPosition(), p_Enemy.lock()->GetDirection().GetTurnOver());
 	//前方マス
-	FrontChipList frontChipList = FrontChipList(p_Enemy->getWorld()->GetMap(), p_Enemy->getPosition(), p_Enemy->GetDirection(), MapType::Double);
+	FrontChipList frontChipList = FrontChipList(p_Enemy.lock()->getWorld()->GetMap(), p_Enemy.lock()->getPosition(), p_Enemy.lock()->GetDirection(), MapType::Double);
 	//ゴール地点までの距離
 	float dis = frontChipList.GeTheOffSideOfTheWallChipNum() * ((int)MapType::Double + 1)*CHIP_SIZE;
 	//ゴール地点
-	GSvector2 goal = p_Enemy->getWorld()->GetMap().GetTilePos(p_Enemy->getPosition(), MapType::Double) + p_Enemy->GetDirection().GetVector2() * dis;
+	GSvector2 goal = p_Enemy.lock()->getWorld()->GetMap().GetTilePos(p_Enemy.lock()->getPosition(), MapType::Double) + p_Enemy.lock()->GetDirection().GetVector2() * dis;
 	//ゴールにたどり着くまで
 	while (true)
 	{
@@ -99,15 +99,15 @@ TargetPosition EnemyCommandEnemy01Detour::GetTargetPositionManager() {
 //プレイヤーと座標軸が一致しているか
 void EnemyCommandEnemy01Detour::CheckAxisEnemyToPlayer() {
 	//マス準拠で同軸にいるか
-	GSvector2 dis = p_Enemy->GetPlayerWatch()->GetToPlayerChipDis(MapType::Double);
-	if (p_Enemy->GetDirection().GetVector2().x == 0)
+	GSvector2 dis = p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis(MapType::Double);
+	if (p_Enemy.lock()->GetDirection().GetVector2().x == 0)
 		if (abs(dis.y) <= FLOAT_EPSILON)
 			m_AxisChangeFlag = true;
 
-	if (p_Enemy->GetDirection().GetVector2().y == 0)
+	if (p_Enemy.lock()->GetDirection().GetVector2().y == 0)
 		if (abs(dis.x) <= FLOAT_EPSILON)
 			m_AxisChangeFlag = true;
 
 	if (m_AxisChangeFlag == true)
-		m_NextTargetPos = p_Enemy->getWorld()->GetMap().GetTilePos(p_Enemy->getPosition(),MapType::Double);
+		m_NextTargetPos = p_Enemy.lock()->getWorld()->GetMap().GetTilePos(p_Enemy.lock()->getPosition(),MapType::Double);
 }

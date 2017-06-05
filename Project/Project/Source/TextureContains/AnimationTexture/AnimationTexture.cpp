@@ -10,6 +10,10 @@ AnimationTexture::AnimationTexture(
 	, p_Animation(animation) {
 }
 
+AnimationTexture::~AnimationTexture(){
+	delete p_Animation;
+}
+
 //èâä˙âª
 void AnimationTexture::OnInitialize() {
 	p_Parameter->SetRect(*p_Animation->GetCurrentRect());
@@ -27,9 +31,4 @@ void AnimationTexture::Update(float deltaTime) {
 //ÉãÅ[ÉvâÒêîÇÃéÊìæ
 unsigned int AnimationTexture::GetLoopCount() {
 	return p_Animation->GetLoopCount();
-}
-
-//èIóπ
-void AnimationTexture::OnFinalize() {
-	delete p_Animation;
 }

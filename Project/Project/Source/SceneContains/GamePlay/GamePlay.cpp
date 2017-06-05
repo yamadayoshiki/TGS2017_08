@@ -13,12 +13,6 @@
 #include "../../Utility/Rederer2D/Renderer2D.h"
 #include"../../MapGenerator/MapGenerator.h"
 #include "../../Utility/FourDirection/FourDirection.h"
-#include "../../CharacterContains/EnemyContains/Enemys/Enemy01/Enemy01.h"
-#include "../../CharacterContains/EnemyContains/Enemys/Enemy02/Enemy02.h"
-#include "../../CharacterContains/EnemyContains/Enemys/Enemy03/Enemy03.h"
-#include "../../CharacterContains/EnemyContains/Enemys/Enemy04/Enemy04.h"
-#include "../../CharacterContains/EnemyContains/Enemys/Enemy05/Enemy05.h"
-
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)

@@ -3,7 +3,7 @@
 
 #include "../../MoveContains/Base/EnemyStateMoveBase.h"
 
-class EnemyStateMoveRepelBase : public EnemyStateMoveBase
+class EnemyStateMoveRepelBase : virtual public EnemyStateMoveBase
 {
 public:
 	//コンストラクタ

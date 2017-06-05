@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 #include "../Interface/IEnemyCommandManager.h"
-#include "../../../Enemys/Base/EnemyBasePtr.h"
+#include "../../../Entity/Enemys/Base/EnemyBasePtr.h"
 
 enum class EnemyCommandName;
 

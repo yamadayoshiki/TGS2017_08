@@ -3,7 +3,8 @@
 
 //コンストラクタ
 EnemyStateMoveRepelBase::EnemyStateMoveRepelBase(const EnemyBasePtr& enemy)
-	:EnemyStateMoveBase(enemy) {
+	: EnemyStateBase(enemy)
+	, EnemyStateMoveBase(enemy) {
 }
 
 //メッセージ処理

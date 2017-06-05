@@ -4,7 +4,7 @@
 #include "../../../MoveContains/Base/EnemyStateMoveBase.h"
 
 //Enemy02専用移動基底クラス
-class EnemyStateEnemy02MoveBase : public EnemyStateMoveBase
+class EnemyStateEnemy02MoveBase : virtual public EnemyStateMoveBase
 {
 public:
 	// コンストラクタ
@@ -13,4 +13,4 @@ public:
 	virtual void handleMessage(EventMessage message, void* param) override;
 };
 
-#endif // !ENEMYSTATEENEMY02MOVEBASE_H_
+#endif

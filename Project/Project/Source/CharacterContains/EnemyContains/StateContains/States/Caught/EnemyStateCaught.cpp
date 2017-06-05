@@ -1,5 +1,5 @@
 #include "EnemyStateCaught.h"
-#include "../../../Enemys/Base/EnemyBase.h"
+#include "../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../WorldContains/IWorld.h"
 #include "../../../../PlayerContains/PlayerState/PlayerStateName.h"
 #include "../../../../../WorldContains/EventMessage/EventMessage.h"

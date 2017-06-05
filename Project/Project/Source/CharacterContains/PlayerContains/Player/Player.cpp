@@ -40,7 +40,8 @@ void Player::initialize()
 	m_Parameter.m_StratPosition = m_Transform.m_Position;
 
 	//アニメーションのパラメータの設定
-	Animation* animation = new Animation(*p_Renderer->GetTextureRect("Player"), 64, 10);
+	Animation* animation = 
+		new Animation(*p_Renderer->GetTextureRect("Player"), 64, 10);
 	p_Animation = new AnimationTexture("Player", p_Renderer, animation);
 
 	//ステートマネージャ生成、初期化

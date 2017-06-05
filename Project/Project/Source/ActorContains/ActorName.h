@@ -8,11 +8,7 @@ enum class ActorName
 	Player_Arm,			//アーム
 	Player_Manager,			//アーム
 
-	/* エネミーグループ */
-	Enemy_01,			//横から挟めないやつ
-	Enemy_02,			//回転しながら打つやつ
-	Enemy_03,			//ストーカー
-	Enemy_04,			//挟まれたら動くやつ
+
 
 	/* ニュートラルグループ */
 	Neutral_Explosion,	//爆発
@@ -27,7 +23,17 @@ enum class ActorName
 	/* テスト用 */
 	EnemyManager,
 	Enemy,
+
+	/* エネミーグループ */
+	Enemy_01 = 101,		//横から挟めないやつ
+	Enemy_02,			//回転しながら打つやつ
+	Enemy_03,			//ストーカー
+	Enemy_04,			//挟まれたら動くやつ
+	Enemy_05,			//往復するやつ
+	Enemy_06,			//親機
+	Enemy_07,			//
 	BreakWall,
+
 	None,
 };
 

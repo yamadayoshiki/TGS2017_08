@@ -3,7 +3,7 @@
 
 #include <gslib.h>
 #include "../../../../../ActorContains/State/Base/State.h"
-#include "../../../Enemys/Base/EnemyBasePtr.h"
+#include "../../../Entity/Enemys/Base/EnemyBasePtr.h"
 
 //継承先で使うため
 #include "../../States/EnemyStateName.h"
@@ -11,7 +11,7 @@
 struct FourDirection;
 
 //各エネミーステートの基底クラス
-class EnemyStateBase :public State
+class EnemyStateBase : virtual public State
 {
 public:
 	//コンストラクタ

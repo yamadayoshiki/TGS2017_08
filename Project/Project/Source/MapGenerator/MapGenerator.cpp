@@ -4,11 +4,11 @@
 #include "ArrangeData.h"
 #include "../ActorContains/ActorGroup.h"
 #include "../CharacterContains/PlayerContains/Player/Player.h"
-#include "../CharacterContains/EnemyContains/Enemys/Enemy01/Enemy01.h"
-#include "../CharacterContains/EnemyContains/Enemys/Enemy02/Enemy02.h"
-#include "../CharacterContains/EnemyContains/Enemys/Enemy03/Enemy03.h"
-#include "../CharacterContains/EnemyContains/Enemys/Enemy04/Enemy04.h"
-#include "../CharacterContains/EnemyContains/Enemys/Enemy05/Enemy05.h"
+#include "../CharacterContains/EnemyContains/Entity/Enemys/Enemy01/Enemy01.h"
+#include "../CharacterContains/EnemyContains/Entity/Enemys/Enemy02/Enemy02.h"
+#include "../CharacterContains/EnemyContains/Entity/Enemys/Enemy03/Enemy03.h"
+#include "../CharacterContains/EnemyContains/Entity/Enemys/Enemy04/Enemy04.h"
+#include "../CharacterContains/EnemyContains/Entity/Enemys/Enemy05/Enemy05.h"
 
 #include "../Wall/BreakWall.h"
 

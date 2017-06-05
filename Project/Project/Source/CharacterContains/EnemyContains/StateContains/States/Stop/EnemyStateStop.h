@@ -8,7 +8,7 @@ class EnemyStateStop : public EnemyStateBase
 {
 public:
 	//コンストラクタ
-	EnemyStateStop(const EnemyBasePtr& enemy, int limitTimer);
+	EnemyStateStop(const EnemyBasePtr& enemy, float limitTimer);
 	//各種固有の初期化処理
 	virtual void unique_init() override;
 	//更新処理
@@ -19,8 +19,8 @@ public:
 	virtual void end() override {}
 
 protected:
-	int m_LimitTimer;
-	int m_Timer;
+	float m_LimitTimer;	//何フレーム止まるのか
+	float m_Timer;		//タイマー
 };
 
 #endif // !ENEMYSTATESTOP_H_

@@ -1,20 +1,22 @@
 #include "EnemyStateMoveRepelMove.h"
-#include "../../../../Enemys/Base/EnemyBase.h"
+#include "../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
 
 EnemyStateMoveRepelMove::EnemyStateMoveRepelMove(const EnemyBasePtr & enemy, const float speed)
-	: EnemyStateMoveRepelBase(enemy)
-	, m_Speed(speed) {
+	: EnemyStateBase(enemy)
+	, EnemyStateMoveBase(enemy)
+	, EnemyStateMove(enemy, speed)
+	, EnemyStateMoveRepelBase(enemy) {
 }
 
-void EnemyStateMoveRepelMove::onUniqueInit()
-{
+void EnemyStateMoveRepelMove::onUniqueInit() {
+	EnemyStateMove::onUniqueInit();
 }
 
 void EnemyStateMoveRepelMove::onUpdate(float deltaTime) {
-	if (p_Enemy.lock()->GetCommandManager()->IsRegard() == false)
-		ForwardMove(deltaTime, m_Speed);
+	EnemyStateMove::onUpdate(deltaTime);
+}
 
-	else
-		RegardMove(p_Enemy.lock()->GetDirection(),deltaTime, m_Speed);
+void EnemyStateMoveRepelMove::handleMessage(EventMessage message, void * param){
+	EnemyStateMoveRepelBase::handleMessage(message, param);
 }

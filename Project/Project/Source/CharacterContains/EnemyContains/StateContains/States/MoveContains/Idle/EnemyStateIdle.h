@@ -4,7 +4,7 @@
 #include "../Base/EnemyStateMoveBase.h"
 
 //待機状態
-class EnemyStateIdle :public EnemyStateMoveBase
+class EnemyStateIdle :virtual public EnemyStateMoveBase
 {
 public:
 	//コンストラクタ

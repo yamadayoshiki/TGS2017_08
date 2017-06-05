@@ -5,7 +5,7 @@
 #include <vector>
 #include "../Interface/IEnemyCommand.h"
 #include "../../../StateContains/States/EnemyStateName.h"
-#include "../../../Enemys/Base/EnemyBasePtr.h"
+#include "../../../Entity/Enemys/Base/EnemyBasePtr.h"
 #include "../EnemyCommandName.h"
 #include "../../../../../Map/MapType.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
@@ -47,13 +47,14 @@ protected:
 	void Change(EnemyCommandName next);
 
 protected:
-	EnemyBasePtr p_Enemy;			//エネミー本体
-	bool m_Regard;					//注視中か
-	GSvector2 m_Velocity;			//目標地点までの移動ベクトル
-	GSvector2 m_NextTargetPos;		//目標地点
-	float m_RotateAngle;			//回転角度
+	EnemyBaseWPtr p_Enemy;			//エネミー本体
 	EnemyCommandName m_NextCommand;	//次のコマンド
 	bool m_IsEnd;					//終了フラグ
+
+	EnemyStateName m_CurStateName;	//エネミーステートネーム
+	bool m_Regard;					//注視中か
+	GSvector2 m_Velocity;			//目標地点までの移動ベクトル
+	float m_RotateAngle;			//回転角度
 };
 
 #endif

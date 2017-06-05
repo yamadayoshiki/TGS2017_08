@@ -4,7 +4,7 @@
 #include "../../Base/EnemyStateBase.h"
 
 // 通常時の移動クラスのベース
-class EnemyStateMoveBase : public EnemyStateBase
+class EnemyStateMoveBase : virtual public EnemyStateBase
 {
 public:
 	// コンストラクタ

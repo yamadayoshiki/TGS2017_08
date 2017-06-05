@@ -1,6 +1,6 @@
 #include "EnemyCommandEnemy01Straight.h"
 #include "../../../../../../FrontChipList/FrontChipList.h"
-#include "../../../../Enemys/Base/EnemyBase.h"
+#include "../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../../WorldContains/IWorld.h"
 #include "../../../../PlayerWatch/PlayerWatch.h"
 #include "../../../../../../Define/Def_Float.h"
@@ -18,9 +18,9 @@ void EnemyCommandEnemy01Straight::OnInitialize() {
 	//移動軸変更フラグ
 	m_AxisChangeFlag = false;
 	//プレイヤーとの距離ベクトル
-	GSvector2 dis = p_Enemy->GetPlayerWatch()->GetToPlayerChipDis(MapType::Double);
+	GSvector2 dis = p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis(MapType::Double);
 	//プレイヤーがいる方向
-	p_Enemy->SetDirection(FourDirection(dis));
+	p_Enemy.lock()->SetDirection(FourDirection(dis));
 	//目的地設定
 	SetNextTargetPos();
 }
@@ -52,7 +52,12 @@ void EnemyCommandEnemy01Straight::ArriveReaction() {
 void EnemyCommandEnemy01Straight::HitWallReaction() {
 	//正面のマップ配列
 	FrontChipList list
-		= FrontChipList(p_Enemy->getWorld()->GetMap(), p_Enemy->getPosition(), p_Enemy->GetDirection(), m_Type);
+		= FrontChipList(
+			p_Enemy.lock()->getWorld()->GetMap(),
+			p_Enemy.lock()->getPosition(),
+			p_Enemy.lock()->GetDirection(),
+			m_Type);
+
 	//正面マップの空きマスがなかった場合逆方向を向く
 	if (list.GetSpeaceExist() == false)
 		EnemyCommandStraight::HitWallReaction();
@@ -64,15 +69,18 @@ void EnemyCommandEnemy01Straight::HitWallReaction() {
 //プレイヤーと座標軸が一致しているか
 void EnemyCommandEnemy01Straight::CheckAxisEnemyToPlayer() {
 	//マス準拠で同軸にいるか
-	GSvector2 dis = p_Enemy->GetPlayerWatch()->GetToPlayerChipDis(MapType::Double);
-	if (p_Enemy->GetDirection().GetVector2().x == 0)
+	GSvector2 dis
+		= p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis(MapType::Double);
+	if (p_Enemy.lock()->GetDirection().GetVector2().x == 0)
 		if (abs(dis.y) <= FLOAT_EPSILON)
 			m_AxisChangeFlag = true;
 
-	if (p_Enemy->GetDirection().GetVector2().y == 0)
+	if (p_Enemy.lock()->GetDirection().GetVector2().y == 0)
 		if (abs(dis.x) <= FLOAT_EPSILON)
 			m_AxisChangeFlag = true;
 
 	if (m_AxisChangeFlag == true)
-		m_NextTargetPos = p_Enemy->getWorld()->GetMap().GetTilePos(p_Enemy->getPosition(),MapType::Double);
+		m_NextTargetPos
+		= p_Enemy.lock()->getWorld()->
+		GetMap().GetTilePos(p_Enemy.lock()->getPosition(), MapType::Double);
 }

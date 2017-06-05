@@ -2,8 +2,9 @@
 #define ENEMYSTATEMOVEREPELMOVE_H_
 
 #include "../Base/EnemyStateMoveRepelBase.h"
+#include "../../MoveContains/Move/EnemyStateMove.h"
 
-class EnemyStateMoveRepelMove : public EnemyStateMoveRepelBase
+class EnemyStateMoveRepelMove : public EnemyStateMoveRepelBase, public EnemyStateMove
 {
 public:
 	//コンストラクタ
@@ -13,15 +14,9 @@ public:
 	virtual void onUniqueInit()override;
 	// 更新処理
 	virtual void onUpdate(float deltaTime)override;
-	// 衝突判定
-	virtual void onCollide(const Actor & other)override {}
-	// 終了時の処理
-	virtual void onEnd()override {}
-	// 入力処理
-	virtual void onInput() override {}
 
-protected:
-	float m_Speed;		//スピード
+	// メッセージ処理
+	virtual void handleMessage(EventMessage message, void* param) override;
 };
 
 #endif // !ENEMYSTATEMOVEREPELMOVE_H_

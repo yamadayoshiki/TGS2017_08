@@ -7,7 +7,7 @@
 #include"../../ActorContains/ActorGroup.h"
 #include"../../CharacterContains/PlayerContains/Player/Player.h"
 #include"../../ActorContains/Object/TestEnemy.h"
-#include"../../CharacterContains/EnemyContains/Enemys/Enemy01/Enemy01.h"
+#include"../../CharacterContains/EnemyContains/Entity/Enemys/Enemy01/Enemy01.h"
 
 // コンストラクタ    
 yamadaScene::yamadaScene(const IGameManagerPtr& gameManager)

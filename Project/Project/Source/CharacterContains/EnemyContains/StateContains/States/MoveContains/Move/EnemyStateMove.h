@@ -4,7 +4,7 @@
 #include "../Base/EnemyStateMoveBase.h"
 
 //エネミーが動く状態
-class EnemyStateMove :public EnemyStateMoveBase
+class EnemyStateMove : virtual public EnemyStateMoveBase
 {
 public:
 	//コンストラクタ
@@ -15,12 +15,6 @@ public:
 	virtual void onUniqueInit()override;
 	// 更新処理
 	virtual void onUpdate(float deltaTime)override;
-	// 衝突判定
-	virtual void onCollide(const Actor & other)override {}
-	// 終了時の処理
-	virtual void onEnd()override {}
-	// 入力処理
-	virtual void onInput() override {}
 
 protected:
 	float m_Speed;		//スピード

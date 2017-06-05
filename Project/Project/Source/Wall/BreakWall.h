@@ -1,7 +1,7 @@
 #ifndef BREAK_WALL
 #define BREAK_WALL
 
-#include"../CharacterContains/EnemyContains/Enemys/Base/EnemyBase.h"
+#include"../CharacterContains/EnemyContains/Entity/Enemys/Base/EnemyBase.h"
 
 class BreakWall : public EnemyBase
 {

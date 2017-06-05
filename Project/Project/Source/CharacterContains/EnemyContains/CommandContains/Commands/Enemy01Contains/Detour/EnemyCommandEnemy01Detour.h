@@ -1,7 +1,7 @@
 #ifndef ENEMYCOMMANDENEMY01DETOUR_H_
 #define ENEMYCOMMANDENEMY01DETOUR_H_
 
-#include "../../AlongWallMove/EnemyCommandAlongWallMove.h"
+#include "../../Common/MoveContains/AlongWallMove/EnemyCommandAlongWallMove.h"
 
 //•Ç‚ğ‹²‚ñ‚Å‹ó‚¢‚Ä‚éƒ}ƒX‚ÉA•Ç‰ˆ‚¢‚ÉÅ’Z‚Ì‰ñ“]•ûŒü‚ÅˆÚ“®
 class EnemyCommandEnemy01Detour : public EnemyCommandAlongWallMove

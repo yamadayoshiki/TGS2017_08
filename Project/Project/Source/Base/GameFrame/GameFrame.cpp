@@ -58,10 +58,6 @@ void GameFrame::start(){
 	m_SceneManager.Add(SceneName::GameCredit, std::make_shared<GameCredit>(p_GameManager));
 	m_SceneManager.Add(SceneName::GameEnd, std::make_shared<GameEnd>(p_GameManager));
 
-	m_SceneManager.Add(SceneName::NaganoScene, std::make_shared<NaganoScene>(p_GameManager));
-	m_SceneManager.Add(SceneName::NakayamaScene, std::make_shared<NakayamaScene>(p_GameManager));
-	m_SceneManager.Add(SceneName::YamadaScene, std::make_shared<yamadaScene>(p_GameManager));
-
 	//‰ŠúƒV[ƒ“‚Ìİ’è
 	m_SceneManager.Change(SceneName::GameTitle);
 }

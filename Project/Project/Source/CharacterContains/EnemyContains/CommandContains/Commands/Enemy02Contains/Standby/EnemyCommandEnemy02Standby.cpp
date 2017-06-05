@@ -1,7 +1,7 @@
 #include "EnemyCommandEnemy02Standby.h"
 #include "../../../../../../WorldContains/EventMessage/EventMessage.h"
 #include "../../../../../../WorldContains/IWorld.h"
-#include "../../../../Enemys/Base/EnemyBase.h"
+#include "../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../../Utility/TurnDirection/TurnDirection.h"
 
 //コンストラクタ
@@ -19,15 +19,15 @@ void EnemyCommandEnemy02Standby::handleMessage(EventMessage message, void * para
 		{
 			//右に90度回転
 		case FourDirectionName::Right:
-			p_Enemy->SetDirection(p_Enemy->GetDirection().GetTurn(TurnDirectionName::Clockwise));
+			p_Enemy.lock()->SetDirection(p_Enemy.lock()->GetDirection().GetTurn(TurnDirectionName::Clockwise));
 			break;
 			//左に90度回転
 		case FourDirectionName::Left:
-			p_Enemy->SetDirection(p_Enemy->GetDirection().GetTurn(TurnDirectionName::AntiClockwise));
+			p_Enemy.lock()->SetDirection(p_Enemy.lock()->GetDirection().GetTurn(TurnDirectionName::AntiClockwise));
 			break;
 			//180度回転
 		case FourDirectionName::Down:
-			p_Enemy->SetDirection(p_Enemy->GetDirection().GetTurnOver());
+			p_Enemy.lock()->SetDirection(p_Enemy.lock()->GetDirection().GetTurnOver());
 			break;
 		}
 	}

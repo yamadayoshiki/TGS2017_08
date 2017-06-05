@@ -1,6 +1,6 @@
 #include "EnemyCommandBase.h"
 #include "../../../../../Define/Def_GSvector2.h"
-#include "../../../Enemys/Base/EnemyBase.h"
+#include "../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../ActorContains/Body/Base/Body.h"
 #include "../../../../../Map/Map.h"
 #include "../../../../../WorldContains/IWorld.h"
@@ -11,9 +11,9 @@
 EnemyCommandBase::EnemyCommandBase(const EnemyBasePtr& enemy)
 	: IEnemyCommand()
 	, p_Enemy(enemy)
+	, m_CurStateName(EnemyStateName::None)
 	, m_Regard(false)
 	, m_Velocity(GSVECTOR2_ZERO)
-	, m_NextTargetPos(GSVECTOR2_ZERO)
 	, m_RotateAngle(0.0f)
 	, m_NextCommand(EnemyCommandName::None)
 	, m_IsEnd(false) {
@@ -22,6 +22,7 @@ EnemyCommandBase::EnemyCommandBase(const EnemyBasePtr& enemy)
 //初期化
 void EnemyCommandBase::Initialize() {
 	//変数の初期化
+	m_CurStateName = EnemyStateName::None;
 	m_NextCommand = EnemyCommandName::None;
 	m_IsEnd = false;
 	//各種固有の初期化
@@ -59,7 +60,7 @@ EnemyCommandName EnemyCommandBase::GetNextCommand() const {
 
 //命令ステート
 EnemyStateName EnemyCommandBase::GetCurrentStateName() const {
-	return EnemyStateName::None;
+	return m_CurStateName;
 }
 
 //注視移動か

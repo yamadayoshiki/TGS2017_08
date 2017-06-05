@@ -17,6 +17,9 @@ enum class EnemyStateName
 	RushPreliminary,	//突撃準備
 	Rush,				//突撃
 
+	//ノコノコスピン
+	Spin,
+
 	//射撃
 	Shot,				//射撃
 };

@@ -5,7 +5,7 @@
 #include "../../ActorContains/ActorManager/ActorManager.h"
 #include"../../MapGenerator/MapGenerator.h"
 #include "../EventMessage/EventMessage.h"
-#include "../../CharacterContains/EnemyContains/Enemys/Base/EnemyBase.h"
+#include "../../CharacterContains/EnemyContains/Entity/Enemys/Base/EnemyBase.h"
 #include <iostream>
 
 // コンストラクタ
