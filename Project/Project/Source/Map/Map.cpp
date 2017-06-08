@@ -42,7 +42,12 @@ void Map::regist(const MapData& data, const MapType& type) {
 		std::vector<int> tmp;
 		// 列のループ
 		for (int j = 0; j < data[i].size(); j += ((int)type + 1)) {
-			tmp.push_back(data[i][j] != 1 ? 0 : 1);
+			if (data[i][j] <= 2) {
+				tmp.push_back(data[i][j]);
+			}
+			else {
+				tmp.push_back(0);
+			}
 		}
 		m_Maps[type].push_back(tmp);
 	}
@@ -181,7 +186,30 @@ void Map::SetcsvParameter(GSvector2 position, int parameter, MapType type,IWorld
 
 	m_Maps[type][y][x] = parameter;
 	
+	Debug(type);
+
 	world->sendMessage(EventMessage::MapDataUpdate);
+}
+
+void Map::DeleteChip(GSvector2 position, IWorld * world){
+	SetcsvParameter(position + GSvector2(0, 0) * CHIP_SIZE, 0, MapType::Default, world);
+	SetcsvParameter(position + GSvector2(1, 0) * CHIP_SIZE, 0, MapType::Default, world);
+	SetcsvParameter(position + GSvector2(0, 1) * CHIP_SIZE, 0, MapType::Default, world);
+	SetcsvParameter(position + GSvector2(1, 1) * CHIP_SIZE, 0, MapType::Default, world);
+	SetcsvParameter(position, 0, MapType::Double, world);
+}
+
+void Map::Debug(const MapType type){
+	std::cout << "\n";
+	// 行のループ
+	for (int i = 0; i < m_Maps[type].size(); i++) {
+		// 列のループ
+		for (int j = 0; j < m_Maps[type][i].size(); j++) {
+			std::cout << m_Maps[type][i][j];
+		}
+		std::cout << "\n";
+	}
+	std::cout << "\n";
 }
 
 //神保

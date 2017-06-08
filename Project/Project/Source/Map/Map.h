@@ -54,6 +54,11 @@ public:
 	GSvector2 GetTilePos(const GSvector2& pos, const MapType type = MapType::Default);
 	//指定されたcsv座標の情報更新
 	void SetcsvParameter(GSvector2 position, int parameter, MapType type, IWorld* world);
+	//指定されたcsv座標の情報更新
+	void DeleteChip(GSvector2 position, IWorld* world);
+
+	// デバッグ表示
+	void Debug(const MapType type = MapType::Default);
 
 	//神保
 public:

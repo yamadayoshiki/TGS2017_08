@@ -9,6 +9,7 @@
 #include "../CharacterContains/EnemyContains/Entity/Enemys/Enemy03/Enemy03.h"
 #include "../CharacterContains/EnemyContains/Entity/Enemys/Enemy04/Enemy04.h"
 #include "../CharacterContains/EnemyContains/Entity/Enemys/Enemy05/Enemy05.h"
+#include"../WorldContains/IWorld.h"
 
 #include "../Wall/BreakWall.h"
 
@@ -36,6 +37,7 @@ void MapGenerator::load(const std::string& file_name) {
 			tmp.push_back(file.geti(i, j));
 			std::cout << file.get(i, j);
 		}
+		
 
 		m_CsvData.push_back(tmp);
 		std::cout << "\n";

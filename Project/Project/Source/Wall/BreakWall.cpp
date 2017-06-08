@@ -4,6 +4,7 @@
 #include "../Map/Map.h"
 #include"../Map/MapType.h"
 #include"../CharacterContains/EnemyContains/Entity/Enemys/Base/EnemyBase.h"
+#include"../Define/Def_Nakayama.h"
 
 //コンストラクタ
 #include"../ActorContains/ActorName.h"
@@ -50,9 +51,6 @@ void BreakWall::initialize() {
 	SetUpCommand();
 	//各種固有のStateの設定
 	SetUpState();
-
-	//マップ情報書き換え
-	getWorld()->GetMap().SetcsvParameter(getPosition(), 1, MapType::Double, p_World);
 }
 
 void BreakWall::SetUpCommand()
@@ -81,8 +79,14 @@ void BreakWall::SetUpState()
 
 void BreakWall::onDraw() const
 {
+	// ブロック削除時に呼ぶ
+	/*if (gsGetKeyState(GKEY_A)) {
+		getWorld()->GetMap().DeleteChip(getPosition(), p_World);
+	}*/
+
+
 	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
+	param.SetPosition(getBody()->position());
 	param.SetCenter({ 16.0f, 16.0f });
 	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Block5"));
 	param.SetScale({ 1.0f , 1.0f });
@@ -92,5 +96,10 @@ void BreakWall::onDraw() const
 
 ActorPtr BreakWall::clone(const GSvector2 & position, const FourDirection& front)
 {
-	return std::make_shared<BreakWall>(p_World, position, p_GameManager);
+	//マップ情報書き換え
+	//getWorld()->GetMap().Debug();
+	//getWorld()->GetMap().Debug(MapType::Double);
+	getWorld()->GetMap().SetcsvParameter(position, 2, MapType::Default, p_World);
+	getWorld()->GetMap().SetcsvParameter(position, 2, MapType::Double, p_World);
+	return std::make_shared<BreakWall>(p_World, position + GSvector2(1, 1) * CHIP_SIZE, p_GameManager);
 }
