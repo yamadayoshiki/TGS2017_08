@@ -1,7 +1,7 @@
 #include"PlayerState_Damage.h"
 
 //コンストラクタ
-PlayerState_Damage::PlayerState_Damage(const PlayerPtr& player, IGameManagerPtr gameManager)
+PlayerState_Damage::PlayerState_Damage(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
 {
 
@@ -11,7 +11,7 @@ void PlayerState_Damage::unique_init()
 {
 	m_FramConter = 0;
 	m_Parameter.m_Remaining -= 1;
-	p_Player->setPosition(m_Parameter.m_StratPosition);
+	p_Player.lock()->setPosition(m_Parameter.m_StratPosition);
 }
 //更新処理
 void PlayerState_Damage::update(float deltaTaime)

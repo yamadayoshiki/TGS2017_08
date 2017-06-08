@@ -17,7 +17,7 @@ class PlayerState :public State
 {
 public:
 	//コンストラクタ
-	PlayerState(const PlayerPtr& player, const IGameManagerPtr& gameManager);
+	PlayerState(const Player_WPtr& player, const IGameManagerPtr& gameManager);
 	//パッド入力
 	virtual void input()override;
 
@@ -29,15 +29,17 @@ protected:
 	//アーム更新
 	void armUpdate();
 	//視野角内にいるか
-	bool is_Scorp_Angle(GSvector2 myVector,GSvector2 targetVector);
+	bool is_Scorp_Angle(const Actor& other);
 	//テクスチャ名前変更
 	void TextureName_Change(const std::string& name);
 	//敵との衝突処理
 	void Collide(const Actor& other);
+	//
+	void Center_Adjustment();
 
 protected:
 	//プレイヤー本体
-	PlayerPtr			p_Player;
+	Player_WPtr			p_Player;
 	//変換
 	Transform&			m_TransForm;
 	//プレイヤーパラメーター

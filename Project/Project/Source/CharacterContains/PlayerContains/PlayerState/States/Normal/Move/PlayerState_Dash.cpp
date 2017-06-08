@@ -3,7 +3,7 @@
 #include "../../../../../../Define/Def_Nakayama.h"
 
 //コンストラクタ
-PlayerState_Dash::PlayerState_Dash(const PlayerPtr& player, IGameManagerPtr gameManager)
+PlayerState_Dash::PlayerState_Dash(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
 {
 
@@ -11,40 +11,41 @@ PlayerState_Dash::PlayerState_Dash(const PlayerPtr& player, IGameManagerPtr game
 //各状態独自の初期化
 void PlayerState_Dash::unique_init()
 {
+	//アニメーション画像の変更
+	TextureName_Change("Player_Close");
 	//フレームカウンターの初期化
 	m_FramConter = 0.0f;
 	//スピード初期化
 	speed = 32.0f;
 	//Playerの方向ベクトル
-	m_Direction = p_Player->getBody()->forward();
-	//スタート地点の設定
-	startPos = p_Player->getTransform().m_Position;;
+	m_Direction = p_Player.lock()->getBody()->forward();
 	//エンド地点の設定
-	endPos	 = p_Player->getTransform().m_Position + m_Direction * (64 * 4);
-	//2点間の距離
-	m_Distance = startPos.distance(endPos);
+	endPos = p_Player.lock()->getTransform().m_Position + m_Direction * (64 * 4);
+	
+	m_Flag = false;
 }
 //更新処理
 void PlayerState_Dash::update(float deltaTime)
 {
-	GSvector2 setPos = p_Player->getTransform().m_Position += m_Direction * speed * deltaTime;
+	GSvector2 setPos = p_Player.lock()->getTransform().m_Position += m_Direction * speed * deltaTime;
 
 	/******************************************************************************************************************************/
 	/*追し出し処理*/
-	setPos = m_Map.PushForPlayer(p_Player->getPosition(), setPos);
+	setPos = m_Map.PushForPlayer(p_Player.lock()->getPosition(), setPos);
 	/*******************************************************************************************************************************/
-	
-	p_Player->setPosition(setPos);
-	if (speed >= 8.0f && m_FramConter > 3) {
-		speed = speed / 2.0f;
-	}
+
+	p_Player.lock()->setPosition(setPos);
+	//if (speed >= 8.0f && m_FramConter > 3) {
+	//	speed = speed / 2.0f;
+	//}
 	armUpdate();
-	GSvector2 pos = p_Player->getPosition();
+	GSvector2 pos = p_Player.lock()->getPosition();
 	float result = pos.distance(endPos);
 	if (result <= 1.0f) {
 		change(PlayerStateName::Walk);
 	}
-	if (m_Map.IsInFrontOfTheWall(p_Player->getPosition(), FourDirection(p_Player->getBody()->forward()), MapType::Double) || m_FramConter >= 30) {
+	if (m_Map.IsInFrontOfTheWall(p_Player.lock()->getPosition(), FourDirection(p_Player.lock()->getBody()->forward()), MapType::Double)
+		|| m_FramConter >= 30) {
 		change(PlayerStateName::Walk);
 	}
 
@@ -53,8 +54,22 @@ void PlayerState_Dash::update(float deltaTime)
 //衝突処理
 void PlayerState_Dash::collide(const Actor& other)
 {
-	if (m_FramConter > 8) {
-		//敵との衝突処理
-		change(PlayerStateName::Damage);
+	//アームに当たっていたら返す
+	if (m_Children[ActorName::Player_Arm]->isCollide(other) &&
+		is_Scorp_Angle(other)&&
+		m_Flag == true) return;
+
+	//敵との衝突処理
+	Collide(other);
+}
+//入力処理
+void PlayerState_Dash::input()
+{
+	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+		TextureName_Change("Player_Open");
+		m_Flag = true;
+	}
+	if (p_Input->IsPadStatesDetach(GS_XBOX_PAD_B) && m_Flag == true) {
+		change(PlayerStateName::Swich);
 	}
 }

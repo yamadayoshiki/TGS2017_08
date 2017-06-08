@@ -2,12 +2,13 @@
 #include"../../../PlayerStateName.h"
 
 //コンストラクタ
-PlayerState_O_MoveBase::PlayerState_O_MoveBase(const PlayerPtr& player, IGameManagerPtr gameManager)
+PlayerState_O_MoveBase::PlayerState_O_MoveBase(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player,gameManager){}
 
 //各状態独自の初期化
 void PlayerState_O_MoveBase::unique_init()
 {
+	TextureName_Change("Player_Open");
 	// 継承先の各状態独自の初期化
 	onUniqueInit();
 }
@@ -29,7 +30,7 @@ void PlayerState_O_MoveBase::collide(const Actor& other)
 {
 	//アームに当たっていたら返す
 	if (m_Children[ActorName::Player_Arm]->isCollide(other) && 
-		is_Scorp_Angle(p_Player->getBody()->forward(),other.getPosition() - p_Player->getPosition())) return;
+		is_Scorp_Angle(other)) return;
 
 	//敵との衝突処理
 	Collide(other);
@@ -48,6 +49,11 @@ void PlayerState_O_MoveBase::input()
 {
 	if (!p_Input->IsPadState(GS_XBOX_PAD_B)) {
 		change(PlayerStateName::Swich);
+	}
+	//ダッシュ
+	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_A) ||
+		gsGetKeyState(GKEY_Z)) {
+		change(PlayerStateName::Dash);
 	}
 	//継承先の入力処理
 	onInput();

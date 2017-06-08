@@ -240,6 +240,7 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Dead.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Invincible.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Release.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_CrushBase.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_Barrage.h" />
@@ -412,6 +413,7 @@
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Release.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_CrushBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_Barrage.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idle.cpp" />

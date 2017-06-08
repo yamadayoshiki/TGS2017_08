@@ -7,7 +7,7 @@ class PlayerState_Invincible:public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_Invincible(const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerState_Invincible(const Player_WPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void unique_init()override;
 	//更新処理
@@ -17,7 +17,7 @@ public:
 	//終了処理
 	virtual void end()override{}
 	//入力処理
-	virtual void input() override{}
+	virtual void input() override;
 
 private:
 	float		m_FramConter{ 0.0f };

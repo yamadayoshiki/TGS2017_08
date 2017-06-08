@@ -2,7 +2,7 @@
 
 
 //コンストラクタ
-PlayerState_MoveBase::PlayerState_MoveBase(const PlayerPtr& player, IGameManagerPtr gameManager)
+PlayerState_MoveBase::PlayerState_MoveBase(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager) {
 	//フレーム数の初期化
 	m_FramConter = 120;

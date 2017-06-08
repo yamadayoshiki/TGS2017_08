@@ -13,7 +13,7 @@ public:
 	//コンストラクタ
 	PlayerStateManager();
 	//コンストラクタ
-	PlayerStateManager(const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerStateManager(const Player_WPtr& player, IGameManagerPtr gameManager);
 	void addChild(const ActorName& name, const ActorPtr& child);
 };
 #endif // !PLAYER_STATE_MANAGER_H_

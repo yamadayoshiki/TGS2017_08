@@ -29,6 +29,22 @@ void Player_Parameter::DrawRemaining(const Renderer2DPtr& renderer) {
 	gsFontParameter(GS_FONT_BOLD, 20, "HG明朝B");
 }
 
+void Player_Parameter::DrawCombo(const Renderer2DPtr & renderer)
+{
+	std::stringstream ss;
+	ss <<  "COMBO " <<m_Combo;
+	// 画像の描画
+	GSvector2 pos = GSvector2(500, 50);
+
+	// パラメーターの描画
+	gsTextPos(pos.x + 100, pos.y);
+	gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
+	gsDrawText(ss.str().c_str());
+
+	// パラメータを戻す
+	gsFontParameter(GS_FONT_BOLD, 20, "HG明朝B");
+}
+
 void Player_Parameter::setRemaining(int remaining)
 {
 	m_Remaining = remaining;

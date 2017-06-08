@@ -2,7 +2,7 @@
 #include"../../../../../WorldContains/EventMessage/EventMessage.h"
 
 //コンストラクタ
-PlayerState_Round::PlayerState_Round(const PlayerPtr& player, IGameManagerPtr gameManager)
+PlayerState_Round::PlayerState_Round(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
 {
 
@@ -22,10 +22,8 @@ void PlayerState_Round::collide(const Actor& other)
 {
 	if (m_Children[ActorName::Player_Arm]->isCollide(other))return;
 
-	if (other.getName() == ActorName::Enemy_01)
-	{
-		change(PlayerStateName::Damage);
-	}
+	//敵との衝突処理
+	Collide(other);
 }
 //終了処理
 void PlayerState_Round::end()
@@ -41,7 +39,7 @@ void PlayerState_Round::input()
 	}
 	//離す状態に遷移
 	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B)) {
-		p_Player->getWorld()->sendMessage(EventMessage::PLAYER_RELEASE);
+		p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_RELEASE);
 		change(PlayerStateName::Release);
 	}
 }

@@ -60,9 +60,6 @@
     <ClInclude Include="Source\Define\Def_Nakayama.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\MapGenerator\MapGenerator.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SceneContains\IScene.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -315,9 +312,6 @@
     <ClInclude Include="Source\ActorContains\ActorManager\ActorManagerPtr.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\StagingContains\TransitionStaging\SceneTransition.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -534,9 +528,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\MapGenerator\ArrangeData.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerMotion_ID.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -609,6 +600,18 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\AttackContains\Rush\EnemyCommandRush.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MapGenerator\ArrangeData.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MapGenerator\MapGenerator.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -633,9 +636,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\MapGenerator\MapGenerator.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp">
@@ -1032,6 +1032,12 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\AttackContains\Rush\EnemyCommandRush.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MapGenerator\MapGenerator.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

@@ -7,7 +7,7 @@ class PlayerState_Dash:public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_Dash(const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerState_Dash(const Player_WPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void unique_init()override;
 	//更新処理
@@ -16,9 +16,10 @@ public:
 	virtual void collide(const Actor& other)override;
 	//終了処理
 	virtual void end()override {}
+	//入力処理
+	virtual void input()override;
+
 private:
-	//スタート地点
-	GSvector2	startPos;
 	//エンド地点
 	GSvector2	endPos;
 	//二点間の距離
@@ -27,6 +28,8 @@ private:
 	GSvector2	m_Direction;
 	//スピード
 	float		speed;
+	//アームが開いているか？
+	bool		m_Flag{false};
 };
 #endif // !PALYERSTATE_DASH_H_
 

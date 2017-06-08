@@ -19,30 +19,36 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 		position,
 		gameManager,
 		std::make_shared<NullTexture>(),
-		std::make_shared<OrientedBoundingBox>(GSvector2{ 0, 0 }, -90.0f, GSvector2{ 2.0f, 2.0f })), angle(0.0f)
+		std::make_shared<OrientedBoundingBox>(GSvector2{ 0, 0 }, -90.0f, GSvector2{ 2.0f, 2.0f }))
 	, p_Map(p_World->GetMap())
-	,m_Parameter(gameManager->GetPlayerParameter())
+	, m_Parameter(gameManager->GetPlayerParameter())
 {
 	p_Renderer = gameManager->GetRenderer2D();
 }
+
 //デストラクタ
 Player::~Player() {
 	delete mStateManager;
-	delete p_Animation;
+	delete p_AnimationTexture;
+	delete m_Animation;
 }
 
 //初期化
 void Player::initialize()
 {
-	//名前の設定
-	setName("Player_Close");
+	//フレームカウンターの初期化
+	m_FraemConter = 0;
 	//スタート地点の補間
 	m_Parameter.m_StratPosition = m_Transform.m_Position;
+	//コンボの初期化
+	m_Parameter.m_Combo = 0;
 
+	//名前の設定
+	m_Name = "Player_Open2";
 	//アニメーションのパラメータの設定
-	Animation* animation = 
-		new Animation(*p_Renderer->GetTextureRect("Player"), 64, 10);
-	p_Animation = new AnimationTexture("Player", p_Renderer, animation);
+	m_Animation = new Animation(*p_Renderer->GetTextureRect(m_Name), 64, 5);
+	p_AnimationTexture = new AnimationTexture(m_Name, p_Renderer, m_Animation);
+	p_AnimationTexture->Initialize();
 
 	//ステートマネージャ生成、初期化
 	mStateManager = new PlayerStateManager(shared_from_this(), p_GameManager);
@@ -57,42 +63,33 @@ void Player::initialize()
 //更新処理
 void Player::onUpdate(float deltaTime)
 {
+	//アニメーションの更新
+	p_AnimationTexture->Update(deltaTime);
+
 	//状態管理の更新処理
 	mStateManager->action(deltaTime);
 
+	//一定フレーム数
+
 	//行動制限
 	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));
-
-	if (p_Animation->GetLoopCount() <= 0) {
-		//アニメーションの更新
-		p_Animation->Update(deltaTime);
-	}
 }
 //描画処理
 void Player::onDraw()const
 {
 	//p_Body->transform(getTransform())->draw();
 
-	//Texture2DParameter param;
-	//param.SetPosition(m_Transform.m_Position);
-	//param.SetRotate(m_Transform.m_Angle - 90);
-	//param.SetCenter({ 32.0f, 32.0f });
-	//param.SetRect(*p_Renderer->GetTextureRect(m_Name));
-	//param.SetScale({ 1.0f , 1.0f });
-	//param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	//p_Renderer->DrawTexture(m_Name, param);
-
-	p_Animation->GetParameter()->SetPosition(m_Transform.m_Position);
-	p_Animation->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
-	p_Animation->GetParameter()->SetCenter({ 32.0f, 32.0f });
-	//p_Animation->GetParameter()->SetRect(*p_Renderer->GetTextureRect("Player"));
-	p_Animation->GetParameter()->SetScale({ 1.0f , 1.0f });
-	p_Animation->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	p_AnimationTexture->GetParameter()->SetPosition(m_Transform.m_Position);
+	p_AnimationTexture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
+	p_AnimationTexture->GetParameter()->SetCenter({ 32.0f, 32.0f });
+	p_AnimationTexture->GetParameter()->SetScale({ 1.0f , 1.0f });
+	p_AnimationTexture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
 	//アニメーションの描画
-	p_Animation->Draw();
+	p_AnimationTexture->Draw();
 
-	/*gsTextPos(m_Transform.m_Position.x, m_Transform.m_Position.y);
-	gsDrawText("a");*/
+	GSvector2 drawPos = getPosition() - getBody()->forward() * 16;
+	gsTextPos(drawPos.x, drawPos.y);
+	gsDrawText("a");
 }
 //衝突判定
 void Player::onCollide(Actor& other)
@@ -108,11 +105,21 @@ Player_Parameter& Player::getParameter()
 }
 
 //テクスチャの名前の設定
-void Player::setName(const std::string& name)
+void Player::setName_Animation(const std::string& name)
 {
 	m_Name = name;
+	m_Animation = new Animation(*p_Renderer->GetTextureRect(name), 64, 5);
+	p_AnimationTexture->setName_Animation(name, m_Animation);
+	p_AnimationTexture->Initialize();
 }
 
+//アニメーションのループ回数を取得
+unsigned int Player::GetLoopCount()
+{
+	return p_AnimationTexture->GetLoopCount();
+}
+
+//クローンの生成
 ActorPtr Player::clone(const GSvector2 & position, const FourDirection& front)
 {
 	m_Transform.m_Position = position;

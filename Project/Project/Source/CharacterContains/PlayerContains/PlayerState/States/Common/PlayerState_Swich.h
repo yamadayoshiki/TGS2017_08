@@ -7,7 +7,7 @@ class PlayerState_Swich : public PlayerState
 {
 public:
 	//コンストラクタ
-	PlayerState_Swich(const PlayerPtr& player, IGameManagerPtr gameManager);
+	PlayerState_Swich(const Player_WPtr& player, IGameManagerPtr gameManager);
 	//各状態独自の初期化
 	virtual void unique_init()override;
 	//更新処理

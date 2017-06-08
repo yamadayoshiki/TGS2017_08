@@ -1,7 +1,7 @@
 #include"PlayerState_Idle.h"
 
 //コンストラクタ
-PlayerState_Idle::PlayerState_Idle(const PlayerPtr& player, IGameManagerPtr gameManager)
+PlayerState_Idle::PlayerState_Idle(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState_MoveBase(player,gameManager){
 }
 

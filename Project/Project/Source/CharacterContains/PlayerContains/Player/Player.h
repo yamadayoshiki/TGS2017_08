@@ -32,8 +32,10 @@ public:
 	
 	//プレイヤーパラメーターの取得
 	Player_Parameter& getParameter();
-	//テクスチャの名前の設定
-	void setName(const std::string& name);
+	//テクスチャ・アニメーションの名前の設定
+	void setName_Animation(const std::string& name);
+	//アニメーションのループ回数を取得
+	unsigned int GetLoopCount();
 
 	virtual ActorPtr clone(const GSvector2& position, const FourDirection& front = FourDirection(FourDirectionName::None)) override;
 
@@ -51,9 +53,11 @@ private:
 	//プレイヤーパラメター
 	Player_Parameter&		m_Parameter;
 	//アニメーションテクスチャ
-	AnimationTexture*		p_Animation;
-	//回転
-	float					angle;
+	AnimationTexture*		p_AnimationTexture;
+	//アニメーション
+	Animation*				m_Animation;
+	//フレーム数
+	float					m_FraemConter;
 	//名前
 	std::string				m_Name;
 };

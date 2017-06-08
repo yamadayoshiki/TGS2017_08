@@ -1,7 +1,7 @@
 #include"PlayerState_Walk.h"
 
 //コンストラクタ
-PlayerState_Walk::PlayerState_Walk(const PlayerPtr& player, IGameManagerPtr gameManager)
+PlayerState_Walk::PlayerState_Walk(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState_MoveBase(player, gameManager) {
 
 }

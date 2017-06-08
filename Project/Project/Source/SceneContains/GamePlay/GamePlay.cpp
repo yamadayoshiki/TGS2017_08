@@ -47,6 +47,7 @@ void GamePlay::OnDraw() const {
 
 	// UI•`‰æ
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
+	p_GameManager->GetPlayerParameter().DrawCombo(p_GameManager->GetRenderer2D());
 	gsFontParameter(GS_FONT_BOLD, 50, "HG–¾’©B");
 	gsTextPos(900, 50);
 	gsDrawText("‚ ‚Æ %d ‘Ì", p_World->GetSurviverSum());

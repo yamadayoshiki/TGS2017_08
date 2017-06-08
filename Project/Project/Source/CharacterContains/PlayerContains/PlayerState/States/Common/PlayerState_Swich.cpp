@@ -4,7 +4,7 @@
 
 
 //コンストラクタ
-PlayerState_Swich::PlayerState_Swich(const PlayerPtr& player, IGameManagerPtr gameManager)
+PlayerState_Swich::PlayerState_Swich(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
 	,m_Flag(false){
 }
@@ -30,17 +30,17 @@ void PlayerState_Swich::update(float deltaTaime)
 void PlayerState_Swich::collide(const Actor& other)
 {
 	//自分の方向ベクトル
-	GSvector2 myVec = p_Player->getBody()->forward();
+	GSvector2 myVec = p_Player.lock()->getBody()->forward();
 	myVec.normalize();
 
 	//相手のベクトル
-	GSvector2 targetVec = other.getPosition() - p_Player->getPosition();
+	GSvector2 targetVec = other.getPosition() - p_Player.lock()->getPosition();
 	targetVec.normalize();
 	
-	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(myVec, targetVec)) {
+	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(other)) {
 		m_Flag = true;
 		//相手に挟んだ情報を送る
-		p_Player->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));
+		p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));
 	}
 }
 

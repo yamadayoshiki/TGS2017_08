@@ -32,3 +32,11 @@ void AnimationTexture::Update(float deltaTime) {
 unsigned int AnimationTexture::GetLoopCount() {
 	return p_Animation->GetLoopCount();
 }
+
+//テクスチャの名前とアニメーションの設定
+void AnimationTexture::setName_Animation(const std::string& name, Animation* animation)
+{
+	m_TexName = name;
+	p_Animation = animation;
+	p_Animation->Initialize();
+}

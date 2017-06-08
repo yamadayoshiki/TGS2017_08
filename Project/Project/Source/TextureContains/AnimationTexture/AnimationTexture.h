@@ -21,6 +21,8 @@ public:
 	virtual void Update(float deltaTime) override;
 	//ループ回数の取得
 	unsigned int GetLoopCount();
+	//テクスチャの名前とアニメーションの設定
+	void setName_Animation(const std::string& name, Animation* animation);
 
 
 protected:

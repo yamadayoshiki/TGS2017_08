@@ -19,7 +19,7 @@ enum class PlayerStateName
 
 	//潰す状態
 	Crush,			//潰す状態
-	Crush_Barrage,	//潰す状態(連打)
+	Crush_After,	//潰した後の状態
 
 	//共通
 	Damage,			//ダメージ状態
