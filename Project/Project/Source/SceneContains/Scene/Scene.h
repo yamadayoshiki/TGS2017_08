@@ -55,6 +55,8 @@ protected:
 	SceneName m_SceneName;
 	// 遷移演出
 	TransitionPtr m_Transition;
+	//ポーズフラグ
+	bool PauseFlag = false;
 
 };
 

@@ -2,6 +2,7 @@
 #define ISCENE_H_
 
 enum class SceneName;
+enum class SceneMode;
 
 //シーン抽象インターフェイス
 class IScene

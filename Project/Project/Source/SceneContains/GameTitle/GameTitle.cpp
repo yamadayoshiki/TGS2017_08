@@ -8,6 +8,7 @@
 #include "../../Utility/Rederer2D/Renderer2D.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Define/Def_Nagano.h"
+#include"../../Utility/InputState/InputState.h"
 
 // コンストラクタ    
 GameTitle::GameTitle(const IGameManagerPtr& gameManager)
@@ -25,6 +26,10 @@ void GameTitle::OnStart(){
 void GameTitle::OnUpdate(float deltaTime){
 	gsTextPos(100, 100);
 	gsDrawText("title");
+
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+		p_World->EndRequest(SceneName::GamePlay);
+	}
 }
 
 void GameTitle::OnDraw()const

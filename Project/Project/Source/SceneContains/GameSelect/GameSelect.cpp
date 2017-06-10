@@ -8,6 +8,7 @@
 #include"../../CharacterContains/PlayerContains/Player/Player.h"
 #include "../../Utility/InputState/InputState.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
+#include"../../UIContains/UIManager/UIManager.h"
 
 // コンストラクタ    
 GameSelect::GameSelect(const IGameManagerPtr& gameManager)
@@ -25,7 +26,7 @@ void GameSelect::OnUpdate(float deltaTime)
 	gsTextPos(100, 100);
 	gsDrawText("select");
 
-	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
-		p_World->EndRequest(SceneName::GameTitle);
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+		p_World->EndRequest(SceneName::GamePlay);
 	}
 }

@@ -23,7 +23,6 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 
 // 開始     
 void GamePlay::OnStart() {
-
 	//マップデータによる生成
 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage1.csv");
 
@@ -33,9 +32,14 @@ void GamePlay::OnStart() {
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime) {
+	//ポーズ
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE)
+	{
+		PauseFlag = !PauseFlag;
+	}
+
 	// Enterキーを押下、もしくは討伐可能な敵が０以下の場合クリア
-	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) ||
-		p_World->GetSurviverSum() <= 0) {
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) || p_World->GetSurviverSum() <= 0) {
 		p_World->EndRequest(SceneName::GameResult);
 	}
 }

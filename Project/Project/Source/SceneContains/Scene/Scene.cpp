@@ -45,11 +45,14 @@ void Scene::Start()
 void Scene::Update(float deltaTime)
 {
 	//スペースキーを押したら次のシーン
-	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE || p_World->IsEnd()) {
+	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE  || p_World->IsEnd()) {
 		m_IsEnd = true;
 	}
 		
 	//ワールド更新
+	if (PauseFlag) {
+		deltaTime = 0;
+	}
 	p_World->update(deltaTime);
 
 	//各種固有の更新

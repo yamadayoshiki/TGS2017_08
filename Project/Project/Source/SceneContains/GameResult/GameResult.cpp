@@ -30,7 +30,12 @@ void GameResult::OnUpdate(float deltaTime){
 	gsTextPos(SCREEN_SIZE.x / 2, SCREEN_SIZE.y / 2);
 	gsDrawText("%s", m_Text.c_str());
 
-	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
-		p_World->EndRequest(SceneName::GameTitle);
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+		p_World->EndRequest(SceneName::GamePlay);
+	}
+
+	else if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_A))
+	{
+		p_World->EndRequest(SceneName::GameEnd);
 	}
 }
