@@ -1,13 +1,14 @@
 #include "TargetPosition.h"
 #include "../Define/Def_GSvector2.h"
+#include "../Map/Map.h"
 
 //コンストラクタ
 TargetPosition::TargetPosition(
-	Map& map, 
-	const TurnDirection turnDirection, 
+	const MapPtr& map,
+	const TurnDirection turnDirection,
 	const MapType type)
 	: m_TurnDirection(turnDirection)
-	, m_Map(map)
+	, p_Map(map)
 	, m_Type(type) {
 	Clear();
 }
@@ -52,7 +53,7 @@ void TargetPosition::AlongWall(const GSvector2 position, const FourDirection fou
 	Move result;
 	//自分の周辺のタイルデータ配列
 	std::unordered_map<FourDirection, TileData> mapDate
-		= m_Map.GetAroundTile(position, m_Type);
+		= p_Map.lock()->GetAroundTile(position, m_Type);
 	//進行方向の逆方向に変更
 	FourDirection dir = fourDirection;
 	dir.TurnOver();
@@ -86,6 +87,6 @@ void TargetPosition::AlongWall() {
 void TargetPosition::Clone(const TargetPosition& other) {
 	m_TurnDirection = other.m_TurnDirection;
 	m_List=other.m_List;
-	m_Map = other.m_Map;
+	p_Map = other.p_Map;
 	m_Type = other.m_Type;
 }

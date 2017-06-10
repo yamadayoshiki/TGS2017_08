@@ -5,11 +5,11 @@
 
 #include "../ActorContains/ActorPtr.h"
 #include "../ActorContains/ActorName.h"
+#include "../Map/MapPtr.h"
 
 enum class ActorGroup;
 enum class EventMessage;
 enum class SceneName;
-class Map;
 
 // ワールド抽象インターフェース 
 class IWorld
@@ -32,7 +32,7 @@ public:
 	// シーンの終了
 	virtual void EndRequest(const SceneName& name) = 0;
 	//マップの取得
-	virtual Map& GetMap() = 0;
+	virtual MapPtr GetMap() = 0;
 protected:
 	// 終了処理
 	virtual void Finalize() {}

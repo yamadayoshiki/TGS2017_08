@@ -68,6 +68,8 @@ public:
 	int GetWidth(const MapType& type = MapType::Default) const;
 	// 高さの取得
 	int GetHeight(const MapType& type = MapType::Default) const;
+	// csv座標をGSvector2に変換(中心座標)
+	GSvector2 CsvPosCnvVector2(const int x, const int y, const MapType type);
 
 private:
 	// マップの格納

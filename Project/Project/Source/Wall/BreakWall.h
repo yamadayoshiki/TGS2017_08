@@ -17,9 +17,8 @@ public:
 	//各種固有のStateの設定
 	virtual void SetUpState() override;
 	virtual void onDraw() const override;
-
-	virtual ActorPtr clone(const GSvector2& position, const FourDirection& front = FourDirection(FourDirectionName::None)) override;
-
+	//csvで生成(使用時継承先でoverride)
+	virtual ActorPtr CsvGenerate(const int x, const int y, const int csvparam) override;
 private:
 
 };

@@ -31,7 +31,7 @@ void PlayerState_Dash::update(float deltaTime)
 
 	/******************************************************************************************************************************/
 	/*’Ç‚µo‚µˆ—*/
-	setPos = m_Map.PushForPlayer(p_Player.lock()->getPosition(), setPos);
+	setPos = p_Map.lock()->PushForPlayer(p_Player.lock()->getPosition(), setPos);
 	/*******************************************************************************************************************************/
 
 	p_Player.lock()->setPosition(setPos);
@@ -44,7 +44,7 @@ void PlayerState_Dash::update(float deltaTime)
 	if (result <= 1.0f) {
 		change(PlayerStateName::Walk);
 	}
-	if (m_Map.IsInFrontOfTheWall(p_Player.lock()->getPosition(), FourDirection(p_Player.lock()->getBody()->forward()), MapType::Double)
+	if (p_Map.lock()->IsInFrontOfTheWall(p_Player.lock()->getPosition(), FourDirection(p_Player.lock()->getBody()->forward()), MapType::Double)
 		|| m_FramConter >= 30) {
 		change(PlayerStateName::Walk);
 	}

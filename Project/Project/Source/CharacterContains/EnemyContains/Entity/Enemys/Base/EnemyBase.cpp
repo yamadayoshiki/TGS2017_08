@@ -12,12 +12,14 @@ EnemyBase::EnemyBase(
 	const GSvector2& position,
 	const FourDirection front,
 	const int maxHp,
+	const MapType type,
 	const IGameManagerPtr& gameManager,
 	const ITexturePtr& texture,
 	const IBodyPtr& body)
 	: Actor(world, name, position, gameManager, texture, body)
 	, m_HitPoint(maxHp)
-	, m_FourDirection(front) {
+	, m_FourDirection(front)
+	, m_MapType(type) {
 	SetDirection(m_FourDirection);
 }
 
@@ -31,7 +33,7 @@ EnemyBase::~EnemyBase() {
 //初期化
 void EnemyBase::initialize() {
 	//プレイヤー監視
-	p_PlayerWatch.reset(new PlayerWatch(getWorld()->GetMap(), shared_from_this()));
+	p_PlayerWatch.reset(new PlayerWatch(shared_from_this()));
 	//各種固有のコマンドの設定
 	SetUpCommand();
 	//各種固有のStateの設定

@@ -8,6 +8,8 @@
 #include "../../../../../ActorContains/Actor/Actor.h"
 #include "../../../PlayerWatch/PlayerWatchPtr.h"
 #include "../../../StateContains/StateManager/EnemyStateManagerPtr.h"
+#include "../../../../../Map/MapType.h"
+
 
 //エネミー基底クラス
 class EnemyBase :public Actor, public std::enable_shared_from_this<EnemyBase>
@@ -20,10 +22,12 @@ public:
 		const GSvector2& position,										//座標
 		const FourDirection front,										//向き
 		const int maxHp,												//ヒットポイント
+		const MapType type,												//移動マップタイプ
 		const IGameManagerPtr& gameManager,								//ゲームマネージャ
 		const ITexturePtr& texture,										//テクスチャ
 		const IBodyPtr& body = std::make_shared<DammyBody>());			//衝突判定図形
-																		//デストラクタ
+
+	//デストラクタ
 	virtual ~EnemyBase();
 	//初期化
 	virtual void initialize() override;
@@ -57,6 +61,7 @@ protected:
 	virtual void onMessage(EventMessage message, void* param) override;
 
 protected:
+	MapType m_MapType;								//移動マップタイプ
 	HitPoint m_HitPoint;							//ヒットポイント
 	PlayerWatchUPtr p_PlayerWatch;					//プレイヤー監視
 	EnemyStateManagerUPtr p_StateManager;			//ステートマネージャー

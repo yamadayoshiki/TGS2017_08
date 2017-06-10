@@ -17,6 +17,8 @@ enum class EnemyCommandName
 	AntiClockwiseRotation90,//反時計回りに90度回転
 	ReverseRotation,		//反転
 
+	SpinMove,				//スピン状態で移動
+
 	None,					//何もない
 };
 

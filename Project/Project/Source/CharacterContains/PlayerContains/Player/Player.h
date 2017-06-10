@@ -37,7 +37,8 @@ public:
 	//アニメーションのループ回数を取得
 	unsigned int GetLoopCount();
 
-	virtual ActorPtr clone(const GSvector2& position, const FourDirection& front = FourDirection(FourDirectionName::None)) override;
+	//csvで生成(使用時継承先でoverride)
+	virtual ActorPtr CsvGenerate(const int x, const int y, const int csvparam) override;
 
 protected:
 	//メッセージ処理
@@ -49,7 +50,7 @@ private:
 	//レンダラー
 	Renderer2DPtr			p_Renderer;
 	//マップデータ
-	Map						p_Map;
+	MapWPtr					p_Map;
 	//プレイヤーパラメター
 	Player_Parameter&		m_Parameter;
 	//アニメーションテクスチャ

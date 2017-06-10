@@ -3,6 +3,9 @@
 #include "../../../../../ActorContains/ActorName.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
 #include "../../../../../ActorContains/Body/OrientedBoundingBox.h"
+//Map
+#include "../../../../../WorldContains/IWorld.h"
+#include "../../../../../Map/Map.h"
 //描画
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
@@ -14,11 +17,12 @@
 #include "../../../CommandContains/Commands/Enemy01Contains/Detour/EnemyCommandEnemy01Detour.h"
 #include "../../../CommandContains/Commands/Enemy01Contains/Straight/EnemyCommandEnemy01Straight.h"
 //State
+#include "../../../StateContains/States/EnemyStateName.h"
 #include "../../../StateContains/StateManager/EnemyStateManager.h"
-#include "../../../StateContains/States/MoveRepelContains/Idle/EnemyStateMoveRepelIdle.h"
-#include "../../../StateContains/States/MoveRepelContains/Move/EnemyStateMoveRepelMove.h"
+#include "../../../StateContains/States/MoveContains/Repel/Idle/EnemyStateIdleRepel.h"
+#include "../../../StateContains/States/MoveContains/Repel/Move/EnemyStateMoveRepel.h"
 #include "../../../StateContains/States/Stop/EnemyStateStop.h"
-#include "../../../StateContains/States/Repel/EnemyStateRepel.h"
+#include "../../../StateContains/States/RepelContains/Repel/EnemyStateRepel.h"
 
 //コンストラクタ
 Enemy01::Enemy01(
@@ -32,15 +36,17 @@ Enemy01::Enemy01(
 		position,
 		front,
 		0,
+		MapType::Double,
 		gameManager,
 		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
 		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
 }
 
-//クローン生成(使用時継承先でoverride)
-ActorPtr Enemy01::clone(const GSvector2 & position, const FourDirection & front)
-{
-	return std::make_shared<Enemy01>(p_World, position, front, p_GameManager);
+//csvで生成(使用時継承先でoverride)
+ActorPtr Enemy01::CsvGenerate(const int x, const int y, const int csvparam) {
+	GSvector2 position = p_World->GetMap()->CsvPosCnvVector2(x,y,m_MapType);
+	FourDirection dir = FourDirection((FourDirectionName)csvparam);
+	return std::make_shared<Enemy01>(p_World, position, dir,p_GameManager);
 }
 
 //各種固有のコマンドの設定
@@ -59,8 +65,8 @@ void Enemy01::SetUpState() {
 	//生成
 	p_StateManager.reset(new EnemyStateManager());
 	//State追加
-	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateMoveRepelIdle>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveRepelMove>(shared_from_this(), 4.0f));
+	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleRepel>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveRepel>(shared_from_this(), 4.0f));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStop>(shared_from_this(), 120));
 	p_StateManager->add(EnemyStateName::Repel, std::make_shared<EnemyStateRepel>(shared_from_this()));
 	//初期State設定

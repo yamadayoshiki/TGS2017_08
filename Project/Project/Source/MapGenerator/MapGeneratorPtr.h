@@ -5,6 +5,7 @@
 
 class MapGenerator;
 using MapGeneratorPtr = std::shared_ptr<MapGenerator>;
+using MapGeneratorWPtr = std::weak_ptr<MapGenerator>;
 
 #endif // ! ACTORPTR_H_
 

@@ -66,6 +66,7 @@ void GameFrame::start(){
 void GameFrame::update(float time)
 {
 	p_GameManager->Update();
+	if (p_GameManager->GetInputState()->IsKeyState(VK_SPACE)) return;
 	m_SceneManager.Update(time);
 }
 

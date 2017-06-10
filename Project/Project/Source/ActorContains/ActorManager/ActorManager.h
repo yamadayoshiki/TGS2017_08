@@ -11,6 +11,8 @@ class ActorManager {
 public:
 	// コンストラクタ     
 	ActorManager();
+	// デストラクタ
+	~ActorManager();
 	// 初期化     
 	void initialize();
 	// 更新     
@@ -38,7 +40,7 @@ private:
 
 private:
 	// ルートノード
-	Actor m_root;
+	ActorUPtr p_Root;
 	// アクターグループ
 	std::unordered_map<ActorGroup, ActorPtr> m_actors;
 };

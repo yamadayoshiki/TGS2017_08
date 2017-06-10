@@ -31,7 +31,7 @@ void EnemyCommandStraight::SetNextTargetPos() {
 	GSvector2 frontVector = p_Enemy.lock()->GetDirection().GetVector2();
 	frontVector = frontVector * (CHIP_SIZE* ((int)m_Type + 1)) * list.GetSpeaceNum();
 	//次の目標地点の設定
-	m_NextTargetPos = p_Enemy.lock()->getWorld()->GetMap().GetTilePos(p_Enemy.lock()->getPosition(), m_Type) + frontVector;
+	m_NextTargetPos = p_Enemy.lock()->getWorld()->GetMap()->GetTilePos(p_Enemy.lock()->getPosition(), m_Type) + frontVector;
 }
 
 //正面に壁があった場合のリアクション

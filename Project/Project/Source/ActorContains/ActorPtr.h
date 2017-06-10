@@ -6,5 +6,6 @@
 class Actor;
 using ActorPtr = std::shared_ptr<Actor>;
 using ActorWPtr = std::weak_ptr<Actor>;
+using ActorUPtr = std::unique_ptr<Actor>;
 
 #endif // ! ACTORPTR_H_

@@ -22,8 +22,7 @@ Actor::Actor(
 	, m_Transform({ position, 0.0f })
 	, p_Texture(texture)
 	, p_Body(body)
-	, m_dead(false)
-{
+	, m_dead(false){
 }
 
 //コンストラクタ
@@ -32,8 +31,7 @@ Actor::Actor(const ActorName& name)
 		nullptr,
 		name,
 		{ 0.0f,0.0f }
-		, nullptr)
-{
+		, nullptr){
 }
 
 //仮想デストラクタ
@@ -141,9 +139,7 @@ void Actor::collideChildren(Actor & other) {
 //兄弟同士の衝突判定
 void Actor::collideSibling() {
 	for (auto i = m_children.begin(); i != m_children.end(); ++i)
-	{
 		std::for_each(std::next(i), m_children.end(), [&](const ActorPtr&  actor) { (*i)->collide(*actor); });
-	}
 }
 
 //子を追加する
@@ -175,6 +171,9 @@ void Actor::removeChildren() {
 
 //子を消去
 void Actor::clearChildren() {
+	for (auto it = m_children.begin(); it != m_children.end(); it++)
+		(*it)->clearChildren();
+
 	m_children.clear();
 }
 
@@ -199,7 +198,7 @@ IBodyPtr Actor::getBody() const {
 	return p_Body->transform(getTransform());
 }
 
-int Actor::getCount() const{
+int Actor::getCount() const {
 	return std::distance(m_children.begin(), m_children.end());
 }
 
@@ -218,9 +217,8 @@ ITexturePtr Actor::getTexture() const {
 	return p_Texture;
 }
 
-//クローン生成(使用時継承先でoverride)
-ActorPtr Actor::clone(const GSvector2 & position, const FourDirection & front)
-{
+//csvで生成
+ActorPtr Actor::CsvGenerate(const int x, const int y, const int csvparam) {
 	return nullptr;
 }
 

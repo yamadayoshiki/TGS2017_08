@@ -13,4 +13,7 @@ enum class EventMessage {
 
 	ENEMY02_DEAD,		//エネミー02が死んだ
 	ENEMY_REPEL,		//弾く
+
+	ENEMY_SPIN,			//スピン
+	ENEMY_COMMAND_DEAD,	//コマンド側から死ぬ命令
 };

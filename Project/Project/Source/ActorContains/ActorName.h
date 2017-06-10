@@ -3,15 +3,7 @@
 
 enum class ActorName
 {
-	/* プレイヤーグループ */
-	Player = 0,			//プレイヤー
-	Player_Arm,			//アーム
-	Player_Manager,			//アーム
-
-
-
-	/* ニュートラルグループ */
-	Neutral_Explosion,	//爆発
+	None = 0,
 
 	/* UIグループ */
 	UI_Manager,
@@ -20,21 +12,24 @@ enum class ActorName
 	UI_Sprite, 
 	UI_Text,
 
-	/* テスト用 */
-	EnemyManager,
-	Enemy,
+	/* プレイヤーグループ */
+	PlayerManager = 90,		//プレイヤー
+	Player,					//プレイヤー
+	Player_Arm,				//アーム
 
 	/* エネミーグループ */
-	Enemy_01 = 101,		//横から挟めないやつ
+	EnemyManager = 100,
+	Enemy_01,			//横から挟めないやつ
 	Enemy_02,			//回転しながら打つやつ
 	Enemy_03,			//ストーカー
 	Enemy_04,			//挟まれたら動くやつ
 	Enemy_05,			//往復するやつ
 	Enemy_06,			//親機
 	Enemy_07,			//
+	Enemy_08,
+	Enemy_09,
+	Enemy_10,
 	BreakWall,
-
-	None,
 };
 
 #endif // !ACTORNAME_H_

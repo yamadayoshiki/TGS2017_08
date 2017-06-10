@@ -14,21 +14,13 @@ Map::Map(const IGameManagerPtr& gameManager) :
 }
 
 //描画
-void Map::draw(const MapType& type)
-{
+void Map::draw(const MapType& type){
 	// 行のループ
 	for (int i = 0; i < m_Maps[type].size(); i++)
-	{
 		// 列のループ
 		for (int j = 0; j < m_Maps[type][i].size(); j++)
-		{
 			if (m_Maps[type][i][j] == 1)
-			{
-				//gsTextPos(j * CHIP_SIZE, i * CHIP_SIZE);
 				p_GameManager->GetRenderer2D()->DrawTexture("chip", GSvector2(j, i)* CHIP_SIZE);
-			}
-		}
-	}
 }
 
 //マップの取得
@@ -42,12 +34,7 @@ void Map::regist(const MapData& data, const MapType& type) {
 		std::vector<int> tmp;
 		// 列のループ
 		for (int j = 0; j < data[i].size(); j += ((int)type + 1)) {
-			if (data[i][j] <= 2) {
-				tmp.push_back(data[i][j]);
-			}
-			else {
-				tmp.push_back(0);
-			}
+			tmp.push_back(data[i][j] != 1 ? 0 : 1);
 		}
 		m_Maps[type].push_back(tmp);
 	}
@@ -149,7 +136,7 @@ ResultPushDirection Map::PushForChara(const GSvector2 & current_pos, const GSvec
 	auto deta = GetAroundTile(current_pos, charaSize);
 
 	if (deta[FourDirection(FourDirectionName::Up)].Flag() == 1) {
-		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize)+1), result.position.y);
+		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
 	}
 	if (deta[FourDirection(FourDirectionName::Down)].Flag() == 1) {
 		result.position.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
@@ -179,19 +166,19 @@ GSvector2 Map::GetTilePos(const GSvector2& pos, const MapType type) {
 }
 
 //指定されたcsv座標の情報更新
-void Map::SetcsvParameter(GSvector2 position, int parameter, MapType type,IWorld* world)
+void Map::SetcsvParameter(GSvector2 position, int parameter, MapType type, IWorld* world)
 {
 	int x = position.x / (CHIP_SIZE * ((int)type + 1));
 	int y = position.y / (CHIP_SIZE * ((int)type + 1));
 
 	m_Maps[type][y][x] = parameter;
-	
+
 	Debug(type);
 
 	world->sendMessage(EventMessage::MapDataUpdate);
 }
 
-void Map::DeleteChip(GSvector2 position, IWorld * world){
+void Map::DeleteChip(GSvector2 position, IWorld * world) {
 	SetcsvParameter(position + GSvector2(0, 0) * CHIP_SIZE, 0, MapType::Default, world);
 	SetcsvParameter(position + GSvector2(1, 0) * CHIP_SIZE, 0, MapType::Default, world);
 	SetcsvParameter(position + GSvector2(0, 1) * CHIP_SIZE, 0, MapType::Default, world);
@@ -199,7 +186,7 @@ void Map::DeleteChip(GSvector2 position, IWorld * world){
 	SetcsvParameter(position, 0, MapType::Double, world);
 }
 
-void Map::Debug(const MapType type){
+void Map::Debug(const MapType type) {
 	std::cout << "\n";
 	// 行のループ
 	for (int i = 0; i < m_Maps[type].size(); i++) {
@@ -225,4 +212,17 @@ int Map::GetWidth(const MapType& type) const {
 // 高さの取得
 int Map::GetHeight(const MapType& type) const {
 	return m_Maps.at(type).size();
+}
+
+// csv座標をGSvector2に変換(中心座標)
+GSvector2 Map::CsvPosCnvVector2(const int x, const int y, const MapType type) {
+	//結果変数
+	GSvector2 result;
+	//1マスの長さ
+	int chipSize = CHIP_SIZE*((int)type + 1);
+
+	result.x = chipSize * (x / ((int)type + 1)) + chipSize / 2;
+	result.y = chipSize * (y / ((int)type + 1)) + chipSize / 2;
+
+	return result;
 }

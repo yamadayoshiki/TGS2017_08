@@ -5,8 +5,6 @@
 #include "../SceneName.h"
 #include "../../WorldContains/World/World.h"
 #include "../../ActorContains/ActorGroup.h"
-#include "../../ActorContains/Object/TestObj.h"
-#include "../../ActorContains/Object/TestEnemy.h"
 
 // コンストラクタ    
 NaganoScene::NaganoScene(const IGameManagerPtr& gameManager)
@@ -18,8 +16,8 @@ NaganoScene::NaganoScene(const IGameManagerPtr& gameManager)
 void NaganoScene::OnStart()
 {
 	//p_World = std::make_shared<World>();
-	p_World->addActor(ActorGroup::Player, std::make_shared<TestObj>(p_World.get(), GSvector2(50, 100), p_GameManager));
-	p_World->addActor(ActorGroup::Enemy, std::make_shared<TestEnemy>(p_World.get(), GSvector2(100, 100), p_GameManager));
+	//p_World->addActor(ActorGroup::Player, std::make_shared<TestObj>(p_World.get(), GSvector2(50, 100), p_GameManager));
+	//p_World->addActor(ActorGroup::Enemy, std::make_shared<TestEnemy>(p_World.get(), GSvector2(100, 100), p_GameManager));
 }
 
 // 更新     

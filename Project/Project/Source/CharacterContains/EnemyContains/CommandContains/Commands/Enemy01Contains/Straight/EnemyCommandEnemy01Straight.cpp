@@ -82,5 +82,5 @@ void EnemyCommandEnemy01Straight::CheckAxisEnemyToPlayer() {
 	if (m_AxisChangeFlag == true)
 		m_NextTargetPos
 		= p_Enemy.lock()->getWorld()->
-		GetMap().GetTilePos(p_Enemy.lock()->getPosition(), MapType::Double);
+		GetMap()->GetTilePos(p_Enemy.lock()->getPosition(), MapType::Double);
 }

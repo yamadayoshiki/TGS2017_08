@@ -9,8 +9,7 @@
 #include"../Player/Player.h"
 #include "../Player/PlayerPtr.h"
 #include"../Player/Player_Parameter.h"
-
-class Map;
+#include "../../../Map/MapPtr.h"
 
 // 各プレイヤーステートの基底クラス
 class PlayerState :public State
@@ -51,7 +50,7 @@ protected:
 	//InoutState
 	InputStatePtr		p_Input;
 	//Map
-	Map&				m_Map;
+	MapWPtr				p_Map;
 	//フレームカウンター
 	float				m_FramConter{0.0f};
 

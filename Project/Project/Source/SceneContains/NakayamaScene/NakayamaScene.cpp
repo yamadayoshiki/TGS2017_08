@@ -23,8 +23,7 @@ void NakayamaScene::OnStart()
 	//マップデータによる生成
 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage1.csv");
 
-	Map map = p_World->GetMap();
-	std::unordered_map<FourDirection, TileData> tmp = map.GetAroundTile(GSvector2(70, 90));
+	std::unordered_map<FourDirection, TileData> tmp = p_World->GetMap()->GetAroundTile(GSvector2(70, 90));
 
 	GSvector2 tilePos = tmp[FourDirection(FourDirectionName::Down)].Position();
 	GSrect tileRect = tmp[FourDirection(FourDirectionName::Down)].Rectangle();
@@ -37,7 +36,7 @@ void NakayamaScene::OnStart()
 // 更新     
 void NakayamaScene::OnUpdate(float deltaTime)
 {
-	p_World->GetMap().draw();
+	p_World->GetMap()->draw();
 }
 
 // 次のシーンを返す     

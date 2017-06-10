@@ -26,8 +26,7 @@ void GamePlay::OnStart() {
 	//マップデータによる生成
 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage1.csv");
 
-	Map map = p_World->GetMap();
-	std::unordered_map<FourDirection, TileData> tmp = map.GetAroundTile(GSvector2(70, 90));
+	std::unordered_map<FourDirection, TileData> tmp = p_World->GetMap()->GetAroundTile(GSvector2(70, 90));
 }
 
 // 更新     
@@ -47,7 +46,7 @@ void GamePlay::OnUpdate(float deltaTime) {
 void GamePlay::OnDraw() const {
 	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
 
-	p_World->GetMap().draw();
+	p_World->GetMap()->draw();
 
 	// UI描画
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());

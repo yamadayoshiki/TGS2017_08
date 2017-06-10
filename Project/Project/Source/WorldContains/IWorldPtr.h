@@ -5,5 +5,6 @@
 
 class IWorld;
 using IWorldPtr = std::shared_ptr<IWorld>;
+using IWorldWPtr = std::weak_ptr<IWorld>;
 
 #endif // ! IWORLDPTR_H_

@@ -24,6 +24,12 @@ namespace MathSupport
 
 	//Šp“x‚Ì³‹K‰»(-180<value<=180)
 	float GetAngleNomalize(const float angle);
+
+	//©‘R”‚ÌŒ…”‚ğ‹‚ß‚é
+	unsigned int GetDigit(const unsigned num);
+
+	//©‘R”‚ğØ‚èæ‚é
+	unsigned int GetCutNum(const unsigned int value, const unsigned int head, const unsigned int length);
 }
 
 #endif

@@ -7,7 +7,9 @@
 #include "../../../../../Utility/MathSupport/MathSupport.h"
 #include "../../../../../Utility/TurnDirection/TurnDirection.h"
 #include "../../../../../ActorContains/Body/OrientedBoundingBox.h"
-
+//Map
+#include "../../../../../WorldContains/IWorld.h"
+#include "../../../../../Map/Map.h"
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
@@ -15,11 +17,11 @@
 
 //State
 #include "../../../StateContains/StateManager/EnemyStateManager.h"
-#include "../../../StateContains/States/Caught/EnemyStateCaught.h"
-#include "../../../StateContains/States/Crush/EnemyStateCrush.h"
-#include "../../../StateContains/States/Dead/EnemyStateDead.h"
-#include "../../../StateContains/States/MoveContains/Idle/EnemyStateIdle.h"
-#include "../../../StateContains/States/MoveContains/Move/EnemyStateMove.h"
+#include "../../../StateContains/States/CaughtContains/Standard/EnemyStateCaughtStandard.h"
+#include "../../../StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
+#include "../../../StateContains/States/DeadContaint/Standard/EnemyStateDeadStandard.h"
+#include "../../../StateContains/States/MoveContains/Standard/Idle/EnemyStateIdleStandard.h"
+#include "../../../StateContains/States/MoveContains/Standard/Move/EnemyStateMoveStandard.h"
 #include "../../../StateContains/States/Stop/EnemyStateStop.h"
 
 Enemy04::Enemy04(
@@ -33,15 +35,17 @@ Enemy04::Enemy04(
 		position,
 		front,
 		100,
+		MapType::Double,
 		gameManager,
 		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
 		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
 }
 
-//クローン生成(使用時継承先でoverride)
-ActorPtr Enemy04::clone(const GSvector2 & position, const FourDirection & front)
+ActorPtr Enemy04::CsvGenerate(const int x, const int y, const int csvparam)
 {
-	return std::make_shared<Enemy04>(p_World, position, front, p_GameManager);
+	GSvector2 position = p_World->GetMap()->CsvPosCnvVector2(x, y, m_MapType);
+	FourDirection dir = FourDirection((FourDirectionName)csvparam);
+	return std::make_shared<Enemy04>(p_World, position, dir, p_GameManager);
 }
 
 void Enemy04::SetUpCommand() {
@@ -57,11 +61,11 @@ void Enemy04::SetUpState() {
 	//生成
 	p_StateManager.reset(new EnemyStateManager());
 	//State追加
-	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaught>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrush>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDead>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdle>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMove>(shared_from_this(), 10.0f));
+	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaughtStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveStandard>(shared_from_this(), 10.0f));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStop>(shared_from_this(), 120));
 	//初期State設定
 	p_StateManager->change(EnemyStateName::Idle);

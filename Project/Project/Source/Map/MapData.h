@@ -5,4 +5,4 @@
 
 using MapData = std::vector<std::vector<int>>;
 
-#endif // !MAP_DATA_H_
+#endif

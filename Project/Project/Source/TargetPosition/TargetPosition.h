@@ -4,7 +4,8 @@
 #include <vector>
 #include <GSvector2.h>
 #include "../Utility/FourDirection/FourDirection.h"
-#include "../Map/Map.h"
+#include "../Map/MapPtr.h"
+#include "../Map/MapType.h"
 
 //目標地点構造体
 struct Move
@@ -19,7 +20,7 @@ class TargetPosition
 public:
 	//コンストラクタ
 	TargetPosition(
-		Map& map, 
+		const MapPtr& map, 
 		const TurnDirection turnDirection, 
 		const MapType type);
 	//デストラクタ
@@ -49,7 +50,7 @@ private:
 	//マップタイプ
 	MapType m_Type;
 	//マップ
-	Map& m_Map;
+	MapWPtr p_Map;
 };
 
 #endif

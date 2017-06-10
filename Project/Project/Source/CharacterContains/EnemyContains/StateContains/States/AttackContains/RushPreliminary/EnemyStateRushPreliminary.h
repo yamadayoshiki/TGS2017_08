@@ -1,7 +1,7 @@
 #ifndef ENEMYSTATERUSHPRELIMINARY_H_
 #define ENEMYSTATERUSHPRELIMINARY_H_
 
-#include "../AttackBase/EnemyStateAttackBase.h"
+#include "../Base/EnemyStateAttackBase.h"
 
 class EnemyStateRushPreliminary :public EnemyStateAttackBase
 {

@@ -21,25 +21,21 @@ World::~World() {
 }
 
 // 更新
-void World::update(float deltaTime)
-{
+void World::update(float deltaTime) {
 	p_Actors->update(deltaTime);
 }
 
 // 描画
-void World::draw() const
-{
+void World::draw() const {
 	p_Actors->draw();
 }
 
 //終了処理
-void World::Finalize()
-{
+void World::Finalize() {
 }
 
 // メッセージ処理 
-void World::handleMessage(EventMessage message, void* param)
-{
+void World::handleMessage(EventMessage message, void* param) {
 	// ワールドのメッセージ処理 
 	switch (message)
 	{
@@ -53,26 +49,22 @@ void World::handleMessage(EventMessage message, void* param)
 }
 
 // アクターの追加 
-void World::addActor(ActorGroup group, const ActorPtr& actor)
-{
+void World::addActor(ActorGroup group, const ActorPtr& actor) {
 	p_Actors->addActor(group, actor);
 }
 
 // アクターの検索
-ActorPtr World::findActor(const ActorName& name)
-{
+ActorPtr World::findActor(const ActorName& name) {
 	return p_Actors->findActor(name);
 }
 
 //任意の一つオブジェクトが衝突判定
-void World::OptinalCollide(Actor* actor, ActorGroup actorGroup)
-{
+void World::OptinalCollide(Actor* actor, ActorGroup actorGroup) {
 	p_Actors->OptionalCollide(actor, actorGroup);
 }
 
 // メッセージの送信
-void World::sendMessage(EventMessage message, void* param)
-{
+void World::sendMessage(EventMessage message, void* param) {
 	handleMessage(message, param);
 }
 
@@ -82,17 +74,15 @@ void World::sendMessage(EventMessage message, Actor& actor, void* param) {
 }
 
 
-void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name)
-{
+void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name){
 	p_MapGenerator = std::make_shared<MapGenerator>(world, gameManager);
 	p_MapGenerator->load(file_name);
 	p_MapGenerator->registMap();
-	p_MapGenerator->registActor();
 	p_MapGenerator->generate();
 }
 
 //マップの取得
-Map & World::GetMap() {
+MapPtr World::GetMap() {
 	return p_MapGenerator->getMap();
 }
 
@@ -114,7 +104,7 @@ SceneName World::NextScene() {
 	return m_NextScene;
 }
 
-int World::GetSurviverSum(){
+int World::GetSurviverSum() {
 	int sum = 0;
 	findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child) {
 		EnemyBase* enemy = dynamic_cast<EnemyBase*>(&child);

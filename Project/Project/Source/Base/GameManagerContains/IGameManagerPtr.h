@@ -5,5 +5,6 @@
 
 class IGameManager;
 using IGameManagerPtr = std::shared_ptr<IGameManager>;
+using IGameManagerWPtr = std::weak_ptr<IGameManager>;
 
 #endif

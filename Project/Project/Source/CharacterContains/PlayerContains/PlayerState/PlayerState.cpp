@@ -13,7 +13,7 @@ PlayerState::PlayerState(const Player_WPtr& player, const IGameManagerPtr& gameM
 	, p_GameManager(gameManager)
 	, m_TransForm(player.lock()->getTransform())
 	, m_Parameter(player.lock()->getParameter())
-	, m_Map(player.lock()->getWorld()->GetMap())
+	, p_Map(player.lock()->getWorld()->GetMap())
 {
 	p_Input = gameManager->GetInputState();
 }
@@ -53,7 +53,7 @@ void PlayerState::move(float deltaTime, float speed)
 		//ç¿ïWà⁄ìÆ
 		m_Position = p_Player.lock()->getTransform().m_Position + p_Input->PadVelocity() * speed * deltaTime;
 		
-		result = m_Map.PushForChara(p_Player.lock()->getPosition(), m_Position, MapType::Double);
+		result = p_Map.lock()->PushForChara(p_Player.lock()->getPosition(), m_Position, MapType::Double);
 
 		/******************************************************************************************************************************/
 		/*í«ÇµèoÇµèàóù*/

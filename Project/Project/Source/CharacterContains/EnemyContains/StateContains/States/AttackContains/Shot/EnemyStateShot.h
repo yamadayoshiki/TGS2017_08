@@ -1,7 +1,7 @@
 #ifndef ENEMYSTATESHOT_H_
 #define ENEMYSTATESHOT_H_
 
-#include "../AttackBase/EnemyStateAttackBase.h"
+#include "../Base/EnemyStateAttackBase.h"
 
 class EnemyStateShot :public EnemyStateAttackBase
 {

@@ -19,10 +19,6 @@ void PlayerState_CrushBase::update(float deltaTaime)
 //Õ“Ë”»’è
 void PlayerState_CrushBase::collide(const Actor& other)
 {
-	if (other.getName() == ActorName::Enemy)
-	{
-
-	}
 	//Œp³æ‚ÌÕ“Ëˆ—
 	onCollide(other);
 }

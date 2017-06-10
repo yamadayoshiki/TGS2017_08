@@ -21,11 +21,11 @@
 #include"../CharacterContains/EnemyContains/CommandContains/Commands/Null/EnemyCommandNull.h"
 //State
 #include "../CharacterContains/EnemyContains/StateContains/StateManager/EnemyStateManager.h"
-#include"../CharacterContains/EnemyContains/StateContains/States/MoveContains/Idle/EnemyStateIdle.h"
-#include"../CharacterContains/EnemyContains/StateContains/States/Caught/EnemyStateCaught.h"
-#include"../CharacterContains/EnemyContains/StateContains/States/Crush/EnemyStateCrush.h"
-#include"../CharacterContains/EnemyContains/StateContains/States/Dead/EnemyStateDead.h"
-#include"../CharacterContains/EnemyContains/StateContains/States/Stop/EnemyStateStop.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/MoveContains/Standard/Idle/EnemyStateIdleStandard.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/CaughtContains/Standard/EnemyStateCaughtStandard.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/DeadWall/DeadWall.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/Stop/EnemyStateStop.h"
 
 BreakWall::BreakWall(
 	IWorld * world,
@@ -37,6 +37,7 @@ BreakWall::BreakWall(
 		position,
 		FourDirection(),
 		3,
+		MapType::Default,
 		gameManager,
 		std::make_shared<Texture>("Block5", gameManager->GetRenderer2D()),
 		std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, 0.0f, GSvector2{ 1.0f, 1.0f }))
@@ -46,7 +47,7 @@ BreakWall::BreakWall(
 //初期化
 void BreakWall::initialize() {
 	//プレイヤー監視
-	p_PlayerWatch.reset(new PlayerWatch(getWorld()->GetMap(), shared_from_this()));
+	p_PlayerWatch.reset(new PlayerWatch(shared_from_this()));
 	//各種固有のコマンドの設定
 	SetUpCommand();
 	//各種固有のStateの設定
@@ -68,10 +69,11 @@ void BreakWall::SetUpState()
 	//生成
 	p_StateManager.reset(new EnemyStateManager());
 	//State追加
-	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdle>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaught>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrush>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDead>(shared_from_this()));
+	//State追加
+	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaughtStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStop>(shared_from_this(), 120));
 	//初期State設定
 	p_StateManager->change(EnemyStateName::Idle);
@@ -94,12 +96,9 @@ void BreakWall::onDraw() const
 	p_GameManager->GetRenderer2D()->DrawTexture("Block5", param);
 }
 
-ActorPtr BreakWall::clone(const GSvector2 & position, const FourDirection& front)
-{
-	//マップ情報書き換え
-	//getWorld()->GetMap().Debug();
-	//getWorld()->GetMap().Debug(MapType::Double);
-	getWorld()->GetMap().SetcsvParameter(position, 2, MapType::Default, p_World);
-	getWorld()->GetMap().SetcsvParameter(position, 2, MapType::Double, p_World);
-	return std::make_shared<BreakWall>(p_World, position + GSvector2(1, 1) * CHIP_SIZE, p_GameManager);
+//csvで生成(使用時継承先でoverride)
+ActorPtr BreakWall::CsvGenerate(const int x, const int y, const int csvparam) {
+	GSvector2 pos = getWorld()->GetMap()->CsvPosCnvVector2(x, y, m_MapType);
+	pos = pos - GSvector2(CHIP_SIZE / 2, CHIP_SIZE / 2);
+	return std::make_shared<BreakWall>(p_World, pos, p_GameManager);
 }

@@ -40,7 +40,7 @@ void EnemyCommandManagerBase::Finalize() {
 }
 
 //’Ç‰Á
-void EnemyCommandManagerBase::AddDic(EnemyCommandName name, const IEnemyCommandPtr & command) {
+void EnemyCommandManagerBase::AddDic(EnemyCommandName name, const IEnemyCommandPtr& command) {
 	m_CommandDic[name] = command;
 }
 

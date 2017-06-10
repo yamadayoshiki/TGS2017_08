@@ -5,7 +5,7 @@
 #include "../Map/MapType.h"
 #include <GSvector2.h>
 #include "../Utility/FourDirection/FourDirection.h"
-class Map;
+#include "../Map/MapPtr.h"
 
 //前方マスクラス
 class FrontChipList
@@ -13,8 +13,8 @@ class FrontChipList
 public:
 	//コンストラクタ
 	FrontChipList(
-		Map& map, 
-		const GSvector2 pos, 
+		const MapPtr& map,
+		const GSvector2 pos,
 		const FourDirection front,
 		const MapType type = MapType::Default);
 	//デストラクタ
@@ -29,7 +29,7 @@ public:
 	int GeTheOffSideOfTheWallChipNum();
 
 private:
-	Map& m_Map;					//マップ
+	MapWPtr p_Map;					//マップ
 	std::vector<int> m_List;	//前方マスList
 	MapType m_Type;				//マップタイプ
 };

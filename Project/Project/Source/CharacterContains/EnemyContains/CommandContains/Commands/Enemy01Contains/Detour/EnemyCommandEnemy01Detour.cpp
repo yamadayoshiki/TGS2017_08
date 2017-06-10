@@ -11,6 +11,7 @@
 #include "../../../../../../Define/Def_Float.h"
 #include "../../../../../../ActorContains/Body/Base/IBody.h"
 #include "../../../../../../Define/Def_GSvector2.h"
+#include "../../../../../../Map/Map.h"
 
 //コンストラクタ
 EnemyCommandEnemy01Detour::EnemyCommandEnemy01Detour(
@@ -81,7 +82,7 @@ TargetPosition EnemyCommandEnemy01Detour::GetTargetPositionManager() {
 	//ゴール地点までの距離
 	float dis = frontChipList.GeTheOffSideOfTheWallChipNum() * ((int)MapType::Double + 1)*CHIP_SIZE;
 	//ゴール地点
-	GSvector2 goal = p_Enemy.lock()->getWorld()->GetMap().GetTilePos(p_Enemy.lock()->getPosition(), MapType::Double) + p_Enemy.lock()->GetDirection().GetVector2() * dis;
+	GSvector2 goal = p_Enemy.lock()->getWorld()->GetMap()->GetTilePos(p_Enemy.lock()->getPosition(), MapType::Double) + p_Enemy.lock()->GetDirection().GetVector2() * dis;
 	//ゴールにたどり着くまで
 	while (true)
 	{
@@ -109,5 +110,5 @@ void EnemyCommandEnemy01Detour::CheckAxisEnemyToPlayer() {
 			m_AxisChangeFlag = true;
 
 	if (m_AxisChangeFlag == true)
-		m_NextTargetPos = p_Enemy.lock()->getWorld()->GetMap().GetTilePos(p_Enemy.lock()->getPosition(),MapType::Double);
+		m_NextTargetPos = p_Enemy.lock()->getWorld()->GetMap()->GetTilePos(p_Enemy.lock()->getPosition(),MapType::Double);
 }

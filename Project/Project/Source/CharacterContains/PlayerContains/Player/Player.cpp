@@ -30,7 +30,8 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 Player::~Player() {
 	delete mStateManager;
 	delete p_AnimationTexture;
-	delete m_Animation;
+	//delete m_Animation;
+	p_Map.reset();
 }
 
 //初期化
@@ -119,11 +120,11 @@ unsigned int Player::GetLoopCount()
 	return p_AnimationTexture->GetLoopCount();
 }
 
-//クローンの生成
-ActorPtr Player::clone(const GSvector2 & position, const FourDirection& front)
-{
-	m_Transform.m_Position = position;
-	return shared_from_this();
+//csvで生成(使用時継承先でoverride)
+ActorPtr Player::CsvGenerate(const int x, const int y, const int csvparam) {
+	GSvector2 position = p_World->GetMap()->CsvPosCnvVector2(x, y, MapType::Double);
+	FourDirection dir = FourDirection((FourDirectionName)csvparam);
+	return std::make_shared<Player>(p_World, position, p_GameManager);
 }
 
 //メッセージ処理

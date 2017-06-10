@@ -4,7 +4,9 @@
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
-
+//Map
+#include "../../../../../WorldContains/IWorld.h"
+#include "../../../../../Map/Map.h"
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
@@ -12,12 +14,12 @@
 
 //State
 #include "../../../StateContains/StateManager/EnemyStateManager.h"
-#include "../../../StateContains/States/Caught/EnemyStateCaught.h"
-#include "../../../StateContains/States/Crush/EnemyStateCrush.h"
-#include "../../../StateContains/States/Enemy02Contains/Dead/EnemyStateEnemy02Dead.h"
-#include "../../../StateContains/States/Enemy02Contains/MoveContains/Idle/EnemyStateEnemy02Idle.h"
-#include "../../../StateContains/States/Enemy02Contains/MoveContains/Move/EnemyStateEnemy02Move.h"
-#include "../../../StateContains/States/Repel/EnemyStateRepel.h"
+#include "../../../StateContains/States/CaughtContains/Standard/EnemyStateCaughtStandard.h"
+#include "../../../StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
+#include "../../../StateContains/States/DeadContaint/Inform/EnemyStateDeadInform.h"
+#include "../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h"
+#include "../../../StateContains/States/MoveContains/OnlyInTheBack/Move/EnemyStateMoveOnlyInTheBack.h"
+#include "../../../StateContains/States/RepelContains/Repel/EnemyStateRepel.h"
 #include "../../../StateContains/States/Stop/EnemyStateStop.h"
 
 #include "../../../../../Utility/TurnDirection/TurnDirection.h"
@@ -37,16 +39,19 @@ Enemy02::Enemy02(
 		position,
 		front,
 		10,
+		MapType::Double,
 		gameManager,
 		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
 		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f)))
 	, m_TurnDirection(turnDirection) {
 }
 
-//クローン生成(使用時継承先でoverride)
-ActorPtr Enemy02::clone(const GSvector2 & position, const FourDirection & front)
+ActorPtr Enemy02::CsvGenerate(const int x, const int y, const int csvparam)
 {
-	return std::make_shared<Enemy02>(p_World, position, front, m_TurnDirection, p_GameManager);
+	GSvector2 position = p_World->GetMap()->CsvPosCnvVector2(x, y, m_MapType);
+	FourDirection dir = FourDirection((FourDirectionName)MathSupport::GetCutNum(csvparam, 1, 1));
+	//FourDirection turnDir = FourDirection((FourDirectionName)MathSupport::GetCutNum(csvparam, 2, 1));
+	return std::make_shared<Enemy02>(p_World, position, dir, m_TurnDirection, p_GameManager);
 }
 
 void Enemy02::SetUpCommand() {
@@ -62,11 +67,11 @@ void Enemy02::SetUpState() {
 	//生成
 	p_StateManager.reset(new EnemyStateManager());
 	//State追加
-	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaught>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrush>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateEnemy02Dead>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateEnemy02Idle>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateEnemy02Move>(shared_from_this(), 10.0f));
+	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaughtStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadInform>(shared_from_this(), m_Name));
+	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleOnlyInTheBack>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveOnlyInTheBack>(shared_from_this(), 10.0f));
 	p_StateManager->add(EnemyStateName::Repel, std::make_shared<EnemyStateRepel>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStop>(shared_from_this(), 120));
 	//初期State設定

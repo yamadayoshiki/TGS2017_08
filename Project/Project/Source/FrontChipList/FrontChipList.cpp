@@ -5,11 +5,11 @@
 
 //コンストラクタ
 FrontChipList::FrontChipList(
-	Map& map,
+	const MapPtr& map,
 	const GSvector2 pos,
 	const FourDirection front,
 	const MapType type)
-	: m_Map(map)
+	: p_Map(map)
 	, m_Type(type) {
 	SetFrontChipList(pos, front);
 }
@@ -30,36 +30,36 @@ void FrontChipList::SetFrontChipList(
 	{
 	case FourDirectionName::Up:
 		//縦軸Map配列
-		m_List = m_Map.GetRow(pos, m_Type);
+		m_List = p_Map.lock()->GetRow(pos, m_Type);
 		//逆順に整理
 		std::reverse(begin(m_List), end(m_List));
 		//自分を含めない上からのマス数
 		backChipNum = pos.y / (CHIP_SIZE* ((int)m_Type + 1));
 		//自分を含めた背面のマス数
-		backChipNum = m_Map.GetHeight(m_Type) - backChipNum;
+		backChipNum = p_Map.lock()->GetHeight(m_Type) - backChipNum;
 		break;
 
 	case FourDirectionName::Down:
 		//縦軸Map配列
-		m_List = m_Map.GetRow(pos, m_Type);
+		m_List = p_Map.lock()->GetRow(pos, m_Type);
 		//自分を含めた上からのマス数
 		backChipNum = pos.y / (CHIP_SIZE* ((int)m_Type + 1)) + 1;
 		break;
 
 	case FourDirectionName::Left:
 		//横軸Map配列
-		m_List = m_Map.GetColumn(pos, m_Type);
+		m_List = p_Map.lock()->GetColumn(pos, m_Type);
 		//逆順に整理
 		std::reverse(begin(m_List), end(m_List));
 		//自分を含めない左からのマス数
 		backChipNum = pos.x / (CHIP_SIZE* ((int)m_Type + 1));
 		//自分を含めた背面のマス数
-		backChipNum = m_Map.GetWidth(m_Type) - backChipNum;
+		backChipNum = p_Map.lock()->GetWidth(m_Type) - backChipNum;
 		break;
 
 	case FourDirectionName::Right:
 		//横軸Map配列
-		m_List = m_Map.GetColumn(pos, m_Type);
+		m_List = p_Map.lock()->GetColumn(pos, m_Type);
 		//自分を含めた左からのマス数
 		backChipNum = pos.x / (CHIP_SIZE* ((int)m_Type + 1)) + 1;
 		break;

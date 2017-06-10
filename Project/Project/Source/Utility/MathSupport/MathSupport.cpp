@@ -82,3 +82,31 @@ float MathSupport::GetAngleNomalize(const float angle) {
 
 	return result;
 }
+
+//©‘R”‚ÌŒ…”‚ğ‹‚ß‚é
+unsigned MathSupport::GetDigit(unsigned num) {
+	return log10(num) + 1;
+}
+
+//©‘R”‚ğØ‚èæ‚é
+unsigned int MathSupport::GetCutNum(const unsigned int value, const unsigned int head, const unsigned int length) {
+	//Œ…‚Ì”
+	int digit = GetDigit(value);
+
+	if (digit < length)
+		return 0;
+
+	//Ø‚èÌ‚Ä‚éŒ…‚Ì’·‚³
+	int high = head - 1;
+	int low = digit - (high + length);
+
+	//Œ‹‰Ê•Ï”
+	int result = 0;
+	//ãˆÊŒ…Ø‚èÌ‚Ä
+	result = value % (int)std::pow(10, low + length);
+	//‰ºˆÊŒ…Ø‚èÌ‚Ä
+	result = result / (int)std::pow(10, low);
+
+	return result;
+}
+

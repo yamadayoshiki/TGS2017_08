@@ -22,7 +22,7 @@ void DeadWall::update(float deltaTime)
 {
 	p_Enemy.lock()->dead();
 
-	p_Enemy.lock()->getWorld()->GetMap().SetcsvParameter(p_Enemy.lock()->getPosition(),0,MapType::Double,p_Enemy.lock()->getWorld());
+	p_Enemy.lock()->getWorld()->GetMap()->SetcsvParameter(p_Enemy.lock()->getPosition(),0,MapType::Double,p_Enemy.lock()->getWorld());
 }
 // Õ“Ë”»’è
 void DeadWall::collide(const Actor & other)

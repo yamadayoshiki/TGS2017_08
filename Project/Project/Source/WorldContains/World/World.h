@@ -44,7 +44,7 @@ public:
 	//生成
 	void generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name);
 	//マップの取得
-	Map& GetMap() override;
+	MapPtr GetMap() override;
 
 	// シーンの終了の取得
 	virtual bool IsEnd();

@@ -14,7 +14,7 @@ enum class SceneName;
 class UIManager : public Actor {
 public:
 	// コンストラクタ
-	UIManager(IWorld* world, const IGameManagerPtr& gameManager, const SceneName& scene);
+	UIManager(IWorld* world, const IGameManagerPtr& gameManakkoger, const SceneName& scene);
 
 private:
 	// 各シーンのパスの登録

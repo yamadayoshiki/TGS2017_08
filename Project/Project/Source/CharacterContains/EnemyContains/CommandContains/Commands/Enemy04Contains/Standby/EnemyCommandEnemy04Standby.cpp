@@ -58,7 +58,7 @@ void EnemyCommandEnemy04Standby::SetNextTargetPos() {
 	if (m_Flag == true) return;
 
 	//進行方向にあるマスが壁か
-	if (p_Enemy.lock()->getWorld()->GetMap().IsInFrontOfTheWall(p_Enemy.lock()->getPosition(), m_Front, MapType::Double) == true)
+	if (p_Enemy.lock()->getWorld()->GetMap()->IsInFrontOfTheWall(p_Enemy.lock()->getPosition(), m_Front, MapType::Double) == true)
 		m_Flag = true;
 
 	//正面にあるタイルの座標を設定
