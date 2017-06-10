@@ -27,20 +27,23 @@ void PlayerState_Dash::unique_init()
 //更新処理
 void PlayerState_Dash::update(float deltaTime)
 {
+	ResultPushDirection resultPush;
 	GSvector2 setPos = p_Player.lock()->getTransform().m_Position += m_Direction * speed * deltaTime;
 
 	/******************************************************************************************************************************/
 	/*追し出し処理*/
-	setPos = p_Map.lock()->PushForPlayer(p_Player.lock()->getPosition(), setPos);
+	resultPush = p_Map.lock()->PushForPlayer(p_Player.lock()->getPosition(), setPos, MapType::Double,1);
 	/*******************************************************************************************************************************/
 
-	p_Player.lock()->setPosition(setPos);
-	//if (speed >= 8.0f && m_FramConter > 3) {
-	//	speed = speed / 2.0f;
-	//}
+	p_Player.lock()->setPosition(resultPush.position);
+	
+	//アームの更新
 	armUpdate();
-	GSvector2 pos = p_Player.lock()->getPosition();
-	float result = pos.distance(endPos);
+	//ダッシュ開始地点
+	GSvector2 stratPos = p_Player.lock()->getPosition();
+	//開始地点から終点地点の距離を求める
+	float result = stratPos.distance(endPos);
+	//結果
 	if (result <= 1.0f) {
 		change(PlayerStateName::Walk);
 	}

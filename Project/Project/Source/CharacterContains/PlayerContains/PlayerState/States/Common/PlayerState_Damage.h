@@ -18,6 +18,10 @@ public:
 	virtual void end()override;
 	//入力処理
 	virtual void input() override;
+
+private:
+	//フレームカウンター
+	float				m_FramConter{ 0.0f };
 };
 #endif // !PLAYERSTATE_DAMAGE_H_
 

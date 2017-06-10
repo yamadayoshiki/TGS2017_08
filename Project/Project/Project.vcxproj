@@ -413,9 +413,7 @@
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Invincible.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Release.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.cpp" />
-    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_CrushBase.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.cpp" />
-    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_Barrage.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idle.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.cpp" />

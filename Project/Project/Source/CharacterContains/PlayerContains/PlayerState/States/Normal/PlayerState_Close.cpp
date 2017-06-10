@@ -10,13 +10,14 @@ PlayerState_Close::PlayerState_Close(const Player_WPtr& player, IGameManagerPtr 
 //Šeó‘Ô“ÆŽ©‚Ì‰Šú‰»
 void PlayerState_Close::unique_init()
 {
-	TextureName_Change("Player2");
+	m_Parameter.m_ChargeConter = 0.0f;
+	TextureName_Change("Player_C_Animation1");
 }
 
 //XVˆ—
 void PlayerState_Close::update(float deltaTaime)
 {
-	if (p_Player.lock()->GetLoopCount() < 1)
+	if (p_Player.lock()->GetLoopCount() > 0)
 		change(PlayerStateName::Walk);
 	move(deltaTaime);
 }

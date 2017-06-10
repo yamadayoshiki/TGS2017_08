@@ -21,12 +21,6 @@ PlayerState::PlayerState(const Player_WPtr& player, const IGameManagerPtr& gameM
 //パッド入力
 void PlayerState::input() {}
 
-//モーション変更
-void PlayerState::motion_change(const PlayerMotion_ID id)
-{
-
-}
-
 //アーム更新
 void PlayerState::armUpdate()
 {
@@ -78,8 +72,8 @@ bool PlayerState::is_Scorp_Angle(const Actor& other)
 	//自分と相手のベクトルからなす角を取る
 	float result = myVector.innerDegree(targetVector);
 
-	//視野角内(45度)にいるか？
-	if (result <= 45.0f) {
+	//視野角内(30度)にいるか？
+	if (result <= 30.0f) {
 		return true;
 	}
 	return false;
@@ -97,11 +91,6 @@ void PlayerState::Collide(const Actor& other)
 	if (static_cast<int>(other.getName()) >= 101) {
 		change(PlayerStateName::Damage);
 	}
-	//if (other.getName() == ActorName::Enemy_01 || other.getName() == ActorName::Enemy_02
-	//	|| other.getName() == ActorName::Enemy_03 || other.getName() == ActorName::Enemy_04)
-	//{
-	//	change(PlayerStateName::Damage);
-	//}
 }
 
 //

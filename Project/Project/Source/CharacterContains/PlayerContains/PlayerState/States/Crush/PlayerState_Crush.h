@@ -20,9 +20,5 @@ public:
 	virtual void input() override{}
 	//メッセージ処理
 	virtual void handleMessage(EventMessage massege, void* param)override;
-
-private:
-	//フレームカウンター
-	float m_FrameCounter{ 0.0f };
 };
 #endif // !PLAYERSTATE_CRUSH_H_

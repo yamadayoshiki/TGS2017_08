@@ -8,8 +8,8 @@ PlayerState_Crush::PlayerState_Crush(const Player_WPtr& player, IGameManagerPtr 
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Crush::unique_init()
 {
-	p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_CRUSH);
-	p_GameManager->GetPlayerParameter().m_Combo += 1;
+	p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_CRUSH,(void*)m_Parameter.getChargePower());
+	p_GameManager->GetPlayerParameter().addCombo();
 }
 //XVˆ—
 void PlayerState_Crush::update(float deltaTime)

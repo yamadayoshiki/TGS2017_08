@@ -20,6 +20,8 @@ public:
 	virtual void input()override;
 
 private:
+	//フレームカウンター
+	float				m_FramConter{ 0.0f };
 	//エンド地点
 	GSvector2	endPos;
 	//二点間の距離

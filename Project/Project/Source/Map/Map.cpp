@@ -105,26 +105,29 @@ bool Map::IsInFrontOfTheWall(const GSvector2 & pos, FourDirection direction, con
 	return false;
 }
 
-GSvector2 Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& target_pos) {
-	GSvector2 result = target_pos;
+ResultPushDirection Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& target_pos, const MapType & charaSize, const int tileNumber) {
+	//結果変数
+	ResultPushDirection result;
+	result.position = target_pos;
+	//周辺のタイルデータ取得
+	auto deta = GetAroundTile(current_pos, charaSize);
 
-	auto deta = GetAroundTile(current_pos, MapType::Double);
-
-	if (deta[FourDirection(FourDirectionName::Up)].Flag() == 1) {
-		result.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * 2, result.y);
+	if (deta[FourDirection(FourDirectionName::Up)].Flag() == tileNumber) {
+		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
 	}
-	if (deta[FourDirection(FourDirectionName::Down)].Flag() == 1) {
-		result.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * 2, result.y);
+	if (deta[FourDirection(FourDirectionName::Down)].Flag() == tileNumber) {
+		result.position.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
 	}
-	if (deta[FourDirection(FourDirectionName::Left)].Flag() == 1) {
-		result.x = std::max<float>(deta[FourDirection(FourDirectionName::Left)].Position().x + CHIP_SIZE * 2, result.x);
+	if (deta[FourDirection(FourDirectionName::Left)].Flag() == tileNumber) {
+		result.position.x = std::max<float>(deta[FourDirection(FourDirectionName::Left)].Position().x + CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
 	}
-	if (deta[FourDirection(FourDirectionName::Right)].Flag() == 1) {
-		result.x = std::min<float>(deta[FourDirection(FourDirectionName::Right)].Position().x - CHIP_SIZE * 2, result.x);
+	if (deta[FourDirection(FourDirectionName::Right)].Flag() == tileNumber) {
+		result.position.x = std::min<float>(deta[FourDirection(FourDirectionName::Right)].Position().x - CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
 	}
 
 	return result;
 }
+
 
 // 押し出し処理(マス準拠)
 ResultPushDirection Map::PushForChara(const GSvector2 & current_pos, const GSvector2 & target_pos, const MapType & charaSize)

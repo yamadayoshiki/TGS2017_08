@@ -38,14 +38,17 @@ Player::~Player() {
 void Player::initialize()
 {
 	//フレームカウンターの初期化
-	m_FraemConter = 0;
+	m_Parameter.m_FrameCounter = 0;
+	//チャージカウンターの初期化
+	m_Parameter.m_ChargeConter = 0;
 	//スタート地点の補間
 	m_Parameter.m_StratPosition = m_Transform.m_Position;
 	//コンボの初期化
 	m_Parameter.m_Combo = 0;
 
 	//名前の設定
-	m_Name = "Player_Open2";
+	m_Name = "Player_Close";
+
 	//アニメーションのパラメータの設定
 	m_Animation = new Animation(*p_Renderer->GetTextureRect(m_Name), 64, 5);
 	p_AnimationTexture = new AnimationTexture(m_Name, p_Renderer, m_Animation);
@@ -70,10 +73,14 @@ void Player::onUpdate(float deltaTime)
 	//状態管理の更新処理
 	mStateManager->action(deltaTime);
 
-	//一定フレーム数
+	//一定フレーム後にコンボを初期化する
+	m_Parameter.comboReset(deltaTime);
 
 	//行動制限
 	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));
+
+	//フレームカウンター
+	m_Parameter.m_FrameCounter += deltaTime;
 }
 //描画処理
 void Player::onDraw()const
@@ -108,6 +115,7 @@ Player_Parameter& Player::getParameter()
 //テクスチャの名前の設定
 void Player::setName_Animation(const std::string& name)
 {
+	delete m_Animation;
 	m_Name = name;
 	m_Animation = new Animation(*p_Renderer->GetTextureRect(name), 64, 5);
 	p_AnimationTexture->setName_Animation(name, m_Animation);

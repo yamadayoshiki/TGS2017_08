@@ -17,7 +17,7 @@ GSrect TileData::Rectangle()
 	return rectangle;
 }
 
-//0=‹ó,1=•Ç
+//0=‹ó,1=•Ç,2=Œ©‚¦‚È‚¢•Ç
 int TileData::Flag()
 {
 	return flag;

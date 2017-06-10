@@ -4,14 +4,13 @@
 //コンストラクタ
 PlayerState_MoveBase::PlayerState_MoveBase(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager) {
-	//フレーム数の初期化
-	m_FramConter = 120;
-
 }
 
 //各状態独自の初期化
 void PlayerState_MoveBase::unique_init()
 {
+	TextureName_Change("Player_Close");
+
 	// 継承先の各状態独自の初期化
 	onUniqueInit();
 }
@@ -27,15 +26,12 @@ void PlayerState_MoveBase::update(float deltaTaime)
 	}
 	//継承先の更新処理
 	onUpdate(deltaTaime);
-
-	//フレームの加算
-	m_FramConter += deltaTaime;
 }
 //衝突判定
 void PlayerState_MoveBase::collide(const Actor& other)
 {
 	//敵との衝突処理
-	Collide(other);
+	//Collide(other);
 
 	//継承先の衝突処理
 	onCollide(other);

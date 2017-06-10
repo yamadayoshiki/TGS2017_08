@@ -3,7 +3,6 @@
 
 #include"../../../ActorContains/State/Base/State.h"
 #include"../PlayerState/PlayerStateName.h"
-#include"PlayerMotion_ID.h"
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/InputState/InputState.h"
 #include"../Player/Player.h"
@@ -21,8 +20,6 @@ public:
 	virtual void input()override;
 
 protected:
-	//モーション変更
-	void motion_change(const PlayerMotion_ID id);
 	//移動処理
 	void move(float deltaTime, float speed = 8.0f);
 	//アーム更新
@@ -51,8 +48,6 @@ protected:
 	InputStatePtr		p_Input;
 	//Map
 	MapWPtr				p_Map;
-	//フレームカウンター
-	float				m_FramConter{0.0f};
 
 private:
 	GSvector2			inputVelocity;

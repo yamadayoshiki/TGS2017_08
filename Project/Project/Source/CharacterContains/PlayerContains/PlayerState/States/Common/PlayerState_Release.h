@@ -16,6 +16,10 @@ public:
 	virtual void collide(const Actor& other)override;
 	//終了処理
 	virtual void end()override {}
+
+private:
+	//フレームカウンター
+	float				m_FramConter{ 0.0f };
 };
 #endif // !PLAYERSTATE_RELEASE_H_
 

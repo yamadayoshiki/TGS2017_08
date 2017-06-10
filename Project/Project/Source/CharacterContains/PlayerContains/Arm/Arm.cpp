@@ -35,9 +35,3 @@ void Arm::onCollide(Actor& other)
 {
 	mHitFlag = true;
 }
-////Õ“Ë‚µ‚Ä‚¢‚½‚ç•Ô‚·
-//bool Arm::isCollide(const Actor& other)
-//{
-//	// ‰ñ“]‚ðŠÜ‚Þê‡
-//	//return p_Body->transform(getTransform())->isCollide(*other.getBody()->transform(other.getTransform()).get(), HitInfo());
-//}

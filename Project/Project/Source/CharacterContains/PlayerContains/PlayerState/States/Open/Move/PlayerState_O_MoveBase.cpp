@@ -22,6 +22,9 @@ void PlayerState_O_MoveBase::update(float deltaTaime)
 		change(PlayerStateName::O_Idle);
 	}
 
+	//チャージ
+	m_Parameter.Charge(deltaTaime);
+
 	//継承先の更新処理
 	onUpdate(deltaTaime);
 }
