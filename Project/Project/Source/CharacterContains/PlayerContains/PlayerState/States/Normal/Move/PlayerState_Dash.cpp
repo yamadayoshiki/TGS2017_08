@@ -23,6 +23,9 @@ void PlayerState_Dash::unique_init()
 	endPos = p_Player.lock()->getTransform().m_Position + m_Direction * (64 * 4);
 	
 	m_Flag = false;
+
+	gsPlaySE(SE_PLAYER_DASH);
+
 }
 //XVˆ—
 void PlayerState_Dash::update(float deltaTime)

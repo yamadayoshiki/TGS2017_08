@@ -9,7 +9,7 @@ PlayerState_Damage::PlayerState_Damage(const Player_WPtr& player, IGameManagerPt
 //Šeó‘Ô“ÆŽ©‚Ì‰Šú‰»
 void PlayerState_Damage::unique_init()
 {
-	m_FramConter = 0;
+	gsPlaySE(SE_PLAYER_EXPLOSION);
 	m_Parameter.m_Remaining -= 1;
 	p_Player.lock()->setPosition(m_Parameter.m_StratPosition);
 }

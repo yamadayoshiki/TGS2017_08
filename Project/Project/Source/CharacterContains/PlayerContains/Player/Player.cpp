@@ -8,6 +8,7 @@
 #include"../../../Utility/FourDirection/FourDirection.h"
 #include "../../../Define/Def_Nakayama.h"
 #include"../../../Utility/Animation/Animation.h"
+#include"../../../Utility/SE_Name.h"
 
 #include <algorithm>
 
@@ -50,7 +51,7 @@ void Player::initialize()
 	m_Name = "Player_Close";
 
 	//アニメーションのパラメータの設定
-	m_Animation = new Animation(*p_Renderer->GetTextureRect(m_Name), 64, 5);
+	m_Animation = new Animation(*p_Renderer->GetTextureRect(m_Name), 64, 1);
 	p_AnimationTexture = new AnimationTexture(m_Name, p_Renderer, m_Animation);
 	p_AnimationTexture->Initialize();
 
@@ -117,7 +118,7 @@ void Player::setName_Animation(const std::string& name)
 {
 	delete m_Animation;
 	m_Name = name;
-	m_Animation = new Animation(*p_Renderer->GetTextureRect(name), 64, 5);
+	m_Animation = new Animation(*p_Renderer->GetTextureRect(name), 64, 1);
 	p_AnimationTexture->setName_Animation(name, m_Animation);
 	p_AnimationTexture->Initialize();
 }

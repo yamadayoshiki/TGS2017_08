@@ -33,7 +33,7 @@ void PlayerState::armUpdate()
 void PlayerState::move(float deltaTime, float speed)
 {
 	ResultPushDirection result;
-	if (p_Input->PadVelocity().length() > 0.0f)
+	if (p_Input->PadVelocity().length() > 0.0f  && deltaTime > 0)
 	{
 		//“ü—ÍƒxƒNƒgƒ‹
 		inputVelocity = p_Input->PadVelocity();

@@ -11,7 +11,8 @@ PlayerState_Close::PlayerState_Close(const Player_WPtr& player, IGameManagerPtr 
 void PlayerState_Close::unique_init()
 {
 	m_Parameter.m_ChargeConter = 0.0f;
-	TextureName_Change("Player_C_Animation1");
+	TextureName_Change("Player_Close");
+	gsPlaySE(SE_PLAYER_ARM);
 }
 
 //XVˆ—

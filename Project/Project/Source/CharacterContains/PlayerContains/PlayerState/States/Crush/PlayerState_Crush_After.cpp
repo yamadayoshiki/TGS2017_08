@@ -9,6 +9,7 @@ PlayerState_Crush_After::PlayerState_Crush_After(const Player_WPtr & player, IGa
 //‰Šú‰»
 void PlayerState_Crush_After::unique_init()
 {
+	gsPlaySE(SE_PLAYER_CRUSH_AFTER);
 	TextureName_Change("Player_Close");
 	p_GameManager->GetScore()->AddScore(100 + m_Parameter.addBonus());
 	m_FrameCounter = 0.0f;

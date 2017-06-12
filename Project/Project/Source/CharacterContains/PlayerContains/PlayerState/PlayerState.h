@@ -9,6 +9,8 @@
 #include "../Player/PlayerPtr.h"
 #include"../Player/Player_Parameter.h"
 #include "../../../Map/MapPtr.h"
+#include"../../../Utility/SE_Name.h"
+
 
 // 各プレイヤーステートの基底クラス
 class PlayerState :public State

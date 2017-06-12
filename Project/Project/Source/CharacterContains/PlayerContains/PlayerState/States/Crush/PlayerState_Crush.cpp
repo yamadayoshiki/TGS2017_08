@@ -8,6 +8,7 @@ PlayerState_Crush::PlayerState_Crush(const Player_WPtr& player, IGameManagerPtr 
 //Šeó‘Ô“ÆŽ©‚Ì‰Šú‰»
 void PlayerState_Crush::unique_init()
 {
+	gsPlaySE(SE_PLAYER_CRUSH);
 	p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_CRUSH,(void*)m_Parameter.getChargePower());
 	p_GameManager->GetPlayerParameter().addCombo();
 }

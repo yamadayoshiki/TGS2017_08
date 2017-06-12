@@ -3,6 +3,7 @@
 #include"../../../Utility/InputState/InputState.h"
 #include"../../../Utility/Score/ScorePtr.h"
 #include"../../../Utility/EnumRap/EnumRap.h"
+#include"../../../Utility/SE_Name.h"
 
 //コンストラクタ
 GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState,const ScorePtr& score)
@@ -13,11 +14,14 @@ GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& i
 //コンテンツの読み込み
 void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Player_Close", "Resource/Texture/Player/jiki_close.png");
-	p_Renderer2D->LoadTexture("Player_Open", "Resource/Texture/Player/jiki_open.png");
+	p_Renderer2D->LoadTexture("Player_Open", "Resource/Texture/Player/jiki_anime7.png");
 	p_Renderer2D->LoadTexture("Player_Clip", "Resource/Texture/Player/jiki_clip.png");
 	p_Renderer2D->LoadTexture("Player_O_Animation", "Resource/Texture/Player/jiki_anime.png");
 	p_Renderer2D->LoadTexture("Player_C_Animation1", "Resource/Texture/Player/jiki_anime2.png");
 	p_Renderer2D->LoadTexture("Player_C_Animation2", "Resource/Texture/Player/jiki_anime3.png");
+	p_Renderer2D->LoadTexture("Player_Invincile", "Resource/Texture/Player/jiki_anime4.png");
+	p_Renderer2D->LoadTexture("Player_O_Animation2", "Resource/Texture/Player/jiki_anime5.png");
+	p_Renderer2D->LoadTexture("Player_C_Animation3", "Resource/Texture/Player/jiki_anime6.png");
 	p_Renderer2D->LoadTexture("Player_Open2", "Resource/Texture/Player/PlayerOpen2.png");
 
 	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy01.png");
@@ -25,6 +29,14 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Enemy03", "Resource/Texture/Enemys/Enemy03.png");
 	p_Renderer2D->LoadTexture("Enemy04", "Resource/Texture/Enemys/Enemy04.png");
 	p_Renderer2D->LoadTexture("Block5", "Resource/Texture/UI/Block5.png");
+
+	gsLoadSE(SE_PLAYER_ARM, "Resource/Sound/SE/Player/Arm.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PLAYER_CRUSH, "Resource/Sound/SE/Player/Crush.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PLAYER_CRUSH_AFTER, "Resource/Sound/SE/Player/Crush_After.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PLAYER_DASH, "Resource/Sound/SE/Player/Dash.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PLAYER_PLAY, "Resource/Sound/SE/Player/play.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PLAYER_EXPLOSION, "Resource/Sound/SE/Player/Player_Explosion.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PLAYER_RESPAWN, "Resource/Sound/SE/Player/Respawn.wav", 1, GWAVE_DEFAULT);
 }
 
 //コンテンツの削除

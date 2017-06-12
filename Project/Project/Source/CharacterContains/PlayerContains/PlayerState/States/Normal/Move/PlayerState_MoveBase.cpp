@@ -31,7 +31,7 @@ void PlayerState_MoveBase::update(float deltaTaime)
 void PlayerState_MoveBase::collide(const Actor& other)
 {
 	//“G‚Æ‚ÌÕ“Ëˆ—
-	//Collide(other);
+	Collide(other);
 
 	//Œp³æ‚ÌÕ“Ëˆ—
 	onCollide(other);
