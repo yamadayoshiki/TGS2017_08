@@ -1,11 +1,12 @@
 #include"GameManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include"../../../Utility/InputState/InputState.h"
+#include"../../../Utility/Score/ScorePtr.h"
 #include"../../../Utility/EnumRap/EnumRap.h"
 
 //コンストラクタ
-GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState)
-	:p_Renderer2D(renderer2D), p_InputState(inputState), p_SceneEnum(std::make_shared<EnumRap<SceneName>>()){
+GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState,const ScorePtr& score)
+	:p_Renderer2D(renderer2D), p_InputState(inputState), p_Score(score) ,p_SceneEnum(std::make_shared<EnumRap<SceneName>>()){
 	m_Parameter.m_Remaining = 3;
 }
 
@@ -61,6 +62,11 @@ Player_Parameter& GameManager::GetPlayerParameter()
 void GameManager::SetPlayerParameter(const Player_Parameter& parameter)
 {
 	m_Parameter = parameter;
+}
+//スコアの取得
+ScorePtr GameManager::GetScore()
+{
+	return p_Score;
 }
 
 //終了処理

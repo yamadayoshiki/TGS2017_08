@@ -330,6 +330,8 @@
     <ClInclude Include="Source\Utility\PathFinder\Point2.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h" />
+    <ClInclude Include="Source\Utility\Score\Score.h" />
+    <ClInclude Include="Source\Utility\Score\ScorePtr.h" />
     <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h" />
     <ClInclude Include="Source\Utility\TurnDirection\TurnDirection.h" />
     <ClInclude Include="Source\Wall\BreakWall.h" />
@@ -473,6 +475,7 @@
     <ClCompile Include="Source\Utility\PathFinder\PathFinder.cpp" />
     <ClCompile Include="Source\Utility\PathFinder\Point2.cpp" />
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
+    <ClCompile Include="Source\Utility\Score\Score.cpp" />
     <ClCompile Include="Source\Utility\Texture2DParameter\Texture2DParameter.cpp" />
     <ClCompile Include="Source\Utility\TurnDirection\TurnDirection.cpp" />
     <ClCompile Include="Source\Wall\BreakWall.cpp" />

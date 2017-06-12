@@ -11,6 +11,7 @@
 #include "../../Define/Def_Nagano.h"
 #include "../../Define/Def_Nakayama.h"
 #include "../../Utility/Rederer2D/Renderer2D.h"
+#include"../../Utility/Score/Score.h"
 #include"../../MapGenerator/MapGenerator.h"
 #include "../../Utility/FourDirection/FourDirection.h"
 
@@ -51,6 +52,7 @@ void GamePlay::OnDraw() const {
 	// UI•`‰æ
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
 	p_GameManager->GetPlayerParameter().DrawCombo(p_GameManager->GetRenderer2D());
+	p_GameManager->GetScore()->draw();
 	gsFontParameter(GS_FONT_BOLD, 50, "HG–¾’©B");
 	gsTextPos(900, 50);
 	gsDrawText("‚ ‚Æ %d ‘Ì", p_World->GetSurviverSum());

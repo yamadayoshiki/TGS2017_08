@@ -18,7 +18,7 @@ void Player_Parameter::DrawRemaining(const Renderer2DPtr& renderer) {
 	ss << "~" << std::max<int>(0, m_Remaining);
 
 	// ‰æ‘œ‚Ì•`‰æ
-	GSvector2 pos = GSvector2(100, 50);
+	GSvector2 pos = GSvector2(50, 50);
 	renderer->DrawTexture("Player_Clip", pos);
 
 	// ƒpƒ‰ƒ[ƒ^[‚Ì•`‰æ
