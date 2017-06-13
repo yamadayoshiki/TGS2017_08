@@ -11,7 +11,9 @@ void EnemyCommandEnemy07Spin::HitWallReaction() {
 	//•Ç‚É“–‚½‚Á‚½‰ñ”ŒvŽZ
 	m_SpringCounter++;
 	if (m_SpringCounter > m_LimitSpringCounter)
+	{
 		p_Enemy.lock()->GetStateManager()->handleMessage(EventMessage::ENEMY_COMMAND_DEAD, nullptr);
-
+	//gsPlaySE()
+	}
 	EnemyCommandStraight::HitWallReaction();
 }

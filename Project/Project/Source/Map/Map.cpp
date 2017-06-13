@@ -4,6 +4,7 @@
 #include"../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../Utility/Rederer2D/Renderer2D.h"
 #include"../WorldContains/EventMessage/EventMessage.h"
+#include"TerrainName.h"
 
 #include <algorithm>
 
@@ -29,6 +30,7 @@ MapData& Map::getmap(const MapType& type) {
 }
 
 void Map::regist(const MapData& data, const MapType& type) {
+	/*MaoTypeDouble以上の場合左上のみ取り出し*/
 	// 行のループ
 	for (int i = 0; i < data.size(); i += ((int)type + 1)) {
 		std::vector<int> tmp;
@@ -91,7 +93,7 @@ TileData Map::GetTileData(int column, int row, const MapType& type) {
 
 	result.position = GSvector2(x, y) * size + GSvector2(1, 1) * size / 2;
 	result.rectangle = GSrect(0, 0, size, size);
-	result.flag = m_Maps[type][y][x];
+	result.terrainName = (TerrainName)m_Maps[type][y][x];
 
 	return result;
 }
@@ -99,29 +101,29 @@ TileData Map::GetTileData(int column, int row, const MapType& type) {
 bool Map::IsInFrontOfTheWall(const GSvector2 & pos, FourDirection direction, const MapType& type)
 {
 	auto tile_deta = GetAroundTile(pos, type);
-	if (tile_deta[direction].Flag() == 1) {
+	if (tile_deta[direction].GetTerrainName() == TerrainName::Wall) {
 		return true;
 	}
 	return false;
 }
 
-ResultPushDirection Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& target_pos, const MapType & charaSize, const int tileNumber) {
+ResultPushDirection Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& target_pos, const MapType & charaSize, const TerrainName tileNumber) {
 	//結果変数
 	ResultPushDirection result;
 	result.position = target_pos;
 	//周辺のタイルデータ取得
 	auto deta = GetAroundTile(current_pos, charaSize);
 
-	if (deta[FourDirection(FourDirectionName::Up)].Flag() == tileNumber) {
+	if (deta[FourDirection(FourDirectionName::Up)].GetTerrainName() == tileNumber) {
 		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
 	}
-	if (deta[FourDirection(FourDirectionName::Down)].Flag() == tileNumber) {
+	if (deta[FourDirection(FourDirectionName::Down)].GetTerrainName() == tileNumber) {
 		result.position.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
 	}
-	if (deta[FourDirection(FourDirectionName::Left)].Flag() == tileNumber) {
+	if (deta[FourDirection(FourDirectionName::Left)].GetTerrainName() == tileNumber) {
 		result.position.x = std::max<float>(deta[FourDirection(FourDirectionName::Left)].Position().x + CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
 	}
-	if (deta[FourDirection(FourDirectionName::Right)].Flag() == tileNumber) {
+	if (deta[FourDirection(FourDirectionName::Right)].GetTerrainName() == tileNumber) {
 		result.position.x = std::min<float>(deta[FourDirection(FourDirectionName::Right)].Position().x - CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
 	}
 
@@ -138,16 +140,16 @@ ResultPushDirection Map::PushForChara(const GSvector2 & current_pos, const GSvec
 	//周辺のタイルデータ取得
 	auto deta = GetAroundTile(current_pos, charaSize);
 
-	if (deta[FourDirection(FourDirectionName::Up)].Flag() == 1) {
+	if (deta[FourDirection(FourDirectionName::Up)].GetTerrainName() == TerrainName::Wall) {
 		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
 	}
-	if (deta[FourDirection(FourDirectionName::Down)].Flag() == 1) {
+	if (deta[FourDirection(FourDirectionName::Down)].GetTerrainName() == TerrainName::Wall) {
 		result.position.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
 	}
-	if (deta[FourDirection(FourDirectionName::Left)].Flag() == 1) {
+	if (deta[FourDirection(FourDirectionName::Left)].GetTerrainName() == TerrainName::Wall) {
 		result.position.x = std::max<float>(deta[FourDirection(FourDirectionName::Left)].Position().x + CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
 	}
-	if (deta[FourDirection(FourDirectionName::Right)].Flag() == 1) {
+	if (deta[FourDirection(FourDirectionName::Right)].GetTerrainName() == TerrainName::Wall) {
 		result.position.x = std::min<float>(deta[FourDirection(FourDirectionName::Right)].Position().x - CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
 	}
 

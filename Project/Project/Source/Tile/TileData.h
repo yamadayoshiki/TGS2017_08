@@ -2,6 +2,7 @@
 #define TILE_DATA_H_
 
 #include<gslib.h>
+#include"../Map/TerrainName.h"
 
 class TileData
 {
@@ -12,12 +13,12 @@ public:
 	GSvector2 Position();
 	//‹éŒ`‚Ìæ“¾
 	GSrect Rectangle();
-	//0=‹ó,1=•Ç
-	int Flag();
+	//’nŒ`î•ñ
+	TerrainName GetTerrainName();
 public:
 	GSvector2 position;
 	GSrect rectangle;
-	int flag;
+	TerrainName terrainName;
 };
 
 #endif // !TILE_DATA_H_

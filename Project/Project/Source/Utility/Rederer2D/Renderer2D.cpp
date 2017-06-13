@@ -39,6 +39,11 @@ void Renderer2D::LoadTexture(
 
 	ErrorPush(flag, texName);
 }
+//テクスチャ破棄
+void Renderer2D::UnLoadTexture(){
+	for (auto texture = m_TextureDic.begin(); texture != m_TextureDic.end(); texture++)
+		gsDeleteTexture((*texture).second);
+}
 
 //テクスチャ描画
 void Renderer2D::DrawTexture(

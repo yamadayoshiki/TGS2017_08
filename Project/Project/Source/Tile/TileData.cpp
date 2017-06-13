@@ -17,9 +17,8 @@ GSrect TileData::Rectangle()
 	return rectangle;
 }
 
-//0=‹ó,1=•Ç,2=Œ©‚¦‚È‚¢•Ç
-int TileData::Flag()
+//’nŒ`î•ñ
+TerrainName TileData::GetTerrainName()
 {
-	return flag;
+	return terrainName;
 }
-

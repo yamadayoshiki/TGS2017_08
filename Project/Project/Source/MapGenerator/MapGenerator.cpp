@@ -4,6 +4,7 @@
 #include "ArrangeData.h"
 #include "../ActorContains/ActorGroup.h"
 #include "../CharacterContains/Factory/CharacterFactory.h"
+#include "../Utility/MathSupport/MathSupport.h"
 
 #include <GSvector2.h>
 #include <iostream>
@@ -45,10 +46,20 @@ void MapGenerator::registMap() {
 // アクターの生成
 void MapGenerator::generate()
 {
+	//プレイヤーを探して生成
 	// 行のループ
 	for (unsigned int i = 0; i < m_CsvData.size(); i++)
 		// 列のループ
 		for (unsigned int j = 0; j < m_CsvData[i].size(); j++)
+			if(MathSupport::GetCutNum(m_CsvData[i][j],1,2) == 91)
+				p_World.lock()->GetCharacterFactory()->Generate(j, i, m_CsvData[i][j]);
+
+	//プレイヤー以外を生成
+	// 行のループ
+	for (unsigned int i = 0; i < m_CsvData.size(); i++)
+		// 列のループ
+		for (unsigned int j = 0; j < m_CsvData[i].size(); j++)
+			if (MathSupport::GetCutNum(m_CsvData[i][j], 1, 2) != 91)
 			//生成
 			p_World.lock()->GetCharacterFactory()->Generate(j, i, m_CsvData[i][j]);
 }

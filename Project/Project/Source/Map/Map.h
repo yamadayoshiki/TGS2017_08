@@ -47,7 +47,7 @@ public:
 	bool IsInFrontOfTheWall(const GSvector2& pos, FourDirection direction, const MapType& type = MapType::Default);
 
 	// 押し出し処理
-	ResultPushDirection PushForPlayer(const GSvector2& current_pos, const GSvector2& target_pos, const MapType & charaSize, const int tileNumber);
+	ResultPushDirection PushForPlayer(const GSvector2& current_pos, const GSvector2& target_pos, const MapType & charaSize, const TerrainName tileNumber);
 	// 押し出し処理(マス準拠)
 	ResultPushDirection PushForChara(const GSvector2& current_pos, const GSvector2& target_pos, const MapType& charaSize);
 	// 指定された座標をタイルの中心座標に補正

@@ -68,7 +68,8 @@ void TargetPosition::AlongWall(const GSvector2 position, const FourDirection fou
 		//方向に応じたタイルデータの取り出し
 		data = mapDate[dir];
 		//タイルが壁ではないか
-		if (data.Flag() == 0)
+		if (data.GetTerrainName() == TerrainName::Speace ||
+			data.GetTerrainName() == TerrainName::Enemy04)
 			break;
 	}
 	result.direction = dir;
@@ -86,7 +87,7 @@ void TargetPosition::AlongWall() {
 //複製
 void TargetPosition::Clone(const TargetPosition& other) {
 	m_TurnDirection = other.m_TurnDirection;
-	m_List=other.m_List;
+	m_List = other.m_List;
 	p_Map = other.p_Map;
 	m_Type = other.m_Type;
 }

@@ -27,6 +27,9 @@ public:
 			const std::string& fileName			//ファイルパス
 			);
 
+	//テクスチャ破棄
+	void UnLoadTexture();
+
 	//テクスチャ描画
 	void DrawTexture(
 		const std::string& texName,										//登録名
