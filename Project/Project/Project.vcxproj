@@ -69,12 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\gslib_2015\inc;C:\Users\nakayama\Documents\gslibEXT_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\gslib_2015\lib;C:\Users\nakayama\Documents\gslibEXT_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\gslib_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\gslib_2015\inc;C:\Users\nakayama\Documents\gslibEXT_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\gslib_2015\lib;C:\Users\nakayama\Documents\gslibEXT_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>

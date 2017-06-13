@@ -14,6 +14,7 @@
 #include "../../Utility/Rederer2D/Renderer2D.h"
 #include"../../MapGenerator/MapGenerator.h"
 #include "../../Utility/FourDirection/FourDirection.h"
+#include"../../CharacterContains/Factory/CharacterFactory.h"
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
@@ -27,6 +28,8 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 // 開始     
 void GamePlay::OnStart() {
 	//マップデータによる生成
+	p_World->SetMapGenerator(p_World, p_GameManager);
+	p_World->SetCharacterFactory(new CharacterFactory(p_World,p_GameManager));
 	MapOrder += 1;
 	MapOrder = p_GameManager->get_MapOrder();
 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage"+std::to_string(MapOrder)+".csv");
@@ -36,6 +39,8 @@ void GamePlay::OnStart() {
 	p_GameManager->GetPlayerParameter().setRemaining(3);
 
 	gsBindMusic(1);
+
+	PauseFlag = false;
 }
 
 // 更新     

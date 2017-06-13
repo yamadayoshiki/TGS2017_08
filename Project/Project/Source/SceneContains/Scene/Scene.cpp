@@ -52,12 +52,12 @@ void Scene::Update(float deltaTime)
 	}
 		
 	//フラグがたったら画面が止まる
-	if (PauseFlag = true) {
+	if (PauseFlag == false) {
 		//deltaTime = 0;
 		p_World->update(deltaTime);
 	}
 	//ワールド更新
-	p_World->update(deltaTime);
+	//p_World->update(deltaTime);
 
 	//各種固有の更新
 	OnUpdate(deltaTime);
