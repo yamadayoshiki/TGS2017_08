@@ -12,6 +12,14 @@ enum class ActorName
 	UI_Sprite, 
 	UI_Text,
 
+	/* エフェクトグループ */
+	Explosion = 80,
+	Charge,
+	Crush,
+	Respawn,
+	Hajiki,
+	Pop,
+
 	/* プレイヤーグループ */
 	PlayerManager = 90,		//プレイヤー
 	Player,					//プレイヤー

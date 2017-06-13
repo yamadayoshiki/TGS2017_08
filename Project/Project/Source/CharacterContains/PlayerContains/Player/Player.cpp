@@ -4,11 +4,13 @@
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include"../PlayerState/PlayerStateName.h"
+#include"../../../ActorContains/ActorGroup.h"
 #include"../Arm/Arm.h"
 #include"../../../Utility/FourDirection/FourDirection.h"
 #include "../../../Define/Def_Nakayama.h"
 #include"../../../Utility/Animation/Animation.h"
 #include"../../../Utility/SE_Name.h"
+#include"../../NeutralContains/Charge/Charge.h"
 
 #include <algorithm>
 
@@ -76,6 +78,10 @@ void Player::onUpdate(float deltaTime)
 
 	//一定フレーム後にコンボを初期化する
 	m_Parameter.comboReset(deltaTime);
+
+	if (mStateManager->currentState(PlayerStateName::O_Idle)) {
+		//p_World->addActor(ActorGroup::Effect, std::make_shared<Charge>(p_World, getPosition(), p_GameManager));
+	}
 
 	//行動制限
 	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));

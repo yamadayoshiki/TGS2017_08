@@ -20,12 +20,14 @@ ActorManager::~ActorManager() {
 void ActorManager::initialize() {
 	m_actors[ActorGroup::None] = std::make_shared<Actor>();
 	m_actors[ActorGroup::UI] = std::make_shared<Actor>();
+	m_actors[ActorGroup::Effect] = std::make_shared<Actor>();
 	m_actors[ActorGroup::Player] = std::make_shared<Actor>(ActorName::PlayerManager);
 	m_actors[ActorGroup::Enemy] = std::make_shared<Actor>(ActorName::EnemyManager);
 	// •`‰æ‡‚Í‰º‚©‚ç
 	p_Root->clearChildren();
 	p_Root->addChild(m_actors[ActorGroup::None]);
 	p_Root->addChild(m_actors[ActorGroup::UI]);
+	p_Root->addChild(m_actors[ActorGroup::Effect]);
 	p_Root->addChild(m_actors[ActorGroup::Player]);
 	p_Root->addChild(m_actors[ActorGroup::Enemy]);
 }

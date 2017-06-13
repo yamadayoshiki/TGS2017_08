@@ -5,6 +5,7 @@
 enum SE_Name
 {
 	SE_PLAYER_ARM = 0,			//アーム開閉
+	SE_PLAYER_CLIP,				//挟んだ時
 	SE_PLAYER_DASH,				//ダッシュ
 	SE_PLAYER_CRUSH,			//潰しているとき
 	SE_PLAYER_CRUSH_AFTER,		//潰したとき

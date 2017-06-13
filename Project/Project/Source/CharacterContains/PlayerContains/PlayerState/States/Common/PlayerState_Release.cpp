@@ -15,7 +15,7 @@ void PlayerState_Release::unique_init()
 //XVˆ—
 void PlayerState_Release::update(float deltaTaime)
 {
-	if (m_FramConter > 30)
+	if (m_FramConter > 10)
 	{
 		change(PlayerStateName::O_Walk);
 	}
