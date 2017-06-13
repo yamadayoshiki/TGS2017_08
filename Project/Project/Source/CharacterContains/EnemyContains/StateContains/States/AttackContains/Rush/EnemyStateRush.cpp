@@ -1,10 +1,14 @@
 #include "EnemyStateRush.h"
 #include "../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../../WorldContains/EventMessage/EventMessage.h"
+#include "../../../../Entity/Enemys/Base/EnemyBase.h"
 
 EnemyStateRush::EnemyStateRush(const EnemyBasePtr & enemy, const float speed)
 	: EnemyStateBase(enemy)
 	, m_Speed(speed) {
+}
+
+void EnemyStateRush::unique_init(){
 }
 
 void EnemyStateRush::update(float deltaTime) {

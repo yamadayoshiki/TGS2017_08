@@ -19,6 +19,9 @@
 #include "../../../StateContains/States/MoveContains/Standard/Move/EnemyStateMoveStandard.h"
 #include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../Utility/Animation/Animation.h"
+
 //コンストラクタ
 Enemy06::Enemy06(
 	IWorld * world,
@@ -46,6 +49,9 @@ ActorPtr Enemy06::CsvGenerate(const int x, const int y, const int csvparam)
 
 //各種固有のコマンドの設定
 void Enemy06::SetUpCommand() {
+	p_Texture = std::make_shared<AnimationTexture>("Enemy06", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy06"), 32, 8));
+
+
 	//生成
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command追加
@@ -71,12 +77,11 @@ void Enemy06::SetUpState() {
 
 //描画
 void Enemy06::onDraw() const {
-	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
-	param.SetRotate(m_Transform.m_Angle + 90);
-	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy02"));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy02", param);
+	p_Texture->GetParameter()->SetPosition(m_Transform.m_Position);
+	p_Texture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
+	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
+	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
+	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	//アニメーションの描画
+	p_Texture->Draw();
 }

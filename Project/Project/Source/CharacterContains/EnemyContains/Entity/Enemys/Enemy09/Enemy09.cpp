@@ -80,11 +80,11 @@ void Enemy09::SetUpState(){
 void Enemy09::onDraw() const{
 	Texture2DParameter param;
 	param.SetPosition(m_Transform.m_Position);
-	param.SetRotate(m_Transform.m_Angle + 90);
+	param.SetRotate(m_Transform.m_Angle - 90);
 	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy02"));
+	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy09"));
 	param.SetScale({ 1.0f , 1.0f });
 	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy02", param);
+	p_GameManager->GetRenderer2D()->DrawTexture("Enemy09", param);
 }
 

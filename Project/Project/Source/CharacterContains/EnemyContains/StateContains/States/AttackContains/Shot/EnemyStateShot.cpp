@@ -1,4 +1,5 @@
 #include "EnemyStateShot.h"
+#include "../../../../Entity/Enemys/Base/EnemyBase.h"
 
 //コンストラクタ
 EnemyStateShot::EnemyStateShot(const EnemyBasePtr& enemy)
@@ -6,7 +7,7 @@ EnemyStateShot::EnemyStateShot(const EnemyBasePtr& enemy)
 }
 // 各状態独自の初期化
 void EnemyStateShot::onUniqueInit() {
-
+	p_Enemy.lock()->Settexture("Attack");
 }
 // 更新処理
 void EnemyStateShot::onUpdate(float deltaTime) {
@@ -18,7 +19,7 @@ void EnemyStateShot::onCollide(const Actor & other) {
 }
 // 終了時の処理
 void EnemyStateShot::onEnd() {
-
+	p_Enemy.lock()->Settexture("Normal");
 }
 // 入力処理
 void EnemyStateShot::onInput() {

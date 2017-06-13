@@ -21,6 +21,9 @@
 #include "../../../../../Utility/TurnDirection/TurnDirection.h"
 #include "../../../../../ActorContains/Body/OrientedBoundingBox.h"
 
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../Utility/Animation/Animation.h"
+
 //コンストラクタ
 Enemy03::Enemy03(
 	IWorld* world,
@@ -49,6 +52,9 @@ ActorPtr Enemy03::CsvGenerate(const int x, const int y, const int csvparam) {
 }
 
 void Enemy03::SetUpCommand() {
+	p_Texture = std::make_shared<AnimationTexture>("Enemy03", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy03"), 32, 8));
+
+
 	//生成
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command追加
@@ -72,11 +78,11 @@ void Enemy03::SetUpState()
 void Enemy03::onDraw() const {
 	//p_Body->transform(getTransform())->draw();
 
-	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
-	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy03"));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy03", param);
+	p_Texture->GetParameter()->SetPosition(m_Transform.m_Position);
+	p_Texture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
+	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
+	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
+	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	//アニメーションの描画
+	p_Texture->Draw();
 }

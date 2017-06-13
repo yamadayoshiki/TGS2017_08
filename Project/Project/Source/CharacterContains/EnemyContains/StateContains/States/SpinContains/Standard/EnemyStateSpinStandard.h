@@ -13,6 +13,8 @@ public:
 	virtual void unique_init() override;
 	// 更新処理
 	virtual void update(float deltaTime) override;
+	//終了
+	virtual void end() override;
 protected:
 	//メッセージ処理
 	virtual void OnHandleMessage(EventMessage message, void* param) override;

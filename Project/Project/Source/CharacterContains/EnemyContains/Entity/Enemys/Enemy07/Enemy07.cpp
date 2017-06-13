@@ -19,6 +19,9 @@
 #include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 #include "../../../StateContains/States/SpinContains/Standard/EnemyStateSpinStandard.h"
 
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../Utility/Animation/Animation.h"
+
 //コンストラクタ
 Enemy07::Enemy07(
 	IWorld * world,
@@ -57,6 +60,11 @@ ActorPtr Enemy07::CsvGenerate(const int x, const int y, const int csvparam)
 
 //各種固有のコマンドの設定
 void Enemy07::SetUpCommand() {
+
+	m_TextureMap["Normal"] = std::make_shared<AnimationTexture>("Enemy07Normal", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy07Normal"), 32, 8));
+	m_TextureMap["Attack"] = std::make_shared<AnimationTexture>("Enemy07Attack", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy07Attack"), 32, 8));
+	p_Texture = m_TextureMap["Normal"];
+
 	//生成
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command追加
@@ -84,12 +92,11 @@ void Enemy07::SetUpState(){
 
 //描画
 void Enemy07::onDraw() const{
-	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
-	param.SetRotate(m_Transform.m_Angle + 90);
-	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy02"));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy02", param);
+	p_Texture->GetParameter()->SetPosition(m_Transform.m_Position);
+	p_Texture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
+	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
+	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
+	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	//アニメーションの描画
+	p_Texture->Draw();
 }

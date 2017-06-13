@@ -79,5 +79,5 @@ void Enemy04::onDraw() const {
 	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy02"));
 	param.SetScale({ 1.0f , 1.0f });
 	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy02", param);
+	p_GameManager->GetRenderer2D()->DrawTexture("Enemy04", param);
 }

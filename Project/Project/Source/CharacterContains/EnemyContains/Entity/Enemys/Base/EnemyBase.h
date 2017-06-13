@@ -9,7 +9,7 @@
 #include "../../../PlayerWatch/PlayerWatchPtr.h"
 #include "../../../StateContains/StateManager/EnemyStateManagerPtr.h"
 #include "../../../../../Map/MapType.h"
-
+#include <map>
 
 //エネミー基底クラス
 class EnemyBase :public Actor, public std::enable_shared_from_this<EnemyBase>
@@ -48,6 +48,9 @@ public:
 	//移動マップタイプを取得
 	MapType GetMapType() const override;
 
+	//テクスチャの切り替え
+	void Settexture(const std::string textureName);
+
 protected:
 	//各種固有のコマンドの設定
 	virtual void SetUpCommand() {}
@@ -68,6 +71,8 @@ protected:
 	PlayerWatchUPtr p_PlayerWatch;					//プレイヤー監視
 	EnemyStateManagerUPtr p_StateManager;			//ステートマネージャー
 	IEnemyCommandManagerUPtr p_CommandManager;		//コマンドマネージャー
+
+	std::map < std::string, ITexturePtr > m_TextureMap;	//テクスチャ切り替えようマップ
 
 	FourDirection m_FourDirection;					//向き
 };

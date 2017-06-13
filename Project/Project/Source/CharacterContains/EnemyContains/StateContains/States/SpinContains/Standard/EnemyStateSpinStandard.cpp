@@ -13,7 +13,7 @@ EnemyStateSpinStandard::EnemyStateSpinStandard(const EnemyBasePtr & enemy, float
 //各種固有の初期化
 void EnemyStateSpinStandard::unique_init() {
 	//アニメーション変更
-
+	p_Enemy.lock()->Settexture("Attack");
 
 	//プレイヤーに飛ばされる方向に向きを直す
 	p_Enemy.lock()->SetDirection(p_Enemy.lock()->GetPlayerWatch()->GetPlayerFrontDir());
@@ -25,6 +25,10 @@ void EnemyStateSpinStandard::unique_init() {
 //各種固有の更新
 void EnemyStateSpinStandard::update(float deltaTime) {
 	ForwardMove(deltaTime, m_Speed);
+}
+
+void EnemyStateSpinStandard::end(){
+	p_Enemy.lock()->Settexture("Normal");
 }
 
 //メッセージ処理

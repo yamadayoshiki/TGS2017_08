@@ -20,6 +20,8 @@
 #include "../../../StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
 #include "../../../StateContains/States/DeadContaint/Standard/EnemyStateDeadStandard.h"
 
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../Utility/Animation/Animation.h"
 
 EnemyBullet01::EnemyBullet01(
 	IWorld * world, 
@@ -44,6 +46,8 @@ ActorPtr EnemyBullet01::CsvGenerate(const int x, const int y, const int csvparam
 }
 
 void EnemyBullet01::SetUpCommand(){
+	p_Texture = std::make_shared<AnimationTexture>("EnemyBullet01", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("EnemyBullet01"), 32, 8));
+
 	//生成
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command追加
@@ -66,11 +70,11 @@ void EnemyBullet01::SetUpState(){
 }
 
 void EnemyBullet01::onDraw() const{
-	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
-	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy01"));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy01", param);
+	p_Texture->GetParameter()->SetPosition(m_Transform.m_Position);
+	p_Texture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
+	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
+	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
+	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
+	//アニメーションの描画
+	p_Texture->Draw();
 }

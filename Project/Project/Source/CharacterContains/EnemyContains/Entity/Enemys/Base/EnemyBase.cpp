@@ -42,6 +42,10 @@ void EnemyBase::initialize() {
 
 //更新
 void EnemyBase::onUpdate(float deltaTime) {
+	//テクスチャ更新
+	if (p_Texture != nullptr)
+		p_Texture->Update(deltaTime);
+
 	//コマンド情報の更新
 	p_CommandManager->Update(deltaTime);
 
@@ -49,7 +53,6 @@ void EnemyBase::onUpdate(float deltaTime) {
 	p_StateManager->action(deltaTime);
 
 	//地形との衝突判定
-
 }
 
 //描画
@@ -101,8 +104,15 @@ void EnemyBase::SetDirection(FourDirection dir) {
 }
 
 //移動マップタイプを取得
-MapType EnemyBase::GetMapType() const{
+MapType EnemyBase::GetMapType() const {
 	return m_MapType;
+}
+
+//テクスチャの切り替え
+void EnemyBase::Settexture(const std::string textureName){
+	p_Texture->Finalize();
+	p_Texture = m_TextureMap[textureName];
+	p_Texture->Initialize();
 }
 
 //メッセージ処理
