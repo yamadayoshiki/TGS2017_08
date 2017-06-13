@@ -6,9 +6,12 @@
 #include "../../ActorContains/ActorGroup.h"
 #include"../../WorldContains/World/World.h"
 #include "../../Utility/Rederer2D/Renderer2D.h"
+#include"../../Utility/Score/Score.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Define/Def_Nagano.h"
 #include"../../Utility/InputState/InputState.h"
+#include"../../Utility/Sound_Name.h"
+
 #include<GSmusic.h>
 
 // コンストラクタ    
@@ -20,9 +23,10 @@ GameTitle::GameTitle(const IGameManagerPtr& gameManager)
 // 開始     
 void GameTitle::OnStart(){
 	p_GameManager->GetPlayerParameter().setRemaining(3);
+	p_GameManager->GetScore()->initialze();
 	MapOrder = 1;
 	
-	gsBindMusic(0);
+	gsBindMusic(BGM_GAME_TITLE);
 }
 
 // 更新

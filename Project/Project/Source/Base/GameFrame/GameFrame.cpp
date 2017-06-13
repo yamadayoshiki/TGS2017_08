@@ -5,6 +5,7 @@
 #include"../GameManagerContains/GameManager/GameManager.h"
 #include"../../Utility/Rederer2D/Renderer2D.h"
 #include"../../Utility/InputState/InputState.h"
+#include"../../Utility/Score/Score.h"
 #include"../../Utility/EnumRap/EnumRap.h"
 
 #include"../../SceneContains/SceneName.h"
@@ -29,7 +30,8 @@ GameFrame::GameFrame() : Game(SCREEN_SIZE.x, SCREEN_SIZE.y)
 	//ゲームマネージャー生成
 	p_GameManager = std::make_shared<GameManager>(
 		std::make_shared<Renderer2D>(),
-		std::make_shared<InputState>());
+		std::make_shared<InputState>(),
+		std::make_shared<Score>());
 
 	//コンテンツの読み込み
 	p_GameManager->LoadContent();

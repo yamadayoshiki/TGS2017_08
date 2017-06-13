@@ -5,6 +5,7 @@
 #include "../../StagingContains/TransitionStaging/SceneTransition.h"
 #include "../../ActorContains/ActorGroup.h"
 #include "../../UIContains/UIManager/UIManager.h"
+#include"../../Utility/Sound_Name.h"
 
 
 #include <gslib.h>

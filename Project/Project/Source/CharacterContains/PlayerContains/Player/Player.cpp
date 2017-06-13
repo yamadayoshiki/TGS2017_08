@@ -9,7 +9,7 @@
 #include"../../../Utility/FourDirection/FourDirection.h"
 #include "../../../Define/Def_Nakayama.h"
 #include"../../../Utility/Animation/Animation.h"
-#include"../../../Utility/SE_Name.h"
+#include"../../../Utility/Sound_Name.h"
 #include"../../NeutralContains/Charge/Charge.h"
 
 #include <algorithm>

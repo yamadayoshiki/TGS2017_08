@@ -15,6 +15,7 @@ Score::Score()
 void Score::initialze()
 {
 	m_Score = 0;
+	m_Position = GSvector2(200, 50);
 }
 
 //スコアの加算
@@ -23,16 +24,20 @@ void Score::AddScore(const int score)
 	m_Score += score;
 }
 
+//座標の設定
+void Score::setPosition(const GSvector2& position)
+{
+	m_Position = position;
+}
+
 //描画
 void Score::draw() const
 {
 	std::stringstream ss;
 	ss << "SCORE " << m_Score;
-	// 画像の描画
-	GSvector2 pos = GSvector2(200, 50);
 
 	// パラメーターの描画
-	gsTextPos(pos.x + 100, pos.y);
+	gsTextPos(m_Position.x + 100, m_Position.y);
 	gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
 	gsDrawText(ss.str().c_str());
 

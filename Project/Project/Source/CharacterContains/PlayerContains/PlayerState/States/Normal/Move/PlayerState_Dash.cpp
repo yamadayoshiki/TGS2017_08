@@ -35,7 +35,7 @@ void PlayerState_Dash::update(float deltaTime)
 
 	/******************************************************************************************************************************/
 	/*’Ç‚µo‚µˆ—*/
-	resultPush = p_Map.lock()->PushForPlayer(p_Player.lock()->getPosition(), setPos, MapType::Double,1);
+	resultPush = p_Map.lock()->PushForPlayer(p_Player.lock()->getPosition(), setPos, MapType::Double,TerrainName::Wall);
 	/*******************************************************************************************************************************/
 
 	p_Player.lock()->setPosition(resultPush.position);

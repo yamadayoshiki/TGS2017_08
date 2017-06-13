@@ -7,7 +7,7 @@ class GameManager :public IGameManager
 {
 public:
 	//コンストラクタ
-	GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState);
+	GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState,const ScorePtr& score);
 	//仮想デストラクタ
 	virtual ~GameManager() { Finalize(); }
 	//更新処理
@@ -31,6 +31,8 @@ public:
 	virtual Player_Parameter& GetPlayerParameter() override;
 	//プレイヤーパラメーターの設定				
 	virtual void SetPlayerParameter(const Player_Parameter& parameter) override;
+	//スコアの取得
+	virtual ScorePtr GetScore()override;
 
 	void set_MapOrder(int MapOrder)override;
 	int get_MapOrder()const override;
@@ -41,6 +43,7 @@ protected:
 private:
 	Renderer2DPtr p_Renderer2D;		//レンダラー
 	InputStatePtr p_InputState;		//インプットステイト
+	ScorePtr	  p_Score;			//スコア
 	EnumRapPtr<SceneName> p_SceneEnum;	//シーンEnum
 	Player_Parameter	m_Parameter;	//プレイヤーパラメーター
 	int MapOrder_;

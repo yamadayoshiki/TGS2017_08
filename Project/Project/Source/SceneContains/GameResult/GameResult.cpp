@@ -11,6 +11,8 @@
 #include "../../Utility/InputState/InputState.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Define/Def_Nagano.h"
+#include"../../Utility/Sound_Name.h"
+
 
 // コンストラクタ    
 GameResult::GameResult(const IGameManagerPtr& gameManager)
@@ -19,8 +21,8 @@ GameResult::GameResult(const IGameManagerPtr& gameManager)
 
 // 開始     
 void GameResult::OnStart(){
-	gsBindMusic(2);
-	gsBindMusic(3);
+	gsBindMusic(BGM_GAME_CLER);
+	gsBindMusic(BGM_GAME_OVER);
 	MapOrder =p_GameManager->get_MapOrder();
 
 	if (p_GameManager->GetPlayerParameter().m_Remaining <= 0)

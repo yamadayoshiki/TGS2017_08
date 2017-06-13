@@ -12,9 +12,12 @@
 #include "../../Define/Def_Nagano.h"
 #include "../../Define/Def_Nakayama.h"
 #include "../../Utility/Rederer2D/Renderer2D.h"
+#include "../../Utility/Score/Score.h"
 #include"../../MapGenerator/MapGenerator.h"
 #include "../../Utility/FourDirection/FourDirection.h"
 #include"../../CharacterContains/Factory/CharacterFactory.h"
+#include"../../Utility/Sound_Name.h"
+
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
@@ -38,7 +41,7 @@ void GamePlay::OnStart() {
 
 	p_GameManager->GetPlayerParameter().setRemaining(3);
 
-	gsBindMusic(1);
+	gsBindMusic(BGM_GAME_PLAY);
 
 	PauseFlag = false;
 }
@@ -106,6 +109,7 @@ void GamePlay::OnDraw() const {
 	// UI描画
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
 	p_GameManager->GetPlayerParameter().DrawCombo(p_GameManager->GetRenderer2D());
+	p_GameManager->GetScore()->draw();
 	gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
 	gsTextPos(900, 50);
 	gsDrawText("あと %d 体", p_World->GetSurviverSum());

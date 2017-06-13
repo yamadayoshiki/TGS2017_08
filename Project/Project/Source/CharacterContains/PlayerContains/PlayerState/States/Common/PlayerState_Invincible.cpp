@@ -9,7 +9,7 @@ PlayerState_Invincible::PlayerState_Invincible(const Player_WPtr& player, IGameM
 //Šeó‘Ô“Æ©‚Ì‰Šú‰»
 void PlayerState_Invincible::unique_init()
 {
-	TextureName_Change("Player_Invincile");
+	TextureName_Change("Player_Invincble");
 	gsPlaySE(SE_PLAYER_RESPAWN);
 	m_FramConter = 0.0f;
 }

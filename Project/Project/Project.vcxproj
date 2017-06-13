@@ -278,7 +278,7 @@
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\TwoDVector.h" />
-    <ClInclude Include="Source\Utility\SE_Name.h" />
+    <ClInclude Include="Source\Utility\Sound_Name.h" />
     <ClInclude Include="Source\Define\Def_Float.h" />
     <ClInclude Include="Source\Define\Def_GSvector2.h" />
     <ClInclude Include="Source\Define\Def_Nagano.h" />

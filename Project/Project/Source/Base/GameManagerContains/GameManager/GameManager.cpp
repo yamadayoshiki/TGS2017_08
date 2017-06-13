@@ -1,30 +1,28 @@
 #include"GameManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include"../../../Utility/InputState/InputState.h"
+#include"../../../Utility/Score/Score.h"
 #include"../../../Utility/EnumRap/EnumRap.h"
-#include"../../../Utility/SE_Name.h"
+#include"../../../Utility/Sound_Name.h"
 
 #include<GSmusic.h>
 
 //コンストラクタ
-GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState)
-	:p_Renderer2D(renderer2D), p_InputState(inputState), p_SceneEnum(std::make_shared<EnumRap<SceneName>>()){
+GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState, const ScorePtr& score)
+	:p_Renderer2D(renderer2D), p_InputState(inputState), p_Score(score), p_SceneEnum(std::make_shared<EnumRap<SceneName>>()) {
 	m_Parameter.m_Remaining = 3;
 }
 
+
 //コンテンツの読み込み
 void GameManager::LoadContent() {
-	p_Renderer2D->LoadTexture("Player_Close", "Resource/Texture/Player/jiki_close.png");
+	//PlayerTexture
+	p_Renderer2D->LoadTexture("Player_Close", "Resource/Texture/Player/jiki_anime8.png");
 	p_Renderer2D->LoadTexture("Player_Open", "Resource/Texture/Player/jiki_anime7.png");
-	p_Renderer2D->LoadTexture("Player_Clip", "Resource/Texture/Player/jiki_clip.png");
-	p_Renderer2D->LoadTexture("Player_O_Animation", "Resource/Texture/Player/jiki_anime.png");
-	p_Renderer2D->LoadTexture("Player_C_Animation1", "Resource/Texture/Player/jiki_anime2.png");
-	p_Renderer2D->LoadTexture("Player_C_Animation2", "Resource/Texture/Player/jiki_anime3.png");
-	p_Renderer2D->LoadTexture("Player_Invincile", "Resource/Texture/Player/jiki_anime4.png");
-	p_Renderer2D->LoadTexture("Player_O_Animation2", "Resource/Texture/Player/jiki_anime5.png");
-	p_Renderer2D->LoadTexture("Player_C_Animation3", "Resource/Texture/Player/jiki_anime6.png");
-	p_Renderer2D->LoadTexture("Player_Open2", "Resource/Texture/Player/PlayerOpen2.png");
+	p_Renderer2D->LoadTexture("Player_Clip", "Resource/Texture/Player/jiki_anime9.png");
+	p_Renderer2D->LoadTexture("Player_Invincble", "Resource/Texture/Player/jiki_anime4.png");
 
+	//EnemyTexture
 	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy01.png");
 	p_Renderer2D->LoadTexture("Enemy02", "Resource/Texture/Enemys/Enemy02.png");
 	p_Renderer2D->LoadTexture("Enemy03", "Resource/Texture/Enemys/Enemy03.png");
@@ -37,8 +35,19 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Enemy09", "Resource/Texture/Enemys/Enemy09.png");
 	p_Renderer2D->LoadTexture("Enemy10", "Resource/Texture/Enemys/Enemy10.png");
 	p_Renderer2D->LoadTexture("EnemyBullet01", "Resource/Texture/Enemys/EnemyBullet01.png");
+	
+	//Block
+	p_Renderer2D->LoadTexture("Block5", "Resource/Texture/UI/Breakwall.png");
 
-	p_Renderer2D->LoadTexture("Block5", "Resource/Texture/UI/Block5.png");
+	//EffectTexture
+	p_Renderer2D->LoadTexture("Explosion", "Resource/Texture/Effect/Explosion.png");
+	p_Renderer2D->LoadTexture("Charge1", "Resource/Texture/Effect/charge.png");
+	p_Renderer2D->LoadTexture("Charge2", "Resource/Texture/Effect/charge2.png");
+	p_Renderer2D->LoadTexture("Charge3", "Resource/Texture/Effect/charge3.png");
+	p_Renderer2D->LoadTexture("Crush", "Resource/Texture/Effect/Crush.png");
+	p_Renderer2D->LoadTexture("Hajiki", "Resource/Texture/Effect/hajiki.png");
+	p_Renderer2D->LoadTexture("Respawn", "Resource/Texture/Effect/respawn.png");
+	p_Renderer2D->LoadTexture("Pop", "Resource/Texture/Effect/syutugenn.png");
 
 	//UI
 
@@ -80,12 +89,14 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("carsor", "Resource/Texture/UI/carsor.png");
 
 	//gsLoadMusic(1,"Resource/SE/")
-	gsLoadMusic(0, "Resource/BGM/title.mp3", GMIDIFLAG::GMIDI_LOOP);
-	gsLoadMusic(1, "Resource/BGM/play1.mp3", GMIDIFLAG::GMIDI_LOOP);
-	gsLoadMusic(2, "Resoure/BGM/stageclear",GMIDIFLAG::GMIDI_LOOP);
-	gsLoadMusic(3, "Resoure/BGM/over", GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_TITLE , "Resource/Sound/BGM/title.mp3", GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_PLAY  , "Resource/Sound/BGM/play.mp3", GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_CLER  , "Resource/Sound/BGM/stageclear",GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_OVER  , "Resource/BGM/over", GMIDIFLAG::GMIDI_LOOP);
 
+	//PlayerSE
 	gsLoadSE(SE_PLAYER_ARM, "Resource/Sound/SE/Player/Arm.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PLAYER_CLIP, "Resource/Sound/SE/Player/clip.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_PLAYER_CRUSH, "Resource/Sound/SE/Player/Crush.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_PLAYER_CRUSH_AFTER, "Resource/Sound/SE/Player/Crush_After.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_PLAYER_DASH, "Resource/Sound/SE/Player/Dash.wav", 1, GWAVE_DEFAULT);
@@ -93,6 +104,7 @@ void GameManager::LoadContent() {
 	gsLoadSE(SE_PLAYER_EXPLOSION, "Resource/Sound/SE/Player/Player_Explosion.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_PLAYER_RESPAWN, "Resource/Sound/SE/Player/Respawn.wav", 1, GWAVE_DEFAULT);
 
+	//EnemySE
 	gsLoadSE(SE_ENEMY_CHILDAPPEARED, "Resource/Sound/SE/Enemy/ChildAppeared.mp3", 10, GWAVE_DEFAULT);
 	gsLoadSE(SE_ENEMY_ENEMYEXPLOTION, "Resource/Sound/SE/Enemy/EnemyExplotion.mp3", 10, GWAVE_DEFAULT);
 	gsLoadSE(SE_ENEMY_GENERATESINGING, "Resource/Sound/SE/Enemy/GenerateSinging.mp3", 10, GWAVE_DEFAULT);
@@ -136,6 +148,11 @@ Player_Parameter& GameManager::GetPlayerParameter()
 void GameManager::SetPlayerParameter(const Player_Parameter& parameter)
 {
 	m_Parameter = parameter;
+}
+
+//スコアの取得
+ScorePtr GameManager::GetScore() {
+	return p_Score;
 }
 
 void GameManager::set_MapOrder(int MapOrder)

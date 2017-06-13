@@ -5,5 +5,5 @@
 //	IWorld* world,
 //	const GSvector2& position,
 //	IGameManagerPtr gaemManager)
-//	:Actor(world, ActorName::Neutral_Explosion, position,gaemManager) {
+//	:Actor(world, ActorName::Explosion, position,gaemManager) {
 //}
