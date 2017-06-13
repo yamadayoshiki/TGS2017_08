@@ -26,7 +26,7 @@ void SpriteCreator::create(const std::string & file_name)
 		// テクスチャのパス&名前
 		std::string name = "Resource/Texture/UI/" + csv.get(row, static_cast<int>(Element::NAME));
 		// テクスチャの読み込み
-		p_GameManager->GetRenderer2D()->LoadTexture(name, name);
+		//p_GameManager->GetRenderer2D()->LoadTexture(name, name);
 		// Textureの宣言
 		std::shared_ptr<Texture_Base> texture;
 

@@ -9,6 +9,7 @@ enum class SceneName
 	GameResult,
 	GameCredit,
 	GameEnd,
+	GameOver,
 
 	NaganoScene,
 	NakayamaScene,

@@ -17,9 +17,14 @@ protected:
 	virtual void OnStart();
 	// XV     
 	virtual void OnUpdate(float deltaTime);
+	//•`‰æ
+	virtual void OnDraw()const;
+
 
 private:
 	std::string m_Text;
+	std::string m_SelectTextureName;
+	std::string m_ResultTextureName;
 };
 
 #endif

@@ -9,36 +9,42 @@
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Define/Def_Nagano.h"
 #include"../../Utility/InputState/InputState.h"
+#include<GSmusic.h>
 
 // コンストラクタ    
 GameTitle::GameTitle(const IGameManagerPtr& gameManager)
 	:Scene(gameManager){
-
-	gameManager->GetRenderer2D()->LoadTexture("logo", "Resource/Texture/UI/Title/logo.png");
+	//gameManager->GetRenderer2D()->LoadTexture("logo", "Resource/Texture/UI/Title/logo.png");
 }
 
 // 開始     
 void GameTitle::OnStart(){
 	p_GameManager->GetPlayerParameter().setRemaining(3);
+	MapOrder = 1;
+	
+	gsBindMusic(0);
 }
 
 // 更新
 void GameTitle::OnUpdate(float deltaTime){
-	gsTextPos(100, 100);
-	gsDrawText("title");
+	gsPlayMusic();
 
-	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
 		p_World->EndRequest(SceneName::GamePlay);
 	}
 }
 
 void GameTitle::OnDraw()const
 {
-	//p_GameManager->GetRenderer2D()->DrawTexture(
-	//	"logo",
-	//	GSvector2(SCREEN_SIZE / 2) - 
-	//	GSvector2(p_GameManager->GetRenderer2D()->GetTextureRect("logo")->right, p_GameManager->GetRenderer2D()->GetTextureRect("logo")->bottom) / 2 - 
-	//	GSvector2(0, 1) * 200
-	//	);
+	p_GameManager->GetRenderer2D()->DrawTexture("Title", GSvector2(0, 0));
+	p_GameManager->GetRenderer2D()->DrawTexture("WideHead", GSvector2(300, 300));
+	p_GameManager->GetRenderer2D()->DrawTexture("Start", GSvector2(300, 600));
+}
+
+void GameTitle::End()
+{
+	gsStopMusic();
+	p_GameManager->set_MapOrder(MapOrder);
+	
 }
 

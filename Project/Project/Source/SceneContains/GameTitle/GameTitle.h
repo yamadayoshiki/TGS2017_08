@@ -17,6 +17,8 @@ protected:
 	virtual void OnUpdate(float deltaTime);
 	// •`‰æ     
 	virtual void OnDraw()const;
+	//I—¹
+	virtual void End()override;
 };
 
 #endif

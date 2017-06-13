@@ -3,7 +3,6 @@
 
 #include "../../Utility/Rederer2D/Renderer2DPtr.h"
 #include "../../Utility/InputState/InputStatePtr.h"
-#include"../../Utility/Score/ScorePtr.h"
 #include "../../Utility/EnumRap/EnumRapPtr.h"
 #include "../../SceneContains/SceneName.h"
 #include"../../CharacterContains/PlayerContains/Player/Player_Parameter.h"
@@ -26,8 +25,11 @@ public:
 	virtual Player_Parameter& GetPlayerParameter() = 0;
 	//プレイヤーパラメーターの設定
 	virtual void SetPlayerParameter(const Player_Parameter& parameter) = 0;
-	//スコアの取得
-	virtual ScorePtr GetScore() = 0;
+
+	//マップの設定と取得
+	virtual void set_MapOrder(int MapOrder)=0;
+	virtual int get_MapOrder()const=0;
+
 
 protected:
 	//終了処理

@@ -48,7 +48,7 @@ void Button::regist(const std::string & file_name){
 
 		m_Buttons[data.number] = data;
 
-		p_GameManager->GetRenderer2D()->LoadTexture(data.file_name, data.file_name);
+		//p_GameManager->GetRenderer2D()->LoadTexture(data.file_name, data.file_name);
 	}
 
 	m_Index = m_Buttons[1].number;
@@ -76,9 +76,9 @@ void Button::onUpdate(float deltaTime){
 
 void Button::onDraw() const
 {
-	for (auto button : m_Buttons) {
+	/*for (auto button : m_Buttons) {
 		p_GameManager->GetRenderer2D()->DrawTexture(button.second.file_name, button.second.param);
-	}
+	}*/
 }
 
 void Button::moveSelector(GKEYCODE key) {
