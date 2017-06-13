@@ -3,9 +3,7 @@
 #include "../../../../../ActorContains/ActorName.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
 #include "../../../../../ActorContains/Body/OrientedBoundingBox.h"
-//Map
-#include "../../../../../WorldContains/IWorld.h"
-#include "../../../../../Map/Map.h"
+#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 //描画
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
@@ -21,7 +19,7 @@
 #include "../../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../../StateContains/States/MoveContains/Repel/Idle/EnemyStateIdleRepel.h"
 #include "../../../StateContains/States/MoveContains/Repel/Move/EnemyStateMoveRepel.h"
-#include "../../../StateContains/States/Stop/EnemyStateStop.h"
+#include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 #include "../../../StateContains/States/RepelContains/Repel/EnemyStateRepel.h"
 
 //コンストラクタ
@@ -44,7 +42,7 @@ Enemy01::Enemy01(
 
 //csvで生成(使用時継承先でoverride)
 ActorPtr Enemy01::CsvGenerate(const int x, const int y, const int csvparam) {
-	GSvector2 position = p_World->GetMap()->CsvPosCnvVector2(x,y,m_MapType);
+	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(x,y,m_MapType);
 	FourDirection dir = FourDirection((FourDirectionName)csvparam);
 	return std::make_shared<Enemy01>(p_World, position, dir,p_GameManager);
 }
@@ -67,7 +65,7 @@ void Enemy01::SetUpState() {
 	//State追加
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleRepel>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveRepel>(shared_from_this(), 4.0f));
-	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStop>(shared_from_this(), 120));
+	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
 	p_StateManager->add(EnemyStateName::Repel, std::make_shared<EnemyStateRepel>(shared_from_this()));
 	//初期State設定
 	p_StateManager->change(EnemyStateName::Idle);

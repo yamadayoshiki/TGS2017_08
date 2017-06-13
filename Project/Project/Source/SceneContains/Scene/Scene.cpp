@@ -6,7 +6,6 @@
 #include "../../ActorContains/ActorGroup.h"
 #include "../../UIContains/UIManager/UIManager.h"
 
-
 #include <gslib.h>
 #include <memory>
 
@@ -14,7 +13,7 @@
 Scene::Scene(const IGameManagerPtr& gameManager)
 	: m_IsEnd(false)
 	, p_GameManager(gameManager)
-	, m_Transition(std::make_shared<SceneTransition>(gameManager)){
+	, m_Transition(std::make_shared<SceneTransition>(gameManager)) {
 }
 
 // 仮想デストラクタ     
@@ -22,10 +21,8 @@ Scene::~Scene() {
 	p_World = nullptr;
 }
 
-// 開始     
-void Scene::Start()
-{
-
+// 開始
+void Scene::Start() {
 	m_IsEnd = false;
 	// 遷移演出の開始
 	m_Transition->start();
@@ -42,13 +39,12 @@ void Scene::Start()
 }
 
 // 更新     
-void Scene::Update(float deltaTime)
-{
+void Scene::Update(float deltaTime) {
 	//スペースキーを押したら次のシーン
-	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE  || p_World->IsEnd()) {
+	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE || p_World->IsEnd()) {
 		m_IsEnd = true;
 	}
-		
+
 	//ワールド更新
 	if (PauseFlag) {
 		deltaTime = 0;
@@ -66,8 +62,7 @@ void Scene::Update(float deltaTime)
 }
 
 // 描画     
-void Scene::Draw() const
-{
+void Scene::Draw() const {
 	OnDraw();
 
 	//ワールド描画
@@ -76,26 +71,25 @@ void Scene::Draw() const
 	m_Transition->draw();
 }
 
-void Scene::End(){
+void Scene::End() {
 	OnEnd();
 
 	p_World = nullptr;
 }
 
 // 終了しているか？     
-bool Scene::IsEnd() const
-{
+bool Scene::IsEnd() const {
 	return m_Transition->isEnd();
 }
 
-SceneName Scene::Next() const{
+SceneName Scene::Next() const {
 	return p_World->NextScene();
 }
 
-void Scene::SetName(const SceneName & name){
+void Scene::SetName(const SceneName & name) {
 	m_SceneName = name;
 }
 
-SceneName Scene::GetName(){
+SceneName Scene::GetName() {
 	return m_SceneName;
 }

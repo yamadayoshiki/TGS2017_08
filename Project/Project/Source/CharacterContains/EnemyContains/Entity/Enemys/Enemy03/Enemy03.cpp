@@ -16,7 +16,6 @@
 #include "../../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../../StateContains/States/MoveContains/Repel/Idle/EnemyStateIdleRepel.h"
 #include "../../../StateContains/States/MoveContains/Repel/Move/EnemyStateMoveRepel.h"
-#include "../../../StateContains/States/Stop/EnemyStateStop.h"
 #include "../../../StateContains/States/RepelContains/Repel/EnemyStateRepel.h"
 
 #include "../../../../../Utility/TurnDirection/TurnDirection.h"
@@ -65,7 +64,6 @@ void Enemy03::SetUpState()
 	//State’Ç‰Á
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleRepel>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveRepel>(shared_from_this(), 10.0f));
-	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStop>(shared_from_this(), 120));
 	p_StateManager->add(EnemyStateName::Repel, std::make_shared<EnemyStateRepel>(shared_from_this()));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);

@@ -13,8 +13,9 @@ public:
 	virtual void unique_init() override;
 	// 更新処理
 	virtual void update(float deltaTime) override;
+protected:
 	//メッセージ処理
-	virtual void handleMessage(EventMessage message, void* param) override;
+	virtual void OnHandleMessage(EventMessage message, void* param) override;
 
 protected:
 	float m_Speed;	//スピード

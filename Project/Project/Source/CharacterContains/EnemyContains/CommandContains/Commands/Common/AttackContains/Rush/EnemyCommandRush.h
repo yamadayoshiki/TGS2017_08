@@ -1,27 +1,29 @@
 #ifndef ENEMYCOMMANDRUSH_H_
 #define ENEMYCOMMANDRUSH_H_
 
-#include "../../../Base/EnemyCommandBase.h"
+#include "../../MoveContains/StraightTouchWall/EnemyCommandStraightTouchWall.h"
 
 //突撃
-class EnemyCommandRush : public EnemyCommandBase
+class EnemyCommandRush : public EnemyCommandStraightTouchWall
 {
 public:
 	//コンストラクタ
 	EnemyCommandRush(
 		const EnemyBasePtr& enemy,
-		const MapType type,
-		const TurnDirection turnDirection);
+		const MapType type);
 	//デストラクタ
 	~EnemyCommandRush();
-	//終了
-	virtual void Finalize() override;
 
 protected:
 	//各種固有の初期化
 	virtual void OnInitialize() override;
-	//各種固有の更新
-	virtual void OnUpdate(float deltaTime) override;
+
+protected:
+	//正面に壁があった場合のリアクション
+	virtual void HitWallReaction() override;
+
+protected:
+
 };
 
 #endif

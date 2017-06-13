@@ -53,7 +53,7 @@ void EnemyStateMoveBaseStandard::input() {
 }
 
 // メッセージ処理
-void EnemyStateMoveBaseStandard::handleMessage(EventMessage message, void* param) {
+void EnemyStateMoveBaseStandard::OnHandleMessage(EventMessage message, void* param) {
 	switch (message)
 	{
 		//プレイヤーに挟まれたとき

@@ -45,6 +45,8 @@ public:
 	FourDirection GetDirection() const;
 	//向きを設定
 	void SetDirection(FourDirection dir);
+	//移動マップタイプを取得
+	MapType GetMapType() const override;
 
 protected:
 	//各種固有のコマンドの設定

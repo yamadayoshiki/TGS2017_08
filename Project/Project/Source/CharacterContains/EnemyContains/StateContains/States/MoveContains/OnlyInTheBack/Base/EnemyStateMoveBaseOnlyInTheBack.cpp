@@ -14,13 +14,13 @@ EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack(const EnemyBase
 }
 
 //メッセージ処理
-void EnemyStateMoveBaseOnlyInTheBack::handleMessage(EventMessage message, void * param) {
+void EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage(EventMessage message, void * param) {
 	switch (message)
 	{
 		//プレイヤーに挟まれたとき
 	case EventMessage::PLAYER_ROUNDS:
 		FourDirection toPlayerDir 
-			= FourDirection(p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis(MapType::Default));
+			= FourDirection(p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis());
 		//背後にプレイヤーがいる
 		if (p_Enemy.lock()->GetDirection() == toPlayerDir.GetTurnOver())
 			change(EnemyStateName::Caught);

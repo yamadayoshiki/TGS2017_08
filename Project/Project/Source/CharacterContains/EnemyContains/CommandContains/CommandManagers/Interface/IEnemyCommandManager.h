@@ -22,7 +22,7 @@ public:
 	//終了
 	virtual void Finalize() = 0;
 	//追加
-	virtual void AddDic(EnemyCommandName name, const IEnemyCommandPtr& command) = 0;
+	virtual void AddDic(const EnemyCommandName name,const IEnemyCommandPtr& command) = 0;
 	//コマンド変更
 	virtual void Change(const EnemyCommandName name) = 0;
 	//メッセージ処理

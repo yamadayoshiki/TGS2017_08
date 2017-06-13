@@ -18,7 +18,7 @@ void EnemyCommandEnemy01Straight::OnInitialize() {
 	//移動軸変更フラグ
 	m_AxisChangeFlag = false;
 	//プレイヤーとの距離ベクトル
-	GSvector2 dis = p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis(MapType::Double);
+	GSvector2 dis = p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis();
 	//プレイヤーがいる方向
 	p_Enemy.lock()->SetDirection(FourDirection(dis));
 	//目的地設定
@@ -70,7 +70,7 @@ void EnemyCommandEnemy01Straight::HitWallReaction() {
 void EnemyCommandEnemy01Straight::CheckAxisEnemyToPlayer() {
 	//マス準拠で同軸にいるか
 	GSvector2 dis
-		= p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis(MapType::Double);
+		= p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis();
 	if (p_Enemy.lock()->GetDirection().GetVector2().x == 0)
 		if (abs(dis.y) <= FLOAT_EPSILON)
 			m_AxisChangeFlag = true;

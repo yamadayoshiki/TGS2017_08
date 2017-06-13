@@ -36,6 +36,8 @@ void EnemyCommandStraight::SetNextTargetPos() {
 
 //正面に壁があった場合のリアクション
 void EnemyCommandStraight::HitWallReaction() {
+	//向きを反転
 	p_Enemy.lock()->SetDirection(p_Enemy.lock()->GetDirection().GetTurnOver());
+	//次の目標地点を設定
 	SetNextTargetPos();
 }

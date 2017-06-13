@@ -16,6 +16,7 @@ enum class EnemyStateName
 	//突撃
 	RushPreliminary,	//突撃準備
 	Rush,				//突撃
+	StickWall,			//壁に刺さっている
 
 	//ノコノコスピン
 	Spin,

@@ -20,6 +20,7 @@
 #include "../Transform/Transform.h"
 
 #include "../../Utility/FourDirection/FourDirection.h"
+#include "../../Map/MapType.h"
 
 enum class EventMessage;
 class IWorld;
@@ -91,6 +92,8 @@ public:
 	IBodyPtr getBody() const;
 
 	int getCount() const;
+
+	virtual MapType GetMapType() const;
 
 	//ç¿ïWÇÃê›íË
 	void setPosition(const GSvector2& pos);

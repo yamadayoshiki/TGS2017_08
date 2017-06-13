@@ -49,15 +49,10 @@ protected:
 protected:
 	bool m_IsEnd;					//終了フラグ
 	IGameManagerPtr p_GameManager;	//ゲームマネージャー
-	WorldPtr p_World;
-	//ワールド
-	// シーンの名前
-	SceneName m_SceneName;
-	// 遷移演出
-	TransitionPtr m_Transition;
-	//ポーズフラグ
-	bool PauseFlag = false;
-
+	WorldPtr p_World;				//ワールド
+	SceneName m_SceneName;			//シーンの名前
+	TransitionPtr m_Transition;		//遷移演出
+	bool PauseFlag = false;			//ポーズフラグ
 };
 
 #endif // !SCENE_H_

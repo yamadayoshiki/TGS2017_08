@@ -100,7 +100,7 @@ TargetPosition EnemyCommandEnemy01Detour::GetTargetPositionManager() {
 //プレイヤーと座標軸が一致しているか
 void EnemyCommandEnemy01Detour::CheckAxisEnemyToPlayer() {
 	//マス準拠で同軸にいるか
-	GSvector2 dis = p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis(MapType::Double);
+	GSvector2 dis = p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis();
 	if (p_Enemy.lock()->GetDirection().GetVector2().x == 0)
 		if (abs(dis.y) <= FLOAT_EPSILON)
 			m_AxisChangeFlag = true;

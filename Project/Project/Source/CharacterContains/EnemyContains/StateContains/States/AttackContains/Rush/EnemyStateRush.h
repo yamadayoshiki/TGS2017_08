@@ -1,25 +1,24 @@
 #ifndef ENEMYSTATERUSH_H_
 #define ENEMYSTATERUSH_H_
 
-#include "../Base/EnemyStateAttackBase.h"
+#include "../../Base/EnemyStateBase.h"
 
 //突撃
-class EnemyStateRush :public EnemyStateAttackBase
+class EnemyStateRush :public EnemyStateBase
 {
 public:
 	//コンストラクタ
-	EnemyStateRush(const EnemyBasePtr& enemy);
+	EnemyStateRush(const EnemyBasePtr& enemy,const float speed);
+
 protected:
 	// 各状態独自の初期化
-	virtual void onUniqueInit() override;
+	virtual void unique_init() override {}
 	// 更新処理
-	virtual void onUpdate(float deltaTime) override;
-	// 衝突判定
-	virtual void onCollide(const Actor & other) override;
-	// 終了時の処理
-	virtual void onEnd() override;
-	// 入力処理
-	virtual void onInput() override;
+	virtual void update(float deltaTime) override;
+	//メッセージ処理
+	virtual void OnHandleMessage(EventMessage message, void* param) override;
+protected:
+	float m_Speed;		//スピード
 };
 
 #endif

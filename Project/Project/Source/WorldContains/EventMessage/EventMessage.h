@@ -16,4 +16,5 @@ enum class EventMessage {
 
 	ENEMY_SPIN,			//スピン
 	ENEMY_COMMAND_DEAD,	//コマンド側から死ぬ命令
+	ENEMY_STATEEND,		//現在のステートを終了する
 };

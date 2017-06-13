@@ -12,7 +12,8 @@ public:
 		IWorld* world,
 		const GSvector2& position,
 		const FourDirection front,
-		const IGameManagerPtr& gameManager);
+		const IGameManagerPtr& gameManager,
+		const std::string fileName = "");
 	//デストラクタ
 	~Enemy07();
 	//csvで生成(使用時継承先でoverride)
@@ -25,6 +26,9 @@ protected:
 	virtual void SetUpState() override;
 	//描画
 	virtual void onDraw() const override;
+
+protected:
+	std::string m_FileName;	//巡回座標csvのファイルの名前
 };
 
 #endif // !ENEMY07_H_

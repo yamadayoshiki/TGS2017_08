@@ -28,7 +28,7 @@ void EnemyStateSpinStandard::update(float deltaTime) {
 }
 
 //メッセージ処理
-void EnemyStateSpinStandard::handleMessage(EventMessage message, void * param){
+void EnemyStateSpinStandard::OnHandleMessage(EventMessage message, void * param){
 	switch (message)
 	{
 	case EventMessage::ENEMY_COMMAND_DEAD:
@@ -37,4 +37,3 @@ void EnemyStateSpinStandard::handleMessage(EventMessage message, void * param){
 		break;
 	}
 }
-

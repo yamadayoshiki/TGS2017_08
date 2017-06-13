@@ -25,6 +25,7 @@ void EnemyCommandBase::Initialize() {
 	m_CurStateName = EnemyStateName::None;
 	m_NextCommand = EnemyCommandName::None;
 	m_IsEnd = false;
+	m_Regard = false;
 	//ŠeíŒÅ—L‚Ì‰Šú‰»
 	OnInitialize();
 }

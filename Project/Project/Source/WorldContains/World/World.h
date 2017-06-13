@@ -9,7 +9,7 @@
 
 #include"../../ActorContains/ActorManager/ActorManagerPtr.h"
 #include"../../MapGenerator/MapGeneratorPtr.h"
-
+#include "../../CharacterContains/Factory/CharacterFactoryPtr.h"
 
 enum class EventMessage;
 enum class SceneName;
@@ -45,6 +45,12 @@ public:
 	void generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name);
 	//マップの取得
 	MapPtr GetMap() override;
+	//キャラクター工場の設定
+	void SetCharacterFactory(CharacterFactory* characterFactory);
+	//キャラクター工場の取得
+	CharacterFactory* GetCharacterFactory() const override;
+	//マップジェネレーターの生成
+	void SetMapGenerator(const IWorldPtr& world, const IGameManagerPtr& gameManager);
 
 	// シーンの終了の取得
 	virtual bool IsEnd();
@@ -54,7 +60,7 @@ public:
 	virtual void ResetEnd();
 	// シーンの終了
 	virtual SceneName NextScene();
-	
+
 	int GetSurviverSum();
 
 	// コピー禁止  
@@ -62,13 +68,10 @@ public:
 	World& operator = (const World& other) = delete;
 
 private:
-	// アクターマネージャー
-	ActorManagerPtr p_Actors;
-	//マップジェネレータ
-	MapGeneratorPtr p_MapGenerator;
-	// 
-	SceneName m_NextScene;
-	// 
-	bool m_IsEnd;
+	ActorManagerPtr p_Actors;					//アクター管理
+	MapGeneratorPtr p_MapGenerator;				//マップ生成クラス
+	SceneName m_NextScene;						//次のシーン
+	bool m_IsEnd;								//終了しているか
+	CharacterFactoryUPtr p_CharacterFactory;	//キャラクター工場
 };
 #endif

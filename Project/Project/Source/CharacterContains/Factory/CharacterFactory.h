@@ -7,6 +7,7 @@
 #include "../../Base/GameManagerContains/IGameManagerPtr.h"
 
 enum class ActorName;
+struct GSvector2;
 
 //キャラクター工場
 class CharacterFactory
@@ -20,13 +21,17 @@ private:
 public:
 	//コンストラクタ
 	CharacterFactory(
-		const IWorldPtr& world, 
+		const IWorldPtr& world,
 		const IGameManagerPtr& gameManager);
 	//デストラクタ
 	~CharacterFactory();
 
 	//生成
-	void Generate(int x, int y, int csvData);
+	void Generate(const int x, const int y, const int csvData);
+	//生成
+	void Generate(const GSvector2 position, const int csvData);
+	//生成するCharacterを取得
+	ActorPtr GetGenerateCharacter(const GSvector2 position, const int csvData);
 
 private:
 	std::map<ActorName, ActorWPtr> m_ParentMap;	//親

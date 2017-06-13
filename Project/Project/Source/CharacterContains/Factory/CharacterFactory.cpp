@@ -4,6 +4,8 @@
 #include "../../Utility/TurnDirection/TurnDirection.h"
 #include "../../Define/Def_GSvector2.h"
 #include "../../Utility/MathSupport/MathSupport.h"
+#include "../../Utility/CsvConvertTwoDVector/CsvCellData.h"
+#include "../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 
 //生成キャラ
 #include "../EnemyContains/Entity/Enemys/Enemy01/Enemy01.h"
@@ -14,9 +16,9 @@
 #include "../EnemyContains/Entity/Enemys/Enemy06/Enemy06.h"
 #include "../EnemyContains/Entity/Enemys/Enemy07/Enemy07.h"
 #include "../EnemyContains/Entity/Enemys/Enemy08/Enemy08.h"
-//#include "../EnemyContains/Entity/Enemys/"
-//#include "../EnemyContains/Entity/Enemys/"
-//#include "../EnemyContains/Entity/Enemys/"
+#include "../EnemyContains/Entity/Enemys/Enemy09/Enemy09.h"
+#include "../EnemyContains/Entity/Enemys/Enemy10/Enemy10.h"
+#include "../EnemyContains/Entity/EnemyBullets/Bullet01/EnemyBullet01.h"
 #include "../../Wall/BreakWall.h"
 #include "../PlayerContains/Player/Player.h"
 
@@ -39,6 +41,12 @@ CharacterFactory::CharacterFactory(
 	m_GenerateMap[16] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy03>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), TurnDirection(TurnDirectionName::AntiClockwise), p_IGameManager.lock()) };
 	m_GenerateMap[17] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy04>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
 	m_GenerateMap[18] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy05>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
+	m_GenerateMap[19] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy06>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
+	m_GenerateMap[20] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy07>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
+	m_GenerateMap[21] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy08>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
+	m_GenerateMap[22] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy09>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
+	m_GenerateMap[23] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy10>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
+	m_GenerateMap[24] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<EnemyBullet01>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
 
 	//ブロック
 	m_GenerateMap[81] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<BreakWall>(p_IWorld.lock().get(),GSVECTOR2_ZERO,p_IGameManager.lock()) };
@@ -63,4 +71,35 @@ void CharacterFactory::Generate(const int x, const int y, const int csvData) {
 
 	ActorData& data = m_GenerateMap[key];
 	data.parent.lock()->addChild(data.child->CsvGenerate(x, y, csvParam));
+}
+
+//生成
+void CharacterFactory::Generate(const GSvector2 position, const int csvData) {
+	//最上位２桁をキャラキーに変換
+	int key = MathSupport::GetCutNum(csvData, 1, 2);
+	if (key == 0) return;
+	//最上位２桁の排除
+	int csvParam = csvData % (int)std::pow(10, MathSupport::GetDigit(csvData) - 2);
+
+	ActorData& data = m_GenerateMap[key];
+	//キャラのマップタイプ
+	MapType type = data.child->GetMapType();
+	CsvCellData cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, type);
+
+	data.parent.lock()->addChild(data.child->CsvGenerate(cellData.x, cellData.y, csvParam));
+}
+
+//生成するCharacterを取得
+ActorPtr CharacterFactory::GetGenerateCharacter(const GSvector2 position, const int csvData){
+	//最上位２桁をキャラキーに変換
+	int key = MathSupport::GetCutNum(csvData, 1, 2);
+	if (key == 0) return nullptr;
+	//最上位２桁の排除
+	int csvParam = csvData % (int)std::pow(10, MathSupport::GetDigit(csvData) - 2);
+
+	ActorData& data = m_GenerateMap[key];
+	//キャラのマップタイプ
+	CsvCellData cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, MapType::Default);
+
+	return data.child->CsvGenerate(cellData.x, cellData.y, csvParam);
 }

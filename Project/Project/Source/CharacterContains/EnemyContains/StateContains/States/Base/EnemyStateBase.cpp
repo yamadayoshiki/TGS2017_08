@@ -6,6 +6,7 @@
 #include "../../../../../WorldContains/IWorld.h"
 #include "../../../../../Map/Map.h"
 #include "../../../../../Define/Def_GSvector2.h"
+#include "../../../../../WorldContains/EventMessage/EventMessage.h"
 
 //コンストラクタ
 EnemyStateBase::EnemyStateBase(const EnemyBasePtr& enemy)
@@ -14,6 +15,18 @@ EnemyStateBase::EnemyStateBase(const EnemyBasePtr& enemy)
 
 // 入力処理
 void EnemyStateBase::input() {
+}
+
+//メッセージ処理
+void EnemyStateBase::handleMessage(EventMessage message, void * param) {
+	switch (message)
+	{
+		case EventMessage::ENEMY_COMMAND_DEAD:
+			change(EnemyStateName::Dead);
+			return;
+	}
+	//各種固有のメッセージ処理
+	OnHandleMessage(message, param);
 }
 
 //移動処理

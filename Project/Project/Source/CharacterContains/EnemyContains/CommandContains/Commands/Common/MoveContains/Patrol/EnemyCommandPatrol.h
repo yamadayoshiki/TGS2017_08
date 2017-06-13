@@ -2,6 +2,7 @@
 #define ENEMYCOMMANDPATROL_H_
 
 #include "../Base/EnemyCommandMoveBase.h"
+#include <iostream>
 
 //巡回マン
 class EnemyCommandPatrol : public EnemyCommandMoveBase
@@ -10,12 +11,11 @@ public:
 	//コンストラクタ
 	EnemyCommandPatrol(
 		const EnemyBasePtr& enemy,
+		const std::string fileName,
 		const MapType type);
 
-	//目的地を設定
-	void SetPatrolPos(const std::vector<GSvector2>& posList);
-	//メッセージ処理
-	virtual void handleMessage(EventMessage message,void* param) override;
+	//巡回座標を設定
+	void SetPatrolPos(const std::string fileName);
 
 protected:
 	//目標地点に到着したリアクション

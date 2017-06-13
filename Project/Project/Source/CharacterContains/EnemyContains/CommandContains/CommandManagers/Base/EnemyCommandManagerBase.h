@@ -23,7 +23,7 @@ public:
 	//終了
 	void Finalize() override;
 	//追加
-	void AddDic(EnemyCommandName name, const IEnemyCommandPtr& command) override;
+	void AddDic(const EnemyCommandName name,const IEnemyCommandPtr& command) override;
 	//コマンド変更
 	void Change(const EnemyCommandName name) override;
 	//メッセージ処理

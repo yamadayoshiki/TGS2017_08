@@ -100,6 +100,11 @@ void EnemyBase::SetDirection(FourDirection dir) {
 		TurnDirection(TurnDirectionName::Clockwise)).GetAngle());
 }
 
+//移動マップタイプを取得
+MapType EnemyBase::GetMapType() const{
+	return m_MapType;
+}
+
 //メッセージ処理
 void EnemyBase::onMessage(EventMessage message, void* param) {
 	//メッセージ処理

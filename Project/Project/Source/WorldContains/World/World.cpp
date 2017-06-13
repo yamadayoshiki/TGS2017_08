@@ -6,6 +6,7 @@
 #include"../../MapGenerator/MapGenerator.h"
 #include "../EventMessage/EventMessage.h"
 #include "../../CharacterContains/EnemyContains/Entity/Enemys/Base/EnemyBase.h"
+#include "../../CharacterContains/Factory/CharacterFactory.h"
 #include <iostream>
 
 // コンストラクタ
@@ -73,9 +74,8 @@ void World::sendMessage(EventMessage message, Actor& actor, void* param) {
 	actor.handleMessage(message, param);
 }
 
-
+//生成
 void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name){
-	p_MapGenerator = std::make_shared<MapGenerator>(world, gameManager);
 	p_MapGenerator->load(file_name);
 	p_MapGenerator->registMap();
 	p_MapGenerator->generate();
@@ -86,6 +86,19 @@ MapPtr World::GetMap() {
 	return p_MapGenerator->getMap();
 }
 
+//キャラクター工場の設定
+void World::SetCharacterFactory(CharacterFactory * characterFactory){
+	p_CharacterFactory.reset(characterFactory);
+}
+
+//キャラクター工場の取得
+CharacterFactory * World::GetCharacterFactory() const{
+	return p_CharacterFactory.get();
+}
+
+void World::SetMapGenerator(const IWorldPtr& world, const IGameManagerPtr& gameManager){
+	p_MapGenerator = std::make_shared<MapGenerator>(world,gameManager);
+}
 
 bool World::IsEnd() {
 	return m_IsEnd;

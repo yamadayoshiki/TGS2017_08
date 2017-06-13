@@ -5,32 +5,25 @@
 #include "../../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../../../../Entity/Enemys/Base/EnemyBase.h"
+#include "../../../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../../../../../../Utility/CsvConvertTwoDVector/CsvCellData.h"
 #include <iterator>
 #include <forward_list>
 
 //コンストラクタ
 EnemyCommandPatrol::EnemyCommandPatrol(
 	const EnemyBasePtr & enemy,
+	const std::string fileName,
 	const MapType type)
 	: EnemyCommandMoveBase(enemy, type)
 	, m_CurListNum(0) {
+	SetPatrolPos(fileName);
 }
 
-//目的地を設定
-void EnemyCommandPatrol::SetPatrolPos(const std::vector<GSvector2>& posList) {
-	m_TargetPosList = std::vector<GSvector2>(posList);
-}
-
-//メッセージ処理
-void EnemyCommandPatrol::handleMessage(EventMessage message, void * param){
-	switch (message)
-	{
-	case EventMessage::ENEMY_SPIN:
-		Change(EnemyCommandName::SpinMove);
-		break;
-	default:
-		break;
-	}
+//巡回座標を設定
+void EnemyCommandPatrol::SetPatrolPos(const std::string fileName) {
+	std::vector<CsvCellData> csvCellDatavector = std::vector<CsvCellData>(CsvConvertTwoDVector::GetPatrolPos(fileName));
+	m_TargetPosList = std::vector<GSvector2>(CsvConvertTwoDVector::GetPatrolPosList(csvCellDatavector, m_Type));
 }
 
 //目標地点に到着したリアクション

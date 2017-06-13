@@ -17,8 +17,9 @@ public:
 	// 更新処理
 	virtual void onUpdate(float deltaTime)override;
 
+protected:
 	//メッセージ処理
-	virtual void handleMessage(EventMessage message, void* param) override;
+	virtual void OnHandleMessage(EventMessage message, void* param) override;
 };
 
 #endif // !ENEMYSTATEENEMY02MOVE_H_

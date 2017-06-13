@@ -10,6 +10,7 @@
 enum class ActorGroup;
 enum class EventMessage;
 enum class SceneName;
+class CharacterFactory;
 
 // ワールド抽象インターフェース 
 class IWorld
@@ -33,6 +34,8 @@ public:
 	virtual void EndRequest(const SceneName& name) = 0;
 	//マップの取得
 	virtual MapPtr GetMap() = 0;
+	//キャラクターファクトリーの取得
+	virtual CharacterFactory* GetCharacterFactory() const = 0;
 protected:
 	// 終了処理
 	virtual void Finalize() {}

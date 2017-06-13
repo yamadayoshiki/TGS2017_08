@@ -1,28 +1,28 @@
 #include "EnemyStateRush.h"
+#include "../../../../Entity/Enemys/Base/EnemyBase.h"
+#include "../../../../../../WorldContains/EventMessage/EventMessage.h"
 
-// コンストラクタ
-EnemyStateRush::EnemyStateRush(const EnemyBasePtr& enemy)
-	:EnemyStateAttackBase(enemy) {
+EnemyStateRush::EnemyStateRush(const EnemyBasePtr & enemy, const float speed)
+	: EnemyStateBase(enemy)
+	, m_Speed(speed) {
 }
 
-// 各状態独自の初期化
-void EnemyStateRush::onUniqueInit() {
-
+void EnemyStateRush::update(float deltaTime) {
+	//注視あり移動
+	RegardMove(p_Enemy.lock()->GetDirection(), deltaTime, m_Speed);
 }
 
-// 更新処理
-void EnemyStateRush::onUpdate(float deltaTime) {
+void EnemyStateRush::OnHandleMessage(EventMessage message, void * param) {
+	switch (message)
+	{
+		//プレイヤーに挟まれたとき
+	case EventMessage::PLAYER_ROUNDS:
+		change(EnemyStateName::Repel);
+		break;
 
-}
-// 衝突判定
-void EnemyStateRush::onCollide(const Actor & other) {
-
-}
-// 終了時の処理
-void EnemyStateRush::onEnd() {
-
-}
-// 入力処理
-void EnemyStateRush::onInput() {
-
+		//壁に刺さって終了
+	case EventMessage::ENEMY_STATEEND:
+		change(EnemyStateName::StickWall);
+		break;
+	}
 }

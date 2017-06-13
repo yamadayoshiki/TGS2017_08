@@ -25,7 +25,7 @@
 #include "../CharacterContains/EnemyContains/StateContains/States/CaughtContains/Standard/EnemyStateCaughtStandard.h"
 #include "../CharacterContains/EnemyContains/StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
 #include "../CharacterContains/EnemyContains/StateContains/States/DeadWall/DeadWall.h"
-#include "../CharacterContains/EnemyContains/StateContains/States/Stop/EnemyStateStop.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 
 BreakWall::BreakWall(
 	IWorld * world,
@@ -74,7 +74,7 @@ void BreakWall::SetUpState()
 	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaughtStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStop>(shared_from_this(), 120));
+	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }

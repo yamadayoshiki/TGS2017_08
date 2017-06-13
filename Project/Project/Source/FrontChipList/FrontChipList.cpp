@@ -2,6 +2,8 @@
 #include "../Map/Map.h"
 #include <iostream>
 #include "../Define/Def_Nakayama.h"
+#include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../Utility/CsvConvertTwoDVector/CsvCellData.h"
 
 //コンストラクタ
 FrontChipList::FrontChipList(
@@ -10,7 +12,8 @@ FrontChipList::FrontChipList(
 	const FourDirection front,
 	const MapType type)
 	: p_Map(map)
-	, m_Type(type) {
+	, m_Type(type)
+	, m_FrontDirection(front) {
 	SetFrontChipList(pos, front);
 }
 
@@ -23,6 +26,9 @@ void FrontChipList::SetFrontChipList(
 	const GSvector2 pos,
 	const FourDirection front)
 {
+	//向き設定
+	m_FrontDirection = front;
+
 	//自分+背面のマス数
 	int backChipNum = 0;
 
@@ -91,7 +97,7 @@ int FrontChipList::GetSpeaceNum()
 	for (auto itr = m_List.cbegin(); itr != m_List.cend(); ++itr)
 	{
 		if (*itr == 1)
-			break;	
+			break;
 
 		else
 			result++;
@@ -127,4 +133,27 @@ int FrontChipList::GeTheOffSideOfTheWallChipNum()
 		result = 0;
 
 	return result;
+}
+
+//壁に直接触れるまでの距離の長さ
+float FrontChipList::GetToWallLength(const GSvector2 pos, const FourDirection direction, const float width) {
+	//壁までの空きマスの数
+	int speaceNum = GetSpeaceNum();
+	//自分のマス準拠座標
+	CsvCellData cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(pos, m_Type);
+	GSvector2 cellDataVector2 = GSvector2(cellData.x, cellData.y);
+	//壁手前の空きマスのcsv座標
+	GSvector2 speaceCellPos = cellDataVector2 + direction.GetVector2() * speaceNum;
+	//壁手前の空きマスの座標
+	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(speaceCellPos.x*2, speaceCellPos.y*2, m_Type);
+	//１マスの半分の長さ
+	float half = (CHIP_SIZE * ((int)m_Type + 1)) / 2;
+	//壁に当たる座標算出
+	position = position + (direction.GetVector2() * half) - (direction.GetVector2() * width);
+	//距離ベクトル
+	GSvector2 dis = position - pos;
+	//4方向に補正
+	dis = dis * direction.GetVector2();
+
+	return dis.length();
 }

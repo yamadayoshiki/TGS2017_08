@@ -22,7 +22,7 @@
 #include "../../../StateContains/States/DeadContaint/Standard/EnemyStateDeadStandard.h"
 #include "../../../StateContains/States/MoveContains/Standard/Idle/EnemyStateIdleStandard.h"
 #include "../../../StateContains/States/MoveContains/Standard/Move/EnemyStateMoveStandard.h"
-#include "../../../StateContains/States/Stop/EnemyStateStop.h"
+#include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 
 Enemy04::Enemy04(
 	IWorld * world,
@@ -66,7 +66,7 @@ void Enemy04::SetUpState() {
 	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveStandard>(shared_from_this(), 10.0f));
-	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStop>(shared_from_this(), 120));
+	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }

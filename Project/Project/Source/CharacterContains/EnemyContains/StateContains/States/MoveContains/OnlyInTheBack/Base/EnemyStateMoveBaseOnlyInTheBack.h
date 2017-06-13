@@ -9,8 +9,9 @@ class EnemyStateMoveBaseOnlyInTheBack : virtual public EnemyStateMoveBaseStandar
 public:
 	// コンストラクタ
 	EnemyStateMoveBaseOnlyInTheBack(const EnemyBasePtr& enemy);
+protected:
 	//メッセージ処理
-	virtual void handleMessage(EventMessage message, void* param) override;
+	virtual void OnHandleMessage(EventMessage message, void* param) override;
 };
 
 #endif

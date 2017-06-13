@@ -202,6 +202,10 @@ int Actor::getCount() const {
 	return std::distance(m_children.begin(), m_children.end());
 }
 
+MapType Actor::GetMapType() const{
+	return MapType::Default;
+}
+
 //À•W‚ğİ’è
 void Actor::setPosition(const GSvector2 & pos) {
 	m_Transform.m_Position = pos;

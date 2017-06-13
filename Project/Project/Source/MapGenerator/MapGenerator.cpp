@@ -29,7 +29,7 @@ void MapGenerator::load(const std::string& file_name) {
 			tmp.push_back(file.geti(i, j));
 			std::cout << file.get(i, j);
 		}
-		
+
 
 		m_CsvData.push_back(tmp);
 		std::cout << "\n";
@@ -45,18 +45,12 @@ void MapGenerator::registMap() {
 // アクターの生成
 void MapGenerator::generate()
 {
-	//キャラクター工場
-	CharacterFactory* factory = new CharacterFactory(p_World.lock(), p_GameManager.lock());
-
 	// 行のループ
 	for (unsigned int i = 0; i < m_CsvData.size(); i++)
 		// 列のループ
 		for (unsigned int j = 0; j < m_CsvData[i].size(); j++)
 			//生成
-			factory->Generate(j, i, m_CsvData[i][j]);
-
-	//デリート
-	delete factory;
+			p_World.lock()->GetCharacterFactory()->Generate(j, i, m_CsvData[i][j]);
 }
 
 //マップの登録

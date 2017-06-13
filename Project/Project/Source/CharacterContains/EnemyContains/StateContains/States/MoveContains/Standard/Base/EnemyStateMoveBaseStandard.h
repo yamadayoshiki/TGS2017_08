@@ -19,8 +19,6 @@ public:
 	virtual void end() override;
 	// 入力処理
 	virtual void input() override;
-	// メッセージ処理
-	virtual void handleMessage(EventMessage message, void* param) override;
 
 protected:
 	// 各状態独自の初期化
@@ -33,6 +31,8 @@ protected:
 	virtual void onEnd() {}
 	// 入力処理
 	virtual void onInput(){}
+	// メッセージ処理
+	virtual void OnHandleMessage(EventMessage message, void* param) override;
 };
 
 #endif

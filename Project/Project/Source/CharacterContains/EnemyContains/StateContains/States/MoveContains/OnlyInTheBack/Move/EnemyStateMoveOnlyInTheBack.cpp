@@ -15,6 +15,6 @@ void EnemyStateMoveOnlyInTheBack::onUpdate(float deltaTime) {
 	EnemyStateMoveStandard::onUpdate(deltaTime);
 }
 
-void EnemyStateMoveOnlyInTheBack::handleMessage(EventMessage message, void * param){
-	EnemyStateMoveBaseOnlyInTheBack::handleMessage(message, param);
+void EnemyStateMoveOnlyInTheBack::OnHandleMessage(EventMessage message, void * param){
+	EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage(message, param);
 }

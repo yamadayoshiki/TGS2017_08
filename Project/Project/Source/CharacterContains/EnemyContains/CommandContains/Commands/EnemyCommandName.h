@@ -13,12 +13,17 @@ enum class EnemyCommandName
 
 	Standby,						//待機
 
+	Generate,						//生成
+
 	ClockwiseRotation90,	//時計回りに90度回転
 	AntiClockwiseRotation90,//反時計回りに90度回転
 	ReverseRotation,		//反転
 
+	ReturnToTheRegularPosition,		//マス準拠の座標に移動する
+	Patrol,					//巡回
 	SpinMove,				//スピン状態で移動
 
+	Rush,					//突進
 	None,					//何もない
 };
 

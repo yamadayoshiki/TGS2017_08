@@ -8,7 +8,7 @@ EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel(const EnemyBasePtr& enemy)
 }
 
 //メッセージ処理
-void EnemyStateMoveBaseRepel::handleMessage(EventMessage message, void * param) {
+void EnemyStateMoveBaseRepel::OnHandleMessage(EventMessage message, void * param) {
 	switch (message)
 	{
 	case EventMessage::PLAYER_ROUNDS:

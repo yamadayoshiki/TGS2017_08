@@ -17,8 +17,8 @@ public:
 	~PlayerWatch();
 	//ユーザーからプレイヤーまでの距離ベクトル
 	GSvector2 GetToPlayerDis() const;
-	//ユーザーからプレイヤーまでの距離マスベクトル(マス準拠)
-	GSvector2 GetToPlayerChipDis(MapType type) const;
+	//ユーザーからプレイヤーまでの距離マスベクトル(マス準拠,MapTypeはユーザー基準)
+	GSvector2 GetToPlayerChipDis() const;
 	//プレイヤーの正面
 	FourDirection GetPlayerFrontDir() const;
 
