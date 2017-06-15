@@ -19,7 +19,8 @@ protected:
 	virtual void OnUpdate(float deltaTime);
 	//•`‰æ
 	virtual void OnDraw()const;
-
+	//I—¹
+	virtual void End();
 
 private:
 	std::string m_Text;

@@ -27,11 +27,12 @@ void GameTitle::OnStart(){
 	MapOrder = 1;
 	
 	gsBindMusic(BGM_GAME_TITLE);
+	
 }
 
 // XV
 void GameTitle::OnUpdate(float deltaTime){
-	gsPlayMusic();
+	gsPlayMusic(BGM_GAME_TITLE);
 
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
 		p_World->EndRequest(SceneName::GamePlay);
@@ -42,12 +43,12 @@ void GameTitle::OnDraw()const
 {
 	p_GameManager->GetRenderer2D()->DrawTexture("Title", GSvector2(0, 0));
 	p_GameManager->GetRenderer2D()->DrawTexture("WideHead", GSvector2(300, 300));
-	p_GameManager->GetRenderer2D()->DrawTexture("Start", GSvector2(300, 600));
+	p_GameManager->GetRenderer2D()->DrawTexture("Start", GSvector2(400, 600));
 }
 
 void GameTitle::End()
 {
-	gsStopMusic();
+	gsStopMusic(BGM_GAME_TITLE);
 	p_GameManager->set_MapOrder(MapOrder);
 	
 }

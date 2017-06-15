@@ -30,7 +30,7 @@ Enemy05::Enemy05(IWorld * world, const GSvector2 & position, const FourDirection
 		ActorName::Enemy_05,
 		position,
 		front,
-		10,
+		1,
 		MapType::Double,
 		gameManager,
 		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
