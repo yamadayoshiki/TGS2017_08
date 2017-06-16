@@ -10,7 +10,7 @@ Arm::Arm(IWorld* world, GSvector2& position, IGameManagerPtr gameManager)
 		, position
 		, gameManager
 		, std::make_shared<NullTexture>()
-		, std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE))
+		, std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE*2))
 	, m_Angle(0.0f)
 	, mHitFlag(false)
 {
@@ -24,7 +24,7 @@ Arm::~Arm()
 //XVˆ—
 void Arm::onUpdate(float deltaTime)
 {
-	p_Transform->m_Position = getPosition().clamp(GSvector2(16.0f, 16.0f), GSvector2(1280 - 16, 960 - 16));
+	//p_Transform->m_Position = getPosition().clamp(GSvector2(16.0f, 16.0f), GSvector2(1280 - 16, 960 - 16));
 }
 //•`‰æˆ—
 void Arm::onDraw()const

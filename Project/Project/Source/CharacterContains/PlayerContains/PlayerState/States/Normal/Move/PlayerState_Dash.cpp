@@ -16,7 +16,7 @@ void PlayerState_Dash::unique_init()
 	//フレームカウンターの初期化
 	m_FramConter = 0.0f;
 	//スピード初期化
-	speed = 32.0f;
+	speed = 16.0f;
 	//Playerの方向ベクトル
 	m_Direction = p_Player.lock()->getTransform()->GetForward();
 	//エンド地点の設定

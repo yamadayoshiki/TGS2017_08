@@ -32,8 +32,7 @@ void PlayerState_O_MoveBase::update(float deltaTaime)
 void PlayerState_O_MoveBase::collide(const Actor& other)
 {
 	//ƒA[ƒ€‚É“–‚½‚Á‚Ä‚¢‚½‚ç•Ô‚·
-	if (m_Children[ActorName::Player_Arm]->isCollide(other) && 
-		is_Scorp_Angle(other)) return;
+	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(other)) return;
 
 	//“G‚Æ‚ÌÕ“Ëˆ—
 	Collide(other);

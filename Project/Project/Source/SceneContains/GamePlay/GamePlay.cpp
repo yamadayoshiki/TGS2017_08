@@ -50,7 +50,7 @@ void GamePlay::OnStart() {
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime) {
-	gsPlayMusic(BGM_GAME_PLAY);
+	gsPlayMusic();
 	//ポーズ
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE) { PauseFlag = !PauseFlag; }
 	if (PauseFlag == true)
@@ -83,9 +83,9 @@ void GamePlay::OnUpdate(float deltaTime) {
 	}
 	
 	// 討伐可能な敵が０以下の場合クリア
-	if (p_World->GetSurviverSum() <= 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_A)) {
-		p_World->EndRequest(SceneName::GameResult);
-	}
+	//if (p_World->GetSurviverSum() <= 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_A)) {
+	//	p_World->EndRequest(SceneName::GameResult);
+	//}
 	
 }
 
@@ -132,7 +132,7 @@ void GamePlay::OnDraw() const {
 
 void GamePlay::End()
 {
-	gsStopMusic(BGM_GAME_PLAY);
+	gsStopMusic();
 
 	if (MapOrder == 1) {
 		p_GameManager->set_MapOrder(MapOrder);

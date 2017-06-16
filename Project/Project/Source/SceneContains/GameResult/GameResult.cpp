@@ -46,11 +46,11 @@ void GameResult::OnUpdate(float deltaTime){
 	//BGMÄ¶
 	if (p_GameManager->GetPlayerParameter().m_Remaining < 0)
 	{
-		gsPlayMusic(BGM_GAME_OVER);
+		gsPlayMusic();
 	}
 	else
 	{
-		gsPlayMusic(BGM_GAME_CLER);
+		gsPlayMusic();
 	}
 	/*if (m_ResultTextureName == "Clear")
 	{
@@ -164,6 +164,5 @@ void GameResult::OnDraw() const
 
 void GameResult::End()
 {
-	gsStopMusic(BGM_GAME_CLER);
-	gsStopMusic(BGM_GAME_OVER);
+	gsStopMusic();
 }

@@ -77,8 +77,8 @@ void Enemy09::SetUpState() {
 	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaughtStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadStandard>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::StickWall, std::make_shared<EnemyStateStopOnlyInTheBack>(shared_from_this(), 60));
-	p_StateManager->add(EnemyStateName::Rush, std::make_shared<EnemyStateRush>(shared_from_this(), 20.0f));
+	p_StateManager->add(EnemyStateName::StickWall, std::make_shared<EnemyStateStopOnlyInTheBack>(shared_from_this(), 180));
+	p_StateManager->add(EnemyStateName::Rush, std::make_shared<EnemyStateRush>(shared_from_this(), 10.0f));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }
@@ -86,7 +86,7 @@ void Enemy09::SetUpState() {
 void Enemy09::onDraw() const {
 	Texture2DParameter param;
 	param.SetPosition(p_Transform->m_Position);
-	param.SetRotate(p_Transform->m_Angle - 90);
+	param.SetRotate(p_Transform->m_Angle);
 	param.SetCenter({ 16.0f, 16.0f });
 	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy09"));
 	param.SetScale({ 1.0f , 1.0f });

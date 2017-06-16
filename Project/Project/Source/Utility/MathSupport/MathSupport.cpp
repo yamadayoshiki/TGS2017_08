@@ -42,8 +42,8 @@ GSvector2 MathSupport::RotateVector(const GSvector2 vector, const float angle) {
 GSvector2 MathSupport::GetAngleToVector2(const float& angle)
 {
 	//•ÏŠ·
-	float x = gsCos(angle * PI / 180);
-	float y = gsSin(angle * PI / 180);
+	float x = cosf(angle * PI / 180);
+	float y = sinf(angle * PI / 180);
 
 	//Œ‹‰Ê‚ð•Ô‚·
 	return GSvector2(x, y);
@@ -110,11 +110,11 @@ float MathSupport::AngleCnvAAAngle(const float angle) {
 	float result = GetAngleNormalize(angle);
 	if (result <= -135 || 135 <= result)
 		result = 180;
-	if (result <= -45)
+	else if (result <= -45)
 		result = -90;
-	if (result <= 45)
+	else if (result <= 45)
 		result = 0;
-	if (result <= 135)
+	else if (result <= 135)
 		result = 90;
 
 	return result;

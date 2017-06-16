@@ -73,7 +73,7 @@ bool PlayerState::is_Scorp_Angle(const Actor& other)
 	float result = myVector.innerDegree(targetVector);
 
 	//‹–ìŠp“à(30“x)‚É‚¢‚é‚©H
-	if (result <= 30.0f) {
+	if (result <= 45.0f) {
 		return true;
 	}
 	return false;

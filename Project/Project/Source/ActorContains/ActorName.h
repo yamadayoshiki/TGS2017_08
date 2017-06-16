@@ -25,6 +25,8 @@ enum class ActorName
 	Player,					//プレイヤー
 	Player_Arm,				//アーム
 
+	BreakWall,
+
 	/* エネミーグループ */
 	EnemyManager = 100,
 	Enemy_01,			//横から挟めないやつ
@@ -37,7 +39,6 @@ enum class ActorName
 	Enemy_08,
 	Enemy_09,
 	Enemy_10,
-	BreakWall,
 };
 
 #endif // !ACTORNAME_H_

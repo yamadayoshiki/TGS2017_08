@@ -26,6 +26,8 @@
 #include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 #include "../../../StateContains/States/SpinContains/Standard/EnemyStateSpinStandard.h"
 
+#include <string>
+
 //コンストラクタ
 Enemy07::Enemy07(
 	IWorld * world,
@@ -57,9 +59,10 @@ ActorPtr Enemy07::CsvGenerate(const int x, const int y, const int csvparam)
 	//方向の設定
 	FourDirection dir = FourDirection((FourDirectionName)MathSupport::GetCutNum(csvparam, 1, 1));
 	//巡回ファイルの設定
-	//std::string name = 
+	int num = MathSupport::GetCutNum(csvparam, 2, 2);
+	std::string name = "Resource/StreamingAssets/nokonoko" + std::to_string(num) + ".csv";
 
-	return std::make_shared<Enemy07>(p_World, position, dir, p_GameManager);
+	return std::make_shared<Enemy07>(p_World, position, dir, p_GameManager,name);
 }
 
 //各種固有のコマンドの設定
@@ -87,7 +90,7 @@ void Enemy07::SetUpState() {
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushSpin>(shared_from_this(), 3));
 	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveStandard>(shared_from_this(), 10.0f));
+	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveStandard>(shared_from_this(), 3.0f));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
 	p_StateManager->add(EnemyStateName::Spin, std::make_shared<EnemyStateSpinStandard>(shared_from_this(), 20.0f));
 	//初期State設定

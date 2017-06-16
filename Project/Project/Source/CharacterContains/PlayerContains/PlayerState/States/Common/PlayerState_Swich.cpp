@@ -29,14 +29,6 @@ void PlayerState_Swich::update(float deltaTaime)
 //衝突判定
 void PlayerState_Swich::collide(const Actor& other)
 {
-	//自分の方向ベクトル
-	GSvector2 myVec = p_Player.lock()->getTransform()->GetForward();
-	myVec.normalize();
-
-	//相手のベクトル
-	GSvector2 targetVec = other.getPosition() - p_Player.lock()->getPosition();
-	targetVec.normalize();
-
 	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(other)) {
 		m_Flag = true;
 		//相手に挟んだ情報を送る

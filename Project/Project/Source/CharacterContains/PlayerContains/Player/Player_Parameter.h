@@ -21,7 +21,7 @@ public:
 	//フラグ
 	bool flag{ false };
 	//スピード
-	float m_Speed{8.0f};
+	float m_Speed{5.0f};
 	//チャージカウンター
 	float m_ChargeConter{ 0.0f };
 	//チャージパワー
