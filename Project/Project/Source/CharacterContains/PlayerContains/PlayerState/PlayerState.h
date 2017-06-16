@@ -9,7 +9,7 @@
 #include "../Player/PlayerPtr.h"
 #include"../Player/Player_Parameter.h"
 #include "../../../Map/MapPtr.h"
-#include"../../../Utility/Sound_Name.h"
+#include"../../../Utility/Sound/SoundName.h"
 #include"../../../Map/TerrainName.h"
 
 

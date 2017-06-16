@@ -84,13 +84,13 @@ void CharacterFactory::Generate(const GSvector2 position, const int csvData) {
 	ActorData& data = m_GenerateMap[key];
 	//キャラのマップタイプ
 	MapType type = data.child->GetMapType();
-	CsvCellData cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, type);
+	GSvector2 cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, type);
 
 	data.parent.lock()->addChild(data.child->CsvGenerate(cellData.x, cellData.y, csvParam));
 }
 
 //生成するCharacterを取得
-ActorPtr CharacterFactory::GetGenerateCharacter(const GSvector2 position, const int csvData){
+ActorPtr CharacterFactory::GetGenerateCharacter(const GSvector2 position, const int csvData) {
 	//最上位２桁をキャラキーに変換
 	int key = MathSupport::GetCutNum(csvData, 1, 2);
 	if (key == 0) return nullptr;
@@ -99,7 +99,7 @@ ActorPtr CharacterFactory::GetGenerateCharacter(const GSvector2 position, const 
 
 	ActorData& data = m_GenerateMap[key];
 	//キャラのマップタイプ
-	CsvCellData cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, MapType::Default);
+	GSvector2 cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, MapType::Default);
 
 	return data.child->CsvGenerate(cellData.x, cellData.y, csvParam);
 }

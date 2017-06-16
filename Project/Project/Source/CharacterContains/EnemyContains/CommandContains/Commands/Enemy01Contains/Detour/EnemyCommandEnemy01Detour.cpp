@@ -9,7 +9,7 @@
 #include "../../../../../../Utility/TurnDirection/TurnDirection.h"
 #include "../../../../PlayerWatch/PlayerWatch.h"
 #include "../../../../../../Define/Def_Float.h"
-#include "../../../../../../ActorContains/Body/Base/IBody.h"
+#include "../../../../../../ActorContains/BodyContains/Interface/IBody.h"
 #include "../../../../../../Define/Def_GSvector2.h"
 #include "../../../../../../Map/Map.h"
 
@@ -110,5 +110,5 @@ void EnemyCommandEnemy01Detour::CheckAxisEnemyToPlayer() {
 			m_AxisChangeFlag = true;
 
 	if (m_AxisChangeFlag == true)
-		m_NextTargetPos = p_Enemy.lock()->getWorld()->GetMap()->GetTilePos(p_Enemy.lock()->getPosition(),MapType::Double);
+		m_NextTargetPos = p_Enemy.lock()->getWorld()->GetMap()->GetTilePos(p_Enemy.lock()->getPosition(), MapType::Double);
 }

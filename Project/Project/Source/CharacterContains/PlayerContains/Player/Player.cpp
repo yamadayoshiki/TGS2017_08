@@ -1,6 +1,7 @@
 #include"Player.h"
 
-#include"../../../ActorContains/Body/OrientedBoundingBox.h"
+#include "../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
+#include "../../../ActorContains/Transform/Transform.h"
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include"../PlayerState/PlayerStateName.h"
@@ -9,7 +10,7 @@
 #include"../../../Utility/FourDirection/FourDirection.h"
 #include "../../../Define/Def_Nakayama.h"
 #include"../../../Utility/Animation/Animation.h"
-#include"../../../Utility/Sound_Name.h"
+#include"../../../Utility/Sound/SoundName.h"
 #include"../../NeutralContains/Charge/Charge.h"
 
 #include <algorithm>
@@ -22,7 +23,7 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 		position,
 		gameManager,
 		std::make_shared<NullTexture>(),
-		std::make_shared<OrientedBoundingBox>(GSvector2{ 0, 0 }, -90.0f, GSvector2{ 2.0f, 2.0f }))
+		std::make_shared<Body::AARectangle>(CHIP_SIZE * 2, CHIP_SIZE * 2))
 	, p_Map(p_World->GetMap())
 	, m_Parameter(gameManager->GetPlayerParameter())
 {
@@ -45,7 +46,7 @@ void Player::initialize()
 	//チャージカウンターの初期化
 	m_Parameter.m_ChargeConter = 0;
 	//スタート地点の補間
-	m_Parameter.m_StratPosition = m_Transform.m_Position;
+	m_Parameter.m_StratPosition = getPosition();
 	//コンボの初期化
 	m_Parameter.m_Combo = 0;
 
@@ -62,8 +63,8 @@ void Player::initialize()
 	mStateManager->change(PlayerStateName::Idle);
 
 	//アーム生成
-	auto arm = std::make_shared<Arm>(p_World, m_Transform.m_Position, p_GameManager);
-	arm->setPosition(m_Transform.m_Position + p_Body->forward() * 16);
+	auto arm = std::make_shared<Arm>(p_World, getPosition(), p_GameManager);
+	arm->setPosition(getPosition() + getTransform()->GetForward() * 16);
 	addChild(arm);
 	mStateManager->addChild(ActorName::Player_Arm, arm);
 }
@@ -84,7 +85,7 @@ void Player::onUpdate(float deltaTime)
 	}
 
 	//行動制限
-	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));
+	p_Transform->m_Position = getPosition().clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));
 
 	//フレームカウンター
 	m_Parameter.m_FrameCounter += deltaTime;
@@ -94,15 +95,15 @@ void Player::onDraw()const
 {
 	//p_Body->transform(getTransform())->draw();
 
-	p_AnimationTexture->GetParameter()->SetPosition(m_Transform.m_Position);
-	p_AnimationTexture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
+	p_AnimationTexture->GetParameter()->SetPosition(getPosition());
+	p_AnimationTexture->GetParameter()->SetRotate(p_Transform->m_Angle);
 	p_AnimationTexture->GetParameter()->SetCenter({ 32.0f, 32.0f });
 	p_AnimationTexture->GetParameter()->SetScale({ 1.0f , 1.0f });
 	p_AnimationTexture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
 	//アニメーションの描画
 	p_AnimationTexture->Draw();
 
-	GSvector2 drawPos = getPosition() - getBody()->forward() * 16;
+	GSvector2 drawPos = getPosition() - p_Transform->GetForward() * 16;
 	gsTextPos(drawPos.x, drawPos.y);
 	gsDrawText("a");
 }

@@ -1,7 +1,6 @@
 #include "EnemyCommandBase.h"
 #include "../../../../../Define/Def_GSvector2.h"
 #include "../../../Entity/Enemys/Base/EnemyBase.h"
-#include "../../../../../ActorContains/Body/Base/Body.h"
 #include "../../../../../Map/Map.h"
 #include "../../../../../WorldContains/IWorld.h"
 #include "../../../../../Define/Def_Nakayama.h"
@@ -65,7 +64,7 @@ EnemyStateName EnemyCommandBase::GetCurrentStateName() const {
 }
 
 //’‹ˆÚ“®‚©
-bool EnemyCommandBase::IsRegard() const{
+bool EnemyCommandBase::IsRegard() const {
 	return m_Regard;
 }
 

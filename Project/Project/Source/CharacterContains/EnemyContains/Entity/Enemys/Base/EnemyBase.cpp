@@ -99,8 +99,7 @@ FourDirection EnemyBase::GetDirection() const {
 //向きを設定
 void EnemyBase::SetDirection(FourDirection dir) {
 	m_FourDirection = dir;
-	setAngle(m_FourDirection.GetTurn(
-		TurnDirection(TurnDirectionName::Clockwise)).GetAngle());
+	setAngle(m_FourDirection.GetAngle());
 }
 
 //移動マップタイプを取得
@@ -109,7 +108,7 @@ MapType EnemyBase::GetMapType() const {
 }
 
 //テクスチャの切り替え
-void EnemyBase::Settexture(const std::string textureName){
+void EnemyBase::Settexture(const std::string textureName) {
 	p_Texture->Finalize();
 	p_Texture = m_TextureMap[textureName];
 	p_Texture->Initialize();

@@ -1,15 +1,15 @@
 #include "Enemy10.h"
-
-//コンストラクタ
 #include "../../../../../ActorContains/ActorName.h"
-#include "../../../../../TextureContains/Texture/Texture.h"
-#include "../../../../../ActorContains/Body/OrientedBoundingBox.h"
-#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
-//描画
+#include "../../../../../ActorContains/Transform/Transform.h"
+#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
+#include "../../../../../Define/Def_Nakayama.h"
+#include "../../../../../TextureContains/Texture/Texture.h"
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
-//Command
 #include "../../../../../Utility/FourDirection/FourDirection.h"
+#include "../../../../../Utility/Animation/Animation.h"
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
@@ -25,13 +25,10 @@
 #include "../../../StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
 #include "../../../StateContains/States/DeadContaint/Standard/EnemyStateDeadStandard.h"
 
-#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
-#include "../../../../../Utility/Animation/Animation.h"
-
 Enemy10::Enemy10(
-	IWorld * world, 
-	const GSvector2 & position, 
-	const FourDirection front, 
+	IWorld * world,
+	const GSvector2 & position,
+	const FourDirection front,
 	const IGameManagerPtr & gameManager)
 	:EnemyBase(
 		world,
@@ -42,16 +39,16 @@ Enemy10::Enemy10(
 		MapType::Double,
 		gameManager,
 		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
-		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
+		std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE)) {
 }
 
-ActorPtr Enemy10::CsvGenerate(const int x, const int y, const int csvparam){
+ActorPtr Enemy10::CsvGenerate(const int x, const int y, const int csvparam) {
 	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(x, y, MapType::Double);
 	FourDirection dir = FourDirection((FourDirectionName)csvparam);
 	return std::make_shared<Enemy10>(p_World, position, dir, p_GameManager);
 }
 
-void Enemy10::SetUpCommand(){
+void Enemy10::SetUpCommand() {
 
 	p_Texture = std::make_shared<AnimationTexture>("Enemy10", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy10"), 32, 8));
 
@@ -65,7 +62,7 @@ void Enemy10::SetUpCommand(){
 	p_CommandManager->Change(EnemyCommandName::Straight);
 }
 
-void Enemy10::SetUpState(){
+void Enemy10::SetUpState() {
 	//生成
 	p_StateManager.reset(new EnemyStateManager());
 	//State追加
@@ -79,9 +76,9 @@ void Enemy10::SetUpState(){
 	p_StateManager->change(EnemyStateName::Idle);
 }
 
-void Enemy10::onDraw() const{
-	p_Texture->GetParameter()->SetPosition(m_Transform.m_Position);
-	p_Texture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
+void Enemy10::onDraw() const {
+	p_Texture->GetParameter()->SetPosition(p_Transform->m_Position);
+	p_Texture->GetParameter()->SetRotate(p_Transform->m_Angle);
 	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
 	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
 	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });

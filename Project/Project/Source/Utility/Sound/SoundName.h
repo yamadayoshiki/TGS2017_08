@@ -1,8 +1,8 @@
-#ifndef SOUND_NAME_H_
-#define SOUND_NAME_H_
+#ifndef SOUNDNAME_H_
+#define SOUNDNAME_H_
 
 
-enum Sound_Name
+enum SoundName
 {
 
 	//PlayerSE
@@ -28,16 +28,6 @@ enum Sound_Name
 	BGM_GAME_PLAY,				//ゲームPlayBGM
 	BGM_GAME_CLER,				//ゲームクリアBGM
 	BGM_GAME_OVER,				//ゲームオーバーBGM
-
-	//UISE
-	SE_BACK,					//戻る
-	SE_DECITION,				//決定
-	SE_KOMBOUP,					//コンボアップ
-	SE_PAUSE_CLOSE,				//ポーズを閉じる
-	SE_PAUSE_OPEN,				//ポーズを開く
-	SE_SHOWINGSCORE,			//スコア表示
-	SE_SHOWINGSCORE_BEFORE,		//スコア表示前
-	SE_START,					//スタート
 };
 
-#endif // !SE_NAME_H_
+#endif

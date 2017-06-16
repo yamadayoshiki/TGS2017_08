@@ -32,11 +32,9 @@ float MathSupport::GetVec2ToVec2Angle(const GSvector2& dynamic, const GSvector2&
 }
 
 // ベクトルの回転
-GSvector2 MathSupport::RotateVector(const GSvector2 & pos, const float & angle) {
-	float f_angle = GetAngleNomalize(angle);
-
+GSvector2 MathSupport::RotateVector(const GSvector2 vector, const float angle) {
 	// 回転後のベクトルを返す
-	return GSvector2(pos.x * gsCos(f_angle) - pos.y * gsSin(f_angle), pos.x * gsSin(f_angle) + pos.y * gsCos(f_angle));
+	return GSvector2(vector.x * gsCos(angle) - vector.y * gsSin(angle), vector.x * gsSin(angle) + vector.y * gsCos(angle));
 }
 
 
@@ -51,25 +49,8 @@ GSvector2 MathSupport::GetAngleToVector2(const float& angle)
 	return GSvector2(x, y);
 }
 
-
-// 座標をマスに変換
-Point2 MathSupport::GetVector2ToPoint2(const GSvector2 vector)
-{
-	//結果変数
-	Point2 result;
-
-	//マスに合わせる
-	int x = vector.x / CHIP_SIZE + 1;
-	int y = vector.y / CHIP_SIZE + 1;
-
-	result.x = x;
-	result.y = y;
-
-	return result;
-}
-
 //角度の正規化(-180<value<=180)
-float MathSupport::GetAngleNomalize(const float angle) {
+float MathSupport::GetAngleClamp(const float angle) {
 	float result = angle;
 	if (result >= 180.0f)
 		result = 180.0f;
@@ -80,6 +61,20 @@ float MathSupport::GetAngleNomalize(const float angle) {
 	if (-180.0f == result)
 		result = 180.0f;
 
+	return result;
+}
+
+//角度の正規化(-180<=value<=180)
+float MathSupport::GetAngleNormalize(const float angle) {
+	float result = angle;
+	while (result < -180)
+	{
+		result += 360;
+	}
+	while (180 < result)
+	{
+		result -= 360;
+	}
 	return result;
 }
 
@@ -106,6 +101,21 @@ unsigned int MathSupport::GetCutNum(const unsigned int value, const unsigned int
 	result = value % (int)std::pow(10, low + length);
 	//下位桁切り捨て
 	result = result / (int)std::pow(10, low);
+
+	return result;
+}
+
+//角度を軸平行角度に変換(-90,0,90,180)
+float MathSupport::AngleCnvAAAngle(const float angle) {
+	float result = GetAngleNormalize(angle);
+	if (result <= -135 || 135 <= result)
+		result = 180;
+	if (result <= -45)
+		result = -90;
+	if (result <= 45)
+		result = 0;
+	if (result <= 135)
+		result = 90;
 
 	return result;
 }

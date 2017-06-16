@@ -1,12 +1,15 @@
 #include "Enemy05.h"
 #include "../../../../../ActorContains/ActorName.h"
-#include "../../../../../TextureContains/Texture/Texture.h"
+#include "../../../../../ActorContains/Transform/Transform.h"
+#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
+#include "../../../../../Define/Def_Nakayama.h"
+#include "../../../../../TextureContains/Texture/Texture.h"
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
-//Map
-#include "../../../../../WorldContains/IWorld.h"
-#include "../../../../../Map/Map.h"
+#include "../../../../../Utility/Animation/Animation.h"
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
@@ -21,25 +24,22 @@
 #include "../../../StateContains/States/MoveContains/Standard/Move/EnemyStateMoveStandard.h"
 #include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 
-#include "../../../../../Utility/TurnDirection/TurnDirection.h"
-#include "../../../../../ActorContains/Body/OrientedBoundingBox.h"
-
 Enemy05::Enemy05(IWorld * world, const GSvector2 & position, const FourDirection front, const IGameManagerPtr & gameManager)
 	:EnemyBase(
 		world,
 		ActorName::Enemy_05,
 		position,
 		front,
-		1,
+		10,
 		MapType::Double,
 		gameManager,
 		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
-		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
+		std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE)) {
 }
 
 ActorPtr Enemy05::CsvGenerate(const int x, const int y, const int csvparam)
 {
-	GSvector2 position = p_World->GetMap()->CsvPosCnvVector2(x, y, m_MapType);
+	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(x, y, m_MapType);
 	FourDirection dir = FourDirection((FourDirectionName)csvparam);
 	return std::make_shared<Enemy05>(p_World, position, dir, p_GameManager);
 }
@@ -74,8 +74,8 @@ void Enemy05::onDraw() const {
 	//p_Body->transform(getTransform())->draw();
 
 	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
-	param.SetRotate(m_Transform.m_Angle + 90);
+	param.SetPosition(p_Transform->m_Position);
+	param.SetRotate(p_Transform->m_Angle + 180);
 	param.SetCenter({ 16.0f, 16.0f });
 	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy02"));
 	param.SetScale({ 1.0f , 1.0f });

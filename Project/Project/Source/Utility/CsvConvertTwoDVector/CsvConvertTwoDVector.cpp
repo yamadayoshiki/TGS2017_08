@@ -82,22 +82,20 @@ std::vector<GSvector2> CsvConvertTwoDVector::GetPatrolPosList(const std::vector<
 	return result;
 }
 
-//GSvector2(中心座標)をcsv座標に変換
-CsvCellData CsvConvertTwoDVector::Vector2CnvCsvPos(const GSvector2 position, const MapType type) {
+//GSvector2をcsv座標に変換
+GSvector2 CsvConvertTwoDVector::Vector2CnvCsvPos(const GSvector2 position, const MapType type) {
 	//1マスの長さ
 	int chipSize = CHIP_SIZE*((int)type + 1);
 	//結果変数
 	GSvector2 result = position;
-	//左上座標に変換
-	result = result - GSvector2(chipSize / 2, chipSize / 2);
 
 	int x = result.x / chipSize;
 	int y = result.y / chipSize;
 
-	return CsvCellData{ x,y,0 };
+	return  GSvector2(x, y);
 }
 
-// 指定された座標をタイルの中心座標に補正
+// 指定された座標をセルの中心座標に補正
 GSvector2 CsvConvertTwoDVector::GetTilePos(const GSvector2 & pos, const MapType type)
 {
 	//1マスの幅

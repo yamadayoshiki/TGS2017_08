@@ -5,9 +5,9 @@
 #include "../../StagingContains/TransitionStaging/SceneTransition.h"
 #include "../../ActorContains/ActorGroup.h"
 #include "../../UIContains/UIManager/UIManager.h"
-#include"../../Utility/Sound_Name.h"
+#include"../../Utility/Sound/SoundName.h"
 
-
+#include <chrono>
 #include <gslib.h>
 #include <memory>
 
@@ -51,14 +51,21 @@ void Scene::Update(float deltaTime)
 	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE  || p_World->IsEnd()) {
 		m_IsEnd = true;
 	}
-		
+	
+	/*
+	std::chrono::system_clock::time_point  start, end; // 型は auto で可
+	start = std::chrono::system_clock::now(); // 計測開始時間
+											  //*/
 	//フラグがたったら画面が止まる
 	if (PauseFlag == false) {
 		//deltaTime = 0;
 		p_World->update(deltaTime);
 	}
-	//ワールド更新
-	//p_World->update(deltaTime);
+	/*
+	end = std::chrono::system_clock::now();  // 計測終了時間
+	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
+	std::cout << "world" << ":Update:" << elapsed << std::endl;
+	//*/
 
 	//各種固有の更新
 	OnUpdate(deltaTime);

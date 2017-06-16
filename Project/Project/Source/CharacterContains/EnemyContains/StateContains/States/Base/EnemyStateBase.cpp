@@ -21,9 +21,9 @@ void EnemyStateBase::input() {
 void EnemyStateBase::handleMessage(EventMessage message, void * param) {
 	switch (message)
 	{
-		case EventMessage::ENEMY_COMMAND_DEAD:
-			change(EnemyStateName::Dead);
-			return;
+	case EventMessage::ENEMY_COMMAND_DEAD:
+		change(EnemyStateName::Dead);
+		return;
 	}
 	//各種固有のメッセージ処理
 	OnHandleMessage(message, param);
@@ -67,26 +67,31 @@ void EnemyStateBase::RegardMove(FourDirection regardDirection, float deltaTime, 
 /*
 //注視移動処理(CLAMPあり)
 PushDirection EnemyStateBase::RegardMoveClamp(FourDirection regardDirection, float deltaTime, float speed) {
-	//結果変数
-	FourDirection result;
+//結果変数
+FourDirection result;
 
-	//移動ベクトルを算出
-	GSvector2 move = GetVelocity(deltaTime, speed);
+//移動ベクトルを算出
+GSvector2 move = GetVelocity(deltaTime, speed);
 
-	//入力がない場合はreturn
-	if (move == GSVECTOR2_ZERO)
-		return;
+//入力がない場合はreturn
+if (move == GSVECTOR2_ZERO)
+return;
 
-	//移動後座標計算
-	move = p_Enemy->getPosition() + move;
+//移動後座標計算
+move = p_Enemy->getPosition() + move;
 
-	//CLAMP処理
-	move = p_Enemy->getWorld()->GetMap().PushForPlayer(p_Enemy->getPosition(), move);
+//CLAMP処理
+move = p_Enemy->getWorld()->GetMap().PushForPlayer(p_Enemy->getPosition(), move);
 
-	//本体に座標を設定
-	p_Enemy->setPosition(move);
+//本体に座標を設定
+p_Enemy->setPosition(move);
 }
 */
+
+//ステートの変更処理
+void EnemyStateBase::Change(const EnemyStateName name, void * param) {
+	change(name);
+}
 
 //移動ベクトル算出
 GSvector2 EnemyStateBase::GetVelocity(float deltaTime, float speed) {
@@ -107,17 +112,17 @@ GSvector2 EnemyStateBase::GetVelocity(float deltaTime, float speed) {
 /*
 //回転処理
 void EnemyStateBase::Rotate(float deltaTime, float speed) {
-	//目標回転角度
-	float targetRotateAngle = p_Enemy->GetCommandManager()->GetCommandRotateAngle();
+//目標回転角度
+float targetRotateAngle = p_Enemy->GetCommandManager()->GetCommandRotateAngle();
 
-	//入力がない場合はreturn
-	if (abs(targetRotateAngle) <= FLOAT_EPSILON)
-		return;
+//入力がない場合はreturn
+if (abs(targetRotateAngle) <= FLOAT_EPSILON)
+return;
 
-	//回転角度を算出
-	float rotate = targetRotateAngle = CLAMP(targetRotateAngle, -speed*deltaTime, speed*deltaTime);
+//回転角度を算出
+float rotate = targetRotateAngle = CLAMP(targetRotateAngle, -speed*deltaTime, speed*deltaTime);
 
-	//本体に回転を設定
-	p_Enemy->setAngle(p_Enemy->SetDirection())
+//本体に回転を設定
+p_Enemy->setAngle(p_Enemy->SetDirection())
 }
 */

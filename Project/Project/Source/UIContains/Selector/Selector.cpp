@@ -15,13 +15,13 @@ void Selector::onUpdate(float deltaTime)
 
 void Selector::onDraw() const
 {
-	p_GameManager->GetRenderer2D()->DrawTexture("Resource/Texture/UI/Block5.png", m_Transform.m_Position);
+	p_GameManager->GetRenderer2D()->DrawTexture("Resource/Texture/UI/Block5.png", getPosition());
 
 }
 
 void Selector::onMessage(EventMessage message, void* param)
 {
-	switch (message){
+	switch (message) {
 	case EventMessage::SELECT:
 		break;
 	default:
