@@ -24,6 +24,11 @@ void Score::AddScore(const int score)
 	m_Score += score;
 }
 
+int Score::ReleaseScore()
+{
+	return m_Score;
+}
+
 //ç¿ïWÇÃê›íË
 void Score::setPosition(const GSvector2& position)
 {

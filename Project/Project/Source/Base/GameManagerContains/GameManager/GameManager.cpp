@@ -91,8 +91,8 @@ void GameManager::LoadContent() {
 	//gsLoadMusic(1,"Resource/SE/")
 	gsLoadMusic(BGM_GAME_TITLE , "Resource/Sound/BGM/title.mp3", GMIDIFLAG::GMIDI_LOOP);
 	gsLoadMusic(BGM_GAME_PLAY  , "Resource/Sound/BGM/play.mp3", GMIDIFLAG::GMIDI_LOOP);
-	gsLoadMusic(BGM_GAME_CLER  , "Resource/Sound/BGM/stageclear",GMIDIFLAG::GMIDI_LOOP);
-	gsLoadMusic(BGM_GAME_OVER  , "Resource/BGM/over", GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_CLER  , "Resource/Sound/BGM/stageclear.mp3",GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_OVER  , "Resource/Sound/BGM/over.mp3", GMIDIFLAG::GMIDI_LOOP);
 
 	//PlayerSE
 	gsLoadSE(SE_PLAYER_ARM, "Resource/Sound/SE/Player/Arm.wav", 1, GWAVE_DEFAULT);
@@ -111,6 +111,16 @@ void GameManager::LoadContent() {
 	gsLoadSE(SE_ENEMY_RUSH, "Resource/Sound/SE/Enemy/Rush.mp3", 10, GWAVE_DEFAULT);
 	gsLoadSE(SE_ENEMY_SHOT, "Resource/Sound/SE/Enemy/Shot.mp3", 10, GWAVE_DEFAULT);
 	gsLoadSE(SE_ENEMY_SPINBOUND, "Resource/Sound/SE/Enemy/SpinBound.mp3", 10, GWAVE_DEFAULT);
+
+	//UISE
+	gsLoadSE(SE_BACK, "Resource/Sound/SE/Scene/back.mp3", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_DECITION, "Resource/Sound/SE/Scene/decition.mp3", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_KOMBOUP, "Resource/Sound/SE/Scene/konboup.mp3", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PAUSE_CLOSE, "Resource/Sound/SE/Scene/pauseclose.mp3", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PAUSE_OPEN, "Resource/Sound/SE/Scene/pauseopen.mp3", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_SHOWINGSCORE, "Resource/Sound/SE/Scene/showingscore.mp3", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_SHOWINGSCORE_BEFORE, "Resource/Sound/SE/Scene/showingscorebefore.mp3", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_START, "Resource/Sound/SE/Scene/start.mp3", 1, GWAVE_DEFAULT);
 }
 
 //ÉRÉìÉeÉìÉcÇÃçÌèú

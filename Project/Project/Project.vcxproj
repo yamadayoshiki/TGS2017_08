@@ -73,8 +73,8 @@
     <LibraryPath>C:\gslib_2015\lib;C:\gslibEXT_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\gslib_2015\inc;C:\Users\nakayama\Documents\gslibEXT_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\gslib_2015\lib;C:\Users\nakayama\Documents\gslibEXT_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\gslib_2015\inc;C:\gslibEXT_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\gslib_2015\lib;C:\gslibEXT_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
@@ -273,6 +273,7 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.h" />
+    <ClInclude Include="Source\SceneContains\GameOver\GameOver.h" />
     <ClInclude Include="Source\UIContains\Text\Text.h" />
     <ClInclude Include="Source\UIContains\Text\TextCreator.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h" />
@@ -470,6 +471,7 @@
     <ClCompile Include="Source\Map\Map.cpp" />
     <ClCompile Include="Source\SceneContains\GameCredit\GameCredit.cpp" />
     <ClCompile Include="Source\SceneContains\GameEnd\GameEnd.cpp" />
+    <ClCompile Include="Source\SceneContains\GameOver\GameOver.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp" />
     <ClCompile Include="Source\SceneContains\GameResult\GameResult.cpp" />
     <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp" />

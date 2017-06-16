@@ -48,10 +48,9 @@ void GamePlay::OnStart() {
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime) {
-	gsPlayMusic();
+	gsPlayMusic(BGM_GAME_PLAY);
 	//ポーズ
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE) { PauseFlag = !PauseFlag; }
-	
 	if (PauseFlag == true)
 	{
 		if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
@@ -83,13 +82,14 @@ void GamePlay::OnUpdate(float deltaTime) {
 	if (p_World->GetSurviverSum() <= 0) {
 		p_World->EndRequest(SceneName::GameResult);
 	}
+	
 }
 
 void GamePlay::OnDraw() const {
 	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
 
 	p_World->GetMap()->draw();
-
+	//ポーズ画面
 	if (PauseFlag == true)
 	{
 		p_GameManager->GetRenderer2D()->DrawTexture("Pause", GSvector2(0, 0));
@@ -110,6 +110,7 @@ void GamePlay::OnDraw() const {
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
 	p_GameManager->GetPlayerParameter().DrawCombo(p_GameManager->GetRenderer2D());
 	p_GameManager->GetScore()->draw();
+	p_GameManager->GetScore()->setPosition(GSvector2(200, 50));
 	gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
 	gsTextPos(900, 50);
 	gsDrawText("あと %d 体", p_World->GetSurviverSum());
@@ -118,7 +119,7 @@ void GamePlay::OnDraw() const {
 
 void GamePlay::End()
 {
-	gsStopMusic();
+	gsStopMusic(BGM_GAME_PLAY);
 
 	if (MapOrder == 1) {
 		p_GameManager->set_MapOrder(MapOrder);

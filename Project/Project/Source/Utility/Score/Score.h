@@ -12,6 +12,8 @@ public:
 	void initialze();
 	//スコアの加算
 	void AddScore(const int score);
+	//スコアの数値を渡す
+	int ReleaseScore();
 	//座標の設定
 	void setPosition(const GSvector2& position);
 	//描画
