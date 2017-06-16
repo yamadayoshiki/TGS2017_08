@@ -20,8 +20,6 @@ protected:
 	virtual void OnInitialize() override;
 	//各種固有の更新
 	virtual void OnUpdate(float deltaTime) override;
-	//メッセージ処理
-	void handleMessage(EventMessage message, void* param)override;
 
 protected:
 	//目標地点に到着したリアクション

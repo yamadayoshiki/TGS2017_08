@@ -1,6 +1,7 @@
 #include "EnemyCommandBase.h"
 #include "../../../../../Define/Def_GSvector2.h"
 #include "../../../Entity/Enemys/Base/EnemyBase.h"
+#include "../../../../../ActorContains/Body/Base/Body.h"
 #include "../../../../../Map/Map.h"
 #include "../../../../../WorldContains/IWorld.h"
 #include "../../../../../Define/Def_Nakayama.h"

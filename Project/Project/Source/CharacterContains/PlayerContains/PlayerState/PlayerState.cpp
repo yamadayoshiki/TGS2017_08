@@ -6,12 +6,12 @@
 #include"../../../Utility/FourDirection/FourDirection.h"
 #include "../../../Define/Def_Nakayama.h"
 #include"../../../Map/MapType.h"
-#include "../../../ActorContains/Transform/Transform.h"
+
 //コンストラクタ
 PlayerState::PlayerState(const Player_WPtr& player, const IGameManagerPtr& gameManager)
 	: p_Player(player)
 	, p_GameManager(gameManager)
-	, m_TransForm(*player.lock()->getTransform().get())
+	, m_TransForm(player.lock()->getTransform())
 	, m_Parameter(player.lock()->getParameter())
 	, p_Map(player.lock()->getWorld()->GetMap())
 {
@@ -25,9 +25,9 @@ void PlayerState::input() {}
 void PlayerState::armUpdate()
 {
 	//アームの回転処理
-	m_Children[ActorName::Player_Arm]->setAngle(p_Player.lock()->getTransform()->m_Angle);
+	m_Children[ActorName::Player_Arm]->setAngle(p_Player.lock()->getTransform().m_Angle);
 	//アームの座標更新処理
-	m_Children[ActorName::Player_Arm]->setPosition(p_Player.lock()->getPosition() + p_Player.lock()->getTransform()->GetForward() * 16);
+	m_Children[ActorName::Player_Arm]->setPosition(p_Player.lock()->getTransform().m_Position + p_Player.lock()->getBody()->forward() * 16);
 }
 //移動処理
 void PlayerState::move(float deltaTime, float speed)
@@ -45,8 +45,8 @@ void PlayerState::move(float deltaTime, float speed)
 		p_Player.lock()->setAngle(MathSupport::GetVec2ToVec2Angle(inputVelocity));
 
 		//座標移動
-		m_Position = p_Player.lock()->getPosition() + p_Input->PadVelocity() * speed * deltaTime;
-
+		m_Position = p_Player.lock()->getTransform().m_Position + p_Input->PadVelocity() * speed * deltaTime;
+		
 		result = p_Map.lock()->PushForChara(p_Player.lock()->getPosition(), m_Position, MapType::Double);
 
 		/******************************************************************************************************************************/
@@ -62,11 +62,11 @@ void PlayerState::move(float deltaTime, float speed)
 bool PlayerState::is_Scorp_Angle(const Actor& other)
 {
 	//自分の方向ベクトル
-	GSvector2 myVector = p_Player.lock()->getTransform()->GetForward();
+	GSvector2 myVector = p_Player.lock()->getBody()->forward();
 	myVector.normalize();
 
 	//相手のベクトル
-	GSvector2 targetVector = other.getPosition() - (p_Player.lock()->getPosition() - p_Player.lock()->getTransform()->GetForward() * 16);
+	GSvector2 targetVector = other.getPosition() - (p_Player.lock()->getPosition() - p_Player.lock()->getBody()->forward() * 16);
 	targetVector.normalize();
 
 	//自分と相手のベクトルからなす角を取る

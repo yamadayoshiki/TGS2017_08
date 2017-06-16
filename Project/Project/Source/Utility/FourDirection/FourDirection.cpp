@@ -134,7 +134,7 @@ GSvector2 FourDirection::GetVector2() const {
 //Šp“x‚É’u‚«Š·‚¦
 float FourDirection::GetAngle() const {
 	float result;
-	result = MathSupport::GetVec2ToVec2Angle(GetVector2());
+	result = MathSupport::GetVec2ToVec2Angle(GetVector2(), DIRECTION_RIGHT);
 	return result;
 }
 

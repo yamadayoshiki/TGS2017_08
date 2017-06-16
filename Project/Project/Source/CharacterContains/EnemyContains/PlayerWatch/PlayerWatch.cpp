@@ -5,7 +5,6 @@
 #include "../../../Utility/CsvConvertTwoDVector/CsvCellData.h"
 #include <GSvector2.h>
 #include "../../../Utility/FourDirection/FourDirection.h"
-#include "../../../ActorContains/Transform/Transform.h"
 
 PlayerWatch::PlayerWatch(const ActorPtr user)
 	:p_User(user)
@@ -27,9 +26,9 @@ GSvector2 PlayerWatch::GetToPlayerDis() const {
 
 GSvector2 PlayerWatch::GetToPlayerChipDis() const{
 	//プレイヤーがいるマス
-	GSvector2 player = CsvConvertTwoDVector::Vector2CnvCsvPos(p_Player.lock()->getPosition(), p_User.lock()->GetMapType());
+	CsvCellData player = CsvConvertTwoDVector::Vector2CnvCsvPos(p_Player.lock()->getPosition(), p_User.lock()->GetMapType());
 	//エネミーがいるマス
-	GSvector2 enemy = CsvConvertTwoDVector::Vector2CnvCsvPos(p_User.lock()->getPosition(), p_User.lock()->GetMapType());
+	CsvCellData enemy = CsvConvertTwoDVector::Vector2CnvCsvPos(p_User.lock()->getPosition(), p_User.lock()->GetMapType());
 	//差分
 	int x = player.x - enemy.x;
 	int y = player.y - enemy.y;
@@ -38,5 +37,5 @@ GSvector2 PlayerWatch::GetToPlayerChipDis() const{
 }
 
 FourDirection PlayerWatch::GetPlayerFrontDir() const {
-	return FourDirection(p_Player.lock()->getTransform()->m_Angle);
+	return FourDirection(p_Player.lock()->getTransform().m_Angle);
 }

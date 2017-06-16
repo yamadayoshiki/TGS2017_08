@@ -1,7 +1,7 @@
 #include"PlayerState_Dash.h"
 
 #include "../../../../../../Define/Def_Nakayama.h"
-#include "../../../../../../ActorContains/Transform/Transform.h"
+
 //コンストラクタ
 PlayerState_Dash::PlayerState_Dash(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
@@ -18,9 +18,9 @@ void PlayerState_Dash::unique_init()
 	//スピード初期化
 	speed = 32.0f;
 	//Playerの方向ベクトル
-	m_Direction = p_Player.lock()->getTransform()->GetForward();
+	m_Direction = p_Player.lock()->getBody()->forward();
 	//エンド地点の設定
-	endPos = p_Player.lock()->getPosition() + m_Direction * (64 * 4);
+	endPos = p_Player.lock()->getTransform().m_Position + m_Direction * (64 * 4);
 	
 	m_Flag = false;
 
@@ -31,7 +31,7 @@ void PlayerState_Dash::unique_init()
 void PlayerState_Dash::update(float deltaTime)
 {
 	ResultPushDirection resultPush;
-	GSvector2 setPos = p_Player.lock()->getTransform()->m_Position += m_Direction * speed * deltaTime;
+	GSvector2 setPos = p_Player.lock()->getTransform().m_Position += m_Direction * speed * deltaTime;
 
 	/******************************************************************************************************************************/
 	/*追し出し処理*/
@@ -50,7 +50,7 @@ void PlayerState_Dash::update(float deltaTime)
 	if (result <= 1.0f) {
 		change(PlayerStateName::Walk);
 	}
-	if (p_Map.lock()->IsInFrontOfTheWall(p_Player.lock()->getPosition(), FourDirection(p_Player.lock()->getTransform()->GetForward()), MapType::Double)
+	if (p_Map.lock()->IsInFrontOfTheWall(p_Player.lock()->getPosition(), FourDirection(p_Player.lock()->getBody()->forward()), MapType::Double)
 		|| m_FramConter >= 30) {
 		change(PlayerStateName::Walk);
 	}

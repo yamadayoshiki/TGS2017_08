@@ -1,7 +1,6 @@
 #include "Charge.h"
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
-#include "../../../ActorContains/Transform/Transform.h"
 
 Charge::Charge(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager)
 	:Actor(world,ActorName::Charge,position,gameManager)
@@ -34,14 +33,14 @@ void Charge::onUpdate(float deltaTime)
 
 	const auto& player = p_World->findActor(ActorName::Player);
 	if (player == nullptr)return;
-	p_Transform = player->getTransform();
+	m_Transform = player->getTransform();
 }
 
 //•`‰æˆ—
 void Charge::onDraw()const
 {
-	p_AnimationTexture->GetParameter()->SetPosition(getPosition());
-	p_AnimationTexture->GetParameter()->SetRotate(p_Transform->m_Angle);
+	p_AnimationTexture->GetParameter()->SetPosition(m_Transform.m_Position);
+	p_AnimationTexture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
 	p_AnimationTexture->GetParameter()->SetCenter({ 32.0f, 32.0f });
 	p_AnimationTexture->GetParameter()->SetScale({ 1.0f , 1.0f });
 	p_AnimationTexture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });

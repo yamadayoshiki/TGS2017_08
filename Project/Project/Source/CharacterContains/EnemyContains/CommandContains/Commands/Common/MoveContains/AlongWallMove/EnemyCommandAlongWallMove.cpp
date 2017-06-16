@@ -2,9 +2,9 @@
 #include "../../../../../../../Define/Def_GSvector2.h"
 #include "../../../../../../../WorldContains/IWorld.h"
 #include "../../../../../../../Define/Def_Float.h"
+#include "../../../../../../../ActorContains/Transform/Transform.h"
 #include "../../../../../../../TargetPosition/TargetPosition.h"
 #include "../../../../../Entity/Enemys/Base/EnemyBase.h"
-#include "../../../../../../../ActorContains/Transform/Transform.h"
 
 //コンストラクタ
 EnemyCommandAlongWallMove::EnemyCommandAlongWallMove(
@@ -30,7 +30,7 @@ void EnemyCommandAlongWallMove::Finalize() {
 //各種固有の初期化
 void EnemyCommandAlongWallMove::OnInitialize() {
 	Finalize();
-	p_TargetPosition->AlongWall(p_Enemy.lock()->getPosition(), FourDirection(p_Enemy.lock()->getTransform()->m_Angle));
+	p_TargetPosition->AlongWall(p_Enemy.lock()->getPosition(), FourDirection(p_Enemy.lock()->getTransform().m_Angle));
 	m_NextTargetPos = p_TargetPosition->GetNextPos();
 }
 

@@ -1,15 +1,12 @@
 #include "EnemyBullet01.h"
+//コンストラクタ
 #include "../../../../../ActorContains/ActorName.h"
-#include "../../../../../ActorContains/Transform/Transform.h"
-#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
-#include "../../../../../Base/GameManagerContains/IGameManager.h"
-#include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
-#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../ActorContains/Body/OrientedBoundingBox.h"
 #include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+//描画
+#include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
-#include "../../../../../Utility/FourDirection/FourDirection.h"
-#include "../../../../../Utility/Animation/Animation.h"
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
@@ -22,6 +19,9 @@
 #include "../../../StateContains/States/CaughtContains/ReleaseDead/EnemyStateCaughtReleaseDead.h"
 #include "../../../StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
 #include "../../../StateContains/States/DeadContaint/Standard/EnemyStateDeadStandard.h"
+
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../Utility/Animation/Animation.h"
 
 EnemyBullet01::EnemyBullet01(
 	IWorld * world, 
@@ -36,7 +36,7 @@ EnemyBullet01::EnemyBullet01(
 	MapType::Double,
 	gameManager,
 	std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
-	std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE)) {
+	std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
 }
 
 ActorPtr EnemyBullet01::CsvGenerate(const int x, const int y, const int csvparam){
@@ -70,8 +70,8 @@ void EnemyBullet01::SetUpState(){
 }
 
 void EnemyBullet01::onDraw() const{
-	p_Texture->GetParameter()->SetPosition(getPosition());
-	p_Texture->GetParameter()->SetRotate(p_Transform->m_Angle);
+	p_Texture->GetParameter()->SetPosition(m_Transform.m_Position);
+	p_Texture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
 	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
 	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
 	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });

@@ -4,7 +4,6 @@
 #include "../Define/Def_Nakayama.h"
 #include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 #include "../Utility/CsvConvertTwoDVector/CsvCellData.h"
-#include "../Map/TerrainName.h"
 
 //コンストラクタ
 FrontChipList::FrontChipList(
@@ -84,7 +83,7 @@ void FrontChipList::SetFrontChipList(
 bool FrontChipList::GetSpeaceExist()
 {
 	for (auto itr = m_List.cbegin(); itr != m_List.cend(); ++itr)
-		if (*itr == TerrainName::Speace)
+		if (*itr == 0)
 			return true;
 
 	return false;
@@ -97,7 +96,7 @@ int FrontChipList::GetSpeaceNum()
 	int result = 0;
 	for (auto itr = m_List.cbegin(); itr != m_List.cend(); ++itr)
 	{
-		if (*itr != TerrainName::Speace)
+		if (*itr == 1)
 			break;
 
 		else
@@ -120,7 +119,7 @@ int FrontChipList::GeTheOffSideOfTheWallChipNum()
 		//マス加算
 		result++;
 		//壁か
-		if (*itr == TerrainName::Wall|| *itr == TerrainName::BreakeWall)
+		if (*itr == 1)
 			flag_1 = true;
 		//壁越しの空きマスか
 		else
@@ -141,7 +140,8 @@ float FrontChipList::GetToWallLength(const GSvector2 pos, const FourDirection di
 	//壁までの空きマスの数
 	int speaceNum = GetSpeaceNum();
 	//自分のマス準拠座標
-	GSvector2 cellDataVector2 = CsvConvertTwoDVector::Vector2CnvCsvPos(pos, m_Type);
+	CsvCellData cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(pos, m_Type);
+	GSvector2 cellDataVector2 = GSvector2(cellData.x, cellData.y);
 	//壁手前の空きマスのcsv座標
 	GSvector2 speaceCellPos = cellDataVector2 + direction.GetVector2() * speaceNum;
 	//壁手前の空きマスの座標

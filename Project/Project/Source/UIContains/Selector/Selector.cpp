@@ -15,7 +15,7 @@ void Selector::onUpdate(float deltaTime)
 
 void Selector::onDraw() const
 {
-	p_GameManager->GetRenderer2D()->DrawTexture("Resource/Texture/UI/Block5.png", getPosition());
+	p_GameManager->GetRenderer2D()->DrawTexture("Resource/Texture/UI/Block5.png", m_Transform.m_Position);
 
 }
 

@@ -2,13 +2,11 @@
 
 #include "Actor.h"
 #include "../NullActor/NullActor.h"
+#include "../Body/Base/HitInfo.h"
 #include "../../WorldContains/IWorld.h"
 #include "../../TextureContains/NullTexture/NullTexture.h"
-#include "../Transform/Transform.h"
 
 #include <memory>
-
-#include <chrono>
 
 //コンストラクタ
 Actor::Actor(
@@ -21,11 +19,10 @@ Actor::Actor(
 	: p_World(world)
 	, p_GameManager(gaemManager)
 	, m_Name(name)
-	, p_Transform(std::make_shared<Transform>(position, 0.0f))
+	, m_Transform({ position, 0.0f })
 	, p_Texture(texture)
 	, p_Body(body)
-	, m_dead(false) {
-	p_Body->SetTransform(p_Transform);
+	, m_dead(false){
 }
 
 //コンストラクタ
@@ -34,7 +31,7 @@ Actor::Actor(const ActorName& name)
 		nullptr,
 		name,
 		{ 0.0f,0.0f }
-		, nullptr) {
+		, nullptr){
 }
 
 //仮想デストラクタ
@@ -47,36 +44,13 @@ void Actor::initialize() {
 
 //更新
 void Actor::update(float deltaTime) {
-	/*
-	std::chrono::system_clock::time_point  start, end; // 型は auto で可
-	start = std::chrono::system_clock::now(); // 計測開始時間
-	//*/
-
 	onUpdate(deltaTime);
-
-	/*
-	end = std::chrono::system_clock::now();  // 計測終了時間
-	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
-	std::cout << (int)m_Name << ":Update:" << elapsed << std::endl;
-	//*/
 	eachChildren([&](Actor& child) {child.update(deltaTime); });
-
 }
 
 //描画
 void Actor::draw() const {
-	/*
-	std::chrono::system_clock::time_point  start, end; // 型は auto で可
-	start = std::chrono::system_clock::now(); // 計測開始時間
-	//*/
-
 	onDraw();
-
-	/*
-	end = std::chrono::system_clock::now();  // 計測終了時間
-	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
-	std::cout << (int)m_Name << ":Draw:" << elapsed << std::endl;
-	//*/
 	eachChildren([](const Actor& child) { child.draw(); });
 }
 
@@ -107,12 +81,12 @@ const ActorName Actor::getName() const {
 
 //座標を取得
 GSvector2 Actor::getPosition() const {
-	return p_Transform->m_Position;
+	return m_Transform.m_Position;
 }
 
 //変換情報を取得
-TransformPtr Actor::getTransform() const {
-	return p_Transform;
+Transform Actor::getTransform() const {
+	return m_Transform;
 }
 
 //子の検索
@@ -221,25 +195,25 @@ IWorld * Actor::getWorld() const {
 
 //衝突判定図形の取得
 IBodyPtr Actor::getBody() const {
-	return p_Body;
+	return p_Body->transform(getTransform());
 }
 
 int Actor::getCount() const {
 	return std::distance(m_children.begin(), m_children.end());
 }
 
-MapType Actor::GetMapType() const {
+MapType Actor::GetMapType() const{
 	return MapType::Default;
 }
 
 //座標を設定
 void Actor::setPosition(const GSvector2 & pos) {
-	p_Transform->m_Position = pos;
+	m_Transform.m_Position = pos;
 }
 
 //角度を設定
 void Actor::setAngle(const float & angle) {
-	p_Transform->m_Angle = angle;
+	m_Transform.m_Angle = angle;
 }
 
 //テクスチャを取得
@@ -252,21 +226,26 @@ ActorPtr Actor::CsvGenerate(const int x, const int y, const int csvparam) {
 	return nullptr;
 }
 
+//メッセージ処理
+void Actor::onMessage(EventMessage message, void * param) {
+}
+
+//各種固有の更新
+void Actor::onUpdate(float deltaTime) {
+}
+
+//各種固有の描画
+void Actor::onDraw() const {
+	p_Body->transform(getTransform())->draw();
+}
+
+//衝突した
+void Actor::onCollide(Actor & other) {
+	dead();
+}
+
 // 衝突判定
 bool Actor::isCollide(const Actor & other) {
-	/*
-	std::chrono::system_clock::time_point  start, end; // 型は auto で可
-	start = std::chrono::system_clock::now(); // 計測開始時間
-	//*/
-
 	// 回転を含む場合
-	bool result = p_Body->IsCollide(other.getBody().get());
-
-	/*
-	end = std::chrono::system_clock::now();  // 計測終了時間
-	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
-	std::cout << ":Actor::isCollide:" << elapsed << std::endl;
-	//*/
-
-	return result;
+	return p_Body->transform(getTransform())->isCollide(*other.getBody().get(), HitInfo());
 }

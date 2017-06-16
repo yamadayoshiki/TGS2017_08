@@ -5,10 +5,8 @@
 #include"../Utility/Rederer2D/Renderer2D.h"
 #include"../WorldContains/EventMessage/EventMessage.h"
 #include"TerrainName.h"
-#include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 
 #include <algorithm>
-#include <chrono>
 
 //コンストラクタ
 Map::Map(const IGameManagerPtr& gameManager) :
@@ -17,33 +15,17 @@ Map::Map(const IGameManagerPtr& gameManager) :
 }
 
 //描画
-void Map::draw(const MapType& type) {
-	GSvector2 pos;
-	Renderer2DPtr renderer = p_GameManager->GetRenderer2D();
+void Map::draw(const MapType& type){
 	// 行のループ
 	for (int i = 0; i < m_Maps[type].size(); i++)
 		// 列のループ
 		for (int j = 0; j < m_Maps[type][i].size(); j++)
-			if (m_Maps[type][i][j] == TerrainName::Wall)
-			{
-				pos.x = j; pos.y = i;
-
-				/*
-				std::chrono::system_clock::time_point  start, end; // 型は auto で可
-				start = std::chrono::system_clock::now(); // 計測開始時間
-														  //*/
-				renderer->DrawTexture("chip", pos * CHIP_SIZE);
-
-				/*
-				end = std::chrono::system_clock::now();  // 計測終了時間
-				double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
-				std::cout << "Map" << ":Draw:" << elapsed << std::endl;
-				//*/
-			}
+			if (m_Maps[type][i][j] == 1)
+				p_GameManager->GetRenderer2D()->DrawTexture("chip", GSvector2(j, i)* CHIP_SIZE);
 }
 
 //マップの取得
-CsvTwoDVectorTerrainData& Map::getmap(const MapType& type) {
+MapData& Map::getmap(const MapType& type) {
 	return m_Maps[type];
 }
 
@@ -51,10 +33,10 @@ void Map::regist(const MapData& data, const MapType& type) {
 	/*MaoTypeDouble以上の場合左上のみ取り出し*/
 	// 行のループ
 	for (int i = 0; i < data.size(); i += ((int)type + 1)) {
-		std::vector<TerrainName> tmp;
+		std::vector<int> tmp;
 		// 列のループ
 		for (int j = 0; j < data[i].size(); j += ((int)type + 1)) {
-			tmp.push_back(data[i][j] != 1 ? TerrainName::Speace : TerrainName::Wall);
+			tmp.push_back(data[i][j] != 1 ? 0 : 1);
 		}
 		m_Maps[type].push_back(tmp);
 	}
@@ -82,10 +64,10 @@ std::unordered_map<FourDirection, TileData> Map::GetAroundTile(const GSvector2& 
 }
 
 //指定された座標の縦軸のブロックの取得
-std::vector<TerrainName> Map::GetRow(const GSvector2 & position, const MapType& type) {
+std::vector<int> Map::GetRow(const GSvector2 & position, const MapType& type) {
 	int x = position.x / (CHIP_SIZE* ((int)type + 1));
 
-	std::vector<TerrainName> tmp;
+	std::vector<int> tmp;
 
 	for (int i = 0; i < m_Maps[type].size(); i++) {
 		tmp.push_back(m_Maps[type][i][x]);
@@ -95,7 +77,7 @@ std::vector<TerrainName> Map::GetRow(const GSvector2 & position, const MapType& 
 }
 
 //指定された座標の横軸のブロックの取得
-std::vector<TerrainName> Map::GetColumn(const GSvector2 & position, const MapType& type) {
+std::vector<int> Map::GetColumn(const GSvector2 & position, const MapType& type) {
 	int y = position.y / (CHIP_SIZE* ((int)type + 1));
 
 	return m_Maps[type][y];
@@ -188,17 +170,25 @@ GSvector2 Map::GetTilePos(const GSvector2& pos, const MapType type) {
 	return GSvector2(x, y);
 }
 
-//指定された座標の情報更新
-void Map::SetcsvParameter(const GSvector2 position, const TerrainName name, IWorld* world) {
-	SetcsvParameter(position, name, MapType::Default);
-	SetcsvParameter(position, name, MapType::Double);
+//指定されたcsv座標の情報更新
+void Map::SetcsvParameter(GSvector2 position, int parameter, MapType type, IWorld* world)
+{
+	int x = position.x / (CHIP_SIZE * ((int)type + 1));
+	int y = position.y / (CHIP_SIZE * ((int)type + 1));
+
+	m_Maps[type][y][x] = parameter;
+
+	Debug(type);
+
 	world->sendMessage(EventMessage::MapDataUpdate);
 }
 
-//指定された座標の情報更新(MapType引数あり)
-void Map::SetcsvParameter(const GSvector2 position, const TerrainName name, const MapType type) {
-	GSvector2 cellPos = CsvConvertTwoDVector::Vector2CnvCsvPos(position, type);
-	m_Maps[type][cellPos.y][cellPos.x] = name;
+void Map::DeleteChip(GSvector2 position, IWorld * world) {
+	SetcsvParameter(position + GSvector2(0, 0) * CHIP_SIZE, 0, MapType::Default, world);
+	SetcsvParameter(position + GSvector2(1, 0) * CHIP_SIZE, 0, MapType::Default, world);
+	SetcsvParameter(position + GSvector2(0, 1) * CHIP_SIZE, 0, MapType::Default, world);
+	SetcsvParameter(position + GSvector2(1, 1) * CHIP_SIZE, 0, MapType::Default, world);
+	SetcsvParameter(position, 0, MapType::Double, world);
 }
 
 void Map::Debug(const MapType type) {
@@ -207,13 +197,18 @@ void Map::Debug(const MapType type) {
 	for (int i = 0; i < m_Maps[type].size(); i++) {
 		// 列のループ
 		for (int j = 0; j < m_Maps[type][i].size(); j++) {
-			std::cout << (int)m_Maps[type][i][j];
+			std::cout << m_Maps[type][i][j];
 		}
 		std::cout << "\n";
 	}
 	std::cout << "\n";
 }
 
+//神保
+// データの取得
+int Map::operator [] (const Point2& position) const {
+	return m_Maps.at(MapType::Default)[position.y][position.x];
+}
 // 幅の取得
 int Map::GetWidth(const MapType& type) const {
 	return m_Maps.at(type)[0].size();

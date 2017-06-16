@@ -10,16 +10,17 @@
 #include "../ActorPtr.h"
 #include "../ActorName.h"
 
+#include "../Body/Base/IBodyPtr.h"
+#include "../Body/Base/DammyBody.h"
+#include "../Body/Base/HitInfo.h"
+
 #include "../../Base/GameManagerContains/IGameManagerPtr.h"
 #include "../../TextureContains/ITexturePtr.h"
 #include "../../TextureContains/NullTexture/NullTexture.h"
+#include "../Transform/Transform.h"
 
 #include "../../Utility/FourDirection/FourDirection.h"
 #include "../../Map/MapType.h"
-
-#include "../BodyContains/Interface/IBodyPtr.h"
-#include "../BodyContains/NullBody/NullBody.h"
-#include "../Transform/TransformPtr.h"
 
 enum class EventMessage;
 class IWorld;
@@ -35,7 +36,7 @@ public:
 		const GSvector2& position,
 		const IGameManagerPtr& gaemManager,
 		const ITexturePtr& texture = std::make_shared<NullTexture>(),
-		const IBodyPtr& body = std::make_shared<Body::NullBody>());
+		const IBodyPtr& body = std::make_shared<DammyBody>());
 	//コンストラクタ
 	explicit Actor(const ActorName& name = ActorName::None);
 	//仮想デストラクタ
@@ -58,7 +59,7 @@ public:
 	GSvector2 getPosition() const;
 
 	//変換情報を取得
-	TransformPtr getTransform() const;
+	Transform getTransform() const;
 
 	//子の検索
 	ActorPtr findChildren_NullActor(const ActorName& name);
@@ -110,29 +111,41 @@ public:
 
 protected:
 	//メッセージ処理
-	virtual void onMessage(EventMessage message, void* param) {}
+	virtual void onMessage(EventMessage message, void* param);
 	//更新
-	virtual void onUpdate(float deltaTime){}
+	virtual void onUpdate(float deltaTime);
 	//描画
-	virtual void onDraw() const {}
-	//衝突リアクション
-	virtual void onCollide(Actor& other) {}
+	virtual void onDraw() const;
+	//衝突した
+	virtual void onCollide(Actor& other);
 public:
 	//衝突判定
 	bool isCollide(const Actor& other);
 
 
 protected:
-	IWorld* p_World;				//ワールド
-	IGameManagerPtr p_GameManager;	//ゲームマネージャ
-	ActorName m_Name;				//名前
-	TransformPtr p_Transform;		//トランスフォーム
-	ITexturePtr	p_Texture;			//テクスチャ
-	IBodyPtr p_Body;				//衝突判定図形
-	bool m_dead;					//死亡しているか
+	//ワールド
+	IWorld* p_World;
+	//ゲームマネージャー
+	IGameManagerPtr p_GameManager;
+	//名前
+	ActorName m_Name;
+
+	// 変換
+	Transform m_Transform;
+
+	//衝突判定
+	IBodyPtr p_Body;
+	// 衝突情報
+	HitInfo m_HitInfo;
+	//死亡フラグ
+	bool m_dead;
+	//テクスチャ
+	ITexturePtr	p_Texture;
 
 private:
-	std::forward_list<ActorPtr> m_children;	//子アクター
+	//子アクター
+	std::forward_list<ActorPtr> m_children;
 };
 
-#endif
+#endif // !ACTOR_H_

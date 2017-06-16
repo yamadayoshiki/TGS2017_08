@@ -6,7 +6,6 @@
 #include <GSvector2.h>
 #include "../Utility/FourDirection/FourDirection.h"
 #include "../Map/MapPtr.h"
-enum class TerrainName;
 
 //前方マスクラス
 class FrontChipList
@@ -32,10 +31,10 @@ public:
 	float GetToWallLength(const GSvector2 pos,const FourDirection direction, const float width);
 
 private:
-	MapWPtr p_Map;							//マップ
-	std::vector<TerrainName> m_List;		//前方マスList
-	MapType m_Type;							//マップタイプ
-	FourDirection m_FrontDirection;			//向き
+	MapWPtr p_Map;					//マップ
+	std::vector<int> m_List;		//前方マスList
+	MapType m_Type;					//マップタイプ
+	FourDirection m_FrontDirection;	//向き
 };
 
 #endif
