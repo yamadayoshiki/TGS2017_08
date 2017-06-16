@@ -3,7 +3,7 @@
 #include"../../../Utility/InputState/InputState.h"
 #include"../../../Utility/Score/Score.h"
 #include"../../../Utility/EnumRap/EnumRap.h"
-#include"../../../Utility/Sound_Name.h"
+#include"../../../Utility/Sound/SoundName.h"
 
 #include<GSmusic.h>
 

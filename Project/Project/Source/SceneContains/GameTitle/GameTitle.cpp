@@ -10,7 +10,7 @@
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Define/Def_Nagano.h"
 #include"../../Utility/InputState/InputState.h"
-#include"../../Utility/Sound_Name.h"
+#include"../../Utility/Sound/SoundName.h"
 
 #include<GSmusic.h>
 

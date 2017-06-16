@@ -1,6 +1,7 @@
 #include"Arm.h"
-#include"../../../ActorContains/Body/OrientedBoundingBox.h"
-
+#include "../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
+#include "../../../Define/Def_Nakayama.h"
+#include "../../../ActorContains/Transform/Transform.h"
 
 //コンストラクタ
 Arm::Arm(IWorld* world, GSvector2& position, IGameManagerPtr gameManager)
@@ -9,7 +10,7 @@ Arm::Arm(IWorld* world, GSvector2& position, IGameManagerPtr gameManager)
 	, position
 	, gameManager
 	, std::make_shared<NullTexture>()
-		, std::make_shared<OrientedBoundingBox>(GSvector2{0.0f,0.0f}, -90.0f, GSvector2{ 1.0f, 2.0f }))
+		, std::make_shared<Body::AARectangle>(CHIP_SIZE,CHIP_SIZE))
 	,m_Angle(0.0f)
 	,mHitFlag(false)
 {
@@ -23,7 +24,7 @@ Arm::~Arm()
 //更新処理
 void Arm::onUpdate(float deltaTime)
 {
-	m_Transform.m_Position = m_Transform.m_Position.clamp(GSvector2(16.0f, 16.0f), GSvector2(1280 - 16, 960 - 16));
+	p_Transform->m_Position = getPosition().clamp(GSvector2(16.0f, 16.0f), GSvector2(1280 - 16, 960 - 16));
 }
 //描画処理
 void Arm::onDraw()const

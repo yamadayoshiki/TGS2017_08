@@ -13,9 +13,6 @@ EnemyStateCrushStandard::EnemyStateCrushStandard(const EnemyBasePtr& enemy)
 void EnemyStateCrushStandard::unique_init() {
 	//モーションの変更
 
-	//ダメージを受ける
-
-	p_Enemy.lock()->GetHitPoint().Decrease(1);
 }
 
 // 更新処理

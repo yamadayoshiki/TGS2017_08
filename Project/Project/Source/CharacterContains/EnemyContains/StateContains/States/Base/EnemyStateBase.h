@@ -36,6 +36,8 @@ protected:
 	virtual void collide(const Actor & other) override {}
 	// 終了時の処理
 	virtual void end() override {}
+	//ステートの変更処理
+	void Change(const EnemyStateName name, void* param);
 
 private:
 	//移動ベクトル算出

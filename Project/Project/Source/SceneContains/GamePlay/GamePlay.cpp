@@ -3,6 +3,8 @@
 #include <gslib.h>
 #include<GSmusic.h>
 
+#include <chrono>
+
 #include "../SceneName.h"
 #include "../../WorldContains/World/World.h"
 #include"../../ActorContains/ActorGroup.h"
@@ -16,7 +18,7 @@
 #include"../../MapGenerator/MapGenerator.h"
 #include "../../Utility/FourDirection/FourDirection.h"
 #include"../../CharacterContains/Factory/CharacterFactory.h"
-#include"../../Utility/Sound_Name.h"
+#include"../../Utility/Sound/SoundName.h"
 
 
 // コンストラクタ    
@@ -87,8 +89,16 @@ void GamePlay::OnUpdate(float deltaTime) {
 
 void GamePlay::OnDraw() const {
 	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
-
+	/*
+	std::chrono::system_clock::time_point  start, end; // 型は auto で可
+	start = std::chrono::system_clock::now(); // 計測開始時間
+	//*/
 	p_World->GetMap()->draw();
+	/*
+	end = std::chrono::system_clock::now();  // 計測終了時間
+	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
+	std::cout << "GamePlay" << ":Draw:" << elapsed << std::endl;
+	//*/
 
 	if (PauseFlag == true)
 	{

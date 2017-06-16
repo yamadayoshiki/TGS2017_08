@@ -88,6 +88,11 @@ PushDirection EnemyStateBase::RegardMoveClamp(FourDirection regardDirection, flo
 }
 */
 
+//ステートの変更処理
+void EnemyStateBase::Change(const EnemyStateName name, void * param){
+	change(name);
+}
+
 //移動ベクトル算出
 GSvector2 EnemyStateBase::GetVelocity(float deltaTime, float speed) {
 	//目標地点までのベクトル

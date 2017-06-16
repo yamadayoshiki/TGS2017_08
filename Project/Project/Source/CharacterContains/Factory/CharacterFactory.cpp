@@ -84,7 +84,7 @@ void CharacterFactory::Generate(const GSvector2 position, const int csvData) {
 	ActorData& data = m_GenerateMap[key];
 	//キャラのマップタイプ
 	MapType type = data.child->GetMapType();
-	CsvCellData cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, type);
+	GSvector2 cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, type);
 
 	data.parent.lock()->addChild(data.child->CsvGenerate(cellData.x, cellData.y, csvParam));
 }
@@ -99,7 +99,7 @@ ActorPtr CharacterFactory::GetGenerateCharacter(const GSvector2 position, const 
 
 	ActorData& data = m_GenerateMap[key];
 	//キャラのマップタイプ
-	CsvCellData cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, MapType::Default);
+	GSvector2 cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, MapType::Default);
 
 	return data.child->CsvGenerate(cellData.x, cellData.y, csvParam);
 }

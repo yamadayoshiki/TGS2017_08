@@ -1,20 +1,18 @@
-#include"BreakWall.h"
-#include "../CharacterContains/EnemyContains/PlayerWatch/PlayerWatch.h"
+#include "BreakWall.h"
+#include "../ActorContains/ActorName.h"
+#include "../ActorContains/Transform/Transform.h"
+#include "../ActorContains/BodyContains/AARectangle/AARectangle.h"
+#include "../Base/GameManagerContains/IGameManager.h"
+#include "../Define/Def_Nakayama.h"
+#include "../TextureContains/Texture/Texture.h"
+#include "../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../Utility/Rederer2D/Renderer2D.h"
+#include "../Utility/FourDirection/FourDirection.h"
+#include "../Utility/Animation/Animation.h"
 #include "../WorldContains/IWorld.h"
 #include "../Map/Map.h"
-#include"../Map/MapType.h"
-#include"../CharacterContains/EnemyContains/Entity/Enemys/Base/EnemyBase.h"
-#include"../Define/Def_Nakayama.h"
-
-//コンストラクタ
-#include"../ActorContains/ActorName.h"
-#include"../TextureContains/Texture/Texture.h"
-#include"../ActorContains/Body/OrientedBoundingBox.h"
-//描画
-#include"../Base/GameManagerContains/IGameManager.h"
-#include"../Utility/Rederer2D/Renderer2D.h"
-//Command
-#include"../Utility/FourDirection/FourDirection.h"
+#include "../CharacterContains/EnemyContains/PlayerWatch/PlayerWatch.h"
 //CommandContains
 #include"../CharacterContains/EnemyContains/CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include"../CharacterContains/EnemyContains/CommandContains/Commands/EnemyCommandName.h"
@@ -41,7 +39,7 @@ BreakWall::BreakWall(
 		MapType::Default,
 		gameManager,
 		std::make_shared<Texture>("Block5", gameManager->GetRenderer2D()),
-		std::make_shared<OrientedBoundingBox>(GSvector2{ 0.0f, 0.0f }, 0.0f, GSvector2{ 1.0f, 1.0f }))
+		std::make_shared<Body::AARectangle>(CHIP_SIZE,CHIP_SIZE))
 {
 }
 
@@ -53,6 +51,8 @@ void BreakWall::initialize() {
 	SetUpCommand();
 	//各種固有のStateの設定
 	SetUpState();
+	//マップ情報書き換え
+	p_World->GetMap()->SetcsvParameter(getPosition(), TerrainName::BreakeWall, p_World);
 }
 
 void BreakWall::SetUpCommand()
@@ -81,14 +81,8 @@ void BreakWall::SetUpState()
 
 void BreakWall::onDraw() const
 {
-	// ブロック削除時に呼ぶ
-	/*if (gsGetKeyState(GKEY_A)) {
-		getWorld()->GetMap().DeleteChip(getPosition(), p_World);
-	}*/
-
-
 	Texture2DParameter param;
-	param.SetPosition(getBody()->position());
+	param.SetPosition(p_Transform->m_Position);
 	param.SetCenter({ 16.0f, 16.0f });
 	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Block5"));
 	param.SetScale({ 1.0f , 1.0f });

@@ -69,12 +69,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\gslib_2015\inc;C:\gslibEXT_2015\inc;$(IncludePath)</IncludePath>
+    <IncludePath>C:\opencv\build\include\opencv2;C:\opencv\build\include\opencv;C:\gslibEXT_2015\inc;C:\gslib_2015\inc;$(IncludePath)</IncludePath>
     <LibraryPath>C:\gslib_2015\lib;C:\gslibEXT_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\gslib_2015\inc;C:\Users\nakayama\Documents\gslibEXT_2015\inc;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\gslib_2015\lib;C:\Users\nakayama\Documents\gslibEXT_2015\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\gslibEXT_2015\inc;C:\gslib_2015\inc;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\gslib_2015\lib;C:\gslibEXT_2015\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\gslib_2015\inc;$(IncludePath)</IncludePath>
@@ -111,7 +111,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\gslib_2015\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_ITERATOR_DEBUG_LEVEL = 0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -136,6 +136,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Source\ActorContains\BodyContains\AARectangle\AARectangle.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Base\BodyBase.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\BodyName.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\BodysPath.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBody.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBodyPtr.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Line\Line.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\NullBody\NullBody.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Rectangle\Rectangle.h" />
     <ClInclude Include="Source\ActorContains\HitPoint\HitPoint.h" />
     <ClInclude Include="Source\ActorContains\Transform\Transform.h" />
     <ClInclude Include="Source\ActorContains\ActorGroup.h" />
@@ -144,25 +153,13 @@
     <ClInclude Include="Source\ActorContains\ActorName.h" />
     <ClInclude Include="Source\ActorContains\ActorPtr.h" />
     <ClInclude Include="Source\ActorContains\Actor\Actor.h" />
-    <ClInclude Include="Source\ActorContains\Body\Base\Body.h" />
-    <ClInclude Include="Source\ActorContains\Body\Base\DammyBody.h" />
-    <ClInclude Include="Source\ActorContains\Body\Base\HitInfo.h" />
-    <ClInclude Include="Source\ActorContains\Body\Base\IBody.h" />
-    <ClInclude Include="Source\ActorContains\Body\Base\IBodyPtr.h" />
-    <ClInclude Include="Source\ActorContains\Body\Base\ShapeType.h" />
-    <ClInclude Include="Source\ActorContains\Body\BoundingBox.h" />
-    <ClInclude Include="Source\ActorContains\Body\BoundingCapsule.h" />
-    <ClInclude Include="Source\ActorContains\Body\BoundingCircle.h" />
-    <ClInclude Include="Source\ActorContains\Body\BoundingSegment.h" />
-    <ClInclude Include="Source\ActorContains\Body\Collision\collision.h" />
-    <ClInclude Include="Source\ActorContains\Body\OrientedBoundingBox.h" />
-    <ClInclude Include="Source\ActorContains\Body\Ray.h" />
     <ClInclude Include="Source\ActorContains\NullActor\NullActor.h" />
     <ClInclude Include="Source\ActorContains\State\Base\IState.h" />
     <ClInclude Include="Source\ActorContains\State\Base\IStatePtr.h" />
     <ClInclude Include="Source\ActorContains\State\Base\State.h" />
     <ClInclude Include="Source\ActorContains\State\Base\StateMgr.h" />
     <ClInclude Include="Source\ActorContains\State\Base\State_Dammy.h" />
+    <ClInclude Include="Source\ActorContains\Transform\TransformPtr.h" />
     <ClInclude Include="Source\Base\GameFrame\GameFrame.h" />
     <ClInclude Include="Source\Base\GameManagerContains\GameManager\GameManager.h" />
     <ClInclude Include="Source\Base\GameManagerContains\IGameManager.h" />
@@ -273,12 +270,17 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.h" />
+    <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h" />
     <ClInclude Include="Source\UIContains\Text\Text.h" />
     <ClInclude Include="Source\UIContains\Text\TextCreator.h" />
+    <ClInclude Include="Source\Utility\AAVector2\AAVector2.h" />
+    <ClInclude Include="Source\Utility\Collide2D\IsCollide2D.h" />
+    <ClInclude Include="Source\Utility\CombinationTexture\CombinationTexture.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\TwoDVector.h" />
-    <ClInclude Include="Source\Utility\Sound_Name.h" />
+    <ClInclude Include="Source\Utility\Sound\Sound.h" />
+    <ClInclude Include="Source\Utility\Sound\SoundName.h" />
     <ClInclude Include="Source\Define\Def_Float.h" />
     <ClInclude Include="Source\Define\Def_GSvector2.h" />
     <ClInclude Include="Source\Define\Def_Nagano.h" />
@@ -338,16 +340,6 @@
     <ClInclude Include="Source\Utility\InputState\InputState.h" />
     <ClInclude Include="Source\Utility\InputState\InputStatePtr.h" />
     <ClInclude Include="Source\Utility\MathSupport\MathSupport.h" />
-    <ClInclude Include="Source\Utility\PathFinder\Lists\AstarOpenList.h" />
-    <ClInclude Include="Source\Utility\PathFinder\Lists\DijkstraOpenList.h" />
-    <ClInclude Include="Source\Utility\PathFinder\Lists\RangeOpenList.h" />
-    <ClInclude Include="Source\Utility\PathFinder\Node\Node.h" />
-    <ClInclude Include="Source\Utility\PathFinder\Node\NodeGrid.h" />
-    <ClInclude Include="Source\Utility\PathFinder\Node\NodePriorityQueue.h" />
-    <ClInclude Include="Source\Utility\PathFinder\Node\NodePtr.h" />
-    <ClInclude Include="Source\Utility\PathFinder\Node\PriorityQueue.h" />
-    <ClInclude Include="Source\Utility\PathFinder\PathFinder.h" />
-    <ClInclude Include="Source\Utility\PathFinder\Point2.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h" />
     <ClInclude Include="Source\Utility\Score\Score.h" />
@@ -364,17 +356,15 @@
   <ItemGroup>
     <ClCompile Include="Source\ActorContains\ActorManager\ActorManager.cpp" />
     <ClCompile Include="Source\ActorContains\Actor\Actor.cpp" />
-    <ClCompile Include="Source\ActorContains\Body\BoundingBox.cpp" />
-    <ClCompile Include="Source\ActorContains\Body\BoundingCapsule.cpp" />
-    <ClCompile Include="Source\ActorContains\Body\BoundingCircle.cpp" />
-    <ClCompile Include="Source\ActorContains\Body\BoundingSegment.cpp" />
-    <ClCompile Include="Source\ActorContains\Body\Collision\Collision.cpp" />
-    <ClCompile Include="Source\ActorContains\Body\OrientedBoundingBox.cpp" />
-    <ClCompile Include="Source\ActorContains\Body\Ray.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\AARectangle\AARectangle.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Base\BodyBase.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Line\Line.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Rectangle\Rectangle.cpp" />
     <ClCompile Include="Source\ActorContains\HitPoint\HitPoint.cpp" />
     <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />
     <ClCompile Include="Source\ActorContains\State\Base\State.cpp" />
     <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp" />
+    <ClCompile Include="Source\ActorContains\Transform\Transform.cpp" />
     <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.cpp" />
@@ -498,25 +488,22 @@
     <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp" />
     <ClCompile Include="Source\UIContains\UIManager\UIManager.cpp" />
     <ClCompile Include="Source\Utility\Animation\Animation.cpp" />
+    <ClCompile Include="Source\Utility\Collide2D\IsCollide2D.cpp" />
     <ClCompile Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.cpp" />
     <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp" />
     <ClCompile Include="Source\Utility\InputState\InputState.cpp" />
     <ClCompile Include="Source\Utility\MathSupport\MathSupport.cpp" />
-    <ClCompile Include="Source\Utility\PathFinder\Lists\AstarOpenList.cpp" />
-    <ClCompile Include="Source\Utility\PathFinder\Lists\DijkstraOpenList.cpp" />
-    <ClCompile Include="Source\Utility\PathFinder\Lists\RangeOpenList.cpp" />
-    <ClCompile Include="Source\Utility\PathFinder\Node\Node.cpp" />
-    <ClCompile Include="Source\Utility\PathFinder\Node\NodeGrid.cpp" />
-    <ClCompile Include="Source\Utility\PathFinder\Node\NodePriorityQueue.cpp" />
-    <ClCompile Include="Source\Utility\PathFinder\PathFinder.cpp" />
-    <ClCompile Include="Source\Utility\PathFinder\Point2.cpp" />
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
     <ClCompile Include="Source\Utility\Score\Score.cpp" />
+    <ClCompile Include="Source\Utility\Sound\Sound.cpp" />
     <ClCompile Include="Source\Utility\Texture2DParameter\Texture2DParameter.cpp" />
     <ClCompile Include="Source\Utility\TurnDirection\TurnDirection.cpp" />
     <ClCompile Include="Source\Wall\BreakWall.cpp" />
     <ClCompile Include="Source\Wall\Wall.cpp" />
     <ClCompile Include="Source\WorldContains\World\World.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

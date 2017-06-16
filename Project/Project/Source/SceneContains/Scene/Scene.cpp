@@ -5,9 +5,9 @@
 #include "../../StagingContains/TransitionStaging/SceneTransition.h"
 #include "../../ActorContains/ActorGroup.h"
 #include "../../UIContains/UIManager/UIManager.h"
-#include"../../Utility/Sound_Name.h"
+#include"../../Utility/Sound/SoundName.h"
 
-
+#include <chrono>
 #include <gslib.h>
 #include <memory>
 
@@ -16,8 +16,8 @@ Scene::Scene(const IGameManagerPtr& gameManager)
 	: m_IsEnd(false)
 	, p_GameManager(gameManager)
 	, m_Transition(std::make_shared<SceneTransition>(gameManager))
-	,MapOrder(0){
-	
+	, MapOrder(0) {
+
 }
 
 // 仮想デストラクタ     
@@ -48,17 +48,26 @@ void Scene::Start()
 void Scene::Update(float deltaTime)
 {
 	//スペースキーを押したら次のシーン
-	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE  || p_World->IsEnd()) {
+	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE || p_World->IsEnd()) {
 		m_IsEnd = true;
 	}
-		
+
+	///*
+	std::chrono::system_clock::time_point  start, end; // 型は auto で可
+	start = std::chrono::system_clock::now(); // 計測開始時間
+	//*/
+	
 	//フラグがたったら画面が止まる
 	if (PauseFlag == false) {
 		//deltaTime = 0;
 		p_World->update(deltaTime);
 	}
-	//ワールド更新
-	//p_World->update(deltaTime);
+
+	///*
+	end = std::chrono::system_clock::now();  // 計測終了時間
+	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
+	std::cout << "world" << ":Update:" << elapsed << std::endl;
+	//*/
 
 	//各種固有の更新
 	OnUpdate(deltaTime);
@@ -73,15 +82,26 @@ void Scene::Update(float deltaTime)
 // 描画     
 void Scene::Draw() const
 {
+	/*
+	std::chrono::system_clock::time_point  start, end; // 型は auto で可
+	start = std::chrono::system_clock::now(); // 計測開始時間
+	//*/
 	OnDraw();
+	/*
+	end = std::chrono::system_clock::now();  // 計測終了時間
+	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
+	std::cout << "world" << ":Draw:" << elapsed << std::endl;
+	//*/
 
 	//ワールド描画
 	p_World->draw();
+
 	// 遷移演出の描画
 	m_Transition->draw();
+
 }
 
-void Scene::End(){
+void Scene::End() {
 	OnEnd();
 
 	p_World = nullptr;
@@ -93,14 +113,14 @@ bool Scene::IsEnd() const
 	return m_Transition->isEnd();
 }
 
-SceneName Scene::Next() const{
+SceneName Scene::Next() const {
 	return p_World->NextScene();
 }
 
-void Scene::SetName(const SceneName & name){
+void Scene::SetName(const SceneName & name) {
 	m_SceneName = name;
 }
 
-SceneName Scene::GetName(){
+SceneName Scene::GetName() {
 	return m_SceneName;
 }

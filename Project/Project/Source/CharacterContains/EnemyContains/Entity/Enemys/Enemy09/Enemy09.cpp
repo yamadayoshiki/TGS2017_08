@@ -1,9 +1,15 @@
 #include "Enemy09.h"
-#include "../../../../../TextureContains/Texture/Texture.h"
+#include "../../../../../ActorContains/ActorName.h"
+#include "../../../../../ActorContains/Transform/Transform.h"
+#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
-#include "../../../../../Utility/Rederer2D/Renderer2D.h"
-#include "../../../../../ActorContains/Body/OrientedBoundingBox.h"
+#include "../../../../../Define/Def_Nakayama.h"
+#include "../../../../../TextureContains/Texture/Texture.h"
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../../../../Utility/Rederer2D/Renderer2D.h"
+#include "../../../../../Utility/FourDirection/FourDirection.h"
+#include "../../../../../Utility/Animation/Animation.h"
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
@@ -36,7 +42,7 @@ Enemy09::Enemy09(
 		MapType::Double,
 		gameManager,
 		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
-		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
+		std::make_shared<Body::AARectangle>(CHIP_SIZE,CHIP_SIZE)) {
 }
 
 Enemy09::~Enemy09(){
@@ -54,7 +60,7 @@ void Enemy09::SetUpCommand(){
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command’Ç‰Á
 	p_CommandManager->AddDic(EnemyCommandName::Standby, std::make_shared<EnemyCommandEnemy09Standby>(shared_from_this()));
-	p_CommandManager->AddDic(EnemyCommandName::Rush, std::make_shared<EnemyCommandRush>(shared_from_this(),m_MapType));
+	p_CommandManager->AddDic(EnemyCommandName::Rush,	std::make_shared<EnemyCommandRush>(shared_from_this(),m_MapType));
 	p_CommandManager->AddDic(EnemyCommandName::ReturnToTheRegularPosition, std::make_shared<EnemyCommandReturnRegularPos>(shared_from_this(), m_MapType));
 	//‰ŠúCommandÝ’è
 	p_CommandManager->Change(EnemyCommandName::Standby);
@@ -79,8 +85,8 @@ void Enemy09::SetUpState(){
 
 void Enemy09::onDraw() const{
 	Texture2DParameter param;
-	param.SetPosition(m_Transform.m_Position);
-	param.SetRotate(m_Transform.m_Angle - 90);
+	param.SetPosition(p_Transform->m_Position);
+	param.SetRotate(p_Transform->m_Angle - 90);
 	param.SetCenter({ 16.0f, 16.0f });
 	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy09"));
 	param.SetScale({ 1.0f , 1.0f });

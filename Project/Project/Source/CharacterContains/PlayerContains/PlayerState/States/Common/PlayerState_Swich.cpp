@@ -1,7 +1,7 @@
 #include"PlayerState_Swich.h"
 #include"../../../../../WorldContains/EventMessage/EventMessage.h"
 #include"../../../../../Utility/MathSupport/MathSupport.h"
-
+#include "../../../../../ActorContains/Transform/Transform.h"
 
 //コンストラクタ
 PlayerState_Swich::PlayerState_Swich(const Player_WPtr& player, IGameManagerPtr gameManager)
@@ -30,7 +30,7 @@ void PlayerState_Swich::update(float deltaTaime)
 void PlayerState_Swich::collide(const Actor& other)
 {
 	//自分の方向ベクトル
-	GSvector2 myVec = p_Player.lock()->getBody()->forward();
+	GSvector2 myVec = p_Player.lock()->getTransform()->GetForward();
 	myVec.normalize();
 
 	//相手のベクトル

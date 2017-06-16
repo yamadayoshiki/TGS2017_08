@@ -1,14 +1,15 @@
 #include "Enemy01.h"
-//コンストラクタ
 #include "../../../../../ActorContains/ActorName.h"
-#include "../../../../../TextureContains/Texture/Texture.h"
-#include "../../../../../ActorContains/Body/OrientedBoundingBox.h"
-#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
-//描画
+#include "../../../../../ActorContains/Transform/Transform.h"
+#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
+#include "../../../../../Define/Def_Nakayama.h"
+#include "../../../../../TextureContains/Texture/Texture.h"
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
-//Command
 #include "../../../../../Utility/FourDirection/FourDirection.h"
+#include "../../../../../Utility/Animation/Animation.h"
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
@@ -22,8 +23,6 @@
 #include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 #include "../../../StateContains/States/RepelContains/Repel/EnemyStateRepel.h"
 
-#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
-#include "../../../../../Utility/Animation/Animation.h"
 
 //コンストラクタ
 Enemy01::Enemy01(
@@ -40,7 +39,7 @@ Enemy01::Enemy01(
 		MapType::Double,
 		gameManager,
 		std::make_shared<Texture>("Enemy01", gameManager->GetRenderer2D()),
-		std::make_shared<OrientedBoundingBox>(GSvector2(0.0f, 0.0f), -90.0f, GSvector2(1.0f, 1.0f))) {
+		std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE)) {
 }
 
 //csvで生成(使用時継承先でoverride)
@@ -80,8 +79,8 @@ void Enemy01::SetUpState() {
 void Enemy01::onDraw() const {
 	//p_Body->transform(getTransform())->draw();
 
-	p_Texture->GetParameter()->SetPosition(m_Transform.m_Position);
-	p_Texture->GetParameter()->SetRotate(m_Transform.m_Angle - 90);
+	p_Texture->GetParameter()->SetPosition(p_Transform->m_Position);
+	p_Texture->GetParameter()->SetRotate(p_Transform->m_Angle);
 	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
 	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
 	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });

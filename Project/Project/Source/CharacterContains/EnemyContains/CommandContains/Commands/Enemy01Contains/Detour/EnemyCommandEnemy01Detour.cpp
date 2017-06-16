@@ -9,7 +9,7 @@
 #include "../../../../../../Utility/TurnDirection/TurnDirection.h"
 #include "../../../../PlayerWatch/PlayerWatch.h"
 #include "../../../../../../Define/Def_Float.h"
-#include "../../../../../../ActorContains/Body/Base/IBody.h"
+#include "../../../../../../ActorContains/BodyContains/Interface/IBody.h"
 #include "../../../../../../Define/Def_GSvector2.h"
 #include "../../../../../../Map/Map.h"
 

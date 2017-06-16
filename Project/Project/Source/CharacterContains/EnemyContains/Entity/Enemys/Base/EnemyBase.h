@@ -25,7 +25,7 @@ public:
 		const MapType type,												//移動マップタイプ
 		const IGameManagerPtr& gameManager,								//ゲームマネージャ
 		const ITexturePtr& texture,										//テクスチャ
-		const IBodyPtr& body = std::make_shared<DammyBody>());			//衝突判定図形
+		const IBodyPtr& body = std::make_shared<Body::NullBody>());			//衝突判定図形
 
 	//デストラクタ
 	virtual ~EnemyBase();

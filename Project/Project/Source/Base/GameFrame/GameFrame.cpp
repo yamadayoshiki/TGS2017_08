@@ -24,9 +24,11 @@
 #include "../../Define/Def_Nagano.h"
 #include"../../WorldContains/World/World.h"
 
+#include <chrono>
+
 //コンストラクタ
 GameFrame::GameFrame() : Game(SCREEN_SIZE.x, SCREEN_SIZE.y)
-	, m_SceneManager() {
+, m_SceneManager() {
 	//ゲームマネージャー生成
 	p_GameManager = std::make_shared<GameManager>(
 		std::make_shared<Renderer2D>(),
@@ -44,7 +46,7 @@ GameFrame::~GameFrame() {
 }
 
 //初期化
-void GameFrame::start(){
+void GameFrame::start() {
 	// シーンのstring対応の登録
 	p_GameManager->GetSceneEnum()->AddEnum("GameTitle", SceneName::GameTitle);
 	//p_GameManager->GetSceneEnum()->AddEnum("GameSelect", SceneName::GameSelect);
@@ -70,24 +72,47 @@ void GameFrame::start(){
 // 更新
 void GameFrame::update(float time)
 {
+	/*
+	std::chrono::system_clock::time_point  start, end; // 型は auto で可
+	start = std::chrono::system_clock::now(); // 計測開始時間
+	//*/
+
 	p_GameManager->Update();
 	if (p_GameManager->GetInputState()->IsKeyState(VK_SPACE)) return;
 	m_SceneManager.Update(time);
+
+	/*
+	end = std::chrono::system_clock::now();  // 計測終了時間
+	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
+	std::cout << ":Update:" << elapsed << std::endl;
+	//*/
 }
 
 // 描画
 void GameFrame::draw()
 {
+	/*
+	std::chrono::system_clock::time_point  start, end; // 型は auto で可
+	start = std::chrono::system_clock::now(); // 計測開始時間
+	//*/
+
 	m_SceneManager.Draw();
+
+	/*
+	end = std::chrono::system_clock::now();  // 計測終了時間
+	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
+	std::cout << ":Draw:" << elapsed << std::endl;
+	//*/
+
 }
 
 // 終了
-void GameFrame::end(){
+void GameFrame::end() {
 	m_SceneManager.End();
 }
 
 // 実行中か
-bool GameFrame::isRunning(){
+bool GameFrame::isRunning() {
 	// Endシーンでない場合は実行中
 	return m_SceneManager.GetSceneName() != SceneName::GameEnd && GetAsyncKeyState(VK_ESCAPE) == 0;
 }

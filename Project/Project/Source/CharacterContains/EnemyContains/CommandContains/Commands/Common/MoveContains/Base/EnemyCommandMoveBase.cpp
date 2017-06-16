@@ -3,6 +3,7 @@
 #include "../../../../../../../Define/Def_Float.h"
 #include "../../../../../../../Define/Def_GSvector2.h"
 #include "../../../../../../../Map/Map.h"
+#include "../../../../../../../WorldContains/EventMessage/EventMessage.h"
 
 //コンストラクタ
 EnemyCommandMoveBase::EnemyCommandMoveBase(
@@ -27,4 +28,14 @@ void EnemyCommandMoveBase::OnUpdate(float deltaTime){
 	if (m_Velocity.length() <= FLOAT_EPSILON)
 		//目標地点に到着したリアクション
 		ArriveReaction();
+}
+
+//メッセージ処理
+void EnemyCommandMoveBase::handleMessage(EventMessage message, void * param){
+	switch (message)
+	{
+	case EventMessage::MapDataUpdate:
+		SetNextTargetPos();
+		break;
+	}
 }

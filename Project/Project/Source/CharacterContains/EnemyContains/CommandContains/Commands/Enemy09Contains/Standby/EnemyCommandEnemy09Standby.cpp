@@ -30,7 +30,7 @@ void EnemyCommandEnemy09Standby::OnUpdate(float deltaTime) {
 	//ƒvƒŒƒCƒ„[‚ª‚¢‚é•ûŒü
 	GSvector2 v = p_Enemy.lock()->GetPlayerWatch()->GetToPlayerDis();
 	//Šp“xŽZo
-	float angle = MathSupport::GetVec2ToVec2Angle(v);
+	float angle = MathSupport::GetVec2ToVec2Angle(v,GSvector2(0.0f,-1.0f));
 	//Šp“xÝ’è
 	p_Enemy.lock()->setAngle(angle);
 

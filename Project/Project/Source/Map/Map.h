@@ -8,6 +8,7 @@
 #include "../Base/GameManagerContains/IGameManagerPtr.h"
 #include"../WorldContains/IWorld.h"
 
+#include "CsvTwoDVectorTerrainData.h"
 #include "MapData.h"
 #include "MapType.h"
 
@@ -32,15 +33,15 @@ public:
 	//描画
 	void draw(const MapType& type = MapType::Default);
 	//マップの取得
-	MapData& getmap(const MapType& type = MapType::Default);
+	CsvTwoDVectorTerrainData& getmap(const MapType& type = MapType::Default);
 	// マップの登録
 	void regist(const MapData& data, const MapType& type = MapType::Default);
 	//周りのタイルデータの取得
 	std::unordered_map<FourDirection, TileData>GetAroundTile(const GSvector2& position, const MapType& type = MapType::Default);
 	//指定された座標の縦軸のブロックの取得
-	std::vector<int>GetRow(const GSvector2& position, const MapType& type = MapType::Default);
+	std::vector<TerrainName>GetRow(const GSvector2& position, const MapType& type = MapType::Default);
 	//指定された座標の横軸のブロックの取得
-	std::vector<int>GetColumn(const GSvector2& position, const MapType& type = MapType::Default);
+	std::vector<TerrainName>GetColumn(const GSvector2& position, const MapType& type = MapType::Default);
 	//タイルデータの取得
 	TileData GetTileData(int column, int row, const MapType& type = MapType::Default);
 	// 正面に壁があるか無いか
@@ -52,18 +53,17 @@ public:
 	ResultPushDirection PushForChara(const GSvector2& current_pos, const GSvector2& target_pos, const MapType& charaSize);
 	// 指定された座標をタイルの中心座標に補正
 	GSvector2 GetTilePos(const GSvector2& pos, const MapType type = MapType::Default);
-	//指定されたcsv座標の情報更新
-	void SetcsvParameter(GSvector2 position, int parameter, MapType type, IWorld* world);
-	//指定されたcsv座標の情報更新
-	void DeleteChip(GSvector2 position, IWorld* world);
+	//指定された座標の情報更新
+	void SetcsvParameter(const GSvector2 position, const TerrainName name, IWorld* world);
 
 	// デバッグ表示
 	void Debug(const MapType type = MapType::Default);
 
-	//神保
+private:
+	//指定された座標の情報更新(MapType引数あり)
+	void SetcsvParameter(const GSvector2 position, const TerrainName name, const MapType type);
+
 public:
-	// データの取得
-	int operator [] (const Point2& position) const;
 	// 幅の取得
 	int GetWidth(const MapType& type = MapType::Default) const;
 	// 高さの取得
@@ -73,7 +73,7 @@ public:
 
 private:
 	// マップの格納
-	std::unordered_map<MapType, MapData> m_Maps;
+	std::unordered_map<MapType, CsvTwoDVectorTerrainData> m_Maps;
 	//ゲームマネージャーポインタ
 	IGameManagerPtr p_GameManager;
 };
