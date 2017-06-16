@@ -18,6 +18,8 @@ protected:
 	virtual void OnUpdate(float deltaTime);
 	// ï`âÊ     
 	virtual void OnDraw()const;
+	//èIóπ
+	virtual void End();
 };
 
 #endif // !GAMEOVER_H_

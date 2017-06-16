@@ -1,59 +1,48 @@
 #include "GameOver.h"
-
 #include <gslib.h>
-
+#include<GSmusic.h>
 #include "../SceneName.h"
+#include "../../UIContains/UIManager/UIManager.h"
+#include "../../ActorContains/ActorGroup.h"
 #include "../../WorldContains/World/World.h"
-#include"../../ActorContains/ActorGroup.h"
-#include"../../CharacterContains/PlayerContains/Player/Player.h"
-#include "../../Utility/InputState/InputState.h"
+#include "../../Utility/Rederer2D/Renderer2D.h"
+#include"../../Utility/Score/Score.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Define/Def_Nagano.h"
-#include "../../Define/Def_Nakayama.h"
-#include "../../Utility/Rederer2D/Renderer2D.h"
-#include"../../MapGenerator/MapGenerator.h"
-#include "../../Utility/FourDirection/FourDirection.h"
+#include"../../Utility/InputState/InputState.h"
+#include"../../Utility/Sound/SoundName.h"
+
 
 GameOver::GameOver(const IGameManagerPtr & gameManager)
 	:Scene(gameManager)
 {
+	
 }
 
 void GameOver::OnStart()
 {
-	if (p_GameManager->GetPlayerParameter().m_Remaining <= 0) {
-		p_GameManager->GetRenderer2D()->DrawTexture("Over", GSvector2(0, 0));
-	}
+	gsBindMusic(BGM_GAME_CLER);
 }
 
 void GameOver::OnUpdate(float deltaTime)
 {
-	//カーソル移動
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_DOWN) ||
-		p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_UP)) {
-		if (CarsorMovement == 0)
-		{
-			CarsorMovement = 1;
+	gsPlayMusic(BGM_GAME_CLER);
+
+		if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)){
+			gsPlaySE(SE_DECITION);
+			MapOrder = 0;
+			p_World->EndRequest(SceneName::GameTitle);
 		}
-		else
-		{
-			CarsorMovement = 0;
-		}
-	}
+	
 }
 
 void GameOver::OnDraw() const
 {
-	p_GameManager->GetRenderer2D()->DrawTexture("logo", GSvector2(SCREEN_SIZE.x / 2 - 128, SCREEN_SIZE.y / 2 - 128));
-	p_GameManager->GetRenderer2D()->DrawTexture("logo", GSvector2(SCREEN_SIZE.x / 2 - 128, SCREEN_SIZE.y / 2 + 128));
+	p_GameManager->GetRenderer2D()->DrawTexture("GameClear",GSvector2(SCREEN_SIZE.x/2 - 375, SCREEN_SIZE.y/2 - 125));
+	p_GameManager->GetRenderer2D()->DrawTexture("Start", GSvector2(400, 600));
+}
 
-	//カーソル描画
-	if (CarsorMovement == 0)
-	{
-		p_GameManager->GetRenderer2D()->DrawTexture("Cursor", GSvector2(SCREEN_SIZE.x / 2 - 178, SCREEN_SIZE.y / 2 - 100));
-	}
-	else
-	{
-		p_GameManager->GetRenderer2D()->DrawTexture("Cursor", GSvector2(SCREEN_SIZE.x / 2 - 178, SCREEN_SIZE.y / 2 + 100));
-	}
+void GameOver::End()
+{
+	gsStopMusic(BGM_GAME_CLER);
 }

@@ -63,16 +63,18 @@ void GameResult::OnUpdate(float deltaTime){
 
 	//次のステージに行くかタイトルに戻るか
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
-		CarsorMovement == 0) {
+		CarsorMovement == 0 ) {
 		if (m_ResultTextureName == "Clear" && MapOrder != 3) { MapOrder += 1; }
 		p_GameManager->set_MapOrder(MapOrder);
 		p_World->EndRequest(SceneName::GamePlay);
+		gsPlaySE(SE_DECITION);
 	}
 
 	else if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
 		CarsorMovement == 1){
 		MapOrder = 0;
 		p_World->EndRequest(SceneName::GameTitle);
+		gsPlaySE(SE_BACK);
 	}
 	
 	//最終ステージでゲームクリアへ
@@ -127,15 +129,15 @@ void GameResult::OnDraw() const
 		}
 		else if (p_GameManager->GetScore()->ReleaseScore() >= 250)
 		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankA", GSvector2(600, 350));
+			p_GameManager->GetRenderer2D()->DrawTexture("RankA", GSvector2(550, 250));
 		}
 		else if (p_GameManager->GetScore()->ReleaseScore() >= 200)
 		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankB", GSvector2(600, 350));
+			p_GameManager->GetRenderer2D()->DrawTexture("RankB", GSvector2(550, 250));
 		}
 		else if (p_GameManager->GetScore()->ReleaseScore() >= 100)
 		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankC", GSvector2(600, 350));
+			p_GameManager->GetRenderer2D()->DrawTexture("RankC", GSvector2(550, 250));
 		}
 
 	}
@@ -143,19 +145,19 @@ void GameResult::OnDraw() const
 	{
 		if (p_GameManager->GetScore()->ReleaseScore() >= 300)
 		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankS", GSvector2(600, 50));
+			p_GameManager->GetRenderer2D()->DrawTexture("RankS", GSvector2(550, 250));
 		}
 		else if (p_GameManager->GetScore()->ReleaseScore() >= 250)
 		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankA", GSvector2(600, 50));
+			p_GameManager->GetRenderer2D()->DrawTexture("RankA", GSvector2(550, 250));
 		}
 		else if (p_GameManager->GetScore()->ReleaseScore() >= 200)
 		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankB", GSvector2(600, 50));
+			p_GameManager->GetRenderer2D()->DrawTexture("RankB", GSvector2(550, 250));
 		}
 		else if (p_GameManager->GetScore()->ReleaseScore() >= 100)
 		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankC", GSvector2(600, 50));
+			p_GameManager->GetRenderer2D()->DrawTexture("RankC", GSvector2(550, 250));
 		}
 	}
 }

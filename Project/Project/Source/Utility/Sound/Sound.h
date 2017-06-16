@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <gwave.h>
-enum class SoundName;
+enum SoundName;
 
 //サウンド管理クラス
 class Sound

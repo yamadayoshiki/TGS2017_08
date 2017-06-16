@@ -28,6 +28,16 @@ enum SoundName
 	BGM_GAME_PLAY,				//ゲームPlayBGM
 	BGM_GAME_CLER,				//ゲームクリアBGM
 	BGM_GAME_OVER,				//ゲームオーバーBGM
+
+	//SE
+	SE_BACK,
+	SE_DECITION,
+	SE_KOMBOUP,
+	SE_PAUSE_CLOSE,
+	SE_PAUSE_OPEN,
+	SE_SHOWINGSCORE,
+	SE_SHOWINGSCORE_BEFORE,
+	SE_START,
 };
 
 #endif

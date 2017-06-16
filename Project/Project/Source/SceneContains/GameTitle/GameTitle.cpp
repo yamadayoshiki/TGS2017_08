@@ -35,6 +35,7 @@ void GameTitle::OnUpdate(float deltaTime){
 	gsPlayMusic(BGM_GAME_TITLE);
 
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+		gsPlaySE(SE_DECITION);
 		p_World->EndRequest(SceneName::GamePlay);
 	}
 }

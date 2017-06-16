@@ -4,6 +4,7 @@
 #include"../../../Utility/Score/Score.h"
 #include"../../../Utility/EnumRap/EnumRap.h"
 #include"../../../Utility/Sound/Sound.h"
+#include"../../../Utility/Sound/SoundName.h"
 
 #include<GSmusic.h>
 
@@ -113,14 +114,14 @@ void GameManager::LoadContent() {
 	gsLoadSE(SE_ENEMY_SPINBOUND, "Resource/Sound/SE/Enemy/SpinBound.mp3", 10, GWAVE_DEFAULT);
 
 	//UISE
-	gsLoadSE(SE_BACK, "Resource/Sound/SE/Scene/back.mp3", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_DECITION, "Resource/Sound/SE/Scene/decition.mp3", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_KOMBOUP, "Resource/Sound/SE/Scene/konboup.mp3", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_PAUSE_CLOSE, "Resource/Sound/SE/Scene/pauseclose.mp3", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_PAUSE_OPEN, "Resource/Sound/SE/Scene/pauseopen.mp3", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_SHOWINGSCORE, "Resource/Sound/SE/Scene/showingscore.mp3", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_SHOWINGSCORE_BEFORE, "Resource/Sound/SE/Scene/showingscorebefore.mp3", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_START, "Resource/Sound/SE/Scene/start.mp3", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_BACK, "Resource/Sound/SE/Scene/back.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_DECITION, "Resource/Sound/SE/Scene/decition.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_KOMBOUP, "Resource/Sound/SE/Scene/konboup.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PAUSE_CLOSE, "Resource/Sound/SE/Scene/pauseclose.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PAUSE_OPEN, "Resource/Sound/SE/Scene/pauseopen.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_SHOWINGSCORE, "Resource/Sound/SE/Scene/showingscore.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_SHOWINGSCORE_BEFORE, "Resource/Sound/SE/Scene/showingscorebefore.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_START, "Resource/Sound/SE/Scene/start.wav", 1, GWAVE_DEFAULT);
 }
 
 //ÉRÉìÉeÉìÉcÇÃçÌèú

@@ -27,6 +27,7 @@ void UIManager::regist(){
 	m_FilePaths[SceneName::GameCredit]	= { "Credit/UI_Button.csv", "Credit/UI_Sprite.csv", "Credit/UI_Text.csv" };
 	m_FilePaths[SceneName::GameResult]	= { "Result/UI_Button.csv", "Result/UI_Sprite.csv", "Result/UI_Text.csv" };
 	m_FilePaths[SceneName::GameEnd]		= { "End/UI_Button.csv",	"End/UI_Sprite.csv",	"End/UI_Text.csv" };
+	m_FilePaths[SceneName::GameOver]    = { "Over/UI_Button.csv",	"Over/UI_Sprite.csv",	"Over/UI_Text.csv" };
 }
 
 // ƒV[ƒ“‚É‘Î‰‚µ‚½UI‚Ì¶¬
