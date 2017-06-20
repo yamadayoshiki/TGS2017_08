@@ -83,9 +83,9 @@ void GamePlay::OnUpdate(float deltaTime) {
 	}
 	
 	// “¢”°‰Â”\‚È“G‚ª‚OˆÈ‰º‚Ìê‡ƒNƒŠƒA
-	//if (p_World->GetSurviverSum() <= 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_A)) {
-	//	p_World->EndRequest(SceneName::GameResult);
-	//}
+	if (p_World->GetSurviverSum() <= 0 ) {
+		p_World->EndRequest(SceneName::GameResult);
+	}
 	
 }
 

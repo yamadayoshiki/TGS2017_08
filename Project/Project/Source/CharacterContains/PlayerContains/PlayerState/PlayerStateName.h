@@ -27,7 +27,8 @@ enum class PlayerStateName
 	Invincible,		//無敵状態
 	Swich,			//切り替え
 	Dead,			//死に
-	None			//ダミー
+	Respawn,		//リスポーン
+	//None			//ダミー
 };
 #endif // !PLAYER_STATE_NAME
 

@@ -1,5 +1,7 @@
 #include "PlayerState_Crush.h"
 #include"../../../../../WorldContains/EventMessage/EventMessage.h"
+#include"../../../../../ActorContains/ActorGroup.h"
+#include"../../../../NeutralContains/Crush_Effect/Crush_Effect.h"
 
 PlayerState_Crush::PlayerState_Crush(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
@@ -9,6 +11,7 @@ PlayerState_Crush::PlayerState_Crush(const Player_WPtr& player, IGameManagerPtr 
 void PlayerState_Crush::unique_init()
 {
 	gsPlaySE(SE_PLAYER_CRUSH);
+	p_Player.lock()->getWorld()->addActor(ActorGroup::Effect, std::make_shared<Crush_Effect>(p_Player.lock()->getWorld(),m_Children[ActorName::Player_Arm]->getPosition(), p_GameManager));
 	p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_CRUSH,(void*)m_Parameter.getChargePower());
 	p_GameManager->GetPlayerParameter().addCombo();
 }

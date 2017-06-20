@@ -1,5 +1,5 @@
 #include"PlayerState_O_Idle.h"
-#include"../../../../../NeutralContains/Charge/Charge.h"
+#include"../../../../../NeutralContains/Charge_Effect/Charge.h"
 
 //コンストラクタ
 PlayerState_O_Idle::PlayerState_O_Idle(const Player_WPtr& player, IGameManagerPtr gameManager)

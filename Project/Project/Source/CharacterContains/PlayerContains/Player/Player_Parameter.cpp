@@ -94,7 +94,7 @@ void Player_Parameter::Charge(float deltaTime)
 		m_ChargePower = 1;
 		m_Speed = 6.0f;
 	}
-	else
+	else if(m_ChargeConter <= 120)
 	{
 		m_ChargePower = 0;
 		m_Speed = 8.0f;
@@ -107,4 +107,8 @@ int Player_Parameter::getChargePower()
 {
 	//Œ‹‰Ê‚ð•Ô‚·
 	return m_ChargePower;
+}
+bool Player_Parameter::getChargeFlag()const
+{
+	return Chargeflag;
 }

@@ -1,5 +1,5 @@
 #include"PlayerState_MoveBase.h"
-
+#include"../../../../../../ActorContains/Transform/Transform.h"
 
 //コンストラクタ
 PlayerState_MoveBase::PlayerState_MoveBase(const Player_WPtr& player, IGameManagerPtr gameManager)
@@ -9,6 +9,9 @@ PlayerState_MoveBase::PlayerState_MoveBase(const Player_WPtr& player, IGameManag
 //各状態独自の初期化
 void PlayerState_MoveBase::unique_init()
 {
+	if (p_Player.lock()->getParameter().getChargeFlag() == true) {
+		p_Player.lock()->getParameter().Chargeflag = false;
+	}
 	TextureName_Change("Player_Close");
 
 	// 継承先の各状態独自の初期化
@@ -49,8 +52,9 @@ void PlayerState_MoveBase::input()
 	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_B))
 		change(PlayerStateName::Open);
 	//ダッシュ
-	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_A ) ||
-		gsGetKeyState(GKEY_Z)) {
+	if (p_Input->IsPadStateTrigger(GS_XBOX_PAD_A) &&
+		p_Map.lock()->IsInFrontOfTheWall(
+			p_Player.lock()->getPosition(), FourDirection(p_Player.lock()->getTransform()->m_Angle)) == false) {
 		change(PlayerStateName::Dash);
 	}
 

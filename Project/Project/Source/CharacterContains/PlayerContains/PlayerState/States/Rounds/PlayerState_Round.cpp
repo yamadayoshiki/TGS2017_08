@@ -1,5 +1,7 @@
 #include"PlayerState_Round.h"
 #include"../../../../../WorldContains/EventMessage/EventMessage.h"
+#include"../../../../../ActorContains/ActorGroup.h"
+#include"../../../../NeutralContains/Repel_Effect/Repel_Effect.h"
 
 //コンストラクタ
 PlayerState_Round::PlayerState_Round(const Player_WPtr& player, IGameManagerPtr gameManager)
@@ -54,6 +56,9 @@ void PlayerState_Round::handleMessage(EventMessage massege, void * param)
 		change(PlayerStateName::Close);
 		break;
 	case EventMessage::ENEMY_REPEL:
+		p_Player.lock()->getWorld()->addActor(ActorGroup::Effect,
+			std::make_shared<Repel_Effect>(
+				p_Player.lock()->getWorld(),p_Player.lock()->getPosition(), p_GameManager));
 		change(PlayerStateName::Idle);
 		break;
 	}

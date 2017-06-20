@@ -29,7 +29,10 @@ void PlayerState_Swich::update(float deltaTaime)
 //Õ“Ë”»’è
 void PlayerState_Swich::collide(const Actor& other)
 {
-	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(other)) {
+	GSvector2 ArmPos = m_Children[ActorName::Player_Arm]->getPosition();
+	GSvector2 EnePos = other.getPosition();
+	float distance = ArmPos.distance(EnePos);
+	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(other) && distance <= 16.0f) {
 		m_Flag = true;
 		//‘ŠŽè‚É‹²‚ñ‚¾î•ñ‚ð‘—‚é
 		p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));

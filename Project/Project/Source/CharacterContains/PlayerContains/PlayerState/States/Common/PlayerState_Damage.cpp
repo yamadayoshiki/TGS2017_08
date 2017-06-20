@@ -14,7 +14,6 @@ void PlayerState_Damage::unique_init()
 	gsPlaySE(SE_PLAYER_EXPLOSION);
 	p_Player.lock()->getWorld()->addActor(ActorGroup::Effect, std::make_shared<Neutral_Explosion>(p_Player.lock()->getWorld(), p_Player.lock()->getPosition(), p_GameManager));
 	m_Parameter.m_Remaining -= 1;
-	p_Player.lock()->setPosition(m_Parameter.m_StratPosition);
 }
 //XVˆ—
 void PlayerState_Damage::update(float deltaTaime)
@@ -23,7 +22,7 @@ void PlayerState_Damage::update(float deltaTaime)
 		change(PlayerStateName::Dead);
 		return;
 	}
-		change(PlayerStateName::Invincible);
+		change(PlayerStateName::Respawn);
 }
 //Õ“Ë”»’è
 void PlayerState_Damage::collide(const Actor& other) {}

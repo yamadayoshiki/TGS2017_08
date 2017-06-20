@@ -1,5 +1,7 @@
 #include"PlayerState_O_MoveBase.h"
 #include"../../../PlayerStateName.h"
+#include"../../../../../../ActorContains/ActorGroup.h"
+#include"../../../../../NeutralContains/Charge_Effect/Charge.h" 
 
 //コンストラクタ
 PlayerState_O_MoveBase::PlayerState_O_MoveBase(const Player_WPtr& player, IGameManagerPtr gameManager)
@@ -8,6 +10,14 @@ PlayerState_O_MoveBase::PlayerState_O_MoveBase(const Player_WPtr& player, IGameM
 //各状態独自の初期化
 void PlayerState_O_MoveBase::unique_init()
 {
+	if (p_Player.lock()->getParameter().getChargeFlag() == false) {
+		p_Player.lock()->getParameter().Chargeflag = true;
+		p_Player.lock()->getWorld()->addActor(
+			ActorGroup::Effect, 
+			std::make_shared<Charge>(
+				p_Player.lock()->getWorld(), 
+				m_Children[ActorName::Player_Arm]->getPosition(), p_GameManager,p_Player));
+	}
 	TextureName_Change("Player_Open");
 	// 継承先の各状態独自の初期化
 	onUniqueInit();

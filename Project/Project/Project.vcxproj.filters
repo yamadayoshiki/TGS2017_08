@@ -600,9 +600,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\OnlyInTheBack\EnemyStateStopOnlyInTheBack.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\NeutralContains\Charge\Charge.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SceneContains\GameOver\GameOver.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -664,6 +661,24 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Respawn.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1079,9 +1094,6 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\OnlyInTheBack\EnemyStateStopOnlyInTheBack.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\NeutralContains\Charge\Charge.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\SceneContains\GameOver\GameOver.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -1110,6 +1122,24 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Respawn.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

@@ -11,7 +11,7 @@
 #include "../../../Define/Def_Nakayama.h"
 #include"../../../Utility/Animation/Animation.h"
 #include"../../../Utility/Sound/SoundName.h"
-#include"../../NeutralContains/Charge/Charge.h"
+#include"../../NeutralContains/Charge_Effect/Charge.h"
 
 #include <algorithm>
 

@@ -16,7 +16,7 @@ void PlayerState_Dash::unique_init()
 	//フレームカウンターの初期化
 	m_FramConter = 0.0f;
 	//スピード初期化
-	speed = 16.0f;
+	speed = 32.0f;
 	//Playerの方向ベクトル
 	m_Direction = p_Player.lock()->getTransform()->GetForward();
 	//エンド地点の設定
@@ -47,11 +47,11 @@ void PlayerState_Dash::update(float deltaTime)
 	//開始地点から終点地点の距離を求める
 	float result = stratPos.distance(endPos);
 	//結果
-	if (result <= 1.0f) {
+	if (result <= 5.0f) {
 		change(PlayerStateName::Walk);
 	}
 	if (p_Map.lock()->IsInFrontOfTheWall(p_Player.lock()->getPosition(), FourDirection(p_Player.lock()->getTransform()->GetForward()), MapType::Double)
-		|| m_FramConter >= 30) {
+		|| m_FramConter >= 7) {
 		change(PlayerStateName::Walk);
 	}
 

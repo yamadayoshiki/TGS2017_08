@@ -125,7 +125,11 @@ bool Map::IsInFrontOfTheWall(const GSvector2 & pos, FourDirection direction, con
 	return false;
 }
 
-ResultPushDirection Map::PushForPlayer(const GSvector2 & current_pos, const GSvector2& target_pos, const MapType & charaSize, const TerrainName tileNumber) {
+ResultPushDirection Map::PushForPlayer(
+	const GSvector2 & current_pos,
+	const GSvector2& target_pos, 
+	const MapType & charaSize, 
+	const TerrainName tileNumber) {
 	//åãâ ïœêî
 	ResultPushDirection result;
 	result.position = target_pos;
@@ -133,16 +137,16 @@ ResultPushDirection Map::PushForPlayer(const GSvector2 & current_pos, const GSve
 	auto deta = GetAroundTile(current_pos, charaSize);
 
 	if (deta[FourDirection(FourDirectionName::Up)].GetTerrainName() == tileNumber) {
-		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
+		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize) + 1)+1, result.position.y);
 	}
 	if (deta[FourDirection(FourDirectionName::Down)].GetTerrainName() == tileNumber) {
-		result.position.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * (((int)charaSize) + 1), result.position.y);
+		result.position.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * (((int)charaSize) + 1)-1, result.position.y);
 	}
 	if (deta[FourDirection(FourDirectionName::Left)].GetTerrainName() == tileNumber) {
-		result.position.x = std::max<float>(deta[FourDirection(FourDirectionName::Left)].Position().x + CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
+		result.position.x = std::max<float>(deta[FourDirection(FourDirectionName::Left)].Position().x + CHIP_SIZE * (((int)charaSize) + 1)+1, result.position.x);
 	}
 	if (deta[FourDirection(FourDirectionName::Right)].GetTerrainName() == tileNumber) {
-		result.position.x = std::min<float>(deta[FourDirection(FourDirectionName::Right)].Position().x - CHIP_SIZE * (((int)charaSize) + 1), result.position.x);
+		result.position.x = std::min<float>(deta[FourDirection(FourDirectionName::Right)].Position().x - CHIP_SIZE * (((int)charaSize) + 1)-1, result.position.x);
 	}
 
 	return result;

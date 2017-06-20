@@ -18,8 +18,8 @@ public:
 	int m_Combo{ 0 };
 	//フレームカウンター
 	float m_FrameCounter{ 0.0f };
-	//フラグ
-	bool flag{ false };
+	//チャージフラグ
+	bool Chargeflag{ false };
 	//スピード
 	float m_Speed{5.0f};
 	//チャージカウンター
@@ -36,6 +36,7 @@ public:
 	int addBonus();
 	void Charge(float deltaTime);
 	int getChargePower();
+	bool getChargeFlag()const;
 };
 
 #endif // !PLAYER_PARAMETER_H_

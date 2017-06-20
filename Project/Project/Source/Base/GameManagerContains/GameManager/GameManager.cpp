@@ -21,7 +21,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Player_Close", "Resource/Texture/Player/jiki_anime8.png");
 	p_Renderer2D->LoadTexture("Player_Open", "Resource/Texture/Player/jiki_anime7.png");
 	p_Renderer2D->LoadTexture("Player_Clip", "Resource/Texture/Player/jiki_anime9.png");
-	p_Renderer2D->LoadTexture("Player_Invincble", "Resource/Texture/Player/jiki_anime4.png");
+	p_Renderer2D->LoadTexture("Player_Invincble", "Resource/Texture/Player/jiki_anime.png");
 
 	//EnemyTexture
 	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy01.png");
@@ -46,7 +46,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Charge2", "Resource/Texture/Effect/charge2.png");
 	p_Renderer2D->LoadTexture("Charge3", "Resource/Texture/Effect/charge3.png");
 	p_Renderer2D->LoadTexture("Crush", "Resource/Texture/Effect/Crush.png");
-	p_Renderer2D->LoadTexture("Hajiki", "Resource/Texture/Effect/hajiki.png");
+	p_Renderer2D->LoadTexture("Repel", "Resource/Texture/Effect/hajiki.png");
 	p_Renderer2D->LoadTexture("Respawn", "Resource/Texture/Effect/respawn.png");
 	p_Renderer2D->LoadTexture("Pop", "Resource/Texture/Effect/syutugenn.png");
 

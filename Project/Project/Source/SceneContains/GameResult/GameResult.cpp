@@ -80,7 +80,7 @@ void GameResult::OnUpdate(float deltaTime){
 	//最終ステージでゲームクリアへ
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
 		CarsorMovement == 0 &&
-		MapOrder > 2)
+		MapOrder > 7)
 	{
 		p_World->EndRequest(SceneName::GameOver);
 	}

@@ -25,6 +25,7 @@
 #include"States\Common\PlayerState_Damage.h"
 #include"States\Common\PlayerState_Swich.h"
 #include"States\Common\PlayerState_Invincible.h"
+#include"States\Common\PlayerState_Respawn.h"
 #include"States\Common\PlayerState_Release.h"
 #include"States\Common\PlayerState_Dead.h"
 
