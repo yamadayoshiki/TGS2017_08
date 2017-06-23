@@ -41,6 +41,7 @@ void MapGenerator::load(const std::string& file_name) {
 void MapGenerator::registMap() {
 	p_Map->regist(m_CsvData);
 	p_Map->regist(m_CsvData, MapType::Double);
+	p_Map->CombineMapTexture();
 }
 
 // アクターの生成

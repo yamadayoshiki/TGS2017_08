@@ -20,8 +20,7 @@ void Renderer2D::Initialize()
 }
 
 //テクスチャ読み込み
-void Renderer2D::LoadTexture(const std::string& fileName)
-{
+void Renderer2D::LoadTexture(const std::string& fileName) {
 	LoadTexture(fileName, fileName);
 }
 
@@ -40,9 +39,23 @@ void Renderer2D::LoadTexture(
 	ErrorPush(flag, texName);
 }
 //テクスチャ破棄
-void Renderer2D::UnLoadTexture(){
+void Renderer2D::UnLoadTexture() {
 	for (auto texture = m_TextureDic.begin(); texture != m_TextureDic.end(); texture++)
 		gsDeleteTexture((*texture).second);
+
+	m_TextureDic.clear();
+}
+
+//テクスチャ破棄
+void Renderer2D::UnLoadTexture(const std::string & texName) {
+	//登録されているか
+	auto itr = m_TextureDic.find(texName);
+	if (itr == m_TextureDic.end())
+		return;
+
+	//破棄
+	gsDeleteTexture((*itr).second);
+	m_TextureDic.erase(itr);
 }
 
 //テクスチャ描画

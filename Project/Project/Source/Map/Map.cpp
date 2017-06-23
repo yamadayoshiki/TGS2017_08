@@ -1,11 +1,11 @@
 #include"Map.h"
-#include "../Utility/PathFinder/Point2.h"
 #include"../Define/Def_Nakayama.h"
 #include"../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../Utility/Rederer2D/Renderer2D.h"
 #include"../WorldContains/EventMessage/EventMessage.h"
 #include"TerrainName.h"
 #include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "CombinationTexture\CombinationTexture.h"
 
 #include <algorithm>
 #include <chrono>
@@ -18,28 +18,8 @@ Map::Map(const IGameManagerPtr& gameManager) :
 
 //描画
 void Map::draw(const MapType& type) {
-	GSvector2 pos;
-	Renderer2DPtr renderer = p_GameManager->GetRenderer2D();
-	// 行のループ
-	for (int i = 0; i < m_Maps[type].size(); i++)
-		// 列のループ
-		for (int j = 0; j < m_Maps[type][i].size(); j++)
-			if (m_Maps[type][i][j] == TerrainName::Wall)
-			{
-				pos.x = j; pos.y = i;
+	p_GameManager->GetRenderer2D()->DrawTexture("Stage", GSvector2(0.0f, 0.0f));
 
-				/*
-				std::chrono::system_clock::time_point  start, end; // 型は auto で可
-				start = std::chrono::system_clock::now(); // 計測開始時間
-				//*/
-				renderer->DrawTexture("chip", pos * CHIP_SIZE);
-
-				/*
-				end = std::chrono::system_clock::now();  // 計測終了時間
-				double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
-				std::cout << "Map" << ":Draw:" << elapsed << std::endl;
-				//*/
-			}
 }
 
 //マップの取得
@@ -239,4 +219,14 @@ GSvector2 Map::CsvPosCnvVector2(const int x, const int y, const MapType type) {
 	result.y = chipSize * (y / ((int)type + 1)) + chipSize / 2;
 
 	return result;
+}
+
+//合成画像作成
+void Map::CombineMapTexture(){
+	//アンロード
+	p_GameManager->GetRenderer2D()->UnLoadTexture("Stage");
+	//画像合成
+	CombinationTexture::CreateMapImg(m_Maps[MapType::Default], "Resource/Texture/wall.png");
+	//ロード
+	p_GameManager->GetRenderer2D()->LoadTexture("Stage", "Resource/Texture/Stage.png");
 }

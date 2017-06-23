@@ -1,8 +1,8 @@
 #include "MathSupport.h"
 #include <gslib.h>
 #include "../../Define/Def_Nakayama.h"
-#include "../PathFinder/Point2.h"
 #include "../../Define/Def_Float.h"
+#include <cmath>
 
 // 二つのベクトルの角度を求める(-180<value<=180)
 float MathSupport::GetVec2ToVec2Angle(const GSvector2& dynamic, const GSvector2& base) {

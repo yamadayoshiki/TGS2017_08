@@ -32,7 +32,7 @@ Enemy10::Enemy10(
 	const IGameManagerPtr & gameManager)
 	:EnemyBase(
 		world,
-		ActorName::Enemy_01,
+		ActorName::Enemy_10,
 		position,
 		front,
 		0,

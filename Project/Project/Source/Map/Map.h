@@ -70,6 +70,8 @@ public:
 	int GetHeight(const MapType& type = MapType::Default) const;
 	// csv座標をGSvector2に変換(中心座標)
 	GSvector2 CsvPosCnvVector2(const int x, const int y, const MapType type);
+	//合成画像作成
+	void CombineMapTexture();
 
 private:
 	// マップの格納

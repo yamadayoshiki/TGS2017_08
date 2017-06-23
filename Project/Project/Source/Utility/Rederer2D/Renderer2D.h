@@ -30,6 +30,9 @@ public:
 	//テクスチャ破棄
 	void UnLoadTexture();
 
+	//テクスチャ破棄
+	void UnLoadTexture(const std::string& texName);
+
 	//テクスチャ描画
 	void DrawTexture(
 		const std::string& texName,										//登録名

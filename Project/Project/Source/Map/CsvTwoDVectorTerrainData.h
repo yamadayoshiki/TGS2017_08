@@ -3,7 +3,7 @@
 
 #include <vector>
 enum class TerrainName;
-using CsvColumTerrainData = std::vector<TerrainName>;
-using CsvTwoDVectorTerrainData = std::vector<CsvColumTerrainData>;
+using CsvRowTerrainData = std::vector<TerrainName>;
+using CsvTwoDVectorTerrainData = std::vector<CsvRowTerrainData>;
 
 #endif
