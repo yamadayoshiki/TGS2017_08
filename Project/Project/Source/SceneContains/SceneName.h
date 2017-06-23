@@ -4,6 +4,7 @@
 enum class SceneName
 {
 	GameTitle = 0,		//タイトル
+	GameTutorial,
 	GameSelect,
 	GamePlay,			//ゲーム中
 	GameResult,

@@ -61,13 +61,14 @@ public:
 	// シーンの終了
 	virtual SceneName NextScene();
 
-	int GetSurviverSum();
+	int GetSurviverSum(int mapOrder);
 
 	// コピー禁止  
 	World(const World& other) = delete;
 	World& operator = (const World& other) = delete;
 
 private:
+	std::unordered_map<int, ActorName> m_Target;//倒す対象の敵をステージごとに
 	ActorManagerPtr p_Actors;					//アクター管理
 	MapGeneratorPtr p_MapGenerator;				//マップ生成クラス
 	SceneName m_NextScene;						//次のシーン

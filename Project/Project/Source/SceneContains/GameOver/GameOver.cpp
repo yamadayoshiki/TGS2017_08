@@ -26,7 +26,7 @@ void GameOver::OnStart()
 
 void GameOver::OnUpdate(float deltaTime)
 {
-	gsPlayMusic();
+	gsPlayMusic(BGM_GAME_CLER);
 
 		if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)){
 			gsPlaySE(SE_DECITION);
@@ -44,5 +44,5 @@ void GameOver::OnDraw() const
 
 void GameOver::End()
 {
-	gsStopMusic();
+	gsStopMusic(BGM_GAME_CLER);
 }

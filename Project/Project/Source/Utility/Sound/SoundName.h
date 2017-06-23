@@ -33,14 +33,14 @@ enum SoundName
 	BGM_GAME_OVER,				//ゲームオーバーBGM
 
 	//SE
-	SE_BACK,
-	SE_DECITION,
-	SE_KOMBOUP,
-	SE_PAUSE_CLOSE,
-	SE_PAUSE_OPEN,
-	SE_SHOWINGSCORE,
-	SE_SHOWINGSCORE_BEFORE,
-	SE_START,
+	SE_BACK,					//戻る
+	SE_DECITION,				//決定
+	SE_KOMBOUP,					//コンボアップ
+	SE_PAUSE_CLOSE,				//ポーズを閉じる
+	SE_PAUSE_OPEN,				//ポーズを開く
+	SE_SHOWINGSCORE,			//スコア表示
+	SE_SHOWINGSCORE_BEFORE,		//スコア表示前
+	SE_START,					//スタート
 };
 
 #endif

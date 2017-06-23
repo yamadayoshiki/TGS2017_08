@@ -36,7 +36,7 @@ enum class ActorName
 	Enemy_05,			//往復するやつ
 	Enemy_06,			//親機
 	Enemy_07,			//
-	Enemy_08,
+	Enemy_08,			//プレイヤーを見つけたら突進するやつ
 	Enemy_09,
 	Enemy_10,
 };

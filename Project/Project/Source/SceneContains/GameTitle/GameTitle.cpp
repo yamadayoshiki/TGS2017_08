@@ -17,14 +17,14 @@
 // コンストラクタ    
 GameTitle::GameTitle(const IGameManagerPtr& gameManager)
 	:Scene(gameManager){
-	//gameManager->GetRenderer2D()->LoadTexture("logo", "Resource/Texture/UI/Title/logo.png");
+	
 }
 
 // 開始     
 void GameTitle::OnStart(){
 	p_GameManager->GetPlayerParameter().setRemaining(3);
 	p_GameManager->GetScore()->initialze();
-	MapOrder = 1;
+	MapOrder = 0;
 	
 	gsBindMusic(BGM_GAME_TITLE);
 	
@@ -32,7 +32,7 @@ void GameTitle::OnStart(){
 
 // 更新
 void GameTitle::OnUpdate(float deltaTime){
-	gsPlayMusic();
+	gsPlayMusic(BGM_GAME_TITLE);
 
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
 		gsPlaySE(SE_DECITION);
@@ -49,8 +49,7 @@ void GameTitle::OnDraw()const
 
 void GameTitle::End()
 {
-	gsStopMusic();
+	gsStopMusic(BGM_GAME_TITLE);
 	p_GameManager->set_MapOrder(MapOrder);
-	
 }
 

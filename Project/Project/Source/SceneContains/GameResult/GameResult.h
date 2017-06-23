@@ -3,6 +3,9 @@
 
 #include "../Scene/Scene.h"
 #include <string>
+#include<array>
+
+#include<gslib.h>
 class World;
 
 //ゲーム中
@@ -12,6 +15,12 @@ public:
 	// コンストラクタ    
 	GameResult(const IGameManagerPtr& gameManager);
 
+	enum class Rank{
+		RankS,
+		RankA,
+		RankB,
+		RankC,
+	};
 protected:
 	// 開始     
 	virtual void OnStart();
@@ -26,6 +35,12 @@ private:
 	std::string m_Text;
 	std::string m_SelectTextureName;
 	std::string m_ResultTextureName;
+	//座標
+	GSvector2 m_ScorePosition;
+
+	typedef std::array<int, 4> RankNolma;
+	std::array<RankNolma,8> StageRankNolma;
+
 };
 
 #endif

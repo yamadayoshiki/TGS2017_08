@@ -60,7 +60,7 @@ ActorPtr Enemy07::CsvGenerate(const int x, const int y, const int csvparam)
 	FourDirection dir = FourDirection((FourDirectionName)MathSupport::GetCutNum(csvparam, 1, 1));
 	//„‰ñƒtƒ@ƒCƒ‹‚Ìİ’è
 	int num = MathSupport::GetCutNum(csvparam, 2, 2);
-	std::string name = "Resource/StreamingAssets/nokonoko" + std::to_string(num) + ".csv";
+	std::string name = "Resource/StreamingAssets/nokonoko/" + std::to_string(num) + ".csv";
 
 	return std::make_shared<Enemy07>(p_World, position, dir, p_GameManager,name);
 }

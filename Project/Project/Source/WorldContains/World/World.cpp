@@ -12,8 +12,17 @@
 // コンストラクタ
 World::World()
 	:p_Actors(std::make_shared<ActorManager>()),
-	m_IsEnd(false)
+	m_IsEnd(false),
+	m_Target()
 {
+	m_Target[0] = ActorName::Enemy_05;
+	m_Target[1] = ActorName::Enemy_05;
+	m_Target[2] = ActorName::Enemy_06;
+	m_Target[3] = ActorName::Enemy_09;
+	m_Target[4] = ActorName::Enemy_05;
+	m_Target[5] = ActorName::Enemy_05;
+	m_Target[6] = ActorName::Enemy_05;
+	m_Target[7] = ActorName::Enemy_08;
 }
 
 // デストラクタ
@@ -117,12 +126,27 @@ SceneName World::NextScene() {
 	return m_NextScene;
 }
 
-int World::GetSurviverSum() {
+int World::GetSurviverSum(int mapOrder) {
 	int sum = 0;
-	findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child) {
+	/*findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child) {
 		EnemyBase* enemy = dynamic_cast<EnemyBase*>(&child);
 		if (enemy->CanDead() && !enemy->GetHitPoint().IsDead()) { sum++; }
 	});
+	return sum;*/
+
+	//特定の敵を倒したら次のステージに進む
+	findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child)
+	{
+		if (child.getName() == m_Target[mapOrder])
+		{
+			EnemyBase* l_Enemy = dynamic_cast<EnemyBase*>(&child);
+			if (l_Enemy->CanDead() && !l_Enemy->GetHitPoint().IsDead())
+			{
+				sum += 1;
+			}
+		}
+		
+	});
+	
 	return sum;
 }
-

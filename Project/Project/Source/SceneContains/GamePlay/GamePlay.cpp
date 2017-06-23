@@ -19,6 +19,7 @@
 #include "../../Utility/FourDirection/FourDirection.h"
 #include"../../CharacterContains/Factory/CharacterFactory.h"
 #include"../../Utility/Sound/SoundName.h"
+#include "../../StagingContains/TransitionStaging/Transition/Transition.h"
 
 
 // コンストラクタ    
@@ -50,9 +51,13 @@ void GamePlay::OnStart() {
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime) {
-	gsPlayMusic();
+	gsPlayMusic(BGM_GAME_PLAY);
 	//ポーズ
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE) { PauseFlag = !PauseFlag; }
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE) 
+	{
+		gsPlaySE(SE_PAUSE_OPEN);
+		PauseFlag = !PauseFlag;
+	}
 	if (PauseFlag == true)
 	{
 		if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
@@ -67,6 +72,7 @@ void GamePlay::OnUpdate(float deltaTime) {
 			gsPlaySE(SE_DECITION);
 			MapOrder = 0;
 			p_World->EndRequest(SceneName::GameTitle);
+			return;
 		}
 		//カーソル移動
 		if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_DOWN) ||
@@ -83,7 +89,7 @@ void GamePlay::OnUpdate(float deltaTime) {
 	}
 	
 	// 討伐可能な敵が０以下の場合クリア
-	if (p_World->GetSurviverSum() <= 0 ) {
+	if (p_World->GetSurviverSum(MapOrder) <= 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
 		p_World->EndRequest(SceneName::GameResult);
 	}
 	
@@ -126,13 +132,13 @@ void GamePlay::OnDraw() const {
 	p_GameManager->GetScore()->setPosition(GSvector2(200, 50));
 	gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
 	gsTextPos(900, 50);
-	gsDrawText("あと %d 体", p_World->GetSurviverSum());
+	gsDrawText("あと %d 体", p_World->GetSurviverSum(MapOrder));
 	gsFontParameter(GS_FONT_BOLD, 20, "HG明朝B");
 }
 
 void GamePlay::End()
 {
-	gsStopMusic();
+	gsStopMusic(BGM_GAME_PLAY);
 
 	if (MapOrder == 1) {
 		p_GameManager->set_MapOrder(MapOrder);

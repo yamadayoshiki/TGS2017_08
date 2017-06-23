@@ -10,7 +10,7 @@ TwoDVector CsvConvertTwoDVector::GetTwoDVector(const std::string & fileName, int
 	TwoDVector result;
 
 	// ファイルの読み込み
-	CsvReader file = CsvReader(fileName);
+	CsvReader file(fileName);
 
 	// 行のループ
 	for (int i = 0; i < file.rows(); i++) {
