@@ -20,9 +20,12 @@ Charge::~Charge()
 void Charge::initialize()
 {
 	m_Charge_Stage = Charge_Stage::Zero;
+	p_Player.lock()->getParameter().m_ChargeConter = 0.0f;
+	p_Player.lock()->getParameter().m
+
 
 	//テクスチャの現在の名前の設定
-	m_CurrrentName = "";
+	m_CurrrentName = "Charge0";
 	m_PreviosName = m_CurrrentName;
 
 	//アニメーションのパラメータの設定
@@ -34,13 +37,13 @@ void Charge::initialize()
 //更新処理
 void Charge::onUpdate(float deltaTime)
 {
-	//アニメーションの更新
-	p_AnimationTexture->Update(deltaTime);
 	//チャージ段階の更新
 	ChargeUpdate();
-
+	//プレイヤーのトランスフォームを取得
 	p_Transform = p_Player.lock()->getTransform();
-
+	//アニメーションの更新
+	p_AnimationTexture->Update(deltaTime);
+	//フラグがfalseなら死亡する
 	if (p_Player.lock()->getParameter().getChargeFlag() == false) {
 		//死亡
 		dead();
@@ -65,6 +68,8 @@ void Charge::ChargeUpdate()
 	switch (p_Player.lock()->getParameter().getChargePower())
 	{
 	case Charge_Stage::Zero:
+		m_PreviosName = m_CurrrentName;
+		m_CurrrentName = "Charge0";
 		break;
 
 	case Charge_Stage::Frist:

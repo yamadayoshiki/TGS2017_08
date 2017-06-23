@@ -22,6 +22,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Player_Open", "Resource/Texture/Player/jiki_anime7.png");
 	p_Renderer2D->LoadTexture("Player_Clip", "Resource/Texture/Player/jiki_anime9.png");
 	p_Renderer2D->LoadTexture("Player_Invincble", "Resource/Texture/Player/jiki_anime.png");
+	p_Renderer2D->LoadTexture("Player_AfterImage", "Resource/Texture/Player/jiki_zanzou.png");
 
 	//EnemyTexture
 	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy01.png");
@@ -42,6 +43,7 @@ void GameManager::LoadContent() {
 
 	//EffectTexture
 	p_Renderer2D->LoadTexture("Explosion", "Resource/Texture/Effect/Explosion.png");
+	p_Renderer2D->LoadTexture("Charge0", "Resource/Texture/Effect/Charge_Effect0.png");
 	p_Renderer2D->LoadTexture("Charge1", "Resource/Texture/Effect/charge.png");
 	p_Renderer2D->LoadTexture("Charge2", "Resource/Texture/Effect/charge2.png");
 	p_Renderer2D->LoadTexture("Charge3", "Resource/Texture/Effect/charge3.png");

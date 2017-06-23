@@ -14,6 +14,9 @@ enum SoundName
 	SE_PLAYER_EXPLOSION,		//自機の爆発
 	SE_PLAYER_PLAY,				//弾いたとき
 	SE_PLAYER_RESPAWN,			//リスポーン
+	SE_PLAYER_CHARGE_FRIST,		//チャージ1段階目
+	SE_PLAYER_CHARGE_SECOND,	//チャージ2段階目
+	SE_PLAYER_CHARGE_THIRD,		//チャージ3段階目
 
 	//EnemySE
 	SE_ENEMY_CHILDAPPEARED,		//子機出現
