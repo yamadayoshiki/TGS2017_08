@@ -21,7 +21,7 @@ void Charge::initialize()
 {
 	m_Charge_Stage = Charge_Stage::Zero;
 	p_Player.lock()->getParameter().m_ChargeConter = 0.0f;
-	p_Player.lock()->getParameter().m
+	p_Player.lock()->getParameter().m_ChargePower = 0;
 
 
 	//テクスチャの現在の名前の設定
