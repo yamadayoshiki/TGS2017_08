@@ -16,8 +16,9 @@ Scene::Scene(const IGameManagerPtr& gameManager)
 	: m_IsEnd(false)
 	, p_GameManager(gameManager)
 	, m_Transition(std::make_shared<SceneTransition>(gameManager))
-	,MapOrder(0){
-	
+	,MapOrder(0)
+{
+	isGameClear = false;
 }
 
 // 仮想デストラクタ     
@@ -28,7 +29,6 @@ Scene::~Scene() {
 // 開始     
 void Scene::Start()
 {
-
 	m_IsEnd = false;
 	// 遷移演出の開始
 	m_Transition->start();
@@ -47,8 +47,8 @@ void Scene::Start()
 // 更新     
 void Scene::Update(float deltaTime)
 {
-	//スペースキーを押したら次のシーン
-	if (gsGetKeyTrigger(GKEY_SPACE) == GS_TRUE  || p_World->IsEnd()) {
+	//ワールドが終わったら次のシーン
+	if (p_World->IsEnd()) {
 		m_IsEnd = true;
 	}
 	
@@ -58,7 +58,6 @@ void Scene::Update(float deltaTime)
 											  //*/
 	//フラグがたったら画面が止まる
 	if (PauseFlag == false) {
-		//deltaTime = 0;
 		p_World->update(deltaTime);
 	}
 	/*
@@ -67,8 +66,8 @@ void Scene::Update(float deltaTime)
 	std::cout << "world" << ":Update:" << elapsed << std::endl;
 	//*/
 
-	//各種固有の更新
-	OnUpdate(deltaTime);
+	//ワールドが終わっていなかったら各種固有の更新
+	if (p_World->IsEnd() != true) { OnUpdate(deltaTime); }
 
 	// 遷移演出の開始
 	m_Transition->update(deltaTime);

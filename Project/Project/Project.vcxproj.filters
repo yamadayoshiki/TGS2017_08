@@ -111,9 +111,6 @@
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Map\Map.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Wall\Wall.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -354,12 +351,6 @@
     <ClInclude Include="Source\WorldContains\EventMessage\EventMessage.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Map\MapData.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Map\MapType.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ActorContains\HitPoint\HitPoint.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -463,12 +454,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Map\MapPtr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Map\TerrainName.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Spin\EnemyCommandEnemy07Spin.h">
@@ -636,9 +621,6 @@
     <ClInclude Include="Source\ActorContains\Transform\TransformPtr.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Utility\AAVector2\AAVector2.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -681,10 +663,28 @@
     <ClInclude Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Utility\MatCnvTxt\MatCnvTxt.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
     <ClInclude Include="Source\Map\CombinationTexture\CombinationTexture.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Utility\MatCnvTxt\MatCnvTxt.h">
+    <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\Map.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\MapData.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\MapPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\MapType.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\TerrainName.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -738,9 +738,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Utility\InputState\InputState.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Map\Map.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Wall\Wall.cpp">
@@ -1148,10 +1145,13 @@
     <ClCompile Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Utility\MatCnvTxt\MatCnvTxt.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
     <ClCompile Include="Source\Map\CombinationTexture\CombinationTexture.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Utility\MatCnvTxt\MatCnvTxt.cpp">
+    <ClCompile Include="Source\Map\Map.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

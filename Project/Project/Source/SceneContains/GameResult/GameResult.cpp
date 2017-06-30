@@ -90,36 +90,41 @@ void GameResult::OnUpdate(float deltaTime){
 	if (p_GameManager->GetPlayerParameter().m_Remaining < 0)
 	{
 		gsPlayMusic(BGM_GAME_OVER);
-	}
-	else
-	{
-		gsPlayMusic(BGM_GAME_CLER);
-	}
-	/*if (m_ResultTextureName == "Clear")
-	{
-		gsPlayMusic(BGM_GAME_CLER);
-	}
-	else
-	{
-		gsPlayMusic(BGM_GAME_OVER);
-	}*/
 
-	//最終ステージでゲームクリアへ
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
-		CarsorMovement == 0 &&
-		MapOrder == 7)
-	{
-		p_World->EndRequest(SceneName::GameOver);
 	}
+	else
+	{
+		gsPlayMusic(BGM_GAME_CLER);
+	}
+
+	////最終ステージでゲームクリアへ
+	//if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
+	//	CarsorMovement == 0 &&
+	//	MapOrder == 7&&
+	//	this->isGameClear == true)
+	//{
+	//	
+	//	return;
+	//}
 
 	//次のステージに行くかタイトルに戻るか
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
 		CarsorMovement == 0 &&
-		MapOrder < 7) {
-		if (m_ResultTextureName == "Clear" && MapOrder != 8) { MapOrder += 1; }
+		MapOrder <= 7)
+	{
+		if ((isGameClear == true)&&(this->MapOrder == 7)) { 
+			p_World->EndRequest(SceneName::GameOver);
+			return;
+		}
+		if (m_ResultTextureName == "Clear" && MapOrder < 7)
+		{
+			MapOrder += 1; 
+		}
 		p_GameManager->set_MapOrder(MapOrder);
 		p_World->EndRequest(SceneName::GamePlay);
 		gsPlaySE(SE_DECITION);
+
+		return;
 	}
 
 	else if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
@@ -128,9 +133,6 @@ void GameResult::OnUpdate(float deltaTime){
 		p_World->EndRequest(SceneName::GameTitle);
 		gsPlaySE(SE_BACK);
 	}
-	
-	
-	
 
 	//カーソル移動
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_LEFT) ||
@@ -145,7 +147,7 @@ void GameResult::OnUpdate(float deltaTime){
 		}
 	}
 
-	//リザルト処理
+	
 }
 
 void GameResult::OnDraw() const

@@ -26,9 +26,7 @@
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 	:Scene(gameManager) {
 	gameManager->GetRenderer2D()->LoadTexture("game_back", "Resource/Texture/UI/Play/back_ground.png");
-	//p_GameManager->GetRenderer2D()->LoadTexture("chip", "Resource/Texture/wall.png");
-	//p_GameManager->GetRenderer2D()->LoadTexture("Pause", "Resource/Texture/UI/Play/Poze.png");
-	//p_GameManager->GetRenderer2D()->LoadTexture("Black", "Resource/Texture/UI/black_screen.png");
+	isGameClear = false;
 }
 
 // 開始     
@@ -52,6 +50,7 @@ void GamePlay::OnStart() {
 // 更新     
 void GamePlay::OnUpdate(float deltaTime) {
 	gsPlayMusic(BGM_GAME_PLAY);
+
 	//ポーズ
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE) 
 	{
@@ -90,6 +89,7 @@ void GamePlay::OnUpdate(float deltaTime) {
 	
 	// 討伐可能な敵が０以下の場合クリア
 	if (p_World->GetSurviverSum(MapOrder) <= 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
+		isGameClear = true;
 		p_World->EndRequest(SceneName::GameResult);
 	}
 	
@@ -140,7 +140,7 @@ void GamePlay::End()
 {
 	gsStopMusic(BGM_GAME_PLAY);
 
-	if (MapOrder == 1) {
+	if (MapOrder >= 1) {
 		p_GameManager->set_MapOrder(MapOrder);
 	}
 	else

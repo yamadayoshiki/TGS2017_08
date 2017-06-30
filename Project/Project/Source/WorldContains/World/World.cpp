@@ -23,6 +23,7 @@ World::World()
 	m_Target[5] = ActorName::Enemy_05;
 	m_Target[6] = ActorName::Enemy_05;
 	m_Target[7] = ActorName::Enemy_08;
+
 }
 
 // デストラクタ
@@ -147,6 +148,5 @@ int World::GetSurviverSum(int mapOrder) {
 		}
 		
 	});
-	
 	return sum;
 }

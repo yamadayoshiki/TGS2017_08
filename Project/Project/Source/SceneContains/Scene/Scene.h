@@ -61,6 +61,8 @@ protected:
 	 int CarsorMovement = 0;
 	//マップの順番
 	 int MapOrder = 0;
+	 //ゲームをクリアしたか
+	 bool isGameClear;
 };
 
 #endif // !SCENE_H_
