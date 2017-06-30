@@ -32,7 +32,7 @@ void GameTitle::OnStart(){
 
 // XV
 void GameTitle::OnUpdate(float deltaTime){
-	gsPlayMusic(BGM_GAME_TITLE);
+	gsPlayMusic();
 
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
 		gsPlaySE(SE_DECITION);
@@ -49,7 +49,7 @@ void GameTitle::OnDraw()const
 
 void GameTitle::End()
 {
-	gsStopMusic(BGM_GAME_TITLE);
+	gsStopMusic();
 	p_GameManager->set_MapOrder(MapOrder);
 }
 

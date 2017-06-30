@@ -32,6 +32,10 @@ protected:
 	virtual void End();
 
 private:
+	//‘I‘ğ‚ÌXV
+	void SelectUpdate();
+
+private:
 	std::string m_Text;
 	std::string m_SelectTextureName;
 	std::string m_ResultTextureName;

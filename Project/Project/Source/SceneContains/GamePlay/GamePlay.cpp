@@ -31,68 +31,35 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 
 // 開始     
 void GamePlay::OnStart() {
-	//マップデータによる生成
-	p_World->SetMapGenerator(p_World, p_GameManager);
-	p_World->SetCharacterFactory(new CharacterFactory(p_World,p_GameManager));
-	MapOrder += 1;
-	MapOrder = p_GameManager->get_MapOrder();
-	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage"+std::to_string(MapOrder)+".csv");
+	//Mapデータの設定
+	MapSetDeta();
 
-	std::unordered_map<FourDirection, TileData> tmp = p_World->GetMap()->GetAroundTile(GSvector2(70, 90));
-
-	p_GameManager->GetPlayerParameter().setRemaining(3);
-
-	gsBindMusic(BGM_GAME_PLAY);
+	//std::unordered_map<FourDirection, TileData> tmp = p_World->GetMap()->GetAroundTile(GSvector2(70, 90));
 
 	PauseFlag = false;
+
+	gsBindMusic(BGM_GAME_PLAY);
+	gsPlayMusic();
 }
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime) {
-	gsPlayMusic(BGM_GAME_PLAY);
 
 	//ポーズ
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE) 
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE)
 	{
 		gsPlaySE(SE_PAUSE_OPEN);
 		PauseFlag = !PauseFlag;
 	}
-	if (PauseFlag == true)
-	{
-		if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
-			CarsorMovement == 0) {
-			gsPlaySE(SE_DECITION);
-			PauseFlag = false;
-		}
+	//ポーズの更新
+	PauseUpdate();
 
-		if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
-			CarsorMovement == 1)
-		{
-			gsPlaySE(SE_DECITION);
-			MapOrder = 0;
-			p_World->EndRequest(SceneName::GameTitle);
-			return;
-		}
-		//カーソル移動
-		if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_DOWN) ||
-			p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_UP)) {
-			if (CarsorMovement == 0)
-			{
-				CarsorMovement = 1;
-			}
-			else
-			{
-				CarsorMovement = 0;
-			}
-		}
-	}
-	
 	// 討伐可能な敵が０以下の場合クリア
 	if (p_World->GetSurviverSum(MapOrder) <= 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
 		isGameClear = true;
 		p_World->EndRequest(SceneName::GameResult);
 	}
-	
+
 }
 
 void GamePlay::OnDraw() const {
@@ -115,7 +82,7 @@ void GamePlay::OnDraw() const {
 		p_GameManager->GetRenderer2D()->DrawTexture("PauseRG", GSvector2(SCREEN_SIZE.x / 2 - 128, SCREEN_SIZE.y / 2 - 128));
 		p_GameManager->GetRenderer2D()->DrawTexture("PauseRT", GSvector2(SCREEN_SIZE.x / 2 - 128, SCREEN_SIZE.y / 2 + 128));
 		//カーソル描画
-		if (CarsorMovement == 0)
+		if (m_CarsorMovement == CarsorMovement::Up)
 		{
 			p_GameManager->GetRenderer2D()->DrawTexture("Cursor", GSvector2(SCREEN_SIZE.x / 2 - 178, SCREEN_SIZE.y / 2 - 100));
 		}
@@ -138,7 +105,7 @@ void GamePlay::OnDraw() const {
 
 void GamePlay::End()
 {
-	gsStopMusic(BGM_GAME_PLAY);
+	gsStopMusic();
 
 	if (MapOrder >= 1) {
 		p_GameManager->set_MapOrder(MapOrder);
@@ -146,5 +113,48 @@ void GamePlay::End()
 	else
 	{
 		MapOrder = 0;
+	}
+}
+//Mapデータの設定
+void GamePlay::MapSetDeta()
+{
+	//マップデータによる生成
+	p_World->SetMapGenerator(p_World, p_GameManager);
+	p_World->SetCharacterFactory(new CharacterFactory(p_World, p_GameManager));
+	MapOrder += 1;
+	MapOrder = p_GameManager->get_MapOrder();
+	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage" + std::to_string(MapOrder) + ".csv");
+}
+//ポーズの更新
+void GamePlay::PauseUpdate()
+{
+	if (PauseFlag == false)return;
+
+	//カーソル移動
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_DOWN) ||
+		p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_UP)) {
+		if (m_CarsorMovement == CarsorMovement::Up)
+		{
+			m_CarsorMovement = CarsorMovement::Down;
+		}
+		else
+		{
+			m_CarsorMovement = CarsorMovement::Up;
+		}
+	}
+
+	//ポーズ選択
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) == GS_FALSE)return;
+	switch (m_CarsorMovement)
+	{
+	case CarsorMovement::Up:
+		gsPlaySE(SE_DECITION);
+		PauseFlag = false;
+		break;
+	case CarsorMovement::Down:
+		gsPlaySE(SE_DECITION);
+		MapOrder = 0;
+		p_World->EndRequest(SceneName::GameTitle);
+		break;
 	}
 }

@@ -47,7 +47,7 @@ void PlayerState::move(float deltaTime, float speed)
 		//ç¿ïWà⁄ìÆ
 		m_Position = p_Player.lock()->getPosition() + p_Input->PadVelocity() * speed * deltaTime;
 
-		result = p_Map.lock()->PushForChara(p_Player.lock()->getPosition(), m_Position, MapType::Double);
+		result = p_Map.lock()->PushForPlayer(p_Player.lock()->getPosition(), m_Position, MapType::Double, TerrainName::Wall);
 
 		/******************************************************************************************************************************/
 		/*í«ÇµèoÇµèàóù*/

@@ -45,8 +45,8 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Explosion", "Resource/Texture/Effect/Explosion.png");
 	p_Renderer2D->LoadTexture("Charge0", "Resource/Texture/Effect/Charge_Effect0.png");
 	p_Renderer2D->LoadTexture("Charge1", "Resource/Texture/Effect/charge.png");
-	p_Renderer2D->LoadTexture("Charge2", "Resource/Texture/Effect/charge2.png");
-	p_Renderer2D->LoadTexture("Charge3", "Resource/Texture/Effect/charge3.png");
+	p_Renderer2D->LoadTexture("Charge2", "Resource/Texture/Effect/charge4.png");
+	p_Renderer2D->LoadTexture("Charge3", "Resource/Texture/Effect/charge5.png");
 	p_Renderer2D->LoadTexture("Crush", "Resource/Texture/Effect/Crush.png");
 	p_Renderer2D->LoadTexture("Repel", "Resource/Texture/Effect/hajiki.png");
 	p_Renderer2D->LoadTexture("Respawn", "Resource/Texture/Effect/respawn.png");

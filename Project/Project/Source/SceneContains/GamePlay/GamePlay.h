@@ -22,7 +22,11 @@ protected:
 	//終了
 	virtual void End()override;
 
-
+private:
+	//Mapデータの設定
+	void MapSetDeta();
+	//ポーズの更新
+	void PauseUpdate();
 };
 
 #endif

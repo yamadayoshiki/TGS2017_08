@@ -13,6 +13,14 @@ using WorldPtr = std::shared_ptr<World>;
 class Scene :public IScene
 {
 public:
+	enum class CarsorMovement
+	{
+		Up = 0,		//上
+		Down,		//下
+		Right,		//右
+		Left,		//左
+	};
+public:
 	//コンストラクタ
 	Scene(const IGameManagerPtr& gameManager);
 	// 仮想デストラクタ     
@@ -58,7 +66,7 @@ protected:
 	//ポーズフラグ
 	bool PauseFlag = false;
 	//カーソル移動
-	 int CarsorMovement = 0;
+	CarsorMovement  m_CarsorMovement{ CarsorMovement::Up };
 	//マップの順番
 	 int MapOrder = 0;
 	 //ゲームをクリアしたか

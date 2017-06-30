@@ -53,7 +53,7 @@ void Charge::onUpdate(float deltaTime)
 //•`‰æˆ—
 void Charge::onDraw()const
 {
-	p_AnimationTexture->GetParameter()->SetPosition(getPosition());
+	p_AnimationTexture->GetParameter()->SetPosition(p_Transform->m_Position + p_Player.lock()->getTransform()->GetForward() * 4);
 	p_AnimationTexture->GetParameter()->SetRotate(p_Transform->m_Angle);
 	p_AnimationTexture->GetParameter()->SetCenter({ 32.0f, 32.0f });
 	p_AnimationTexture->GetParameter()->SetScale({ 1.0f , 1.0f });
