@@ -22,11 +22,12 @@ GameOver::GameOver(const IGameManagerPtr & gameManager)
 void GameOver::OnStart()
 {
 	gsBindMusic(BGM_GAME_CLER);
+	gsPlayMusic();
 }
 
 void GameOver::OnUpdate(float deltaTime)
 {
-	gsPlayMusic();
+	
 
 		if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)){
 			gsPlaySE(SE_DECITION);

@@ -105,10 +105,6 @@ void Player::onDraw()const
 	p_AnimationTexture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
 	//アニメーションの描画
 	p_AnimationTexture->Draw();
-
-	//GSvector2 drawPos = getPosition() - p_Transform->GetForward() * 16;
-	//gsTextPos(drawPos.x, drawPos.y);
-	//gsDrawText("a");
 }
 //衝突判定
 void Player::onCollide(Actor& other)

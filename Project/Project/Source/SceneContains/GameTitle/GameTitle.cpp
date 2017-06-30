@@ -27,12 +27,11 @@ void GameTitle::OnStart(){
 	MapOrder = 0;
 	
 	gsBindMusic(BGM_GAME_TITLE);
-	
+	gsPlayMusic();
 }
 
 // XV
 void GameTitle::OnUpdate(float deltaTime){
-	gsPlayMusic();
 
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
 		gsPlaySE(SE_DECITION);

@@ -59,55 +59,34 @@ GameResult::GameResult(const IGameManagerPtr& gameManager)
 	StageRankNolma[7][(int)Rank::RankA] = 1300;
 	StageRankNolma[7][(int)Rank::RankB] = 1200;
 	StageRankNolma[7][(int)Rank::RankC] = 1100;
-	OnStart();
 }
 
 // 開始     
-void GameResult::OnStart(){
-	MapOrder =p_GameManager->get_MapOrder();
+void GameResult::OnStart() {
+	MapOrder = p_GameManager->get_MapOrder();
 	m_ScorePosition = GSvector2(550, 250);
 
 	m_CarsorMovement = CarsorMovement::Left;
 
-	//if (p_GameManager->GetPlayerParameter().m_Remaining < 0)
-	//{
-	//	//死んだときの描画
-	//	m_ResultTextureName = "Over";
-	//	m_SelectTextureName = "Restart";
-	//	gsBindMusic(BGM_GAME_OVER);
-	//}
-		//死んでないときcsvの番号追加
-		m_ResultTextureName = "Clear";
-		m_SelectTextureName = "NextStage";
-		gsBindMusic(BGM_GAME_CLER);
-		//BGM再生
-		gsPlayMusic();
+	//BGMの設定
+	gsBindMusic(BGM_GAME_CLER);
+	//BGM再生
+	gsPlayMusic();
 }
 
 // 更新     
-void GameResult::OnUpdate(float deltaTime){
-	
-	////最終ステージでゲームクリアへ
-	//if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
-	//	CarsorMovement == 0 &&
-	//	MapOrder == 7&&
-	//	this->isGameClear == true)
-	//{
-	//	
-	//	return;
-	//}
+void GameResult::OnUpdate(float deltaTime) {
+
 	//選択の更新
 	SelectUpdate();
 
 	//カーソル移動
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_LEFT) ||
-		p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_RIGHT)){
-		if (m_CarsorMovement == CarsorMovement::Left)
-		{
+		p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_RIGHT)) {
+		if (m_CarsorMovement == CarsorMovement::Left)		{
 			m_CarsorMovement = CarsorMovement::Right;
 		}
-		else
-		{
+		else{
 			m_CarsorMovement = CarsorMovement::Left;
 		}
 	}
@@ -116,8 +95,8 @@ void GameResult::OnUpdate(float deltaTime){
 void GameResult::OnDraw() const
 {
 	//次のステージに行くかタイトルに戻るか
-	p_GameManager->GetRenderer2D()->DrawTexture(m_ResultTextureName, GSvector2(0, 0));
-	p_GameManager->GetRenderer2D()->DrawTexture(m_SelectTextureName, GSvector2(SCREEN_SIZE.x / 2 - 400, SCREEN_SIZE.y / 2 + 178 ));
+	p_GameManager->GetRenderer2D()->DrawTexture("Clear", GSvector2(0, 0));
+	p_GameManager->GetRenderer2D()->DrawTexture("NextStage", GSvector2(SCREEN_SIZE.x / 2 - 400, SCREEN_SIZE.y / 2 + 178));
 	p_GameManager->GetRenderer2D()->DrawTexture("ReturnTitle", GSvector2(SCREEN_SIZE.x / 2 + 128, SCREEN_SIZE.y / 2 + 178));
 
 	//カーソル描画
@@ -132,9 +111,8 @@ void GameResult::OnDraw() const
 
 	//リザルトスコアの描画
 	p_GameManager->GetScore()->draw();
-	p_GameManager->GetScore()->setPosition(GSvector2(200,200));
-	if (m_ResultTextureName == "Clear")
-	{
+	p_GameManager->GetScore()->setPosition(GSvector2(200, 200));
+	
 		int StageIndex = MapOrder;
 		if (p_GameManager->GetScore()->ReleaseScore() >= StageRankNolma[StageIndex][(int)Rank::RankS])
 		{
@@ -152,7 +130,7 @@ void GameResult::OnDraw() const
 		{
 			p_GameManager->GetRenderer2D()->DrawTexture("RankC", m_ScorePosition);
 		}
-	}
+	
 }
 
 void GameResult::End()

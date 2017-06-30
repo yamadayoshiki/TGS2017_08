@@ -37,7 +37,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Enemy09", "Resource/Texture/Enemys/Enemy09.png");
 	p_Renderer2D->LoadTexture("Enemy10", "Resource/Texture/Enemys/Enemy10.png");
 	p_Renderer2D->LoadTexture("EnemyBullet01", "Resource/Texture/Enemys/EnemyBullet01.png");
-	
+
 	//Block
 	p_Renderer2D->LoadTexture("Block5", "Resource/Texture/UI/Breakwall.png");
 
@@ -65,7 +65,7 @@ void GameManager::LoadContent() {
 	//Clear
 	p_Renderer2D->LoadTexture("Clear", "Resource/Texture/UI/Result_Clear.png");
 	p_Renderer2D->LoadTexture("GameClear", "Resource/Texture/UI/Clear/GameClear.png");
-	
+
 	//Over
 	p_Renderer2D->LoadTexture("Over", "Resource/Texture/UI/Over/Over.png");
 	p_Renderer2D->LoadTexture("Restart", "Resource/Texture/UI/Over/Restart.png");
@@ -92,10 +92,10 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("carsor", "Resource/Texture/UI/carsor.png");
 
 	//gsLoadMusic(1,"Resource/SE/")
-	gsLoadMusic(BGM_GAME_TITLE , "Resource/Sound/BGM/title.mp3", GMIDIFLAG::GMIDI_LOOP);
-	gsLoadMusic(BGM_GAME_PLAY  , "Resource/Sound/BGM/play.mp3", GMIDIFLAG::GMIDI_LOOP);
-	gsLoadMusic(BGM_GAME_CLER  , "Resource/Sound/BGM/stageclear.mp3",GMIDIFLAG::GMIDI_LOOP);
-	gsLoadMusic(BGM_GAME_OVER  , "Resource/Sound/BGM/over.mp3", GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_TITLE, "Resource/Sound/BGM/title.mp3", GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_PLAY, "Resource/Sound/BGM/play.mp3", GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_CLER, "Resource/Sound/BGM/stageclear.mp3", GMIDIFLAG::GMIDI_LOOP);
+	gsLoadMusic(BGM_GAME_OVER, "Resource/Sound/BGM/over.mp3", GMIDIFLAG::GMIDI_LOOP);
 
 	//PlayerSE
 	gsLoadSE(SE_PLAYER_ARM, "Resource/Sound/SE/Player/Arm.wav", 1, GWAVE_DEFAULT);
@@ -114,7 +114,7 @@ void GameManager::LoadContent() {
 	gsLoadSE(SE_ENEMY_RUSH, "Resource/Sound/SE/Enemy/Rush.mp3", 10, GWAVE_DEFAULT);
 	gsLoadSE(SE_ENEMY_SHOT, "Resource/Sound/SE/Enemy/Shot.mp3", 10, GWAVE_DEFAULT);
 	gsLoadSE(SE_ENEMY_SPINBOUND, "Resource/Sound/SE/Enemy/SpinBound.mp3", 10, GWAVE_DEFAULT);
-
+	
 	//UISE
 	gsLoadSE(SE_BACK, "Resource/Sound/SE/Scene/back.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_DECITION, "Resource/Sound/SE/Scene/decition.wav", 1, GWAVE_DEFAULT);
@@ -148,7 +148,7 @@ InputStatePtr GameManager::GetInputState() {
 }
 
 //ÉVÅ[ÉìÇÃEnumÇÃéÊìæ
-EnumRapPtr<SceneName> GameManager::GetSceneEnum(){
+EnumRapPtr<SceneName> GameManager::GetSceneEnum() {
 	return p_SceneEnum;
 }
 
@@ -181,4 +181,30 @@ int GameManager::get_MapOrder() const
 //èIóπèàóù
 void GameManager::Finalize() {
 	p_Renderer2D->Initialize();
+	gsDeleteMusic(BGM_GAME_TITLE);
+	gsDeleteMusic(BGM_GAME_PLAY);
+	gsDeleteMusic(BGM_GAME_CLER);
+	gsDeleteMusic(BGM_GAME_OVER);
+	gsDeleteSE(SE_PLAYER_ARM);
+	gsDeleteSE(SE_PLAYER_CLIP);
+	gsDeleteSE(SE_PLAYER_CRUSH);
+	gsDeleteSE(SE_PLAYER_CRUSH_AFTER);
+	gsDeleteSE(SE_PLAYER_DASH);
+	gsDeleteSE(SE_PLAYER_PLAY);
+	gsDeleteSE(SE_PLAYER_EXPLOSION);
+	gsDeleteSE(SE_PLAYER_RESPAWN);
+	gsDeleteSE(SE_ENEMY_CHILDAPPEARED);
+	gsDeleteSE(SE_ENEMY_ENEMYEXPLOTION);
+	gsDeleteSE(SE_ENEMY_GENERATESINGING);
+	gsDeleteSE(SE_ENEMY_RUSH);
+	gsDeleteSE(SE_ENEMY_SHOT);
+	gsDeleteSE(SE_ENEMY_SPINBOUND);
+	gsDeleteSE(SE_BACK);
+	gsDeleteSE(SE_DECITION);
+	gsDeleteSE(SE_KOMBOUP);
+	gsDeleteSE(SE_PAUSE_CLOSE);
+	gsDeleteSE(SE_PAUSE_OPEN);
+	gsDeleteSE(SE_SHOWINGSCORE);
+	gsDeleteSE(SE_SHOWINGSCORE_BEFORE);
+	gsDeleteSE(SE_START);
 }
