@@ -4,9 +4,8 @@
 #include <iostream>
 #include <map>
 
-#include"../../ActorContains/ActorName.h"
-
-class Texture2DParameter;
+#include "../../ActorContains/ActorName.h"
+#include "../Texture2DParameter/Texture2DParameterPtr.h"
 
 class Renderer2D
 {
@@ -35,8 +34,8 @@ public:
 
 	//テクスチャ描画
 	void DrawTexture(
-		const std::string& texName,										//登録名
-		const GSvector2& position										//描画座標
+		const std::string& texName,					//登録名
+		const GSvector2& position					//描画座標
 		);
 
 	//テクスチャ描画(パラメータ設定)
@@ -45,6 +44,14 @@ public:
 			const std::string& texName,				//登録名
 			const Texture2DParameter& parameter		//パラメーター
 			);
+
+	//テクスチャ描画(パラメータ設定)
+	void DrawTexture
+		(
+			const std::string& texName,				//登録名
+			const Texture2DParameterPtr& parameter	//パラメーター
+			);
+
 
 	//テクスチャ描画(パラメータ設定)
 	void DrawTexture(

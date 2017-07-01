@@ -8,5 +8,6 @@ EnemyStateDeadInformChildren::EnemyStateDeadInformChildren(
 }
 
 void EnemyStateDeadInformChildren::unique_init(){
+	EnemyStateDeadStandard::unique_init();
 	p_Enemy.lock()->eachChildren([](Actor& child) {child.handleMessage(EventMessage::ENEMY_COMMAND_DEAD, nullptr); });
 }

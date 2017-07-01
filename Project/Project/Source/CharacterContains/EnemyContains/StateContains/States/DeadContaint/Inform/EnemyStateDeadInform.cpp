@@ -14,6 +14,7 @@ EnemyStateDeadInform::EnemyStateDeadInform(
 
 // ŠeíŒÅ—L‚Ì‰Šú‰»
 void EnemyStateDeadInform::unique_init() {
+	EnemyStateDeadStandard::unique_init();
 	switch (m_Name)
 	{
 	case ActorName::Enemy_02:

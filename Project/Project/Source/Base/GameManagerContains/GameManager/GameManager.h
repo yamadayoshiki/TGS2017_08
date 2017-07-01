@@ -22,7 +22,9 @@ public:
 	//コンテンツの削除
 	void UnLoadContent();
 	//レンダラーの取得
-	virtual Renderer2DPtr GetRenderer2D() override;
+	Renderer2DPtr GetRenderer2D() override;
+	//描画管理の取得
+	DrawOrderManagerSPtr GetDrawOrderManagerPtr();
 	//インプットステイトの取得
 	virtual InputStatePtr GetInputState() override;
 	//シーンのEnumの取得
@@ -41,9 +43,10 @@ protected:
 	//終了処理
 	void Finalize() override;
 private:
-	Renderer2DPtr p_Renderer2D;		//レンダラー
-	InputStatePtr p_InputState;		//インプットステイト
-	ScorePtr	  p_Score;			//スコア
+	Renderer2DPtr p_Renderer2D;					//レンダラー
+	DrawOrderManagerSPtr p_DrawOrderManager;	//描画管理
+	InputStatePtr p_InputState;			//インプットステイト
+	ScorePtr	  p_Score;				//スコア
 	EnumRapPtr<SceneName> p_SceneEnum;	//シーンEnum
 	Player_Parameter	m_Parameter;	//プレイヤーパラメーター
 	int MapOrder_;

@@ -3,8 +3,6 @@
 
 #include <gslib.h>
 
-class Point2;
-
 namespace MathSupport
 {
 	// ‰~Žü—¦

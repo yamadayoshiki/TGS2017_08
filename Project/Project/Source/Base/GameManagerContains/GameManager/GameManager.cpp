@@ -1,4 +1,5 @@
 #include"GameManager.h"
+#include "../../../DrawOrderManager/DrawOrderManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include"../../../Utility/InputState/InputState.h"
 #include"../../../Utility/Score/Score.h"
@@ -12,6 +13,7 @@
 GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState, const ScorePtr& score)
 	:p_Renderer2D(renderer2D), p_InputState(inputState), p_Score(score), p_SceneEnum(std::make_shared<EnumRap<SceneName>>()) {
 	m_Parameter.m_Remaining = 3;
+	p_DrawOrderManager = std::make_shared<DrawOrderManager>(p_Renderer2D);
 }
 
 
@@ -142,6 +144,11 @@ Renderer2DPtr GameManager::GetRenderer2D() {
 	return p_Renderer2D;
 }
 
+//描画管理の取得
+DrawOrderManagerSPtr GameManager::GetDrawOrderManagerPtr() {
+	return p_DrawOrderManager;
+}
+
 //インプットステイトの取得
 InputStatePtr GameManager::GetInputState() {
 	return p_InputState;
@@ -180,7 +187,8 @@ int GameManager::get_MapOrder() const
 
 //終了処理
 void GameManager::Finalize() {
-	p_Renderer2D->Initialize();
+	p_Renderer2D->UnLoadTexture();
+
 	gsDeleteMusic(BGM_GAME_TITLE);
 	gsDeleteMusic(BGM_GAME_PLAY);
 	gsDeleteMusic(BGM_GAME_CLER);

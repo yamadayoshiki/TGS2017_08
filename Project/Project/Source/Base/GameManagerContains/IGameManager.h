@@ -6,7 +6,8 @@
 #include"../../Utility/Score/ScorePtr.h"
 #include "../../Utility/EnumRap/EnumRapPtr.h"
 #include "../../SceneContains/SceneName.h"
-#include"../../CharacterContains/PlayerContains/Player/Player_Parameter.h"
+#include "../../CharacterContains/PlayerContains/Player/Player_Parameter.h"
+#include "../../DrawOrderManager/DrawOrderManagerPtr.h"
 
 //ゲームマネージャーインターフェイス
 class IGameManager
@@ -17,7 +18,9 @@ public:
 
 public:
 	//レンダラーの取得
-	virtual  Renderer2DPtr GetRenderer2D() = 0;
+	virtual Renderer2DPtr GetRenderer2D() = 0;
+	//描画管理の取得
+	virtual DrawOrderManagerSPtr GetDrawOrderManagerPtr() = 0;
 	//インプットステイトの取得
 	virtual InputStatePtr GetInputState() = 0;
 	//シーンのEnumの取得
@@ -30,8 +33,8 @@ public:
 	virtual ScorePtr GetScore() = 0;
 
 	//マップの設定と取得
-	virtual void set_MapOrder(int MapOrder)=0;
-	virtual int get_MapOrder()const=0;
+	virtual void set_MapOrder(int MapOrder) = 0;
+	virtual int get_MapOrder()const = 0;
 
 
 protected:
