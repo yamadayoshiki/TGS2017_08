@@ -29,6 +29,7 @@ Scene::~Scene() {
 // 開始     
 void Scene::Start()
 {
+	
 	m_IsEnd = false;
 	// 遷移演出の開始
 	m_Transition->start();

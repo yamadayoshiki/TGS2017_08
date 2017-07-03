@@ -38,7 +38,7 @@ void GamePlay::OnStart() {
 	PauseFlag = false;
 
 	gsBindMusic(BGM_GAME_PLAY);
-	gsPlayMusic();
+	gsPlayMusic(BGM_GAME_PLAY);
 }
 
 // XV     
@@ -104,7 +104,7 @@ void GamePlay::OnDraw() const {
 
 void GamePlay::End()
 {
-	gsStopMusic();
+	gsStopMusic(BGM_GAME_PLAY);
 
 	if (MapOrder >= 1) {
 		p_GameManager->set_MapOrder(MapOrder);

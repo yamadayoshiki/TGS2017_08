@@ -37,7 +37,7 @@ void GameResult::OnStart() {
 	//BGMの設定
 	gsBindMusic(BGM_GAME_CLER);
 	//BGM再生
-	gsPlayMusic();
+	gsPlayMusic(BGM_GAME_CLER);
 }
 
 // 更新     
@@ -82,7 +82,7 @@ void GameResult::OnDraw() const
 
 void GameResult::End()
 {
-	gsStopMusic();
+	gsStopMusic(BGM_GAME_CLER);
 }
 
 //選択の更新

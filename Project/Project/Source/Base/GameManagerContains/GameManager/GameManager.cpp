@@ -58,7 +58,7 @@ void GameManager::LoadContent() {
 
 	//Title
 	p_Renderer2D->LoadTexture("Title", "Resource/Texture/UI/Title/title.png");
-	p_Renderer2D->LoadTexture("WideHead", "Resource/Texture/UI/Title/WideHead.png");
+	p_Renderer2D->LoadTexture("WideHead", "Resource/Texture/UI/Title/titleblock3.png");
 	p_Renderer2D->LoadTexture("Start", "Resource/Texture/UI/Title/Start.png");
 	p_Renderer2D->LoadTexture("logo", "Resource/Texture/UI/Title/logo.png");
 	p_Renderer2D->LoadTexture("RankBlock", "Resource/Texture/UI/Result/RankBlock.png");

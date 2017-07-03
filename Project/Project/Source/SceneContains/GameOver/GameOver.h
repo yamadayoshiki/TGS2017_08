@@ -20,6 +20,10 @@ protected:
 	virtual void OnDraw()const;
 	//終了
 	virtual void End();
+
+private:
+	//選択の更新
+	void SelectUpdate();
 };
 
 #endif // !GAMEOVER_H_

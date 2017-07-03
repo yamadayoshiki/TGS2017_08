@@ -7,6 +7,7 @@ Animation::Animation(
 	const unsigned int animmationUpdateTimer)
 	: m_TexRect(texRect)
 	, m_CutWidth(cutWidth)
+	, m_CutHeight(1.0f)
 	, m_AnimationUpdateTimer(animmationUpdateTimer)
 	, m_CutRect(GSrect())
 	, m_CurrentNum(0)
@@ -15,6 +16,22 @@ Animation::Animation(
 {
 	Initialize();
 }
+
+//Animation::Animation(const GSrect & texRect,
+//	const float cutWidth,
+//	const float cutHeight,
+//	const unsigned int animmationUpdateTimer)
+//	: m_TexRect(texRect)
+//	, m_CutWidth(cutWidth)
+//	, m_CutHeight(cutHeight)
+//	, m_AnimationUpdateTimer(animmationUpdateTimer)
+//	, m_CutRect(GSrect())
+//	, m_CurrentNum(0)
+//	, m_AnimationTimer(0)
+//	, m_LoopCount(0)
+//{
+//	this->Initialize();
+//}
 
 //デフォルトコンストラクタ
 Animation::Animation()
@@ -50,7 +67,17 @@ void Animation::Change() {
 	//結果
 	GSrect result = GSrect();
 
-	//縦幅設定
+	////縦幅設定
+	//float top = m_CutHeight * m_CurrentNum;
+	//if (top <= m_TexRect.bottom)
+	//{
+	//	m_LoopCount++;
+	//	m_AnimationTimer = 0;
+	//	//m_CurrentNum = 0;
+	//	top = m_CutHeight * (m_CurrentNum);
+	//}
+	//result.top = top;
+	//result.bottom = result.top * m_CurrentNum;
 	result.top = m_TexRect.top;
 	result.bottom = m_TexRect.bottom;
 
@@ -60,8 +87,8 @@ void Animation::Change() {
 	{
 		m_LoopCount++;
 		m_AnimationTimer = 0;
-		m_CurrentNum = 0;
-		left = m_CutWidth * m_CurrentNum;
+		//m_CurrentNum = 0;
+		left = m_CutWidth * (m_CurrentNum);
 	}
 	result.left = left;
 	result.right = result.left + m_CutWidth;
