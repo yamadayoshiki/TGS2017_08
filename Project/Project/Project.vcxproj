@@ -283,6 +283,8 @@
     <ClInclude Include="Source\Map\CombinationTexture\CombinationTexture.h" />
     <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h" />
     <ClInclude Include="Source\SceneContains\GameOver\GameOver.h" />
+    <ClInclude Include="Source\UIContains\Combo\Combo.h" />
+    <ClInclude Include="Source\UIContains\Rank\Rank.h" />
     <ClInclude Include="Source\UIContains\Text\Text.h" />
     <ClInclude Include="Source\UIContains\Text\TextCreator.h" />
     <ClInclude Include="Source\Utility\AAVector2\AAVector2.h" />
@@ -351,6 +353,7 @@
     <ClInclude Include="Source\Utility\InputState\InputStatePtr.h" />
     <ClInclude Include="Source\Utility\MatCnvTxt\MatCnvTxt.h" />
     <ClInclude Include="Source\Utility\MathSupport\MathSupport.h" />
+    <ClInclude Include="Source\Utility\Number\NumberTexture.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h" />
     <ClInclude Include="Source\Utility\Score\Score.h" />
@@ -501,6 +504,8 @@
     <ClCompile Include="Source\Tile\TileData.cpp" />
     <ClCompile Include="Source\UIContains\Base\UI_Base.cpp" />
     <ClCompile Include="Source\UIContains\Button\Button.cpp" />
+    <ClCompile Include="Source\UIContains\Combo\Combo.cpp" />
+    <ClCompile Include="Source\UIContains\Rank\Rank.cpp" />
     <ClCompile Include="Source\UIContains\Selector\Selector.cpp" />
     <ClCompile Include="Source\UIContains\Sprite\Sprite.cpp" />
     <ClCompile Include="Source\UIContains\Sprite\SpriteCreator.cpp" />
@@ -515,6 +520,7 @@
     <ClCompile Include="Source\Utility\InputState\InputState.cpp" />
     <ClCompile Include="Source\Utility\MatCnvTxt\MatCnvTxt.cpp" />
     <ClCompile Include="Source\Utility\MathSupport\MathSupport.cpp" />
+    <ClCompile Include="Source\Utility\Number\NumberTexture.cpp" />
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
     <ClCompile Include="Source\Utility\Score\Score.cpp" />
     <ClCompile Include="Source\Utility\Sound\Sound.cpp" />

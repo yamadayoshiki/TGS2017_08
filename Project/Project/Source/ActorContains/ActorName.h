@@ -11,6 +11,9 @@ enum class ActorName
 	UI_Button,
 	UI_Sprite, 
 	UI_Text,
+	UI_Rank,
+	UI_Score,
+	UI_Combo,
 
 	/* エフェクトグループ */
 	Explosion = 80,

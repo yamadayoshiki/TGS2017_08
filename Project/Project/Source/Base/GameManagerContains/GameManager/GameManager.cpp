@@ -61,8 +61,14 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("WideHead", "Resource/Texture/UI/Title/WideHead.png");
 	p_Renderer2D->LoadTexture("Start", "Resource/Texture/UI/Title/Start.png");
 	p_Renderer2D->LoadTexture("logo", "Resource/Texture/UI/Title/logo.png");
+	p_Renderer2D->LoadTexture("RankBlock", "Resource/Texture/UI/Result/RankBlock.png");
 
 	//Play
+	p_Renderer2D->LoadTexture("game_back", "Resource/Texture/UI/Play/back_ground.png");
+	p_Renderer2D->LoadTexture("combo_font", "Resource/Texture/UI/Play/combo_font.png");
+	p_Renderer2D->LoadTexture("score_font", "Resource/Texture/UI/Play/score_font.png");
+	p_Renderer2D->LoadTexture("gauge_back", "Resource/Texture/UI/Play/geji.png");
+	p_Renderer2D->LoadTexture("gauge_front", "Resource/Texture/UI/Play/geji2.png");
 
 	//Clear
 	p_Renderer2D->LoadTexture("Clear", "Resource/Texture/UI/Result_Clear.png");

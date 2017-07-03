@@ -2,6 +2,7 @@
 #define GAMERESULT_H_
 
 #include "../Scene/Scene.h"
+#include"../SceneManager/SceneManager.h"
 #include <string>
 #include<array>
 
@@ -45,6 +46,7 @@ private:
 	typedef std::array<int, 4> RankNolma;
 	std::array<RankNolma,8> StageRankNolma;
 
+	SceneManager	m_SceneManager;
 };
 
 #endif

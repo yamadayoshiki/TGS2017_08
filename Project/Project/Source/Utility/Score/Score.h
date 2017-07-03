@@ -2,6 +2,7 @@
 #define SCORE_H_
 
 #include<gslib.h>
+#include"../Rederer2D/Renderer2DPtr.h"
 
 class Score
 {
@@ -17,7 +18,7 @@ public:
 	//À•W‚Ìİ’è
 	void setPosition(const GSvector2& position);
 	//•`‰æ
-	void draw()const;
+	void draw(Renderer2DPtr& renderer)const;
 
 private:
 	int m_Score;

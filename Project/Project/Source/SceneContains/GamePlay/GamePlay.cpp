@@ -25,7 +25,6 @@
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 	:Scene(gameManager) {
-	gameManager->GetRenderer2D()->LoadTexture("game_back", "Resource/Texture/UI/Play/back_ground.png");
 	isGameClear = false;
 }
 
@@ -95,7 +94,7 @@ void GamePlay::OnDraw() const {
 	// UI描画
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
 	p_GameManager->GetPlayerParameter().DrawCombo(p_GameManager->GetRenderer2D());
-	p_GameManager->GetScore()->draw();
+	p_GameManager->GetScore()->draw(p_GameManager->GetRenderer2D());
 	p_GameManager->GetScore()->setPosition(GSvector2(200, 50));
 	gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
 	gsTextPos(900, 50);

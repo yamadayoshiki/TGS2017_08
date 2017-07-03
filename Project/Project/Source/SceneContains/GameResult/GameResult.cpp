@@ -13,6 +13,7 @@
 #include "../../Define/Def_Nagano.h"
 #include"../../Utility/Sound/SoundName.h"
 #include"../../Utility/Score/Score.h"
+#include"../../UIContains/UIManager/UIManager.h"
 
 
 // コンストラクタ    
@@ -20,51 +21,16 @@ GameResult::GameResult(const IGameManagerPtr& gameManager)
 	:Scene(gameManager),
 	m_ScorePosition{ 0.0f,0.0f }
 {
-	StageRankNolma[0][(int)Rank::RankS] = 300;
-	StageRankNolma[0][(int)Rank::RankA] = 250;
-	StageRankNolma[0][(int)Rank::RankB] = 200;
-	StageRankNolma[0][(int)Rank::RankC] = 100;
-
-	StageRankNolma[1][(int)Rank::RankS] = 700;
-	StageRankNolma[1][(int)Rank::RankA] = 550;
-	StageRankNolma[1][(int)Rank::RankB] = 400;
-	StageRankNolma[1][(int)Rank::RankC] = 300;
-
-	StageRankNolma[2][(int)Rank::RankS] = 1000;
-	StageRankNolma[2][(int)Rank::RankA] = 900;
-	StageRankNolma[2][(int)Rank::RankB] = 800;
-	StageRankNolma[2][(int)Rank::RankC] = 750;
-
-	StageRankNolma[3][(int)Rank::RankS] = 1100;
-	StageRankNolma[3][(int)Rank::RankA] = 1050;
-	StageRankNolma[3][(int)Rank::RankB] = 950;
-	StageRankNolma[3][(int)Rank::RankC] = 850;
-
-	StageRankNolma[4][(int)Rank::RankS] = 1250;
-	StageRankNolma[4][(int)Rank::RankA] = 1150;
-	StageRankNolma[4][(int)Rank::RankB] = 1050;
-	StageRankNolma[4][(int)Rank::RankC] = 950;
-
-	StageRankNolma[5][(int)Rank::RankS] = 1300;
-	StageRankNolma[5][(int)Rank::RankA] = 1200;
-	StageRankNolma[5][(int)Rank::RankB] = 1100;
-	StageRankNolma[5][(int)Rank::RankC] = 1000;
-
-	StageRankNolma[6][(int)Rank::RankS] = 1350;
-	StageRankNolma[6][(int)Rank::RankA] = 1250;
-	StageRankNolma[6][(int)Rank::RankB] = 1150;
-	StageRankNolma[6][(int)Rank::RankC] = 1050;
-
-	StageRankNolma[7][(int)Rank::RankS] = 1400;
-	StageRankNolma[7][(int)Rank::RankA] = 1300;
-	StageRankNolma[7][(int)Rank::RankB] = 1200;
-	StageRankNolma[7][(int)Rank::RankC] = 1100;
+	
 }
 
 // 開始     
 void GameResult::OnStart() {
 	MapOrder = p_GameManager->get_MapOrder();
 	m_ScorePosition = GSvector2(550, 250);
+
+	// UIの生成
+	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
 
 	m_CarsorMovement = CarsorMovement::Left;
 
@@ -95,7 +61,7 @@ void GameResult::OnUpdate(float deltaTime) {
 void GameResult::OnDraw() const
 {
 	//次のステージに行くかタイトルに戻るか
-	p_GameManager->GetRenderer2D()->DrawTexture("Clear", GSvector2(0, 0));
+	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
 	p_GameManager->GetRenderer2D()->DrawTexture("NextStage", GSvector2(SCREEN_SIZE.x / 2 - 400, SCREEN_SIZE.y / 2 + 178));
 	p_GameManager->GetRenderer2D()->DrawTexture("ReturnTitle", GSvector2(SCREEN_SIZE.x / 2 + 128, SCREEN_SIZE.y / 2 + 178));
 
@@ -110,27 +76,8 @@ void GameResult::OnDraw() const
 	}
 
 	//リザルトスコアの描画
-	p_GameManager->GetScore()->draw();
 	p_GameManager->GetScore()->setPosition(GSvector2(200, 200));
-	
-		int StageIndex = MapOrder;
-		if (p_GameManager->GetScore()->ReleaseScore() >= StageRankNolma[StageIndex][(int)Rank::RankS])
-		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankS", m_ScorePosition);
-		}
-		else if (p_GameManager->GetScore()->ReleaseScore() >= StageRankNolma[StageIndex][(int)Rank::RankA])
-		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankA", m_ScorePosition);
-		}
-		else if (p_GameManager->GetScore()->ReleaseScore() >= StageRankNolma[StageIndex][(int)Rank::RankB])
-		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankB", m_ScorePosition);
-		}
-		else if (p_GameManager->GetScore()->ReleaseScore() >= StageRankNolma[StageIndex][(int)Rank::RankC])
-		{
-			p_GameManager->GetRenderer2D()->DrawTexture("RankC", m_ScorePosition);
-		}
-	
+	p_GameManager->GetScore()->draw(p_GameManager->GetRenderer2D());
 }
 
 void GameResult::End()
