@@ -88,6 +88,9 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("RankA", "Resource/Texture/UI/Result/A.png");
 	p_Renderer2D->LoadTexture("RankB", "Resource/Texture/UI/Result/B.png");
 	p_Renderer2D->LoadTexture("RankC", "Resource/Texture/UI/Result/C.png");
+	//p_Renderer2D->LoadTexture("RankA", "Resource/Texture/UI/Result/block4.png");
+	//p_Renderer2D->LoadTexture("RankB", "Resource/Texture/UI/Result/block3.png");
+	//p_Renderer2D->LoadTexture("RankC", "Resource/Texture/UI/Result/block2.png");
 	p_Renderer2D->LoadTexture("NextStage", "Resource/Texture/UI/Result/NextStage.png");
 	p_Renderer2D->LoadTexture("ReturnTitle", "Resource/Texture/UI/Result/ReturnTitle.png");
 	p_Renderer2D->LoadTexture("OverReturnTitle", "Resource/Texture/UI/Over/ReturnTitle.png");
@@ -132,6 +135,23 @@ void GameManager::LoadContent() {
 	gsLoadSE(SE_SHOWINGSCORE, "Resource/Sound/SE/Scene/showingscore.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_SHOWINGSCORE_BEFORE, "Resource/Sound/SE/Scene/showingscorebefore.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_START, "Resource/Sound/SE/Scene/start.wav", 1, GWAVE_DEFAULT);
+
+	//TutorialSE
+	gsLoadSE(SE_GAID, "Resource/Sound/SE/Scene/Tutorial/gaidoSE.wav", 1, GWAVE_DEFAULT);
+	//TitleSE
+	gsLoadSE(SE_START, "Resource/Sound/SE/Scene/Title/titledown.wav", 1, GWAVE_DEFAULT);
+	//PlaySE
+	gsLoadSE(SE_WHISTL, "Resource/Sound/SE/Scene/Play/hoissuru.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PLAY_FONT, "Resource/Sound/SE/Scene/Play/playfontse.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_STAGE_CLER, "Resource/Sound/SE/Scene/Play/stagecleaSE.wav", 1, GWAVE_DEFAULT);
+	//ResultSE
+	gsLoadSE(SE_S, "Resource/Sound/SE/Scene/Result/S.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_A, "Resource/Sound/SE/Scene/Result/A.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_B, "Resource/Sound/SE/Scene/Result/B.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_C, "Resource/Sound/SE/Scene/Result/C.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_BLOCK_BREAK, "Resource/Sound/SE/Scene/Result/blockbreak.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_SCORE_ROLE, "Resource/Sound/SE/Scene/Result/scorerole.wav", 1, GWAVE_DEFAULT);
+
 }
 
 //ÉRÉìÉeÉìÉcÇÃçÌèú

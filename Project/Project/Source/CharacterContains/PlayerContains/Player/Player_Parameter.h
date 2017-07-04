@@ -16,6 +16,8 @@ public:
 	GSvector2 m_StratPosition;
 	//コンボ数
 	int m_Combo{ 0 };
+	//コンボタイマー
+	float m_ComboTimer{ 0.0f };
 	//フレームカウンター
 	float m_FrameCounter{ 0.0f };
 	//チャージフラグ
@@ -32,7 +34,9 @@ public:
 	void DrawCombo(const Renderer2DPtr& renderer);
 	void setRemaining(int remaining);
 	void addCombo();
-	void comboReset(float deltaTime);
+	void comboReset();
+	int  getCombo()const;
+	float getComboCounter()const;
 	int addBonus();
 	void Charge(float deltaTime);
 	int getChargePower();

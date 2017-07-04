@@ -29,7 +29,7 @@ void GameOver::OnStart()
 
 void GameOver::OnUpdate(float deltaTime)
 {
-	gsPlayMusic(BGM_GAME_OVER);
+	gsPlayMusic();
 
 	//ëIëÇÃçXêV
 	SelectUpdate();
@@ -70,7 +70,7 @@ void GameOver::OnDraw() const
 
 void GameOver::End()
 {
-	gsStopMusic(BGM_GAME_OVER);
+	gsStopMusic();
 }
 
 void GameOver::SelectUpdate()

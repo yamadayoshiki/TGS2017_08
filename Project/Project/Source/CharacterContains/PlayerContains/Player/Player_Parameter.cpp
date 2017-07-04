@@ -25,7 +25,7 @@ void Player_Parameter::DrawRemaining(const Renderer2DPtr& renderer) {
 	gsTextPos(pos.x + 100, pos.y);
 	gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
 	gsDrawText(ss.str().c_str());
-	
+
 	// パラメータを戻す
 	gsFontParameter(GS_FONT_BOLD, 20, "HG明朝B");
 }
@@ -34,7 +34,7 @@ void Player_Parameter::DrawRemaining(const Renderer2DPtr& renderer) {
 void Player_Parameter::DrawCombo(const Renderer2DPtr & renderer)
 {
 	std::stringstream ss;
-	ss <<  "COMBO " <<m_Combo;
+	ss << "COMBO " << m_Combo;
 	// 画像の描画
 	GSvector2 pos = GSvector2(500, 50);
 
@@ -56,17 +56,23 @@ void Player_Parameter::setRemaining(int remaining)
 //コンボ数の加算
 void Player_Parameter::addCombo()
 {
-	m_Combo += 1;
-	m_FrameCounter = 0;
+	m_Combo = std::min(m_Combo + 1, 999);
+	m_ComboTimer = 180.0f;
 }
 
 //コンボ数をリセット
-void Player_Parameter::comboReset(float deltaTime)
+void Player_Parameter::comboReset()
 {
-	//
-	if (m_FrameCounter > 180) {
-		m_Combo = 0;
-	}
+	m_Combo = 0;
+}
+
+int Player_Parameter::getCombo()const
+{
+	return m_Combo;
+}
+float Player_Parameter::getComboCounter()const
+{
+	return m_ComboTimer;
 }
 
 int Player_Parameter::addBonus()
@@ -94,7 +100,7 @@ void Player_Parameter::Charge(float deltaTime)
 		m_ChargePower = 1;
 		m_Speed = 6.0f;
 	}
-	else if(m_ChargeConter <= 120)
+	else if (m_ChargeConter <= 120)
 	{
 		m_ChargePower = 0;
 		m_Speed = 8.0f;

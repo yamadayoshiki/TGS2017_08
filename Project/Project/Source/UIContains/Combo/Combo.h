@@ -4,6 +4,7 @@
 #include"../Base/UI_Base.h"
 #include<vector>
 #include"../../TextureContains/ITexturePtr.h"
+#include"../../Utility/Texture2DParameter/Texture2DParameter.h"
 
 class Combo :public UI_Base
 {
@@ -18,9 +19,13 @@ private:
 
 private:
 	Renderer2DPtr	p_Renderer2D;
-	using TextureList = std::vector<ITexturePtr>;
-	TextureList	 m_TextureList;
-	float weidth{ 0.0f };
+	using TexParamList = std::vector<Texture2DParameter>;
+	using NameList = std::vector<std::string>;
+	TexParamList	 m_TextParamList;
+	NameList		m_NameList;
+	float weidth{ 300.0f };
+	float m_NowTime;
+	float m_MaxTime{ 180.0f };
 
 };
 #endif // !COMBO_H_

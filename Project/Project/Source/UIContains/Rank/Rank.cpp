@@ -10,6 +10,7 @@
 #include"../../Utility/Score/Score.h"
 #include"../../Utility/Animation/Animation.h"
 #include"../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include"../../Utility/Sound/SoundName.h"
 #include <algorithm>
 
 Rank::Rank(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name)
@@ -45,14 +46,14 @@ void Rank::regist(const std::string & file_name)
 void Rank::onUpdate(float deltaTime)
 {
 	if (m_StageDeta.size() <= 0) return;
+	//gsPlaySE(SE_SCORE_ROLE);
 	
 	//p_Texture->Update(deltaTime);
 
-	
 	if (m_Timer >= 20.0f)
 	{
 		m_TextureName = m_StageDeta[StageIndex].data()[num].file_name;
-		if (m_Count > 2) { return; }
+		if (m_Count > 1) { m_TextureName = m_ResultTextureName; return; }
 		num--;
 		m_Timer = 0.0f;
 	}

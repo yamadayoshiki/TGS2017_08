@@ -142,6 +142,7 @@
     <ClInclude Include="Source\ActorContains\BodyContains\Base\BodyBase.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\BodyName.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\BodysPath.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Composite\BodyComposite.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBody.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBodyPtr.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Line\Line.h" />
@@ -283,6 +284,8 @@
     <ClInclude Include="Source\Map\CombinationTexture\CombinationTexture.h" />
     <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h" />
     <ClInclude Include="Source\SceneContains\GameOver\GameOver.h" />
+    <ClInclude Include="Source\SceneContains\GameResult\ResultStart.h" />
+    <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h" />
     <ClInclude Include="Source\UIContains\Combo\Combo.h" />
     <ClInclude Include="Source\UIContains\Rank\Rank.h" />
     <ClInclude Include="Source\UIContains\Text\Text.h" />
@@ -290,6 +293,10 @@
     <ClInclude Include="Source\Utility\AAVector2\AAVector2.h" />
     <ClInclude Include="Source\Utility\Collide2D\IsCollide2D.h" />
     <ClInclude Include="Source\Utility\CombinationTexture\CombinationTexture.h" />
+    <ClInclude Include="Source\Utility\Composite\Component\Component.h" />
+    <ClInclude Include="Source\Utility\Composite\Component\ComponentPtr.h" />
+    <ClInclude Include="Source\Utility\Composite\Composite\Composite.h" />
+    <ClInclude Include="Source\Utility\Composite\Leaf\Leaf.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\TwoDVector.h" />
@@ -361,6 +368,7 @@
     <ClInclude Include="Source\Utility\Sound\Sound.h" />
     <ClInclude Include="Source\Utility\Sound\SoundName.h" />
     <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h" />
+    <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameterPtr.h" />
     <ClInclude Include="Source\Utility\TurnDirection\TurnDirection.h" />
     <ClInclude Include="Source\Wall\BreakWall.h" />
     <ClInclude Include="Source\Wall\Wall.h" />
@@ -486,8 +494,10 @@
     <ClCompile Include="Source\SceneContains\GameOver\GameOver.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp" />
     <ClCompile Include="Source\SceneContains\GameResult\GameResult.cpp" />
+    <ClCompile Include="Source\SceneContains\GameResult\ResultStart.cpp" />
     <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp" />
     <ClCompile Include="Source\SceneContains\NaganoScene\NaganoScene.cpp" />
     <ClCompile Include="Source\SceneContains\NakayamaScene\NakayamaScene.cpp" />
     <ClCompile Include="Source\SceneContains\NullScene\NullScene.cpp" />
@@ -515,6 +525,7 @@
     <ClCompile Include="Source\UIContains\UIManager\UIManager.cpp" />
     <ClCompile Include="Source\Utility\Animation\Animation.cpp" />
     <ClCompile Include="Source\Utility\Collide2D\IsCollide2D.cpp" />
+    <ClCompile Include="Source\Utility\Composite\Composite\Composite.cpp" />
     <ClCompile Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.cpp" />
     <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp" />
     <ClCompile Include="Source\Utility\InputState\InputState.cpp" />

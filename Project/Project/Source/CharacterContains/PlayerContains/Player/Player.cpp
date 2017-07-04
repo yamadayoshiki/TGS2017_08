@@ -77,9 +77,6 @@ void Player::onUpdate(float deltaTime)
 	//状態管理の更新処理
 	mStateManager->action(deltaTime);
 
-	//一定フレーム後にコンボを初期化する
-	m_Parameter.comboReset(deltaTime);
-
 	if (mStateManager->currentState(PlayerStateName::O_Idle)) {
 		//p_World->addActor(ActorGroup::Effect, std::make_shared<Charge>(p_World, getPosition(), p_GameManager));
 	}

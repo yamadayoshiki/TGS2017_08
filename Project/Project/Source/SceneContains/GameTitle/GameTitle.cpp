@@ -49,7 +49,7 @@ void GameTitle::OnStart() {
 	MapOrder = 0;
 
 	gsBindMusic(BGM_GAME_TITLE);
-	gsPlayMusic(BGM_GAME_TITLE);
+	gsPlayMusic();
 
 
 	//–¼‘O‚Ìİ’è
@@ -105,7 +105,7 @@ void GameTitle::OnDraw()const
 
 void GameTitle::End()
 {
-	gsStopMusic(BGM_GAME_TITLE);
+	gsStopMusic();
 	p_GameManager->set_MapOrder(MapOrder);
 }
 

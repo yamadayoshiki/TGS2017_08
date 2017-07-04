@@ -32,6 +32,25 @@ enum SoundName
 	BGM_GAME_CLER,				//ゲームクリアBGM
 	BGM_GAME_OVER,				//ゲームオーバーBGM
 
+	//TutorialSE
+	SE_GAID,					//チュートリアルガイドSE
+
+	//TitleSE
+	SE_TITLE_DOWN,				//タイトルロゴの降下SE
+
+	//PlaySE
+	SE_WHISTL,					//スタート、エンド時SE
+	SE_PLAY_FONT,				//フォントの表示SE
+	SE_STAGE_CLER,				//ステージクリアSE
+
+	//ResultSE
+	SE_S,						//ランクSSE
+	SE_A,						//ランクASE
+	SE_B,						//ランクBSE
+	SE_C,						//ランクCSE
+	SE_SCORE_ROLE,				//スコアロールSE
+	SE_BLOCK_BREAK,				//ブロック破壊SE
+
 	//SE
 	SE_BACK,					//戻る
 	SE_DECITION,				//決定
