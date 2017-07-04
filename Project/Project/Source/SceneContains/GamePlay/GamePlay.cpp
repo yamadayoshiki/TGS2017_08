@@ -95,11 +95,11 @@ void GamePlay::OnDraw() const {
 	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
 	//p_GameManager->GetPlayerParameter().DrawCombo(p_GameManager->GetRenderer2D());
 	p_GameManager->GetScore()->draw(p_GameManager->GetRenderer2D());
-	p_GameManager->GetScore()->setPosition(GSvector2(400, 50));
-	gsFontParameter(GS_FONT_BOLD, 50, "HG–¾’©B");
-	gsTextPos(900, 50);
-	gsDrawText("‚ ‚Æ %d ‘Ì", p_World->GetSurviverSum(MapOrder));
-	gsFontParameter(GS_FONT_BOLD, 20, "HG–¾’©B");
+	//gsFontParameter(GS_FONT_BOLD, 50, "HG–¾’©B");
+	p_GameManager->GetScore()->setPosition(GSvector2(800, 10));
+	//gsTextPos(900, 50);
+	//gsDrawText("‚ ‚Æ %d ‘Ì", p_World->GetSurviverSum(MapOrder));
+	//gsFontParameter(GS_FONT_BOLD, 20, "HG–¾’©B");
 }
 
 void GamePlay::End()

@@ -91,8 +91,8 @@ void GameResult::SelectUpdate()
 	//次のステージに行くかタイトルに戻るか
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) == GS_FALSE) return;
 	//次のステージがない場合ゲームクリアへ遷移
-	if ((isGameClear == true) && (this->MapOrder == 7)) {
-		p_World->EndRequest(SceneName::GameOver);
+	if ((this->MapOrder == 6)) {
+		p_World->EndRequest(SceneName::GameTitle);
 		return;
 	}
 

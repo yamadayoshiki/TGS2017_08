@@ -1,6 +1,7 @@
 #include "Player_Parameter.h"
 
 #include "../../../Utility/Rederer2D/Renderer2D.h"
+#include"../../../Utility/Number/NumberTexture.h"
 
 #include <gslib.h>
 #include <GStype.h>
@@ -14,20 +15,21 @@ Player_Parameter::Player_Parameter()
 
 //残機数の描画
 void Player_Parameter::DrawRemaining(const Renderer2DPtr& renderer) {
-	std::stringstream ss;
-	ss << "×" << std::max<int>(0, m_Remaining);
-
+	//std::stringstream ss;
+	//ss << "×" << std::max<int>(0, m_Remaining);
+	NumberTexture number(1000, 40, 60);
 	// 画像の描画
-	GSvector2 pos = GSvector2(50, 50);
-	renderer->DrawTexture("Player_Clip", pos);
+	GSvector2 pos = GSvector2(10, 10);
+	renderer->DrawTexture("life", pos);
+	renderer->DrawTexture("batu", pos + GSvector2(60,0));
+	number.draw(pos + GSvector2(110, 0), m_Remaining, 0);
+	//// パラメーターの描画
+	//gsTextPos(pos.x + 100, pos.y);
+	//gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
+	//gsDrawText(ss.str().c_str());
 
-	// パラメーターの描画
-	gsTextPos(pos.x + 100, pos.y);
-	gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
-	gsDrawText(ss.str().c_str());
-
-	// パラメータを戻す
-	gsFontParameter(GS_FONT_BOLD, 20, "HG明朝B");
+	//// パラメータを戻す
+	//gsFontParameter(GS_FONT_BOLD, 20, "HG明朝B");
 }
 
 //コンボ数の描画

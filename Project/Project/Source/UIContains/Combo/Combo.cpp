@@ -69,7 +69,7 @@ void Combo::onDraw() const
 	p_Renderer2D->DrawTexture(m_NameList[0], m_TextParamList[0]);
 	p_Renderer2D->DrawTexture(m_NameList[1], m_TextParamList[1]);
 	p_Renderer2D->DrawTexture(m_NameList[2], m_TextParamList[2]);
-	namber.draw(GSvector2(40, 165), p_GameManager->GetPlayerParameter().getCombo(), 3);
+	namber.draw(GSvector2(370, 20), p_GameManager->GetPlayerParameter().getCombo(), 3);
 }
 void Combo::setTexture()
 {

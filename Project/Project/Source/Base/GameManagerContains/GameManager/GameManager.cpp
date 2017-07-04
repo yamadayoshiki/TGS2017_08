@@ -69,6 +69,8 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("score_font", "Resource/Texture/UI/Play/score_font.png");
 	p_Renderer2D->LoadTexture("gauge_back", "Resource/Texture/UI/Play/geji.png");
 	p_Renderer2D->LoadTexture("gauge_front", "Resource/Texture/UI/Play/geji2.png");
+	p_Renderer2D->LoadTexture("life", "Resource/Texture/UI/Play/life.png");
+	p_Renderer2D->LoadTexture("batu", "Resource/Texture/UI/Play/batu.png");
 
 	//Clear
 	p_Renderer2D->LoadTexture("Clear", "Resource/Texture/UI/Result_Clear.png");
