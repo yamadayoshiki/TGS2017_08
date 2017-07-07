@@ -29,7 +29,7 @@ void Charge::initialize()
 	m_PreviosName = m_CurrrentName;
 
 	//アニメーションのパラメータの設定
-	p_Animation = new Animation(*p_Renderer->GetTextureRect(m_CurrrentName), 64, 3);
+	p_Animation = new Animation(*p_Renderer->GetTextureRect(m_CurrrentName), 64, 5);
 	p_AnimationTexture = new AnimationTexture(m_CurrrentName, p_Renderer, p_Animation);
 	p_AnimationTexture->Initialize();
 }

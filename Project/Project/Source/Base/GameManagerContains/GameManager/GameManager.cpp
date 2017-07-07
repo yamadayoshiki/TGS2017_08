@@ -52,7 +52,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Crush", "Resource/Texture/Effect/Crush.png");
 	p_Renderer2D->LoadTexture("Repel", "Resource/Texture/Effect/hajiki.png");
 	p_Renderer2D->LoadTexture("Respawn", "Resource/Texture/Effect/respawn.png");
-	p_Renderer2D->LoadTexture("Pop", "Resource/Texture/Effect/syutugenn.png");
+	p_Renderer2D->LoadTexture("Smork", "Resource/Texture/Effect/syutugenn.png");
 
 	//UI
 
@@ -61,10 +61,9 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("WideHead", "Resource/Texture/UI/Title/titleblock3.png");
 	p_Renderer2D->LoadTexture("Start", "Resource/Texture/UI/Title/Start.png");
 	p_Renderer2D->LoadTexture("logo", "Resource/Texture/UI/Title/logo.png");
-	p_Renderer2D->LoadTexture("RankBlock", "Resource/Texture/UI/Result/RankBlock.png");
 
 	//Play
-	p_Renderer2D->LoadTexture("game_back", "Resource/Texture/UI/Play/back_ground.png");
+	p_Renderer2D->LoadTexture("game_back", "Resource/Texture/UI/Play/play.png");
 	p_Renderer2D->LoadTexture("combo_font", "Resource/Texture/UI/Play/combo_font.png");
 	p_Renderer2D->LoadTexture("score_font", "Resource/Texture/UI/Play/score_font.png");
 	p_Renderer2D->LoadTexture("gauge_back", "Resource/Texture/UI/Play/geji.png");
@@ -86,23 +85,21 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("PauseRT", "Resource/Texture/UI/Pause/ReturnTitle.png");
 
 	//Result
-	p_Renderer2D->LoadTexture("RankS", "Resource/Texture/UI/Result/S.png");
-	p_Renderer2D->LoadTexture("RankA", "Resource/Texture/UI/Result/A.png");
-	p_Renderer2D->LoadTexture("RankB", "Resource/Texture/UI/Result/B.png");
-	p_Renderer2D->LoadTexture("RankC", "Resource/Texture/UI/Result/C.png");
-	//p_Renderer2D->LoadTexture("RankA", "Resource/Texture/UI/Result/block4.png");
-	//p_Renderer2D->LoadTexture("RankB", "Resource/Texture/UI/Result/block3.png");
-	//p_Renderer2D->LoadTexture("RankC", "Resource/Texture/UI/Result/block2.png");
-	p_Renderer2D->LoadTexture("NextStage", "Resource/Texture/UI/Result/NextStage.png");
-	p_Renderer2D->LoadTexture("ReturnTitle", "Resource/Texture/UI/Result/ReturnTitle.png");
-	p_Renderer2D->LoadTexture("OverReturnTitle", "Resource/Texture/UI/Over/ReturnTitle.png");
+	p_Renderer2D->LoadTexture("RankS", "Resource/Texture/UI/Result/RankS.png");
+	p_Renderer2D->LoadTexture("RankA", "Resource/Texture/UI/Result/RankA.png");
+	p_Renderer2D->LoadTexture("RankB", "Resource/Texture/UI/Result/RankB.png");
+	p_Renderer2D->LoadTexture("RankC", "Resource/Texture/UI/Result/RankC.png");
+	
+	p_Renderer2D->LoadTexture("BigBlock", "Resource/Texture/UI/Result/bigblock.png");
+	p_Renderer2D->LoadTexture("BlockBreak", "Resource/Texture/UI/Result/blockbreak2.png");
+	p_Renderer2D->LoadTexture("Platform", "Resource/Texture/UI/Result/base.png");
 
 
-	p_Renderer2D->LoadTexture("Black", "Resource/Texture/UI/black_screen.png");
-	p_Renderer2D->LoadTexture("Cursor", "Resource/Texture/UI/Play/DeadCursor.png");
-	p_Renderer2D->LoadTexture("Return", "Resource/Texture/UI/return.png");
-	p_Renderer2D->LoadTexture("Next", "Resource/Texture/UI/next.png");
-	p_Renderer2D->LoadTexture("carsor", "Resource/Texture/UI/carsor.png");
+	//p_Renderer2D->LoadTexture("Black", "Resource/Texture/UI/black_screen.png");
+	//p_Renderer2D->LoadTexture("Cursor", "Resource/Texture/UI/Play/DeadCursor.png");
+	//p_Renderer2D->LoadTexture("Return", "Resource/Texture/UI/return.png");
+	//p_Renderer2D->LoadTexture("Next", "Resource/Texture/UI/next.png");
+	//p_Renderer2D->LoadTexture("carsor", "Resource/Texture/UI/carsor.png");
 
 	//gsLoadMusic(1,"Resource/SE/")
 	gsLoadMusic(BGM_GAME_TITLE, "Resource/Sound/BGM/title.mp3", GMIDIFLAG::GMIDI_LOOP);
@@ -113,7 +110,7 @@ void GameManager::LoadContent() {
 	//PlayerSE
 	gsLoadSE(SE_PLAYER_ARM, "Resource/Sound/SE/Player/Arm.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_PLAYER_CLIP, "Resource/Sound/SE/Player/clip.wav", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_PLAYER_CRUSH, "Resource/Sound/SE/Player/Crush.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_PLAYER_CRUSH, "Resource/Sound/SE/Player/Crush.wav", 4, GWAVE_DEFAULT);
 	gsLoadSE(SE_PLAYER_CRUSH_AFTER, "Resource/Sound/SE/Player/Crush_After.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_PLAYER_DASH, "Resource/Sound/SE/Player/Dash.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_PLAYER_PLAY, "Resource/Sound/SE/Player/play.wav", 1, GWAVE_DEFAULT);

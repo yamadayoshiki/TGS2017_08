@@ -30,9 +30,7 @@ void GameResult::OnStart() {
 	m_ScorePosition = GSvector2(550, 250);
 
 	// UIの生成
-	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
-
-	m_CarsorMovement = CarsorMovement::Left;
+	//p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
 
 	//BGMの設定
 	gsBindMusic(BGM_GAME_CLER);
@@ -46,35 +44,15 @@ void GameResult::OnUpdate(float deltaTime) {
 	//選択の更新
 	SelectUpdate();
 
-	//カーソル移動
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_LEFT) ||
-		p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_RIGHT)) {
-		if (m_CarsorMovement == CarsorMovement::Left)		{
-			m_CarsorMovement = CarsorMovement::Right;
-		}
-		else{
-			m_CarsorMovement = CarsorMovement::Left;
-		}
-	}
 }
 
 void GameResult::OnDraw() const
 {
 	//次のステージに行くかタイトルに戻るか
 	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
-	p_GameManager->GetRenderer2D()->DrawTexture("NextStage", GSvector2(SCREEN_SIZE.x / 2 - 400, SCREEN_SIZE.y / 2 + 178));
-	p_GameManager->GetRenderer2D()->DrawTexture("ReturnTitle", GSvector2(SCREEN_SIZE.x / 2 + 128, SCREEN_SIZE.y / 2 + 178));
 
-	//カーソル描画
-	if (m_CarsorMovement == CarsorMovement::Left)
-	{
-		p_GameManager->GetRenderer2D()->DrawTexture("Cursor", GSvector2(SCREEN_SIZE.x / 2 - 470, SCREEN_SIZE.y / 2 + 190));
-	}
-	else
-	{
-		p_GameManager->GetRenderer2D()->DrawTexture("Cursor", GSvector2(SCREEN_SIZE.x / 2 + 50, SCREEN_SIZE.y / 2 + 190));
-	}
-
+	p_GameManager->GetRenderer2D()->DrawTexture("BigBlock", GSvector2(550, 300));
+	p_GameManager->GetRenderer2D()->DrawTexture("Platform", GSvector2(625, 450));
 	//リザルトスコアの描画
 	p_GameManager->GetScore()->setPosition(GSvector2(200, 200));
 	p_GameManager->GetScore()->draw(p_GameManager->GetRenderer2D());
@@ -88,27 +66,9 @@ void GameResult::End()
 //選択の更新
 void GameResult::SelectUpdate()
 {
-	//次のステージに行くかタイトルに戻るか
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) == GS_FALSE) return;
 	//次のステージがない場合ゲームクリアへ遷移
 	if ((this->MapOrder == 6)) {
 		p_World->EndRequest(SceneName::GameTitle);
 		return;
-	}
-
-	switch (m_CarsorMovement)
-	{
-	case CarsorMovement::Left:
-		MapOrder += 1;
-		p_GameManager->set_MapOrder(MapOrder);
-		p_World->EndRequest(SceneName::GamePlay);
-		gsPlaySE(SE_DECITION);
-		break;
-
-	case CarsorMovement::Right:
-		MapOrder = 0;
-		p_World->EndRequest(SceneName::GameTitle);
-		gsPlaySE(SE_BACK);
-		break;
 	}
 }

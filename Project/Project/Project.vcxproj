@@ -244,7 +244,7 @@
     <ClInclude Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.h" />
-    <ClInclude Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\Arm.h" />
@@ -456,7 +456,7 @@
     <ClCompile Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp" />
-    <ClCompile Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\Arm\Arm.cpp" />
