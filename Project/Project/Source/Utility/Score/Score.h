@@ -15,10 +15,6 @@ public:
 	void AddScore(const int score);
 	//スコアの数値を渡す
 	int ReleaseScore();
-	//トータルスコアの取得
-	int GetTotalScore();
-	//スコアのリセット
-	void ScoreRest();
 	//座標の設定
 	void setPosition(const GSvector2& position);
 	//描画
@@ -26,7 +22,6 @@ public:
 
 private:
 	int m_Score;
-	int m_Total_Score;
 	//座標
 	GSvector2 m_Position{0.0f,0.0f};
 };

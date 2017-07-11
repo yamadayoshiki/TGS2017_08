@@ -19,33 +19,21 @@ Score::Score()
 //初期化
 void Score::initialze()
 {
+	gsLoadTexture((GSuint)1000, "Resource/Texture/UI/Play/suuji");
+
 	m_Score = 0;
-	m_Total_Score = 0;
 	m_Position = GSvector2(200, 50);
 }
 
 //スコアの加算
 void Score::AddScore(const int score)
 {
-	m_Score = std::min(m_Score + score, 99999);
-	m_Total_Score = std::min(m_Total_Score + score, 99999);
+	m_Score = std::min(m_Score + score, 9999999);
 }
 
 int Score::ReleaseScore()
 {
 	return m_Score;
-}
-
-//トータルスコアの取得
-int Score::GetTotalScore()
-{
-	return m_Total_Score;
-}
-
-//スコアのリセット
-void Score::ScoreRest()
-{
-	m_Score = 0;
 }
 
 //座標の設定

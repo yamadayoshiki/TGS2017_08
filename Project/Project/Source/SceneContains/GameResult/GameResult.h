@@ -3,9 +3,6 @@
 
 #include "../Scene/Scene.h"
 #include"../SceneManager/SceneManager.h"
-#include"../../Utility/Texture2DParameter/Texture2DParameter.h"
-#include "../../StagingContains/TransitionStaging/TransitionPtr.h"
-
 #include <string>
 #include<array>
 
@@ -43,17 +40,13 @@ private:
 	std::string m_Text;
 	std::string m_SelectTextureName;
 	std::string m_ResultTextureName;
-
-	TransitionPtr m_Transition;
-
+	//ç¿ïW
+	GSvector2 m_ScorePosition;
 
 	typedef std::array<int, 4> RankNolma;
 	std::array<RankNolma,8> StageRankNolma;
 
-	SceneManager*	m_SceneManager;
-
-	float timer_{ 0.0f };
-	
+	SceneManager	m_SceneManager;
 };
 
 #endif

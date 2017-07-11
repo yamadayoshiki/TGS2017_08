@@ -72,14 +72,8 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("batu", "Resource/Texture/UI/Play/batu.png");
 
 	//Clear
-	//p_Renderer2D->LoadTexture("Clear", "Resource/Texture/UI/Result_Clear.png");
-	p_Renderer2D->LoadTexture("BigBlock2", "Resource/Texture/UI/Clear/bigblock2.png");
-	p_Renderer2D->LoadTexture("MaxCombo", "Resource/Texture/UI/Clear/maxcombo.png");
-	p_Renderer2D->LoadTexture("Platform2", "Resource/Texture/UI/Clear/base2.png");
-	p_Renderer2D->LoadTexture("Retry", "Resource/Texture/UI/Clear/ritolai.png");
-	p_Renderer2D->LoadTexture("TotalScore", "Resource/Texture/UI/Clear/totalscore.png");
-	gsLoadTexture((GSuint)1000, "Resource/Texture/UI/Play/suuji");
-	gsLoadTexture((GSuint)1001, "Resource/Texture/UI/Clear/math.png");
+	p_Renderer2D->LoadTexture("Clear", "Resource/Texture/UI/Result_Clear.png");
+	p_Renderer2D->LoadTexture("GameClear", "Resource/Texture/UI/Clear/GameClear.png");
 
 	//Over
 	p_Renderer2D->LoadTexture("Over", "Resource/Texture/UI/Over/Over.png");
@@ -97,7 +91,6 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("RankC", "Resource/Texture/UI/Result/RankC.png");
 	
 	p_Renderer2D->LoadTexture("BigBlock", "Resource/Texture/UI/Result/bigblock.png");
-	p_Renderer2D->LoadTexture("BigBlock2", "Resource/Texture/UI/Clear/bigblock2.png");
 	p_Renderer2D->LoadTexture("BlockBreak", "Resource/Texture/UI/Result/blockbreak2.png");
 	p_Renderer2D->LoadTexture("Platform", "Resource/Texture/UI/Result/base.png");
 
