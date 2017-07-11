@@ -2,7 +2,6 @@
 #define GAMECREDIT_H_
 
 #include "../Scene/Scene.h"
-#include"../SceneManager/SceneManager.h"
 
 class World;
 
@@ -18,13 +17,6 @@ protected:
 	virtual void OnStart();
 	// XV     
 	virtual void OnUpdate(float deltaTime);
-	//•`‰æ
-	virtual void OnDraw()const;
-	//I—¹
-	virtual void End();
-
-private:
-	SceneManager*	m_SceneManager;
 };
 
 #endif

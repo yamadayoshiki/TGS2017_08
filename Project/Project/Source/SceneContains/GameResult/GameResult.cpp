@@ -14,19 +14,12 @@
 #include"../../Utility/Sound/SoundName.h"
 #include"../../Utility/Score/Score.h"
 #include"../../UIContains/UIManager/UIManager.h"
-#include"../../Utility/EnumRap/EnumRap.h"
-
-#include"../../CharacterContains/NeutralContains/Smork_Effect/Smork_Effect.h"
-#include"ResultStart\ResultStart.h"
-#include"ResultStaging\ResultStaging.h"
-#include"ResultEnd\ResultEnd.h"
-#include"BigBlock.h"
 
 
 // コンストラクタ    
 GameResult::GameResult(const IGameManagerPtr& gameManager)
 	:Scene(gameManager),
-	m_Transition(std::make_shared<BigBlock>(gameManager))
+	m_ScorePosition{ 0.0f,0.0f }
 {
 	
 }
@@ -34,17 +27,8 @@ GameResult::GameResult(const IGameManagerPtr& gameManager)
 // 開始     
 void GameResult::OnStart() {
 	MapOrder = p_GameManager->get_MapOrder();
+	m_ScorePosition = GSvector2(550, 250);
 
-	m_SceneManager = new SceneManager();
-	m_SceneManager->Initialize();
-
-	//シーンの追加
-	m_SceneManager->Add(SceneName::ResultStart, std::make_shared<ResultStart>(p_World.get(),p_GameManager));
-	m_SceneManager->Add(SceneName::ResultStaging, std::make_shared<ResultStaging>(p_World.get(),p_GameManager));
-	m_SceneManager->Add(SceneName::ResultEnd, std::make_shared<ResultEnd>(p_World.get(), p_GameManager));
-
-	m_SceneManager->Change(SceneName::ResultStart);
-	
 	// UIの生成
 	//p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
 
@@ -59,10 +43,7 @@ void GameResult::OnUpdate(float deltaTime) {
 
 	//選択の更新
 	SelectUpdate();
-	
-	m_SceneManager->Update(deltaTime);
 
-	timer_ += deltaTime;
 }
 
 void GameResult::OnDraw() const
@@ -70,23 +51,24 @@ void GameResult::OnDraw() const
 	//次のステージに行くかタイトルに戻るか
 	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
 
-
-	m_SceneManager->Draw();
-
-	
+	p_GameManager->GetRenderer2D()->DrawTexture("BigBlock", GSvector2(550, 300));
+	p_GameManager->GetRenderer2D()->DrawTexture("Platform", GSvector2(625, 450));
+	//リザルトスコアの描画
+	p_GameManager->GetScore()->setPosition(GSvector2(200, 200));
+	p_GameManager->GetScore()->draw(p_GameManager->GetRenderer2D());
 }
 
 void GameResult::End()
 {
-	m_SceneManager = nullptr;
+	gsStopMusic();
 }
 
 //選択の更新
 void GameResult::SelectUpdate()
 {
-	////次のステージがない場合ゲームクリアへ遷移
-	//if ((this->MapOrder == 6)) {
-	//	p_World->EndRequest(SceneName::GameTitle);
-	//	return;
-	//}
+	//次のステージがない場合ゲームクリアへ遷移
+	if ((this->MapOrder == 6)) {
+		p_World->EndRequest(SceneName::GameTitle);
+		return;
+	}
 }

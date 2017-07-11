@@ -20,7 +20,6 @@
 #include"../../CharacterContains/Factory/CharacterFactory.h"
 #include"../../Utility/Sound/SoundName.h"
 #include "../../StagingContains/TransitionStaging/Transition/Transition.h"
-#include"../../UIContains/UIManager/UIManager.h"
 
 
 // コンストラクタ    
@@ -34,12 +33,7 @@ void GamePlay::OnStart() {
 	//Mapデータの設定
 	MapSetDeta();
 
-	// UIの生成
-	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
-
 	//std::unordered_map<FourDirection, TileData> tmp = p_World->GetMap()->GetAroundTile(GSvector2(70, 90));
-
-	p_GameManager->GetScore()->ScoreRest();
 
 	PauseFlag = false;
 
@@ -58,9 +52,9 @@ void GamePlay::OnUpdate(float deltaTime) {
 	}
 	//ポーズの更新
 	PauseUpdate();
-	int num = p_World->GetSurviverSum(MapOrder);
+
 	// 討伐可能な敵が０以下の場合クリア
-	if (p_World->GetSurviverSum(MapOrder) <= 0/* || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)*/) {
+	if (p_World->GetSurviverSum(MapOrder) <= 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
 		isGameClear = true;
 		p_World->EndRequest(SceneName::GameResult);
 	}
@@ -126,6 +120,7 @@ void GamePlay::MapSetDeta()
 	//マップデータによる生成
 	p_World->SetMapGenerator(p_World, p_GameManager);
 	p_World->SetCharacterFactory(new CharacterFactory(p_World, p_GameManager));
+	MapOrder += 1;
 	MapOrder = p_GameManager->get_MapOrder();
 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage" + std::to_string(MapOrder) + ".csv");
 }

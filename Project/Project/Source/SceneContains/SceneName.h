@@ -12,16 +12,6 @@ enum class SceneName
 	GameEnd,
 	GameOver,
 
-	//Result
-	ResultStart,
-	ResultStaging,
-	ResultEnd,
-
-	//Credit
-	CreditStart,
-	CreditStaging,
-	CreditEnd,
-
 	NaganoScene,
 	NakayamaScene,
 	YamadaScene,

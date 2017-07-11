@@ -11,7 +11,6 @@
 #include"../../Utility/Animation/Animation.h"
 #include"../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include"../../Utility/Sound/SoundName.h"
-#include"../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include <algorithm>
 
 Rank::Rank(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name)
@@ -23,14 +22,6 @@ Rank::Rank(IWorld * world, const GSvector2 & position, const IGameManagerPtr & g
 void Rank::regist(const std::string & file_name)
 {
 	CsvReader csv = CsvReader(file_name);
-	if (csv.rows() == 1) {
-		dead();
-		return;
-	}
-
-	m_ScorePosition = GSvector2(csv.getf(1, 4), csv.getf(1, 5));
-
-
 	for (int StageNum = 0; StageNum < (csv.rows() -1) / 4 ; StageNum++) {
 		RankDetaList list;
 		m_StageDeta.push_back(list);
@@ -46,36 +37,40 @@ void Rank::regist(const std::string & file_name)
 		deta.Score = csv.geti(row, 3);
 		m_StageDeta[deta.StageNumber].push_back(deta);
 	}
+	
+	//m_TextureName = "RankBlock";
+	//p_Texture = std::make_shared<AnimationTexture>(m_TextureName, p_GameManager->GetRenderer2D(),new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect(m_TextureName), 350, 20));
+	//p_Texture->Initialize();
 }
 
 void Rank::onUpdate(float deltaTime)
 {
 	if (m_StageDeta.size() <= 0) return;
 	//gsPlaySE(SE_SCORE_ROLE);
+	
+	//p_Texture->Update(deltaTime);
 
-	m_Timer = MIN(m_Timer + deltaTime, m_MaxTimer);
+	if (m_Timer >= 20.0f)
+	{
+		m_TextureName = m_StageDeta[StageIndex].data()[num].file_name;
+		if (m_Count > 1) { m_TextureName = m_ResultTextureName; return; }
+		num--;
+		m_Timer = 0.0f;
+	}
+	if (num < 0) {
+		num = 3;
+		m_Count++;
+	}
+	m_Timer += deltaTime;
 }
 
 void Rank::onDraw() const
 {
 	if (m_StageDeta.size() <= 0) return;
-
-	Texture2DParameter param;
-
-	//補間値の計算
-	float t = m_Timer / m_MaxTimer;
-	//透明度の補間
-	GScolor color = Start_Color.lerp(End_Color, t);
-	//スケールの補間
-	GSvector2 scale = Start_Scale.lerp(End_Scale, t);
-
-	param.SetPosition(m_ScorePosition);
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect(m_TextureName));
-	param.SetCenter({ 175.0f,175.0f });
-	param.SetColor({ 1.0f,1.0f,1.0f,color.a });
-	param.SetScale(scale);
-	param.SetRotate(0.0f);
-	p_GameManager->GetRenderer2D()->DrawTexture(m_TextureName, param);
+	p_GameManager->GetRenderer2D()->DrawTexture(m_TextureName, m_ScorePosition);
+	//p_Texture->GetParameter()->SetPosition(m_ScorePosition);
+	//p_Texture->GetParameter()->SetColor(GScolor(1.0f,1.0f,1.0f,0.5f));
+	//p_Texture->Draw();
 }
 
 int Rank::getIndex(int index, int next)
@@ -88,12 +83,11 @@ void Rank::RankSet()
 	if (m_StageDeta.size() <= 0) return;
 	StageIndex = p_GameManager->get_MapOrder();
 	RankDetaList RankList = m_StageDeta[StageIndex];
-	for (int rankDeta = 3; rankDeta < RankList.size(); rankDeta--) {
+	for (int rankDeta = 0; rankDeta < RankList.size(); rankDeta++) {
 		if (p_GameManager->GetScore()->ReleaseScore() >= RankList[rankDeta].Score)
 		{
-			m_TextureName = RankList[rankDeta].file_name;
-			return;
+			m_ResultTextureName = RankList[rankDeta].file_name;
+			break;
 		}
-		m_TextureName = "RankC";
 	}
 }
