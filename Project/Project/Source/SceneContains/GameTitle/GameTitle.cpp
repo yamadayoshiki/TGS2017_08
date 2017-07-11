@@ -47,6 +47,7 @@ void GameTitle::OnStart() {
 	p_GameManager->GetPlayerParameter().setRemaining(3);
 	p_GameManager->GetScore()->initialze();
 	MapOrder = 0;
+	p_GameManager->set_MapOrder(MapOrder);
 
 	gsBindMusic(BGM_GAME_TITLE);
 	gsPlayMusic();

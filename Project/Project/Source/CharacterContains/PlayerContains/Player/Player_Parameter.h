@@ -16,6 +16,8 @@ public:
 	GSvector2 m_StratPosition;
 	//コンボ数
 	int m_Combo{ 0 };
+	//Maxコンボ数
+	int m_MaxCombo{ 0 };
 	//コンボタイマー
 	float m_ComboTimer{ 0.0f };
 	//フレームカウンター
@@ -28,6 +30,10 @@ public:
 	float m_ChargeConter{ 0.0f };
 	//チャージパワー
 	int m_ChargePower{ 0 };
+	//リトライ数
+	int m_RetryCount{ 0 };
+	//チャージボーナスコンボ
+	int m_BonusCombo{ 0 };
 
 public:
 	void DrawRemaining(const Renderer2DPtr& renderer);
@@ -36,11 +42,14 @@ public:
 	void addCombo();
 	void comboReset();
 	int  getCombo()const;
+	int  getMaxCombo()const;
 	float getComboCounter()const;
 	int addBonus();
 	void Charge(float deltaTime);
 	int getChargePower();
 	bool getChargeFlag()const;
+	void addRetryCount();
+	int getRetryCount();
 };
 
 #endif // !PLAYER_PARAMETER_H_
