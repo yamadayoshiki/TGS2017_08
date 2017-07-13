@@ -1,0 +1,51 @@
+#ifndef RESULT_START_H_
+#define RESULT_START_H_
+
+#include"../../../WorldContains/IWorldPtr.h"
+#include"../../../Base/GameManagerContains/IGameManagerPtr.h"
+#include"../../IScene.h"
+#include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
+
+class ResultStart :public IScene
+{
+public:
+	//コンストラクタ
+	ResultStart(IWorld* world, const IGameManagerPtr& gameManager);
+
+protected:
+	// 開始     
+	virtual void Start();
+	// 更新     
+	virtual void Update(float deltaTime);
+	//描画
+	virtual void Draw()const;
+	//終了
+	virtual void End();
+	// 終了しているか？     
+	virtual bool IsEnd() const override;
+	// 次のシーンを返す     
+	virtual SceneName Next() const override;
+	// 名前の設定
+	virtual void SetName(const SceneName& name)override;
+	// 名前の取得
+	virtual SceneName GetName() override;
+
+private:
+	//ワールド
+	IWorldPtr p_World;
+	//ゲームマネージャー
+	IGameManagerPtr p_GameManager;
+	//タイマー
+	float m_Timer{ 0.0f };
+	//Maxタイマー
+	float m_MaxTimer{ 60.0f };
+	//終了フラグ
+	bool is_End{ false };
+	//TextureParameter
+	//Texture2DParameter m_Param;
+	////Texture座標
+	//GSvector2 m_DrawPos{ -650.0f,0.0f };
+	////カラー
+	//GScolor m_Color{ 1.0f,1.0f,1.0f,0.0f };
+};
+#endif // !RESULT_START_H_

@@ -25,6 +25,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Player_Clip", "Resource/Texture/Player/jiki_anime9.png");
 	p_Renderer2D->LoadTexture("Player_Invincble", "Resource/Texture/Player/jiki_anime.png");
 	p_Renderer2D->LoadTexture("Player_AfterImage", "Resource/Texture/Player/jiki_zanzou.png");
+	p_Renderer2D->LoadTexture("Player_Image", "Resource/Texture/Player/jiki_image.png");
 
 	//EnemyTexture
 	p_Renderer2D->LoadTexture("Enemy01", "Resource/Texture/Enemys/Enemy01.png");
@@ -72,8 +73,13 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("batu", "Resource/Texture/UI/Play/batu.png");
 
 	//Clear
-	p_Renderer2D->LoadTexture("Clear", "Resource/Texture/UI/Result_Clear.png");
-	p_Renderer2D->LoadTexture("GameClear", "Resource/Texture/UI/Clear/GameClear.png");
+	p_Renderer2D->LoadTexture("BigBlock2", "Resource/Texture/UI/Clear/bigblock2.png");
+	p_Renderer2D->LoadTexture("MaxCombo", "Resource/Texture/UI/Clear/maxcombo.png");
+	p_Renderer2D->LoadTexture("Platform2", "Resource/Texture/UI/Clear/base2.png");
+	p_Renderer2D->LoadTexture("Retry", "Resource/Texture/UI/Clear/ritolai.png");
+	p_Renderer2D->LoadTexture("TotalScore", "Resource/Texture/UI/Clear/totalscore.png");
+	gsLoadTexture((GSuint)1000, "Resource/Texture/UI/Play/suuji");
+	gsLoadTexture((GSuint)1001, "Resource/Texture/UI/Clear/math.png");
 
 	//Over
 	p_Renderer2D->LoadTexture("Over", "Resource/Texture/UI/Over/Over.png");
@@ -91,15 +97,16 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("RankC", "Resource/Texture/UI/Result/RankC.png");
 	
 	p_Renderer2D->LoadTexture("BigBlock", "Resource/Texture/UI/Result/bigblock.png");
+	p_Renderer2D->LoadTexture("BigBlock2", "Resource/Texture/UI/Clear/bigblock2.png");
 	p_Renderer2D->LoadTexture("BlockBreak", "Resource/Texture/UI/Result/blockbreak2.png");
 	p_Renderer2D->LoadTexture("Platform", "Resource/Texture/UI/Result/base.png");
 
 
 	//p_Renderer2D->LoadTexture("Black", "Resource/Texture/UI/black_screen.png");
-	//p_Renderer2D->LoadTexture("Cursor", "Resource/Texture/UI/Play/DeadCursor.png");
-	//p_Renderer2D->LoadTexture("Return", "Resource/Texture/UI/return.png");
-	//p_Renderer2D->LoadTexture("Next", "Resource/Texture/UI/next.png");
-	//p_Renderer2D->LoadTexture("carsor", "Resource/Texture/UI/carsor.png");
+	/*p_Renderer2D->LoadTexture("Cursor", "Resource/Texture/UI/Play/DeadCursor.png");
+	p_Renderer2D->LoadTexture("Return", "Resource/Texture/UI/return.png");
+	p_Renderer2D->LoadTexture("Next", "Resource/Texture/UI/next.png");
+	p_Renderer2D->LoadTexture("carsor", "Resource/Texture/UI/carsor.png");*/
 
 	//gsLoadMusic(1,"Resource/SE/")
 	gsLoadMusic(BGM_GAME_TITLE, "Resource/Sound/BGM/title.mp3", GMIDIFLAG::GMIDI_LOOP);
