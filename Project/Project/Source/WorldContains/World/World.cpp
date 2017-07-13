@@ -129,24 +129,25 @@ SceneName World::NextScene() {
 
 int World::GetSurviverSum(int mapOrder) {
 	int sum = 0;
-	/*findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child) {
+	findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child) {
 		EnemyBase* enemy = dynamic_cast<EnemyBase*>(&child);
+		if (enemy->getName() == ActorName::BreakWall)return;
 		if (enemy->CanDead() && !enemy->GetHitPoint().IsDead()) { sum++; }
 	});
-	return sum;*/
-
-	//特定の敵を倒したら次のステージに進む
-	findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child)
-	{
-		if (child.getName() == m_Target[mapOrder])
-		{
-			EnemyBase* l_Enemy = dynamic_cast<EnemyBase*>(&child);
-			if (l_Enemy->CanDead() && !l_Enemy->GetHitPoint().IsDead())
-			{
-				sum += 1;
-			}
-		}
-		
-	});
 	return sum;
+
+	////特定の敵を倒したら次のステージに進む
+	//findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child)
+	//{
+	//	if (child.getName() == m_Target[mapOrder])
+	//	{
+	//		EnemyBase* l_Enemy = dynamic_cast<EnemyBase*>(&child);
+	//		if (l_Enemy->CanDead() && !l_Enemy->GetHitPoint().IsDead())
+	//		{
+	//			sum += 1;
+	//		}
+	//	}
+	//	
+	//});
+	//return sum;
 }

@@ -58,7 +58,10 @@ void Player_Parameter::setRemaining(int remaining)
 //コンボ数の加算
 void Player_Parameter::addCombo()
 {
-	m_Combo = std::min(m_Combo + 1, 999);
+	m_Combo = std::min(m_Combo + 1 + m_BonusCombo, 999);
+	if (m_MaxCombo < m_Combo) {
+		m_MaxCombo = m_Combo;
+	}
 	m_ComboTimer = 180.0f;
 }
 
@@ -71,6 +74,10 @@ void Player_Parameter::comboReset()
 int Player_Parameter::getCombo()const
 {
 	return m_Combo;
+}
+int Player_Parameter::getMaxCombo() const
+{
+	return m_MaxCombo;
 }
 float Player_Parameter::getComboCounter()const
 {
@@ -92,19 +99,23 @@ void Player_Parameter::Charge(float deltaTime)
 	//チャージ時間によって返す値を変える
 	if (m_ChargeConter > 120 * 3) {
 		m_ChargePower = 3;
+		m_BonusCombo = 4;
 		m_Speed = 0.0f;
 	}
 	else if (m_ChargeConter > 120 * 2) {
 		m_ChargePower = 2;
+		m_BonusCombo = 2;
 		m_Speed = 3.0f;
 	}
 	else if (m_ChargeConter > 120) {
 		m_ChargePower = 1;
+		m_BonusCombo = 1;
 		m_Speed = 6.0f;
 	}
 	else if (m_ChargeConter <= 120)
 	{
 		m_ChargePower = 0;
+		m_BonusCombo = 0;
 		m_Speed = 8.0f;
 	}
 	m_ChargeConter += deltaTime;
@@ -119,4 +130,14 @@ int Player_Parameter::getChargePower()
 bool Player_Parameter::getChargeFlag()const
 {
 	return Chargeflag;
+}
+
+void Player_Parameter::addRetryCount()
+{
+	m_RetryCount += 1;
+}
+
+int Player_Parameter::getRetryCount()
+{
+	return m_RetryCount;
 }

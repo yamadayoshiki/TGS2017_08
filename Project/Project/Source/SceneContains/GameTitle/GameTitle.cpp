@@ -47,6 +47,7 @@ void GameTitle::OnStart() {
 	p_GameManager->GetPlayerParameter().setRemaining(3);
 	p_GameManager->GetScore()->initialze();
 	MapOrder = 0;
+	p_GameManager->set_MapOrder(MapOrder);
 
 	gsBindMusic(BGM_GAME_TITLE);
 	gsPlayMusic();
@@ -77,7 +78,7 @@ void GameTitle::OnUpdate(float deltaTime) {
 		TitleMove();
 	}
 	//Bボタンでゲームプレイへ
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) || p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
 		gsPlaySE(SE_DECITION);
 		p_World->EndRequest(SceneName::GamePlay);
 	}

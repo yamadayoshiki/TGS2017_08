@@ -31,12 +31,17 @@ private:
 	using StageDeta = std::vector<RankDetaList>;
 	StageDeta	m_StageDeta;
 	int m_Index;
+	float m_MaxTimer{ 60.0f };
 	float m_Timer{ 0.0f };
 	int StageIndex;
 	int num{ 3 };
 	int m_Count{ 0 };
 	std::string m_TextureName;
 	std::string m_ResultTextureName;
-	GSvector2 m_ScorePosition{ 550, 250 };
+	GSvector2 m_ScorePosition{ 880, 500 };
+	GScolor Start_Color{ 0.0f,0.0f,0.0f,0.0f };
+	GScolor End_Color{1.0f,1.0f,1.0f,1.0f};
+	GSvector2 Start_Scale{ 3.0f,3.0f };
+	GSvector2 End_Scale{ 1.0f,1.0f };
 };
 #endif // !RANK_H_
