@@ -16,17 +16,15 @@
 #include"../../UIContains/UIManager/UIManager.h"
 #include"../../Utility/EnumRap/EnumRap.h"
 
-#include"../../CharacterContains/NeutralContains/Smork_Effect/Smork_Effect.h"
 #include"ResultStart\ResultStart.h"
 #include"ResultStaging\ResultStaging.h"
 #include"ResultEnd\ResultEnd.h"
-#include"BigBlock.h"
+
 
 
 // コンストラクタ    
 GameResult::GameResult(const IGameManagerPtr& gameManager)
-	:Scene(gameManager),
-	m_Transition(std::make_shared<BigBlock>(gameManager))
+	:Scene(gameManager)
 {
 	
 }
@@ -45,9 +43,6 @@ void GameResult::OnStart() {
 
 	m_SceneManager->Change(SceneName::ResultStart);
 	
-	// UIの生成
-	//p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
-
 	//BGMの設定
 	gsBindMusic(BGM_GAME_CLER);
 	//BGM再生
@@ -56,9 +51,6 @@ void GameResult::OnStart() {
 
 // 更新     
 void GameResult::OnUpdate(float deltaTime) {
-
-	//選択の更新
-	SelectUpdate();
 	
 	m_SceneManager->Update(deltaTime);
 
@@ -73,17 +65,7 @@ void GameResult::OnDraw() const
 	m_SceneManager->Draw();
 }
 
-void GameResult::End()
+void GameResult::OnEnd()
 {
 	m_SceneManager = nullptr;
-}
-
-//選択の更新
-void GameResult::SelectUpdate()
-{
-	////次のステージがない場合ゲームクリアへ遷移
-	//if ((this->MapOrder == 6)) {
-	//	p_World->EndRequest(SceneName::GameTitle);
-	//	return;
-	//}
 }

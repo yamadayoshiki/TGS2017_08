@@ -4,9 +4,10 @@
 #include"../../../WorldContains/IWorldPtr.h"
 #include"../../../Base/GameManagerContains/IGameManagerPtr.h"
 #include"../../IScene.h"
-#include"../../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 #include"../../../StagingContains/TransitionStaging/TransitionPtr.h"
+
 #include <GStype.h>
+class Texture;
 
 class CreditEnd :public IScene
 {
@@ -47,7 +48,7 @@ private:
 	//‘JˆÚ‰‰o
 	TransitionPtr p_Transition;
 	//
-	Texture2DParameterSPtr p_Param;
+	std::unique_ptr<Texture> p_Texture;
 	//
 	GScolor m_Color{ 1.0f,1.0f,1.0f,1.0f };
 	//

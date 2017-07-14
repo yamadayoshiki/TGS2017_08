@@ -14,12 +14,18 @@
 #include"../../../UIContains/UIManager/UIManager.h"
 #include"../../../Utility/Number/NumberTexture.h"
 #include"../ResultTransition/ResultTransition.h"
-#include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
-#include "../../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include"../../../TextureContains/Texture/Texture.h"
 
 ResultEnd::ResultEnd(IWorld* world, const IGameManagerPtr & gameManager)
-	:p_World(world), p_GameManager(gameManager), p_Transition(std::make_shared<ResultTransition>(gameManager))
+	:p_World(world),
+	p_GameManager(gameManager),
+	p_Transition(std::make_shared<ResultTransition>(gameManager)),
+	p_Texture(std::make_shared<Texture>("BigBlock", p_GameManager->GetDrawManager(), DrawOrder::BackGround))
 {
+	//パラメータの設定
+	p_Texture->GetParameter()->m_Position = GSvector2(550, 300);
+	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
+	p_Texture->GetParameter()->m_Color = m_Color;
 }
 
 // 開始     
@@ -32,21 +38,13 @@ void ResultEnd::Start()
 	is_End = false;
 	m_Score = 0;
 	p_Transition->start();
-
-	//パラメータの設定
-	p_Param->m_Position = GSvector2(550, 300);
-	p_Param->m_Rect = *p_GameManager->GetRenderer2D()->GetTextureRect("BigBlock");
-	p_Param->m_Color = m_Color;
-	p_Param->m_Scale = { 1.0f,1.0f };
-	p_Param->m_Center = { 0.0f,0.0f };
-	p_Param->m_Rotate = 0.0f;
 }
 // 更新     
 void ResultEnd::Update(float deltaTime)
 {
 	float t = timer_ / maxTimer_;
 	GScolor color = m_Color.lerp(GScolor(1.0f, 1.0f, 1.0f, 0.0f), t);
-	p_Param->m_Color=color;
+	p_Texture->GetParameter()->m_Color = color;
 
 	p_Transition->update(deltaTime);
 
@@ -68,13 +66,10 @@ void ResultEnd::Update(float deltaTime)
 //描画
 void ResultEnd::Draw()const
 {
-	p_GameManager->GetRenderer2D()->DrawTexture("Platform", GSvector2(625, 450));
-	//リザルトスコアの描画
-	p_GameManager->GetScore()->setPosition(GSvector2(750, 650));
-	p_GameManager->GetScore()->draw(p_GameManager->GetRenderer2D());
-
-	//大きいブロックの描画
-	p_GameManager->GetRenderer2D()->DrawTexture("BigBlock", p_Param);
+	//p_GameManager->GetRenderer2D()->DrawTexture("Platform", GSvector2(625, 450));
+	////リザルトスコアの描画
+	//p_GameManager->GetScore()->setPosition(GSvector2(750, 650));
+	//p_GameManager->GetScore()->draw(p_GameManager->GetRenderer2D());
 
 	p_Transition->draw();
 }

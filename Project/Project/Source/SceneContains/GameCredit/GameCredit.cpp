@@ -14,6 +14,8 @@
 #include"../../Utility/Score/Score.h"
 #include"../../UIContains/UIManager/UIManager.h"
 #include"../../Utility/EnumRap/EnumRap.h"
+#include"../../TextureContains/Texture/Texture.h"
+#include"../../Utility/Texture2DParameter/Texture2DParameter.h"
 
 #include"CreditStart\CreditStart.h"
 #include"CreditStaging\CreditStaging.h"
@@ -21,7 +23,10 @@
 
 // コンストラクタ    
 GameCredit::GameCredit(const IGameManagerPtr& gameManager)
-	:Scene(gameManager) {
+	:Scene(gameManager),p_Texture(std::make_shared<Texture>("game_back",p_GameManager->GetDrawManager(),DrawOrder::BackGround)) {
+	//パラメータの設定
+	p_Texture->GetParameter()->m_Position = GSvector2(0.0f, 0.0f);
+	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
 }
 // 開始     
 void GameCredit::OnStart() {
@@ -51,13 +56,10 @@ void GameCredit::OnUpdate(float deltaTime) {
 
 void GameCredit::OnDraw() const
 {
-	//次のステージに行くかタイトルに戻るか
-	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
-
 	m_SceneManager->Draw();
 }
 
-void GameCredit::End()
+void GameCredit::OnEnd()
 {
 	gsStopMusic();
 	m_SceneManager = nullptr;

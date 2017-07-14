@@ -3,6 +3,7 @@
 
 #include "../Scene/Scene.h"
 #include"../SceneManager/SceneManager.h"
+#include"../../TextureContains/ITexturePtr.h"
 
 class World;
 
@@ -21,10 +22,11 @@ protected:
 	//ï`âÊ
 	virtual void OnDraw()const;
 	//èIóπ
-	virtual void End();
+	virtual void OnEnd();
 
 private:
 	SceneManager*	m_SceneManager;
+	ITexturePtr p_Texture;
 };
 
 #endif
