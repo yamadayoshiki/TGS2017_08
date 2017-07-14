@@ -4,6 +4,7 @@
 #include"../../../WorldContains/IWorldPtr.h"
 #include"../../../Base/GameManagerContains/IGameManagerPtr.h"
 #include"../../IScene.h"
+#include"../../../TextureContains/ITexturePtr.h"
 
 class CreditStart :public IScene
 {
@@ -34,6 +35,7 @@ private:
 	IWorldPtr p_World;
 	//ゲームマネージャー
 	IGameManagerPtr p_GameManager;
+	ITexturePtr p_Texture;
 	//タイマー
 	float timer_{ 0.0f };
 	//終了フラグ

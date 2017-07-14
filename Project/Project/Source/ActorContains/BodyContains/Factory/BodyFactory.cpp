@@ -26,7 +26,7 @@ void Body::BodyFactory::Register() {
 	m_GenerateMap[BodyDataName::AABB_32]->SetAABB({ 16.0f, 16.0f });
 	//プレイヤーアーム(攻撃範囲)
 	m_GenerateMap[BodyDataName::PlayerAttackRange] = std::make_unique<BodyBase>();
-	m_GenerateMap[BodyDataName::PlayerAttackRange]->AddShape(std::make_shared<AABB2D>(GSvector2(0.0f, 0.0f), GSvector2(16.0f, 32.0f)), { 0.0f,0.0f }, 0.0f);
+	m_GenerateMap[BodyDataName::PlayerAttackRange]->AddShape(std::make_shared<AABB2D>(GSvector2(0.0f, 0.0f), GSvector2(16.0f, 32.0f)), { 16.0f,0.0f }, 0.0f);
 	m_GenerateMap[BodyDataName::PlayerAttackRange]->SetAABB({ 32.0f,32.0f });
 	//プレイヤー
 	m_GenerateMap[BodyDataName::Player] = std::make_unique<BodyBase>();

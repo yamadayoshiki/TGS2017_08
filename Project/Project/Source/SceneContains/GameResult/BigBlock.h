@@ -24,7 +24,7 @@ private:
 	// ƒ¿’l
 	bool is_end{ false };
 	float timer_{ 0.0f };
-
+	float m_Alpha{ 0.1f };
 	std::unique_ptr<Texture> p_Texture;
 };
 #endif // !BIG_BLOCK_H_

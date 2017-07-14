@@ -31,7 +31,6 @@ void Rank::regist(const std::string & file_name)
 
 	m_ScorePosition = GSvector2(csv.getf(1, 4), csv.getf(1, 5));
 
-
 	for (int StageNum = 0; StageNum < (csv.rows() - 1) / 4; StageNum++) {
 		RankDetaList list;
 		m_StageDeta.push_back(list);
@@ -54,29 +53,21 @@ void Rank::onUpdate(float deltaTime)
 	if (m_StageDeta.size() <= 0) return;
 	//gsPlaySE(SE_SCORE_ROLE);
 
-	m_Timer = MIN(m_Timer + deltaTime, m_MaxTimer);
-}
-
-void Rank::onDraw() const
-{
-	if (m_StageDeta.size() <= 0) return;
-
-	Texture2DParameter param;
-
 	//補間値の計算
 	float t = m_Timer / m_MaxTimer;
 	//透明度の補間
 	GScolor color = Start_Color.lerp(End_Color, t);
 	//スケールの補間
 	GSvector2 scale = Start_Scale.lerp(End_Scale, t);
+	//パラメータの設定
+	p_Texture->GetParameter()->m_Color = { 1.0f,1.0f,1.0f,color.a };
+	p_Texture->GetParameter()->m_Scale = scale;
 
-	param.m_Position = m_ScorePosition;
-	param.m_Rect = *p_GameManager->GetRenderer2D()->GetTextureRect(m_TextureName);
-	param.m_Center = { 175.0f,175.0f };
-	param.m_Color = { 1.0f,1.0f,1.0f,color.a };
-	param.m_Scale = scale;
-	param.m_Rotate = 0.0f;
-	p_GameManager->GetRenderer2D()->DrawTexture(m_TextureName, param);
+	m_Timer = MIN(m_Timer + deltaTime, m_MaxTimer);
+}
+
+void Rank::onDraw() const
+{
 }
 
 int Rank::getIndex(int index, int next)
@@ -95,4 +86,8 @@ void Rank::RankSet()
 			m_TextureName = RankList[rankDeta].file_name;
 		}
 	}
+	p_Texture = std::make_shared<Texture>(m_TextureName, p_GameManager->GetDrawManager(), DrawOrder::UI_Front1);
+	//パラメータの設定
+	p_Texture->GetParameter()->m_Position = m_ScorePosition;
+	p_Texture->GetParameter()->m_Center = { 175.0f,175.0f };
 }

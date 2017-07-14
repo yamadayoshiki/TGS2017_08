@@ -69,9 +69,6 @@
     <ClInclude Include="Source\SceneContains\SceneName.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SceneContains\GamePlay\GamePlay.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SceneContains\GameTitle\GameTitle.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -834,6 +831,9 @@
     <ClInclude Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactoryPtr.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\SceneContains\GamePlay\GamePlay.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -858,9 +858,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp">
@@ -1356,6 +1353,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

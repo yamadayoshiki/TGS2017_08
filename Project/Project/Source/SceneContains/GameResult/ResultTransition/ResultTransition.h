@@ -26,9 +26,9 @@ private:
 	GScolor m_Color{ 1.0f,1.0f,1.0f,0.0f };
 	bool is_end{ false };
 	float m_Timer{ 0.0f };
-	float m_Maxtimer{ 40.0f };
+	float m_Maxtimer{ 120.0f };
 	GSvector2 m_Position{ -650,30 };
 
-	Texture2DParameterSPtr p_Param;
+	std::unique_ptr<Texture> p_Texture;
 };
 #endif // !RESULT_TRANSITION_H_

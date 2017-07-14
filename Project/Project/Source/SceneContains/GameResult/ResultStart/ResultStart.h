@@ -4,8 +4,7 @@
 #include"../../../WorldContains/IWorldPtr.h"
 #include"../../../Base/GameManagerContains/IGameManagerPtr.h"
 #include"../../IScene.h"
-#include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
-
+#include"../../../TextureContains/ITexturePtr.h"
 class ResultStart :public IScene
 {
 public:
@@ -41,11 +40,7 @@ private:
 	float m_MaxTimer{ 60.0f };
 	//終了フラグ
 	bool is_End{ false };
-	//TextureParameter
-	//Texture2DParameter m_Param;
-	////Texture座標
-	//GSvector2 m_DrawPos{ -650.0f,0.0f };
-	////カラー
-	//GScolor m_Color{ 1.0f,1.0f,1.0f,0.0f };
+	//
+	ITexturePtr p_Texture;
 };
 #endif // !RESULT_START_H_

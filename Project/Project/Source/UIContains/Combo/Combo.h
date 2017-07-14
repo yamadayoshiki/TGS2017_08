@@ -18,11 +18,8 @@ private:
 	void setTexture();
 
 private:
-	//Renderer2DPtr	p_Renderer2D;
-	using TexParamList = std::vector<Texture2DParameter>;
-	using NameList = std::vector<std::string>;
-	TexParamList	 m_TextParamList;
-	NameList		m_NameList;
+	using TextureList = std::vector<ITexturePtr>;
+	TextureList	 m_TextureList;
 	float weidth{ 300.0f };
 	float m_NowTime;
 	float m_MaxTime{ 180.0f };
