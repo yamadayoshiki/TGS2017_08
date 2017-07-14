@@ -1,47 +1,32 @@
 #include "Texture_Base.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Utility/Texture2DParameter/Texture2DParameter.h"
-#include "../../Utility/Rederer2D/Renderer2D.h"
-
+#include "../../DrawManager/DrawManager.h"
 //コンストラクタ
 Texture_Base::Texture_Base(
-	const std::string& texName,
-	Renderer2DPtr renderer)
+	const std::string & texName,
+	const DrawManagerSPtr& drawManager,
+	const DrawOrder drawOrder)
 	: m_TexName(texName)
-	, p_Renderer(renderer)
-	, p_Parameter(new Texture2DParameter()) {
+	, p_DrawManager(drawManager) {
+	//描画管理に登録
+	m_DrawOrderID = p_DrawManager.lock()->RegisterDefaultParam(m_TexName, p_Parameter, drawOrder);
 }
-
-//デフォルトコンストラクタ
-Texture_Base::Texture_Base()
-	:Texture_Base("", nullptr) {
+//デストラクタ
+Texture_Base::~Texture_Base() {
+	//描画管理から削除
+	p_DrawManager.lock()->Remove(m_DrawOrderID);
 }
-
-//初期化
-void Texture_Base::Initialize() {
-	//画像サイズ通りのRectを設定
-	p_Parameter->SetRect(*(p_Renderer->GetTextureRect(m_TexName)));
-
-	//各種固有の初期化
-	OnInitialize();
-}
-
-void Texture_Base::Update(float deltaTime)
-{
-}
-
-//描画
-void Texture_Base::Draw() {
-	p_Renderer->DrawTexture(m_TexName, *p_Parameter);
-}
-
-//終了処理
-void Texture_Base::Finalize() {
-	delete p_Parameter;
-	OnFinalize();
-}
-
 //パラメーターの取得
-Texture2DParameter* Texture_Base::GetParameter() {
+Texture2DParameterSPtr Texture_Base::GetParameter() {
 	return p_Parameter;
+}
+
+void Texture_Base::SetPosAndAngle(const GSvector2 & pos, float angle){
+	p_Parameter->m_Position = pos;
+	p_Parameter->m_Rotate = angle;
+}
+
+void Texture_Base::ChangeDisplayMode(const DisplayMode mode){
+	p_DrawManager.lock()->ChageDisplayMode(m_DrawOrderID, mode);
 }

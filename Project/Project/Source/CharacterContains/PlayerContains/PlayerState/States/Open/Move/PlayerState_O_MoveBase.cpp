@@ -2,6 +2,7 @@
 #include"../../../PlayerStateName.h"
 #include"../../../../../../ActorContains/ActorGroup.h"
 #include"../../../../../NeutralContains/Charge_Effect/Charge.h" 
+#include "../../../../../../ActorContains/BodyContains/Elements/ContactSet/ContactSet.h"
 
 //コンストラクタ
 PlayerState_O_MoveBase::PlayerState_O_MoveBase(const Player_WPtr& player, IGameManagerPtr gameManager)
@@ -39,16 +40,16 @@ void PlayerState_O_MoveBase::update(float deltaTaime)
 	onUpdate(deltaTaime);
 }
 //衝突判定
-void PlayerState_O_MoveBase::collide(const Actor& other)
+void PlayerState_O_MoveBase::collide(const Actor& other, const Body::ContactSet& contactSet)
 {
 	//アームに当たっていたら返す
-	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(other)) return;
+	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide && is_Scorp_Angle(other)) return;
 
 	//敵との衝突処理
-	Collide(other);
+	Collide(other,contactSet);
 
 	//継承先の衝突処理
-	onCollide(other);
+	onCollide(other,contactSet);
 }
 //終了処理
 void PlayerState_O_MoveBase::end()

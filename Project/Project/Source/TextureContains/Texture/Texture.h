@@ -9,15 +9,10 @@ public:
 	//コンストラクタ
 	Texture(
 		const std::string& texName,
-		Renderer2DPtr renderer);
-	//更新
-	virtual void Update(float deltaTime) override;
-
-protected:
-	//各種固有の初期化
-	virtual void OnInitialize() override;
-	//各種固有の終了処理
-	virtual void OnFinalize() override {}
+		const DrawManagerSPtr& drawManager,
+		const DrawOrder drawOrder);
+	//ループ回数の取得
+	int GetLoopCount() override { return 0; }
 };
 
 #endif // !TEXTURE_H_

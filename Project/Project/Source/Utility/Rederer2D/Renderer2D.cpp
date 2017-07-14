@@ -5,8 +5,7 @@
 
 //コンストラクタ
 Renderer2D::Renderer2D()
-	:m_TextureID(0)
-{
+	:m_TextureID(0) {
 	m_TextureDic.clear();
 	m_TextureSizeDic.clear();
 }
@@ -58,56 +57,36 @@ void Renderer2D::UnLoadTexture(const std::string & texName) {
 	m_TextureDic.erase(itr);
 }
 
-//テクスチャ描画
-void Renderer2D::DrawTexture(
-	const std::string& texName,										//登録名
-	const GSvector2& position)										//描画座標
-{
-	gsDrawSprite2D
-		(
-			m_TextureDic[texName],
-			&position,
-			&m_TextureSizeDic[texName],
-			NULL,
-			NULL,
-			NULL,
-			0.0f);
-}
-
-//テクスチャ描画(パラメータ設定)
-void Renderer2D::DrawTexture
-(
-	const std::string& texName,				//登録名
-	const Texture2DParameter& parameter		//パラメーター
-	)
-{
-	DrawTexture(m_TextureDic[texName], parameter);
-}
-
-void Renderer2D::DrawTexture(const std::string & texName, const Texture2DParameterPtr & parameter){
+void Renderer2D::DrawTexture(const std::string & texName, const GSvector2 & pos) {
 	gsDrawSprite2D(
 		m_TextureDic[texName],
-		&parameter->GetPosition(),
-		&parameter->GetRect(),
-		&parameter->GetCenter(),
-		&parameter->GetColor(),
-		&parameter->GetScale(),
-		parameter->GetRotate());
+		&pos,
+		&GSrect(0, 0, GetTextureSize(texName).x, GetTextureSize(texName).y),
+		&GSvector2(0.0f, 0.0f),
+		&GScolor(1.0f, 1.0f, 1.0f, 1.0f),
+		&GSvector2(1.0f, 1.0f),
+		0);
 }
 
 //テクスチャ描画(パラメータ設定)
 void Renderer2D::DrawTexture(
-	const unsigned int texID,				//登録番号
-	const Texture2DParameter& parameter)	//パラメーター
-{
+	const std::string& texName,				//登録名
+	const Texture2DParameter& parameter) {	//パラメーター
 	gsDrawSprite2D(
-		texID,
-		&parameter.GetPosition(),
-		&parameter.GetRect(),
-		&parameter.GetCenter(),
-		&parameter.GetColor(),
-		&parameter.GetScale(),
-		parameter.GetRotate());
+		m_TextureDic[texName],
+		&parameter.m_Position,
+		&parameter.m_Rect,
+		&parameter.m_Center,
+		&parameter.m_Color,
+		&parameter.m_Scale,
+		parameter.m_Rotate);
+}
+
+//テクスチャ描画(パラメータ設定)
+void Renderer2D::DrawTexture(
+	const std::string & texName,
+	const Texture2DParameterSPtr & parameter) {
+	DrawTexture(texName, *parameter.get());
 }
 
 //指定のテクスチャIDの取得

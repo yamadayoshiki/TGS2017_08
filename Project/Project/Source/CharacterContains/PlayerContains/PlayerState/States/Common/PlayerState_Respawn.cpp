@@ -23,9 +23,7 @@ void PlayerState_Respawn::update(float deltaTaime)
 	}
 	m_FrameCounter += deltaTaime;
 }
-//Õ“Ë”»’è
-void PlayerState_Respawn::collide(const Actor& other){
-}
+
 //“ü—Íˆ—
 void PlayerState_Respawn::input(){
 }

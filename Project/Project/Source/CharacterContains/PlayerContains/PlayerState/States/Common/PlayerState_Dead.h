@@ -13,7 +13,7 @@ public:
 	//XVˆ—
 	virtual void update(float deltaTaime)override;
 	//Õ“Ë”»’è
-	virtual void collide(const Actor& other)override{}
+	virtual void collide(const Actor& other, const Body::ContactSet& contactSet)override{}
 	//I—¹ˆ—
 	virtual void end()override;
 	//“ü—Íˆ—

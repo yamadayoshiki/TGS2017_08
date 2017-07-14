@@ -2,12 +2,12 @@
 
 #include "Sprite.h"
 #include "../../FileReader/CsvReader.h"
-#include "../../TextureContains/Base/Texture_Base.h"
+#include "../../TextureContains/Texture/Texture.h"
 #include "../../Utility/Animation/Animation.h"
 #include "../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include "../../Utility/Rederer2D/Renderer2D.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
-
+#include "../../Utility/Texture2DParameter/Texture2DParameter.h"
 // コンストラクタ
 SpriteCreator::SpriteCreator(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name) :
 	Actor(world, ActorName::UI_Sprite, position, gameManager) {
@@ -26,21 +26,21 @@ void SpriteCreator::create(const std::string & file_name)
 		// テクスチャのパス&名前
 		std::string name = "Resource/Texture/UI/" + csv.get(row, static_cast<int>(Element::NAME));
 		// テクスチャの読み込み
-		//p_GameManager->GetRenderer2D()->LoadTexture(name, name);
+		p_GameManager->LoadTexture(name, name);
 		// Textureの宣言
-		std::shared_ptr<Texture_Base> texture;
+		ITexturePtr texture;
 
 		// アニメーションするかしないかで分岐
 		// アニメーションしない場合
 		if (csv.geti(row, static_cast<int>(Element::ANIMATE)) == 0) {
-			texture = std::make_shared<Texture_Base>(name, p_GameManager->GetRenderer2D());
+			texture = std::make_shared<Texture>(name, p_GameManager->GetDrawManager(),DrawOrder::UI);
 		}
 		// アニメーションする場合
 		else {
-			texture = std::make_shared<AnimationTexture>(name, p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect(name), csv.geti(row, static_cast<int>(Element::WIDTH)), csv.geti(row, static_cast<int>(Element::TIME))));
+			texture = std::make_shared<AnimationTexture>(name, p_GameManager->GetDrawManager(),DrawOrder::UI, csv.geti(row, static_cast<int>(Element::WIDTH)), csv.geti(row, static_cast<int>(Element::TIME)));
 		}
 		// 透明度の設定
-		//texture->GetParameter()->SetColor({ 1,1,1, csv.getf(row, static_cast<int>(Element::ALPHA)) });
+		//texture->GetParameter()->m_Color = { 1,1,1, csv.getf(row, static_cast<int>(Element::ALPHA)) };
 		// Spriteの生成
 		addChild(std::make_shared<Sprite>(p_World, p_GameManager, GSvector2(csv.getf(row, static_cast<int>(Element::POS_X)), csv.getf(row, static_cast<int>(Element::POS_Y))), texture));
 	}

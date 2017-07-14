@@ -28,8 +28,8 @@ public:
 	//描画処理
 	virtual void onDraw()const override;
 	//衝突判定
-	virtual void onCollide(Actor& other)override;
-	
+	virtual void onCollide(Actor& other, const Body::ContactSet& contactSet)override;
+
 	//プレイヤーパラメーターの取得
 	Player_Parameter& getParameter();
 	//テクスチャ・アニメーションの名前の設定
@@ -47,16 +47,10 @@ protected:
 private:
 	//状態管理
 	PlayerStateManager*		mStateManager;
-	//レンダラー
-	Renderer2DPtr			p_Renderer;
 	//マップデータ
 	MapWPtr					p_Map;
 	//プレイヤーパラメター
 	Player_Parameter&		m_Parameter;
-	//アニメーションテクスチャ
-	AnimationTexture*		p_AnimationTexture;
-	//アニメーション
-	Animation*				m_Animation;
 	//フレーム数
 	float					m_FraemConter;
 	//名前

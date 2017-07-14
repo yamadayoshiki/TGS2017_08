@@ -7,13 +7,15 @@
 #include "../EventMessage/EventMessage.h"
 #include "../../CharacterContains/EnemyContains/Entity/Enemys/Base/EnemyBase.h"
 #include "../../CharacterContains/Factory/CharacterFactory.h"
+#include "../../ActorContains/BodyContains/Factory/BodyFactory.h"
 #include <iostream>
 
 // コンストラクタ
 World::World()
-	:p_Actors(std::make_shared<ActorManager>()),
-	m_IsEnd(false),
-	m_Target()
+	: p_Actors(std::make_shared<ActorManager>())
+	, m_IsEnd(false)
+	, m_Target()
+	, p_BodyFactory(std::make_unique<Body::BodyFactory>())
 {
 	m_Target[0] = ActorName::Enemy_05;
 	m_Target[1] = ActorName::Enemy_05;
@@ -28,7 +30,8 @@ World::World()
 
 // デストラクタ
 World::~World() {
-	Finalize();
+	p_CharacterFactory.reset();
+	p_BodyFactory.reset();
 }
 
 // 更新
@@ -39,10 +42,6 @@ void World::update(float deltaTime) {
 // 描画
 void World::draw() const {
 	p_Actors->draw();
-}
-
-//終了処理
-void World::Finalize() {
 }
 
 // メッセージ処理 
@@ -85,7 +84,7 @@ void World::sendMessage(EventMessage message, Actor& actor, void* param) {
 }
 
 //生成
-void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name){
+void World::generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name) {
 	p_MapGenerator->load(file_name);
 	p_MapGenerator->registMap();
 	p_MapGenerator->generate();
@@ -97,17 +96,22 @@ MapPtr World::GetMap() {
 }
 
 //キャラクター工場の設定
-void World::SetCharacterFactory(CharacterFactory * characterFactory){
+void World::SetCharacterFactory(CharacterFactory * characterFactory) {
 	p_CharacterFactory.reset(characterFactory);
 }
 
 //キャラクター工場の取得
-CharacterFactory * World::GetCharacterFactory() const{
+CharacterFactory * World::GetCharacterFactory() const {
 	return p_CharacterFactory.get();
 }
 
-void World::SetMapGenerator(const IWorldPtr& world, const IGameManagerPtr& gameManager){
-	p_MapGenerator = std::make_shared<MapGenerator>(world,gameManager);
+//衝突判定図形ファクトリーの取得
+Body::BodyFactory * World::GetBodyFactory() const {
+	return p_BodyFactory.get();
+}
+
+void World::SetMapGenerator(const IWorldPtr& world, const IGameManagerPtr& gameManager) {
+	p_MapGenerator = std::make_shared<MapGenerator>(world, gameManager);
 }
 
 bool World::IsEnd() {
@@ -130,24 +134,9 @@ SceneName World::NextScene() {
 int World::GetSurviverSum(int mapOrder) {
 	int sum = 0;
 	findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child) {
+		if (child.getName() == ActorName::BreakWall)return;
 		EnemyBase* enemy = dynamic_cast<EnemyBase*>(&child);
-		if (enemy->getName() == ActorName::BreakWall)return;
 		if (enemy->CanDead() && !enemy->GetHitPoint().IsDead()) { sum++; }
 	});
 	return sum;
-
-	////特定の敵を倒したら次のステージに進む
-	//findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child)
-	//{
-	//	if (child.getName() == m_Target[mapOrder])
-	//	{
-	//		EnemyBase* l_Enemy = dynamic_cast<EnemyBase*>(&child);
-	//		if (l_Enemy->CanDead() && !l_Enemy->GetHitPoint().IsDead())
-	//		{
-	//			sum += 1;
-	//		}
-	//	}
-	//	
-	//});
-	//return sum;
 }

@@ -11,8 +11,11 @@ namespace MathSupport
 	// 二つのベクトルの角度を求める(-180<value<=180)
 	float GetVec2ToVec2Angle(const GSvector2& dynamic, const GSvector2& base = GSvector2(1.0f, 0.0f));
 
+	//度数法を弧度法に変換
+	float DegreeToRadian(float degree);
+
 	// ベクトルの回転
-	GSvector2 RotateVector(const GSvector2 vector, const float angle);
+	GSvector2 RotateVector(const GSvector2 vector, const float radian);
 
 	// 度数法をGSvector2に変換
 	GSvector2 GetAngleToVector2(const float& angle);

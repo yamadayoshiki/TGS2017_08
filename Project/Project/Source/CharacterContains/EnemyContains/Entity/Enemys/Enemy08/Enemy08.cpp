@@ -1,7 +1,6 @@
 #include "Enemy08.h"
 #include "../../../../../ActorContains/ActorName.h"
 #include "../../../../../ActorContains/Transform/Transform.h"
-#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
@@ -10,6 +9,7 @@
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../../Utility/Animation/Animation.h"
+#include "../../../../../Utility/Texture2DParameter/Texture2DParameter.h"
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
@@ -37,8 +37,8 @@ Enemy08::Enemy08(
 		10,
 		MapType::Double,
 		gameManager,
-		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
-		std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE)) {
+		std::make_shared<NullTexture>(),
+		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
 }
 
 Enemy08::~Enemy08() {
@@ -51,8 +51,10 @@ ActorPtr Enemy08::CsvGenerate(const int x, const int y, const int csvparam) {
 }
 
 void Enemy08::SetUpCommand() {
-	m_TextureMap["Normal"] = std::make_shared<AnimationTexture>("Enemy08Normal", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy08Normal"), 32, 8));
-	m_TextureMap["Attack"] = std::make_shared<AnimationTexture>("Enemy08Attack", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy08Attack"), 32, 8));
+	m_TextureMap["Normal"] = std::make_shared<AnimationTexture>("Enemy08Normal", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
+	m_TextureMap["Attack"] = std::make_shared<AnimationTexture>("Enemy08Attack", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
+	m_TextureMap["Normal"]->GetParameter()->m_Center = { 16.0f,16.0f };
+	m_TextureMap["Attack"]->GetParameter()->m_Center = { 16.0f,16.0f };
 	p_Texture = m_TextureMap["Normal"];
 
 	//生成
@@ -78,11 +80,4 @@ void Enemy08::SetUpState() {
 }
 
 void Enemy08::onDraw() const {
-	p_Texture->GetParameter()->SetPosition(p_Transform->m_Position);
-	p_Texture->GetParameter()->SetRotate(p_Transform->m_Angle);
-	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
-	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
-	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	//アニメーションの描画
-	p_Texture->Draw();
 }

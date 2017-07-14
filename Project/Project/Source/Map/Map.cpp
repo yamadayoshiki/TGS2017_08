@@ -6,28 +6,19 @@
 #include"TerrainName.h"
 #include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 #include "CombinationTexture\CombinationTexture.h"
-
+#include "../DrawManager/DrawManager.h"
+#include "../Utility/Texture2DParameter/Texture2DParameter.h"
 #include <algorithm>
 #include <chrono>
 
 //コンストラクタ
 Map::Map(const IGameManagerPtr& gameManager) :
 	p_GameManager(gameManager) {
-	p_GameManager->GetRenderer2D()->LoadTexture("chip", "Resource/Texture/wall.png");
+	p_GameManager->LoadTexture("chip", "Resource/Texture/wall.png");
 }
 
 //描画
 void Map::draw(const MapType& type) {
-	//*
-	std::chrono::system_clock::time_point  start, end; // 型は auto で可
-	start = std::chrono::system_clock::now(); // 計測開始時間
-	//*/
-	p_GameManager->GetRenderer2D()->DrawTexture("Stage", GSvector2(0.0f, 0.0f));
-	//*
-	end = std::chrono::system_clock::now();  // 計測終了時間
-	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
-	std::cout << ":Actor::isCollide:" << elapsed << std::endl;
-	//*/
 }
 
 //マップの取得
@@ -115,8 +106,8 @@ bool Map::IsInFrontOfTheWall(const GSvector2 & pos, FourDirection direction, con
 
 ResultPushDirection Map::PushForPlayer(
 	const GSvector2 & current_pos,
-	const GSvector2& target_pos, 
-	const MapType & charaSize, 
+	const GSvector2& target_pos,
+	const MapType & charaSize,
 	const TerrainName tileNumber) {
 	//結果変数
 	ResultPushDirection result;
@@ -125,16 +116,16 @@ ResultPushDirection Map::PushForPlayer(
 	auto deta = GetAroundTile(current_pos, charaSize);
 
 	if (deta[FourDirection(FourDirectionName::Up)].GetTerrainName() == tileNumber) {
-		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize) + 1)+1, result.position.y);
+		result.position.y = std::max<float>(deta[FourDirection(FourDirectionName::Up)].Position().y + CHIP_SIZE * (((int)charaSize) + 1) + 1, result.position.y);
 	}
 	if (deta[FourDirection(FourDirectionName::Down)].GetTerrainName() == tileNumber) {
-		result.position.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * (((int)charaSize) + 1)-1, result.position.y);
+		result.position.y = std::min<float>(deta[FourDirection(FourDirectionName::Down)].Position().y - CHIP_SIZE * (((int)charaSize) + 1) - 1, result.position.y);
 	}
 	if (deta[FourDirection(FourDirectionName::Left)].GetTerrainName() == tileNumber) {
-		result.position.x = std::max<float>(deta[FourDirection(FourDirectionName::Left)].Position().x + CHIP_SIZE * (((int)charaSize) + 1)+1, result.position.x);
+		result.position.x = std::max<float>(deta[FourDirection(FourDirectionName::Left)].Position().x + CHIP_SIZE * (((int)charaSize) + 1) + 1, result.position.x);
 	}
 	if (deta[FourDirection(FourDirectionName::Right)].GetTerrainName() == tileNumber) {
-		result.position.x = std::min<float>(deta[FourDirection(FourDirectionName::Right)].Position().x - CHIP_SIZE * (((int)charaSize) + 1)-1, result.position.x);
+		result.position.x = std::min<float>(deta[FourDirection(FourDirectionName::Right)].Position().x - CHIP_SIZE * (((int)charaSize) + 1) - 1, result.position.x);
 	}
 
 	return result;
@@ -230,11 +221,19 @@ GSvector2 Map::CsvPosCnvVector2(const int x, const int y, const MapType type) {
 }
 
 //合成画像作成
-void Map::CombineMapTexture(){
+void Map::CombineMapTexture() {
 	//アンロード
-	p_GameManager->GetRenderer2D()->UnLoadTexture("Stage");
+	p_GameManager->UnLoadTexture("Stage");
 	//画像合成
 	CombinationTexture::CreateMapImg(m_Maps[MapType::Default], "Resource/Texture/wall.png");
 	//ロード
-	p_GameManager->GetRenderer2D()->LoadTexture("Stage", "Resource/Texture/Stage.png");
+	p_GameManager->LoadTexture("Stage", "Resource/Texture/Stage.png");
+	//描画登録
+	m_MapDrawID = p_GameManager->GetDrawManager()->RegisterDefaultParam("Stage", p_MapTextureParam, DrawOrder::Map);
+	p_MapTextureParam->m_Center = { 0.0f,0.0f };
+	p_MapTextureParam->m_Position = { 0.0f,0.0f };
+}
+
+void Map::RemoveTexture(){
+	p_GameManager->GetDrawManager()->Remove(m_MapDrawID);
 }

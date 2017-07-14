@@ -11,7 +11,7 @@ void EnemyStateRushPreliminary::onUniqueInit() {}
 // XV
 void EnemyStateRushPreliminary::onUpdate(float deltaTime){}
 // Õ“Ë”»’è
-void EnemyStateRushPreliminary::onCollide(const Actor & other) {}
+void EnemyStateRushPreliminary::onCollide(const Actor & other, const Body::ContactSet& contactSet) {}
 // I—¹‚Ìˆ—
 void EnemyStateRushPreliminary::onEnd() {}
 // “ü—Íˆ—

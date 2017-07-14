@@ -32,7 +32,7 @@ void Rank::regist(const std::string & file_name)
 	m_ScorePosition = GSvector2(csv.getf(1, 4), csv.getf(1, 5));
 
 
-	for (int StageNum = 0; StageNum < (csv.rows() -1) / 4 ; StageNum++) {
+	for (int StageNum = 0; StageNum < (csv.rows() - 1) / 4; StageNum++) {
 		RankDetaList list;
 		m_StageDeta.push_back(list);
 	}
@@ -70,12 +70,12 @@ void Rank::onDraw() const
 	//ƒXƒP[ƒ‹‚Ì•âŠÔ
 	GSvector2 scale = Start_Scale.lerp(End_Scale, t);
 
-	param.SetPosition(m_ScorePosition);
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect(m_TextureName));
-	param.SetCenter({ 175.0f,175.0f });
-	param.SetColor({ 1.0f,1.0f,1.0f,color.a });
-	param.SetScale(scale);
-	param.SetRotate(0.0f);
+	param.m_Position = m_ScorePosition;
+	param.m_Rect = *p_GameManager->GetRenderer2D()->GetTextureRect(m_TextureName);
+	param.m_Center = { 175.0f,175.0f };
+	param.m_Color = { 1.0f,1.0f,1.0f,color.a };
+	param.m_Scale = scale;
+	param.m_Rotate = 0.0f;
 	p_GameManager->GetRenderer2D()->DrawTexture(m_TextureName, param);
 }
 

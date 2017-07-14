@@ -2,7 +2,7 @@
 #define GAMEPLAY_H_
 
 #include "../Scene/Scene.h"
-
+#include "../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 class World;
 
 //ゲーム中
@@ -20,13 +20,17 @@ protected:
 	// 描画     
 	virtual void OnDraw()const;
 	//終了
-	virtual void End()override;
+	virtual void OnEnd()override;
 
 private:
 	//Mapデータの設定
 	void MapSetDeta();
 	//ポーズの更新
 	void PauseUpdate();
+
+private:
+	Texture2DParameterSPtr p_Back;
+	int m_Back;
 };
 
 #endif

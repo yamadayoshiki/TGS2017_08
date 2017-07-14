@@ -1,7 +1,6 @@
-#pragma once
-
+#ifndef TRANSITIONMANAGER_H_
+#define TRANSITIONMANAGER_H_
 #include "../TransitionPtr.h"
-
 #include <functional>
 #include <stack>
 //シーンインターフェイス
@@ -21,3 +20,4 @@ public:
 protected:
 	std::stack<TransitionPtr> m_Transitions;
 };
+#endif // !TRANSITIONMANAGER_H_

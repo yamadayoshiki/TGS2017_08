@@ -14,7 +14,7 @@ public:
 	// 更新処理
 	virtual void update(float deltaTime) override;
 	// 衝突判定
-	virtual void collide(const Actor & other) override;
+	virtual void collide(const Actor & other, const Body::ContactSet& contactSet) override {}
 	// 終了時の処理
 	virtual void end() override;
 	// メッセージ処理

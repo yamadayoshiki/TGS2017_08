@@ -35,7 +35,7 @@ public:
 	//描画処理
 	virtual void onDraw()const override;
 	//衝突判定
-	virtual void onCollide(Actor& other)override{}
+	virtual void onCollide(Actor& other, const Body::ContactSet& contactSet)override{}
 
 private:
 	//チャージ段階の更新
@@ -43,10 +43,9 @@ private:
 
 private:
 	//レンダラー
-	Renderer2DPtr			p_Renderer;
 	Player_WPtr				p_Player;
 	AnimationTexture*		p_AnimationTexture;
-	Animation*				p_Animation;
+	//Animation*				p_Animation;
 	std::string				m_CurrrentName;
 	std::string				m_PreviosName;
 	Charge_Stage			m_Charge_Stage;

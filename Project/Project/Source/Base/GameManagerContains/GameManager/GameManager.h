@@ -7,11 +7,13 @@ class GameManager :public IGameManager
 {
 public:
 	//コンストラクタ
-	GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState,const ScorePtr& score);
+	GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState, const ScorePtr& score);
 	//仮想デストラクタ
 	virtual ~GameManager() { Finalize(); }
 	//更新処理
 	void Update();
+	//描画処理
+	void Draw();
 	//コピー禁止
 	GameManager& operator = (const GameManager& other) = delete;
 	GameManager(const GameManager& other) = delete;
@@ -21,10 +23,14 @@ public:
 	void LoadContent();
 	//コンテンツの削除
 	void UnLoadContent();
+	//指定コンテンツ読み込み
+	void LoadTexture(const std::string registerName, const std::string fileName) override;
+	//指定コンテンツ破棄
+	void UnLoadTexture(const std::string registerName)override;
 	//レンダラーの取得
-	Renderer2DPtr GetRenderer2D() override;
+	//Renderer2DPtr GetRenderer2D() override;
 	//描画管理の取得
-	DrawOrderManagerSPtr GetDrawOrderManagerPtr();
+	DrawManagerSPtr GetDrawManager() override;
 	//インプットステイトの取得
 	virtual InputStatePtr GetInputState() override;
 	//シーンのEnumの取得
@@ -43,8 +49,8 @@ protected:
 	//終了処理
 	void Finalize() override;
 private:
-	Renderer2DPtr p_Renderer2D;					//レンダラー
-	DrawOrderManagerSPtr p_DrawOrderManager;	//描画管理
+	Renderer2DPtr p_Renderer2D;			//レンダラー
+	DrawManagerSPtr p_DrawManager;		//描画管理
 	InputStatePtr p_InputState;			//インプットステイト
 	ScorePtr	  p_Score;				//スコア
 	EnumRapPtr<SceneName> p_SceneEnum;	//シーンEnum

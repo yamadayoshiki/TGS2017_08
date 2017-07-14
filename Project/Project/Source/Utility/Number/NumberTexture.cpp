@@ -1,6 +1,8 @@
+#include "..\..\TextureContains\NumberTexture\NumberTexture.h"
 #include "NumberTexture.h"
 #include <sstream>
 #include <iomanip>
+#include "..\..\TextureContains\NumberTexture\NumberTexture.h"
 
 using namespace std;
 
@@ -32,3 +34,23 @@ void NumberTexture::draw(const GSvector2& position, const std::string& num) cons
 		gsDrawSprite2D(mTexure, &pos, &rect, NULL, NULL, NULL, 0);
 	}
 }
+
+//NumberTexture::NumberTexture(const std::string & texName, const DrawManagerSPtr & drawManager, const DrawOrder drawOrder, const AlignType type, const int length)
+//{
+//}
+
+//NumberTexture::~NumberTexture()
+//{
+//}
+
+//void NumberTexture::Initialize()
+//{
+//}
+//
+//void NumberTexture::Update(float deltaTime)
+//{
+//}
+//
+//void NumberTexture::SetNumber(int num)
+//{
+//}

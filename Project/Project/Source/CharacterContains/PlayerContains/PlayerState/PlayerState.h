@@ -32,7 +32,7 @@ protected:
 	//テクスチャ名前変更
 	void TextureName_Change(const std::string& name);
 	//敵との衝突処理
-	void Collide(const Actor& other);
+	void Collide(const Actor& other, const Body::ContactSet& contactSet);
 	//
 	void Center_Adjustment();
 

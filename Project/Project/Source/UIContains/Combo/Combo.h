@@ -18,7 +18,7 @@ private:
 	void setTexture();
 
 private:
-	Renderer2DPtr	p_Renderer2D;
+	//Renderer2DPtr	p_Renderer2D;
 	using TexParamList = std::vector<Texture2DParameter>;
 	using NameList = std::vector<std::string>;
 	TexParamList	 m_TextParamList;

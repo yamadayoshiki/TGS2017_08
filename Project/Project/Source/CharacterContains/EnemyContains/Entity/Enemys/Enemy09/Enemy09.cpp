@@ -1,7 +1,6 @@
 #include "Enemy09.h"
 #include "../../../../../ActorContains/ActorName.h"
 #include "../../../../../ActorContains/Transform/Transform.h"
-#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
@@ -41,8 +40,8 @@ Enemy09::Enemy09(
 		10,
 		MapType::Double,
 		gameManager,
-		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
-		std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE)) {
+		std::make_shared<Texture>("Enemy09", gameManager->GetDrawManager(),DrawOrder::Enemy),
+		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
 }
 
 Enemy09::~Enemy09() {
@@ -84,13 +83,5 @@ void Enemy09::SetUpState() {
 }
 
 void Enemy09::onDraw() const {
-	Texture2DParameter param;
-	param.SetPosition(p_Transform->m_Position);
-	param.SetRotate(p_Transform->m_Angle);
-	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy09"));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy09", param);
 }
 

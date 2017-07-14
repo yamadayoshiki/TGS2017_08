@@ -1,7 +1,6 @@
 #include "Enemy07.h"
 #include "../../../../../ActorContains/ActorName.h"
 #include "../../../../../ActorContains/Transform/Transform.h"
-#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
@@ -11,6 +10,7 @@
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../../Utility/Animation/Animation.h"
 #include "../../../../../Utility/MathSupport/MathSupport.h"
+#include "../../../../../Utility/Texture2DParameter/Texture2DParameter.h"
 //CommandContains
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
@@ -43,8 +43,8 @@ Enemy07::Enemy07(
 		10,
 		MapType::Double,
 		gameManager,
-		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
-		std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE))
+		std::make_shared<NullTexture>(),
+		Body::MotionType::Enemy, Body::BodyDataName::AABB_32)
 	, m_FileName(fileName) {
 }
 
@@ -62,14 +62,15 @@ ActorPtr Enemy07::CsvGenerate(const int x, const int y, const int csvparam)
 	int num = MathSupport::GetCutNum(csvparam, 2, 2);
 	std::string name = "Resource/StreamingAssets/nokonoko/" + std::to_string(num) + ".csv";
 
-	return std::make_shared<Enemy07>(p_World, position, dir, p_GameManager,name);
+	return std::make_shared<Enemy07>(p_World, position, dir, p_GameManager, name);
 }
 
 //各種固有のコマンドの設定
 void Enemy07::SetUpCommand() {
-
-	m_TextureMap["Normal"] = std::make_shared<AnimationTexture>("Enemy07Normal", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy07Normal"), 32, 8));
-	m_TextureMap["Attack"] = std::make_shared<AnimationTexture>("Enemy07Attack", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy07Attack"), 32, 8));
+	m_TextureMap["Normal"] = std::make_shared<AnimationTexture>("Enemy07Normal", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
+	m_TextureMap["Attack"] = std::make_shared<AnimationTexture>("Enemy07Attack", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
+	m_TextureMap["Normal"]->GetParameter()->m_Center = { 16.0f,16.0f };
+	m_TextureMap["Attack"]->GetParameter()->m_Center = { 16.0f,16.0f };
 	p_Texture = m_TextureMap["Normal"];
 
 	//生成
@@ -99,11 +100,4 @@ void Enemy07::SetUpState() {
 
 //描画
 void Enemy07::onDraw() const {
-	p_Texture->GetParameter()->SetPosition(p_Transform->m_Position);
-	p_Texture->GetParameter()->SetRotate(p_Transform->m_Angle - 90);
-	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
-	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
-	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	//アニメーションの描画
-	p_Texture->Draw();
 }

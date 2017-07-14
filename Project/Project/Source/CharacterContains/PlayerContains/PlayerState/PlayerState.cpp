@@ -86,7 +86,7 @@ void PlayerState::TextureName_Change(const std::string& name)
 }
 
 //“G‚Æ‚ÌÕ“Ëˆ—
-void PlayerState::Collide(const Actor& other)
+void PlayerState::Collide(const Actor& other, const Body::ContactSet& contactSet)
 {
 	if (static_cast<int>(other.getName()) >= 101) {
 		change(PlayerStateName::Damage);

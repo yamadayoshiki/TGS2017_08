@@ -4,6 +4,7 @@
 #include "../../../../../WorldContains/EventMessage/EventMessage.h"
 #include "../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
 #include "../../../PlayerWatch/PlayerWatch.h"
+#include "../../../../../DrawManager/DisplayMode.h"
 
 //コンストラクタ
 EnemyBase::EnemyBase(
@@ -15,12 +16,14 @@ EnemyBase::EnemyBase(
 	const MapType type,
 	const IGameManagerPtr& gameManager,
 	const ITexturePtr& texture,
-	const IBodyPtr& body)
-	: Actor(world, name, position, gameManager, texture, body)
+	const Body::MotionType motionType,
+	const Body::BodyDataName dataName)
+	: Actor(world, name, position, gameManager, texture, motionType,dataName)
 	, m_HitPoint(maxHp)
 	, m_FourDirection(front)
 	, m_MapType(type) {
 	SetDirection(m_FourDirection);
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 //デストラクタ
@@ -38,14 +41,12 @@ void EnemyBase::initialize() {
 	SetUpCommand();
 	//各種固有のStateの設定
 	SetUpState();
+	//表示モード
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 }
 
 //更新
 void EnemyBase::onUpdate(float deltaTime) {
-	//テクスチャ更新
-	if (p_Texture != nullptr)
-		p_Texture->Update(deltaTime);
-
 	//コマンド情報の更新
 	p_CommandManager->Update(deltaTime);
 
@@ -57,13 +58,12 @@ void EnemyBase::onUpdate(float deltaTime) {
 
 //描画
 void EnemyBase::onDraw() const {
-
 }
 
 //衝突した
-void EnemyBase::onCollide(Actor& other) {
+void EnemyBase::onCollide(Actor& other, const Body::ContactSet& contactSet) {
 	//状態ごとの衝突判定
-	p_StateManager->collide(*this, other);
+	p_StateManager->collide(*this, other,contactSet);
 }
 
 //ステートマネージャーを取得する
@@ -109,7 +109,6 @@ MapType EnemyBase::GetMapType() const {
 
 //テクスチャの切り替え
 void EnemyBase::Settexture(const std::string textureName) {
-	p_Texture->Finalize();
 	p_Texture = m_TextureMap[textureName];
 	p_Texture->Initialize();
 }

@@ -1,11 +1,10 @@
 #ifndef TEXTURE_BASE_H_
 #define TEXTURE_BASE_H_
-
-#include "../ITexture.h"
 #include <iostream>
-
-#include "../../Utility/Rederer2D/Renderer2DPtr.h"
-#include "../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include "../ITexture.h"
+#include "../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
+#include "../../DrawManager/DrawManagerPtr.h"
+#include "../../DrawManager/DrawOrder.h"
 
 class Texture_Base :public ITexture
 {
@@ -13,37 +12,33 @@ public:
 	//コンストラクタ
 	Texture_Base(
 		const std::string& texName,
-		Renderer2DPtr renderer);
-	//デフォルトコンストラクタ
-	Texture_Base();
-	//仮想デストラクタ
-	virtual ~Texture_Base() {
-		Finalize();
-	}
-	//初期化
-	virtual void Initialize() override;
-	//更新
-	virtual void Update(float deltaTime) override;
-	//描画
-	virtual void Draw() override;
-	//終了
-	void Finalize() override;
+		const DrawManagerSPtr& drawManager,
+		const DrawOrder drawOrder);
+	//デストラクタ
+	~Texture_Base();
 	//パラメーターの取得
-	virtual Texture2DParameter* GetParameter() override;
+	Texture2DParameterSPtr GetParameter() override;
 	//コピー禁止
 	Texture_Base(const Texture_Base& other) = delete;
 	Texture_Base& operator = (const Texture_Base& other) = delete;
 
-protected:
-	//各種固有の初期化
-	virtual void OnInitialize() {}
-	//各種固有の終了処理
-	virtual void OnFinalize() {}
+public:
+	//初期化
+	virtual void Initialize() override {}
+	//更新
+	virtual void Update(float deltaTime) override {}
+	//ループ回数の取得
+	virtual int GetLoopCount() override = 0;
+	//座標+回転の設定
+	void SetPosAndAngle(const GSvector2& pos, float angle)override;
+	//表示モード切替
+	void ChangeDisplayMode(const DisplayMode mode)override;
 
 protected:
 	std::string m_TexName;				//登録名
-	Renderer2DPtr p_Renderer;			//レンダラー
-	Texture2DParameter* p_Parameter;	//パラメーター
+	Texture2DParameterSPtr p_Parameter;	//パラメーター
+	int m_DrawOrderID;					//描画順序ID
+	DrawManagerWPtr p_DrawManager;		//描画管理
 };
 
 #endif // !TEXTURE_BASE_H_

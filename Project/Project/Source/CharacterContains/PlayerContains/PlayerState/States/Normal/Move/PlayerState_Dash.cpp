@@ -2,6 +2,7 @@
 
 #include "../../../../../../Define/Def_Nakayama.h"
 #include "../../../../../../ActorContains/Transform/Transform.h"
+#include "../../../../../../ActorContains/BodyContains/Elements/ContactSet/ContactSet.h"
 //コンストラクタ
 PlayerState_Dash::PlayerState_Dash(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
@@ -58,15 +59,15 @@ void PlayerState_Dash::update(float deltaTime)
 	m_FramConter += deltaTime;
 }
 //衝突処理
-void PlayerState_Dash::collide(const Actor& other)
+void PlayerState_Dash::collide(const Actor& other, const Body::ContactSet& contactSet)
 {
 	//アームに当たっていたら返す
-	if (m_Children[ActorName::Player_Arm]->isCollide(other) &&
+	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide &&
 		is_Scorp_Angle(other) &&
 		m_Flag == true) return;
 
 	//敵との衝突処理
-	Collide(other);
+	Collide(other,contactSet);
 }
 //入力処理
 void PlayerState_Dash::input()
