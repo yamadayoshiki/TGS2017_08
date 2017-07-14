@@ -12,6 +12,7 @@
 #include "MapData.h"
 #include "MapType.h"
 
+#include "../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 #include <iostream>
 #include <unordered_map>
 
@@ -72,12 +73,17 @@ public:
 	GSvector2 CsvPosCnvVector2(const int x, const int y, const MapType type);
 	//合成画像作成
 	void CombineMapTexture();
+	//テクスチャ削除
+	void RemoveTexture();
 
 private:
 	// マップの格納
 	std::unordered_map<MapType, CsvTwoDVectorTerrainData> m_Maps;
 	//ゲームマネージャーポインタ
 	IGameManagerPtr p_GameManager;
+
+	Texture2DParameterSPtr p_MapTextureParam;
+	int m_MapDrawID;
 };
 
 #endif // !MAP_H_

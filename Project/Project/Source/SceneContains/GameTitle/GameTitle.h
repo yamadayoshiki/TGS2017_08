@@ -2,7 +2,9 @@
 #define GAMETITLE_H_
 
 #include "../Scene/Scene.h"
-#include"../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
+#include <iostream>
+class AnimationTexture;
 //タイトルシーン
 class GameTitle : public Scene
 {
@@ -24,23 +26,24 @@ protected:
 	// 描画     
 	virtual void OnDraw()const;
 	//終了
-	virtual void End()override;
+	virtual void OnEnd()override;
 
 private:
-	//タイトルの初期位置
-	float TitleSpeed = -600;
 	//タイトルの動き
 	void TitleMove();
-	//レンダラー
-	Renderer2DPtr			p_Renderer;
-	//アニメーションテクスチャ
-	AnimationTexture* p_AnimationTexture;
-	//アニメーション
-	Animation*				m_Animation;
-	//フレーム数
-	float					m_TitleFraemConter;
-	//名前
-	std::string				m_TitleName,m_TitleName2;
+
+private:
+	float TitleSpeed = -600;					//タイトルの初期位置
+	float m_TitleFraemConter;					//フレーム数
+
+	Texture2DParameterSPtr p_Title;				//タイトル背景
+	Texture2DParameterSPtr p_WideHead;			//タイトルロゴ
+	Texture2DParameterSPtr p_Start;				//スタート
+	AnimationTexture* p_AnimationTexture;		//アニメーションテクスチャ
+
+	int m_TitleNum;
+	int m_WideHeadNum;
+	int m_StartNum;
 };
 
 #endif

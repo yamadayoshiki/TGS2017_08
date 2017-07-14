@@ -1,8 +1,6 @@
 #ifndef ACTOR_H_
 #define ACTOR_H_
 
-#include <gslib.h>
-#include <memory>
 #include <string>
 #include <functional>
 #include <forward_list>
@@ -18,12 +16,15 @@
 #include "../../Map/MapType.h"
 
 #include "../BodyContains/Interface/IBodyPtr.h"
-#include "../BodyContains/NullBody/NullBody.h"
+#include "../BodyContains/Elements/MotionType.h"
+#include "../BodyContains/BodyDataName.h"
 #include "../Transform/TransformPtr.h"
 
 enum class EventMessage;
 class IWorld;
-
+namespace Body {
+	struct ContactSet;
+}
 //アクタークラス
 class Actor
 {
@@ -35,15 +36,20 @@ public:
 		const GSvector2& position,
 		const IGameManagerPtr& gaemManager,
 		const ITexturePtr& texture = std::make_shared<NullTexture>(),
-		const IBodyPtr& body = std::make_shared<Body::NullBody>());
+		const Body::MotionType type = Body::MotionType::None,
+		const Body::BodyDataName dataName = Body::BodyDataName::None);
 	//コンストラクタ
 	explicit Actor(const ActorName& name = ActorName::None);
 	//仮想デストラクタ
-	virtual ~Actor();
+	virtual ~Actor() {}
+	//セットアップ
+	virtual void SetUp() {}
 	//初期化
 	virtual void initialize();
 	//更新
 	void update(float deltaTime);
+	//衝突判定後の更新
+	void LateUpdate();
 	//描画
 	void draw() const;
 	//衝突判定(自分は子を巡回、引数はそれ単体)
@@ -88,7 +94,7 @@ public:
 	//ワールドを取得
 	IWorld* getWorld() const;
 	//判定の形の取得
-	IBodyPtr getBody() const;
+	Body::IBodyPtr getBody() const;
 
 	int getCount() const;
 
@@ -113,13 +119,15 @@ protected:
 	virtual void onMessage(EventMessage message, void* param) {}
 	//更新
 	virtual void onUpdate(float deltaTime) {}
+	//衝突判定後の更新
+	void OnLateUpdate() {}
 	//描画
 	virtual void onDraw() const {}
 	//衝突リアクション
-	virtual void onCollide(Actor& other) {}
+	virtual void onCollide(Actor& other,const Body::ContactSet& contactSet) {}
 public:
 	//衝突判定
-	bool isCollide(const Actor& other);
+	Body::ContactSet isCollide(const Actor& other);
 
 
 protected:
@@ -128,7 +136,7 @@ protected:
 	ActorName m_Name;				//名前
 	TransformPtr p_Transform;		//トランスフォーム
 	ITexturePtr	p_Texture;			//テクスチャ
-	IBodyPtr p_Body;				//衝突判定図形
+	Body::IBodyPtr p_Body;			//衝突判定図形
 	bool m_dead;					//死亡しているか
 
 private:

@@ -23,11 +23,6 @@ void EnemyStateDeadStandard::update(float deltaTime) {
 	p_Enemy.lock()->dead();
 }
 
-// Õ“Ë”»’è
-void EnemyStateDeadStandard::collide(const Actor & other) {
-
-}
-
 // I—¹‚Ìˆ—
 void EnemyStateDeadStandard::end() {
 

@@ -24,8 +24,7 @@ void PlayerState_Damage::update(float deltaTaime)
 	}
 		change(PlayerStateName::Respawn);
 }
-//Õ“Ë”»’è
-void PlayerState_Damage::collide(const Actor& other) {}
+
 //I—¹ˆ—
 void PlayerState_Damage::end() {}
 //“ü—Íˆ—

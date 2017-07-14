@@ -5,7 +5,7 @@
 #include"../../Entity/Enemys/Base/EnemyBasePtr.h"
 
 //エネミーステートマネージャー
-class EnemyStateManager :public StateMgr
+class EnemyStateManager : public StateMgr
 {
 public:
 	// デフォルトコンストラクタ

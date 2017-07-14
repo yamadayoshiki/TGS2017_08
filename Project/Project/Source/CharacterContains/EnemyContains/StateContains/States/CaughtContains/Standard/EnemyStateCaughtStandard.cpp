@@ -23,11 +23,6 @@ void EnemyStateCaughtStandard::unique_init() {
 void EnemyStateCaughtStandard::update(float deltaTime) {
 }
 
-// Õ“Ë”»’è
-void EnemyStateCaughtStandard::collide(const Actor & other) {
-
-}
-
 // I—¹‚Ìˆ—
 void EnemyStateCaughtStandard::end() {
 }

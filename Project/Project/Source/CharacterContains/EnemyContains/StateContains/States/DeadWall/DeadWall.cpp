@@ -24,11 +24,6 @@ void DeadWall::update(float deltaTime)
 
 	p_Enemy.lock()->getWorld()->GetMap()->SetcsvParameter(p_Enemy.lock()->getPosition(), TerrainName::Speace, p_Enemy.lock()->getWorld());
 }
-// Õ“Ë”»’è
-void DeadWall::collide(const Actor & other)
-{
-
-}
 // I—¹‚Ìˆ—
 void DeadWall::end()
 {

@@ -1,7 +1,6 @@
 #include "BreakWall.h"
 #include "../ActorContains/ActorName.h"
 #include "../ActorContains/Transform/Transform.h"
-#include "../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../Base/GameManagerContains/IGameManager.h"
 #include "../Define/Def_Nakayama.h"
 #include "../TextureContains/Texture/Texture.h"
@@ -38,19 +37,13 @@ BreakWall::BreakWall(
 		3,
 		MapType::Default,
 		gameManager,
-		std::make_shared<Texture>("Block5", gameManager->GetRenderer2D()),
-		std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE))
-{
+		std::make_shared<Texture>("Block5", gameManager->GetDrawManager(), DrawOrder::Enemy),
+		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
 }
 
 //初期化
 void BreakWall::initialize() {
-	//プレイヤー監視
-	p_PlayerWatch.reset(new PlayerWatch(shared_from_this()));
-	//各種固有のコマンドの設定
-	SetUpCommand();
-	//各種固有のStateの設定
-	SetUpState();
+	EnemyBase::initialize();
 	//マップ情報書き換え
 	p_World->GetMap()->SetcsvParameter(getPosition(), TerrainName::BreakeWall, p_World);
 }
@@ -81,13 +74,6 @@ void BreakWall::SetUpState()
 
 void BreakWall::onDraw() const
 {
-	Texture2DParameter param;
-	param.SetPosition(p_Transform->m_Position);
-	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Block5"));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Block5", param);
 }
 
 //csvで生成(使用時継承先でoverride)

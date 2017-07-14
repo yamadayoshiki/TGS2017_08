@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../../../Base/GameManagerContains/IGameManagerPtr.h"
-#include "../../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include "../../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 
 #include <unordered_map>
 
@@ -50,7 +50,7 @@ protected:
 	//ゲームマネージャー
 	IGameManagerPtr p_GameManager;
 	// テクスチャパラメータ
-	Texture2DParameter m_Param;
+	//Texture2DParameterSPtr p_Param;
 	// モードパラメータ
 	std::unordered_map<Mode, Parametor> mModeParametors;
 	// 現在のモード

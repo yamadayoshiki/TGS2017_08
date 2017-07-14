@@ -14,7 +14,7 @@ void EnemyStateShot::onUpdate(float deltaTime) {
 
 }
 // Õ“Ë”»’è
-void EnemyStateShot::onCollide(const Actor & other) {
+void EnemyStateShot::onCollide(const Actor & other, const Body::ContactSet& contactSet) {
 
 }
 // I—¹‚Ìˆ—

@@ -2,6 +2,8 @@
 #define BIG_BLOCK_2_H_
 
 #include "../../StagingContains/TransitionStaging/Transition/Transition.h"
+#include "../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
+#include <GStype.h>
 
 class BigBlock2 :public Transition
 {
@@ -25,5 +27,6 @@ private:
 	float m_Alpha{ 0.1f };
 	bool is_end{ false };
 	float timer_{ 0.0f };
+	Texture2DParameterSPtr p_Param;
 };
 #endif // !BIG_BLOCK_2_H_

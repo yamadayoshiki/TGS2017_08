@@ -2,6 +2,7 @@
 #include"../../../../../WorldContains/EventMessage/EventMessage.h"
 #include"../../../../../ActorContains/ActorGroup.h"
 #include"../../../../NeutralContains/Crush_Effect/Crush_Effect.h"
+#include "../../../../../ActorContains/BodyContains/Elements/ContactSet/ContactSet.h"
 
 PlayerState_Crush::PlayerState_Crush(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
@@ -21,12 +22,12 @@ void PlayerState_Crush::update(float deltaTime)
 	change(PlayerStateName::Rounds);
 }
 //衝突判定
-void PlayerState_Crush::collide(const Actor& other)
+void PlayerState_Crush::collide(const Actor& other, const Body::ContactSet& contactSet)
 {
 	//アームに当たっているかつ視野角内なら返す
-	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(other))return;
+	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide && is_Scorp_Angle(other))return;
 	//敵との衝突処理
-	Collide(other);
+	Collide(other,contactSet);
 }
 
 //メッセージ処理

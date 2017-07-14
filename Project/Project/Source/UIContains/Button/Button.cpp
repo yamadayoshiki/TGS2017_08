@@ -7,6 +7,8 @@
 #include "../Selector/Selector.h"
 #include "../../WorldContains/EventMessage/EventMessage.h"
 #include "../../SceneContains/SceneName.h"
+#include "../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include "../../DrawManager/DrawManager.h"
 #include <algorithm>
 
 #define STR(var) #var
@@ -16,7 +18,14 @@ Button::Button(IWorld* world, const GSvector2 & position, const IGameManagerPtr 
 	regist(file_name);
 }
 
-void Button::regist(const std::string & file_name){
+Button::~Button() {
+	for (auto button : m_Buttons) {
+		p_GameManager->GetDrawManager()->Remove(button.second.drawOrderID);
+		p_GameManager->UnLoadTexture(button.second.file_name);
+	}
+}
+
+void Button::regist(const std::string & file_name) {
 	CsvReader csv = CsvReader(file_name);
 
 	// ボタンが指定されていないときのみカーソルを生成
@@ -41,21 +50,24 @@ void Button::regist(const std::string & file_name){
 		data.key[GKEY_LEFT] = csv.geti(row, 5);
 		data.key[GKEY_RIGHT] = csv.geti(row, 6);
 		data.anim = csv.geti(row, 7);
-		data.param.SetRect(GSrect(0.0f, 0.0f, csv.getf(row, 8), csv.getf(row, 9)));
-		data.param.SetPosition(GSvector2(csv.getf(row, 10), csv.getf(row, 11)));
-		data.param.SetCenter(GSvector2(0.0f, 0.0f));
-		data.param.SetScale(GSvector2(1.0f, 1.0f));
+		data.param = std::make_shared<Texture2DParameter>();
+		data.param->m_Rect = GSrect(0.0f, 0.0f, csv.getf(row, 8), csv.getf(row, 9));
+		data.param->m_Position = GSvector2(csv.getf(row, 10), csv.getf(row, 11));
+		data.param->m_Center = GSvector2(0.0f, 0.0f);
+		data.param->m_Scale = GSvector2(1.0f, 1.0f);
 
 		m_Buttons[data.number] = data;
 
-		//p_GameManager->GetRenderer2D()->LoadTexture(data.file_name, data.file_name);
+		p_GameManager->LoadTexture(data.file_name, data.file_name);
+		m_Buttons[data.number].drawOrderID = p_GameManager->GetDrawManager()->Register(data.file_name, data.param, DrawOrder::UI);
+		p_GameManager->GetDrawManager()->ChageDisplayMode(data.drawOrderID, DisplayMode::Display);
 	}
 
 	m_Index = m_Buttons[1].number;
-	m_Selector->setPosition(m_Buttons[m_Index].param.GetPosition());
+	m_Selector->setPosition(m_Buttons[m_Index].param->m_Position);
 }
 
-void Button::onUpdate(float deltaTime){
+void Button::onUpdate(float deltaTime) {
 	if (getCount() == 0) {
 		dead();
 		return;
@@ -66,19 +78,15 @@ void Button::onUpdate(float deltaTime){
 	moveSelector(GKEY_RIGHT);
 	moveSelector(GKEY_LEFT);
 
-	m_Selector->setPosition(m_Selector->getPosition().lerp(m_Buttons[m_Index].param.GetPosition(), 0.5f));
+	m_Selector->setPosition(m_Selector->getPosition().lerp(m_Buttons[m_Index].param->m_Position, 0.5f));
 
-	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) && 
-		m_Selector->getPosition() == m_Buttons[m_Index].param.GetPosition()) {
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) &&
+		m_Selector->getPosition() == m_Buttons[m_Index].param->m_Position) {
 		p_World->sendMessage(EventMessage::END_SCENE, (void*)m_Buttons[m_Index].next);
 	}
 }
 
-void Button::onDraw() const
-{
-	/*for (auto button : m_Buttons) {
-		p_GameManager->GetRenderer2D()->DrawTexture(button.second.file_name, button.second.param);
-	}*/
+void Button::onDraw() const{
 }
 
 void Button::moveSelector(GKEYCODE key) {
@@ -87,7 +95,7 @@ void Button::moveSelector(GKEYCODE key) {
 	}
 }
 
-int Button::getIndex(int index, int next){
+int Button::getIndex(int index, int next) {
 	if (next == 0)return index;
 	return next;
 }

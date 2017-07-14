@@ -22,11 +22,6 @@ void PlayerState_Invincible::update(float deltaTaime)
 	move(deltaTaime, 8.0f);
 	m_FramConter += deltaTaime;
 }
-//Õ“Ë”»’è
-void PlayerState_Invincible::collide(const Actor& other)
-{
-
-}
 
 //“ü—Íˆ—
 void PlayerState_Invincible::input()

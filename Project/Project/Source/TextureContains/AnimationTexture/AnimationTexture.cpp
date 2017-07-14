@@ -1,23 +1,27 @@
 #include "AnimationTexture.h"
 #include "../../Utility/Animation/Animation.h"
+#include "../../Utility/Texture2DParameter/Texture2DParameter.h"
 
 //コンストラクタ
 AnimationTexture::AnimationTexture(
-	const std::string& texName,
-	const Renderer2DPtr& renderer,
-	Animation* animation)
-	:Texture_Base(texName, renderer)
-	, p_Animation(animation) {
+	const std::string & texName,
+	const DrawManagerSPtr & drawManager,
+	const DrawOrder drawOrder,
+	const float cutWidth,
+	const unsigned int animmationUpdateTimer)
+	: Texture_Base(texName, drawManager, drawOrder) {
+	p_Animation = std::make_shared<Animation>(p_Parameter->m_Rect, cutWidth, animmationUpdateTimer);
 }
 
-AnimationTexture::~AnimationTexture(){
-	delete p_Animation;
+//デストラクタ
+AnimationTexture::~AnimationTexture() {
+	p_Animation.reset();
 }
 
 //初期化
-void AnimationTexture::OnInitialize() {
-	p_Parameter->SetRect(*p_Animation->GetCurrentRect());
+void AnimationTexture::Initialize() {
 	p_Animation->Initialize();
+	p_Parameter->m_Rect = *p_Animation->GetCurrentRect();
 }
 
 //更新
@@ -25,18 +29,15 @@ void AnimationTexture::Update(float deltaTime) {
 	//アニメーションの更新
 	p_Animation->Update(deltaTime);
 	//描画矩形の更新
-	p_Parameter->SetRect(*(p_Animation->GetCurrentRect()));
+	p_Parameter->m_Rect = *(p_Animation->GetCurrentRect());
 }
 
 //ループ回数の取得
-unsigned int AnimationTexture::GetLoopCount() {
+int AnimationTexture::GetLoopCount() {
 	return p_Animation->GetLoopCount();
 }
 
-//テクスチャの名前とアニメーションの設定
-void AnimationTexture::setName_Animation(const std::string& name, Animation* animation)
-{
-	m_TexName = name;
-	p_Animation = animation;
-	p_Animation->Initialize();
+//アニメーションの取得
+AnimationSPtr AnimationTexture::GetAnimation() {
+	return p_Animation;
 }

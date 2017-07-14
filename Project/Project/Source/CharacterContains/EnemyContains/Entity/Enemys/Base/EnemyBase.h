@@ -2,10 +2,10 @@
 #define ENEMYBASE_H_
 
 #include "../../../../../ActorContains/State/Base/State.h"
+#include "../../../../../ActorContains/Actor/Actor.h"
 #include "../../../CommandContains/CommandManagers/Interface/IEnemyCommandManagerPtr.h"
 #include "../../../../../ActorContains/HitPoint/HitPoint.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
-#include "../../../../../ActorContains/Actor/Actor.h"
 #include "../../../PlayerWatch/PlayerWatchPtr.h"
 #include "../../../StateContains/StateManager/EnemyStateManagerPtr.h"
 #include "../../../../../Map/MapType.h"
@@ -25,9 +25,10 @@ public:
 		const MapType type,												//移動マップタイプ
 		const IGameManagerPtr& gameManager,								//ゲームマネージャ
 		const ITexturePtr& texture,										//テクスチャ
-		const IBodyPtr& body = std::make_shared<Body::NullBody>());			//衝突判定図形
+		const Body::MotionType motionType = Body::MotionType::None,
+		const Body::BodyDataName dataName = Body::BodyDataName::None);
 
-																			//デストラクタ
+	//デストラクタ
 	virtual ~EnemyBase();
 	//初期化
 	virtual void initialize() override;
@@ -61,7 +62,7 @@ protected:
 	//描画
 	virtual void onDraw() const override;
 	//衝突した
-	virtual void onCollide(Actor& other) override;
+	virtual void onCollide(Actor& other, const Body::ContactSet& contactSet) override;
 	//メッセージ処理
 	virtual void onMessage(EventMessage message, void* param) override;
 

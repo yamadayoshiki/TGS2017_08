@@ -59,8 +59,8 @@ void Score::draw(Renderer2DPtr& renderer) const
 {
 	static const NumberTexture number(1000, 40, 60);
 	Texture2DParameter param;
-	param.SetPosition({ 130,m_Position.y });
-	param.SetScale({ 1.0f,1.0f });
+	param.m_Position={ 130,m_Position.y };
+	param.m_Scale={ 1.0f,1.0f };
 	renderer->DrawTexture("score_font", GSvector2(m_Position.x - 100,m_Position.y));
 	number.draw(GSvector2(m_Position.x + 100, m_Position.y),m_Score,5);
 	//std::stringstream ss;

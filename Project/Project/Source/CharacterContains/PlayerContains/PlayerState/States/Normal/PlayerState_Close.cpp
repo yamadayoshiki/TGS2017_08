@@ -24,9 +24,9 @@ void PlayerState_Close::update(float deltaTaime)
 }
 
 //Õ“Ë”»’è
-void PlayerState_Close::collide(const Actor& other)
+void PlayerState_Close::collide(const Actor& other, const Body::ContactSet& contactSet)
 {
-	Collide(other);
+	Collide(other,contactSet);
 }
 
 //I—¹ˆ—

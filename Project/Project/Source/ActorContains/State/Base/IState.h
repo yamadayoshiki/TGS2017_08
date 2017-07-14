@@ -3,6 +3,7 @@
 // 先行宣言
 class Actor;
 enum class EventMessage;
+namespace Body { struct ContactSet; }
 
 #include <unordered_map>
 #include "../../ActorPtr.h"
@@ -27,7 +28,7 @@ public:
 	// 状態の変更
 	virtual void change_int(const int id) = 0;
 	// 衝突判定
-	virtual void collide(const Actor & other) = 0;
+	virtual void collide(const Actor & other,const Body::ContactSet& contactSet) = 0;
 	// 終了を返す
 	virtual bool isEnd() = 0;
 	// 次のステートの要素

@@ -1,7 +1,6 @@
 #include "Enemy05.h"
 #include "../../../../../ActorContains/ActorName.h"
 #include "../../../../../ActorContains/Transform/Transform.h"
-#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
@@ -33,8 +32,8 @@ Enemy05::Enemy05(IWorld * world, const GSvector2 & position, const FourDirection
 		10,
 		MapType::Double,
 		gameManager,
-		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
-		std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE)) {
+		std::make_shared<Texture>("Enemy02", gameManager->GetDrawManager(),DrawOrder::Enemy),
+		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
 }
 
 ActorPtr Enemy05::CsvGenerate(const int x, const int y, const int csvparam)
@@ -71,14 +70,4 @@ void Enemy05::SetUpState() {
 
 //•`‰æ
 void Enemy05::onDraw() const {
-	//p_Body->transform(getTransform())->draw();
-
-	Texture2DParameter param;
-	param.SetPosition(p_Transform->m_Position);
-	param.SetRotate(p_Transform->m_Angle + 180);
-	param.SetCenter({ 16.0f, 16.0f });
-	param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy02"));
-	param.SetScale({ 1.0f , 1.0f });
-	param.SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	p_GameManager->GetRenderer2D()->DrawTexture("Enemy02", param);
 }

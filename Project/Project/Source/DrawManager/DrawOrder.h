@@ -18,6 +18,10 @@ enum class DrawOrder
 
 	/*UI*/
 	UI,
+	UI_Front1,
+	UI_Front2,
+
+	BlackScreen,
 
 	/* Žè‘O‚É•`‰æ‚³‚ê‚é‚à‚Ì */
 };

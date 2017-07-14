@@ -1,5 +1,5 @@
 #include"GameManager.h"
-#include "../../../DrawOrderManager/DrawOrderManager.h"
+#include "../../../DrawManager/DrawManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include"../../../Utility/InputState/InputState.h"
 #include"../../../Utility/Score/Score.h"
@@ -13,7 +13,7 @@
 GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState, const ScorePtr& score)
 	:p_Renderer2D(renderer2D), p_InputState(inputState), p_Score(score), p_SceneEnum(std::make_shared<EnumRap<SceneName>>()) {
 	m_Parameter.m_Remaining = 3;
-	p_DrawOrderManager = std::make_shared<DrawOrderManager>(p_Renderer2D);
+	p_DrawManager = std::make_shared<DrawManager>(p_Renderer2D);
 }
 
 
@@ -56,6 +56,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Smork", "Resource/Texture/Effect/syutugenn.png");
 
 	//UI
+	p_Renderer2D->LoadTexture("Cursor", "Resource/Texture/UI/Block5.png");
 
 	//Title
 	p_Renderer2D->LoadTexture("Title", "Resource/Texture/UI/Title/title.png");
@@ -165,20 +166,33 @@ void GameManager::UnLoadContent() {
 	p_Renderer2D->Initialize();
 }
 
+void GameManager::LoadTexture(const std::string registerName, const std::string fileName) {
+	p_Renderer2D->LoadTexture(registerName, fileName);
+}
+
+void GameManager::UnLoadTexture(const std::string registerName) {
+	p_Renderer2D->UnLoadTexture(registerName);
+}
+
 //更新処理
 void GameManager::Update() {
 	//入力処理更新
 	p_InputState->Update();
 }
 
-//レンダラーの取得
-Renderer2DPtr GameManager::GetRenderer2D() {
-	return p_Renderer2D;
+//描画処理
+void GameManager::Draw() {
+	p_DrawManager->Draw();
 }
 
+////レンダラーの取得
+//Renderer2DPtr GameManager::GetRenderer2D() {
+//	return p_Renderer2D;
+//}
+
 //描画管理の取得
-DrawOrderManagerSPtr GameManager::GetDrawOrderManagerPtr() {
-	return p_DrawOrderManager;
+DrawManagerSPtr GameManager::GetDrawManager() {
+	return p_DrawManager;
 }
 
 //インプットステイトの取得

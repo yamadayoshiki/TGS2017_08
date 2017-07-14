@@ -20,7 +20,7 @@ public:
 	// 状態の変更
 	virtual void change_int(const int id) override {}
 	// 状態の変更
-	virtual void collide(const Actor & other) override {}
+	virtual void collide(const Actor & other, const Body::ContactSet& contactSet) override {}
 	// 終了を返す
 	virtual bool isEnd() override { return false; }
 	// 次のステートの要素

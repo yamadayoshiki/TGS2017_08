@@ -11,15 +11,14 @@ enum class ActorGroup;
 enum class EventMessage;
 enum class SceneName;
 class CharacterFactory;
+namespace Body { class BodyFactory; }
 
 // ワールド抽象インターフェース 
 class IWorld
 {
 public:
 	// 仮想デストラクタ
-	virtual ~IWorld() {
-		Finalize();
-	}
+	virtual ~IWorld() {	}
 	// アクターの追加   
 	virtual void addActor(ActorGroup group, const ActorPtr& actor) = 0;
 	// アクターの検索     
@@ -36,9 +35,8 @@ public:
 	virtual MapPtr GetMap() = 0;
 	//キャラクターファクトリーの取得
 	virtual CharacterFactory* GetCharacterFactory() const = 0;
-protected:
-	// 終了処理
-	virtual void Finalize() {}
+	//衝突判定図形ファクトリーの取得
+	virtual Body::BodyFactory* GetBodyFactory() const = 0;
 };
 
 #endif

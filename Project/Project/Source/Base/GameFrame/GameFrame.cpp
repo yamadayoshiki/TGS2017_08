@@ -78,6 +78,7 @@ void GameFrame::update(float time)
 // •`‰æ
 void GameFrame::draw()
 {
+	p_GameManager->Draw();
 	m_SceneManager.Draw();
 }
 

@@ -17,7 +17,6 @@ private:
 	int mWidth;
 	//•¶š‚Ì‚‚³
 	int mHeight;
-
 };
 #endif // !NUMBER_TEXTURE_H_
 

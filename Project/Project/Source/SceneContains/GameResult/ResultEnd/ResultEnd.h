@@ -4,9 +4,9 @@
 #include"../../../WorldContains/IWorldPtr.h"
 #include"../../../Base/GameManagerContains/IGameManagerPtr.h"
 #include"../../IScene.h"
-#include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include"../../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 #include"../../../StagingContains/TransitionStaging/TransitionPtr.h"
-
+#include <GStype.h>
 class ResultEnd :public IScene
 {
 public:
@@ -46,7 +46,7 @@ private:
 	//‘JˆÚ‰‰o
 	TransitionPtr p_Transition;
 	//
-	Texture2DParameter m_Param;
+	Texture2DParameterSPtr p_Param;
 	//
 	GScolor m_Color{ 1.0f,1.0f,1.0f,1.0f };
 	//

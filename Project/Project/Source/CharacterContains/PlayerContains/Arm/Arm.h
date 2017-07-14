@@ -16,7 +16,7 @@ public:
 	//•`‰æˆ—
 	virtual void onDraw()const override;
 	//Õ“Ë”»’è
-	virtual void onCollide(Actor& other)override;
+	virtual void onCollide(Actor& other, const Body::ContactSet& contactSet)override;
 	//Õ“Ë”»’è
 	//bool isCollide(const Actor& other);
 

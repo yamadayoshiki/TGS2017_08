@@ -1,8 +1,6 @@
 #ifndef NULLBODY_H_
 #define NULLBODY_H_
 #include "../Interface/IBody.h"
-#include "../BodyName.h"
-
 namespace Body
 {
 	//何もない衝突判定図形
@@ -12,13 +10,17 @@ namespace Body
 		//コンストラクタ
 		NullBody() {}
 		//衝突しているか
-		bool IsCollide(IBody* other) override { return false; }
-		//名前の取得
-		BodyName GetName() const override { return BodyName::None; }
-		//衝突可能かの取得
-		virtual bool IsExist() const { return false; };
+		ContactSet IsCollide(IBody* other) override;
 		//トランスフォームの設定
-		virtual void SetTransform(const TransformPtr& transform) {};
+		void SetTransform(const TransformPtr& transform)override {}
+		//衝突可能かの設定
+		void SetExist(bool isExist) override{}
+		//形状の追加
+		void AddShape(const IPrimitive2DSPtr& p, const GSvector2& offsetPos, float offsetAngle) override{}
+		//AABBの設定
+		void SetAABB(const GSvector2& AABBHalf) {};
+		//クローン生成
+		IBodyPtr Clone(const MotionType type) { return std::shared_ptr<NullBody>(); };
 	};
 }
 

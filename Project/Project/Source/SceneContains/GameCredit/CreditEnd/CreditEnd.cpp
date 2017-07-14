@@ -15,6 +15,7 @@
 #include"../../../UIContains/UIManager/UIManager.h"
 #include"../../../Utility/Number/NumberTexture.h"
 #include"../../GameResult/ResultTransition/ResultTransition.h"
+#include "../../../Utility/Texture2DParameter/Texture2DParameter.h"
 
 CreditEnd::CreditEnd(IWorld* world, const IGameManagerPtr & gameManager)
 	:p_World(world), p_GameManager(gameManager), p_Transition(std::make_shared<ResultTransition>(gameManager))
@@ -35,19 +36,19 @@ void CreditEnd::Start()
 	m_Score = 0;
 
 	//パラメータの設定
-	m_Param.SetPosition(GSvector2(550, 100));
-	m_Param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("BigBlock2"));
-	m_Param.SetColor(m_Color);
-	m_Param.SetScale({ 1.0f,1.0f });
-	m_Param.SetCenter({ 0.0f,0.0f });
-	m_Param.SetRotate(0.0f);
+	p_Param->m_Position = GSvector2(550, 100);
+	p_Param->m_Rect = *p_GameManager->GetRenderer2D()->GetTextureRect("BigBlock2");
+	p_Param->m_Color = m_Color;
+	p_Param->m_Scale = { 1.0f,1.0f };
+	p_Param->m_Center = { 0.0f,0.0f };
+	p_Param->m_Rotate = 0.0f;
 }
 // 更新     
 void CreditEnd::Update(float deltaTime)
 {
 	float t = timer_ / maxTimer_;
 	GScolor color = m_Color.lerp(GScolor(1.0f, 1.0f, 1.0f, 0.0f), t);
-	m_Param.SetColor(color);
+	p_Param->m_Color = color;
 
 	p_Transition->update(deltaTime);
 
@@ -72,7 +73,7 @@ void CreditEnd::Draw()const
 	p_GameManager->GetRenderer2D()->DrawTexture("TotalScore", GSvector2(610, 650));
 	number.draw(GSvector2(940, 660), p_GameManager->GetScore()->GetTotalScore(), 5);
 	//大きいブロックの描画
-	p_GameManager->GetRenderer2D()->DrawTexture("BigBlock2",m_Param);
+	p_GameManager->GetRenderer2D()->DrawTexture("BigBlock2", p_Param);
 
 	p_Transition->draw();
 }
