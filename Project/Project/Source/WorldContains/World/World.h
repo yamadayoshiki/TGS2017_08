@@ -10,6 +10,7 @@
 #include"../../ActorContains/ActorManager/ActorManagerPtr.h"
 #include"../../MapGenerator/MapGeneratorPtr.h"
 #include "../../CharacterContains/Factory/CharacterFactoryPtr.h"
+#include "../../ActorContains/BodyContains/Factory/BodyFactoryPtr.h"
 
 enum class EventMessage;
 enum class SceneName;
@@ -26,8 +27,6 @@ public:
 	void update(float deltaTime);
 	// 描画     
 	void draw() const;
-	//終了処理
-	void Finalize() override;
 	// メッセージ処理  
 	void handleMessage(EventMessage message, void* param);
 	// アクターの追加   
@@ -49,6 +48,8 @@ public:
 	void SetCharacterFactory(CharacterFactory* characterFactory);
 	//キャラクター工場の取得
 	CharacterFactory* GetCharacterFactory() const override;
+	//衝突判定図形ファクトリーの取得
+	Body::BodyFactory* GetBodyFactory() const override;
 	//マップジェネレーターの生成
 	void SetMapGenerator(const IWorldPtr& world, const IGameManagerPtr& gameManager);
 
@@ -74,5 +75,6 @@ private:
 	SceneName m_NextScene;						//次のシーン
 	bool m_IsEnd;								//終了しているか
 	CharacterFactoryUPtr p_CharacterFactory;	//キャラクター工場
+	Body::BodyFactoryUPtr p_BodyFactory;		//衝突判定図形ファクトリー
 };
 #endif

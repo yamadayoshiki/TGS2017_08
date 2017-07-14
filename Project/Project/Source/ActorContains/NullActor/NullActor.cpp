@@ -1,5 +1,5 @@
 #include "NullActor.h"
-
+#include <GSvector2.h>
 NullActor::NullActor(IWorld* world, const IGameManagerPtr& gameManager)
 	:Actor(world
 		, ActorName::None
@@ -10,13 +10,3 @@ NullActor::NullActor(IWorld* world, const IGameManagerPtr& gameManager)
 NullActor::NullActor()
 	:NullActor(nullptr,nullptr){
 }
-
-void NullActor::onUpdate(float deltaTime){
-}
-
-void NullActor::onDraw() const{
-}
-
-//ActorPtr NullActor::clone(const GSvector2& position){
-//	return std::make_shared<NullActor>(p_World,p_GameManager);
-//}

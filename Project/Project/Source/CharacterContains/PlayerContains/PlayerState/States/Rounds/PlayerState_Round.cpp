@@ -2,7 +2,7 @@
 #include"../../../../../WorldContains/EventMessage/EventMessage.h"
 #include"../../../../../ActorContains/ActorGroup.h"
 #include"../../../../NeutralContains/Repel_Effect/Repel_Effect.h"
-
+#include "../../../../../ActorContains/BodyContains/Elements/ContactSet/ContactSet.h"
 //コンストラクタ
 PlayerState_Round::PlayerState_Round(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
@@ -21,12 +21,12 @@ void PlayerState_Round::update(float deltaTime)
 
 }
 //衝突判定
-void PlayerState_Round::collide(const Actor& other)
+void PlayerState_Round::collide(const Actor& other, const Body::ContactSet& contactSet)
 {
-	if (m_Children[ActorName::Player_Arm]->isCollide(other))return;
+	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide)return;
 
 	//敵との衝突処理
-	Collide(other);
+	Collide(other,contactSet);
 }
 //終了処理
 void PlayerState_Round::end()

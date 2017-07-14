@@ -1,7 +1,7 @@
-#pragma once
-
+#ifndef SCENETRANSITION_H_
+#define SCENETRANSITION_H_
 #include "Transition/Transition.h"
-
+#include <gslib.h>
 // シーン切り替えクラス
 class SceneTransition : public Transition{
 public:
@@ -19,6 +19,8 @@ public:
 	// 終了フラグ
 	virtual bool isEnd() override;
 private:
-	// α値
-	GScolor m_Color;
+	GScolor m_Color;	// α値
+	int m_DrawID;		//描画ID
 };
+
+#endif // !SCENETRANSITION_H_

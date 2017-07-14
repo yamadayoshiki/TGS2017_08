@@ -46,6 +46,7 @@ void ActorManager::update(float deltaTime) {
 	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //ˆ—‚É—v‚µ‚½ŠÔ‚ğƒ~ƒŠ•b‚É•ÏŠ·
 	std::cout << "ActorMagr" << ":Collide:" << elapsed << std::endl;
 	//*/
+	p_Root->LateUpdate();
 	p_Root->removeChildren();
 }
 

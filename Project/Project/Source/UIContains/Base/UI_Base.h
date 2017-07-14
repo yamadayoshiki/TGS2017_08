@@ -11,7 +11,6 @@ public:
 	~UI_Base();
 	virtual void onUpdate(float deltaTime) override;
 	virtual void onDraw() const override;
-	virtual void onCollide(Actor&) override;
 	virtual void onMessage(EventMessage event, void*) override;
 private:
 	TransitionManager m_Transition;

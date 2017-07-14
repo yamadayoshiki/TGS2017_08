@@ -34,34 +34,23 @@ public:
 
 	//テクスチャ描画
 	void DrawTexture(
-		const std::string& texName,					//登録名
-		const GSvector2& position					//描画座標
-		);
+		const std::string& texName,				//登録名
+		const GSvector2& pos);
 
 	//テクスチャ描画(パラメータ設定)
-	void DrawTexture
-		(
-			const std::string& texName,				//登録名
-			const Texture2DParameter& parameter		//パラメーター
-			);
-
-	//テクスチャ描画(パラメータ設定)
-	void DrawTexture
-		(
-			const std::string& texName,				//登録名
-			const Texture2DParameterPtr& parameter	//パラメーター
-			);
+	void DrawTexture(
+		const std::string& texName,				//登録名
+		const Texture2DParameter& parameter);	//パラメーター
 
 
 	//テクスチャ描画(パラメータ設定)
 	void DrawTexture(
-		const unsigned int texID,						//登録番号
-		const Texture2DParameter& parameter);			//パラメーター
+		const std::string& texName,					//登録名
+		const Texture2DParameterSPtr& parameter);	//パラメーター
 
 	//指定のテクスチャIDの取得
 	unsigned int GetTextureID(
-		const std::string& texName	//登録名
-		);
+		const std::string& texName);	//登録名
 
 	//指定のテクスチャサイズの取得(登録名)
 	GSrect* GetTextureRect(const std::string& texName);

@@ -13,7 +13,7 @@ public:
 	//XVˆ—
 	virtual void onUpdate(float deltaTime) {}
 	//Õ“Ëˆ—
-	virtual void onCollide(const Actor& other)override {}
+	virtual void onCollide(const Actor& other, const Body::ContactSet& contactSet)override {}
 	//I—¹ˆ—
 	virtual void onEnd()override {}
 	//“ü—Íˆ—

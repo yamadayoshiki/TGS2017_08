@@ -3,12 +3,11 @@
 #include"../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../ActorContains/Transform/Transform.h"
 #include"../../PlayerContains/Player/Player.h"
+#include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
 
 Charge::Charge(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager, const Player_WPtr& player)
 	:Actor(world, ActorName::Charge, position, gameManager),
-	p_Player(player)
-{
-	p_Renderer = gameManager->GetRenderer2D();
+	p_Player(player){
 }
 
 //デストラクタ
@@ -29,8 +28,7 @@ void Charge::initialize()
 	m_PreviosName = m_CurrrentName;
 
 	//アニメーションのパラメータの設定
-	p_Animation = new Animation(*p_Renderer->GetTextureRect(m_CurrrentName), 64, 5);
-	p_AnimationTexture = new AnimationTexture(m_CurrrentName, p_Renderer, p_Animation);
+	p_AnimationTexture = new AnimationTexture(m_CurrrentName, p_GameManager->GetDrawManager(), DrawOrder::Effect_Front, 64, 3);
 	p_AnimationTexture->Initialize();
 }
 
@@ -53,13 +51,11 @@ void Charge::onUpdate(float deltaTime)
 //描画処理
 void Charge::onDraw()const
 {
-	p_AnimationTexture->GetParameter()->SetPosition(p_Transform->m_Position + p_Player.lock()->getTransform()->GetForward() * 4);
-	p_AnimationTexture->GetParameter()->SetRotate(p_Transform->m_Angle);
-	p_AnimationTexture->GetParameter()->SetCenter({ 32.0f, 32.0f });
-	p_AnimationTexture->GetParameter()->SetScale({ 1.0f , 1.0f });
-	p_AnimationTexture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	//アニメーションの描画
-	p_AnimationTexture->Draw();
+	p_AnimationTexture->GetParameter()->m_Position = p_Transform->m_Position + p_Player.lock()->getTransform()->GetForward() * 4;
+	p_AnimationTexture->GetParameter()->m_Rotate = p_Transform->m_Angle;
+	p_AnimationTexture->GetParameter()->m_Center = { 32.0f, 32.0f };
+	p_AnimationTexture->GetParameter()->m_Scale = { 1.0f , 1.0f };
+	p_AnimationTexture->GetParameter()->m_Color = { 1.0f, 1.0f, 1.0f, 1.0f };
 }
 
 //チャージ段階の更新
@@ -90,7 +86,7 @@ void Charge::ChargeUpdate()
 
 	if (m_CurrrentName == m_PreviosName) return;
 	//アニメーションのパラメータの再設定
-	p_Animation = new Animation(*p_Renderer->GetTextureRect(m_CurrrentName), 64, 3);
-	p_AnimationTexture->setName_Animation(m_CurrrentName, p_Animation);
+	delete p_AnimationTexture;
+	p_AnimationTexture = new AnimationTexture(m_CurrrentName, p_GameManager->GetDrawManager(), DrawOrder::Effect_Front, 64, 3);
+	//p_AnimationTexture->Initialize();
 }
-

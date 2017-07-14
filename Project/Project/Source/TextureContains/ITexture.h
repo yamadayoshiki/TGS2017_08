@@ -1,8 +1,8 @@
 #ifndef ITEXTURE_H_
 #define ITEXTURE_H_
-
-class Texture2DParameter;
-
+#include "../Utility/Texture2DParameter/Texture2DParameterPtr.h"
+#include "../DrawManager/DisplayMode.h"
+struct GSvector2;
 class ITexture
 {
 public:
@@ -12,12 +12,14 @@ public:
 	virtual void Initialize() = 0;
 	//更新
 	virtual void Update(float deltaTime) = 0;
-	//描画
-	virtual void Draw() = 0;
-	//終了
-	virtual void Finalize() = 0;
 	//パラメーターの取得
-	virtual Texture2DParameter* GetParameter() = 0;
+	virtual Texture2DParameterSPtr GetParameter() = 0;
+	//ループ回数の取得
+	virtual int GetLoopCount() = 0;
+	//座標+回転の設定
+	virtual void SetPosAndAngle(const GSvector2& pos, float angle) = 0;
+	//表示モード切替
+	virtual void ChangeDisplayMode(const DisplayMode mode) = 0;
 };
 
 #endif // !ITEXTURE_H_

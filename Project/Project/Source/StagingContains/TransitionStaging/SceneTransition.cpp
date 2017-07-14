@@ -1,50 +1,42 @@
 #include "SceneTransition.h"
-
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
-#include "../../Utility/Rederer2D/Renderer2D.h"
-
+#include "../../DrawManager/DrawManager.h"
+#include "../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include "../../Define/Def_Nagano.h"
-#include <gslib.h>
-
 // コンストラクタ
-SceneTransition::SceneTransition(const IGameManagerPtr& gameManager):
-	Transition(gameManager), m_Color(1.0f, 1.0f, 1.0f, 1.0f){
+SceneTransition::SceneTransition(const IGameManagerPtr& gameManager)
+	: Transition(gameManager)
+	, m_Color(1.0f, 1.0f, 1.0f, 1.0f)
+	, m_DrawID(0) {
 	// モードの追加
 	mModeParametors[Mode::In] = { MINUS * FADE_SPEED, 0.0f };
 	mModeParametors[Mode::Out] = { PLUS * FADE_SPEED, 1.0f };
+	//ブラックスクリーン追加
+	m_DrawID = p_GameManager->GetDrawManager()->RegisterDefaultParam("black_screen", p_Param, DrawOrder::BlackScreen);
 }
 
 // デストラクタ
-SceneTransition::~SceneTransition(){
+SceneTransition::~SceneTransition() {
+	p_GameManager->GetDrawManager()->Remove(m_DrawID);
 }
 
-// 開始     
-void SceneTransition::onStart(){
-	// テクスチャのロード
-	p_GameManager->GetRenderer2D()->LoadTexture("black_screen", "Resource/Texture/UI/black_screen.png");
-
+// 開始
+void SceneTransition::onStart() {
 	// パラメータの設定
-	m_Param.SetPosition({ 0.0f, 0.0f });
-	m_Param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("black_screen"));
-	m_Param.SetCenter({ 0.0f, 0.0f });
-	m_Param.SetColor(m_Color);
-	m_Param.SetScale({ 1.0f, 1.0f });
-	m_Param.SetRotate(0.0f);
+	p_Param->m_Center = { 0.0f, 0.0f };
+	p_Param->m_Color = m_Color;
 }
 
 //更新
-void SceneTransition::onUpdate(float deltaTime){
+void SceneTransition::onUpdate(float deltaTime) {
 	m_Color.a = CLAMP(m_Color.a + mModeParametors[mMode].value * deltaTime, 0.0f, 1.0f);
-
-	m_Param.SetColor(m_Color);
+	p_Param->m_Color = m_Color;
 }
 
 //描画
-void SceneTransition::onDraw() const{
-	// 黒画像の描画
-	p_GameManager->GetRenderer2D()->DrawTexture("black_screen", m_Param);
+void SceneTransition::onDraw() const {
 }
 
-bool SceneTransition::isEnd(){
-	return m_Param.GetColor().a == mModeParametors[mMode].endValue && mMode == Mode::Out;
+bool SceneTransition::isEnd() {
+	return p_Param->m_Color.a == mModeParametors[mMode].endValue && mMode == Mode::Out;
 }

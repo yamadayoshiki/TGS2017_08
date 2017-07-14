@@ -1,7 +1,7 @@
 #ifndef ISCENE_H_
 #define ISCENE_H_
 
-enum class SceneName;
+#include "SceneName.h"
 enum class SceneMode;
 
 //シーン抽象インターフェイス

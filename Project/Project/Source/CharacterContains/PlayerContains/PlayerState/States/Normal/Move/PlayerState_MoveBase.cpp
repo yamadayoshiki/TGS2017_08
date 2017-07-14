@@ -31,13 +31,13 @@ void PlayerState_MoveBase::update(float deltaTaime)
 	onUpdate(deltaTaime);
 }
 //Õ“Ë”»’è
-void PlayerState_MoveBase::collide(const Actor& other)
+void PlayerState_MoveBase::collide(const Actor& other, const Body::ContactSet& contactSet)
 {
 	//“G‚Æ‚ÌÕ“Ëˆ—
-	Collide(other);
+	Collide(other,contactSet);
 
 	//Œp³æ‚ÌÕ“Ëˆ—
-	onCollide(other);
+	onCollide(other,contactSet);
 }
 //I—¹ˆ—
 void PlayerState_MoveBase::end()

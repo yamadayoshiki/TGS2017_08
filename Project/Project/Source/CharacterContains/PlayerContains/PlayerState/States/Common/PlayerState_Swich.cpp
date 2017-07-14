@@ -2,7 +2,7 @@
 #include"../../../../../WorldContains/EventMessage/EventMessage.h"
 #include"../../../../../Utility/MathSupport/MathSupport.h"
 #include "../../../../../ActorContains/Transform/Transform.h"
-
+#include "../../../../../ActorContains/BodyContains/Elements/ContactSet/ContactSet.h"
 //コンストラクタ
 PlayerState_Swich::PlayerState_Swich(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
@@ -27,12 +27,12 @@ void PlayerState_Swich::update(float deltaTaime)
 }
 
 //衝突判定
-void PlayerState_Swich::collide(const Actor& other)
+void PlayerState_Swich::collide(const Actor& other, const Body::ContactSet& contactSet)
 {
 	GSvector2 ArmPos = m_Children[ActorName::Player_Arm]->getPosition();
 	GSvector2 EnePos = other.getPosition();
 	float distance = ArmPos.distance(EnePos);
-	if (m_Children[ActorName::Player_Arm]->isCollide(other) && is_Scorp_Angle(other) && distance <= 24.0f) {
+	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide && is_Scorp_Angle(other) && distance <= 24.0f) {
 		m_Flag = true;
 		//相手に挟んだ情報を送る
 		p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));

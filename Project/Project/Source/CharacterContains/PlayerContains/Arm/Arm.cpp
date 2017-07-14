@@ -1,5 +1,4 @@
 #include"Arm.h"
-#include "../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../Define/Def_Nakayama.h"
 #include "../../../ActorContains/Transform/Transform.h"
 
@@ -10,7 +9,8 @@ Arm::Arm(IWorld* world, GSvector2& position, IGameManagerPtr gameManager)
 		, position
 		, gameManager
 		, std::make_shared<NullTexture>()
-		, std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE*2))
+		, Body::MotionType::Player
+		, Body::BodyDataName::PlayerAttackRange)
 	, m_Angle(0.0f)
 	, mHitFlag(false)
 {
@@ -22,8 +22,7 @@ Arm::~Arm()
 
 }
 //çXêVèàóù
-void Arm::onUpdate(float deltaTime)
-{
+void Arm::onUpdate(float deltaTime){
 	//p_Transform->m_Position = getPosition().clamp(GSvector2(16.0f, 16.0f), GSvector2(1280 - 16, 960 - 16));
 }
 //ï`âÊèàóù
@@ -32,7 +31,7 @@ void Arm::onDraw()const
 	//Actor::onDraw();
 }
 //è’ìÀîªíË
-void Arm::onCollide(Actor& other)
+void Arm::onCollide(Actor& other, const Body::ContactSet& contactSet)
 {
 	mHitFlag = true;
 }

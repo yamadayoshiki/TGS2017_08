@@ -31,10 +31,20 @@ float MathSupport::GetVec2ToVec2Angle(const GSvector2& dynamic, const GSvector2&
 	return result;
 }
 
+float MathSupport::DegreeToRadian(float degree) {
+	return degree / 180.0f * PI;
+}
+
 // ベクトルの回転
-GSvector2 MathSupport::RotateVector(const GSvector2 vector, const float angle) {
+GSvector2 MathSupport::RotateVector(const GSvector2 vector, const float radian) {
 	// 回転後のベクトルを返す
-	return GSvector2(vector.x * gsCos(angle) - vector.y * gsSin(angle), vector.x * gsSin(angle) + vector.y * gsCos(angle));
+	float xcos = vector.x * gsCos(radian);
+	float ysin = vector.y * gsSin(radian);
+	float xsin = vector.x * gsSin(radian);
+	float ycos = vector.y * gsCos(radian);
+	float x = xcos - ysin;
+	float y = xsin + ycos;
+	return GSvector2(x, y);
 }
 
 

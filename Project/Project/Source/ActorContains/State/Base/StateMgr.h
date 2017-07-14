@@ -28,7 +28,7 @@ public:
 	// 現在の状態の要素
 	int getID();
 	// 衝突判定
-	void collide(Actor& actor, const Actor& other);
+	void collide(Actor& actor, const Actor& other, const Body::ContactSet& contactSet);
 	// メッセージ処理
 	void handleMessage(EventMessage message, void* param);
 private:

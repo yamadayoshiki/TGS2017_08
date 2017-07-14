@@ -26,11 +26,6 @@ public:
 	//•`‰æˆ—
 	virtual void onDraw()const override;
 	//Õ“Ë”»’è
-	virtual void onCollide(Actor& other)override {}
-
-private:
-	//ƒŒƒ“ƒ_ƒ‰[
-	Renderer2DPtr			p_Renderer;
-	AnimationTexture*		p_AnimationTexture;
+	virtual void onCollide(Actor& other, const Body::ContactSet& contactSet)override {}
 };
 #endif // !SMORK_EFFECT_H_

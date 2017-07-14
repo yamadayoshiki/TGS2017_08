@@ -23,8 +23,3 @@ void PlayerState_Release::update(float deltaTaime)
 	move(deltaTaime);
 	m_FramConter += deltaTaime;
 }
-//Õ“Ë”»’è
-void PlayerState_Release::collide(const Actor& other)
-{
-
-}

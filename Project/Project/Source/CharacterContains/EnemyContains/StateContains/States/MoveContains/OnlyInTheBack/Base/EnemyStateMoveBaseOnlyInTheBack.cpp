@@ -6,6 +6,7 @@
 #include "../../../../../PlayerWatch/PlayerWatch.h"
 #include "../../../EnemyStateName.h"
 #include "../../../../../../../Map/MapType.h"
+#include "../../../../../../../ActorContains/Transform/Transform.h"
 
 //コンストラクタ
 EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack(const EnemyBasePtr & enemy)
@@ -22,7 +23,7 @@ void EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage(EventMessage message, void
 		FourDirection toPlayerDir 
 			= FourDirection(p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis());
 		//背後にプレイヤーがいる
-		if (p_Enemy.lock()->GetDirection() == toPlayerDir.GetTurnOver())
+		if (FourDirection(p_Enemy.lock()->getTransform()->m_Angle) == toPlayerDir.GetTurnOver())
 			change(EnemyStateName::Caught);
 
 		else

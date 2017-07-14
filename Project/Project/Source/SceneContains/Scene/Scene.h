@@ -26,17 +26,17 @@ public:
 	// 仮想デストラクタ     
 	virtual ~Scene();
 	// 開始     
-	virtual void Start() override;
+	void Start() override;
 	// 更新     
-	virtual void Update(float deltaTime) override;
+	void Update(float deltaTime) override;
 	// 描画     
-	virtual void Draw() const override;
+	void Draw() const override;
 	// 終了     
-	virtual void End() override;
+	void End() override;
 	// 終了しているか？     
-	virtual bool IsEnd() const override;
+	bool IsEnd() const override;
 	// 次のシーンを返す     
-	virtual SceneName Next() const override;
+	SceneName Next() const override;
 
 public:
 	// 名前を設定
@@ -57,20 +57,15 @@ protected:
 protected:
 	bool m_IsEnd;					//終了フラグ
 	IGameManagerPtr p_GameManager;	//ゲームマネージャー
-	WorldPtr p_World;
-	//ワールド
-	// シーンの名前
-	SceneName m_SceneName;
-	// 遷移演出
-	TransitionPtr m_Transition;
-	//ポーズフラグ
-	bool PauseFlag = false;
-	//カーソル移動
-	CarsorMovement  m_CarsorMovement{ CarsorMovement::Up };
-	//マップの順番
-	 int MapOrder = 0;
-	 //ゲームをクリアしたか
-	 bool isGameClear;
+	WorldPtr p_World;				//ワールド
+	SceneName m_SceneName;			//シーンの名前
+	TransitionPtr m_Transition;		//遷移演出
+	bool PauseFlag = false;			//ポーズフラグ
+	CarsorMovement					//カーソル移動
+		m_CarsorMovement{			
+		CarsorMovement::Up };		
+	 int MapOrder = 0;				//マップの順番
+	 bool isGameClear;				//ゲームをクリアしたか
 };
 
 #endif // !SCENE_H_

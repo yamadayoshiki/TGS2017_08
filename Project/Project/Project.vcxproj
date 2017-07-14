@@ -140,9 +140,21 @@
   <ItemGroup>
     <ClInclude Include="Source\ActorContains\BodyContains\AARectangle\AARectangle.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Base\BodyBase.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\BodyDataName.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\BodyName.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\BodysPath.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Composite\BodyComposite.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Collidable\BodyCollidable.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\ContactSet\ContactSet.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\MotionType.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\AABB2D\AABB2D.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\AASegment2D\AASegment2D.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\Interface\IPrimitive2D.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\Interface\IPrimitive2DPtr.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\PrimitiveName.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Shape\BodyCollidableShape.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Factory\BodyFactory.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Factory\BodyFactoryPtr.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBody.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBodyPtr.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Line\Line.h" />
@@ -244,6 +256,7 @@
     <ClInclude Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.h" />
@@ -278,6 +291,11 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.h" />
+    <ClInclude Include="Source\DrawManager\DisplayMode.h" />
+    <ClInclude Include="Source\DrawManager\DrawManager.h" />
+    <ClInclude Include="Source\DrawManager\DrawManagerPtr.h" />
+    <ClInclude Include="Source\DrawManager\DrawOrder.h" />
+    <ClInclude Include="Source\DrawManager\DrawOrderObject.h" />
     <ClInclude Include="Source\DrawOrderManager\DrawOrderManagerPtr.h" />
     <ClInclude Include="Source\DrawOrderManager\DrawOrder.h" />
     <ClInclude Include="Source\DrawOrderManager\DrawOrderManager.h" />
@@ -295,17 +313,23 @@
     <ClInclude Include="Source\SceneContains\GameResult\ResultStart\ResultStart.h" />
     <ClInclude Include="Source\SceneContains\GameResult\ResultTransition\ResultTransition.h" />
     <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\GameTutorial.h" />
+    <ClInclude Include="Source\TextureContains\NumberTexture\NumberTexture.h" />
     <ClInclude Include="Source\UIContains\Combo\Combo.h" />
     <ClInclude Include="Source\UIContains\Rank\Rank.h" />
     <ClInclude Include="Source\UIContains\Text\Text.h" />
     <ClInclude Include="Source\UIContains\Text\TextCreator.h" />
     <ClInclude Include="Source\Utility\AAVector2\AAVector2.h" />
+    <ClInclude Include="Source\Utility\Animation\AnimationPtr.h" />
     <ClInclude Include="Source\Utility\Collide2D\IsCollide2D.h" />
     <ClInclude Include="Source\Utility\CombinationTexture\CombinationTexture.h" />
     <ClInclude Include="Source\Utility\Composite\Component\Component.h" />
     <ClInclude Include="Source\Utility\Composite\Component\ComponentPtr.h" />
     <ClInclude Include="Source\Utility\Composite\Composite\Composite.h" />
     <ClInclude Include="Source\Utility\Composite\Leaf\Leaf.h" />
+    <ClInclude Include="Source\Utility\Contact\Contact.h" />
+    <ClInclude Include="Source\Utility\Contact\ContactPoint.h" />
+    <ClInclude Include="Source\Utility\Contact\PairContact.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\TwoDVector.h" />
@@ -376,6 +400,8 @@
     <ClInclude Include="Source\Utility\Score\ScorePtr.h" />
     <ClInclude Include="Source\Utility\Sound\Sound.h" />
     <ClInclude Include="Source\Utility\Sound\SoundName.h" />
+    <ClInclude Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactory.h" />
+    <ClInclude Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactoryPtr.h" />
     <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h" />
     <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameterPtr.h" />
     <ClInclude Include="Source\Utility\TurnDirection\TurnDirection.h" />
@@ -389,10 +415,12 @@
   <ItemGroup>
     <ClCompile Include="Source\ActorContains\ActorManager\ActorManager.cpp" />
     <ClCompile Include="Source\ActorContains\Actor\Actor.cpp" />
-    <ClCompile Include="Source\ActorContains\BodyContains\AARectangle\AARectangle.cpp" />
     <ClCompile Include="Source\ActorContains\BodyContains\Base\BodyBase.cpp" />
-    <ClCompile Include="Source\ActorContains\BodyContains\Line\Line.cpp" />
-    <ClCompile Include="Source\ActorContains\BodyContains\Rectangle\Rectangle.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Elements\ContactSet\ContactSet.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Elements\Primitive\AABB2D\AABB2D.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Elements\Primitive\AASegment2D\AASegment2D.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Factory\BodyFactory.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\NullBody\NullBody.cpp" />
     <ClCompile Include="Source\ActorContains\HitPoint\HitPoint.cpp" />
     <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />
     <ClCompile Include="Source\ActorContains\State\Base\State.cpp" />
@@ -465,6 +493,7 @@
     <ClCompile Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.cpp" />
@@ -491,7 +520,7 @@
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player.cpp" />
     <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.cpp" />
-    <ClCompile Include="Source\DrawOrderManager\DrawOrderManager.cpp" />
+    <ClCompile Include="Source\DrawManager\DrawManager.cpp" />
     <ClCompile Include="Source\FileReader\CsvReader.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Source\FrontChipList\FrontChipList.cpp" />
@@ -515,9 +544,9 @@
     <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\GameTutorial.cpp" />
     <ClCompile Include="Source\SceneContains\NaganoScene\NaganoScene.cpp" />
     <ClCompile Include="Source\SceneContains\NakayamaScene\NakayamaScene.cpp" />
-    <ClCompile Include="Source\SceneContains\NullScene\NullScene.cpp" />
     <ClCompile Include="Source\SceneContains\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Source\SceneContains\Scene\Scene.cpp" />
     <ClCompile Include="Source\SceneContains\yamadaScene\yamadaScene.cpp" />
@@ -552,6 +581,7 @@
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
     <ClCompile Include="Source\Utility\Score\Score.cpp" />
     <ClCompile Include="Source\Utility\Sound\Sound.cpp" />
+    <ClCompile Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactory.cpp" />
     <ClCompile Include="Source\Utility\Texture2DParameter\Texture2DParameter.cpp" />
     <ClCompile Include="Source\Utility\TurnDirection\TurnDirection.cpp" />
     <ClCompile Include="Source\Wall\BreakWall.cpp" />

@@ -1,30 +1,30 @@
 #ifndef NULLSCENE_H_ 
 #define NULLSCENE_H_ 
 
-#include "../Scene/Scene.h" 
+#include "../IScene.h"
 
 // 空のシーン 
-class NullScene : public Scene
+class NullScene : public IScene
 {
 public:
 	// デフォルトコンストラクタ
-	NullScene();
-	//コンストラクタ
-	NullScene(const IGameManagerPtr& gameManager);
-	// 描画     
-	virtual void Draw() const override;
-	// 次のシーンを返す     
-	virtual SceneName Next() const override;
-	// 終了     
-	virtual void End() override;
-
-protected:
+	NullScene() {}
 	// 開始     
-	virtual void OnStart();
+	void Start() override {}
 	// 更新     
-	virtual void OnUpdate(float deltaTime);
+	void Update(float deltaTime)override {}
+	// 描画     
+	void Draw() const override {}
+	// 終了しているか？     
+	bool IsEnd() const override { return false; }
+	// 次のシーンを返す     
+	SceneName Next() const override { return SceneName::None; }
 	// 終了     
-	virtual void OnEnd();
+	void End()override {}
+	// 名前の設定
+	void SetName(const SceneName& name) override {}
+	// 名前の取得
+	SceneName GetName() override { return SceneName::None; }
 };
 
 #endif

@@ -7,8 +7,8 @@
 #include "../../Utility/EnumRap/EnumRapPtr.h"
 #include "../../SceneContains/SceneName.h"
 #include "../../CharacterContains/PlayerContains/Player/Player_Parameter.h"
-#include "../../DrawOrderManager/DrawOrderManagerPtr.h"
-
+#include "../../DrawManager/DrawManagerPtr.h"
+#include <iostream>
 //ゲームマネージャーインターフェイス
 class IGameManager
 {
@@ -17,10 +17,14 @@ public:
 	virtual ~IGameManager() {}
 
 public:
-	//レンダラーの取得
-	virtual Renderer2DPtr GetRenderer2D() = 0;
+	//指定コンテンツ読み込み
+	virtual void LoadTexture(const std::string registerName, const std::string fileName) = 0;
+	//指定コンテンツ破棄
+	virtual void UnLoadTexture(const std::string registerName) = 0;
 	//描画管理の取得
-	virtual DrawOrderManagerSPtr GetDrawOrderManagerPtr() = 0;
+	virtual DrawManagerSPtr GetDrawManager() = 0;
+	//レンダラーの取得
+	//virtual Renderer2DPtr GetRenderer2D() = 0;
 	//インプットステイトの取得
 	virtual InputStatePtr GetInputState() = 0;
 	//シーンのEnumの取得

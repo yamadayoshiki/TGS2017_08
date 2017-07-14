@@ -1,15 +1,14 @@
 #include "Enemy06.h"
 #include "../../../../../ActorContains/ActorName.h"
 #include "../../../../../ActorContains/Transform/Transform.h"
-#include "../../../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Define/Def_Nakayama.h"
-#include "../../../../../TextureContains/Texture/Texture.h"
 #include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../../Utility/Animation/Animation.h"
+#include "../../../../../Utility/Texture2DParameter/Texture2DParameter.h"
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
@@ -37,8 +36,8 @@ Enemy06::Enemy06(
 		10,
 		MapType::Double,
 		gameManager,
-		std::make_shared<Texture>("Enemy02", gameManager->GetRenderer2D()),
-		std::make_shared<Body::AARectangle>(CHIP_SIZE, CHIP_SIZE)) {
+		std::make_shared<AnimationTexture>("Enemy06", gameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8),
+		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
 }
 
 ActorPtr Enemy06::CsvGenerate(const int x, const int y, const int csvparam)
@@ -50,9 +49,7 @@ ActorPtr Enemy06::CsvGenerate(const int x, const int y, const int csvparam)
 
 //各種固有のコマンドの設定
 void Enemy06::SetUpCommand() {
-	p_Texture = std::make_shared<AnimationTexture>("Enemy06", p_GameManager->GetRenderer2D(), new Animation(*p_GameManager->GetRenderer2D()->GetTextureRect("Enemy06"), 32, 8));
-
-
+	p_Texture->GetParameter()->m_Center = { 16.0f, 16.0f };
 	//生成
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command追加
@@ -78,11 +75,4 @@ void Enemy06::SetUpState() {
 
 //描画
 void Enemy06::onDraw() const {
-	p_Texture->GetParameter()->SetPosition(p_Transform->m_Position);
-	p_Texture->GetParameter()->SetRotate(p_Transform->m_Angle);
-	p_Texture->GetParameter()->SetCenter({ 16.0f, 16.0f });
-	p_Texture->GetParameter()->SetScale({ 1.0f , 1.0f });
-	p_Texture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	//アニメーションの描画
-	p_Texture->Draw();
 }

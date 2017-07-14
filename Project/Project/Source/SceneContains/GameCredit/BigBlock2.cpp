@@ -2,7 +2,7 @@
 
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Utility/Rederer2D/Renderer2D.h"
-
+#include "../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include "../../Define/Def_Nagano.h"
 #include <gslib.h>
 
@@ -21,12 +21,12 @@ void BigBlock2::onStart()
 {
 	timer_ = 0.0f;
 	//パラメータの設定
-	m_Param.SetPosition(GSvector2(550, 100));
-	m_Param.SetRect(*p_GameManager->GetRenderer2D()->GetTextureRect("BigBlock2"));
-	m_Param.SetCenter({ 0.0f, 0.0f });
-	m_Param.SetColor(m_Color);
-	m_Param.SetScale({ 1.0f, 1.0f });
-	m_Param.SetRotate(0.0f);
+	p_Param->m_Position = GSvector2(550, 300);
+	p_Param->m_Rect = *p_GameManager->GetRenderer2D()->GetTextureRect("BigBlock2");
+	p_Param->m_Center = { 0.0f, 0.0f };
+	p_Param->m_Color = m_Color;
+	p_Param->m_Scale = { 1.0f, 1.0f };
+	p_Param->m_Rotate = 0.0f;
 }
 
 //更新
@@ -36,11 +36,11 @@ void BigBlock2::onUpdate(float deltaTime)
 		m_Alpha = m_Alpha * -1;
 	}
 	m_Color.a = m_Color.a + m_Alpha;
-	m_Param.SetColor(m_Color);
+	p_Param->m_Color = m_Color;
 
 	float posX = gsRandf(-2, 2);
 	float posY = gsRandf(-2, 2);
-	m_Param.SetPosition(GSvector2(550 + posX, 100 + posY));
+	p_Param->m_Position = GSvector2(550 + posX, 100 + posY);
 
 	if (timer_ >= 120.0f)
 	{
@@ -53,7 +53,7 @@ void BigBlock2::onUpdate(float deltaTime)
 void BigBlock2::onDraw() const
 {
 	//大きいブロックの描画
-	p_GameManager->GetRenderer2D()->DrawTexture("BigBlock2", m_Param);
+	p_GameManager->GetRenderer2D()->DrawTexture("BigBlock2", p_Param);
 }
 
 bool BigBlock2::isEnd()

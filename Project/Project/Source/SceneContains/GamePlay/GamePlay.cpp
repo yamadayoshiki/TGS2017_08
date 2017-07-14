@@ -108,7 +108,7 @@ void GamePlay::OnDraw() const {
 	//gsFontParameter(GS_FONT_BOLD, 20, "HG–¾’©B");
 }
 
-void GamePlay::End()
+void GamePlay::OnEnd()
 {
 	gsStopMusic();
 

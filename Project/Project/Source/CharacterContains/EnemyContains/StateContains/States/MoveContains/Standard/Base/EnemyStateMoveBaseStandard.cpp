@@ -30,9 +30,9 @@ void EnemyStateMoveBaseStandard::update(float deltaTime) {
 }
 
 // Õ“Ë”»’è
-void EnemyStateMoveBaseStandard::collide(const Actor & other) {
+void EnemyStateMoveBaseStandard::collide(const Actor & other, const Body::ContactSet& contactSet) {
 	// Œp³æ‚ÌÕ“Ë”»’è
-	onCollide(other);
+	onCollide(other,contactSet);
 }
 
 // I—¹‚Ìˆ—

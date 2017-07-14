@@ -1,6 +1,4 @@
 #include"Player.h"
-
-#include "../../../ActorContains/BodyContains/AARectangle/AARectangle.h"
 #include "../../../ActorContains/Transform/Transform.h"
 #include"../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include"../../../Utility/Rederer2D/Renderer2D.h"
@@ -12,7 +10,8 @@
 #include"../../../Utility/Animation/Animation.h"
 #include"../../../Utility/Sound/SoundName.h"
 #include"../../NeutralContains/Charge_Effect/Charge.h"
-
+#include "../../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include "../../../ActorContains/BodyContains/Elements/ContactSet/ContactSet.h"
 #include <algorithm>
 
 //コンストラクタ
@@ -22,19 +21,18 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 		ActorName::Player,
 		position,
 		gameManager,
-		std::make_shared<NullTexture>(),
-		std::make_shared<Body::AARectangle>(CHIP_SIZE * 2, CHIP_SIZE * 2))
+		std::make_shared<AnimationTexture>("Player_Close", gameManager->GetDrawManager(), DrawOrder::Player, 64, 1),
+		Body::MotionType::Player,
+		Body::BodyDataName::Player)
 	, p_Map(p_World->GetMap())
-	, m_Parameter(gameManager->GetPlayerParameter())
-{
-	p_Renderer = gameManager->GetRenderer2D();
+	, m_Parameter(gameManager->GetPlayerParameter()) {
+	p_Texture->GetParameter()->m_Center = { 32.0f, 32.0f };
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 //デストラクタ
 Player::~Player() {
 	delete mStateManager;
-	delete p_AnimationTexture;
-	//delete m_Animation;
 	p_Map.reset();
 }
 
@@ -53,14 +51,11 @@ void Player::initialize()
 	//名前の設定
 	m_Name = "Player_Close";
 
-	//アニメーションのパラメータの設定
-	m_Animation = new Animation(*p_Renderer->GetTextureRect(m_Name), 64, 1);
-	p_AnimationTexture = new AnimationTexture(m_Name, p_Renderer, m_Animation);
-	p_AnimationTexture->Initialize();
-
 	//ステートマネージャ生成、初期化
 	mStateManager = new PlayerStateManager(shared_from_this(), p_GameManager);
 	mStateManager->change(PlayerStateName::Idle);
+
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 
 	//アーム生成
 	auto arm = std::make_shared<Arm>(p_World, getPosition(), p_GameManager);
@@ -71,9 +66,6 @@ void Player::initialize()
 //更新処理
 void Player::onUpdate(float deltaTime)
 {
-	//アニメーションの更新
-	p_AnimationTexture->Update(deltaTime);
-
 	//状態管理の更新処理
 	mStateManager->action(deltaTime);
 
@@ -91,45 +83,33 @@ void Player::onUpdate(float deltaTime)
 	//std::cout << "アーム" << getPosition() << std::endl;
 }
 //描画処理
-void Player::onDraw()const
-{
-	//p_Body->transform(getTransform())->draw();
-
-	p_AnimationTexture->GetParameter()->SetPosition(getPosition());
-	p_AnimationTexture->GetParameter()->SetRotate(p_Transform->m_Angle);
-	p_AnimationTexture->GetParameter()->SetCenter({ 32.0f, 32.0f });
-	p_AnimationTexture->GetParameter()->SetScale({ 1.0f , 1.0f });
-	p_AnimationTexture->GetParameter()->SetColor({ 1.0f, 1.0f, 1.0f, 1.0f });
-	//アニメーションの描画
-	p_AnimationTexture->Draw();
+void Player::onDraw()const {
 }
+
 //衝突判定
-void Player::onCollide(Actor& other)
-{
+void Player::onCollide(Actor& other, const Body::ContactSet& contactSet){
+	if (other.getName() == ActorName::BreakWall)
+		p_Transform->m_Position += contactSet.m_SumVec;
+	
 	//状態ごとの衝突判定
-	mStateManager->collide(*this, other);
+	mStateManager->collide(*this, other, contactSet);
 }
 
 //プレイヤーパラメーターの取得
-Player_Parameter& Player::getParameter()
-{
+Player_Parameter& Player::getParameter(){
 	return m_Parameter;
 }
 
 //テクスチャの名前の設定
-void Player::setName_Animation(const std::string& name)
-{
-	delete m_Animation;
+void Player::setName_Animation(const std::string& name){
 	m_Name = name;
-	m_Animation = new Animation(*p_Renderer->GetTextureRect(name), 64, 1);
-	p_AnimationTexture->setName_Animation(name, m_Animation);
-	p_AnimationTexture->Initialize();
+	p_Texture = std::make_shared<AnimationTexture>(m_Name, p_GameManager->GetDrawManager(), DrawOrder::Player, 64, 1);
+	p_Texture->Initialize();
 }
 
 //アニメーションのループ回数を取得
-unsigned int Player::GetLoopCount()
-{
-	return p_AnimationTexture->GetLoopCount();
+unsigned int Player::GetLoopCount() {
+	return p_Texture->GetLoopCount();
 }
 
 //csvで生成(使用時継承先でoverride)
