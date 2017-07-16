@@ -16,10 +16,16 @@
 #include"../../../Utility/Number/NumberTexture.h"
 #include"../../GameResult/ResultTransition/ResultTransition.h"
 #include "../../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include"../../../TextureContains/Texture/Texture.h"
 
 CreditEnd::CreditEnd(IWorld* world, const IGameManagerPtr & gameManager)
-	:p_World(world), p_GameManager(gameManager), p_Transition(std::make_shared<ResultTransition>(gameManager))
+	:p_World(world), p_GameManager(gameManager), p_Transition(std::make_shared<ResultTransition>(gameManager)),
+	p_Texture(std::make_unique<Texture>("BigBlock2",p_GameManager->GetDrawManager(),DrawOrder::UI_Front2))
 {
+	p_Texture->GetParameter()->m_Position = GSvector2(550, 100);
+	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
+	p_Texture->GetParameter()->m_Color = m_Color;
+
 }
 
 // 開始     
@@ -35,20 +41,13 @@ void CreditEnd::Start()
 	is_End = false;
 	m_Score = 0;
 
-	//パラメータの設定
-	p_Param->m_Position = GSvector2(550, 100);
-	p_Param->m_Rect = *p_GameManager->GetRenderer2D()->GetTextureRect("BigBlock2");
-	p_Param->m_Color = m_Color;
-	p_Param->m_Scale = { 1.0f,1.0f };
-	p_Param->m_Center = { 0.0f,0.0f };
-	p_Param->m_Rotate = 0.0f;
 }
 // 更新     
 void CreditEnd::Update(float deltaTime)
 {
 	float t = timer_ / maxTimer_;
 	GScolor color = m_Color.lerp(GScolor(1.0f, 1.0f, 1.0f, 0.0f), t);
-	p_Param->m_Color = color;
+	p_Texture->GetParameter()->m_Color = color;
 
 	p_Transition->update(deltaTime);
 
@@ -64,16 +63,16 @@ void CreditEnd::Draw()const
 {
 	static const NumberTexture number(1000, 40, 60);
 
-	p_GameManager->GetRenderer2D()->DrawTexture("Platform2", GSvector2(590, 150));
+	//p_GameManager->GetRenderer2D()->DrawTexture("Platform2", GSvector2(590, 150));
 
-	p_GameManager->GetRenderer2D()->DrawTexture("MaxCombo", GSvector2(610, 450));
-	number.draw(GSvector2(1000, 460), p_GameManager->GetPlayerParameter().getMaxCombo(), 3);
-	p_GameManager->GetRenderer2D()->DrawTexture("Retry", GSvector2(610, 550));
-	number.draw(GSvector2(1000, 560), p_GameManager->GetPlayerParameter().getRetryCount(), 3);
-	p_GameManager->GetRenderer2D()->DrawTexture("TotalScore", GSvector2(610, 650));
-	number.draw(GSvector2(940, 660), p_GameManager->GetScore()->GetTotalScore(), 5);
-	//大きいブロックの描画
-	p_GameManager->GetRenderer2D()->DrawTexture("BigBlock2", p_Param);
+	//p_GameManager->GetRenderer2D()->DrawTexture("MaxCombo", GSvector2(610, 450));
+	//number.draw(GSvector2(1000, 460), p_GameManager->GetPlayerParameter().getMaxCombo(), 3);
+	//p_GameManager->GetRenderer2D()->DrawTexture("Retry", GSvector2(610, 550));
+	//number.draw(GSvector2(1000, 560), p_GameManager->GetPlayerParameter().getRetryCount(), 3);
+	//p_GameManager->GetRenderer2D()->DrawTexture("TotalScore", GSvector2(610, 650));
+	//number.draw(GSvector2(940, 660), p_GameManager->GetScore()->GetTotalScore(), 5);
+	////大きいブロックの描画
+	//p_GameManager->GetRenderer2D()->DrawTexture("BigBlock2", p_Param);
 
 	p_Transition->draw();
 }

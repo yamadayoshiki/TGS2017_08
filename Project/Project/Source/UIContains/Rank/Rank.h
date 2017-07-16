@@ -2,6 +2,7 @@
 #define RANK_H_
 
 #include"../Base/UI_Base.h"
+#include"../../TextureContains/Texture/Texture.h"
 #include<vector>
 
 class Rank :public UI_Base
@@ -37,7 +38,6 @@ private:
 	int num{ 3 };
 	int m_Count{ 0 };
 	std::string m_TextureName;
-	std::string m_ResultTextureName;
 	GSvector2 m_ScorePosition{ 880, 500 };
 	GScolor Start_Color{ 0.0f,0.0f,0.0f,0.0f };
 	GScolor End_Color{1.0f,1.0f,1.0f,1.0f};

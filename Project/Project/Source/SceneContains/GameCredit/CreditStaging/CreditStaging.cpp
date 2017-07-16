@@ -30,7 +30,7 @@ void CreditStaging::Update(float deltaTime)
 {
 	if ((int)timer_ % 4 == 0) {
 		float x = gsRandf(550, 1150);
-		float y = gsRandf(300, 800);
+		float y = gsRandf(100, 800);
 		GSvector2 pos = GSvector2(x, y);
 		p_World->addActor(ActorGroup::Effect, std::make_shared<Smork_Effect>(p_World.get(), pos, p_GameManager));
 		timer_ = 0.0f;

@@ -13,18 +13,10 @@ Sprite::Sprite(
 		position,
 		gameManager,
 		texture) {
-	// 画像の初期化
-	texture->Initialize();
-	// 画像の座標の指定
-	texture->GetParameter()->m_Position = position;
-	// 画像の中心の指定
-	texture->GetParameter()->m_Center = { texture->GetParameter()->m_Rect.right / 2,texture->GetParameter()->m_Rect.bottom / 2 };
 }
 
 // 更新処理
 void Sprite::onUpdate(float deltaTime) {
-	// 画像の更新
-	p_Texture->Update(deltaTime);
 }
 
 // 描画処理
