@@ -14,6 +14,7 @@ enum class ActorName
 	UI_Rank,
 	UI_Score,
 	UI_Combo,
+	UI_Number,
 
 	/* エフェクトグループ */
 	Explosion = 80,

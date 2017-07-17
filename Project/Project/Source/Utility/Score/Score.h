@@ -13,7 +13,7 @@ public:
 	void initialze();
 	//スコアの加算
 	void AddScore(const int score);
-	//スコアの数値を渡す
+	//スコアの数値を取得
 	int ReleaseScore();
 	//トータルスコアの取得
 	int GetTotalScore();
@@ -21,13 +21,11 @@ public:
 	void ScoreRest();
 	//座標の設定
 	void setPosition(const GSvector2& position);
-	//描画
-	void draw(Renderer2DPtr& renderer)const;
 
 private:
 	int m_Score;
 	int m_Total_Score;
 	//座標
-	GSvector2 m_Position{0.0f,0.0f};
+	GSvector2 m_Position{ 0.0f,0.0f };
 };
 #endif // !SCORE_H_

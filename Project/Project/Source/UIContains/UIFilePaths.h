@@ -9,4 +9,5 @@ struct UIFilePaths {
 	std::string text;
 	std::string rank;
 	std::string combo;
+	std::string number;
 };

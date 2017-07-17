@@ -3,7 +3,7 @@
 //表示モード
 enum class DisplayMode
 {
-	Display,		//表示
-	NonDisplay,		//非表示
+	Display = true,			//表示
+	NonDisplay = false,		//非表示
 };
 #endif // !DISPLAYMODE_H_

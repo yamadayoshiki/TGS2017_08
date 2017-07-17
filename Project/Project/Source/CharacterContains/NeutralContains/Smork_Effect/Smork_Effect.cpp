@@ -10,7 +10,7 @@ Smork_Effect::Smork_Effect(
 	const GSvector2 & position,
 	IGameManagerPtr gameManager)
 	:Actor(world, ActorName::Explosion, position, gameManager,
-		std::make_shared<AnimationTexture>("BlockBreak", p_GameManager->GetDrawManager(), DrawOrder::UI_Front1, 252, 3)) {
+		std::make_shared<AnimationTexture>("BlockBreak", gameManager->GetDrawManager(), DrawOrder::UI_Front1, 252, 3)) {
 }
 
 //デストラクタ
@@ -18,7 +18,7 @@ Smork_Effect::~Smork_Effect() {
 }
 
 //初期化
-void Smork_Effect::initialize() {
+void Smork_Effect::onInitialize() {
 	gsPlaySE(SE_BLOCK_BREAK);
 	p_Transform->m_Angle -= 90;
 	p_Texture->GetParameter()->m_Center = { 126.0f, 126.0f };

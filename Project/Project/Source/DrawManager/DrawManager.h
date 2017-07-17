@@ -7,6 +7,7 @@
 #include "DrawOrderObject.h"
 #include "DisplayMode.h"
 
+struct GSrect;
 //描画管理
 class DrawManager
 {
@@ -29,6 +30,11 @@ public:
 	DrawOrderObject GetDrawObject(const DrawOrderID id);
 	//描画
 	void Draw();
+	//描画テクスチャ矩形の取得
+	GSrect GetRect(const std::string& texName);
+	//描画順序変更
+	void ChangeOrder(const DrawOrderID id, const DrawOrder drawOrder);
+
 private:
 	std::map<DrawOrderID,DrawOrderObject> 
 		m_DrawOrderMap;				//描画オブジェクト

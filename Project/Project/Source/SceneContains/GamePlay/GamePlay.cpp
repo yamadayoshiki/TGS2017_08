@@ -21,7 +21,9 @@
 #include"../../Utility/Sound/SoundName.h"
 #include "../../StagingContains/TransitionStaging/Transition/Transition.h"
 #include"../../UIContains/UIManager/UIManager.h"
-
+#include "../../UIContains/Number/Number.h"
+#include "../../UIContains/Sprite/Sprite.h"
+#include "../../UIContains/Button/Button.h"
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
@@ -35,13 +37,57 @@ void GamePlay::OnStart() {
 	MapSetDeta();
 
 	// UIの生成
-	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
+	ActorPtr p_UIMgr = std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName);
+	p_World->addActor(ActorGroup::UI, p_UIMgr);
 
-	//std::unordered_map<FourDirection, TileData> tmp = p_World->GetMap()->GetAroundTile(GSvector2(70, 90));
+	//スコアUIの取得
+	p_ScoreUI = std::dynamic_pointer_cast<Number>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Number)
+		{
+			if (dynamic_cast<Number*>(const_cast<Actor*>(&actor))->GetUsage() == "Score")
+				return true;
+		}
+		return false;
+	}));
+	//プレイヤー残機UIの取得
+	p_PlayerRemainingUI = std::dynamic_pointer_cast<Number>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Number)
+		{
+			if (dynamic_cast<Number*>(const_cast<Actor*>(&actor))->GetUsage() == "PlayerRemaining")
+				return true;
+		}
+		return false;
+	}));
+	//ポーズ画面ボタンUI
+	p_ButtonUI = std::dynamic_pointer_cast<Button>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Button)
+			return true;
+		else
+			return false;
+	}));
+	//ポーズ画面背景
+	p_PauseBack = std::dynamic_pointer_cast<Sprite>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Sprite)
+		{
+			if (dynamic_cast<Sprite*>(const_cast<Actor*>(&actor))->GetUsage() == "PauseBackGround")
+				return true;
+		}
+		return false;
+	}));
+
 
 	p_GameManager->GetScore()->ScoreRest();
-
 	PauseFlag = false;
+	p_ButtonUI.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	p_PauseBack.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 
 	gsBindMusic(BGM_GAME_PLAY);
 	gsPlayMusic();
@@ -49,15 +95,16 @@ void GamePlay::OnStart() {
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime) {
-
-	//ポーズ
+	//ポーズ切り替え
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE)
 	{
 		gsPlaySE(SE_PAUSE_OPEN);
 		PauseFlag = !PauseFlag;
 	}
+
 	//ポーズの更新
-	PauseUpdate();
+	if (PauseFlag == true)
+		PauseUpdate();
 
 	// 討伐可能な敵が０以下の場合クリア
 	if (p_World->GetSurviverSum(MapOrder) <= 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
@@ -65,64 +112,31 @@ void GamePlay::OnUpdate(float deltaTime) {
 		p_World->EndRequest(SceneName::GameResult);
 	}
 
-}
-
-void GamePlay::OnDraw() const {
-	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
-
-	/*
-	std::chrono::system_clock::time_point  start, end; // 型は auto で可
-	start = std::chrono::system_clock::now(); // 計測開始時間
-	//*/
-	p_World->GetMap()->draw();
-	/*
-	end = std::chrono::system_clock::now();  // 計測終了時間
-	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
-	std::cout << "GamePlay" << ":Draw:" << elapsed << std::endl;
-	//*/
 	//ポーズ画面
 	if (PauseFlag == true)
 	{
-		p_GameManager->GetRenderer2D()->DrawTexture("Pause", GSvector2(0, 0));
-		p_GameManager->GetRenderer2D()->DrawTexture("PauseRG", GSvector2(SCREEN_SIZE.x / 2 - 128, SCREEN_SIZE.y / 2 - 128));
-		p_GameManager->GetRenderer2D()->DrawTexture("PauseRT", GSvector2(SCREEN_SIZE.x / 2 - 128, SCREEN_SIZE.y / 2 + 128));
-		//カーソル描画
-		if (m_CarsorMovement == CarsorMovement::Up)
-		{
-			p_GameManager->GetRenderer2D()->DrawTexture("Cursor", GSvector2(SCREEN_SIZE.x / 2 - 178, SCREEN_SIZE.y / 2 - 100));
-		}
-		else
-		{
-			p_GameManager->GetRenderer2D()->DrawTexture("Cursor", GSvector2(SCREEN_SIZE.x / 2 - 178, SCREEN_SIZE.y / 2 + 100));
-		}
+
 	}
 
-	// UI描画
-	p_GameManager->GetPlayerParameter().DrawRemaining(p_GameManager->GetRenderer2D());
-	//p_GameManager->GetPlayerParameter().DrawCombo(p_GameManager->GetRenderer2D());
-	p_GameManager->GetScore()->draw(p_GameManager->GetRenderer2D());
-	//gsFontParameter(GS_FONT_BOLD, 50, "HG明朝B");
-	p_GameManager->GetScore()->setPosition(GSvector2(800, 10));
-	//gsTextPos(900, 50);
-	//gsDrawText("あと %d 体", p_World->GetSurviverSum(MapOrder));
-	//gsFontParameter(GS_FONT_BOLD, 20, "HG明朝B");
+	//UI数字設定
+	p_ScoreUI.lock()->SetNum(p_GameManager->GetScore()->ReleaseScore());
+	p_PlayerRemainingUI.lock()->SetNum(p_GameManager->GetPlayerParameter().GetRemaining());
 }
 
-void GamePlay::OnEnd()
-{
+void GamePlay::OnDraw() const {
+}
+
+void GamePlay::OnEnd() {
 	gsStopMusic();
 
-	if (MapOrder >= 1) {
+	if (MapOrder >= 1)
 		p_GameManager->set_MapOrder(MapOrder);
-	}
+
 	else
-	{
 		MapOrder = 0;
-	}
 }
 //Mapデータの設定
-void GamePlay::MapSetDeta()
-{
+void GamePlay::MapSetDeta() {
 	//マップデータによる生成
 	p_World->SetMapGenerator(p_World, p_GameManager);
 	p_World->SetCharacterFactory(new CharacterFactory(p_World, p_GameManager));
@@ -132,8 +146,6 @@ void GamePlay::MapSetDeta()
 //ポーズの更新
 void GamePlay::PauseUpdate()
 {
-	if (PauseFlag == false)return;
-
 	//カーソル移動
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_DOWN) ||
 		p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_UP)) {

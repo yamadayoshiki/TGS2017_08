@@ -7,13 +7,14 @@ public:
 	Selector(
 		IWorld* world, 
 		const GSvector2& position, 
-		const IGameManagerPtr& gameManager);
+		const IGameManagerPtr& gameManager,
+		const DrawOrder drawOrder);
 
 private:
 	virtual void onUpdate(float deltaTime)override;
 	virtual void onDraw()const override;
 	virtual void onMessage(EventMessage message, void* param)override;
 
-private:
-	Texture2DParameterSPtr p_Param;
+public:
+	void ChangeDisplayMode(const DisplayMode mode) override;
 };

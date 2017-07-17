@@ -5,14 +5,18 @@
 Sprite::Sprite(
 	IWorld * world,
 	const IGameManagerPtr & gameManager,
+	const DrawOrder drawOrder,
 	const GSvector2& position,
-	const ITexturePtr & texture)
+	const ITexturePtr & texture,
+	const std::string& usage)				//—p“r
 	: UI_Base(
 		world,
 		ActorName::UI_Sprite,
 		position,
 		gameManager,
-		texture) {
+		drawOrder,
+		texture)
+	, m_Usage(usage) {
 }
 
 // XVˆ—
@@ -21,5 +25,13 @@ void Sprite::onUpdate(float deltaTime) {
 
 // •`‰æˆ—
 void Sprite::onDraw() const {
+}
+
+void Sprite::ChangeDisplayMode(const DisplayMode mode) {
+	p_Texture->ChangeDisplayMode(mode);
+}
+
+std::string Sprite::GetUsage() const {
+	return m_Usage;
 }
 

@@ -5,6 +5,7 @@
 #include"../Rank/Rank.h"
 #include"../Combo/Combo.h"
 #include "../Sprite/SpriteCreator.h"
+#include "../Number/NumberCreator.h"
 #include "../../ActorContains/Transform/Transform.h"
 
 UICreator::UICreator(IWorld * world, const IGameManagerPtr & gameManager, const UIFilePaths & path) :
@@ -17,7 +18,8 @@ UICreator::UICreator(IWorld * world, const IGameManagerPtr & gameManager, const 
 	addChild(std::make_shared<Combo>(world, p_Transform->m_Position, gameManager, "Resource/StreamingAssets/UI/" + path.combo));
 	//Rank UI‚Ìİ’è
 	addChild(std::make_shared<Rank>(world, p_Transform->m_Position, gameManager, "Resource/StreamingAssets/UI/" + path.rank));
-
+	//ƒiƒ“ƒo[
+	addChild(std::make_shared<NumberCreator>(world, p_Transform->m_Position, gameManager, "Resource/StreamingAssets/UI/" + path.number));
 	// •Û—¯
 	//addChild(std::make_shared<Button>(world, ActorName::Player, m_Transform.m_Position, gameManager, "Resource/StreamingAssets/UI/" + path.button));
 

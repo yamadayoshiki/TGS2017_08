@@ -10,7 +10,6 @@ class ResultStart :public IScene
 public:
 	//コンストラクタ
 	ResultStart(IWorld* world, const IGameManagerPtr& gameManager);
-
 protected:
 	// 開始     
 	virtual void Start();
@@ -28,6 +27,8 @@ protected:
 	virtual void SetName(const SceneName& name)override;
 	// 名前の取得
 	virtual SceneName GetName() override;
+	// 子の設定
+	void SetUpChild(ChildScene& child)override {}
 
 private:
 	//ワールド

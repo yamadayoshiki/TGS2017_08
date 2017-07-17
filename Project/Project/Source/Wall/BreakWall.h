@@ -11,7 +11,7 @@ public:
 		const GSvector2&  position,
 		const IGameManagerPtr& gameManager);
 	//初期化
-	virtual void initialize() override;
+	virtual void onInitialize() override;
 	//各種固有のコマンドの設定
 	virtual void SetUpCommand() override;
 	//各種固有のStateの設定

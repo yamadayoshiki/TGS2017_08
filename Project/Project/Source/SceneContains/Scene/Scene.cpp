@@ -6,18 +6,22 @@
 #include "../../ActorContains/ActorGroup.h"
 #include "../../UIContains/UIManager/UIManager.h"
 #include"../../Utility/Sound/SoundName.h"
+#include "ChildScene.h"
 
 #include <chrono>
 #include <gslib.h>
 #include <memory>
+
+Scene::Scene()
+	: Scene(nullptr) {
+}
 
 //コンストラクタ
 Scene::Scene(const IGameManagerPtr& gameManager)
 	: m_IsEnd(false)
 	, p_GameManager(gameManager)
 	, m_Transition(std::make_shared<SceneTransition>(gameManager))
-	,MapOrder(0)
-{
+	, MapOrder(0) {
 	isGameClear = false;
 }
 
@@ -29,7 +33,7 @@ Scene::~Scene() {
 // 開始     
 void Scene::Start()
 {
-	
+
 	m_IsEnd = false;
 	// 遷移演出の開始
 	m_Transition->start();
@@ -52,12 +56,12 @@ void Scene::Update(float deltaTime)
 	if (p_World->IsEnd()) {
 		m_IsEnd = true;
 	}
-	
+
 	/*
 	std::chrono::system_clock::time_point  start, end; // 型は auto で可
 	start = std::chrono::system_clock::now(); // 計測開始時間
 											  //*/
-	//フラグがたったら画面が止まる
+											  //フラグがたったら画面が止まる
 	if (PauseFlag == false) {
 		p_World->update(deltaTime);
 	}
@@ -88,26 +92,33 @@ void Scene::Draw() const
 	m_Transition->draw();
 }
 
-void Scene::End(){
+void Scene::End() {
 	OnEnd();
 
 	p_World = nullptr;
 }
 
-// 終了しているか？     
 bool Scene::IsEnd() const
 {
 	return m_Transition->isEnd();
 }
 
-SceneName Scene::Next() const{
+SceneName Scene::Next() const {
 	return p_World->NextScene();
 }
 
-void Scene::SetName(const SceneName & name){
+void Scene::SetName(const SceneName & name) {
 	m_SceneName = name;
 }
 
-SceneName Scene::GetName(){
+SceneName Scene::GetName() {
 	return m_SceneName;
+}
+
+void Scene::SetUpChild(ChildScene & child) {
+	child.SetParent(shared_from_this());
+	child.m_IsEnd = m_IsEnd;
+	child.p_GameManager = p_GameManager;
+	child.p_World = p_World;
+	child.MapOrder = MapOrder;
 }

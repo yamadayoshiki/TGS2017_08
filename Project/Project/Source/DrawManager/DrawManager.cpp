@@ -47,6 +47,10 @@ DrawOrderID DrawManager::Register(
 	result.id = ((int)order) * 1000 + m_Oreder;
 	m_Oreder++;
 	m_DrawOrderMap[result.id] = result;
+	if (result.id == 6048) 
+	{
+		int i = 0;
+	}
 	return result.id;
 }
 
@@ -93,4 +97,13 @@ DrawOrderObject DrawManager::GetDrawObject(const DrawOrderID id) {
 void DrawManager::Draw() {
 	for (auto itr = m_DrawOrderMap.begin(); itr != m_DrawOrderMap.end(); itr++)
 		p_Renderer->DrawTexture(itr->second.texName, itr->second.param.lock());
+}
+
+GSrect DrawManager::GetRect(const std::string & texName){
+	return *p_Renderer->GetTextureRect(texName);
+}
+
+void DrawManager::ChangeOrder(const DrawOrderID id, const DrawOrder drawOrder){
+	DrawOrderObject obj = GetDrawObject(id);
+	Register(obj.texName, obj.param.lock(), drawOrder);
 }

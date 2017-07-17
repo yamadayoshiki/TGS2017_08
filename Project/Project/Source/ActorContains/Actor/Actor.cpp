@@ -46,6 +46,7 @@ Actor::Actor(const ActorName& name)
 //‰Šú‰»
 void Actor::initialize() {
 	p_Texture->Initialize();
+	onInitialize();
 }
 
 //XV
@@ -248,5 +249,8 @@ ActorPtr Actor::CsvGenerate(const int x, const int y, const int csvparam) {
 
 // Õ“Ë”»’è
 Body::ContactSet Actor::isCollide(const Actor & other) {
+	//Ž©g‚Æ‚Ì”»’è‚Ìê‡return
+	if (this == &other) return Body::ContactSet();
+	//Õ“Ë”»’è
 	return p_Body->IsCollide(other.getBody().get());
 }

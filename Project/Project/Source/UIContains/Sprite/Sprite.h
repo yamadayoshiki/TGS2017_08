@@ -6,11 +6,27 @@
 class Sprite : public UI_Base {
 public:
 	// コンストラクタ
-	Sprite(IWorld* world, const IGameManagerPtr& gameManager, const GSvector2& position, const ITexturePtr& texture = std::make_shared<NullTexture>());
+	Sprite(
+		IWorld* world, 
+		const IGameManagerPtr& gameManager,
+		const DrawOrder drawOrder, 
+		const GSvector2& position, 
+		const ITexturePtr& texture,
+		const std::string& usage);				//用途
 
 private:
 	// 更新処理
 	virtual void onUpdate(float deltaTime)override;
 	// 描画処理
 	virtual void onDraw()const override;
+
+public:
+	void ChangeDisplayMode(const DisplayMode mode) override;
+
+public:
+	//用途の取得
+	std::string GetUsage() const;
+
+private:
+	std::string m_Usage;								//用途
 };

@@ -14,7 +14,7 @@ Crush_Effect::~Crush_Effect() {
 }
 
 //‰Šú‰»
-void Crush_Effect::initialize(){
+void Crush_Effect::onInitialize(){
 	p_Texture->GetParameter()->m_Center = { 16.0f,16.0f };
 }
 

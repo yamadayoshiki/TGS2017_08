@@ -5,7 +5,7 @@
 #include<vector>
 #include"../../TextureContains/ITexturePtr.h"
 #include"../../Utility/Texture2DParameter/Texture2DParameter.h"
-
+class NumberTexture;
 class Combo :public UI_Base
 {
 public:
@@ -16,7 +16,8 @@ private:
 	virtual void onUpdate(float deltaTime)override;
 	virtual void onDraw()const override;
 	void setTexture();
-
+public:
+	void ChangeDisplayMode(const DisplayMode mode)override;
 private:
 	using TextureList = std::vector<ITexturePtr>;
 	TextureList	 m_TextureList;
@@ -24,5 +25,6 @@ private:
 	float m_NowTime;
 	float m_MaxTime{ 180.0f };
 
+	std::shared_ptr<NumberTexture> p_NumberTexture;
 };
 #endif // !COMBO_H_

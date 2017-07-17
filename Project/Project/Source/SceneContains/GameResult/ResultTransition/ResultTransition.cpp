@@ -9,7 +9,7 @@
 
 //コンストラクタ
 ResultTransition::ResultTransition(const IGameManagerPtr & gameManager)
-	:Transition(gameManager),p_Texture(std::make_unique<Texture>("Player_Image",p_GameManager->GetDrawManager(),DrawOrder::UI))
+	:Transition(gameManager), p_Texture(std::make_unique<Texture>("Player_Image", p_GameManager->GetDrawManager(), DrawOrder::UI))
 {
 	//パラメータの設定
 	p_Texture->GetParameter()->m_Position = m_Position;
@@ -18,13 +18,12 @@ ResultTransition::ResultTransition(const IGameManagerPtr & gameManager)
 }
 
 // デストラクタ
-ResultTransition::~ResultTransition()
-{
+ResultTransition::~ResultTransition() {
+	p_Texture.reset();
 }
 
 // 開始     
-void ResultTransition::onStart()
-{
+void ResultTransition::onStart() {
 	m_Timer = 0.0f;
 }
 
@@ -48,7 +47,6 @@ void ResultTransition::onUpdate(float deltaTime)
 //描画
 void ResultTransition::onDraw() const
 {
-
 }
 
 bool ResultTransition::isEnd()

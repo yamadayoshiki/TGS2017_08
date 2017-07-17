@@ -1,0 +1,3 @@
+テクスチャの名前,右上座標.x,右上座標.y,表示桁数(0の場合、制限なし),用途,描画順序
+NumberTexture_1,1100,10,5,Score,6
+NumberTexture_1,160,10,0,PlayerRemaining,6

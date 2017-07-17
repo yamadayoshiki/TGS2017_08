@@ -21,7 +21,7 @@ Neutral_Explosion::~Neutral_Explosion() {
 }
 
 //‰Šú‰»
-void Neutral_Explosion::initialize() {
+void Neutral_Explosion::onInitialize() {
 	p_Texture->GetParameter()->m_Center = { 32.0f,32.0f };
 }
 

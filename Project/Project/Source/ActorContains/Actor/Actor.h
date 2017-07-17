@@ -45,7 +45,7 @@ public:
 	//セットアップ
 	virtual void SetUp() {}
 	//初期化
-	virtual void initialize();
+	void initialize();
 	//更新
 	void update(float deltaTime);
 	//衝突判定後の更新
@@ -110,6 +110,7 @@ public:
 	//csvで生成(使用時継承先でoverride)
 	virtual ActorPtr CsvGenerate(const int x, const int y, const int csvparam);
 
+private:
 	// コピー禁止
 	Actor(const Actor& other) = delete;
 	Actor& operator = (const Actor& other) = delete;
@@ -117,6 +118,8 @@ public:
 protected:
 	//メッセージ処理
 	virtual void onMessage(EventMessage message, void* param) {}
+	//初期化
+	virtual void onInitialize() {}
 	//更新
 	virtual void onUpdate(float deltaTime) {}
 	//衝突判定後の更新

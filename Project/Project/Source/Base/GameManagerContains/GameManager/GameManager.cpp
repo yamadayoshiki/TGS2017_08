@@ -32,6 +32,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Enemy02", "Resource/Texture/Enemys/Enemy02.png");
 	p_Renderer2D->LoadTexture("Enemy03", "Resource/Texture/Enemys/Enemy03.png");
 	p_Renderer2D->LoadTexture("Enemy04", "Resource/Texture/Enemys/Enemy04.png");
+	p_Renderer2D->LoadTexture("Enemy05", "Resource/Texture/Enemys/Enemy05.png");
 	p_Renderer2D->LoadTexture("Enemy06", "Resource/Texture/Enemys/Enemy06.png");
 	p_Renderer2D->LoadTexture("Enemy07Attack", "Resource/Texture/Enemys/Enemy07Attack.png");
 	p_Renderer2D->LoadTexture("Enemy07Normal", "Resource/Texture/Enemys/Enemy07Normal.png");
@@ -79,15 +80,15 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Platform2", "Resource/Texture/UI/Clear/base2.png");
 	p_Renderer2D->LoadTexture("Retry", "Resource/Texture/UI/Clear/ritolai.png");
 	p_Renderer2D->LoadTexture("TotalScore", "Resource/Texture/UI/Clear/totalscore.png");
-	gsLoadTexture((GSuint)1000, "Resource/Texture/UI/Play/suuji");
-	gsLoadTexture((GSuint)1001, "Resource/Texture/UI/Clear/math.png");
+	p_Renderer2D->LoadTexture("NumberTexture_1", "Resource/Texture/UI/Play/suuji");
+	p_Renderer2D->LoadTexture("NumberTexture_2", "Resource/Texture/UI/Clear/math.png");
 
 	//Over
 	p_Renderer2D->LoadTexture("Over", "Resource/Texture/UI/Over/Over.png");
 	p_Renderer2D->LoadTexture("Restart", "Resource/Texture/UI/Over/Restart.png");
 
 	//Pause
-	p_Renderer2D->LoadTexture("Pause", "Resource/Texture/UI/Pause/Poze.png");
+	p_Renderer2D->LoadTexture("Pause", "Resource/Texture/UI/Pause/Pause.png");
 	p_Renderer2D->LoadTexture("PauseRG", "Resource/Texture/UI/Pause/ReturnGame.png");
 	p_Renderer2D->LoadTexture("PauseRT", "Resource/Texture/UI/Pause/ReturnTitle.png");
 
