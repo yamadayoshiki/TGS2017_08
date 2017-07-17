@@ -7,7 +7,9 @@ namespace Body {
 		AABB_32,	//一辺32の正方形
 
 		PlayerAttackRange,	//プレイヤー攻撃範囲
-		Player,				//プレイヤー
+		Player_Open,				//プレイヤーがアームを開いている
+		Player_Close,				//プレイヤーがアームを閉じている
+		Player_Clip,				//プレイヤーが敵を挟んでいる
 	};
 }
 #endif // !BODYDATANAME_H_

@@ -1,5 +1,6 @@
 #include"PlayerState_Open.h"
 #include"../../PlayerStateName.h"
+#include"../../../../../ActorContains/BodyContains/Factory/BodyFactory.h"
 
 //コンストラクタ
 PlayerState_Open::PlayerState_Open(const Player_WPtr& player, IGameManagerPtr gameManager)
@@ -13,6 +14,7 @@ void PlayerState_Open::unique_init()
 {
 	TextureName_Change("Player_Open");
 	gsPlaySE(SE_PLAYER_ARM);
+	p_Player.lock()->getWorld()->GetBodyFactory()->Transform(p_Player.lock()->getBody(), Body::BodyDataName::Player_Open);
 }
 
 //更新処理

@@ -8,6 +8,7 @@ struct GSvector2;
 namespace Body
 {
 	struct ContactSet;
+	struct BodyCollidable;
 	class IBody
 	{
 	public:
@@ -23,6 +24,10 @@ namespace Body
 		virtual void SetAABB(const GSvector2& AABBHalf) = 0;
 		//クローン生成
 		virtual IBodyPtr Clone(const MotionType type) = 0;
+		//変形
+		virtual void Transform(const BodyCollidable& bodyCollidable) = 0;
+		//形状管理の取得
+		virtual BodyCollidable GetBodyCollidable() = 0;
 	};
 }
 #endif

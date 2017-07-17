@@ -3,6 +3,7 @@
 #include"../../../../../ActorContains/ActorGroup.h"
 #include"../../../../NeutralContains/Repel_Effect/Repel_Effect.h"
 #include "../../../../../ActorContains/BodyContains/Elements/ContactSet/ContactSet.h"
+#include"../../../../../ActorContains/BodyContains/Factory/BodyFactory.h"
 //コンストラクタ
 PlayerState_Round::PlayerState_Round(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
@@ -14,6 +15,7 @@ void PlayerState_Round::unique_init()
 {
 	TextureName_Change("Player_Clip");
 	gsPlaySE(SE_PLAYER_CLIP);
+	p_Player.lock()->getWorld()->GetBodyFactory()->Transform(p_Player.lock()->getBody(), Body::BodyDataName::Player_Clip);
 }
 //更新処理
 void PlayerState_Round::update(float deltaTime)

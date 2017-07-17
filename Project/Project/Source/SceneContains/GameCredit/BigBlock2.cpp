@@ -14,19 +14,24 @@ BigBlock2::BigBlock2(const IGameManagerPtr & gameManager)
 	//パラメータの設定
 	p_Texture->GetParameter()->m_Position = GSvector2(550, 300);
 	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
+	//非表示設定
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 // デストラクタ
 BigBlock2::~BigBlock2()
 {
+	//非表示設定
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 // 開始     
 void BigBlock2::onStart()
 {
+	//表示設定
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 	timer_ = 0.0f;
 	p_Texture->GetParameter()->m_Color.a = 1.0f;
-
 }
 
 //更新
