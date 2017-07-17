@@ -25,6 +25,8 @@ public:
 	void SetName(const SceneName& name) override {}
 	// –¼‘O‚Ìæ“¾
 	SceneName GetName() override { return SceneName::None; }
+	// q‚Ìİ’è
+	void SetUpChild(ChildScene& child)override {}
 };
 
 #endif

@@ -6,15 +6,15 @@
 // テクスチャ生成クラス
 class SpriteCreator : public Actor {
 	enum class Element {
-		NAME = 0,		// テクスチャの名前
-		ANIMATE = 1,	// アニメーションするかしないか
-		WIDTH = 2,		// 表示されるテクスチャの横幅
-		HEIGHT = 3,		// 表示されるテクスチャの縦幅
-		POS_X = 4,		// テクスチャの座標
-		POS_Y = 5,		// テクスチャの座標
-		TIME = 6,		// １フレームの再生時間
-		ANGLE = 7,		// 角度
-		ALPHA = 8,		// 透明度
+		NAME = 0,	// テクスチャの名前
+		ANIMATE,	// アニメーションするかしないか
+		WIDTH,		// 表示されるテクスチャの横幅
+		HEIGHT,		// 表示されるテクスチャの縦幅
+		POS_X,		// テクスチャの座標
+		POS_Y,		// テクスチャの座標
+		TIME,		// １フレームの再生時間
+		USAGE,		// 用途
+		DRAWORDER,	// 描画順序
 	};
 public:
 	// コンストラクタ

@@ -10,11 +10,12 @@
 #include"../../Utility/Animation/Animation.h"
 #include"../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include"../../TextureContains/Texture/Texture.h"
-#include"../../Utility/Number/NumberTexture.h"
+#include "../../TextureContains/NumberTexture/NumberTexture.h"
 #include <algorithm>
 
 Combo::Combo(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name)
-	:UI_Base(world, ActorName::UI_Combo, position, gameManager) {
+	: UI_Base(world, ActorName::UI_Combo, position, gameManager,DrawOrder::UI_Front1)
+	, p_NumberTexture(std::make_shared<NumberTexture>("NumberTexture_1", gameManager->GetDrawManager(),DrawOrder::UI_Front1, GSvector2(590, 20), 3)) {
 	m_MaxTime = 180.0f;
 	m_NowTime = 0.0f;
 	weidth = 300.0f;
@@ -37,6 +38,11 @@ void Combo::regist(const std::string & file_name)
 
 void Combo::onUpdate(float deltaTime)
 {
+	if (m_TextureList.size() == 0) {
+		dead();
+		return;
+	}
+
 	float result = 0;
 	result = m_NowTime / m_MaxTime * weidth;
 	m_TextureList[1]->GetParameter()->m_Rect = GSrect(0.0f, 0.0f, result, 50.0f);
@@ -51,15 +57,20 @@ void Combo::onUpdate(float deltaTime)
 		return;
 	}
 	m_NowTime -= deltaTime;
+
+	p_NumberTexture->SetNumber(p_GameManager->GetPlayerParameter().getCombo());
 }
 
-void Combo::onDraw() const
-{
-	NumberTexture namber(1000, 40, 60);
-	
-	namber.draw(GSvector2(370, 20), p_GameManager->GetPlayerParameter().getCombo(), 3);
+void Combo::onDraw() const {
 }
+
 void Combo::setTexture()
 {
+}
 
+void Combo::ChangeDisplayMode(const DisplayMode mode){
+	for (auto itr = m_TextureList.begin(); itr != m_TextureList.end(); itr++)
+		(*itr)->ChangeDisplayMode(mode);
+
+	p_NumberTexture->ChangeDisplayMode(mode);
 }

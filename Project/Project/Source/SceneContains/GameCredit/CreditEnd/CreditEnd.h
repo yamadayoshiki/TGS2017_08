@@ -33,6 +33,8 @@ protected:
 	virtual void SetName(const SceneName& name)override;
 	// 名前の取得
 	virtual SceneName GetName() override;
+	// 子の設定
+	void SetUpChild(ChildScene& child)override {}
 
 private:
 	//ワールド

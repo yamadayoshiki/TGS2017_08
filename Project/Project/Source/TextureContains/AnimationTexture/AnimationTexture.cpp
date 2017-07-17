@@ -11,6 +11,7 @@ AnimationTexture::AnimationTexture(
 	const unsigned int animmationUpdateTimer)
 	: Texture_Base(texName, drawManager, drawOrder) {
 	p_Animation = std::make_shared<Animation>(p_Parameter->m_Rect, cutWidth, animmationUpdateTimer);
+	p_Parameter->m_Center = GSvector2(cutWidth / 2, p_Parameter->m_Rect.bottom / 2);
 }
 
 //デストラクタ

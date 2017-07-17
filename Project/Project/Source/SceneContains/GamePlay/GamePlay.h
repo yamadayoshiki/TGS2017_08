@@ -4,7 +4,9 @@
 #include "../Scene/Scene.h"
 #include "../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 class World;
-
+class Number;
+class Button;
+class Sprite;
 //ゲーム中
 class GamePlay : public Scene
 {
@@ -14,11 +16,11 @@ public:
 
 protected:
 	// 開始     
-	virtual void OnStart();
+	virtual void OnStart() override;
 	// 更新     
-	virtual void OnUpdate(float deltaTime);
+	virtual void OnUpdate(float deltaTime) override;
 	// 描画     
-	virtual void OnDraw()const;
+	virtual void OnDraw()const override;
 	//終了
 	virtual void OnEnd()override;
 
@@ -29,8 +31,10 @@ private:
 	void PauseUpdate();
 
 private:
-	Texture2DParameterSPtr p_Back;
-	int m_Back;
+	std::weak_ptr<Number> p_ScoreUI;			//スコア
+	std::weak_ptr<Number> p_PlayerRemainingUI;	//プレイヤー残機
+	std::weak_ptr<Button> p_ButtonUI;			//ポーズ画面ボタンUI
+	std::weak_ptr<Sprite> p_PauseBack;			//ポーズ画面背景
 };
 
 #endif

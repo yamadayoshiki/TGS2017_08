@@ -15,7 +15,7 @@
 #include <algorithm>
 
 Rank::Rank(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name)
-	:UI_Base(world, ActorName::UI_Rank, position, gameManager) {
+	:UI_Base(world, ActorName::UI_Rank, position, gameManager, DrawOrder::UI) {
 	regist(file_name);
 	m_TextureName = "RankC";
 	RankSet();
@@ -68,6 +68,10 @@ void Rank::onUpdate(float deltaTime)
 
 void Rank::onDraw() const
 {
+}
+
+void Rank::ChangeDisplayMode(const DisplayMode mode){
+	p_Texture->ChangeDisplayMode(mode);
 }
 
 int Rank::getIndex(int index, int next)

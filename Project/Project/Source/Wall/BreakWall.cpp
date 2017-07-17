@@ -42,8 +42,8 @@ BreakWall::BreakWall(
 }
 
 //‰Šú‰»
-void BreakWall::initialize() {
-	EnemyBase::initialize();
+void BreakWall::onInitialize() {
+	EnemyBase::onInitialize();
 	//ƒ}ƒbƒvî•ñ‘‚«Š·‚¦
 	p_World->GetMap()->SetcsvParameter(getPosition(), TerrainName::BreakeWall, p_World);
 }
@@ -66,7 +66,7 @@ void BreakWall::SetUpState()
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaughtStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
-	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Dead, std::make_shared<DeadWall>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);

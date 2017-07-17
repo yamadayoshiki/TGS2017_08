@@ -4,4 +4,4 @@
 struct Texture2DParameter;
 using Texture2DParameterSPtr = std::shared_ptr<Texture2DParameter>;
 using Texture2DParameterWPtr = std::weak_ptr<Texture2DParameter>;
-#endif // !TEXTURE2DPARAMETERPTR_H_
+#endif

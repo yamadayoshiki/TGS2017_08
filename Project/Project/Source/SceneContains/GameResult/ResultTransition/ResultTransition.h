@@ -4,6 +4,7 @@
 #include"../../../StagingContains/TransitionStaging/Transition/Transition.h"
 #include "../../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 #include <GStype.h>
+class Texture;
 class ResultTransition :public Transition
 {
 public:

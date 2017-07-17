@@ -12,10 +12,6 @@ public:
 		const float cutWidth,
 		const unsigned int animmationUpdateTimer);
 
-	Animation(const GSrect& texRect,
-		const float cutWidth,
-		const float cutHeight,
-		const unsigned int animmationUpdateTimer);
 	//デフォルトコンストラクタ
 	Animation();
 	//デストラクタ
@@ -34,7 +30,6 @@ public:
 private:
 	GSrect m_TexRect;						//テクスチャ矩形
 	float m_CutWidth;						//切り取る矩形の横幅
-	float m_CutHeight;						//切り取る矩形の縦幅
 	unsigned int m_AnimationUpdateTimer;	//テクスチャ変更間隔(フレーム)
 	GSrect m_CutRect;						//切り取る矩形
 	int m_CurrentNum;						//切り取る番号("0"枚目から数える)

@@ -26,6 +26,10 @@ private:
 	virtual void onUpdate(float deltaTime)override;
 	virtual void onDraw()const override;
 
+public:
+	void ChangeDisplayMode(const DisplayMode mode) override;
+
+private:
 	int getIndex(int index, int next);
 private:
 	using RankDetaList = std::vector<RankDeta>;

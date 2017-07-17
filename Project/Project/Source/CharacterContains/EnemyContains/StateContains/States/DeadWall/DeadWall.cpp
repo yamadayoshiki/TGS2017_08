@@ -13,10 +13,10 @@ DeadWall::DeadWall(const EnemyBasePtr & enemy) :EnemyStateBase(enemy)
 
 }
 // Šeó‘Ô“Æ©‚Ì‰Šú‰»
-void DeadWall::unique_init()
-{
-	p_Enemy.lock()->getWorld()->sendMessage(EventMessage::MapDataUpdate);
+void DeadWall::unique_init() {
+	p_Enemy.lock()->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDSLOST);
 }
+
 // XVˆ—
 void DeadWall::update(float deltaTime)
 {

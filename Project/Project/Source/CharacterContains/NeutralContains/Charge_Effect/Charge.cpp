@@ -16,7 +16,7 @@ Charge::~Charge()
 	delete p_AnimationTexture;
 }
 //‰Šú‰»
-void Charge::initialize()
+void Charge::onInitialize()
 {
 	m_Charge_Stage = Charge_Stage::Zero;
 	p_Player.lock()->getParameter().m_ChargeConter = 0.0f;

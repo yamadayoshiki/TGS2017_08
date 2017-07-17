@@ -31,7 +31,7 @@ public:
 	//デストラクタ
 	virtual ~EnemyBase();
 	//初期化
-	virtual void initialize() override;
+	virtual void onInitialize() override;
 	//ステートマネージャーを取得する
 	EnemyStateManager* GetStateManager();
 	//コマンドマネージャーを取得する

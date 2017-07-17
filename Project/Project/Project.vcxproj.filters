@@ -30,9 +30,6 @@
     <ClInclude Include="Source\ActorContains\NullActor\NullActor.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Base\GameFrame\GameFrame.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -43,15 +40,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\UIContains\UIGroup.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Base\GameManagerContains\GameManager\GameManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Base\GameManagerContains\IGameManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Base\GameManagerContains\IGameManagerPtr.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\ActorContains\ActorPtr.h">
@@ -111,9 +99,6 @@
     <ClInclude Include="Source\Wall\Wall.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SceneContains\NakayamaScene\NakayamaScene.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Define\Def_Nagano.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -166,12 +151,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\ArmPtr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SceneContains\NaganoScene\NaganoScene.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SceneContains\yamadaScene\yamadaScene.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\UIContains\Base\UI_Base.h">
@@ -693,9 +672,6 @@
     <ClInclude Include="Source\UIContains\Combo\Combo.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Utility\Number\NumberTexture.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SceneContains\GameResult\ResultStart.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -834,6 +810,33 @@
     <ClInclude Include="Source\SceneContains\GamePlay\GamePlay.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\UIContains\Number\Number.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Number\NumberCreator.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\SceneManager\SceneChildMgr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Scene\ChildScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Base\GameFrame\GameFrame.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Base\GameManagerContains\GameManager\GameManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Base\GameManagerContains\IGameManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Base\GameManagerContains\IGameManagerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -848,16 +851,10 @@
     <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\WorldContains\World\World.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp">
@@ -882,9 +879,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Wall\Wall.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SceneContains\NakayamaScene\NakayamaScene.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\TextureContains\Texture\Texture.cpp">
@@ -912,12 +906,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\PlayerContains\Arm\Arm.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SceneContains\NaganoScene\NaganoScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SceneContains\yamadaScene\yamadaScene.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\UIContains\Base\UI_Base.cpp">
@@ -1289,9 +1277,6 @@
     <ClCompile Include="Source\UIContains\Combo\Combo.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Utility\Number\NumberTexture.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -1356,6 +1341,30 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Number\Number.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Number\NumberCreator.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TextureContains\NumberTexture\NumberTexture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Scene\ChildScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\SceneManager\SceneChildMgr.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

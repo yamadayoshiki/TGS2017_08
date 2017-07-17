@@ -22,7 +22,7 @@ public:
 	//デストラクタ
 	~Player();
 	//
-	virtual void initialize()override;
+	virtual void onInitialize()override;
 	//更新処理
 	virtual void onUpdate(float deltaTime)override;
 	//描画処理

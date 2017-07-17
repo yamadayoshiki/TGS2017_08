@@ -99,8 +99,13 @@ void GameTitle::OnDraw()const{
 
 void GameTitle::OnEnd()
 {
+	p_GameManager->GetDrawManager()->ChageDisplayMode(m_TitleNum, DisplayMode::NonDisplay);
+	p_GameManager->GetDrawManager()->ChageDisplayMode(m_WideHeadNum, DisplayMode::NonDisplay);
+	p_GameManager->GetDrawManager()->ChageDisplayMode(m_StartNum, DisplayMode::NonDisplay);
+	p_AnimationTexture->ChangeDisplayMode(DisplayMode::NonDisplay);
 	gsStopMusic();
 	p_GameManager->set_MapOrder(MapOrder);
+
 }
 
 void GameTitle::TitleMove()

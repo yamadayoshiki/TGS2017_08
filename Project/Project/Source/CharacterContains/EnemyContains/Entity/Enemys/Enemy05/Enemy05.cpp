@@ -3,7 +3,7 @@
 #include "../../../../../ActorContains/Transform/Transform.h"
 #include "../../../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../../../Define/Def_Nakayama.h"
-#include "../../../../../TextureContains/Texture/Texture.h"
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
@@ -32,7 +32,7 @@ Enemy05::Enemy05(IWorld * world, const GSvector2 & position, const FourDirection
 		10,
 		MapType::Double,
 		gameManager,
-		std::make_shared<Texture>("Enemy02", gameManager->GetDrawManager(),DrawOrder::Enemy),
+		std::make_shared<AnimationTexture>("Enemy05", gameManager->GetDrawManager(),DrawOrder::Enemy,32,8),
 		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
 }
 
