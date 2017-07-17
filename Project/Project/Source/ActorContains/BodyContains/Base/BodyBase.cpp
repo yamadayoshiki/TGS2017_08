@@ -84,6 +84,10 @@ namespace Body
 		return result;
 	}
 
+	void BodyBase::Transform(const BodyCollidable& bodyCollidable){
+		m_Collidable = bodyCollidable;
+	}
+
 	//トランスフォームの取得
 	TransformPtr BodyBase::GetTransform() const {
 		return p_Transform;

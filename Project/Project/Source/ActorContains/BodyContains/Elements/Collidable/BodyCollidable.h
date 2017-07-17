@@ -23,6 +23,17 @@ namespace Body
 			m_NumShapes++;
 			m_Shapes.push_back(shape);
 		}
+
+		// = ‘ã“ü‰‰ŽZŽq
+		BodyCollidable operator =(const BodyCollidable& other) {
+			m_NumShapes = other.m_NumShapes;
+			m_Shapes.clear();
+			for (auto itr = other.m_Shapes.begin(); itr != other.m_Shapes.end(); itr++)
+				m_Shapes.push_back(*itr);
+
+			m_AABBHalf = other.m_AABBHalf;
+			return *this;
+		}
 	};
 }
 

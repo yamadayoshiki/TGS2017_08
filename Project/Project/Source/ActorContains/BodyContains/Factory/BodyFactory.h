@@ -14,6 +14,8 @@ namespace Body {
 		~BodyFactory();
 		//生成
 		IBodyPtr Generate(const MotionType type, const BodyDataName name);
+		//変形
+		void Transform(IBodyPtr& body,const BodyDataName name);
 
 	private:
 		//生成マップ登録

@@ -23,7 +23,7 @@ Player::Player(IWorld* world, const GSvector2& position, const IGameManagerPtr& 
 		gameManager,
 		std::make_shared<AnimationTexture>("Player_Close", gameManager->GetDrawManager(), DrawOrder::Player, 64, 1),
 		Body::MotionType::Player,
-		Body::BodyDataName::Player)
+		Body::BodyDataName::Player_Close)
 	, p_Map(p_World->GetMap())
 	, m_Parameter(gameManager->GetPlayerParameter()) {
 	p_Texture->GetParameter()->m_Center = { 32.0f, 32.0f };
@@ -69,18 +69,11 @@ void Player::onUpdate(float deltaTime)
 	//状態管理の更新処理
 	mStateManager->action(deltaTime);
 
-	if (mStateManager->currentState(PlayerStateName::O_Idle)) {
-		//p_World->addActor(ActorGroup::Effect, std::make_shared<Charge>(p_World, getPosition(), p_GameManager));
-	}
-
 	//行動制限
 	p_Transform->m_Position = getPosition().clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));
 
 	//フレームカウンター
 	m_Parameter.m_FrameCounter += deltaTime;
-
-	//std::cout << "プレイヤー" << getPosition() << std::endl;
-	//std::cout << "アーム" << getPosition() << std::endl;
 }
 //描画処理
 void Player::onDraw()const {

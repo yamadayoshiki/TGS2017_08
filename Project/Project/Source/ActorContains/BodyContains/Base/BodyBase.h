@@ -30,11 +30,13 @@ namespace Body
 		void SetAABB(const GSvector2& AABBHalf) override;
 		//クローン生成
 		IBodyPtr Clone(const MotionType type) override;
+		//変形
+		void Transform(const BodyCollidable& bodyCollidable)override;
+		//形状管理の取得
+		BodyCollidable GetBodyCollidable() override;
 	public:
 		//衝突しているか
 		ContactSet IsCollide(BodyBase* other);
-		//形状管理の取得
-		BodyCollidable GetBodyCollidable();
 		//衝突可能かの取得
 		bool IsExist() const;
 		//トランスフォームの取得

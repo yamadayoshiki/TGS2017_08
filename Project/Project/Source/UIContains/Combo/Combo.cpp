@@ -31,7 +31,10 @@ void Combo::regist(const std::string & file_name)
 	}
 
 	for (int row = 1; row < csv.rows(); row++) {
-		p_Texture = std::make_shared<Texture>(csv.get(row, 1), p_GameManager->GetDrawManager(), DrawOrder::UI_Front1);
+		p_Texture = std::make_shared<Texture>(csv.get(row, 0), p_GameManager->GetDrawManager(), DrawOrder::UI);
+		p_Texture->GetParameter()->m_Position = GSvector2(csv.getf(row, 1), csv.getf(row, 2));
+		p_Texture->GetParameter()->m_Center = { 0.0f, 0.0f };
+		p_Texture->ChangeDisplayMode(DisplayMode::Display);
 		m_TextureList.push_back(p_Texture);
 	}
 }
@@ -51,7 +54,7 @@ void Combo::onUpdate(float deltaTime)
 		m_NowTime = p_GameManager->GetPlayerParameter().getComboCounter();
 		p_GameManager->GetPlayerParameter().m_ComboTimer = 0.0f;
 	}
-	if (m_NowTime <= 0 /*&& p_GameManager->GetPlayerParameter().getCombo() > 0*/) {
+	if (m_NowTime <= 0) {
 		m_NowTime = 0.0f;
 		p_GameManager->GetPlayerParameter().comboReset();
 		return;
