@@ -130,7 +130,6 @@ GSvector2 Renderer2D::GetTextureSize(const unsigned int textureID)
 	GSvector2 result = GSvector2();
 	result.x = gsTextureGetWidth(gsGetTexture(textureID));
 	result.y = gsTextureGetHeight(gsGetTexture(textureID));
-
 	return result;
 }
 

@@ -12,9 +12,9 @@
 #include"../../../Utility/Score/Score.h"
 #include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include"../../../UIContains/UIManager/UIManager.h"
-#include"../../../Utility/Number/NumberTexture.h"
 #include"../ResultTransition/ResultTransition.h"
 #include"../../../TextureContains/Texture/Texture.h"
+#include "../../../DrawManager/DisplayMode.h"
 
 ResultEnd::ResultEnd(IWorld* world, const IGameManagerPtr & gameManager)
 	:p_World(world),
@@ -26,6 +26,7 @@ ResultEnd::ResultEnd(IWorld* world, const IGameManagerPtr & gameManager)
 	p_Texture->GetParameter()->m_Position = GSvector2(550, 300);
 	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
 	p_Texture->GetParameter()->m_Color = m_Color;
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 // 開始     
@@ -38,6 +39,8 @@ void ResultEnd::Start()
 	is_End = false;
 	m_Score = 0;
 	p_Transition->start();
+
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 }
 // 更新     
 void ResultEnd::Update(float deltaTime)
@@ -64,24 +67,18 @@ void ResultEnd::Update(float deltaTime)
 	timer_ += deltaTime;
 }
 //描画
-void ResultEnd::Draw()const
-{
-	//p_GameManager->GetRenderer2D()->DrawTexture("Platform", GSvector2(625, 450));
-	////リザルトスコアの描画
-	//p_GameManager->GetScore()->setPosition(GSvector2(750, 650));
-	//p_GameManager->GetScore()->draw(p_GameManager->GetRenderer2D());
-
+void ResultEnd::Draw()const {
 	p_Transition->draw();
 }
+
 //終了
-void ResultEnd::End()
-{
+void ResultEnd::End() {
 	gsStopMusic();
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 // 終了しているか？     
-bool ResultEnd::IsEnd() const
-{
+bool ResultEnd::IsEnd() const{
 	return is_End;
 }
 

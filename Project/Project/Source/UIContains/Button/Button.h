@@ -7,8 +7,21 @@
 #include "../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 #include "../../DrawManager/DrawOrderObject.h"
 #include <unordered_map>
-
+class Selector;
 class Button : public UI_Base {
+	enum class Element {
+		NAME = 0,	// テクスチャの名前
+		NUMBER,		// 番号
+		SCENE,		// 移動先
+		UP,
+		DOWN,
+		LEFT,
+		RIGHT,
+		ANIMATE,	// アニメーションするかしないか
+		POS_X,		// 座標.x
+		POS_Y,		// 座標.y
+		DRAWORDER,	// 描画順序
+	};
 public:
 	struct ButtonData {
 		std::string file_name;
@@ -20,7 +33,11 @@ public:
 		Texture2DParameterSPtr param;
 	};
 public:
-	Button(IWorld* world, const GSvector2& position, const IGameManagerPtr& gameManager, const std::string & file_name);
+	Button(
+		IWorld* world,
+		const GSvector2& position,
+		const IGameManagerPtr& gameManager,
+		const std::string & file_name);
 	~Button();
 	void regist(const std::string & file_name);
 
@@ -28,13 +45,18 @@ private:
 	virtual void onUpdate(float deltaTime)override;
 	virtual void onDraw()const override;
 
+public:
+	void ChangeDisplayMode(const DisplayMode mode) override;
+
+private:
 	int getIndex(int index, int next);
 	void moveSelector(GKEYCODE key);
 private:
 	std::unordered_map<int, ButtonData> m_Buttons;
-	ActorPtr m_Selector;
+	std::shared_ptr<Selector> p_Selector;
 	int m_Index;
 	float m_Timer;
+	DisplayMode m_Mode;
 };
 
 #endif // !BUTTON_H_

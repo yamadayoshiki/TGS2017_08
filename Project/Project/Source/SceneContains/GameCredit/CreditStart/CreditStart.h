@@ -29,12 +29,15 @@ protected:
 	virtual void SetName(const SceneName& name)override;
 	// 名前の取得
 	virtual SceneName GetName() override;
+	// 子の設定
+	void SetUpChild(ChildScene& child)override {}
 
 private:
 	//ワールド
 	IWorldPtr p_World;
 	//ゲームマネージャー
 	IGameManagerPtr p_GameManager;
+	//テクスチャ
 	ITexturePtr p_Texture;
 	//タイマー
 	float timer_{ 0.0f };

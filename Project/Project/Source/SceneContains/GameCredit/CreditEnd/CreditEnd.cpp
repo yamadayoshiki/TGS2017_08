@@ -13,10 +13,10 @@
 #include"../../../Utility/Score/Score.h"
 #include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include"../../../UIContains/UIManager/UIManager.h"
-#include"../../../Utility/Number/NumberTexture.h"
 #include"../../GameResult/ResultTransition/ResultTransition.h"
 #include "../../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include"../../../TextureContains/Texture/Texture.h"
+#include "../../../DrawManager/DisplayMode.h"
 
 CreditEnd::CreditEnd(IWorld* world, const IGameManagerPtr & gameManager)
 	:p_World(world), p_GameManager(gameManager), p_Transition(std::make_shared<ResultTransition>(gameManager)),
@@ -25,7 +25,7 @@ CreditEnd::CreditEnd(IWorld* world, const IGameManagerPtr & gameManager)
 	p_Texture->GetParameter()->m_Position = GSvector2(550, 100);
 	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
 	p_Texture->GetParameter()->m_Color = m_Color;
-
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 // 開始     
@@ -41,6 +41,7 @@ void CreditEnd::Start()
 	is_End = false;
 	m_Score = 0;
 
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 }
 // 更新     
 void CreditEnd::Update(float deltaTime)
@@ -61,7 +62,7 @@ void CreditEnd::Update(float deltaTime)
 //描画
 void CreditEnd::Draw()const
 {
-	static const NumberTexture number(1000, 40, 60);
+	//static const NumberTexture number(1000, 40, 60);
 
 	//p_GameManager->GetRenderer2D()->DrawTexture("Platform2", GSvector2(590, 150));
 
@@ -77,9 +78,9 @@ void CreditEnd::Draw()const
 	p_Transition->draw();
 }
 //終了
-void CreditEnd::End()
-{
+void CreditEnd::End(){
 	gsStopMusic();
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 // 終了しているか？     

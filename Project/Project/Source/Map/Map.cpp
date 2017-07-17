@@ -17,9 +17,11 @@ Map::Map(const IGameManagerPtr& gameManager) :
 	p_GameManager->LoadTexture("chip", "Resource/Texture/wall.png");
 }
 
-//•`‰æ
-void Map::draw(const MapType& type) {
+Map::~Map(){
+	p_GameManager->GetDrawManager()->Remove(m_MapDrawID);
 }
+
+
 
 //ƒ}ƒbƒv‚ÌŽæ“¾
 CsvTwoDVectorTerrainData& Map::getmap(const MapType& type) {

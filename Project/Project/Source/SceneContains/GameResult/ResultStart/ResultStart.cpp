@@ -10,6 +10,8 @@
 #include"../../../Utility/Sound/SoundName.h"
 #include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include"../../../TextureContains/Texture/Texture.h"
+#include "../../../DrawManager/DisplayMode.h"
+#include "../../../DrawManager/DrawManager.h"
 
 #include<GSeasing.h>
 
@@ -20,7 +22,10 @@ ResultStart::ResultStart(IWorld* world,const IGameManagerPtr & gameManager)
 	//パラメータの設定
 	p_Texture->GetParameter()->m_Position = GSvector2(550, 300);
 	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
+
+
 
 // 開始     
 void ResultStart::Start()
@@ -44,9 +49,8 @@ void ResultStart::Draw()const
 
 }
 //終了
-void ResultStart::End()
-{
-
+void ResultStart::End(){
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 // 終了しているか？     

@@ -10,7 +10,7 @@ class World;
 using WorldPtr = std::shared_ptr<World>;
 
 //シーンインターフェイス
-class Scene :public IScene
+class Scene :public IScene, public std::enable_shared_from_this<Scene>
 {
 public:
 	enum class CarsorMovement
@@ -21,10 +21,14 @@ public:
 		Left,		//左
 	};
 public:
+	//デフォルトコンストラクタ
+	Scene();
 	//コンストラクタ
-	Scene(const IGameManagerPtr& gameManager);
+	explicit Scene(const IGameManagerPtr& gameManager);
 	// 仮想デストラクタ     
 	virtual ~Scene();
+
+public:
 	// 開始     
 	void Start() override;
 	// 更新     
@@ -37,18 +41,18 @@ public:
 	bool IsEnd() const override;
 	// 次のシーンを返す     
 	SceneName Next() const override;
-
-public:
 	// 名前を設定
-	virtual void SetName(const SceneName & name) override;
+	void SetName(const SceneName & name) override;
 	// 名前の取得
-	virtual SceneName GetName() override;
+	SceneName GetName() override;
+	// 子の設定
+	void SetUpChild(ChildScene& child) override;
 
 protected:
 	// 各種固有の開始     
-	virtual void OnStart() = 0;
+	virtual void OnStart() {}
 	// 各種固有の更新     
-	virtual void OnUpdate(float deltaTime) = 0;
+	virtual void OnUpdate(float deltaTime) {}
 	// 各種固有の描画     
 	virtual void OnDraw()const {}
 	// 各種固有の終了     
@@ -62,10 +66,10 @@ protected:
 	TransitionPtr m_Transition;		//遷移演出
 	bool PauseFlag = false;			//ポーズフラグ
 	CarsorMovement					//カーソル移動
-		m_CarsorMovement{			
-		CarsorMovement::Up };		
-	 int MapOrder = 0;				//マップの順番
-	 bool isGameClear;				//ゲームをクリアしたか
+		m_CarsorMovement{
+		CarsorMovement::Up };
+	int MapOrder = 0;				//マップの順番
+	bool isGameClear;				//ゲームをクリアしたか
 };
 
 #endif // !SCENE_H_

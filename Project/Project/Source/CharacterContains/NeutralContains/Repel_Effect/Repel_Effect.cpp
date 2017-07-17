@@ -20,7 +20,7 @@ Repel_Effect::~Repel_Effect() {
 }
 
 //‰Šú‰»
-void Repel_Effect::initialize() {
+void Repel_Effect::onInitialize() {
 	p_Texture->GetParameter()->m_Center = { 32.0f,32.0f };
 }
 

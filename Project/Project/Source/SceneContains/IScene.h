@@ -3,6 +3,7 @@
 
 #include "SceneName.h"
 enum class SceneMode;
+class ChildScene;
 
 //シーン抽象インターフェイス
 class IScene
@@ -26,6 +27,8 @@ public:
 	virtual void SetName(const SceneName& name) = 0;
 	// 名前の取得
 	virtual SceneName GetName() = 0;
+	// 子の設定
+	virtual void SetUpChild(ChildScene& child) = 0;
 };
 
 

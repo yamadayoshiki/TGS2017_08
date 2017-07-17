@@ -31,8 +31,8 @@ class Map {
 public:
 	//コンストラクタ
 	Map(const IGameManagerPtr& gameManager);
-	//描画
-	void draw(const MapType& type = MapType::Default);
+	//デストラクタ
+	~Map();
 	//マップの取得
 	CsvTwoDVectorTerrainData& getmap(const MapType& type = MapType::Default);
 	// マップの登録

@@ -15,7 +15,8 @@ class GameResult : public Scene
 public:
 	// コンストラクタ    
 	GameResult(const IGameManagerPtr& gameManager);
-
+	// デストラクタ
+	~GameResult();
 	enum class Rank{
 		RankS,
 		RankA,

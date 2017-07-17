@@ -9,7 +9,8 @@ struct DrawOrderObject
 	DrawOrderID id;					//描画順
 	std::string texName;			//テクスチャの名前
 	Texture2DParameterWPtr param;	//テクスチャのパラメータ
-									//std::set用比較演算子
+
+	//std::set用比較演算子
 	bool operator < (const DrawOrderObject& other) {
 		return this->id < other.id;
 	}

@@ -37,7 +37,7 @@ Player::~Player() {
 }
 
 //初期化
-void Player::initialize()
+void Player::onInitialize()
 {
 	//フレームカウンターの初期化
 	m_Parameter.m_FrameCounter = 0;

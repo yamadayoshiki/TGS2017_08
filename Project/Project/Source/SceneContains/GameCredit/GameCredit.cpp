@@ -16,6 +16,7 @@
 #include"../../Utility/EnumRap/EnumRap.h"
 #include"../../TextureContains/Texture/Texture.h"
 #include"../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include "../../DrawManager/DisplayMode.h"
 
 #include"CreditStart\CreditStart.h"
 #include"CreditStaging\CreditStaging.h"
@@ -27,6 +28,7 @@ GameCredit::GameCredit(const IGameManagerPtr& gameManager)
 	//パラメータの設定
 	p_Texture->GetParameter()->m_Position = GSvector2(0.0f, 0.0f);
 	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 // 開始     
 void GameCredit::OnStart() {
@@ -46,6 +48,8 @@ void GameCredit::OnStart() {
 	gsBindMusic(BGM_GAME_CLER);
 	//BGM再生
 	gsPlayMusic();
+
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 }
 
 // 更新     
@@ -63,4 +67,5 @@ void GameCredit::OnEnd()
 {
 	gsStopMusic();
 	m_SceneManager = nullptr;
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }

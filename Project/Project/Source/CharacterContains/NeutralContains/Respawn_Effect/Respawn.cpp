@@ -16,7 +16,7 @@ Respawn::Respawn(IWorld* world, const GSvector2& position, IGameManagerPtr gameM
 Respawn::~Respawn(){
 }
 //‰Šú‰»
-void Respawn::initialize(){
+void Respawn::onInitialize(){
 	p_Texture->GetParameter()->m_Center = { 32.0f,32.0f };
 }
 //XVˆ—

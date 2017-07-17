@@ -21,7 +21,7 @@ public:
 	// 終了     
 	void End();
 	// シーンの追加    
-	void Add(SceneName name, const IScenePtr& scene);
+	virtual void Add(SceneName name, const IScenePtr& scene);
 	// シーンの変更     
 	void Change(SceneName name);
 	// シーン名の取得     
@@ -30,7 +30,7 @@ public:
 	SceneManager(const SceneManager& other) = delete;
 	SceneManager& operator = (const SceneManager& other) = delete;
 
-private:
+protected:
 	// シーン     
 	std::unordered_map<SceneName, IScenePtr> m_SceneDic;
 	// 現在のシーン     

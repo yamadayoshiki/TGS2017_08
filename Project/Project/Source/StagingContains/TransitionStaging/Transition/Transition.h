@@ -49,8 +49,6 @@ protected:
 protected:
 	//ゲームマネージャー
 	IGameManagerPtr p_GameManager;
-	// テクスチャパラメータ
-	//Texture2DParameterSPtr p_Param;
 	// モードパラメータ
 	std::unordered_map<Mode, Parametor> mModeParametors;
 	// 現在のモード

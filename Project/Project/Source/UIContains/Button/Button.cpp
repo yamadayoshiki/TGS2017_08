@@ -13,15 +13,19 @@
 
 #define STR(var) #var
 
-Button::Button(IWorld* world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name) :
-	UI_Base(world, ActorName::UI_Button, position, gameManager) {
+Button::Button(
+	IWorld* world,
+	const GSvector2 & position,
+	const IGameManagerPtr & gameManager,
+	const std::string & file_name)
+	: UI_Base(world, ActorName::UI_Button, position, gameManager, DrawOrder::UI)
+	, m_Mode(DisplayMode::Display) {
 	regist(file_name);
 }
 
 Button::~Button() {
 	for (auto button : m_Buttons) {
 		p_GameManager->GetDrawManager()->Remove(button.second.drawOrderID);
-		p_GameManager->UnLoadTexture(button.second.file_name);
 	}
 }
 
@@ -35,36 +39,29 @@ void Button::regist(const std::string & file_name) {
 	}
 
 	// セレクタを生成
-	m_Selector = std::make_shared<Selector>(p_World, GSvector2(0.0f, 0.0f), p_GameManager);
-	addChild(m_Selector);
+	p_Selector = std::make_shared<Selector>(p_World, GSvector2(0.0f, 0.0f), p_GameManager, DrawOrder::UI_Front2);
+	addChild(p_Selector);
 
 	// 行のループ
 	for (int row = 1; row < csv.rows(); row++) {
 		ButtonData data;
 
-		data.file_name = "Resource/Texture/UI/" + csv.get(row, 0);
-		data.number = csv.geti(row, 1);
-		data.next = p_GameManager->GetSceneEnum()->GetEnum(csv.get(row, 2));
-		data.key[GKEY_UP] = csv.geti(row, 3);
-		data.key[GKEY_DOWN] = csv.geti(row, 4);
-		data.key[GKEY_LEFT] = csv.geti(row, 5);
-		data.key[GKEY_RIGHT] = csv.geti(row, 6);
-		data.anim = csv.geti(row, 7);
-		data.param = std::make_shared<Texture2DParameter>();
-		data.param->m_Rect = GSrect(0.0f, 0.0f, csv.getf(row, 8), csv.getf(row, 9));
-		data.param->m_Position = GSvector2(csv.getf(row, 10), csv.getf(row, 11));
-		data.param->m_Center = GSvector2(0.0f, 0.0f);
-		data.param->m_Scale = GSvector2(1.0f, 1.0f);
+		data.file_name = csv.get(row, static_cast<int>(Element::NAME));
+		data.number = csv.geti(row, static_cast<int>(Element::NUMBER));
+		data.next = p_GameManager->GetSceneEnum()->GetEnum(csv.get(row, static_cast<int>(Element::SCENE)));
+		data.key[GKEY_UP] = csv.geti(row, static_cast<int>(Element::UP));
+		data.key[GKEY_DOWN] = csv.geti(row, static_cast<int>(Element::DOWN));
+		data.key[GKEY_LEFT] = csv.geti(row, static_cast<int>(Element::LEFT));
+		data.key[GKEY_RIGHT] = csv.geti(row, static_cast<int>(Element::RIGHT));
+		data.anim = csv.geti(row, static_cast<int>(Element::ANIMATE));
+		data.drawOrderID = p_GameManager->GetDrawManager()->RegisterDefaultParam(data.file_name, data.param, (DrawOrder)csv.geti(row, static_cast<int>(Element::DRAWORDER)));
+		data.param->m_Position = GSvector2(csv.getf(row, static_cast<int>(Element::POS_X)), csv.getf(row, static_cast<int>(Element::POS_Y)));
 
 		m_Buttons[data.number] = data;
-
-		p_GameManager->LoadTexture(data.file_name, data.file_name);
-		m_Buttons[data.number].drawOrderID = p_GameManager->GetDrawManager()->Register(data.file_name, data.param, DrawOrder::UI);
-		p_GameManager->GetDrawManager()->ChageDisplayMode(data.drawOrderID, DisplayMode::Display);
 	}
 
 	m_Index = m_Buttons[1].number;
-	m_Selector->setPosition(m_Buttons[m_Index].param->m_Position);
+	p_Selector->setPosition(m_Buttons[m_Index].param->m_Position);
 }
 
 void Button::onUpdate(float deltaTime) {
@@ -73,20 +70,30 @@ void Button::onUpdate(float deltaTime) {
 		return;
 	}
 
+	if (m_Mode == DisplayMode::NonDisplay)return;
+
 	moveSelector(GKEY_UP);
 	moveSelector(GKEY_DOWN);
 	moveSelector(GKEY_RIGHT);
 	moveSelector(GKEY_LEFT);
 
-	m_Selector->setPosition(m_Selector->getPosition().lerp(m_Buttons[m_Index].param->m_Position, 0.5f));
+	p_Selector->setPosition(p_Selector->getPosition().lerp(m_Buttons[m_Index].param->m_Position, 0.5f));
 
 	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN) &&
-		m_Selector->getPosition() == m_Buttons[m_Index].param->m_Position) {
+		p_Selector->getPosition() == m_Buttons[m_Index].param->m_Position) {
 		p_World->sendMessage(EventMessage::END_SCENE, (void*)m_Buttons[m_Index].next);
 	}
 }
 
-void Button::onDraw() const{
+void Button::onDraw() const {
+}
+
+void Button::ChangeDisplayMode(const DisplayMode mode) {
+	m_Mode = mode;
+	for (auto itr = m_Buttons.begin(); itr != m_Buttons.end(); itr++)
+		p_GameManager->GetDrawManager()->ChageDisplayMode(itr->second.drawOrderID, mode);
+
+	p_Selector->ChangeDisplayMode(mode);
 }
 
 void Button::moveSelector(GKEYCODE key) {

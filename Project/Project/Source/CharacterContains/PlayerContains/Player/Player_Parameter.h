@@ -36,8 +36,7 @@ public:
 	int m_BonusCombo{ 0 };
 
 public:
-	void DrawRemaining(const Renderer2DPtr& renderer);
-	void DrawCombo(const Renderer2DPtr& renderer);
+	int GetRemaining() const;
 	void setRemaining(int remaining);
 	void addCombo();
 	void comboReset();

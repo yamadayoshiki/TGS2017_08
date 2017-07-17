@@ -83,6 +83,8 @@ TargetPosition EnemyCommandEnemy01Detour::GetTargetPositionManager() {
 	float dis = frontChipList.GeTheOffSideOfTheWallChipNum() * ((int)MapType::Double + 1)*CHIP_SIZE;
 	//ƒS[ƒ‹’n“_
 	GSvector2 goal = p_Enemy.lock()->getWorld()->GetMap()->GetTilePos(p_Enemy.lock()->getPosition(), MapType::Double) + p_Enemy.lock()->GetDirection().GetVector2() * dis;
+	//ŒÀŠE
+	int limit = 0;
 	//ƒS[ƒ‹‚É‚½‚Ç‚è’…‚­‚Ü‚Å
 	while (true)
 	{
@@ -94,6 +96,12 @@ TargetPosition EnemyCommandEnemy01Detour::GetTargetPositionManager() {
 
 		else if (targetPositionAntiClockwise.GetLastPos() == goal)
 			return targetPositionAntiClockwise;
+
+		limit++;
+		if (limit >= 100) {
+			std::cout << "100’´‚¦‚½‚æ";
+			return targetPositionClockwise;
+		}
 	}
 }
 

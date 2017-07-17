@@ -2,6 +2,7 @@
 #define SCENETRANSITION_H_
 #include "Transition/Transition.h"
 #include <gslib.h>
+class Texture;
 // シーン切り替えクラス
 class SceneTransition : public Transition{
 public:
@@ -20,7 +21,7 @@ public:
 	virtual bool isEnd() override;
 private:
 	GScolor m_Color;	// α値
-	int m_DrawID;		//描画ID
+	std::unique_ptr<Texture> p_Texture;
 };
 
 #endif // !SCENETRANSITION_H_

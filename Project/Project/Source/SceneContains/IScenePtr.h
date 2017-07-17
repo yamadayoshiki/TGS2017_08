@@ -6,5 +6,6 @@
 //シーンポインタ
 class IScene;
 using IScenePtr = std::shared_ptr<IScene>;
+using ISceneWPtr = std::weak_ptr<IScene>;
 
 #endif // !ISCENE_PTR_H_

@@ -34,7 +34,7 @@ EnemyBase::~EnemyBase() {
 }
 
 //初期化
-void EnemyBase::initialize() {
+void EnemyBase::onInitialize() {
 	//プレイヤー監視
 	p_PlayerWatch.reset(new PlayerWatch(shared_from_this()));
 	//各種固有のコマンドの設定

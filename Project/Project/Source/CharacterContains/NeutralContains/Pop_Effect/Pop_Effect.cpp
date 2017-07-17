@@ -20,8 +20,7 @@ Pop_Effect::~Pop_Effect() {
 }
 
 //‰Šú‰»
-void Pop_Effect::initialize() {
-	p_Texture->Initialize();
+void Pop_Effect::onInitialize() {
 	p_Texture->GetParameter()->m_Center = { 32.0f,32.0f };
 }
 

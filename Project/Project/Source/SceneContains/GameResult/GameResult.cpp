@@ -24,25 +24,28 @@
 
 // コンストラクタ    
 GameResult::GameResult(const IGameManagerPtr& gameManager)
-	:Scene(gameManager)
-{
-	
+	: Scene(gameManager)
+	, m_SceneManager(new SceneManager()){
+}
+
+GameResult::~GameResult(){
+	delete m_SceneManager;
 }
 
 // 開始     
 void GameResult::OnStart() {
+	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
+
 	MapOrder = p_GameManager->get_MapOrder();
 
-	m_SceneManager = new SceneManager();
 	m_SceneManager->Initialize();
-
 	//シーンの追加
-	m_SceneManager->Add(SceneName::ResultStart, std::make_shared<ResultStart>(p_World.get(),p_GameManager));
-	m_SceneManager->Add(SceneName::ResultStaging, std::make_shared<ResultStaging>(p_World.get(),p_GameManager));
+	//m_SceneManager->Add(SceneName::ResultStart, std::make_shared<ResultStart>(p_World.get(), p_GameManager));
+	//m_SceneManager->Add(SceneName::ResultStaging, std::make_shared<ResultStaging>(p_World.get(), p_GameManager));
 	m_SceneManager->Add(SceneName::ResultEnd, std::make_shared<ResultEnd>(p_World.get(), p_GameManager));
 
-	m_SceneManager->Change(SceneName::ResultStart);
-	
+	m_SceneManager->Change(SceneName::ResultEnd);
+
 	//BGMの設定
 	gsBindMusic(BGM_GAME_CLER);
 	//BGM再生
@@ -51,7 +54,7 @@ void GameResult::OnStart() {
 
 // 更新     
 void GameResult::OnUpdate(float deltaTime) {
-	
+
 	m_SceneManager->Update(deltaTime);
 
 	timer_ += deltaTime;
@@ -59,13 +62,9 @@ void GameResult::OnUpdate(float deltaTime) {
 
 void GameResult::OnDraw() const
 {
-	//次のステージに行くかタイトルに戻るか
-	p_GameManager->GetRenderer2D()->DrawTexture("game_back", GSvector2(0, 0));
-
 	m_SceneManager->Draw();
 }
 
-void GameResult::OnEnd()
-{
-	m_SceneManager = nullptr;
+void GameResult::OnEnd() {
+	m_SceneManager->Initialize();
 }
