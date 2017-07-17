@@ -1,5 +1,6 @@
 #include"PlayerState_MoveBase.h"
 #include"../../../../../../ActorContains/Transform/Transform.h"
+#include"../../../../../../ActorContains/BodyContains/Factory/BodyFactory.h"
 
 //コンストラクタ
 PlayerState_MoveBase::PlayerState_MoveBase(const Player_WPtr& player, IGameManagerPtr gameManager)
@@ -13,6 +14,8 @@ void PlayerState_MoveBase::unique_init()
 		p_Player.lock()->getParameter().Chargeflag = false;
 	}
 	TextureName_Change("Player_Close");
+	p_Player.lock()->getWorld()->GetBodyFactory()->Transform(p_Player.lock()->getBody(), Body::BodyDataName::Player_Close);
+
 
 	// 継承先の各状態独自の初期化
 	onUniqueInit();

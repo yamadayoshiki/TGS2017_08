@@ -7,6 +7,7 @@
 #include "../../../Define/Def_Nakayama.h"
 #include"../../../Map/MapType.h"
 #include "../../../ActorContains/Transform/Transform.h"
+
 //コンストラクタ
 PlayerState::PlayerState(const Player_WPtr& player, const IGameManagerPtr& gameManager)
 	: p_Player(player)

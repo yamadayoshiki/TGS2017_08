@@ -29,7 +29,7 @@ void Rank::regist(const std::string & file_name)
 		return;
 	}
 
-	m_ScorePosition = GSvector2(csv.getf(1, 4), csv.getf(1, 5));
+	m_Position = GSvector2(csv.getf(1, 4), csv.getf(1, 5));
 
 	for (int StageNum = 0; StageNum < (csv.rows() - 1) / 4; StageNum++) {
 		RankDetaList list;
@@ -90,8 +90,8 @@ void Rank::RankSet()
 			m_TextureName = RankList[rankDeta].file_name;
 		}
 	}
-	p_Texture = std::make_shared<Texture>(m_TextureName, p_GameManager->GetDrawManager(), DrawOrder::UI_Front1);
+	p_Texture = std::make_shared<Texture>(m_TextureName, p_GameManager->GetDrawManager(), DrawOrder::UI);
 	//ƒpƒ‰ƒ[ƒ^‚ÌÝ’è
-	p_Texture->GetParameter()->m_Position = m_ScorePosition;
+	p_Texture->GetParameter()->m_Position = m_Position;
 	p_Texture->GetParameter()->m_Center = { 175.0f,175.0f };
 }

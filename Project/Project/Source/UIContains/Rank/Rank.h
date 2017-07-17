@@ -42,7 +42,7 @@ private:
 	int num{ 3 };
 	int m_Count{ 0 };
 	std::string m_TextureName;
-	GSvector2 m_ScorePosition{ 880, 500 };
+	GSvector2 m_Position;
 	GScolor Start_Color{ 0.0f,0.0f,0.0f,0.0f };
 	GScolor End_Color{1.0f,1.0f,1.0f,1.0f};
 	GSvector2 Start_Scale{ 3.0f,3.0f };
