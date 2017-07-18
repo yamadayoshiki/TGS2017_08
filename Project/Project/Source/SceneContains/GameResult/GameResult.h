@@ -38,14 +38,14 @@ public:
 	//ランクの取得
 	std::weak_ptr<Rank> GetRankUI();
 	//リザルト結果の基盤画像の取得
-	std::weak_ptr<Sprite> GetPratform();
+	std::weak_ptr<Sprite> GetPlatform();
 	//ブロック画像の取得
 	std::weak_ptr<Sprite> GetBlock();
 
 private:
 	std::weak_ptr<Number> p_ScoreUI;
 	std::weak_ptr<Rank> p_RankUI;
-	std::weak_ptr<Sprite> p_Pratform;
+	std::weak_ptr<Sprite> p_Platform;
 	std::weak_ptr<Sprite> p_Block;
 
 	std::unique_ptr<SceneChildMgr>

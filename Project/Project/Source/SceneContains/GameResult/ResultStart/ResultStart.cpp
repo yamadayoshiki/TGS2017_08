@@ -31,5 +31,5 @@ void ResultStart::OnDraw()const{
 }
 //èIóπ
 void ResultStart::OnEnd(){
-	//std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 }

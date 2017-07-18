@@ -79,12 +79,12 @@ void GameResult::OnStart() {
 		return false;
 	}));
 	//リザルト結果の基盤画像
-	p_Pratform = std::dynamic_pointer_cast<Sprite>(
+	p_Platform = std::dynamic_pointer_cast<Sprite>(
 		p_UIMgr->findChildren([&](const Actor& actor)
 	{
 		if (actor.getName() == ActorName::UI_Sprite)
 		{
-			if (dynamic_cast<Sprite*>(const_cast<Actor*>(&actor))->GetUsage() == "Pratform")
+			if (dynamic_cast<Sprite*>(const_cast<Actor*>(&actor))->GetUsage() == "Platform")
 				return true;
 		}
 		return false;
@@ -108,7 +108,7 @@ void GameResult::OnStart() {
 	//各種パラメーター初期化
 	p_ScoreUI.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_RankUI.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
-	p_Pratform.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	p_Platform.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_Block.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 
 	//BGMの設定
@@ -149,9 +149,9 @@ std::weak_ptr<Rank> GameResult::GetRankUI()
 	return p_RankUI;
 }
 
-std::weak_ptr<Sprite> GameResult::GetPratform()
+std::weak_ptr<Sprite> GameResult::GetPlatform()
 {
-	return p_Pratform;
+	return p_Platform;
 }
 
 std::weak_ptr<Sprite> GameResult::GetBlock()
