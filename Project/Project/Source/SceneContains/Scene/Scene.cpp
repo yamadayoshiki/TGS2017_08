@@ -94,12 +94,11 @@ void Scene::Draw() const
 
 void Scene::End() {
 	OnEnd();
-
+	m_Transition->end();
 	p_World = nullptr;
 }
 
-bool Scene::IsEnd() const
-{
+bool Scene::IsEnd() const {
 	return m_Transition->isEnd();
 }
 

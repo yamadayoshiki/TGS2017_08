@@ -15,6 +15,7 @@ namespace Body
 			return;
 
 		GSvector2 vec = contact.GetExtrusion(0);
+		if (isnan(vec.x) || isnan(vec.y)) return;
 		m_SumVec = vec;
 	}
 }

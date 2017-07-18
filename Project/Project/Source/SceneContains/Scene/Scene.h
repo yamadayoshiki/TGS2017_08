@@ -29,18 +29,20 @@ public:
 	virtual ~Scene();
 
 public:
+	// セットアップ
+	virtual void SetUp()override {}
 	// 開始     
-	void Start() override;
+	virtual void Start() override;
 	// 更新     
-	void Update(float deltaTime) override;
+	virtual void Update(float deltaTime) override;
 	// 描画     
-	void Draw() const override;
+	virtual void Draw() const override;
 	// 終了     
-	void End() override;
+	virtual void End() override;
 	// 終了しているか？     
-	bool IsEnd() const override;
+	virtual bool IsEnd() const override;
 	// 次のシーンを返す     
-	SceneName Next() const override;
+	virtual SceneName Next() const override;
 	// 名前を設定
 	void SetName(const SceneName & name) override;
 	// 名前の取得

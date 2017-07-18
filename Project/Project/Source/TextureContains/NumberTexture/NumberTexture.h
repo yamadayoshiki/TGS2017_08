@@ -39,6 +39,10 @@ public:
 	Texture2DParameterSPtr GetParameter()override { return nullptr; }
 	//ループ回数の取得
 	int GetLoopCount()override { return 0; }
+	//ストップ
+	void Stop()override {}
+	//リスタート
+	void Restart()override {}
 	//座標+回転の設定
 	void SetPosAndAngle(const GSvector2& pos, float angle)override {};
 	//表示モード切替

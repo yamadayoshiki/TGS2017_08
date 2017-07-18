@@ -19,6 +19,8 @@ public:
 protected:
 	// 開始     
 	virtual void Start();
+	// セットアップ
+	virtual void SetUp()override{}
 	// 更新     
 	virtual void Update(float deltaTime);
 	//描画
