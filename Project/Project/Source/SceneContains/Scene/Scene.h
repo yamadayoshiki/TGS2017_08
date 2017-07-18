@@ -49,6 +49,11 @@ public:
 	SceneName GetName() override;
 	// 子の設定
 	void SetUpChild(ChildScene& child) override;
+	// メッセージ処理
+	virtual void HandleMessage(EventMessage message, void* param)override;
+
+	void StopWorld() override;
+	void Restart() override;
 
 protected:
 	// 各種固有の開始     
@@ -66,12 +71,14 @@ protected:
 	WorldPtr p_World;				//ワールド
 	SceneName m_SceneName;			//シーンの名前
 	TransitionPtr m_Transition;		//遷移演出
-	bool PauseFlag = false;			//ポーズフラグ
 	CarsorMovement					//カーソル移動
 		m_CarsorMovement{
 		CarsorMovement::Up };
 	int MapOrder = 0;				//マップの順番
 	bool isGameClear;				//ゲームをクリアしたか
+
+private:
+	bool PauseFlag = false;			//ポーズフラグ
 };
 
 #endif // !SCENE_H_

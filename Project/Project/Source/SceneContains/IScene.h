@@ -4,6 +4,7 @@
 #include "SceneName.h"
 enum class SceneMode;
 class ChildScene;
+enum class EventMessage;
 
 //シーン抽象インターフェイス
 class IScene
@@ -31,6 +32,12 @@ public:
 	virtual SceneName GetName() = 0;
 	// 子の設定
 	virtual void SetUpChild(ChildScene& child) = 0;
+	// メッセージ処理
+	virtual void HandleMessage(EventMessage message, void* param) = 0;
+	// ワールドの停止
+	virtual void StopWorld() = 0;
+	// ワールドの再開
+	virtual void Restart() = 0;
 };
 
 

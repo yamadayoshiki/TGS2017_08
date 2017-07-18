@@ -32,6 +32,8 @@ protected:
 	virtual SceneName GetName() override;
 	// 子の設定
 	void SetUpChild(ChildScene& child)override {}
+	// メッセージ処理
+	virtual void HandleMessage(EventMessage message, void* param) {}
 
 private:
 	//ワールド

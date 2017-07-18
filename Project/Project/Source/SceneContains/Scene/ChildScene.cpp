@@ -1,4 +1,5 @@
 #include "ChildScene.h"
+#include "../../WorldContains/EventMessage/EventMessage.h"
 
 ChildScene::ChildScene()
 	:Scene() {
@@ -18,7 +19,6 @@ void ChildScene::Update(float deltaTime) {
 
 void ChildScene::End() {
 	OnEnd();
-	p_World = nullptr;
 }
 
 bool ChildScene::IsEnd() const {
@@ -36,4 +36,17 @@ void ChildScene::Change(const SceneName next) {
 
 void ChildScene::SetParent(const IScenePtr & parent) {
 	p_Parent = parent;
+}
+
+void ChildScene::HandleMessage(EventMessage message, void * param) {
+	switch (message)
+	{
+	case EventMessage::END_SCENE:
+		Change((const SceneName&)param);
+		break;
+	}
+}
+
+void ChildScene::ReleaseWorld(){
+	p_World = nullptr;
 }

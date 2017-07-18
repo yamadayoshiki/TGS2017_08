@@ -15,6 +15,8 @@ public:
 public:
 	//子の設定
 	void SetUpChild();
+	//子のworld解放
+	void ReleaseWorld();
 
 private:
 	// コピー禁止     

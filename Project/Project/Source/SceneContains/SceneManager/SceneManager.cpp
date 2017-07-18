@@ -54,3 +54,7 @@ SceneName SceneManager::GetSceneName()
 {
 	return m_CurrentScene->GetName();
 }
+
+void SceneManager::HandleMessage(EventMessage message, void * param){
+	m_CurrentScene->HandleMessage(message, param);
+}

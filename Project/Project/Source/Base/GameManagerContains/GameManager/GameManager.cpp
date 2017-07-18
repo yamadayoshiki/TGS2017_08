@@ -222,6 +222,16 @@ ScorePtr GameManager::GetScore() {
 	return p_Score;
 }
 
+void GameManager::SetSceneManager(const std::shared_ptr<SceneManager>& sceneMgr)
+{
+	p_SceneMgr = sceneMgr;
+}
+
+std::shared_ptr<SceneManager> GameManager::GetSceneManager()
+{
+	return p_SceneMgr.lock();
+}
+
 void GameManager::set_MapOrder(int MapOrder)
 {
 	MapOrder_ = MapOrder;

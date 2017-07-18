@@ -6,6 +6,7 @@
 #include "../../ActorContains/ActorGroup.h"
 #include "../../UIContains/UIManager/UIManager.h"
 #include"../../Utility/Sound/SoundName.h"
+#include "../../WorldContains/EventMessage/EventMessage.h"
 #include "ChildScene.h"
 
 #include <chrono>
@@ -13,7 +14,11 @@
 #include <memory>
 
 Scene::Scene()
-	: Scene(nullptr) {
+	: m_IsEnd(false)
+	, p_GameManager(nullptr)
+	, m_Transition(nullptr)
+	, MapOrder(0)
+	, isGameClear(false) {
 }
 
 //コンストラクタ
@@ -31,10 +36,9 @@ Scene::~Scene() {
 }
 
 // 開始     
-void Scene::Start()
-{
-
+void Scene::Start() {
 	m_IsEnd = false;
+	PauseFlag = false;
 	// 遷移演出の開始
 	m_Transition->start();
 	// 遷移演出モードの切り替え
@@ -57,19 +61,10 @@ void Scene::Update(float deltaTime)
 		m_IsEnd = true;
 	}
 
-	/*
-	std::chrono::system_clock::time_point  start, end; // 型は auto で可
-	start = std::chrono::system_clock::now(); // 計測開始時間
-											  //*/
-											  //フラグがたったら画面が止まる
+	//ポーズでないなら更新
 	if (PauseFlag == false) {
 		p_World->update(deltaTime);
 	}
-	/*
-	end = std::chrono::system_clock::now();  // 計測終了時間
-	double elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count(); //処理に要した時間をミリ秒に変換
-	std::cout << "world" << ":Update:" << elapsed << std::endl;
-	//*/
 
 	//ワールドが終わっていなかったら各種固有の更新
 	if (p_World->IsEnd() != true) { OnUpdate(deltaTime); }
@@ -120,4 +115,21 @@ void Scene::SetUpChild(ChildScene & child) {
 	child.p_GameManager = p_GameManager;
 	child.p_World = p_World;
 	child.MapOrder = MapOrder;
+}
+
+//メッセージ処理
+void Scene::HandleMessage(EventMessage message, void * param) {
+	switch (message)
+	{
+	case EventMessage::END_SCENE:
+		p_World->EndRequest((const SceneName&)param);
+	}
+}
+
+void Scene::StopWorld() {
+	PauseFlag = true;
+}
+
+void Scene::Restart() {
+	PauseFlag = false;
 }

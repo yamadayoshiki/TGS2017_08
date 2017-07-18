@@ -1,6 +1,7 @@
 #include "SceneChildMgr.h"
 #include "../Scene/Scene.h"
 #include "../Scene/ChildScene.h"
+#include "../Scene/ChildScene.h"
 SceneChildMgr::SceneChildMgr(const IScenePtr& parent)
 	: p_Parent(parent) {
 }
@@ -19,3 +20,7 @@ void SceneChildMgr::SetUpChild() {
 		p_Parent.lock()->SetUpChild((*dynamic_cast<ChildScene*>(itr->second.get())));
 }
 
+void SceneChildMgr::ReleaseWorld(){
+	for (auto itr = m_SceneDic.begin(); itr != m_SceneDic.end(); itr++)
+		std::dynamic_pointer_cast<ChildScene>(itr->second)->ReleaseWorld();
+}
