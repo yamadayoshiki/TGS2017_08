@@ -10,6 +10,8 @@ struct Player_Parameter
 {
 public:
 	Player_Parameter();
+	//座標
+	GSvector2 m_Position{ 0.0f,0.0f };
 	//残機数
 	int m_Remaining{ 0 };
 	//スタート地点
@@ -36,6 +38,8 @@ public:
 	int m_BonusCombo{ 0 };
 
 public:
+	GSvector2 getPosition()const;
+	void setPosition(const GSvector2& position);
 	int GetRemaining() const;
 	void setRemaining(int remaining);
 	void addCombo();

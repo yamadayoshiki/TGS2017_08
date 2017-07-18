@@ -45,6 +45,8 @@ void Player::onInitialize()
 	m_Parameter.m_ChargeConter = 0;
 	//スタート地点の補間
 	m_Parameter.m_StratPosition = getPosition();
+	//座標の設定
+	m_Parameter.setPosition(p_Transform->m_Position);
 	//コンボの初期化
 	m_Parameter.m_Combo = 0;
 
@@ -68,6 +70,9 @@ void Player::onUpdate(float deltaTime)
 {
 	//状態管理の更新処理
 	mStateManager->action(deltaTime);
+
+	//プレイヤーの座標の設定
+	m_Parameter.setPosition(p_Transform->m_Position);
 
 	//行動制限
 	p_Transform->m_Position = getPosition().clamp(GSvector2(32.0f, 32.0f), GSvector2(1248, 928));

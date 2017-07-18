@@ -30,6 +30,7 @@ void Rank::regist(const std::string & file_name)
 	}
 
 	m_Position = GSvector2(csv.getf(1, 4), csv.getf(1, 5));
+	m_Usage = csv.get(1, 6);
 
 	for (int StageNum = 0; StageNum < (csv.rows() - 1) / 4; StageNum++) {
 		RankDetaList list;
@@ -74,10 +75,11 @@ void Rank::ChangeDisplayMode(const DisplayMode mode){
 	p_Texture->ChangeDisplayMode(mode);
 }
 
-int Rank::getIndex(int index, int next)
+std::string Rank::GetUsage() const
 {
-	return 0;
+	return m_Usage;
 }
+
 
 void Rank::RankSet()
 {
