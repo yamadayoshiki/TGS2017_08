@@ -25,13 +25,13 @@ public:
 	};
 protected:
 	// 開始     
-	virtual void OnStart();
+	virtual void OnStart() override;
 	// 更新     
-	virtual void OnUpdate(float deltaTime);
+	virtual void OnUpdate(float deltaTime) override;
 	//描画
-	virtual void OnDraw()const;
+	virtual void OnDraw()const override;
 	//終了
-	virtual void OnEnd();
+	virtual void OnEnd() override;
 
 private:
 	SceneManager*	m_SceneManager;

@@ -5,7 +5,10 @@
 #include <GSvector2.h>
 class StartLogoAnimation {
 public:
-	StartLogoAnimation(Animation animation ,std::string textureName, GSvector2 position);
+	StartLogoAnimation(
+		Animation animation,
+		std::string textureName,
+		GSvector2 position);
 	virtual void draw();
 private:
 	Animation *m_Animation;

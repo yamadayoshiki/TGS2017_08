@@ -301,11 +301,15 @@
     <ClInclude Include="Source\DrawOrderManager\DrawOrderManager.h" />
     <ClInclude Include="Source\Map\CombinationTexture\CombinationTexture.h" />
     <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h" />
+    <ClInclude Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.h" />
+    <ClInclude Include="Source\SceneContains\Elements\DropSprite\DropSprite.h" />
+    <ClInclude Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\BigBlock2.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\CreditEnd\CreditEnd.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\CreditStart\CreditStart.h" />
     <ClInclude Include="Source\SceneContains\GameOver\GameOver.h" />
+    <ClInclude Include="Source\SceneContains\GamePlay\Play\GamePlayPlay.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.h" />
     <ClInclude Include="Source\SceneContains\GameResult\BigBlock.h" />
     <ClInclude Include="Source\SceneContains\GameResult\ResultEnd\ResultEnd.h" />
@@ -528,6 +532,9 @@
     <ClCompile Include="Source\MapGenerator\MapGenerator.cpp" />
     <ClCompile Include="Source\Map\CombinationTexture\CombinationTexture.cpp" />
     <ClCompile Include="Source\Map\Map.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\DropSprite\DropSprite.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.cpp" />
     <ClCompile Include="Source\SceneContains\GameCredit\BigBlock2.cpp" />
     <ClCompile Include="Source\SceneContains\GameCredit\CreditEnd\CreditEnd.cpp" />
     <ClCompile Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.cpp" />

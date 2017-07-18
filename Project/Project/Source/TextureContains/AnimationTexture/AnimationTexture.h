@@ -16,16 +16,18 @@ public:
 		const unsigned int animmationUpdateTimer);
 	//デストラクタ
 	~AnimationTexture();
-	//初期化
-	virtual void Initialize() override;
-	//更新
-	virtual void Update(float deltaTime) override;
 
 public:
 	//ループ回数の取得
 	int GetLoopCount() override;
 	//アニメーションの取得
 	AnimationSPtr GetAnimation();
+
+protected:
+	//初期化
+	void OnInitialize() override;
+	//更新
+	void OnUpdate(float deltaTime) override;
 
 protected:
 	AnimationSPtr p_Animation;	//アニメーション

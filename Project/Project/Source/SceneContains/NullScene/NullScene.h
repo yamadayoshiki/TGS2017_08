@@ -9,6 +9,8 @@ class NullScene : public IScene
 public:
 	// デフォルトコンストラクタ
 	NullScene() {}
+	// セットアップ
+	virtual void SetUp()override {}
 	// 開始     
 	void Start() override {}
 	// 更新     

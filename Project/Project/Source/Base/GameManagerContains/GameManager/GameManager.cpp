@@ -104,7 +104,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Platform", "Resource/Texture/UI/Result/base.png");
 
 
-	//p_Renderer2D->LoadTexture("Black", "Resource/Texture/UI/black_screen.png");
+	p_Renderer2D->LoadTexture("black_screen", "Resource/Texture/UI/black_screen.png");
 	/*p_Renderer2D->LoadTexture("Cursor", "Resource/Texture/UI/Play/DeadCursor.png");
 	p_Renderer2D->LoadTexture("Return", "Resource/Texture/UI/return.png");
 	p_Renderer2D->LoadTexture("Next", "Resource/Texture/UI/next.png");

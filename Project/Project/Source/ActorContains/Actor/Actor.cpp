@@ -18,12 +18,12 @@ Actor::Actor(
 	IWorld* world,
 	const ActorName& name,
 	const GSvector2& position,
-	const IGameManagerPtr& gaemManager,
+	const IGameManagerPtr& gameManager,
 	const ITexturePtr& texture,
 	const Body::MotionType type,
 	const Body::BodyDataName dataName)
 	: p_World(world)
-	, p_GameManager(gaemManager)
+	, p_GameManager(gameManager)
 	, m_Name(name)
 	, p_Transform(std::make_shared<Transform>(position, 0.0f))
 	, p_Texture(texture)
@@ -51,10 +51,10 @@ void Actor::initialize() {
 
 //更新
 void Actor::update(float deltaTime) {
-	//各種固有の更新
-	onUpdate(deltaTime);
 	//テクスチャ更新
 	p_Texture->Update(deltaTime);
+	//各種固有の更新
+	onUpdate(deltaTime);
 	//子の更新
 	eachChildren([&](Actor& child) {child.update(deltaTime); });
 }
