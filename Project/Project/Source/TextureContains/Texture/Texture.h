@@ -13,6 +13,10 @@ public:
 		const DrawOrder drawOrder);
 	//ループ回数の取得
 	int GetLoopCount() override { return 0; }
+
+public:
+	//テクスチャ交換
+	void ChangeTexture(const std::string& texName, const DrawOrder drawOrder);
 };
 
 #endif // !TEXTURE_H_

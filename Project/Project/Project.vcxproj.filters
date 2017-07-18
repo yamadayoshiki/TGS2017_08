@@ -852,6 +852,12 @@
     <ClInclude Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\Guide\Guide.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -1395,6 +1401,12 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\Guide\Guide.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

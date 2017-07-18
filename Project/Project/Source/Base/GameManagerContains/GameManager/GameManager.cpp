@@ -57,13 +57,36 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Smork", "Resource/Texture/Effect/syutugenn.png");
 
 	//UI
-	p_Renderer2D->LoadTexture("Cursor", "Resource/Texture/UI/Block5.png");
+	p_Renderer2D->LoadTexture("Cursor", "Resource/Texture/UI/Pause/Cursor.png");
 
 	//Title
 	p_Renderer2D->LoadTexture("Title", "Resource/Texture/UI/Title/title.png");
 	p_Renderer2D->LoadTexture("WideHead", "Resource/Texture/UI/Title/titleblock3.png");
 	p_Renderer2D->LoadTexture("Start", "Resource/Texture/UI/Title/Start.png");
 	p_Renderer2D->LoadTexture("logo", "Resource/Texture/UI/Title/logo.png");
+
+	//Tutorial
+	p_Renderer2D->LoadTexture("TutorialLeft1", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide1.png");
+	p_Renderer2D->LoadTexture("TutorialLeft2", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide2.png");
+	p_Renderer2D->LoadTexture("TutorialLeft3", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide3.png");
+	p_Renderer2D->LoadTexture("TutorialLeft4", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide4.png");
+	p_Renderer2D->LoadTexture("TutorialLeft5", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide5.png");
+	p_Renderer2D->LoadTexture("TutorialLeft6", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide6.png");
+	p_Renderer2D->LoadTexture("TutorialLeft7", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide7.png");
+	p_Renderer2D->LoadTexture("TutorialLeft8", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide8.png");
+
+	p_Renderer2D->LoadTexture("TutorialRightBG", "Resource/Texture/UI/Tutorial/TutorialRight/Playergaido.png");
+	p_Renderer2D->LoadTexture("TutorialRightBButton", "Resource/Texture/UI/Tutorial/TutorialRight/button_anime2.png");
+	p_Renderer2D->LoadTexture("TutorialRightYButton", "Resource/Texture/UI/Tutorial/TutorialRight/button_anime3.png");
+	p_Renderer2D->LoadTexture("TutorialRightInsert", "Resource/Texture/UI/Tutorial/TutorialRight/Playergaido_anime.png");
+	p_Renderer2D->LoadTexture("TutorialRightBlockCrush", "Resource/Texture/UI/Tutorial/TutorialRight/Playergaido_anime2.png");
+	p_Renderer2D->LoadTexture("TutorialRightEnemyCrush", "Resource/Texture/UI/Tutorial/TutorialRight/Playergaido_anime3.png");
+	p_Renderer2D->LoadTexture("TutorialRightButtonCharge", "Resource/Texture/UI/Tutorial/TutorialRight/button_anime.png");
+	p_Renderer2D->LoadTexture("TutorialRightCharge", "Resource/Texture/UI/Tutorial/TutorialRight/Player_anime.png");
+	p_Renderer2D->LoadTexture("TutorialRightButtonChargeCrush", "Resource/Texture/UI/Tutorial/TutorialRight/button_anime4.png");
+	p_Renderer2D->LoadTexture("TutorialRightChargeCrush", "Resource/Texture/UI/Tutorial/TutorialRight/Player_anime2.png");
+	p_Renderer2D->LoadTexture("TutorialRightAButton", "Resource/Texture/UI/Tutorial/TutorialRight/button_anime5.png");
+	p_Renderer2D->LoadTexture("TutorialRightDash", "Resource/Texture/UI/Tutorial/TutorialRight/Player_anime3.png");
 
 	//Play
 	p_Renderer2D->LoadTexture("game_back", "Resource/Texture/UI/Play/play.png");

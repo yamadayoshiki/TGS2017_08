@@ -31,6 +31,7 @@ public:
 		SceneName next;
 		std::unordered_map<GSushort, int> key;
 		Texture2DParameterSPtr param;
+		GSvector2 m_CursorPos;
 	};
 public:
 	Button(

@@ -12,6 +12,8 @@ class SceneManager
 public:
 	// コンストラクタ     
 	SceneManager();
+	// セットアップ
+	void SetUp();
 	// 初期化     
 	void Initialize();
 	// 更新     

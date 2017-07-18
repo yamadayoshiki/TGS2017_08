@@ -13,14 +13,14 @@ class GamePlay : public Scene
 {
 public:
 	// コンストラクタ    
-	GamePlay(const IGameManagerPtr& gameManager);
+	explicit GamePlay(const IGameManagerPtr& gameManager);
 
 protected:
 	// セットアップ
-	void SetUp() override;
-	// 開始     
+	virtual void SetUp() override;
+	// 開始
 	virtual void OnStart() override;
-	// 更新     
+	// 更新
 	virtual void OnUpdate(float deltaTime) override;
 	// 描画     
 	virtual void OnDraw()const override;
@@ -39,11 +39,11 @@ public:
 	//ポーズ画面背景の取得
 	std::weak_ptr<Sprite> GetPauseBack();
 
-private:
+protected:
 	//Mapデータの設定
-	void MapSetDeta();
+	virtual void MapSetDeta();
 
-private:
+protected:
 	std::weak_ptr<Number> p_ScoreUI;			//スコア
 	std::weak_ptr<Number> p_PlayerRemainingUI;	//プレイヤー残機
 	std::weak_ptr<Button> p_ButtonUI;			//ポーズ画面ボタンUI

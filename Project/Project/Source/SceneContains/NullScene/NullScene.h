@@ -31,8 +31,12 @@ public:
 	void SetUpChild(ChildScene& child)override {}
 	// メッセージ処理
 	virtual void HandleMessage(EventMessage message, void* param) override{}
-	void StopWorld() override {}
-	void Restart()override {}
+	// ワールドの停止
+	virtual void StopWorld()override {}
+	// ワールドの再開
+	virtual void Restart()override {}
+	// 兄弟配列の設定
+	virtual void SetBrothers(const std::vector<SceneName>& children)override{}
 };
 
 #endif

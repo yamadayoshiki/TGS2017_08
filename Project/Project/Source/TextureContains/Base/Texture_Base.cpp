@@ -13,11 +13,13 @@ Texture_Base::Texture_Base(
 	//描画管理に登録
 	m_DrawOrderID = p_DrawManager.lock()->RegisterDefaultParam(m_TexName, p_Parameter, drawOrder);
 }
+
 //デストラクタ
 Texture_Base::~Texture_Base() {
 	//描画管理から削除
 	p_DrawManager.lock()->Remove(m_DrawOrderID);
 }
+
 //パラメーターの取得
 Texture2DParameterSPtr Texture_Base::GetParameter() {
 	return p_Parameter;

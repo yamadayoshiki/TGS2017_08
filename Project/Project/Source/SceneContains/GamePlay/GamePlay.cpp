@@ -28,18 +28,19 @@
 #include "Ready\GamePlayReady.h"
 #include "Play\GamePlayPlay.h"
 #include "Pause\GamePlayPause.h"
+#include "../../WorldContains/EventMessage/EventMessage.h"
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 	: Scene(gameManager) {
-	isGameClear = false;
 }
 
-void GamePlay::SetUp(){
+void GamePlay::SetUp() {
 	p_SceneChildMgr = std::make_unique<SceneChildMgr>(shared_from_this());
 	p_SceneChildMgr->Add(SceneName::Start, std::make_shared<GamePlayReady>());
 	p_SceneChildMgr->Add(SceneName::Play, std::make_shared<GamePlayPlay>());
 	p_SceneChildMgr->Add(SceneName::Pause, std::make_shared<GamePlayPause>());
+	p_SceneChildMgr->SetUp();
 	p_SceneChildMgr->Change(SceneName::Start);
 }
 
@@ -133,26 +134,35 @@ void GamePlay::OnEnd() {
 	else
 		MapOrder = 0;
 }
-void GamePlay::HandleMessage(EventMessage message, void * param){
-	p_SceneChildMgr->HandleMessage(message, param);
+
+void GamePlay::HandleMessage(EventMessage message, void * param) {
+	if (IsExistBrother((const SceneName&)param) == true)
+		switch (message)
+		{
+		case EventMessage::END_SCENE:
+			p_World->EndRequest((const SceneName&)param);
+		}
+
+	else
+		p_SceneChildMgr->HandleMessage(message, param);
 }
 
-std::weak_ptr<Number> GamePlay::GetScoreUI()
-{
+std::weak_ptr<Number> GamePlay::GetScoreUI(){
 	return p_ScoreUI;
 }
-std::weak_ptr<Number> GamePlay::GetPlayerRemainingUI()
-{
+
+std::weak_ptr<Number> GamePlay::GetPlayerRemainingUI(){
 	return p_PlayerRemainingUI;
 }
-std::weak_ptr<Button> GamePlay::GetButtonUI()
-{
+
+std::weak_ptr<Button> GamePlay::GetButtonUI(){
 	return p_ButtonUI;
 }
-std::weak_ptr<Sprite> GamePlay::GetPauseBack()
-{
+
+std::weak_ptr<Sprite> GamePlay::GetPauseBack(){
 	return p_PauseBack;
 }
+
 //Mapデータの設定
 void GamePlay::MapSetDeta() {
 	//マップデータによる生成

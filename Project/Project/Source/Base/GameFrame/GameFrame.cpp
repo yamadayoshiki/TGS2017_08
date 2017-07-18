@@ -62,7 +62,7 @@ void GameFrame::start(){
 	m_SceneManager->Add(SceneName::GameCredit, std::make_shared<GameCredit>(p_GameManager));
 	//m_SceneManager.Add(SceneName::GameEnd, std::make_shared<GameEnd>(p_GameManager));
 	m_SceneManager->Add(SceneName::GameOver, std::make_shared<GameOver>(p_GameManager));
-
+	m_SceneManager->SetUp();
 	//‰ŠúƒV[ƒ“‚ÌÝ’è
 	m_SceneManager->Change(SceneName::GameTitle);
 }

@@ -6,8 +6,7 @@
 #include "../../../UIContains/Sprite/Sprite.h"
 #include "../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../Utility/InputState/InputState.h"
-GamePlayPause::GamePlayPause()
-{
+GamePlayPause::GamePlayPause(){
 }
 
 void GamePlayPause::OnStart(){
@@ -20,6 +19,7 @@ void GamePlayPause::OnStart(){
 void GamePlayPause::OnUpdate(float deltaTime){
 
 	std::dynamic_pointer_cast<GamePlay>(p_Parent.lock())->GetButtonUI().lock()->update(deltaTime);
+	std::dynamic_pointer_cast<GamePlay>(p_Parent.lock())->GetButtonUI().lock()->LateUpdate();
 
 	//ƒ|[ƒYØ‚è‘Ö‚¦
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE)

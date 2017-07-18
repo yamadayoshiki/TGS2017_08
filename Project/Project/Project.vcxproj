@@ -303,7 +303,9 @@
     <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h" />
     <ClInclude Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.h" />
     <ClInclude Include="Source\SceneContains\Elements\DropSprite\DropSprite.h" />
+    <ClInclude Include="Source\SceneContains\Elements\Guide\Guide.h" />
     <ClInclude Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.h" />
+    <ClInclude Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\BigBlock2.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\CreditEnd\CreditEnd.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.h" />
@@ -535,7 +537,9 @@
     <ClCompile Include="Source\Map\Map.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\DropSprite\DropSprite.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\Guide\Guide.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.cpp" />
     <ClCompile Include="Source\SceneContains\GameCredit\BigBlock2.cpp" />
     <ClCompile Include="Source\SceneContains\GameCredit\CreditEnd\CreditEnd.cpp" />
     <ClCompile Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.cpp" />

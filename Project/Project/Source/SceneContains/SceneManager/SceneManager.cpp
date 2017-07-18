@@ -7,6 +7,15 @@ SceneManager::SceneManager()
 {
 }
 
+void SceneManager::SetUp() {
+	std::vector<SceneName> l_Result;
+	for (auto itr = m_SceneDic.begin(); itr != m_SceneDic.end(); itr++)
+		l_Result.push_back(itr->first);
+
+	for (auto itr = m_SceneDic.begin(); itr != m_SceneDic.end(); itr++)
+		itr->second->SetBrothers(l_Result);
+}
+
 // ‰Šú‰»     
 void SceneManager::Initialize() {
 	End();
@@ -55,6 +64,6 @@ SceneName SceneManager::GetSceneName()
 	return m_CurrentScene->GetName();
 }
 
-void SceneManager::HandleMessage(EventMessage message, void * param){
+void SceneManager::HandleMessage(EventMessage message, void * param) {
 	m_CurrentScene->HandleMessage(message, param);
 }

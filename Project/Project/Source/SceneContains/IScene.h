@@ -2,6 +2,7 @@
 #define ISCENE_H_
 
 #include "SceneName.h"
+#include <vector>
 enum class SceneMode;
 class ChildScene;
 enum class EventMessage;
@@ -38,6 +39,8 @@ public:
 	virtual void StopWorld() = 0;
 	// ワールドの再開
 	virtual void Restart() = 0;
+	// 兄弟配列の設定
+	virtual void SetBrothers(const std::vector<SceneName>& children) = 0;
 };
 
 

@@ -58,12 +58,13 @@ void Button::regist(const std::string & file_name) {
 		data.anim = csv.geti(row, static_cast<int>(Element::ANIMATE));
 		data.drawOrderID = p_GameManager->GetDrawManager()->RegisterDefaultParam(data.file_name, data.param, (DrawOrder)csv.geti(row, static_cast<int>(Element::DRAWORDER)));
 		data.param->m_Position = GSvector2(csv.getf(row, static_cast<int>(Element::POS_X)), csv.getf(row, static_cast<int>(Element::POS_Y)));
+		data.m_CursorPos = data.param->m_Position - (GSvector2(data.param->m_Rect.right / 2 + 50, 0));
 
 		m_Buttons[data.number] = data;
 	}
 
 	m_Index = m_Buttons[1].number;
-	p_Selector->setPosition(m_Buttons[m_Index].param->m_Position);
+	p_Selector->setPosition(m_Buttons[m_Index].m_CursorPos);
 }
 
 void Button::onUpdate(float deltaTime) {
@@ -79,10 +80,9 @@ void Button::onUpdate(float deltaTime) {
 	moveSelector(GS_XBOX_PAD_RIGHT);
 	moveSelector(GS_XBOX_PAD_LEFT);
 
-	p_Selector->setPosition(p_Selector->getPosition().lerp(m_Buttons[m_Index].param->m_Position, 0.5f));
+	p_Selector->setPosition(p_Selector->getPosition().lerp(m_Buttons[m_Index].m_CursorPos, 0.5f));
 
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
-		p_Selector->getPosition() == m_Buttons[m_Index].param->m_Position) {
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
 		p_GameManager->GetSceneManager()->HandleMessage(EventMessage::END_SCENE, (void*)m_Buttons[m_Index].next);
 		gsPlaySE(SE_DECITION);
 	}

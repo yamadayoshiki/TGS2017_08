@@ -19,6 +19,7 @@ Scene::Scene()
 	, m_Transition(nullptr)
 	, MapOrder(0)
 	, isGameClear(false) {
+	m_Brothers.clear();
 }
 
 //コンストラクタ
@@ -26,8 +27,8 @@ Scene::Scene(const IGameManagerPtr& gameManager)
 	: m_IsEnd(false)
 	, p_GameManager(gameManager)
 	, m_Transition(std::make_shared<SceneTransition>(gameManager))
-	, MapOrder(0) {
-	isGameClear = false;
+	, MapOrder(0)
+	, isGameClear(false) {
 }
 
 // 仮想デストラクタ     
@@ -132,4 +133,19 @@ void Scene::StopWorld() {
 
 void Scene::Restart() {
 	PauseFlag = false;
+}
+
+void Scene::SetBrothers(const std::vector<SceneName>& children) {
+	m_Brothers.clear();
+	for (auto itr = children.begin(); itr != children.end(); itr++)
+		m_Brothers.push_back(*itr);
+}
+
+bool Scene::IsExistBrother(const SceneName name) {
+	for (auto itr = m_Brothers.begin(); itr != m_Brothers.end(); itr++) {
+		if (*itr == name)
+			return true;
+	}
+
+	return false;
 }

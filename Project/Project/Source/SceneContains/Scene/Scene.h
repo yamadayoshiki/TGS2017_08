@@ -54,6 +54,12 @@ public:
 
 	void StopWorld() override;
 	void Restart() override;
+	// 兄弟配列の設定
+	void SetBrothers(const std::vector<SceneName>& children) override;
+
+protected:
+	//兄弟の検索
+	bool IsExistBrother(const SceneName name);
 
 protected:
 	// 各種固有の開始     
@@ -79,6 +85,8 @@ protected:
 
 private:
 	bool PauseFlag = false;			//ポーズフラグ
+	std::vector<SceneName>			//兄弟
+		m_Brothers;
 };
 
 #endif // !SCENE_H_
