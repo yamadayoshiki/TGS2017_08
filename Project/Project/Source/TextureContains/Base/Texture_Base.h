@@ -24,21 +24,32 @@ public:
 
 public:
 	//初期化
-	virtual void Initialize() override {}
+	void Initialize() override;
 	//更新
-	virtual void Update(float deltaTime) override {}
+	void Update(float deltaTime) override;
 	//ループ回数の取得
 	virtual int GetLoopCount() override = 0;
+	//ストップ
+	void Stop()override;
+	//リスタート
+	void Restart()override;
 	//座標+回転の設定
 	void SetPosAndAngle(const GSvector2& pos, float angle)override;
 	//表示モード切替
 	void ChangeDisplayMode(const DisplayMode mode)override;
 
 protected:
+	//初期化
+	virtual void OnInitialize() {}
+	//更新
+	virtual void OnUpdate(float deltaTime) {}
+
+protected:
 	std::string m_TexName;				//登録名
 	Texture2DParameterSPtr p_Parameter;	//パラメーター
 	int m_DrawOrderID;					//描画順序ID
 	DrawManagerWPtr p_DrawManager;		//描画管理
+	bool m_StopFlag;					//ストップフラグ
 };
 
 #endif // !TEXTURE_BASE_H_

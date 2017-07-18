@@ -24,11 +24,16 @@
 #include "../../UIContains/Number/Number.h"
 #include "../../UIContains/Sprite/Sprite.h"
 #include "../../UIContains/Button/Button.h"
+#include "../SceneManager/SceneChildMgr.h"
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
-	:Scene(gameManager) {
+	: Scene(gameManager) {
 	isGameClear = false;
+}
+
+void GamePlay::SetUp(){
+	p_SceneChildMgr = std::make_unique<SceneChildMgr>(shared_from_this());
 }
 
 // 開始     
@@ -83,7 +88,11 @@ void GamePlay::OnStart() {
 		return false;
 	}));
 
+	//子のセットアップ
+	p_SceneChildMgr->SetUpChild();
 
+
+	//各種パラメーター初期化
 	p_GameManager->GetScore()->ScoreRest();
 	PauseFlag = false;
 	p_ButtonUI.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
@@ -134,6 +143,22 @@ void GamePlay::OnEnd() {
 
 	else
 		MapOrder = 0;
+}
+std::weak_ptr<Number> GamePlay::GetScoreUI()
+{
+	return p_ScoreUI;
+}
+std::weak_ptr<Number> GamePlay::GetPlayerRemainingUI()
+{
+	return p_PlayerRemainingUI;
+}
+std::weak_ptr<Button> GamePlay::GetButtonUI()
+{
+	return p_ButtonUI;
+}
+std::weak_ptr<Sprite> GamePlay::GetPauseBack()
+{
+	return p_PauseBack;
 }
 //Mapデータの設定
 void GamePlay::MapSetDeta() {

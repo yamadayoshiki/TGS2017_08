@@ -14,27 +14,13 @@ public:
 
 protected:
 	// 開始     
-	virtual void OnStart();
+	virtual void OnStart() override;
 	// 更新     
-	virtual void OnUpdate(float deltaTime);
+	virtual void OnUpdate(float deltaTime) override;
 	// 描画     
-	virtual void OnDraw()const;
+	virtual void OnDraw()const override;
 	//終了
-	virtual void End();
-
-private:
-	//選択の更新
-	void SelectUpdate();
-	//テクスチャのパラメータ
-	Texture2DParameterSPtr p_OverParam;
-	Texture2DParameterSPtr p_ResultParam;
-	Texture2DParameterSPtr p_PauseRTParam;
-	Texture2DParameterSPtr p_CursorParam;
-	//テクスチャの管理番号
-	DrawOrderID m_OrverNum;
-	DrawOrderID m_ResultNum;
-	DrawOrderID m_PauseRTNum;
-	DrawOrderID m_CursorNum;
+	virtual void OnEnd() override;
 };
 
 #endif // !GAMEOVER_H_

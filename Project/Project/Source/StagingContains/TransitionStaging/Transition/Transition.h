@@ -34,6 +34,8 @@ public:
 	virtual void update(float deltaTime);
 	// 描画     
 	virtual void draw()const;
+	// 終了
+	virtual void end();
 	// モードの切りかえ
 	void changeMode(const Mode& mode);
 	// 終了フラグ
@@ -46,6 +48,8 @@ protected:
 	virtual void onUpdate(float deltaTime);
 	//描画
 	virtual void onDraw() const;
+	// 終了
+	virtual void onEnd() {}
 protected:
 	//ゲームマネージャー
 	IGameManagerPtr p_GameManager;

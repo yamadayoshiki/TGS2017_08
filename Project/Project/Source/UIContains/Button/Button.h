@@ -29,7 +29,7 @@ public:
 		int number;
 		int anim;
 		SceneName next;
-		std::unordered_map<GKEYCODE, int> key;
+		std::unordered_map<GSushort, int> key;
 		Texture2DParameterSPtr param;
 	};
 public:
@@ -50,7 +50,7 @@ public:
 
 private:
 	int getIndex(int index, int next);
-	void moveSelector(GKEYCODE key);
+	void moveSelector(GSushort button);
 private:
 	std::unordered_map<int, ButtonData> m_Buttons;
 	std::shared_ptr<Selector> p_Selector;

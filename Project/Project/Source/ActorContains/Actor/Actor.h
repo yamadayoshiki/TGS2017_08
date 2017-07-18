@@ -34,7 +34,7 @@ public:
 		IWorld* world,
 		const ActorName& name,
 		const GSvector2& position,
-		const IGameManagerPtr& gaemManager,
+		const IGameManagerPtr& gameManager,
 		const ITexturePtr& texture = std::make_shared<NullTexture>(),
 		const Body::MotionType type = Body::MotionType::None,
 		const Body::BodyDataName dataName = Body::BodyDataName::None);

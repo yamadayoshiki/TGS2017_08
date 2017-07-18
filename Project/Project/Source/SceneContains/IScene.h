@@ -11,6 +11,8 @@ class IScene
 public:
 	// 仮想デストラクタ     
 	virtual ~IScene() {}
+	// セットアップ
+	virtual void SetUp() = 0;
 	// 開始     
 	virtual void Start() = 0;
 	// 更新     

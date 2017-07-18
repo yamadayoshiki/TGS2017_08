@@ -20,13 +20,13 @@ AnimationTexture::~AnimationTexture() {
 }
 
 //初期化
-void AnimationTexture::Initialize() {
+void AnimationTexture::OnInitialize() {
 	p_Animation->Initialize();
 	p_Parameter->m_Rect = *p_Animation->GetCurrentRect();
 }
 
 //更新
-void AnimationTexture::Update(float deltaTime) {
+void AnimationTexture::OnUpdate(float deltaTime) {
 	//アニメーションの更新
 	p_Animation->Update(deltaTime);
 	//描画矩形の更新

@@ -16,6 +16,10 @@ public:
 	virtual Texture2DParameterSPtr GetParameter() = 0;
 	//ループ回数の取得
 	virtual int GetLoopCount() = 0;
+	//ストップ
+	virtual void Stop() = 0;
+	//リスタート
+	virtual void Restart() = 0;
 	//座標+回転の設定
 	virtual void SetPosAndAngle(const GSvector2& pos, float angle) = 0;
 	//表示モード切替

@@ -8,7 +8,8 @@ Texture_Base::Texture_Base(
 	const DrawManagerSPtr& drawManager,
 	const DrawOrder drawOrder)
 	: m_TexName(texName)
-	, p_DrawManager(drawManager) {
+	, p_DrawManager(drawManager)
+	, m_StopFlag(false) {
 	//•`‰æŠÇ—‚É“o˜^
 	m_DrawOrderID = p_DrawManager.lock()->RegisterDefaultParam(m_TexName, p_Parameter, drawOrder);
 }
@@ -22,11 +23,30 @@ Texture2DParameterSPtr Texture_Base::GetParameter() {
 	return p_Parameter;
 }
 
-void Texture_Base::SetPosAndAngle(const GSvector2 & pos, float angle){
+void Texture_Base::Initialize() {
+	Restart();
+	OnInitialize();
+}
+
+void Texture_Base::Update(float deltaTime) {
+	if (m_StopFlag == true)	return;
+
+	OnUpdate(deltaTime);
+}
+
+void Texture_Base::Stop() {
+	m_StopFlag = true;
+}
+
+void Texture_Base::Restart() {
+	m_StopFlag = false;
+}
+
+void Texture_Base::SetPosAndAngle(const GSvector2 & pos, float angle) {
 	p_Parameter->m_Position = pos;
 	p_Parameter->m_Rotate = angle;
 }
 
-void Texture_Base::ChangeDisplayMode(const DisplayMode mode){
+void Texture_Base::ChangeDisplayMode(const DisplayMode mode) {
 	p_DrawManager.lock()->ChageDisplayMode(m_DrawOrderID, mode);
 }

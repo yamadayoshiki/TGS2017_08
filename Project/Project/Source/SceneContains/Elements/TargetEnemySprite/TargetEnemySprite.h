@@ -1,0 +1,4 @@
+#ifndef TARGETENEMYSPRITE_H_
+#define TARGETENEMYSPRITE_H_
+
+#endif

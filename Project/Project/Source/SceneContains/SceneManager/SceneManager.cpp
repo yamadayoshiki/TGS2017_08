@@ -8,8 +8,7 @@ SceneManager::SceneManager()
 }
 
 // ‰Šú‰»     
-void SceneManager::Initialize()
-{
+void SceneManager::Initialize() {
 	End();
 	m_SceneDic.clear();
 }
@@ -25,8 +24,7 @@ void SceneManager::Update(float deltaTime)
 }
 
 // •`‰æ     
-void SceneManager::Draw() const
-{
+void SceneManager::Draw() const {
 	m_CurrentScene->Draw();
 }
 
@@ -38,8 +36,8 @@ void SceneManager::End()
 }
 
 // ƒV[ƒ“‚Ì’Ç‰Á    
-void SceneManager::Add(SceneName name, const IScenePtr& scene)
-{
+void SceneManager::Add(SceneName name, const IScenePtr& scene) {
+	scene->SetUp();
 	m_SceneDic[name] = scene;
 	m_SceneDic[name]->SetName(name);
 }

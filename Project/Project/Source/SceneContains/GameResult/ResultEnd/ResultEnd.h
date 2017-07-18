@@ -16,6 +16,8 @@ public:
 	ResultEnd(IWorld* world, const IGameManagerPtr& gameManager);
 
 protected:
+	// セットアップ
+	virtual void SetUp()override {}
 	// 開始     
 	virtual void Start();
 	// 更新     

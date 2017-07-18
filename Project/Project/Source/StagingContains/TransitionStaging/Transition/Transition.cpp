@@ -24,6 +24,10 @@ void Transition::draw()const {
 	onDraw();
 }
 
+void Transition::end(){
+	onEnd();
+}
+
 // ƒ‚[ƒh‚ÌØ‚è‚©‚¦
 void Transition::changeMode(const Mode & mode)
 {
