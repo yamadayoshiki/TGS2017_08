@@ -28,9 +28,9 @@ private:
 
 public:
 	void ChangeDisplayMode(const DisplayMode mode) override;
+	//—p“r‚ÌŽæ“¾
+	std::string GetUsage() const;
 
-private:
-	int getIndex(int index, int next);
 private:
 	using RankDetaList = std::vector<RankDeta>;
 	using StageDeta = std::vector<RankDetaList>;
@@ -47,5 +47,6 @@ private:
 	GScolor End_Color{1.0f,1.0f,1.0f,1.0f};
 	GSvector2 Start_Scale{ 3.0f,3.0f };
 	GSvector2 End_Scale{ 1.0f,1.0f };
+	std::string m_Usage;
 };
 #endif // !RANK_H_

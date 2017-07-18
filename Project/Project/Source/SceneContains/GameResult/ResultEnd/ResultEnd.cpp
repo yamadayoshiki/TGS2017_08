@@ -1,10 +1,9 @@
 #include"ResultEnd.h"
 #include<GSmusic.h>
 
+#include"../GameResult.h"
 #include "../../../WorldContains/World/World.h"
 #include"../../../ActorContains/ActorGroup.h"
-#include"../../../Utility/Rederer2D/Renderer2D.h"
-#include"../../../CharacterContains/PlayerContains/Player/Player.h"
 #include "../../../Utility/InputState/InputState.h"
 #include "../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../../Define/Def_Nagano.h"
@@ -12,44 +11,34 @@
 #include"../../../Utility/Score/Score.h"
 #include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include"../../../UIContains/UIManager/UIManager.h"
-#include"../ResultTransition/ResultTransition.h"
+#include"../../../UIContains/Sprite/Sprite.h"
+#include"../../../UIContains/Number/Number.h"
+#include"../../../UIContains/Rank/Rank.h"
 #include"../../../TextureContains/Texture/Texture.h"
-#include "../../../DrawManager/DisplayMode.h"
 
-ResultEnd::ResultEnd(IWorld* world, const IGameManagerPtr & gameManager)
-	:p_World(world),
-	p_GameManager(gameManager),
-	p_Transition(std::make_shared<ResultTransition>(gameManager)),
-	p_Texture(std::make_shared<Texture>("BigBlock", p_GameManager->GetDrawManager(), DrawOrder::BackGround))
-{
-	//パラメータの設定
-	p_Texture->GetParameter()->m_Position = GSvector2(550, 300);
-	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
-	p_Texture->GetParameter()->m_Color = m_Color;
-	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
+
+ResultEnd::ResultEnd() {
 }
 
 // 開始     
-void ResultEnd::Start()
+void ResultEnd::OnStart()
 {
-	// UIの生成
-	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, SceneName::GameResult));
-
-	MapOrder = p_GameManager->get_MapOrder();
-	is_End = false;
-	m_Score = 0;
-	p_Transition->start();
-
-	p_Texture->ChangeDisplayMode(DisplayMode::Display);
+	timer_ = 0.0f;
+	maxTimer_ = 60.0f;
+	m_Color = { 1.0f,1.0f,1.0f,1.0f };
 }
 // 更新     
-void ResultEnd::Update(float deltaTime)
+void ResultEnd::OnUpdate(float deltaTime)
 {
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetPlatform().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetScoreUI().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetScoreUI().lock()->SetNum(p_GameManager->GetScore()->ReleaseScore());
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetRankUI().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::Display);
+
 	float t = timer_ / maxTimer_;
 	GScolor color = m_Color.lerp(GScolor(1.0f, 1.0f, 1.0f, 0.0f), t);
-	p_Texture->GetParameter()->m_Color = color;
-
-	p_Transition->update(deltaTime);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->getTexture()->GetParameter()->m_Color = color;
 
 	if (timer_ >= 60 * 5)
 	{
@@ -58,37 +47,21 @@ void ResultEnd::Update(float deltaTime)
 			p_World->EndRequest(SceneName::GameCredit);
 			return;
 		}
-		MapOrder += 1;
+		//MapOrder += 1;
 		p_GameManager->set_MapOrder(MapOrder);
 		gsStopMusic();
-		p_World->EndRequest(SceneName::GamePlay);
+		//p_World->EndRequest(SceneName::GamePlay);
 	}
-
 	timer_ += deltaTime;
 }
 //描画
-void ResultEnd::Draw()const {
-	p_Transition->draw();
+void ResultEnd::OnDraw()const {
 }
 
 //終了
-void ResultEnd::End() {
-	gsStopMusic();
-	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
-}
-
-// 終了しているか？     
-bool ResultEnd::IsEnd() const{
-	return is_End;
-}
-
-SceneName ResultEnd::Next() const {
-	return SceneName::GameTitle;
-}
-void ResultEnd::SetName(const SceneName & name) {
-
-}
-
-SceneName ResultEnd::GetName() {
-	return SceneName::ResultEnd;
+void ResultEnd::OnEnd() {
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetPlatform().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetScoreUI().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetRankUI().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 }

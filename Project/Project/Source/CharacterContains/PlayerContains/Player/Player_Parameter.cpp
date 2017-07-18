@@ -12,6 +12,16 @@ Player_Parameter::Player_Parameter()
 
 }
 
+GSvector2 Player_Parameter::getPosition() const
+{
+	return m_Position;
+}
+
+void Player_Parameter::setPosition(const GSvector2 & position)
+{
+	m_Position = position;
+}
+
 int Player_Parameter::GetRemaining() const {
 	return m_Remaining;
 }

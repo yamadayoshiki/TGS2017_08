@@ -3,18 +3,29 @@
 #include <gslib.h>
 #include<GSmusic.h>
 
+#include <chrono>
+
 #include "../SceneName.h"
 #include "../../WorldContains/World/World.h"
 #include"../../ActorContains/ActorGroup.h"
-#include"../../Utility/Rederer2D/Renderer2D.h"
 #include"../../CharacterContains/PlayerContains/Player/Player.h"
 #include "../../Utility/InputState/InputState.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Define/Def_Nagano.h"
+#include "../../Define/Def_Nakayama.h"
+#include "../../Utility/Rederer2D/Renderer2D.h"
+#include"../../MapGenerator/MapGenerator.h"
+#include "../../Utility/FourDirection/FourDirection.h"
+#include"../../CharacterContains/Factory/CharacterFactory.h"
 #include"../../Utility/Sound/SoundName.h"
-#include"../../Utility/Score/Score.h"
+#include "../../StagingContains/TransitionStaging/Transition/Transition.h"
 #include"../../UIContains/UIManager/UIManager.h"
-#include"../../Utility/EnumRap/EnumRap.h"
+#include "../../UIContains/Number/Number.h"
+#include "../../UIContains/Sprite/Sprite.h"
+#include "../../UIContains/Button/Button.h"
+#include"../../UIContains/Rank/Rank.h"
+#include "../SceneManager/SceneChildMgr.h"
+#include "../../Utility/Score/Score.h"
 
 #include"ResultStart\ResultStart.h"
 #include"ResultStaging\ResultStaging.h"
@@ -24,27 +35,81 @@
 
 // コンストラクタ    
 GameResult::GameResult(const IGameManagerPtr& gameManager)
-	: Scene(gameManager)
-	, m_SceneManager(new SceneManager()){
+	: Scene(gameManager){
+	isGameClear = false;
 }
 
-GameResult::~GameResult(){
-	delete m_SceneManager;
+void GameResult::SetUp(){
+	p_SceneChildMgr = std::make_unique<SceneChildMgr>(shared_from_this());
+	p_SceneChildMgr->Add(SceneName::ResultStart, std::make_shared<ResultStart>());
+	p_SceneChildMgr->Add(SceneName::ResultStaging, std::make_shared<ResultStaging>());
+	p_SceneChildMgr->Add(SceneName::ResultEnd, std::make_shared<ResultEnd>());
+	p_SceneChildMgr->Change(SceneName::ResultStart);
 }
 
 // 開始     
 void GameResult::OnStart() {
-	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
-
+	//MapOrderの取得
 	MapOrder = p_GameManager->get_MapOrder();
 
-	m_SceneManager->Initialize();
-	//シーンの追加
-	//m_SceneManager->Add(SceneName::ResultStart, std::make_shared<ResultStart>(p_World.get(), p_GameManager));
-	//m_SceneManager->Add(SceneName::ResultStaging, std::make_shared<ResultStaging>(p_World.get(), p_GameManager));
-	m_SceneManager->Add(SceneName::ResultEnd, std::make_shared<ResultEnd>(p_World.get(), p_GameManager));
+	// UIの生成
+	ActorPtr p_UIMgr = std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName);
+	p_World->addActor(ActorGroup::UI, p_UIMgr);
 
-	m_SceneManager->Change(SceneName::ResultEnd);
+	//スコアUIの取得
+	p_ScoreUI = std::dynamic_pointer_cast<Number>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Number)
+		{
+			if (dynamic_cast<Number*>(const_cast<Actor*>(&actor))->GetUsage() == "Score")
+				return true;
+		}
+		return false;
+	}));
+	//Ranku UIの取得
+	p_RankUI = std::dynamic_pointer_cast<Rank>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Rank)
+		{
+			if (dynamic_cast<Rank*>(const_cast<Actor*>(&actor))->GetUsage() == "Rank")
+				return true;
+		}
+		return false;
+	}));
+	//リザルト結果の基盤画像
+	p_Platform = std::dynamic_pointer_cast<Sprite>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Sprite)
+		{
+			if (dynamic_cast<Sprite*>(const_cast<Actor*>(&actor))->GetUsage() == "Platform")
+				return true;
+		}
+		return false;
+	}));
+	//ブロック画像
+	p_Block = std::dynamic_pointer_cast<Sprite>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Sprite)
+		{
+			if (dynamic_cast<Sprite*>(const_cast<Actor*>(&actor))->GetUsage() == "Block")
+				return true;
+		}
+		return false;
+	}));
+
+	//子のセットアップ
+	p_SceneChildMgr->SetUpChild();
+	p_SceneChildMgr->Change(SceneName::ResultStart);
+
+	//各種パラメーター初期化
+	p_ScoreUI.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	p_RankUI.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	p_Platform.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	p_Block.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 
 	//BGMの設定
 	gsBindMusic(BGM_GAME_CLER);
@@ -54,17 +119,42 @@ void GameResult::OnStart() {
 
 // 更新     
 void GameResult::OnUpdate(float deltaTime) {
-
-	m_SceneManager->Update(deltaTime);
-
-	timer_ += deltaTime;
+	//子シーンの更新
+	p_SceneChildMgr->Update(deltaTime);
 }
 
-void GameResult::OnDraw() const
-{
-	m_SceneManager->Draw();
+void GameResult::OnDraw() const{
 }
 
 void GameResult::OnEnd() {
-	m_SceneManager->Initialize();
+	//子シーンの終了
+	p_SceneChildMgr->End();
+	p_SceneChildMgr->ReleaseWorld();
+
+	//BGM停止
+	gsStopMusic();
+}
+
+void GameResult::HandleMessage(EventMessage message, void * param){
+	p_SceneChildMgr->HandleMessage(message, param);
+}
+
+std::weak_ptr<Number> GameResult::GetScoreUI()
+{
+	return p_ScoreUI;
+}
+
+std::weak_ptr<Rank> GameResult::GetRankUI()
+{
+	return p_RankUI;
+}
+
+std::weak_ptr<Sprite> GameResult::GetPlatform()
+{
+	return p_Platform;
+}
+
+std::weak_ptr<Sprite> GameResult::GetBlock()
+{
+	return p_Block;
 }
