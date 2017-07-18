@@ -9,6 +9,7 @@
 #include "../../CharacterContains/PlayerContains/Player/Player_Parameter.h"
 #include "../../DrawManager/DrawManagerPtr.h"
 #include <iostream>
+class SceneManager;
 //ゲームマネージャーインターフェイス
 class IGameManager
 {
@@ -35,6 +36,8 @@ public:
 	virtual void SetPlayerParameter(const Player_Parameter& parameter) = 0;
 	//スコアの取得
 	virtual ScorePtr GetScore() = 0;
+	//シーンマネージャーの取得
+	virtual std::shared_ptr<SceneManager> GetSceneManager() = 0;
 
 	//マップの設定と取得
 	virtual void set_MapOrder(int MapOrder) = 0;

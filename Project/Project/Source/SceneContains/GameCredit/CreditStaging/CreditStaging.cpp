@@ -14,8 +14,7 @@
 
 CreditStaging::CreditStaging(IWorld* world, const IGameManagerPtr & gameManager)
 	:p_World(world), p_GameManager(gameManager),
-	m_Transition(std::make_shared<BigBlock2>(gameManager))
-{
+	m_Transition(std::make_shared<BigBlock2>(gameManager)){
 }
 
 // ŠJŽn     

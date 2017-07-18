@@ -309,6 +309,7 @@
     <ClInclude Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\CreditStart\CreditStart.h" />
     <ClInclude Include="Source\SceneContains\GameOver\GameOver.h" />
+    <ClInclude Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\Play\GamePlayPlay.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.h" />
     <ClInclude Include="Source\SceneContains\GameResult\BigBlock.h" />
@@ -543,6 +544,8 @@
     <ClCompile Include="Source\SceneContains\GameEnd\GameEnd.cpp" />
     <ClCompile Include="Source\SceneContains\GameOver\GameOver.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp" />
+    <ClCompile Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.cpp" />
+    <ClCompile Include="Source\SceneContains\GamePlay\Play\GamePlayPlay.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.cpp" />
     <ClCompile Include="Source\SceneContains\GameResult\BigBlock.cpp" />
     <ClCompile Include="Source\SceneContains\GameResult\GameResult.cpp" />

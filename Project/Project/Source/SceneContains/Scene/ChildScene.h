@@ -2,6 +2,7 @@
 #define CHILDSCENE_H_
 #include "Scene.h"
 #include "../IScenePtr.h"
+
 //子シーン
 class ChildScene : public Scene
 {
@@ -22,11 +23,16 @@ public:
 
 	SceneName Next() const override;
 
+	void SetParent(const IScenePtr& parent);
+
+	void HandleMessage(EventMessage message, void * param) override;
+
+	void ReleaseWorld();
+
 protected:
 	//変更
 	void Change(const SceneName next);
 
-	void SetParent(const IScenePtr& parent);
 protected:
 	ISceneWPtr p_Parent;	//親
 	SceneName m_Next;		//次のシーン
