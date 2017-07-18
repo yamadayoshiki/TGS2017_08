@@ -22,6 +22,12 @@ enum class SceneName
 	CreditStaging,
 	CreditEnd,
 
+	//Play
+	Start,
+	Play,
+	Pause,
+	Close,
+
 	NaganoScene,
 	NakayamaScene,
 	YamadaScene,

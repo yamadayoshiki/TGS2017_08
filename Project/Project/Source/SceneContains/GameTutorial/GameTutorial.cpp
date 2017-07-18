@@ -32,7 +32,6 @@ void GameTutorial::OnStart()
 
 	gsBindMusic(BGM_GAME_PLAY);
 
-	PauseFlag = false;
 }
 
 void GameTutorial::OnUpdate(float deltaTime)

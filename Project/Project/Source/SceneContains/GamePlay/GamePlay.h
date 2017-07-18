@@ -26,6 +26,8 @@ protected:
 	virtual void OnDraw()const override;
 	//終了
 	virtual void OnEnd()override;
+	// メッセージ処理
+	virtual void HandleMessage(EventMessage message, void* param)override;
 
 public:
 	//スコアの取得
@@ -40,8 +42,6 @@ public:
 private:
 	//Mapデータの設定
 	void MapSetDeta();
-	//ポーズの更新
-	void PauseUpdate();
 
 private:
 	std::weak_ptr<Number> p_ScoreUI;			//スコア

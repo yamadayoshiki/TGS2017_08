@@ -49,7 +49,8 @@ void World::handleMessage(EventMessage message, void* param) {
 	// ワールドのメッセージ処理 
 	switch (message)
 	{
-	case EventMessage::END_SCENE: EndRequest((const SceneName&)param);
+	case EventMessage::END_SCENE: 
+		EndRequest((const SceneName&)param);
 	default:
 		break;
 	}

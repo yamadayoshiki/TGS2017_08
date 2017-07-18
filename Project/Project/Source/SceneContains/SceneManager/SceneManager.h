@@ -5,7 +5,7 @@
 #include <unordered_map> 
 
 enum class SceneName;
-
+enum class EventMessage;
 // シーン管理クラス
 class SceneManager
 {
@@ -26,6 +26,8 @@ public:
 	void Change(SceneName name);
 	// シーン名の取得     
 	SceneName GetSceneName();
+	// メッセージ処理
+	void HandleMessage(EventMessage message, void* param);
 	// コピー禁止     
 	SceneManager(const SceneManager& other) = delete;
 	SceneManager& operator = (const SceneManager& other) = delete;

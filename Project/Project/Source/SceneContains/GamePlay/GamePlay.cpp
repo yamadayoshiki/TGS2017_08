@@ -14,7 +14,6 @@
 #include "../../Define/Def_Nagano.h"
 #include "../../Define/Def_Nakayama.h"
 #include "../../Utility/Rederer2D/Renderer2D.h"
-#include "../../Utility/Score/Score.h"
 #include"../../MapGenerator/MapGenerator.h"
 #include "../../Utility/FourDirection/FourDirection.h"
 #include"../../CharacterContains/Factory/CharacterFactory.h"
@@ -25,6 +24,10 @@
 #include "../../UIContains/Sprite/Sprite.h"
 #include "../../UIContains/Button/Button.h"
 #include "../SceneManager/SceneChildMgr.h"
+#include "../../Utility/Score/Score.h"
+#include "Ready\GamePlayReady.h"
+#include "Play\GamePlayPlay.h"
+#include "Pause\GamePlayPause.h"
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
@@ -34,6 +37,10 @@ GamePlay::GamePlay(const IGameManagerPtr& gameManager)
 
 void GamePlay::SetUp(){
 	p_SceneChildMgr = std::make_unique<SceneChildMgr>(shared_from_this());
+	p_SceneChildMgr->Add(SceneName::Start, std::make_shared<GamePlayReady>());
+	p_SceneChildMgr->Add(SceneName::Play, std::make_shared<GamePlayPlay>());
+	p_SceneChildMgr->Add(SceneName::Pause, std::make_shared<GamePlayPause>());
+	p_SceneChildMgr->Change(SceneName::Start);
 }
 
 // 開始     
@@ -90,60 +97,46 @@ void GamePlay::OnStart() {
 
 	//子のセットアップ
 	p_SceneChildMgr->SetUpChild();
-
+	p_SceneChildMgr->Change(SceneName::Start);
 
 	//各種パラメーター初期化
 	p_GameManager->GetScore()->ScoreRest();
-	PauseFlag = false;
 	p_ButtonUI.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_PauseBack.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 
+	//BGM再生
 	gsBindMusic(BGM_GAME_PLAY);
 	gsPlayMusic();
 }
 
 // 更新     
 void GamePlay::OnUpdate(float deltaTime) {
-	//ポーズ切り替え
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE)
-	{
-		gsPlaySE(SE_PAUSE_OPEN);
-		PauseFlag = !PauseFlag;
-	}
-
-	//ポーズの更新
-	if (PauseFlag == true)
-		PauseUpdate();
-
-	// 討伐可能な敵が０以下の場合クリア
-	if (p_World->GetSurviverSum(MapOrder) <= 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
-		isGameClear = true;
-		p_World->EndRequest(SceneName::GameResult);
-	}
-
-	//ポーズ画面
-	if (PauseFlag == true)
-	{
-
-	}
-
-	//UI数字設定
-	p_ScoreUI.lock()->SetNum(p_GameManager->GetScore()->ReleaseScore());
-	p_PlayerRemainingUI.lock()->SetNum(p_GameManager->GetPlayerParameter().GetRemaining());
+	//子シーンの更新
+	p_SceneChildMgr->Update(deltaTime);
 }
 
 void GamePlay::OnDraw() const {
 }
 
 void GamePlay::OnEnd() {
+	//子シーンの終了
+	p_SceneChildMgr->End();
+	p_SceneChildMgr->ReleaseWorld();
+
+	//BGM停止
 	gsStopMusic();
 
+	//マップ番号設定
 	if (MapOrder >= 1)
 		p_GameManager->set_MapOrder(MapOrder);
 
 	else
 		MapOrder = 0;
 }
+void GamePlay::HandleMessage(EventMessage message, void * param){
+	p_SceneChildMgr->HandleMessage(message, param);
+}
+
 std::weak_ptr<Number> GamePlay::GetScoreUI()
 {
 	return p_ScoreUI;
@@ -167,35 +160,4 @@ void GamePlay::MapSetDeta() {
 	p_World->SetCharacterFactory(new CharacterFactory(p_World, p_GameManager));
 	MapOrder = p_GameManager->get_MapOrder();
 	p_World->generate(p_World, p_GameManager, "Resource/StreamingAssets/stage" + std::to_string(MapOrder) + ".csv");
-}
-//ポーズの更新
-void GamePlay::PauseUpdate()
-{
-	//カーソル移動
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_DOWN) ||
-		p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_UP)) {
-		if (m_CarsorMovement == CarsorMovement::Up)
-		{
-			m_CarsorMovement = CarsorMovement::Down;
-		}
-		else
-		{
-			m_CarsorMovement = CarsorMovement::Up;
-		}
-	}
-
-	//ポーズ選択
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) == GS_FALSE)return;
-	switch (m_CarsorMovement)
-	{
-	case CarsorMovement::Up:
-		gsPlaySE(SE_DECITION);
-		PauseFlag = false;
-		break;
-	case CarsorMovement::Down:
-		gsPlaySE(SE_DECITION);
-		MapOrder = 0;
-		p_World->EndRequest(SceneName::GameTitle);
-		break;
-	}
 }

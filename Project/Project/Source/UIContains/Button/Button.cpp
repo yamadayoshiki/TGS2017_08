@@ -10,6 +10,7 @@
 #include "../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include "../../DrawManager/DrawManager.h"
 #include "../../Utility/Sound/SoundName.h"
+#include "../../SceneContains/SceneManager/SceneManager.h"
 #include <algorithm>
 
 #define STR(var) #var
@@ -82,7 +83,7 @@ void Button::onUpdate(float deltaTime) {
 
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) &&
 		p_Selector->getPosition() == m_Buttons[m_Index].param->m_Position) {
-		p_World->sendMessage(EventMessage::END_SCENE, (void*)m_Buttons[m_Index].next);
+		p_GameManager->GetSceneManager()->HandleMessage(EventMessage::END_SCENE, (void*)m_Buttons[m_Index].next);
 		gsPlaySE(SE_DECITION);
 	}
 }

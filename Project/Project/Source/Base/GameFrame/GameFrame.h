@@ -29,8 +29,8 @@ private:
 
 private:
 	using GameManagerPtr = std::shared_ptr<GameManager>;
-	GameManagerPtr p_GameManager;	//ゲームマネージャー
-	SceneManager m_SceneManager;	//シーンマネージャー
+	GameManagerPtr p_GameManager;					//ゲームマネージャー
+	std::shared_ptr<SceneManager> m_SceneManager;	//シーンマネージャー
 };
 
 

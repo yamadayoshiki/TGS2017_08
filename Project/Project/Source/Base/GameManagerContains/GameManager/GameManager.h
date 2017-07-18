@@ -41,6 +41,10 @@ public:
 	virtual void SetPlayerParameter(const Player_Parameter& parameter) override;
 	//スコアの取得
 	virtual ScorePtr GetScore()override;
+	//シーンマネージャーの設定
+	void SetSceneManager(const std::shared_ptr<SceneManager>& sceneMgr);
+	//シーンマネージャーの取得
+	std::shared_ptr<SceneManager> GetSceneManager()override;
 
 	void set_MapOrder(int MapOrder)override;
 	int get_MapOrder()const override;
@@ -56,6 +60,8 @@ private:
 	EnumRapPtr<SceneName> p_SceneEnum;	//シーンEnum
 	Player_Parameter	m_Parameter;	//プレイヤーパラメーター
 	int MapOrder_;
+
+	std::weak_ptr<SceneManager> p_SceneMgr;
 };
 
 #endif // !GAMEMANAGER_H_

@@ -10,7 +10,7 @@ void GamePlayReady::OnStart() {
 }
 
 void GamePlayReady::OnUpdate(float deltaTime) {
-	Change(SceneName::GamePlay);
+	Change(SceneName::Play);
 }
 
 void GamePlayReady::OnDraw() const {
