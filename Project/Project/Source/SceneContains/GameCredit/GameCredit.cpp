@@ -24,48 +24,39 @@
 
 // コンストラクタ    
 GameCredit::GameCredit(const IGameManagerPtr& gameManager)
-	:Scene(gameManager),p_Texture(std::make_shared<Texture>("game_back",p_GameManager->GetDrawManager(),DrawOrder::BackGround)) {
-	//パラメータの設定
-	p_Texture->GetParameter()->m_Position = GSvector2(0.0f, 0.0f);
-	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
-	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
+	:Scene(gameManager){
 }
 // 開始     
 void GameCredit::OnStart() {
 	MapOrder = p_GameManager->get_MapOrder();
 
-	m_SceneManager = new SceneManager();
-	m_SceneManager->Initialize();
+	//m_SceneManager = new SceneManager();
+	//m_SceneManager->Initialize();
 
-	//シーンの追加
-	m_SceneManager->Add(SceneName::CreditStart, std::make_shared<CreditStart>(p_World.get(), p_GameManager));
-	m_SceneManager->Add(SceneName::ResultStaging, std::make_shared<CreditStaging>(p_World.get(), p_GameManager));
-	m_SceneManager->Add(SceneName::ResultEnd, std::make_shared<CreditEnd>(p_World.get(), p_GameManager));
+	////シーンの追加
+	//m_SceneManager->Add(SceneName::CreditStart, std::make_shared<CreditStart>(p_World.get(), p_GameManager));
+	//m_SceneManager->Add(SceneName::ResultStaging, std::make_shared<CreditStaging>(p_World.get(), p_GameManager));
+	//m_SceneManager->Add(SceneName::ResultEnd, std::make_shared<CreditEnd>(p_World.get(), p_GameManager));
 
-	m_SceneManager->Change(SceneName::CreditStart);
+	//m_SceneManager->Change(SceneName::CreditStart);
 
 	//BGMの設定
 	gsBindMusic(BGM_GAME_CLER);
 	//BGM再生
 	gsPlayMusic();
 
-	p_Texture->ChangeDisplayMode(DisplayMode::Display);
+	//p_Texture->ChangeDisplayMode(DisplayMode::Display);
 }
 
 // 更新     
 void GameCredit::OnUpdate(float deltaTime) {
 
-	m_SceneManager->Update(deltaTime);
+	//m_SceneManager->Update(deltaTime);
 }
 
-void GameCredit::OnDraw() const
-{
-	m_SceneManager->Draw();
+void GameCredit::OnDraw() const{
 }
 
-void GameCredit::OnEnd()
-{
+void GameCredit::OnEnd(){
 	gsStopMusic();
-	m_SceneManager = nullptr;
-	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }

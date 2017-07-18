@@ -2,12 +2,14 @@
 #define GAMERESULT_H_
 
 #include "../Scene/Scene.h"
-#include"../SceneManager/SceneManager.h"
+#include "../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 
-#include <string>
-
-#include<gslib.h>
 class World;
+class Number;
+class Button;
+class Sprite;
+class Rank;
+class SceneChildMgr;
 
 //ゲーム中
 class GameResult : public Scene
@@ -15,15 +17,10 @@ class GameResult : public Scene
 public:
 	// コンストラクタ    
 	GameResult(const IGameManagerPtr& gameManager);
-	// デストラクタ
-	~GameResult();
-	enum class Rank{
-		RankS,
-		RankA,
-		RankB,
-		RankC,
-	};
+
 protected:
+	// セットアップ
+	void SetUp() override;
 	// 開始     
 	virtual void OnStart() override;
 	// 更新     
@@ -32,12 +29,27 @@ protected:
 	virtual void OnDraw()const override;
 	//終了
 	virtual void OnEnd() override;
+	// メッセージ処理
+	virtual void HandleMessage(EventMessage message, void* param)override;
+
+public:
+	//スコアの取得
+	std::weak_ptr<Number> GetScoreUI();
+	//ランクの取得
+	std::weak_ptr<Rank> GetRankUI();
+	//リザルト結果の基盤画像の取得
+	std::weak_ptr<Sprite> GetPratform();
+	//ブロック画像の取得
+	std::weak_ptr<Sprite> GetBlock();
 
 private:
-	SceneManager*	m_SceneManager;
+	std::weak_ptr<Number> p_ScoreUI;
+	std::weak_ptr<Rank> p_RankUI;
+	std::weak_ptr<Sprite> p_Pratform;
+	std::weak_ptr<Sprite> p_Block;
 
-	float timer_{ 0.0f };
-	
+	std::unique_ptr<SceneChildMgr>
+		p_SceneChildMgr;
 };
 
 #endif

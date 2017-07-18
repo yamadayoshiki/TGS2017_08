@@ -1,7 +1,6 @@
 #include "BigBlock.h"
 
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
-#include "../../Utility/Rederer2D/Renderer2D.h"
 #include "../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include "../../Define/Def_Nagano.h"
 #include "../../TextureContains/Texture/Texture.h"
@@ -9,23 +8,19 @@
 #include <gslib.h>
 
 //コンストラクタ
-BigBlock::BigBlock(const IGameManagerPtr & gameManager)
-	: Transition(gameManager)
-	, p_Texture(std::make_unique<Texture>("BigBlock", p_GameManager->GetDrawManager(), DrawOrder::UI)) {
-	p_Texture->GetParameter()->m_Position = GSvector2(550, 300);
-	p_Texture->GetParameter()->m_Center = { 0.0f, 0.0f };
-	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
+BigBlock::BigBlock(IWorld* world, const IGameManagerPtr & gameManager)
+	:Actor(
+		world,
+		ActorName::UI_Sprite,
+		GSvector2(550.0f,300.0f),
+		gameManager,
+		std::make_shared<Texture>("BigBlock",gameManager->GetDrawManager(),DrawOrder::UI_Front1)){
+	p_Texture->GetParameter()->m_Color.a = 1.0f;
+	timer_ = 0.0f;
 }
 
 // デストラクタ
 BigBlock::~BigBlock() {
-}
-
-// 開始
-void BigBlock::onStart(){
-	timer_ = 0.0f;
-	p_Texture->GetParameter()->m_Color.a = 1.0f;
-	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 }
 
 //更新
@@ -46,14 +41,3 @@ void BigBlock::onUpdate(float deltaTime)
 	}
 	timer_ += deltaTime;
 }
-
-//描画
-void BigBlock::onDraw() const
-{
-}
-
-bool BigBlock::isEnd()
-{
-	return is_end;
-}
-
