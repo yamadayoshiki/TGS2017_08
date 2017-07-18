@@ -24,20 +24,21 @@ ResultEnd::ResultEnd() {
 void ResultEnd::OnStart()
 {
 	timer_ = 0.0f;
-
+	maxTimer_ = 60.0f;
+	m_Color = { 1.0f,1.0f,1.0f,1.0f };
 }
 // çXêV     
 void ResultEnd::OnUpdate(float deltaTime)
 {
-	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetPratform().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetPlatform().lock()->ChangeDisplayMode(DisplayMode::Display);
 	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetScoreUI().lock()->ChangeDisplayMode(DisplayMode::Display);
 	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetScoreUI().lock()->SetNum(p_GameManager->GetScore()->ReleaseScore());
 	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetRankUI().lock()->ChangeDisplayMode(DisplayMode::Display);
-	//float t = timer_ / maxTimer_;
-	//GScolor color = m_Color.lerp(GScolor(1.0f, 1.0f, 1.0f, 0.0f), t);
-	//p_Texture->GetParameter()->m_Color = color;
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::Display);
 
-	//p_Transition->update(deltaTime);
+	float t = timer_ / maxTimer_;
+	GScolor color = m_Color.lerp(GScolor(1.0f, 1.0f, 1.0f, 0.0f), t);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->getTexture()->GetParameter()->m_Color = color;
 
 	if (timer_ >= 60 * 5)
 	{
@@ -46,10 +47,10 @@ void ResultEnd::OnUpdate(float deltaTime)
 			p_World->EndRequest(SceneName::GameCredit);
 			return;
 		}
-		MapOrder += 1;
+		//MapOrder += 1;
 		p_GameManager->set_MapOrder(MapOrder);
 		gsStopMusic();
-		p_World->EndRequest(SceneName::GamePlay);
+		//p_World->EndRequest(SceneName::GamePlay);
 	}
 	timer_ += deltaTime;
 }
@@ -59,8 +60,8 @@ void ResultEnd::OnDraw()const {
 
 //èIóπ
 void ResultEnd::OnEnd() {
-	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetPratform().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetPlatform().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetScoreUI().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetRankUI().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
-
+	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 }

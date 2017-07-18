@@ -2,6 +2,7 @@
 #define RESULT_END_H_
 
 #include "../../Scene/ChildScene.h"
+#include<gslib.h>
 
 class ResultEnd :public ChildScene
 {
@@ -22,6 +23,8 @@ protected:
 
 private:
 	float timer_;
+	float maxTimer_;
+	GScolor m_Color;
 
 };
 #endif // !RESULT_END_H_
