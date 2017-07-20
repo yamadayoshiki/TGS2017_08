@@ -12,12 +12,14 @@
 #include"../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include"../../Utility/Sound/SoundName.h"
 #include"../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include"../../Utility/Sound/SoundName.h"
 #include <algorithm>
 
 Rank::Rank(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name)
 	:UI_Base(world, ActorName::UI_Rank, position, gameManager, DrawOrder::UI) {
 	regist(file_name);
 	m_TextureName = "RankC";
+	SE_Number = SE_RANK_C;
 	RankSet();
 	m_DisplayFlag = false;
 }
@@ -29,7 +31,12 @@ void Rank::regist(const std::string & file_name)
 		dead();
 		return;
 	}
-
+	if (file_name == "Resource/StreamingAssets/UI/Credit/UI_Rank.csv") {
+		m_Score = p_GameManager->GetScore()->GetTotalScore();
+	}
+	else{
+		m_Score = p_GameManager->GetScore()->ReleaseScore();
+	}
 	m_Position = GSvector2(csv.getf(1, 4), csv.getf(1, 5));
 	m_Usage = csv.get(1, 6);
 
@@ -46,6 +53,7 @@ void Rank::regist(const std::string & file_name)
 		deta.StageNumber = csv.geti(row, 1);
 		deta.RankNumber = csv.geti(row, 2);
 		deta.Score = csv.geti(row, 3);
+		deta.SE_number = csv.geti(row,7);
 		m_StageDeta[deta.StageNumber].push_back(deta);
 	}
 }
@@ -53,7 +61,6 @@ void Rank::regist(const std::string & file_name)
 void Rank::onUpdate(float deltaTime)
 {
 	if (m_StageDeta.size() <= 0) return;
-	//gsPlaySE(SE_SCORE_ROLE);
 	if (m_DisplayFlag == false) return;
 	//•âŠÔ’l‚ÌŒvŽZ
 	float t = m_Timer / m_MaxTimer;
@@ -68,8 +75,7 @@ void Rank::onUpdate(float deltaTime)
 	m_Timer = MIN(m_Timer + deltaTime, m_MaxTimer);
 }
 
-void Rank::onDraw() const
-{
+void Rank::onDraw() const{
 }
 
 void Rank::ChangeDisplayMode(const DisplayMode mode){
@@ -84,6 +90,11 @@ std::string Rank::GetUsage() const
 	return m_Usage;
 }
 
+void Rank::playSE()
+{
+	gsPlaySE(SE_Number);
+}
+
 
 void Rank::RankSet()
 {
@@ -91,9 +102,10 @@ void Rank::RankSet()
 	StageIndex = p_GameManager->get_MapOrder();
 	RankDetaList RankList = m_StageDeta[StageIndex];
 	for (int rankDeta = 3; rankDeta < RankList.size(); rankDeta--) {
-		if (p_GameManager->GetScore()->ReleaseScore() >= RankList[rankDeta].Score)
+		if (m_Score >= RankList[rankDeta].Score)
 		{
 			m_TextureName = RankList[rankDeta].file_name;
+			SE_Number = RankList[rankDeta].SE_number;
 		}
 	}
 	p_Texture = std::make_shared<Texture>(m_TextureName, p_GameManager->GetDrawManager(), DrawOrder::UI);

@@ -100,6 +100,17 @@ void GameResult::OnStart() {
 		}
 		return false;
 	}));
+	//ブロック2画像
+	p_Block2 = std::dynamic_pointer_cast<Sprite>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Sprite)
+		{
+			if (dynamic_cast<Sprite*>(const_cast<Actor*>(&actor))->GetUsage() == "Block2")
+				return true;
+		}
+		return false;
+	}));
 
 	//子のセットアップ
 	p_SceneChildMgr->SetUpChild();
@@ -110,6 +121,7 @@ void GameResult::OnStart() {
 	p_RankUI.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_Platform.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_Block.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	p_Block2.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 
 	//BGMの設定
 	gsBindMusic(BGM_GAME_CLER);
@@ -163,4 +175,9 @@ std::weak_ptr<Sprite> GameResult::GetPlatform()
 std::weak_ptr<Sprite> GameResult::GetBlock()
 {
 	return p_Block;
+}
+
+std::weak_ptr<Sprite> GameResult::GetBlock2()
+{
+	return p_Block2;
 }

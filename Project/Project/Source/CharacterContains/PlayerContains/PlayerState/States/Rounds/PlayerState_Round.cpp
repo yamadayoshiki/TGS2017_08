@@ -29,6 +29,8 @@ void PlayerState_Round::collide(const Actor& other, const Body::ContactSet& cont
 
 	//“G‚Æ‚ÌÕ“Ëˆ—
 	Collide(other,contactSet);
+
+	p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_RELEASE);
 }
 //I—¹ˆ—
 void PlayerState_Round::end()

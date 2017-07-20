@@ -44,10 +44,10 @@ enum SoundName
 	SE_STAGE_CLER,				//ステージクリアSE
 
 	//ResultSE
-	SE_S,						//ランクSSE
-	SE_A,						//ランクASE
-	SE_B,						//ランクBSE
-	SE_C,						//ランクCSE
+	SE_RANK_S,						//ランクSSE
+	SE_RANK_A,						//ランクASE
+	SE_RANK_B,						//ランクBSE
+	SE_RANK_C,						//ランクCSE
 	SE_SCORE_ROLE,				//スコアロールSE
 	SE_BLOCK_BREAK,				//ブロック破壊SE
 

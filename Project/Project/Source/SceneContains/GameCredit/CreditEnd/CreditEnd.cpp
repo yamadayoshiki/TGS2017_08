@@ -32,6 +32,7 @@ void CreditEnd::OnStart()
 	maxTimer_ = 60.0f;
 	m_Color = { 1.0f,1.0f,1.0f,1.0f };
 	p_World->addActor(ActorGroup::UI, std::make_shared<ResultPlayerStaging>(p_World.get(), p_GameManager));
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRankUI().lock()->playSE();
 }
 // çXêV     
 void CreditEnd::OnUpdate(float deltaTime)
@@ -47,11 +48,11 @@ void CreditEnd::OnUpdate(float deltaTime)
 	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRetryUI().lock()->ChangeDisplayMode(DisplayMode::Display);
 	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRetryUI().lock()->SetNum(p_GameManager->GetPlayerParameter().getRetryCount());
 	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRankUI().lock()->ChangeDisplayMode(DisplayMode::Display);
-	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetBlock2().lock()->ChangeDisplayMode(DisplayMode::Display);
 
 	float t = timer_ / maxTimer_;
 	GScolor color = m_Color.lerp(GScolor(1.0f, 1.0f, 1.0f, 0.0f), t);
-	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetBlock().lock()->getTexture()->GetParameter()->m_Color = color;
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetBlock2().lock()->getTexture()->GetParameter()->m_Color = color;
 
 	if (timer_ >= 60 * 5)
 	{
@@ -71,5 +72,5 @@ void CreditEnd::OnEnd(){
 	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRetry().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetScoreUI().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRankUI().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
-	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetBlock2().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 }

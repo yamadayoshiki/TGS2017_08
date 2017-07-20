@@ -5,6 +5,7 @@
 #include "../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include "../../Define/Def_Nagano.h"
 #include "../../TextureContains/Texture/Texture.h"
+#include "../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include"../../DrawManager/DrawManager.h"
 #include"../../CharacterContains/NeutralContains/Smork_Effect/Smork_Effect.h"
 #include <gslib.h>
@@ -16,7 +17,7 @@ BigBlock::BigBlock(IWorld* world, const IGameManagerPtr & gameManager)
 		ActorName::UI_Sprite,
 		GSvector2(800.0f, 500.0f),
 		gameManager,
-		std::make_shared<Texture>("BigBlock", gameManager->GetDrawManager(), DrawOrder::UI_Front1)) {
+		std::make_shared<AnimationTexture>("BigBlock_Anime", gameManager->GetDrawManager(), DrawOrder::UI_Front1,650.0f,60)) {
 	p_Texture->GetParameter()->m_Color.a = 1.0f;
 	p_Texture->GetParameter()->m_Position = GSvector2(800.0f, 500.0f);
 	timer_ = 0.0f;
@@ -29,6 +30,7 @@ BigBlock::~BigBlock() {
 //XV
 void BigBlock::onUpdate(float deltaTime)
 {
+
 	if (p_Texture->GetParameter()->m_Color.a <= 0.5 || p_Texture->GetParameter()->m_Color.a >= 1.0f) {
 		m_Alpha = m_Alpha * -1;
 	}
@@ -45,9 +47,11 @@ void BigBlock::onUpdate(float deltaTime)
 			p_World->addActor(ActorGroup::Effect, std::make_shared<Smork_Effect>(p_World, position, p_GameManager));
 	}
 
-	if (timer_ >= 120.0f)
+	if (p_Texture->GetLoopCount() > 0)
 	{
 		p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 	}
+	p_Texture->Update(deltaTime);
+
 	timer_ += deltaTime;
 }

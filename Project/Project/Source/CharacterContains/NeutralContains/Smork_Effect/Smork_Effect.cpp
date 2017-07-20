@@ -20,7 +20,6 @@ Smork_Effect::~Smork_Effect() {
 //‰Šú‰»
 void Smork_Effect::onInitialize() {
 	gsPlaySE(SE_BLOCK_BREAK);
-	p_Transform->m_Angle -= 90;
 	p_Texture->GetParameter()->m_Center = { 126.0f, 126.0f };
 }
 

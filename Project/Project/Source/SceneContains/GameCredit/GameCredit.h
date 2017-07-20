@@ -45,6 +45,8 @@ public:
 	std::weak_ptr<Sprite> GetPlatform();
 	//ブロック画像の取得
 	std::weak_ptr<Sprite> GetBlock();
+	//ブロック2画像の取得
+	std::weak_ptr<Sprite> GetBlock2();
 	//トータルスコアフォント画像の取得
 	std::weak_ptr<Sprite> GetTortal();
 	//マックスコンボフォント画像の取得
@@ -59,6 +61,7 @@ private:
 	std::weak_ptr<Rank> p_RankUI;
 	std::weak_ptr<Sprite> p_Platform;
 	std::weak_ptr<Sprite> p_Block;
+	std::weak_ptr<Sprite> p_Block2;
 	std::weak_ptr<Sprite> p_Tortal;
 	std::weak_ptr<Sprite> p_MaxCombo;
 	std::weak_ptr<Sprite> p_Retry;

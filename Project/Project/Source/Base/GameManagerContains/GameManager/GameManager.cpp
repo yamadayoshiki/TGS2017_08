@@ -99,6 +99,9 @@ void GameManager::LoadContent() {
 
 	//Clear
 	p_Renderer2D->LoadTexture("BigBlock2", "Resource/Texture/UI/Clear/bigblock2.png");
+	p_Renderer2D->LoadTexture("BigBlock2_Anime", "Resource/Texture/UI/Clear/bigblock2_anime.png");
+	p_Renderer2D->LoadTexture("BigBlock2_Break", "Resource/Texture/UI/Clear/bigblock2_Break.png");
+
 	p_Renderer2D->LoadTexture("MaxCombo", "Resource/Texture/UI/Clear/maxcombo.png");
 	p_Renderer2D->LoadTexture("Platform2", "Resource/Texture/UI/Clear/base2.png");
 	p_Renderer2D->LoadTexture("Retry", "Resource/Texture/UI/Clear/ritolai.png");
@@ -122,7 +125,8 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("RankC", "Resource/Texture/UI/Result/RankC.png");
 	
 	p_Renderer2D->LoadTexture("BigBlock", "Resource/Texture/UI/Result/bigblock.png");
-	p_Renderer2D->LoadTexture("BigBlock2", "Resource/Texture/UI/Clear/bigblock2.png");
+	p_Renderer2D->LoadTexture("BigBlock_Anime", "Resource/Texture/UI/Result/bigblock_anime.png");
+	p_Renderer2D->LoadTexture("BigBlock_Break", "Resource/Texture/UI/Result/bigblock_break.png");
 	p_Renderer2D->LoadTexture("BlockBreak", "Resource/Texture/UI/Result/blockbreak2.png");
 	p_Renderer2D->LoadTexture("Platform", "Resource/Texture/UI/Result/base.png");
 
@@ -176,10 +180,10 @@ void GameManager::LoadContent() {
 	gsLoadSE(SE_PLAY_FONT, "Resource/Sound/SE/Scene/Play/playfontse.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_STAGE_CLER, "Resource/Sound/SE/Scene/Play/stagecleaSE.wav", 1, GWAVE_DEFAULT);
 	//ResultSE
-	gsLoadSE(SE_S, "Resource/Sound/SE/Scene/Result/S.wav", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_A, "Resource/Sound/SE/Scene/Result/A.wav", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_B, "Resource/Sound/SE/Scene/Result/B.wav", 1, GWAVE_DEFAULT);
-	gsLoadSE(SE_C, "Resource/Sound/SE/Scene/Result/C.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_RANK_S, "Resource/Sound/SE/Scene/Result/S.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_RANK_A, "Resource/Sound/SE/Scene/Result/A.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_RANK_B, "Resource/Sound/SE/Scene/Result/B.wav", 1, GWAVE_DEFAULT);
+	gsLoadSE(SE_RANK_C, "Resource/Sound/SE/Scene/Result/C.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_BLOCK_BREAK, "Resource/Sound/SE/Scene/Result/blockbreak.wav", 1, GWAVE_DEFAULT);
 	gsLoadSE(SE_SCORE_ROLE, "Resource/Sound/SE/Scene/Result/scorerole.wav", 1, GWAVE_DEFAULT);
 

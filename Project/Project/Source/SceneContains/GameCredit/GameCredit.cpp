@@ -119,6 +119,17 @@ void GameCredit::OnStart() {
 		}
 		return false;
 	}));
+	//ブロック2画像
+	p_Block2 = std::dynamic_pointer_cast<Sprite>(
+		p_UIMgr->findChildren([&](const Actor& actor)
+	{
+		if (actor.getName() == ActorName::UI_Sprite)
+		{
+			if (dynamic_cast<Sprite*>(const_cast<Actor*>(&actor))->GetUsage() == "Block2")
+				return true;
+		}
+		return false;
+	}));
 	//トータルスコアフォント画像
 	p_Tortal = std::dynamic_pointer_cast<Sprite>(
 		p_UIMgr->findChildren([&](const Actor& actor)
@@ -164,6 +175,7 @@ void GameCredit::OnStart() {
 	p_RankUI.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_Platform.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_Block.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	p_Block2.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_Tortal.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_MaxCombo.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_Retry.lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
@@ -223,6 +235,11 @@ std::weak_ptr<Sprite> GameCredit::GetPlatform()
 std::weak_ptr<Sprite> GameCredit::GetBlock()
 {
 	return p_Block;
+}
+
+std::weak_ptr<Sprite> GameCredit::GetBlock2()
+{
+	return p_Block2;
 }
 
 std::weak_ptr<Sprite> GameCredit::GetTortal()

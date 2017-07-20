@@ -41,12 +41,15 @@ public:
 	std::weak_ptr<Sprite> GetPlatform();
 	//ブロック画像の取得
 	std::weak_ptr<Sprite> GetBlock();
+	//ブロック2画像の取得
+	std::weak_ptr<Sprite> GetBlock2();
 
 private:
 	std::weak_ptr<Number> p_ScoreUI;
 	std::weak_ptr<Rank> p_RankUI;
 	std::weak_ptr<Sprite> p_Platform;
 	std::weak_ptr<Sprite> p_Block;
+	std::weak_ptr<Sprite> p_Block2;
 
 	std::unique_ptr<SceneChildMgr>
 		p_SceneChildMgr;

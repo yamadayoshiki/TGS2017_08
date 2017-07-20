@@ -39,7 +39,7 @@ void Player_Parameter::addCombo()
 	if (m_MaxCombo < m_Combo) {
 		m_MaxCombo = m_Combo;
 	}
-	m_ComboTimer = 180.0f;
+	m_ComboTimer = 300.0f;
 }
 
 //コンボ数をリセット

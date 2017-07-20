@@ -14,6 +14,7 @@ public:
 		int StageNumber;
 		int RankNumber;
 		int Score;
+		GSuint SE_number;
 	};
 public:
 	Rank(IWorld* world, const GSvector2& position, const IGameManagerPtr& gameManager, const std::string & file_name);
@@ -30,6 +31,7 @@ public:
 	void ChangeDisplayMode(const DisplayMode mode) override;
 	//—p“r‚ÌŽæ“¾
 	std::string GetUsage() const;
+	void playSE();
 
 private:
 	using RankDetaList = std::vector<RankDeta>;
@@ -46,5 +48,7 @@ private:
 	GSvector2 End_Scale{ 1.0f,1.0f };
 	std::string m_Usage;
 	bool m_DisplayFlag;
+	int m_Score;
+	GSuint SE_Number;
 };
 #endif // !RANK_H_
