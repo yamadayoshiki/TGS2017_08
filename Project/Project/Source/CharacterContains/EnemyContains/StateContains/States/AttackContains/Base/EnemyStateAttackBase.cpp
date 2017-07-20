@@ -1,5 +1,4 @@
 #include "EnemyStateAttackBase.h"
-
 // コンストラクタ
 EnemyStateAttackBase::EnemyStateAttackBase(
 	const EnemyBasePtr& enemy)
@@ -23,6 +22,7 @@ void EnemyStateAttackBase::update(float deltaTime) {
 
 // 衝突判定
 void EnemyStateAttackBase::collide(const Actor & other, const Body::ContactSet& contactSet) {
+
 	// 継承先の衝突判定
 	onCollide(other, contactSet);
 }

@@ -22,6 +22,7 @@
 #include "../../../StateContains/States/CaughtContains/ReleaseDead/EnemyStateCaughtReleaseDead.h"
 #include "../../../StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
 #include "../../../StateContains/States/DeadContaint/Standard/EnemyStateDeadStandard.h"
+#include "../../../StateContains/States/Damage/EnemyStateDamage.h"
 
 EnemyBullet01::EnemyBullet01(
 	IWorld * world,
@@ -64,6 +65,7 @@ void EnemyBullet01::SetUpState() {
 	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaughtReleaseDead>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }

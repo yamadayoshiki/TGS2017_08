@@ -37,6 +37,8 @@ public:
 	void SetPosAndAngle(const GSvector2& pos, float angle)override;
 	//•\¦ƒ‚[ƒhØ‘Ö
 	void ChangeDisplayMode(const DisplayMode mode)override;
+	//•`‰æ‡˜Ø‘Ö
+	void ChangeDrawOredr(const DrawOrder drawOrder)override;
 
 protected:
 	//‰Šú‰»

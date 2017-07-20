@@ -41,7 +41,7 @@ void Button::regist(const std::string & file_name) {
 	}
 
 	// セレクタを生成
-	p_Selector = std::make_shared<Selector>(p_World, GSvector2(0.0f, 0.0f), p_GameManager, DrawOrder::UI_Front2);
+	p_Selector = std::make_shared<Selector>(p_World, GSvector2(0.0f, 0.0f), p_GameManager, DrawOrder::PauseUI);
 	addChild(p_Selector);
 
 	// 行のループ

@@ -17,7 +17,7 @@ Map::Map(const IGameManagerPtr& gameManager) :
 	p_GameManager->LoadTexture("chip", "Resource/Texture/wall.png");
 }
 
-Map::~Map(){
+Map::~Map() {
 	p_GameManager->GetDrawManager()->Remove(m_MapDrawID);
 }
 
@@ -175,15 +175,16 @@ GSvector2 Map::GetTilePos(const GSvector2& pos, const MapType type) {
 
 //指定された座標の情報更新
 void Map::SetcsvParameter(const GSvector2 position, const TerrainName name, IWorld* world) {
-	SetcsvParameter(position, name, MapType::Default);
-	SetcsvParameter(position, name, MapType::Double);
-	world->sendMessage(EventMessage::MapDataUpdate);
-}
+	GSvector2 cellPos = CsvConvertTwoDVector::Vector2CnvCsvPos(position, MapType::Double);
 
-//指定された座標の情報更新(MapType引数あり)
-void Map::SetcsvParameter(const GSvector2 position, const TerrainName name, const MapType type) {
-	GSvector2 cellPos = CsvConvertTwoDVector::Vector2CnvCsvPos(position, type);
-	m_Maps[type][cellPos.y][cellPos.x] = name;
+	m_Maps[MapType::Double][cellPos.y][cellPos.x] = name;
+
+	m_Maps[MapType::Default][cellPos.y * 2 + 1][cellPos.x * 2 + 1] = name;
+	m_Maps[MapType::Default][cellPos.y * 2 + 1][cellPos.x * 2] = name;
+	m_Maps[MapType::Default][cellPos.y * 2][cellPos.x * 2 + 1] = name;
+	m_Maps[MapType::Default][cellPos.y * 2][cellPos.x * 2] = name;
+
+	world->sendMessage(EventMessage::MapDataUpdate);
 }
 
 void Map::Debug(const MapType type) {
@@ -236,6 +237,6 @@ void Map::CombineMapTexture() {
 	p_MapTextureParam->m_Position = { 0.0f,0.0f };
 }
 
-void Map::RemoveTexture(){
+void Map::RemoveTexture() {
 	p_GameManager->GetDrawManager()->Remove(m_MapDrawID);
 }

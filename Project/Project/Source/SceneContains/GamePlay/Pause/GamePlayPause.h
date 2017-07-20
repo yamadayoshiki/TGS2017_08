@@ -12,8 +12,6 @@ protected:
 	virtual void OnStart() override;
 	// XV     
 	virtual void OnUpdate(float deltaTime) override;
-	// •`‰æ     
-	virtual void OnDraw()const override;
 	//I—¹
 	virtual void OnEnd()override;
 };

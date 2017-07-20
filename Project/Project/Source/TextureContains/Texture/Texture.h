@@ -13,6 +13,8 @@ public:
 		const DrawOrder drawOrder);
 	//ループ回数の取得
 	int GetLoopCount() override { return 0; }
+	//クローン生成
+	virtual ITexturePtr Clone(const DrawOrder drawOrder) override;
 
 public:
 	//テクスチャ交換

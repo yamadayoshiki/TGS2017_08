@@ -14,24 +14,17 @@
 World::World()
 	: p_Actors(std::make_shared<ActorManager>())
 	, m_IsEnd(false)
-	, m_Target()
-	, p_BodyFactory(std::make_unique<Body::BodyFactory>())
-{
-	m_Target[0] = ActorName::Enemy_05;
-	m_Target[1] = ActorName::Enemy_05;
-	m_Target[2] = ActorName::Enemy_06;
-	m_Target[3] = ActorName::Enemy_09;
-	m_Target[4] = ActorName::Enemy_05;
-	m_Target[5] = ActorName::Enemy_05;
-	m_Target[6] = ActorName::Enemy_05;
-	m_Target[7] = ActorName::Enemy_08;
-
+	, p_BodyFactory(std::make_unique<Body::BodyFactory>()) {
 }
 
 // デストラクタ
 World::~World() {
 	p_CharacterFactory.reset();
 	p_BodyFactory.reset();
+}
+
+void World::SetUp(const IGameManagerPtr & gameManager){
+	p_Actors->SetUp(this, gameManager);
 }
 
 // 更新
@@ -49,7 +42,7 @@ void World::handleMessage(EventMessage message, void* param) {
 	// ワールドのメッセージ処理 
 	switch (message)
 	{
-	case EventMessage::END_SCENE: 
+	case EventMessage::END_SCENE:
 		EndRequest((const SceneName&)param);
 	default:
 		break;
@@ -82,6 +75,11 @@ void World::sendMessage(EventMessage message, void* param) {
 // メッセージの送信(指定アクター)
 void World::sendMessage(EventMessage message, Actor& actor, void* param) {
 	actor.handleMessage(message, param);
+}
+
+// メッセージの送信(指定アクターのみ)
+void World::sendMessageOne(EventMessage message, Actor & actor, void * param){
+	actor.handleMessageOne(message, param);
 }
 
 //生成
@@ -132,12 +130,6 @@ SceneName World::NextScene() {
 	return m_NextScene;
 }
 
-int World::GetSurviverSum(int mapOrder) {
-	int sum = 0;
-	findActor(ActorName::EnemyManager)->eachChildren([&](Actor& child) {
-		if (child.getName() == ActorName::BreakWall)return;
-		EnemyBase* enemy = dynamic_cast<EnemyBase*>(&child);
-		if (enemy->CanDead() && !enemy->GetHitPoint().IsDead()) { sum++; }
-	});
-	return sum;
+int World::GetSurviverSum() {
+	return p_Actors->GetSurviverSum();
 }

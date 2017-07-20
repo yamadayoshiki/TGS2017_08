@@ -6,6 +6,7 @@ enum class ActorName
 	None = 0,
 
 	/* UIグループ */
+	UI_ALL,
 	UI_Manager,
 	UI_Selector,
 	UI_Button,
@@ -43,6 +44,8 @@ enum class ActorName
 	Enemy_08,			//プレイヤーを見つけたら突進するやつ
 	Enemy_09,
 	Enemy_10,
+	Enemy_11,
+	Enemy_12,
 };
 
 #endif // !ACTORNAME_H_

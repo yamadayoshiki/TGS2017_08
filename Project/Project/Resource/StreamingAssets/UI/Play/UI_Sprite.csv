@@ -3,4 +3,4 @@ game_back,0,0,0,640,480,0,BackGround,0
 score_font,0,0,0,800,40,0,Score,6
 life,0,0,0,42,42,0,Life,6
 batu,0,0,0,102,42,0,Batu,6
-Pause,0,0,0,640,480,0,PauseBackGround,7
+Pause,0,0,0,640,480,0,PauseBackGround,10

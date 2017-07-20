@@ -18,14 +18,15 @@ namespace Body
 
 	//衝突しているか
 	ContactSet BodyBase::IsCollide(IBody* other) {
+		if (this->m_IsExist == false || other->GetExist() == false)
+			return ContactSet();
+
 		return IsCollide((BodyBase*)other);
 	}
 
 	//衝突しているか
 	ContactSet BodyBase::IsCollide(BodyBase * other) {
 		ContactSet result;
-		if (this->m_IsExist == false || other->m_IsExist == false)
-			return result;
 
 		//ブロードフェイズ
 		if (IsCollide2D::AABB2DToAABB2D(
@@ -84,7 +85,7 @@ namespace Body
 		return result;
 	}
 
-	void BodyBase::Transform(const BodyCollidable& bodyCollidable){
+	void BodyBase::Transform(const BodyCollidable& bodyCollidable) {
 		m_Collidable = bodyCollidable;
 	}
 

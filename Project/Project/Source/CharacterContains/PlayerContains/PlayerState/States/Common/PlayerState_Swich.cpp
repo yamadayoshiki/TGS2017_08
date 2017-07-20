@@ -35,7 +35,16 @@ void PlayerState_Swich::collide(const Actor& other, const Body::ContactSet& cont
 	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide && is_Scorp_Angle(other) /*&& distance <= 24.0f*/) {
 		m_Flag = true;
 		//‘ŠŽè‚É‹²‚ñ‚¾î•ñ‚ð‘—‚é
-		p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));
+		p_Player.lock()->getWorld()->sendMessageOne(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));
+		p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_ROUNDS, *(p_Player.lock()->getWorld()->findActor(ActorName::UI_ALL).get()));
+		//‹——£ƒxƒNƒgƒ‹‚ðŽæ“¾
+		GSvector2 dis = other.getPosition() - p_Player.lock()->getPosition();
+		//XŽ²‚ð‡‚í‚¹‚é
+		if (fabs(dis.x) > fabs(dis.y))
+			p_Player.lock()->setPosition(GSvector2(p_Player.lock()->getPosition().x, other.getPosition().y));
+		//YŽ²‚ð‡‚í‚¹‚é
+		else
+			p_Player.lock()->setPosition(GSvector2(other.getPosition().x, p_Player.lock()->getPosition().y));
 	}
 }
 

@@ -26,6 +26,7 @@
 #include "../../../StateContains/States/AttackContains/Rush/EnemyStateRush.h"
 #include "../../../StateContains/States/StopContains/OnlyInTheBack/EnemyStateStopOnlyInTheBack.h"
 #include "../../../StateContains/States/RepelContains/Repel/EnemyStateRepel.h"
+#include "../../../StateContains/States/Damage/EnemyStateDamage.h"
 
 Enemy09::Enemy09(
 	IWorld * world,
@@ -78,6 +79,7 @@ void Enemy09::SetUpState() {
 	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::StickWall, std::make_shared<EnemyStateStopOnlyInTheBack>(shared_from_this(), 180));
 	p_StateManager->add(EnemyStateName::Rush, std::make_shared<EnemyStateRush>(shared_from_this(), 10.0f));
+	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }

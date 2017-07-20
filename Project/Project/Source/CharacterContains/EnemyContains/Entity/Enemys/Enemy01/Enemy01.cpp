@@ -73,7 +73,3 @@ void Enemy01::SetUpState() {
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }
-
-//•`‰æ
-void Enemy01::onDraw() const {
-}

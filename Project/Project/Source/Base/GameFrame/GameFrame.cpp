@@ -10,7 +10,7 @@
 
 #include"../../SceneContains/SceneName.h"
 #include"../../SceneContains/GameTitle/GameTitle.h"
-//#include"../../SceneContains/GameTutorial/GameTutorial.h"
+#include"../../SceneContains/GameTutorial/GameTutorial.h"
 #include"../../SceneContains/GamePlay/GamePlay.h"
 #include"../../SceneContains/GameResult/GameResult.h"
 #include"../../SceneContains/GameCredit/GameCredit.h"
@@ -46,7 +46,7 @@ GameFrame::~GameFrame() {
 void GameFrame::start(){
 	// ƒV[ƒ“‚Ìstring‘Î‰ž‚Ì“o˜^
 	p_GameManager->GetSceneEnum()->AddEnum("GameTitle", SceneName::GameTitle);
-	//p_GameManager->GetSceneEnum()->AddEnum("GameTutorial", SceneName::GameTutorial);
+	p_GameManager->GetSceneEnum()->AddEnum("GameTutorial", SceneName::GameTutorial);
 	p_GameManager->GetSceneEnum()->AddEnum("GamePlay", SceneName::GamePlay);
 	p_GameManager->GetSceneEnum()->AddEnum("GameResult", SceneName::GameResult);
 	p_GameManager->GetSceneEnum()->AddEnum("GameCredit", SceneName::GameCredit);
@@ -56,7 +56,7 @@ void GameFrame::start(){
 
 	//ƒV[ƒ“‚Ì’Ç‰Á
 	m_SceneManager->Add(SceneName::GameTitle, std::make_shared<GameTitle>(p_GameManager));
-	//m_SceneManager.Add(SceneName::GameTutorial, std::make_shared<GameTutorial>(p_GameManager));
+	m_SceneManager->Add(SceneName::GameTutorial, std::make_shared<GameTutorial>(p_GameManager));
 	m_SceneManager->Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager));
 	m_SceneManager->Add(SceneName::GameResult, std::make_shared<GameResult>(p_GameManager));
 	m_SceneManager->Add(SceneName::GameCredit, std::make_shared<GameCredit>(p_GameManager));

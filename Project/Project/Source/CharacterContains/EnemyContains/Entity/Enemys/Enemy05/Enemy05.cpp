@@ -22,8 +22,13 @@
 #include "../../../StateContains/States/MoveContains/Standard/Idle/EnemyStateIdleStandard.h"
 #include "../../../StateContains/States/MoveContains/Standard/Move/EnemyStateMoveStandard.h"
 #include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
+#include "../../../StateContains/States/Damage/EnemyStateDamage.h"
 
-Enemy05::Enemy05(IWorld * world, const GSvector2 & position, const FourDirection front, const IGameManagerPtr & gameManager)
+Enemy05::Enemy05(
+	IWorld * world, 
+	const GSvector2 & position, 
+	const FourDirection front, 
+	const IGameManagerPtr & gameManager)
 	:EnemyBase(
 		world,
 		ActorName::Enemy_05,
@@ -64,6 +69,7 @@ void Enemy05::SetUpState() {
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveStandard>(shared_from_this(), 5.0f));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
+	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }

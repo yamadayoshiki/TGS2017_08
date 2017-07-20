@@ -3,6 +3,7 @@
 #include "../../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
 #include "../../../../PlayerWatch/PlayerWatch.h"
 #include "../../../../../../WorldContains/EventMessage/EventMessage.h"
+#include "../../../../../../WorldContains/IWorld.h"
 
 //コンストラクタ
 EnemyStateSpinStandard::EnemyStateSpinStandard(const EnemyBasePtr & enemy, float speed)
@@ -20,6 +21,9 @@ void EnemyStateSpinStandard::unique_init() {
 
 	//スピン状態に遷移したことを知らせる
 	p_Enemy.lock()->GetCommandManager()->handleMessage(EventMessage::ENEMY_SPIN, nullptr);
+
+	//プレイヤーに遷移したことを知らせる
+	p_Enemy.lock()->getWorld()->findActor(ActorName::Player)->handleMessage(EventMessage::PLAYER_ROUNDSLOST,nullptr);
 }
 
 //各種固有の更新

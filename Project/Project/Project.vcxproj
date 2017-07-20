@@ -206,6 +206,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Base\EnemyCommandMoveBase.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Null\EnemyCommandNull.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Straight\EnemyCommandStraight.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyManager.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBase.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBasePtr.h" />
@@ -219,6 +220,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatchPtr.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.h" />
@@ -233,6 +235,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Standard\EnemyStateCrushStandard.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Damage\EnemyStateDamage.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\InformChildren\EnemyStateDeadInformChildren.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Inform\EnemyStateDeadInform.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Standard\EnemyStateDeadStandard.h" />
@@ -302,8 +305,10 @@
     <ClInclude Include="Source\Map\CombinationTexture\CombinationTexture.h" />
     <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h" />
     <ClInclude Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.h" />
+    <ClInclude Include="Source\SceneContains\Elements\AnimationSpriteBase\AnimationSpriteBase.h" />
     <ClInclude Include="Source\SceneContains\Elements\DropSprite\DropSprite.h" />
     <ClInclude Include="Source\SceneContains\Elements\Guide\Guide.h" />
+    <ClInclude Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.h" />
     <ClInclude Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.h" />
     <ClInclude Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\BigBlock2.h" />
@@ -311,6 +316,7 @@
     <ClInclude Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.h" />
     <ClInclude Include="Source\SceneContains\GameCredit\CreditStart\CreditStart.h" />
     <ClInclude Include="Source\SceneContains\GameOver\GameOver.h" />
+    <ClInclude Include="Source\SceneContains\GamePlay\Close\GamePlayClose.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\Play\GamePlayPlay.h" />
     <ClInclude Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.h" />
@@ -321,7 +327,11 @@
     <ClInclude Include="Source\SceneContains\GameResult\ResultStart\ResultStart.h" />
     <ClInclude Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.h" />
     <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.h" />
     <ClInclude Include="Source\SceneContains\GameTutorial\GameTutorial.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\Play\GameTutorialPlay.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\Ready\GameTutorialReady.h" />
     <ClInclude Include="Source\SceneContains\SceneManager\SceneChildMgr.h" />
     <ClInclude Include="Source\SceneContains\Scene\ChildScene.h" />
     <ClInclude Include="Source\TextureContains\NumberTexture\NumberTexture.h" />
@@ -457,6 +467,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Rush\EnemyCommandEnemy09Rush.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Standby\EnemyCommandEnemy09Standby.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEnemyBullet01StraightTouchWall.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyManager.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBase.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy01\Enemy01.cpp" />
@@ -469,6 +480,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Base\EnemyStateAttackBase.cpp" />
@@ -480,6 +492,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Standard\EnemyStateCrushStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Damage\EnemyStateDamage.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\InformChildren\EnemyStateDeadInformChildren.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Inform\EnemyStateDeadInform.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Standard\EnemyStateDeadStandard.cpp" />
@@ -536,8 +549,10 @@
     <ClCompile Include="Source\Map\CombinationTexture\CombinationTexture.cpp" />
     <ClCompile Include="Source\Map\Map.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\AnimationSpriteBase\AnimationSpriteBase.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\DropSprite\DropSprite.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\Guide\Guide.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.cpp" />
     <ClCompile Include="Source\SceneContains\GameCredit\BigBlock2.cpp" />
@@ -547,6 +562,7 @@
     <ClCompile Include="Source\SceneContains\GameCredit\GameCredit.cpp" />
     <ClCompile Include="Source\SceneContains\GameEnd\GameEnd.cpp" />
     <ClCompile Include="Source\SceneContains\GameOver\GameOver.cpp" />
+    <ClCompile Include="Source\SceneContains\GamePlay\Close\GamePlayClose.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.cpp" />
     <ClCompile Include="Source\SceneContains\GamePlay\Play\GamePlayPlay.cpp" />
@@ -560,7 +576,11 @@
     <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.cpp" />
     <ClCompile Include="Source\SceneContains\GameTutorial\GameTutorial.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\Play\GameTutorialPlay.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\Ready\GameTutorialReady.cpp" />
     <ClCompile Include="Source\SceneContains\SceneManager\SceneChildMgr.cpp" />
     <ClCompile Include="Source\SceneContains\SceneManager\SceneManager.cpp" />
     <ClCompile Include="Source\SceneContains\Scene\ChildScene.cpp" />

@@ -28,8 +28,7 @@ GameTitle::GameTitle(const IGameManagerPtr& gameManager)
 void GameTitle::OnStart() {
 	p_GameManager->GetPlayerParameter().setRemaining(3);
 	p_GameManager->GetScore()->initialze();
-	MapOrder = 1;
-	p_GameManager->set_MapOrder(MapOrder);
+	p_GameManager->set_MapOrder(3);
 
 	//UI生成
 	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));
@@ -44,7 +43,7 @@ void GameTitle::OnUpdate(float deltaTime) {
 	//Bボタンでゲームプレイへ
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B) || p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
 		gsPlaySE(SE_DECITION);
-		p_World->EndRequest(SceneName::GamePlay);
+		p_World->EndRequest(SceneName::GameTutorial);
 	}
 }
 
@@ -53,5 +52,4 @@ void GameTitle::OnDraw()const{
 
 void GameTitle::OnEnd(){
 	gsStopMusic();
-	p_GameManager->set_MapOrder(MapOrder);
 }

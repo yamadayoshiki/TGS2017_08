@@ -47,7 +47,7 @@ DrawOrderID DrawManager::Register(
 	result.id = ((int)order) * 1000 + m_Oreder;
 	m_Oreder++;
 	m_DrawOrderMap[result.id] = result;
-	if (result.id == 6048) 
+	if (result.id == 7053) 
 	{
 		int i = 0;
 	}

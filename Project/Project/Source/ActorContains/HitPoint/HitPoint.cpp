@@ -39,6 +39,10 @@ bool HitPoint::IsDead() {
 }
 
 //“|‚¹‚é‚©“|‚¹‚È‚¢‚©
-bool HitPoint::CanDead(){
+bool HitPoint::CanDead() const{
 	return canDead;
+}
+//Å‘åHP‚Ìæ“¾
+int HitPoint::GetMaxHp() const{
+	return maxHp;
 }

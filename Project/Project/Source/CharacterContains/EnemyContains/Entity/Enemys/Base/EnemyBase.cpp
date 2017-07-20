@@ -18,7 +18,7 @@ EnemyBase::EnemyBase(
 	const ITexturePtr& texture,
 	const Body::MotionType motionType,
 	const Body::BodyDataName dataName)
-	: Actor(world, name, position, gameManager, texture, motionType,dataName)
+	: Actor(world, name, position, gameManager, texture, motionType, dataName)
 	, m_HitPoint(maxHp)
 	, m_FourDirection(front)
 	, m_MapType(type) {
@@ -62,8 +62,15 @@ void EnemyBase::onDraw() const {
 
 //衝突した
 void EnemyBase::onCollide(Actor& other, const Body::ContactSet& contactSet) {
+	//スピン状態のノコノコと衝突した場合
+	if (other.getName() == ActorName::Enemy_07) {
+		if (dynamic_cast<EnemyBase*>(&other)->GetStateManager()->GetCurStateName() == EnemyStateName::Spin) {
+			p_StateManager->change(EnemyStateName::Damage);
+		}
+	}
+
 	//状態ごとの衝突判定
-	p_StateManager->collide(*this, other,contactSet);
+	p_StateManager->collide(*this, other, contactSet);
 }
 
 //ステートマネージャーを取得する
@@ -82,7 +89,7 @@ HitPoint & EnemyBase::GetHitPoint() {
 }
 
 //倒せるか倒せないか
-bool EnemyBase::CanDead() {
+bool EnemyBase::CanDead() const {
 	return m_HitPoint.CanDead();
 }
 
@@ -109,8 +116,10 @@ MapType EnemyBase::GetMapType() const {
 
 //テクスチャの切り替え
 void EnemyBase::Settexture(const std::string textureName) {
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_Texture = m_TextureMap[textureName];
 	p_Texture->Initialize();
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 }
 
 //メッセージ処理

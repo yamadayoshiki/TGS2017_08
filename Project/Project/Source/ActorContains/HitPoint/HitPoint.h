@@ -19,7 +19,9 @@ public:
 	//HP‚ª0ˆÈ‰º‚©
 	bool IsDead();
 	//“|‚¹‚é‚©“|‚¹‚È‚¢‚©
-	bool CanDead();
+	bool CanDead() const;
+	//Å‘åHP‚Ìæ“¾
+	int GetMaxHp() const;
 };
 
 #endif // !HITPOINT_H_

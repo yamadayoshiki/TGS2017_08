@@ -28,6 +28,7 @@ void UIManager::regist() {
 	m_FilePaths[SceneName::GameResult] = { "Result/UI_Button.csv", "Result/UI_Sprite.csv", "Result/UI_Text.csv" ,"Result/UI_Rank.csv" ,"Result/UI_Combo.csv","Result/UI_Number.csv" };
 	m_FilePaths[SceneName::GameEnd] = { "End/UI_Button.csv",	"End/UI_Sprite.csv",	"End/UI_Text.csv"	 ,"End/UI_Rank.csv",	"End/UI_Combo.csv",	"End/UI_Number.csv" };
 	m_FilePaths[SceneName::GameOver] = { "Over/UI_Button.csv",	"Over/UI_Sprite.csv",	"Over/UI_Text.csv"	 ,"Over/UI_Rank.csv" ,	"Over/UI_Combo.csv",	"Over/UI_Number.csv" };
+	m_FilePaths[SceneName::GameTutorial] = { "Tutorial/UI_Button.csv",	"Tutorial/UI_Sprite.csv",	"Tutorial/UI_Text.csv"	 ,"Tutorial/UI_Rank.csv" ,	"Tutorial/UI_Combo.csv",	"Tutorial/UI_Number.csv" };
 }
 
 // ÉVÅ[ÉìÇ…ëŒâûÇµÇΩUIÇÃê∂ê¨

@@ -26,9 +26,6 @@ void GamePlayPause::OnUpdate(float deltaTime){
 		Change(SceneName::Play);
 }
 
-void GamePlayPause::OnDraw() const{
-}
-
 void GamePlayPause::OnEnd(){
 	p_Parent.lock()->Restart();
 	gsPlaySE(SE_PAUSE_OPEN);

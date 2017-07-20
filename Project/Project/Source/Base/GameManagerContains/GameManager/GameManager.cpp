@@ -75,6 +75,9 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("TutorialLeft7", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide7.png");
 	p_Renderer2D->LoadTexture("TutorialLeft8", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide8.png");
 
+	p_Renderer2D->LoadTexture("TargetBlock", "Resource/Texture/UI/Tutorial/mark2.png");
+	p_Renderer2D->LoadTexture("TutorialSkip", "Resource/Texture/UI/Tutorial/cyuto_font.png");
+
 	p_Renderer2D->LoadTexture("TutorialRightBG", "Resource/Texture/UI/Tutorial/TutorialRight/Playergaido.png");
 	p_Renderer2D->LoadTexture("TutorialRightBButton", "Resource/Texture/UI/Tutorial/TutorialRight/button_anime2.png");
 	p_Renderer2D->LoadTexture("TutorialRightYButton", "Resource/Texture/UI/Tutorial/TutorialRight/button_anime3.png");
@@ -89,13 +92,31 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("TutorialRightDash", "Resource/Texture/UI/Tutorial/TutorialRight/Player_anime3.png");
 
 	//Play
+	p_Renderer2D->LoadTexture("PlayStartLogo", "Resource/Texture/UI/Play/start3.png");
 	p_Renderer2D->LoadTexture("game_back", "Resource/Texture/UI/Play/play.png");
+	p_Renderer2D->LoadTexture("Kokuti", "Resource/Texture/UI/Play/kokuti2.png");
 	p_Renderer2D->LoadTexture("combo_font", "Resource/Texture/UI/Play/combo_font.png");
 	p_Renderer2D->LoadTexture("score_font", "Resource/Texture/UI/Play/score_font.png");
 	p_Renderer2D->LoadTexture("gauge_back", "Resource/Texture/UI/Play/geji.png");
 	p_Renderer2D->LoadTexture("gauge_front", "Resource/Texture/UI/Play/geji2.png");
 	p_Renderer2D->LoadTexture("life", "Resource/Texture/UI/Play/life.png");
 	p_Renderer2D->LoadTexture("batu", "Resource/Texture/UI/Play/batu.png");
+	p_Renderer2D->LoadTexture("StageClear", "Resource/Texture/UI/Play/StageClear.png");
+	p_Renderer2D->LoadTexture("Sokomade", "Resource/Texture/UI/Play/stop2.png");
+
+	p_Renderer2D->LoadTexture("StageTitle1", "Resource/Texture/UI/Play/stage1.png");
+	p_Renderer2D->LoadTexture("StageTitle2", "Resource/Texture/UI/Play/stage2.png");
+	p_Renderer2D->LoadTexture("StageTitle3", "Resource/Texture/UI/Play/stage3.png");
+	p_Renderer2D->LoadTexture("StageTitle4", "Resource/Texture/UI/Play/stage4.png");
+	p_Renderer2D->LoadTexture("StageTitle5", "Resource/Texture/UI/Play/stage5.png");
+	p_Renderer2D->LoadTexture("StageTitle6", "Resource/Texture/UI/Play/stage6.png");
+	p_Renderer2D->LoadTexture("StageTitle7", "Resource/Texture/UI/Play/stage7.png");
+	p_Renderer2D->LoadTexture("StageTitle8", "Resource/Texture/UI/Play/stage8.png");
+	p_Renderer2D->LoadTexture("StageTitle9", "Resource/Texture/UI/Play/stage9.png");
+	p_Renderer2D->LoadTexture("StageTitle10", "Resource/Texture/UI/Play/stage10.png");
+	p_Renderer2D->LoadTexture("StageTitle11", "Resource/Texture/UI/Play/stage11.png");
+	p_Renderer2D->LoadTexture("StageTitle12", "Resource/Texture/UI/Play/stage12.png");
+	p_Renderer2D->LoadTexture("TutorialTitle", "Resource/Texture/UI/Play/Tutorial.png");
 
 	//Clear
 	p_Renderer2D->LoadTexture("BigBlock2", "Resource/Texture/UI/Clear/bigblock2.png");
@@ -264,7 +285,7 @@ void GameManager::set_MapOrder(int MapOrder)
 	MapOrder_ = MapOrder;
 }
 
-int GameManager::get_MapOrder() const
+int GameManager::get_MapOrder()
 {
 	return MapOrder_;
 }

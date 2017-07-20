@@ -21,8 +21,6 @@ protected:
 	virtual void SetUpCommand() override;
 	//ŠeíŒÅ—L‚ÌState‚Ìİ’è
 	virtual void SetUpState() override;
-	//•`‰æ
-	virtual void onDraw() const override;
 };
 
 #endif

@@ -52,3 +52,8 @@ void Texture_Base::SetPosAndAngle(const GSvector2 & pos, float angle) {
 void Texture_Base::ChangeDisplayMode(const DisplayMode mode) {
 	p_DrawManager.lock()->ChageDisplayMode(m_DrawOrderID, mode);
 }
+
+void Texture_Base::ChangeDrawOredr(const DrawOrder drawOrder){
+	p_DrawManager.lock()->Remove(m_DrawOrderID);
+	m_DrawOrderID = p_DrawManager.lock()->Register(m_TexName, p_Parameter, drawOrder);
+}

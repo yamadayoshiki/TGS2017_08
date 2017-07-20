@@ -2,8 +2,6 @@
 #define GAMEPLAY_H_
 
 #include "../Scene/Scene.h"
-#include "../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
-class World;
 class Number;
 class Button;
 class Sprite;

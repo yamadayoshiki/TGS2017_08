@@ -14,9 +14,12 @@ AnimationTexture::AnimationTexture(
 	p_Parameter->m_Center = GSvector2(cutWidth / 2, p_Parameter->m_Rect.bottom / 2);
 }
 
+AnimationTexture::AnimationTexture(const std::string & texName, const DrawManagerSPtr & drawManager, const DrawOrder drawOrder)
+	: Texture_Base(texName, drawManager, drawOrder) {
+}
+
 //デストラクタ
 AnimationTexture::~AnimationTexture() {
-	p_Animation.reset();
 }
 
 //初期化
@@ -41,4 +44,12 @@ int AnimationTexture::GetLoopCount() {
 //アニメーションの取得
 AnimationSPtr AnimationTexture::GetAnimation() {
 	return p_Animation;
+}
+
+ITexturePtr AnimationTexture::Clone(const DrawOrder drawOrder) {
+	std::shared_ptr<AnimationTexture> result = std::make_shared<AnimationTexture>(m_TexName, p_DrawManager.lock(), drawOrder);
+	result->p_Animation = p_Animation->Clone();
+	result->p_Parameter->Copy(p_Parameter);
+	result->m_StopFlag = m_StopFlag;
+	return result;
 }

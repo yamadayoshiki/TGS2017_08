@@ -23,5 +23,9 @@ public:
 	void SetPosAndAngle(const GSvector2& pos, float angle)override {};
 	//表示モード切替
 	void ChangeDisplayMode(const DisplayMode mode)override {}
+	//描画順序切替
+	void ChangeDrawOredr(const DrawOrder drawOrder)override {}
+	//クローン生成
+	ITexturePtr Clone(const DrawOrder drawOrder) override { return std::make_shared<NullTexture>(); }
 };
 #endif // !NULLTEXTURE_H_

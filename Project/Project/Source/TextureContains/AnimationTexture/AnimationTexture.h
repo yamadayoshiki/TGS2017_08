@@ -14,6 +14,11 @@ public:
 		const DrawOrder drawOrder,
 		const float cutWidth,
 		const unsigned int animmationUpdateTimer);
+	//コンストラクタ
+	AnimationTexture(
+		const std::string& texName,
+		const DrawManagerSPtr& drawManager,
+		const DrawOrder drawOrder);
 	//デストラクタ
 	~AnimationTexture();
 
@@ -22,6 +27,8 @@ public:
 	int GetLoopCount() override;
 	//アニメーションの取得
 	AnimationSPtr GetAnimation();
+	//クローン生成
+	ITexturePtr Clone(const DrawOrder drawOrder) override;
 
 protected:
 	//初期化

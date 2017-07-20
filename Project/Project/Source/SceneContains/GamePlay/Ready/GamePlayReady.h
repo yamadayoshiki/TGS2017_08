@@ -1,12 +1,12 @@
 #ifndef GAMEPLAYREADY_H_
 #define GAMEPLAYREADY_H_
 #include "../../Scene/ChildScene.h"
+#include <vector>
+class AnimationSpriteBase;
 //ゲームプレイ準備
-class GamePlayReady : public ChildScene
-{
+class GamePlayReady : public ChildScene {
 public:
 	GamePlayReady();
-	~GamePlayReady();
 
 protected:
 	// 開始     
@@ -17,5 +17,13 @@ protected:
 	virtual void OnDraw()const override;
 	//終了
 	virtual void OnEnd()override;
+
+protected:
+	//変更
+	void ChangeSprite();
+
+private:
+	std::vector<std::shared_ptr<AnimationSpriteBase>> m_SpriteVector;
+	int m_CurIndex;
 };
 #endif // !GAMEPLAYREADY_H_

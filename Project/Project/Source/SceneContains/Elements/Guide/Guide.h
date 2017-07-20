@@ -5,19 +5,19 @@
 class AnimationTexture;
 class Texture;
 
+enum class GuideState {
+	Tutorial1 = 0,
+	Tutorial2,
+	Tutorial3,
+	Tutorial4,
+	Tutorial5,
+	Tutorial6,
+	Tutorial7,
+	Tutorial8,
+};
+
 class Guide : public Actor
 {
-	enum class State {
-		Tutorial1 = 0,
-		Tutorial2,
-		Tutorial3,
-		Tutorial4,
-		Tutorial5,
-		Tutorial6,
-		Tutorial7,
-		Tutorial8,
-	};
-
 public:
 	Guide(
 		IWorld* world,
@@ -31,7 +31,12 @@ protected:
 	virtual void onMessage(EventMessage message, void* param)override;
 
 public:
-	void Change(const State next);
+	//GuideState‚Ìæ“¾
+	GuideState GetState();
+	//GuideState‚Ìİ’è
+	void SetState(const GuideState state);
+	//•ÏX
+	void ChangeState(const GuideState next);
 
 private:
 	std::unique_ptr<Texture> p_RightBG;				//‰E‚Ì”wŒi
@@ -41,7 +46,7 @@ private:
 
 	int m_Timer;
 
-	State m_CurState;
+	GuideState m_CurState;
 };
 
 #endif // !GUIDE_H_

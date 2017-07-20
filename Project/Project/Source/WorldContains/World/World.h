@@ -3,6 +3,7 @@
 
 #include "../IWorld.h" 
 #include "../../ActorContains/ActorManager/ActorManager.h"
+#include "../../ActorContains/ActorGroup.h"
 #include"../../MapGenerator/MapGenerator.h"
 #include "../../ActorContains/ActorPtr.h"
 #include"../../Map/Map.h"
@@ -23,6 +24,8 @@ public:
 	World();
 	// デストラクタ
 	World::~World();
+	// セットアップ
+	void SetUp(const IGameManagerPtr& gameManager);
 	// 更新    
 	void update(float deltaTime);
 	// 描画     
@@ -37,8 +40,10 @@ public:
 	virtual void OptinalCollide(Actor* actor, ActorGroup actorGroup) override;
 	// メッセージの送信    
 	virtual void sendMessage(EventMessage message, void* param = nullptr) override;
-	// メッセージの送信(指定アクター)
+	// メッセージの送信(指定アクター+子)
 	virtual void sendMessage(EventMessage message, Actor& actor, void* param = nullptr) override;
+	// メッセージの送信(指定アクターのみ)
+	virtual void sendMessageOne(EventMessage message, Actor& actor, void* param = nullptr) override;
 
 	//生成
 	void generate(const IWorldPtr world, const IGameManagerPtr& gameManager, const std::string& file_name);
@@ -61,15 +66,14 @@ public:
 	virtual void ResetEnd();
 	// シーンの終了
 	virtual SceneName NextScene();
-
-	int GetSurviverSum(int mapOrder);
+	// 討伐目標敵の数の取得
+	int GetSurviverSum();
 
 	// コピー禁止  
 	World(const World& other) = delete;
 	World& operator = (const World& other) = delete;
 
 private:
-	std::unordered_map<int, ActorName> m_Target;//倒す対象の敵をステージごとに
 	ActorManagerPtr p_Actors;					//アクター管理
 	MapGeneratorPtr p_MapGenerator;				//マップ生成クラス
 	SceneName m_NextScene;						//次のシーン

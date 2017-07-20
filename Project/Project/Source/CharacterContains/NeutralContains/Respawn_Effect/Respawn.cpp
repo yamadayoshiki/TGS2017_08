@@ -4,13 +4,13 @@
 #include"../../../ActorContains/Transform/Transform.h"
 #include "../../../Utility/Texture2DParameter/Texture2DParameter.h"
 //コンストラクタ
-Respawn::Respawn(IWorld* world, const GSvector2& position, IGameManagerPtr gameManager)
+Respawn::Respawn(IWorld* world, const GSvector2& position, IGameManagerPtr gameManager,const DrawOrder order)
 	:Actor(
 		world,
 		ActorName::Respawn,
 		position,
 		gameManager,
-		std::make_shared<AnimationTexture>("Respawn",gameManager->GetDrawManager(),DrawOrder::Effect_Front,64,3)){
+		std::make_shared<AnimationTexture>("Respawn",gameManager->GetDrawManager(),order,64,3)){
 }
 //デストラクタ
 Respawn::~Respawn(){

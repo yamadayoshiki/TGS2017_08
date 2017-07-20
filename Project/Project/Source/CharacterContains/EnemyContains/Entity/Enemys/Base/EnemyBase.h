@@ -39,7 +39,7 @@ public:
 	//ヒットポイントを取得する
 	HitPoint& GetHitPoint();
 	//倒せるか倒せないか
-	bool CanDead();
+	bool CanDead() const;
 	//プレイヤー監視クラスを取得する
 	const PlayerWatch* GetPlayerWatch() const;
 	//向きを取得

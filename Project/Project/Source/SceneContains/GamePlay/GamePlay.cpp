@@ -3,8 +3,6 @@
 #include <gslib.h>
 #include<GSmusic.h>
 
-#include <chrono>
-
 #include "../SceneName.h"
 #include "../../WorldContains/World/World.h"
 #include"../../ActorContains/ActorGroup.h"
@@ -29,6 +27,7 @@
 #include "Play\GamePlayPlay.h"
 #include "Pause\GamePlayPause.h"
 #include "../../WorldContains/EventMessage/EventMessage.h"
+#include "Close\GamePlayClose.h"
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
@@ -40,8 +39,8 @@ void GamePlay::SetUp() {
 	p_SceneChildMgr->Add(SceneName::Start, std::make_shared<GamePlayReady>());
 	p_SceneChildMgr->Add(SceneName::Play, std::make_shared<GamePlayPlay>());
 	p_SceneChildMgr->Add(SceneName::Pause, std::make_shared<GamePlayPause>());
+	p_SceneChildMgr->Add(SceneName::Close, std::make_shared<GamePlayClose>());
 	p_SceneChildMgr->SetUp();
-	p_SceneChildMgr->Change(SceneName::Start);
 }
 
 // 開始     
@@ -136,30 +135,30 @@ void GamePlay::OnEnd() {
 }
 
 void GamePlay::HandleMessage(EventMessage message, void * param) {
-	if (IsExistBrother((const SceneName&)param) == true)
-		switch (message)
-		{
-		case EventMessage::END_SCENE:
+	switch (message)
+	{
+	case EventMessage::END_SCENE:
+		if (IsExistBrother((const SceneName&)param) == true)
 			p_World->EndRequest((const SceneName&)param);
-		}
+		return;
+	}
 
-	else
-		p_SceneChildMgr->HandleMessage(message, param);
+	p_SceneChildMgr->HandleMessage(message, param);
 }
 
-std::weak_ptr<Number> GamePlay::GetScoreUI(){
+std::weak_ptr<Number> GamePlay::GetScoreUI() {
 	return p_ScoreUI;
 }
 
-std::weak_ptr<Number> GamePlay::GetPlayerRemainingUI(){
+std::weak_ptr<Number> GamePlay::GetPlayerRemainingUI() {
 	return p_PlayerRemainingUI;
 }
 
-std::weak_ptr<Button> GamePlay::GetButtonUI(){
+std::weak_ptr<Button> GamePlay::GetButtonUI() {
 	return p_ButtonUI;
 }
 
-std::weak_ptr<Sprite> GamePlay::GetPauseBack(){
+std::weak_ptr<Sprite> GamePlay::GetPauseBack() {
 	return p_PauseBack;
 }
 

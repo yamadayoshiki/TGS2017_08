@@ -12,7 +12,8 @@ public:
 	//コンストラクタ
 	Respawn(IWorld* world,
 		const GSvector2& position,
-		IGameManagerPtr gameManager);
+		IGameManagerPtr gameManager,
+		const DrawOrder order = DrawOrder::Effect_Front);
 	//デストラクタ
 	~Respawn();
 	//初期化

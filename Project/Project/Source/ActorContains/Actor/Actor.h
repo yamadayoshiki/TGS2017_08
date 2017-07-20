@@ -75,24 +75,30 @@ public:
 	//兄弟同士の衝突判定
 	void collideSibling();
 	//子の追加
-	void addChild(const ActorPtr& child);
+	virtual void addChild(const ActorPtr& child);
+	//子の追加
+	virtual void addChildNonInit(const ActorPtr& child);
 	//子を巡回
 	void eachChildren(std::function<void(Actor&)> fn);
 	//子を巡回（const版）
 	void eachChildren(std::function<void(const Actor&)> fn) const;
 	//子を削除する
 	void removeChildren(std::function <bool(Actor& actor)> fn);
-	//子を削除する
-	void removeChildren();
+	//子を削除する(死んだ子の削除)
+	virtual void removeChildren_dead();
 	//子を消去
 	void clearChildren();
 	//メッセージ処理
 	void handleMessage(EventMessage message, void* param);
+	//メッセージ処理
+	void handleMessageOne(EventMessage message, void* param);
 
 	//ワールドを設定
 	void SetWorld(IWorld* world);
 	//ワールドを取得
 	IWorld* getWorld() const;
+	//ゲームマネージャーの取得
+	IGameManagerPtr GetGameMgr() const;
 	//判定の形の取得
 	Body::IBodyPtr getBody() const;
 
@@ -123,7 +129,7 @@ protected:
 	//更新
 	virtual void onUpdate(float deltaTime) {}
 	//衝突判定後の更新
-	void OnLateUpdate() {}
+	virtual void OnLateUpdate() {}
 	//描画
 	virtual void onDraw() const {}
 	//衝突リアクション
@@ -141,8 +147,6 @@ protected:
 	ITexturePtr	p_Texture;			//テクスチャ
 	Body::IBodyPtr p_Body;			//衝突判定図形
 	bool m_dead;					//死亡しているか
-
-private:
 	std::forward_list<ActorPtr> m_children;	//子アクター
 };
 

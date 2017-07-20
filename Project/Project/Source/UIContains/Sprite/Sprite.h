@@ -14,12 +14,6 @@ public:
 		const ITexturePtr& texture,
 		const std::string& usage);				//—p“r
 
-private:
-	// XVˆ—
-	virtual void onUpdate(float deltaTime)override;
-	// •`‰æˆ—
-	virtual void onDraw()const override;
-
 public:
 	void ChangeDisplayMode(const DisplayMode mode) override;
 

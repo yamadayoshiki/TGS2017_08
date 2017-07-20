@@ -17,7 +17,5 @@ protected:
 	virtual void onCollide(const Actor & other, const Body::ContactSet& contactSet) override;
 	// I—¹‚Ìˆ—
 	virtual void onEnd() override;
-	// “ü—Íˆ—
-	virtual void onInput() override;
 };
 #endif

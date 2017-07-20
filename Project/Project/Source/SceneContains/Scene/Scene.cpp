@@ -47,6 +47,7 @@ void Scene::Start() {
 
 	//ƒ[ƒ‹ƒh¶¬
 	p_World = std::make_shared<World>();
+	p_World->SetUp(p_GameManager);
 
 	// UI‚Ì¶¬
 	//p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));

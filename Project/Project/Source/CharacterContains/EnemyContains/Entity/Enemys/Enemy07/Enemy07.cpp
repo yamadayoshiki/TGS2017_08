@@ -25,6 +25,8 @@
 #include "../../../StateContains/States/MoveContains/Standard/Idle/EnemyStateIdleStandard.h"
 #include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 #include "../../../StateContains/States/SpinContains/Standard/EnemyStateSpinStandard.h"
+#include "../../../../../DrawManager/DisplayMode.h"
+#include "../../../StateContains/States/Damage/EnemyStateDamage.h"
 
 #include <string>
 
@@ -71,7 +73,12 @@ void Enemy07::SetUpCommand() {
 	m_TextureMap["Attack"] = std::make_shared<AnimationTexture>("Enemy07Attack", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
 	m_TextureMap["Normal"]->GetParameter()->m_Center = { 16.0f,16.0f };
 	m_TextureMap["Attack"]->GetParameter()->m_Center = { 16.0f,16.0f };
+	for (auto itr = m_TextureMap.begin(); itr != m_TextureMap.end(); itr++)
+		itr->second->ChangeDisplayMode(DisplayMode::NonDisplay);
+
 	p_Texture = m_TextureMap["Normal"];
+	p_Texture->Initialize();
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 
 	//¶¬
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
@@ -94,6 +101,7 @@ void Enemy07::SetUpState() {
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveStandard>(shared_from_this(), 3.0f));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
 	p_StateManager->add(EnemyStateName::Spin, std::make_shared<EnemyStateSpinStandard>(shared_from_this(), 20.0f));
+	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this(),m_HitPoint.GetMaxHp()));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }

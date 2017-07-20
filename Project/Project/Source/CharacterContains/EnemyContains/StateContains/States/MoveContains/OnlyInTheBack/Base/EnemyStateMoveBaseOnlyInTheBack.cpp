@@ -21,7 +21,7 @@ void EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage(EventMessage message, void
 		//プレイヤーに挟まれたとき
 	case EventMessage::PLAYER_ROUNDS:
 		FourDirection toPlayerDir 
-			= FourDirection(p_Enemy.lock()->GetPlayerWatch()->GetToPlayerChipDis());
+			= FourDirection(p_Enemy.lock()->GetPlayerWatch()->GetToPlayerDis());
 		//背後にプレイヤーがいる
 		if (FourDirection(p_Enemy.lock()->getTransform()->m_Angle) == toPlayerDir.GetTurnOver())
 			change(EnemyStateName::Caught);

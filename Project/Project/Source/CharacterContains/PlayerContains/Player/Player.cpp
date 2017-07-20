@@ -79,27 +79,32 @@ void Player::onUpdate(float deltaTime)
 
 	//フレームカウンター
 	m_Parameter.m_FrameCounter += deltaTime;
+
+	int i = 0;
+	i= mStateManager->currentState(i);
+	if (i != 0)
+		std::cout << std::to_string(i) << std::endl;;
 }
 //描画処理
 void Player::onDraw()const {
 }
 
 //衝突判定
-void Player::onCollide(Actor& other, const Body::ContactSet& contactSet){
+void Player::onCollide(Actor& other, const Body::ContactSet& contactSet) {
 	if (other.getName() == ActorName::BreakWall)
 		p_Transform->m_Position += contactSet.m_SumVec;
-	
+
 	//状態ごとの衝突判定
 	mStateManager->collide(*this, other, contactSet);
 }
 
 //プレイヤーパラメーターの取得
-Player_Parameter& Player::getParameter(){
+Player_Parameter& Player::getParameter() {
 	return m_Parameter;
 }
 
 //テクスチャの名前の設定
-void Player::setName_Animation(const std::string& name){
+void Player::setName_Animation(const std::string& name) {
 	m_Name = name;
 	p_Texture = std::make_shared<AnimationTexture>(m_Name, p_GameManager->GetDrawManager(), DrawOrder::Player, 64, 1);
 	p_Texture->Initialize();

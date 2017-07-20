@@ -2,7 +2,7 @@
 #define ANIMATION_H_
 
 #include <gslib.h>
-
+#include "AnimationPtr.h"
 class Animation
 {
 public:
@@ -10,7 +10,7 @@ public:
 	Animation(
 		const GSrect& texRect,
 		const float cutWidth,
-		const unsigned int animmationUpdateTimer);
+		const float animmationUpdateTimer);
 
 	//デフォルトコンストラクタ
 	Animation();
@@ -26,14 +26,18 @@ public:
 	GSrect* GetCurrentRect();
 	//ループ回数の取得
 	unsigned int GetLoopCount();
+	//クローン生成
+	AnimationSPtr Clone();
+	//切り取る矩形の横幅の取得
+	float GetCutWidth() const;
 
 private:
 	GSrect m_TexRect;						//テクスチャ矩形
 	float m_CutWidth;						//切り取る矩形の横幅
-	unsigned int m_AnimationUpdateTimer;	//テクスチャ変更間隔(フレーム)
+	float m_AnimationUpdateTimer;			//テクスチャ変更間隔(フレーム)
 	GSrect m_CutRect;						//切り取る矩形
 	int m_CurrentNum;						//切り取る番号("0"枚目から数える)
-	unsigned int m_AnimationTimer;			//アニメーションタイマー
+	float m_AnimationTimer;					//アニメーションタイマー
 	unsigned int m_LoopCount;				//ループ回数
 };
 

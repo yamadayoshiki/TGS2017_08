@@ -2,6 +2,7 @@
 #include "../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../../WorldContains/IWorld.h"
 #include "../../../../../../WorldContains/EventMessage/EventMessage.h"
+#include "..\..\Damage\EnemyStateDamage.h"
 
 
 //コンストラクタ

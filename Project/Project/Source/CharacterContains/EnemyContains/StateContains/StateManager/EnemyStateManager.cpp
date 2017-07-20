@@ -4,3 +4,7 @@
 // デフォルトコンストラクタ
 EnemyStateManager::EnemyStateManager() {
 }
+
+EnemyStateName EnemyStateManager::GetCurStateName() const{
+	return (EnemyStateName)m_CurrentID;
+}

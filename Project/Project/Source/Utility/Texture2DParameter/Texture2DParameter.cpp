@@ -9,3 +9,6 @@ Texture2DParameter::Texture2DParameter()
 	, m_Rotate(0.0f)					//‰ñ“]
 {
 }
+
+Texture2DParameter::~Texture2DParameter(){
+}

@@ -20,9 +20,13 @@ enum class DrawOrder
 	UI,
 	UI_Front1,
 	UI_Front2,
+	UI_Front3,
+
+	/*ポーズメニュー*/
+	PauseBack,
+	PauseUI,
 
 	BlackScreen,
-
 	/* 手前に描画されるもの */
 };
 #endif // !DRAWORDER_H_

@@ -24,6 +24,7 @@
 #include "../../../StateContains/States/CaughtContains/Standard/EnemyStateCaughtStandard.h"
 #include "../../../StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
 #include "../../../StateContains/States/DeadContaint/Standard/EnemyStateDeadStandard.h"
+#include "../../../StateContains/States/Damage/EnemyStateDamage.h"
 
 Enemy10::Enemy10(
 	IWorld * world,
@@ -35,7 +36,7 @@ Enemy10::Enemy10(
 		ActorName::Enemy_10,
 		position,
 		front,
-		0,
+		5,
 		MapType::Double,
 		gameManager,
 		std::make_shared<AnimationTexture>("Enemy10", gameManager->GetDrawManager(),DrawOrder::Enemy,32,8),
@@ -70,6 +71,8 @@ void Enemy10::SetUpState() {
 	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaughtStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
+
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }

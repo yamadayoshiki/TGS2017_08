@@ -22,7 +22,7 @@
 #include "../../../StateContains/States/MoveContains/OnlyInTheBack/Move/EnemyStateMoveOnlyInTheBack.h"
 #include "../../../StateContains/States/RepelContains/Repel/EnemyStateRepel.h"
 #include "../../../StateContains/States/StopContains/OnlyInTheBack/EnemyStateStopOnlyInTheBack.h"
-
+#include "../../../StateContains/States/Damage/EnemyStateDamage.h"
 
 
 //コンストラクタ
@@ -72,6 +72,7 @@ void Enemy02::SetUpState() {
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveOnlyInTheBack>(shared_from_this(), 10.0f));
 	p_StateManager->add(EnemyStateName::Repel, std::make_shared<EnemyStateRepel>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopOnlyInTheBack>(shared_from_this(), 120));
+	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
 	//初期State設定
 	p_StateManager->change(EnemyStateName::Idle);
 }

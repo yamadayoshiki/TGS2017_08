@@ -24,8 +24,6 @@ public:
 	virtual void UnLoadTexture(const std::string registerName) = 0;
 	//描画管理の取得
 	virtual DrawManagerSPtr GetDrawManager() = 0;
-	//レンダラーの取得
-	//virtual Renderer2DPtr GetRenderer2D() = 0;
 	//インプットステイトの取得
 	virtual InputStatePtr GetInputState() = 0;
 	//シーンのEnumの取得
@@ -41,7 +39,7 @@ public:
 
 	//マップの設定と取得
 	virtual void set_MapOrder(int MapOrder) = 0;
-	virtual int get_MapOrder()const = 0;
+	virtual int get_MapOrder()= 0;
 
 
 protected:

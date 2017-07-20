@@ -12,6 +12,7 @@ enum class EnemyStateName
 	Dead,				//死に
 	None,				//ダミー
 	Stop,				//止まる
+	Damage,				//ダメージを受けている
 
 	//突撃
 	RushPreliminary,	//突撃準備

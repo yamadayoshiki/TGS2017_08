@@ -19,14 +19,6 @@ Sprite::Sprite(
 	, m_Usage(usage) {
 }
 
-// XVˆ—
-void Sprite::onUpdate(float deltaTime) {
-}
-
-// •`‰æˆ—
-void Sprite::onDraw() const {
-}
-
 void Sprite::ChangeDisplayMode(const DisplayMode mode) {
 	p_Texture->ChangeDisplayMode(mode);
 }

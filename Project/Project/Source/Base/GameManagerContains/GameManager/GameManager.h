@@ -27,8 +27,6 @@ public:
 	void LoadTexture(const std::string registerName, const std::string fileName) override;
 	//指定コンテンツ破棄
 	void UnLoadTexture(const std::string registerName)override;
-	//レンダラーの取得
-	//Renderer2DPtr GetRenderer2D() override;
 	//描画管理の取得
 	DrawManagerSPtr GetDrawManager() override;
 	//インプットステイトの取得
@@ -47,7 +45,7 @@ public:
 	std::shared_ptr<SceneManager> GetSceneManager()override;
 
 	void set_MapOrder(int MapOrder)override;
-	int get_MapOrder()const override;
+	int get_MapOrder()override;
 
 protected:
 	//終了処理

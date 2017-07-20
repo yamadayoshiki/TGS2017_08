@@ -60,10 +60,6 @@ public:
 	// デバッグ表示
 	void Debug(const MapType type = MapType::Default);
 
-private:
-	//指定された座標の情報更新(MapType引数あり)
-	void SetcsvParameter(const GSvector2 position, const TerrainName name, const MapType type);
-
 public:
 	// 幅の取得
 	int GetWidth(const MapType& type = MapType::Default) const;

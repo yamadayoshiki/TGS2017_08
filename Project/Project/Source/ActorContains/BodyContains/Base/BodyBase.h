@@ -34,6 +34,8 @@ namespace Body
 		void Transform(const BodyCollidable& bodyCollidable)override;
 		//Œ`óŠÇ—‚Ìæ“¾
 		BodyCollidable GetBodyCollidable() override;
+		//Õ“Ë‰Â”\‚©‚Ìİ’è
+		virtual bool GetExist() const override { return m_IsExist; }
 	public:
 		//Õ“Ë‚µ‚Ä‚¢‚é‚©
 		ContactSet IsCollide(BodyBase* other);

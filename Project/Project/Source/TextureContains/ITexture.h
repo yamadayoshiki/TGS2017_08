@@ -2,7 +2,9 @@
 #define ITEXTURE_H_
 #include "../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 #include "../DrawManager/DisplayMode.h"
+#include "ITexturePtr.h"
 struct GSvector2;
+enum class DrawOrder;
 class ITexture
 {
 public:
@@ -24,6 +26,11 @@ public:
 	virtual void SetPosAndAngle(const GSvector2& pos, float angle) = 0;
 	//表示モード切替
 	virtual void ChangeDisplayMode(const DisplayMode mode) = 0;
+	//描画順序切替
+	virtual void ChangeDrawOredr(const DrawOrder drawOrder) = 0;
+	//クローン生成
+	virtual ITexturePtr Clone(const DrawOrder drawOrder) = 0;
+
 };
 
 #endif // !ITEXTURE_H_

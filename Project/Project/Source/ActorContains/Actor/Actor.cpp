@@ -30,6 +30,7 @@ Actor::Actor(
 	, m_dead(false) {
 	p_Body = world->GetBodyFactory()->Generate(type, dataName);
 	p_Body->SetTransform(p_Transform);
+	p_Texture->SetPosAndAngle(p_Transform->m_Position, p_Transform->m_Angle);
 }
 
 //コンストラクタ
@@ -37,7 +38,7 @@ Actor::Actor(const ActorName& name)
 	: p_World(nullptr)
 	, p_GameManager(nullptr)
 	, m_Name(name)
-	, p_Transform(std::make_shared<Transform>(GSvector2(0.0f,0.0f), 0.0f))
+	, p_Transform(std::make_shared<Transform>(GSvector2(0.0f, 0.0f), 0.0f))
 	, p_Texture(std::make_shared<NullTexture>())
 	, p_Body(std::make_shared<Body::NullBody>())
 	, m_dead(false) {
@@ -60,7 +61,7 @@ void Actor::update(float deltaTime) {
 }
 
 //衝突判定後の更新
-void Actor::LateUpdate(){
+void Actor::LateUpdate() {
 	//各種固有の更新
 	OnLateUpdate();
 	//座標&角度設定
@@ -78,9 +79,9 @@ void Actor::draw() const {
 //衝突判定(自分は子を巡回、引数はそれ単体)
 void Actor::collide(Actor& other) {
 	Body::ContactSet result = isCollide(other);
-	if (result.m_IsCollide){
-		onCollide(other,result);
-		other.onCollide(*this,result);
+	if (result.m_IsCollide) {
+		onCollide(other, result);
+		other.onCollide(*this, result);
 	}
 	eachChildren([&](Actor& child) { child.collide(other); });
 }
@@ -92,6 +93,7 @@ bool Actor::GetDead() const {
 
 //死亡する
 void Actor::dead() {
+	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 	m_dead = true;
 }
 
@@ -152,7 +154,10 @@ void Actor::collideChildren(Actor & other) {
 	{
 		other.eachChildren([&](Actor& target)
 		{
-			my.collide(target);
+			if (&my != &target)
+				my.collide(target);
+			//自身の子と相手の子の子を衝突
+			collideChildren(target);
 		});
 	});
 }
@@ -166,6 +171,10 @@ void Actor::collideSibling() {
 //子を追加する
 void Actor::addChild(const ActorPtr & child) {
 	child->initialize();
+	m_children.push_front(child);
+}
+
+void Actor::addChildNonInit(const ActorPtr & child){
 	m_children.push_front(child);
 }
 
@@ -184,10 +193,10 @@ void Actor::removeChildren(std::function<bool(Actor&actor)> fn) {
 	m_children.remove_if([&](const ActorPtr& child) { return fn(*child); });
 }
 
-//子を削除する
-void Actor::removeChildren() {
+//子を削除する(死んだ子の削除)
+void Actor::removeChildren_dead() {
 	removeChildren([](Actor& child) { return child.GetDead(); });
-	eachChildren([](Actor& child) { child.removeChildren(); });
+	eachChildren([](Actor& child) { child.removeChildren_dead(); });
 }
 
 //子を消去
@@ -204,6 +213,10 @@ void Actor::handleMessage(EventMessage message, void * param) {
 	eachChildren([&](Actor& child) { child.handleMessage(message, param); });
 }
 
+void Actor::handleMessageOne(EventMessage message, void * param) {
+	onMessage(message, param);
+}
+
 //ワールドを設定
 void Actor::SetWorld(IWorld * world) {
 	p_World = world;
@@ -212,6 +225,10 @@ void Actor::SetWorld(IWorld * world) {
 //ワールドを取得
 IWorld * Actor::getWorld() const {
 	return p_World;
+}
+
+IGameManagerPtr Actor::GetGameMgr() const{
+	return p_GameManager;
 }
 
 //衝突判定図形の取得

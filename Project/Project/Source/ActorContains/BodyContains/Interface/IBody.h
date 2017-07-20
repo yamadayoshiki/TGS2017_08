@@ -28,6 +28,8 @@ namespace Body
 		virtual void Transform(const BodyCollidable& bodyCollidable) = 0;
 		//Œ`óŠÇ—‚Ìæ“¾
 		virtual BodyCollidable GetBodyCollidable() = 0;
+		//Õ“Ë‰Â”\‚©‚Ìİ’è
+		virtual bool GetExist()const = 0;
 	};
 }
 #endif

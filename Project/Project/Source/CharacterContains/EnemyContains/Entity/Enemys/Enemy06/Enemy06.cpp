@@ -21,6 +21,7 @@
 #include "../../../StateContains/States/MoveContains/Standard/Idle/EnemyStateIdleStandard.h"
 #include "../../../StateContains/States/MoveContains/Standard/Move/EnemyStateMoveStandard.h"
 #include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
+#include "../../../StateContains/States/Damage/EnemyStateDamage.h"
 
 //コンストラクタ
 Enemy06::Enemy06(
@@ -69,6 +70,7 @@ void Enemy06::SetUpState() {
 	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveStandard>(shared_from_this(), 10.0f));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
+	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
 	//初期State設定
 	p_StateManager->change(EnemyStateName::Idle);
 }
