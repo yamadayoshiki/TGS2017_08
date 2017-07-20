@@ -26,6 +26,8 @@ public:
 	float m_FrameCounter{ 0.0f };
 	//チャージフラグ
 	bool Chargeflag{ false };
+	//生成フラグ
+	bool m_CreateFlag{ false };
 	//スピード
 	float m_Speed{5.0f};
 	//チャージカウンター
@@ -51,6 +53,7 @@ public:
 	void Charge(float deltaTime);
 	int getChargePower();
 	bool getChargeFlag()const;
+	bool getCreateFlag() const;
 	void addRetryCount();
 	int getRetryCount();
 };

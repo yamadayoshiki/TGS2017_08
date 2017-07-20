@@ -121,6 +121,12 @@ void GameResult::OnStart() {
 void GameResult::OnUpdate(float deltaTime) {
 	//子シーンの更新
 	p_SceneChildMgr->Update(deltaTime);
+
+	if (p_GameManager->GetInputState()->IsKeyTrigger(GKEY_RETURN)) {
+		p_GameManager->set_MapOrder(0);
+		p_World->EndRequest(SceneName::GameCredit);
+		return;
+	}
 }
 
 void GameResult::OnDraw() const{

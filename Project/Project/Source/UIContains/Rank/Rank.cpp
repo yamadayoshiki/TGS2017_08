@@ -19,6 +19,7 @@ Rank::Rank(IWorld * world, const GSvector2 & position, const IGameManagerPtr & g
 	regist(file_name);
 	m_TextureName = "RankC";
 	RankSet();
+	m_DisplayFlag = false;
 }
 
 void Rank::regist(const std::string & file_name)
@@ -53,7 +54,7 @@ void Rank::onUpdate(float deltaTime)
 {
 	if (m_StageDeta.size() <= 0) return;
 	//gsPlaySE(SE_SCORE_ROLE);
-
+	if (m_DisplayFlag == false) return;
 	//補間値の計算
 	float t = m_Timer / m_MaxTimer;
 	//透明度の補間
@@ -61,7 +62,7 @@ void Rank::onUpdate(float deltaTime)
 	//スケールの補間
 	GSvector2 scale = Start_Scale.lerp(End_Scale, t);
 	//パラメータの設定
-	p_Texture->GetParameter()->m_Color = { 1.0f,1.0f,1.0f,color.a };
+	p_Texture->GetParameter()->m_Color =color;
 	p_Texture->GetParameter()->m_Scale = scale;
 
 	m_Timer = MIN(m_Timer + deltaTime, m_MaxTimer);
@@ -73,6 +74,9 @@ void Rank::onDraw() const
 
 void Rank::ChangeDisplayMode(const DisplayMode mode){
 	p_Texture->ChangeDisplayMode(mode);
+	if (mode == DisplayMode::Display) {
+		m_DisplayFlag = true;
+	}
 }
 
 std::string Rank::GetUsage() const
@@ -95,5 +99,6 @@ void Rank::RankSet()
 	p_Texture = std::make_shared<Texture>(m_TextureName, p_GameManager->GetDrawManager(), DrawOrder::UI);
 	//パラメータの設定
 	p_Texture->GetParameter()->m_Position = m_Position;
+	setPosition(m_Position);
 	p_Texture->GetParameter()->m_Center = { 175.0f,175.0f };
 }

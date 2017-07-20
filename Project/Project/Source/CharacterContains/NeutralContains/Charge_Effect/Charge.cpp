@@ -21,6 +21,7 @@ void Charge::onInitialize()
 	m_Charge_Stage = Charge_Stage::Zero;
 	p_Player.lock()->getParameter().m_ChargeConter = 0.0f;
 	p_Player.lock()->getParameter().m_ChargePower = 0;
+	p_Player.lock()->getParameter().Chargeflag = false;
 
 
 	//テクスチャの現在の名前の設定
@@ -42,7 +43,7 @@ void Charge::onUpdate(float deltaTime)
 	//アニメーションの更新
 	p_AnimationTexture->Update(deltaTime);
 	//フラグがfalseなら死亡する
-	if (p_Player.lock()->getParameter().getChargeFlag() == false) {
+	if (p_Player.lock()->getParameter().getCreateFlag() == false) {
 		//死亡
 		dead();
 	}
@@ -71,6 +72,7 @@ void Charge::ChargeUpdate()
 	case Charge_Stage::Frist:
 		m_PreviosName = m_CurrrentName;
 		m_CurrrentName = "Charge1";
+		p_Player.lock()->getParameter().Chargeflag = true;
 		break;
 
 	case Charge_Stage::Second:

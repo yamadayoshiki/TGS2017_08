@@ -726,9 +726,6 @@
     <ClInclude Include="Source\SceneContains\GameResult\BigBlock.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SceneContains\GameResult\ResultTransition\ResultTransition.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ActorContains\BodyContains\Elements\Collidable\BodyCollidable.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -856,6 +853,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1322,16 +1322,10 @@
     <ClCompile Include="Source\SceneContains\GameResult\ResultEnd\ResultEnd.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\SceneContains\GameResult\ResultStart\ResultStart.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\GameResult\BigBlock.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SceneContains\GameResult\ResultTransition\ResultTransition.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\ActorContains\BodyContains\Elements\ContactSet\ContactSet.cpp">
@@ -1407,6 +1401,12 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

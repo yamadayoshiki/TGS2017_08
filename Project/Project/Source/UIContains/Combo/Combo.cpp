@@ -15,7 +15,7 @@
 
 Combo::Combo(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name)
 	: UI_Base(world, ActorName::UI_Combo, position, gameManager,DrawOrder::UI_Front1)
-	, p_NumberTexture(std::make_shared<NumberTexture>("NumberTexture_1", gameManager->GetDrawManager(),DrawOrder::UI_Front1, GSvector2(590, 20), 3)) {
+	, p_NumberTexture(std::make_shared<NumberTexture>("NumberTexture_1", gameManager->GetDrawManager(),DrawOrder::UI_Front1, GSvector2(500, 20), 3)) {
 	m_MaxTime = 180.0f;
 	m_NowTime = 0.0f;
 	weidth = 300.0f;
@@ -37,6 +37,7 @@ void Combo::regist(const std::string & file_name)
 		p_Texture->ChangeDisplayMode(DisplayMode::Display);
 		m_TextureList.push_back(p_Texture);
 	}
+	setPosition(m_TextureList[2]->GetParameter()->m_Position);
 }
 
 void Combo::onUpdate(float deltaTime)
@@ -54,14 +55,16 @@ void Combo::onUpdate(float deltaTime)
 		m_NowTime = p_GameManager->GetPlayerParameter().getComboCounter();
 		p_GameManager->GetPlayerParameter().m_ComboTimer = 0.0f;
 	}
+
+	p_NumberTexture->SetNumber(p_GameManager->GetPlayerParameter().getCombo());
+
 	if (m_NowTime <= 0) {
 		m_NowTime = 0.0f;
 		p_GameManager->GetPlayerParameter().comboReset();
+		
 		return;
 	}
 	m_NowTime -= deltaTime;
-
-	p_NumberTexture->SetNumber(p_GameManager->GetPlayerParameter().getCombo());
 }
 
 void Combo::onDraw() const {

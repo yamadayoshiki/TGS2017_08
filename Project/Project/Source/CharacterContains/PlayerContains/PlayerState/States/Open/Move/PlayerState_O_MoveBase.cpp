@@ -11,8 +11,8 @@ PlayerState_O_MoveBase::PlayerState_O_MoveBase(const Player_WPtr& player, IGameM
 //Šeó‘Ô“ÆŽ©‚Ì‰Šú‰»
 void PlayerState_O_MoveBase::unique_init()
 {
-	if (p_Player.lock()->getParameter().getChargeFlag() == false) {
-		p_Player.lock()->getParameter().Chargeflag = true;
+	if (p_Player.lock()->getParameter().getCreateFlag() == false) {
+		p_Player.lock()->getParameter().m_CreateFlag = true;
 		p_Player.lock()->getWorld()->addActor(
 			ActorGroup::Effect, 
 			std::make_shared<Charge>(

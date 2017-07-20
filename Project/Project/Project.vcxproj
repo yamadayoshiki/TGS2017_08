@@ -319,7 +319,7 @@
     <ClInclude Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.h" />
     <ClInclude Include="Source\SceneContains\GameResult\ResultStart.h" />
     <ClInclude Include="Source\SceneContains\GameResult\ResultStart\ResultStart.h" />
-    <ClInclude Include="Source\SceneContains\GameResult\ResultTransition\ResultTransition.h" />
+    <ClInclude Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.h" />
     <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h" />
     <ClInclude Include="Source\SceneContains\GameTutorial\GameTutorial.h" />
     <ClInclude Include="Source\SceneContains\SceneManager\SceneChildMgr.h" />
@@ -556,7 +556,7 @@
     <ClCompile Include="Source\SceneContains\GameResult\ResultEnd\ResultEnd.cpp" />
     <ClCompile Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.cpp" />
     <ClCompile Include="Source\SceneContains\GameResult\ResultStart\ResultStart.cpp" />
-    <ClCompile Include="Source\SceneContains\GameResult\ResultTransition\ResultTransition.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.cpp" />
     <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp" />

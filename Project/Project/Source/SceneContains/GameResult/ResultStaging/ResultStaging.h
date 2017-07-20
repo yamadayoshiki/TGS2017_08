@@ -8,6 +8,8 @@ class ResultStaging :public ChildScene
 public:
 	//コンストラクタ
 	ResultStaging();
+	//デストラクタ
+	~ResultStaging();
 
 protected:
 	// 開始     

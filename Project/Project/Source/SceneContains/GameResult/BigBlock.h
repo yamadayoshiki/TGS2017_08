@@ -2,7 +2,6 @@
 #define BIG_BLOCK_H_
 
 #include"../../ActorContains/Actor/Actor.h"
-class Texture;
 class BigBlock :public Actor
 {
 public:

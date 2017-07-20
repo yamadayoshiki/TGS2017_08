@@ -10,6 +10,8 @@ public:
 public:
 	//コンストラクタ
 	ResultEnd();
+	//デストラクタ
+	~ResultEnd();
 
 protected:
 	// 開始     

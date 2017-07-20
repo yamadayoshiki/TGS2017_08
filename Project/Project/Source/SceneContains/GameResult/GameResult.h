@@ -11,7 +11,7 @@ class Sprite;
 class Rank;
 class SceneChildMgr;
 
-//ゲーム中
+//ゲームリザルト
 class GameResult : public Scene
 {
 public:

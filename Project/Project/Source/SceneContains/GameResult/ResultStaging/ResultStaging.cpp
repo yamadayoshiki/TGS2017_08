@@ -15,6 +15,9 @@
 ResultStaging::ResultStaging(){
 }
 
+ResultStaging::~ResultStaging(){
+}
+
 // ŠJŽn     
 void ResultStaging::OnStart(){
 	timer_ = 0.0f;

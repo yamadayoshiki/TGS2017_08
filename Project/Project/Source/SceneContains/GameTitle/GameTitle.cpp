@@ -28,7 +28,7 @@ GameTitle::GameTitle(const IGameManagerPtr& gameManager)
 void GameTitle::OnStart() {
 	p_GameManager->GetPlayerParameter().setRemaining(3);
 	p_GameManager->GetScore()->initialze();
-	MapOrder = 0;
+	MapOrder = 1;
 	p_GameManager->set_MapOrder(MapOrder);
 
 	//UI¶¬

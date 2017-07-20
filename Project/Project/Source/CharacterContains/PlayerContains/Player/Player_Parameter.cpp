@@ -109,6 +109,11 @@ bool Player_Parameter::getChargeFlag()const
 	return Chargeflag;
 }
 
+bool Player_Parameter::getCreateFlag() const
+{
+	return m_CreateFlag;
+}
+
 void Player_Parameter::addRetryCount()
 {
 	m_RetryCount += 1;

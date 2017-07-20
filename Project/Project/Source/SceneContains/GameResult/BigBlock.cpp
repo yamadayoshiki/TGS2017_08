@@ -14,10 +14,11 @@ BigBlock::BigBlock(IWorld* world, const IGameManagerPtr & gameManager)
 	:Actor(
 		world,
 		ActorName::UI_Sprite,
-		GSvector2(800.0f,500.0f),
+		GSvector2(800.0f, 500.0f),
 		gameManager,
-		std::make_shared<Texture>("BigBlock",gameManager->GetDrawManager(),DrawOrder::UI_Front1)){
+		std::make_shared<Texture>("BigBlock", gameManager->GetDrawManager(), DrawOrder::UI_Front1)) {
 	p_Texture->GetParameter()->m_Color.a = 1.0f;
+	p_Texture->GetParameter()->m_Position = GSvector2(800.0f, 500.0f);
 	timer_ = 0.0f;
 }
 
@@ -37,11 +38,11 @@ void BigBlock::onUpdate(float deltaTime)
 	float posY = gsRandf(-2, 2);
 	p_Texture->GetParameter()->m_Position = GSvector2(800 + posX, 500 + posY);
 
-	if (timer_ / 4 == 0) {
-		float posX = gsRandf(-300, 300);
-		float posY = gsRandf(-250, 250);
-		GSvector2 position = GSvector2(800 + posX, 500 + posY);
-		p_World->addActor(ActorGroup::Effect, std::make_shared<Smork_Effect>(p_World, position, p_GameManager));
+	if ((int)timer_ % 4 == 0 && timer_ <= 120.0f) {
+			float posX = gsRandf(-300, 300);
+			float posY = gsRandf(-250, 250);
+			GSvector2 position = GSvector2(800 + posX, 500 + posY);
+			p_World->addActor(ActorGroup::Effect, std::make_shared<Smork_Effect>(p_World, position, p_GameManager));
 	}
 
 	if (timer_ >= 120.0f)

@@ -10,8 +10,9 @@ PlayerState_MoveBase::PlayerState_MoveBase(const Player_WPtr& player, IGameManag
 //Šeó‘Ô“ÆŽ©‚Ì‰Šú‰»
 void PlayerState_MoveBase::unique_init()
 {
-	if (p_Player.lock()->getParameter().getChargeFlag() == true) {
+	if (p_Player.lock()->getParameter().getCreateFlag() == true) {
 		p_Player.lock()->getParameter().Chargeflag = false;
+		p_Player.lock()->getParameter().m_CreateFlag = false;
 	}
 	TextureName_Change("Player_Close");
 	p_Player.lock()->getWorld()->GetBodyFactory()->Transform(p_Player.lock()->getBody(), Body::BodyDataName::Player_Close);

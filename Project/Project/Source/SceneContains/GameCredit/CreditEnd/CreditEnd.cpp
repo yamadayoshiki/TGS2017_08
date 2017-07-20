@@ -2,10 +2,9 @@
 
 #include<GSmusic.h>
 
+#include"../GameCredit.h"
 #include "../../../WorldContains/World/World.h"
 #include"../../../ActorContains/ActorGroup.h"
-#include"../../../Utility/Rederer2D/Renderer2D.h"
-#include"../../../CharacterContains/PlayerContains/Player/Player.h"
 #include "../../../Utility/InputState/InputState.h"
 #include "../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../../Define/Def_Nagano.h"
@@ -13,44 +12,46 @@
 #include"../../../Utility/Score/Score.h"
 #include"../../../Utility/Texture2DParameter/Texture2DParameter.h"
 #include"../../../UIContains/UIManager/UIManager.h"
-#include"../../GameResult/ResultTransition/ResultTransition.h"
-#include "../../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include"../../../UIContains/Sprite/Sprite.h"
+#include"../../../UIContains/Number/Number.h"
+#include"../../../UIContains/Rank/Rank.h"
 #include"../../../TextureContains/Texture/Texture.h"
-#include "../../../DrawManager/DisplayMode.h"
 
-CreditEnd::CreditEnd(IWorld* world, const IGameManagerPtr & gameManager)
-	:p_World(world), p_GameManager(gameManager), p_Transition(std::make_shared<ResultTransition>(gameManager)),
-	p_Texture(std::make_unique<Texture>("BigBlock2",p_GameManager->GetDrawManager(),DrawOrder::UI_Front2))
-{
-	p_Texture->GetParameter()->m_Position = GSvector2(550, 100);
-	p_Texture->GetParameter()->m_Center = { 0.0f,0.0f };
-	p_Texture->GetParameter()->m_Color = m_Color;
-	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
+#include"../../Elements/ResultPlayerStaging/ResultPlayerStaging.h"
+
+CreditEnd::CreditEnd(){
 }
 
 // 開始     
-void CreditEnd::Start()
+void CreditEnd::OnStart()
 {
 	p_GameManager->set_MapOrder(0);
-
-	p_Transition->start();
-	// UIの生成
-	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, SceneName::GameCredit));
-
 	MapOrder = p_GameManager->get_MapOrder();
-	is_End = false;
-	m_Score = 0;
 
-	p_Texture->ChangeDisplayMode(DisplayMode::Display);
+	timer_ = 0.0f;
+	maxTimer_ = 60.0f;
+	m_Color = { 1.0f,1.0f,1.0f,1.0f };
+	p_World->addActor(ActorGroup::UI, std::make_shared<ResultPlayerStaging>(p_World.get(), p_GameManager));
 }
 // 更新     
-void CreditEnd::Update(float deltaTime)
+void CreditEnd::OnUpdate(float deltaTime)
 {
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetPlatform().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetTortal().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetMaxCombo().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRetry().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetScoreUI().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetScoreUI().lock()->SetNum(p_GameManager->GetScore()->GetTotalScore());
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetComboUI().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetComboUI().lock()->SetNum(p_GameManager->GetPlayerParameter().getMaxCombo());
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRetryUI().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRetryUI().lock()->SetNum(p_GameManager->GetPlayerParameter().getRetryCount());
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRankUI().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::Display);
+
 	float t = timer_ / maxTimer_;
 	GScolor color = m_Color.lerp(GScolor(1.0f, 1.0f, 1.0f, 0.0f), t);
-	p_Texture->GetParameter()->m_Color = color;
-
-	p_Transition->update(deltaTime);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetBlock().lock()->getTexture()->GetParameter()->m_Color = color;
 
 	if (timer_ >= 60 * 5)
 	{
@@ -60,42 +61,15 @@ void CreditEnd::Update(float deltaTime)
 	timer_ += deltaTime;
 }
 //描画
-void CreditEnd::Draw()const
-{
-	//static const NumberTexture number(1000, 40, 60);
-
-	//p_GameManager->GetRenderer2D()->DrawTexture("Platform2", GSvector2(590, 150));
-
-	//p_GameManager->GetRenderer2D()->DrawTexture("MaxCombo", GSvector2(610, 450));
-	//number.draw(GSvector2(1000, 460), p_GameManager->GetPlayerParameter().getMaxCombo(), 3);
-	//p_GameManager->GetRenderer2D()->DrawTexture("Retry", GSvector2(610, 550));
-	//number.draw(GSvector2(1000, 560), p_GameManager->GetPlayerParameter().getRetryCount(), 3);
-	//p_GameManager->GetRenderer2D()->DrawTexture("TotalScore", GSvector2(610, 650));
-	//number.draw(GSvector2(940, 660), p_GameManager->GetScore()->GetTotalScore(), 5);
-	////大きいブロックの描画
-	//p_GameManager->GetRenderer2D()->DrawTexture("BigBlock2", p_Param);
-
-	p_Transition->draw();
+void CreditEnd::OnDraw()const{
 }
 //終了
-void CreditEnd::End(){
-	gsStopMusic();
-	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
-}
-
-// 終了しているか？     
-bool CreditEnd::IsEnd() const
-{
-	return is_End;
-}
-
-SceneName CreditEnd::Next() const {
-	return SceneName::GameTitle;
-}
-void CreditEnd::SetName(const SceneName & name) {
-
-}
-
-SceneName CreditEnd::GetName() {
-	return SceneName::ResultEnd;
+void CreditEnd::OnEnd(){
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetPlatform().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetTortal().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetMaxCombo().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRetry().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetScoreUI().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetRankUI().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameCredit>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 }

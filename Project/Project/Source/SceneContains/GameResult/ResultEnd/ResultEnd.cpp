@@ -16,8 +16,12 @@
 #include"../../../UIContains/Rank/Rank.h"
 #include"../../../TextureContains/Texture/Texture.h"
 
+#include"../../Elements/ResultPlayerStaging/ResultPlayerStaging.h"
 
 ResultEnd::ResultEnd() {
+}
+
+ResultEnd::~ResultEnd(){
 }
 
 // 開始     
@@ -26,6 +30,7 @@ void ResultEnd::OnStart()
 	timer_ = 0.0f;
 	maxTimer_ = 60.0f;
 	m_Color = { 1.0f,1.0f,1.0f,1.0f };
+	p_World->addActor(ActorGroup::UI, std::make_shared<ResultPlayerStaging>(p_World.get(), p_GameManager));
 }
 // 更新     
 void ResultEnd::OnUpdate(float deltaTime)
@@ -44,13 +49,14 @@ void ResultEnd::OnUpdate(float deltaTime)
 	{
 		//次のステージがない場合ゲームクリアへ遷移
 		if (MapOrder == 11) {
+			p_GameManager->set_MapOrder(0);
 			p_World->EndRequest(SceneName::GameCredit);
 			return;
 		}
-		//MapOrder += 1;
+		MapOrder += 1;
 		p_GameManager->set_MapOrder(MapOrder);
 		gsStopMusic();
-		//p_World->EndRequest(SceneName::GamePlay);
+		p_World->EndRequest(SceneName::GamePlay);
 	}
 	timer_ += deltaTime;
 }
