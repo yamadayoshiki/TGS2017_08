@@ -3,6 +3,7 @@
 #include"../../ActorContains/ActorGroup.h"
 #include "../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include "../../Utility/InputState/InputState.h"
 #include "../../Define/Def_Nagano.h"
 #include "../../TextureContains/Texture/Texture.h"
 #include "../../TextureContains/AnimationTexture/AnimationTexture.h"
@@ -40,17 +41,20 @@ void BigBlock::onUpdate(float deltaTime)
 	float posY = gsRandf(-2, 2);
 	p_Texture->GetParameter()->m_Position = GSvector2(800 + posX, 500 + posY);
 
-	if ((int)timer_ % 4 == 0 && timer_ <= 120.0f) {
+	if (p_Texture->GetLoopCount() > 0 || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B))
+	{
+		p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
+		return;
+	}
+
+	if ((int)timer_ % 4 == 0 ) {
 			float posX = gsRandf(-300, 300);
 			float posY = gsRandf(-250, 250);
 			GSvector2 position = GSvector2(800 + posX, 500 + posY);
 			p_World->addActor(ActorGroup::Effect, std::make_shared<Smork_Effect>(p_World, position, p_GameManager));
 	}
 
-	if (p_Texture->GetLoopCount() > 0)
-	{
-		p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
-	}
+	
 	p_Texture->Update(deltaTime);
 
 	timer_ += deltaTime;

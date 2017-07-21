@@ -4,6 +4,7 @@
 #include"../../../../NeutralContains/Repel_Effect/Repel_Effect.h"
 #include "../../../../../ActorContains/BodyContains/Elements/ContactSet/ContactSet.h"
 #include"../../../../../ActorContains/BodyContains/Factory/BodyFactory.h"
+#include"../../../../../ActorContains/Transform/Transform.h"
 //コンストラクタ
 PlayerState_Round::PlayerState_Round(const Player_WPtr& player, IGameManagerPtr gameManager)
 	:PlayerState(player, gameManager)
@@ -25,10 +26,18 @@ void PlayerState_Round::update(float deltaTime)
 //衝突判定
 void PlayerState_Round::collide(const Actor& other, const Body::ContactSet& contactSet)
 {
-	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide)return;
-
+	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide) {
+		GSvector2 enePos = other.getPosition();
+		GSvector2 playPos = m_Children[ActorName::Player_Arm]->getPosition();
+		float distance = playPos.distance(enePos);
+		if (distance >= 8.0f && p_Player.lock()->getParameter().getClipFlag() == true) {
+			GSvector2 pos = p_Player.lock()->getPosition() + contactSet.m_SumVec;
+			p_Player.lock()->setPosition(pos);
+		}
+		return;
+	}
 	//敵との衝突処理
-	Collide(other,contactSet);
+	Collide(other, contactSet);
 
 	p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_RELEASE);
 }
@@ -63,7 +72,7 @@ void PlayerState_Round::handleMessage(EventMessage massege, void * param)
 	case EventMessage::ENEMY_REPEL:
 		p_Player.lock()->getWorld()->addActor(ActorGroup::Effect,
 			std::make_shared<Repel_Effect>(
-				p_Player.lock()->getWorld(),p_Player.lock()->getPosition(), p_GameManager));
+				p_Player.lock()->getWorld(), p_Player.lock()->getPosition(), p_GameManager));
 		p_Player.lock()->getParameter().m_ClipFlag = false;
 		change(PlayerStateName::Idle);
 		break;

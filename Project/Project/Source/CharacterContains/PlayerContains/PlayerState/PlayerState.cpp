@@ -73,7 +73,7 @@ bool PlayerState::is_Scorp_Angle(const Actor& other)
 	//自分と相手のベクトルからなす角を取る
 	float result = myVector.innerDegree(targetVector);
 
-	//視野角内(30度)にいるか？
+	//視野角内(45度)にいるか？
 	if (result <= 45.0f) {
 		return true;
 	}

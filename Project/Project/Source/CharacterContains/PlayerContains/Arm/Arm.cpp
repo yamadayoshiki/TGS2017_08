@@ -42,7 +42,7 @@ void Arm::onCollide(Actor& other, const Body::ContactSet& contactSet)
 	GSvector2 ArmPos = getPosition();
 	GSvector2 EnePos = other.getPosition();
 	float distance = ArmPos.distance(EnePos);
-	if (isCollide(other).m_IsCollide && is_Scorp_Angle(other) && distance <= 8.0f) {
+	if (isCollide(other).m_IsCollide && is_Scorp_Angle(other) && distance <= 12.0f) {
 		//相手に挟んだ情報を送る
 		p_World->sendMessageOne(EventMessage::PLAYER_ROUNDS, const_cast<Actor&>(other));
 		p_World->sendMessage(EventMessage::PLAYER_ROUNDS, *(p_World->findActor(ActorName::UI_ALL).get()));
@@ -66,7 +66,7 @@ bool Arm::is_Scorp_Angle(const Actor& other)
 	myVector.normalize();
 
 	//相手のベクトル
-	GSvector2 targetVector = other.getPosition() - (p_GameManager->GetPlayerParameter().getPosition() - p_Transform->GetForward() * 32);
+	GSvector2 targetVector = other.getPosition() - (p_GameManager->GetPlayerParameter().getPosition() - p_Transform->GetForward() * 16);
 	targetVector.normalize();
 
 	//自分と相手のベクトルからなす角を取る

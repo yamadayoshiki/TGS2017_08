@@ -12,25 +12,27 @@
 #include"../BigBlock.h"
 
 
-ResultStaging::ResultStaging(){
+ResultStaging::ResultStaging() {
 }
 
-ResultStaging::~ResultStaging(){
+ResultStaging::~ResultStaging() {
 }
 
 // 開始     
-void ResultStaging::OnStart(){
+void ResultStaging::OnStart() {
 	timer_ = 0.0f;
-	p_World->addActor(ActorGroup::UI, std::make_shared<BigBlock>(p_World.get(),p_GameManager));
+	p_World->addActor(ActorGroup::UI, std::make_shared<BigBlock>(p_World.get(), p_GameManager));
 }
 // 更新     
-void ResultStaging::OnUpdate(float deltaTime){
-	if (timer_ >= 120.0f)Change(SceneName::ResultEnd);
+void ResultStaging::OnUpdate(float deltaTime) {
+	if (timer_ >= 120.0f || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+		Change(SceneName::ResultEnd);
+	}
 	timer_ += deltaTime;
 }
 //描画
-void ResultStaging::OnDraw()const{
+void ResultStaging::OnDraw()const {
 }
 //終了
-void ResultStaging::OnEnd(){
+void ResultStaging::OnEnd() {
 }

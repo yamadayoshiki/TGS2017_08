@@ -8,10 +8,10 @@
 
 #include<GSeasing.h>
 
-ResultStart::ResultStart(){
+ResultStart::ResultStart() {
 }
 
-ResultStart::~ResultStart(){
+ResultStart::~ResultStart() {
 }
 
 // äJén     
@@ -23,13 +23,15 @@ void ResultStart::OnStart()
 void ResultStart::OnUpdate(float deltaTime)
 {
 	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::Display);
-	if(timer_ >= 120.0f)Change(SceneName::ResultStaging);
+	if (timer_ >= 120.0f || p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_B)) {
+		Change(SceneName::ResultStaging);
+	}
 	timer_ += deltaTime;
 }
 //ï`âÊ
-void ResultStart::OnDraw()const{
+void ResultStart::OnDraw()const {
 }
 //èIóπ
-void ResultStart::OnEnd(){
+void ResultStart::OnEnd() {
 	std::dynamic_pointer_cast<GameResult>(p_Parent.lock())->GetBlock().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
