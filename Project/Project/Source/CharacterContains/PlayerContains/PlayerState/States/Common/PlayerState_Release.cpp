@@ -10,6 +10,7 @@ PlayerState_Release::PlayerState_Release(const Player_WPtr& player, IGameManager
 void PlayerState_Release::unique_init()
 {
 	TextureName_Change("Player_Open");
+	p_GameManager->GetPlayerParameter().m_ClipFlag = false;
 	m_FramConter = 0.0f;
 }
 //XVˆ—

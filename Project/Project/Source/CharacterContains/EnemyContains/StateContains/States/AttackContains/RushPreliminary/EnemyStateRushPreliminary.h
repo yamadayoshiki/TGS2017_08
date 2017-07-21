@@ -7,7 +7,7 @@ class EnemyStateRushPreliminary :public EnemyStateAttackBase
 {
 public:
 	//コンストラクタ
-	EnemyStateRushPreliminary(const EnemyBasePtr& enemy);
+	EnemyStateRushPreliminary(const EnemyBasePtr& enemy,const int loop);
 protected:
 	// 各状態独自の初期化
 	virtual void onUniqueInit() override;
@@ -17,5 +17,8 @@ protected:
 	virtual void onCollide(const Actor & other, const Body::ContactSet& contactSet) override;
 	// 終了時の処理
 	virtual void onEnd() override;
+
+private:
+	int m_Loop;
 };
 #endif

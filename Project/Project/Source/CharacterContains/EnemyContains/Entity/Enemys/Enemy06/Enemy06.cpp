@@ -54,7 +54,7 @@ void Enemy06::SetUpCommand() {
 	//¶¬
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command’Ç‰Á
-	p_CommandManager->AddDic(EnemyCommandName::Generate, std::make_shared<EnemyCommandGenerate>(shared_from_this(), 23, 180));
+	p_CommandManager->AddDic(EnemyCommandName::Generate, std::make_shared<EnemyCommandGenerate>(shared_from_this(), 23, 360));
 	//‰ŠúCommandÝ’è
 	p_CommandManager->Change(EnemyCommandName::Generate);
 }

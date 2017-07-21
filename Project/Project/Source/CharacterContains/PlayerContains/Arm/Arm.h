@@ -17,8 +17,8 @@ public:
 	virtual void onDraw()const override;
 	//Õ“Ë”»’è
 	virtual void onCollide(Actor& other, const Body::ContactSet& contactSet)override;
-	//Õ“Ë”»’è
-	//bool isCollide(const Actor& other);
+	//‹–ìŠp”»’è
+	bool is_Scorp_Angle(const Actor& other);
 
 private:
 	//‰ñ“]

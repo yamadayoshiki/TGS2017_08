@@ -16,6 +16,8 @@ public:
 	int m_Remaining{ 0 };
 	//スタート地点
 	GSvector2 m_StratPosition;
+	//挟んだか？
+	bool m_ClipFlag{ false };
 	//コンボ数
 	int m_Combo{ 0 };
 	//Maxコンボ数
@@ -43,6 +45,7 @@ public:
 	GSvector2 getPosition()const;
 	void setPosition(const GSvector2& position);
 	int GetRemaining() const;
+	bool getClipFlag()const;
 	void setRemaining(int remaining);
 	void addCombo();
 	void comboReset();

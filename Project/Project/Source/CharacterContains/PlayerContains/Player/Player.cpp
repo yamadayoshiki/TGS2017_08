@@ -79,11 +79,6 @@ void Player::onUpdate(float deltaTime)
 
 	//フレームカウンター
 	m_Parameter.m_FrameCounter += deltaTime;
-
-	int i = 0;
-	i= mStateManager->currentState(i);
-	if (i != 0)
-		std::cout << std::to_string(i) << std::endl;;
 }
 //描画処理
 void Player::onDraw()const {

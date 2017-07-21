@@ -9,11 +9,18 @@ EnemyStateRush::EnemyStateRush(const EnemyBasePtr & enemy, const float speed)
 }
 
 void EnemyStateRush::unique_init(){
+	//テクスチャ切替
+	p_Enemy.lock()->Settexture("Rush");
 }
 
 void EnemyStateRush::update(float deltaTime) {
 	//注視あり移動
 	RegardMove(p_Enemy.lock()->GetDirection(), deltaTime, m_Speed);
+}
+
+void EnemyStateRush::end(){
+	//テクスチャ切替
+	p_Enemy.lock()->Settexture("Normal");
 }
 
 void EnemyStateRush::OnHandleMessage(EventMessage message, void * param) {

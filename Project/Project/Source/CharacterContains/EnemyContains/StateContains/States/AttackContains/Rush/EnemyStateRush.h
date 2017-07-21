@@ -16,7 +16,7 @@ protected:
 	// 更新処理
 	virtual void update(float deltaTime) override;
 	//終了
-	virtual void end() override {}
+	virtual void end() override;
 	//メッセージ処理
 	virtual void OnHandleMessage(EventMessage message, void* param) override;
 protected:

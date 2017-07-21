@@ -29,7 +29,7 @@ protected:
 	// I—¹‚Ìˆ—
 	virtual void onEnd() = 0;
 	// “ü—Íˆ—
-	virtual void onInput() = 0;
+	virtual void onInput() {}
 };
 
 #endif

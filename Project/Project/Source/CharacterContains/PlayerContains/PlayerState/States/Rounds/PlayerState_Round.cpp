@@ -58,11 +58,13 @@ void PlayerState_Round::handleMessage(EventMessage massege, void * param)
 	{
 	case EventMessage::PLAYER_ROUNDSLOST:
 		change(PlayerStateName::Close);
+		p_Player.lock()->getParameter().m_ClipFlag = false;
 		break;
 	case EventMessage::ENEMY_REPEL:
 		p_Player.lock()->getWorld()->addActor(ActorGroup::Effect,
 			std::make_shared<Repel_Effect>(
 				p_Player.lock()->getWorld(),p_Player.lock()->getPosition(), p_GameManager));
+		p_Player.lock()->getParameter().m_ClipFlag = false;
 		change(PlayerStateName::Idle);
 		break;
 	}

@@ -15,7 +15,7 @@
 #include"../../../UIContains/Number/Number.h"
 #include"../../../UIContains/Rank/Rank.h"
 #include"../../../TextureContains/Texture/Texture.h"
-
+#include "../../../DrawManager/DisplayMode.h"
 #include"../../Elements/ResultPlayerStaging/ResultPlayerStaging.h"
 
 ResultEnd::ResultEnd() {
@@ -49,7 +49,7 @@ void ResultEnd::OnUpdate(float deltaTime)
 	if (timer_ >= 60 * 5)
 	{
 		//次のステージがない場合ゲームクリアへ遷移
-		if (MapOrder == 11) {
+		if (MapOrder == 15) {
 			p_GameManager->set_MapOrder(0);
 			p_World->EndRequest(SceneName::GameCredit);
 			return;

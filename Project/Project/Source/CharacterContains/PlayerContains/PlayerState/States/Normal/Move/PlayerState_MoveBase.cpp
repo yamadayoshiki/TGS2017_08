@@ -16,6 +16,7 @@ void PlayerState_MoveBase::unique_init()
 	}
 	TextureName_Change("Player_Close");
 	p_Player.lock()->getWorld()->GetBodyFactory()->Transform(p_Player.lock()->getBody(), Body::BodyDataName::Player_Close);
+	p_Player.lock()->getParameter().m_ClipFlag = false;
 
 
 	// Œp³æ‚ÌŠeó‘Ô“Æ©‚Ì‰Šú‰»

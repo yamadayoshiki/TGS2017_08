@@ -28,7 +28,7 @@ GameTitle::GameTitle(const IGameManagerPtr& gameManager)
 void GameTitle::OnStart() {
 	p_GameManager->GetPlayerParameter().setRemaining(3);
 	p_GameManager->GetScore()->initialze();
-	p_GameManager->set_MapOrder(3);
+	p_GameManager->set_MapOrder(1);
 
 	//UI¶¬
 	p_World->addActor(ActorGroup::UI, std::make_shared<UIManager>(p_World.get(), p_GameManager, m_SceneName));

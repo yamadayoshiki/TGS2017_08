@@ -18,6 +18,7 @@
 #include "../EnemyContains/Entity/Enemys/Enemy08/Enemy08.h"
 #include "../EnemyContains/Entity/Enemys/Enemy09/Enemy09.h"
 #include "../EnemyContains/Entity/Enemys/Enemy10/Enemy10.h"
+#include "../EnemyContains/Entity/Enemys/Enemy11/Enemy11.h"
 #include "../EnemyContains/Entity/EnemyBullets/Bullet01/EnemyBullet01.h"
 #include "../../Wall/BreakWall.h"
 #include "../PlayerContains/Player/Player.h"
@@ -47,6 +48,7 @@ CharacterFactory::CharacterFactory(
 	m_GenerateMap[22] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy09>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
 	m_GenerateMap[23] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy10>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
 	m_GenerateMap[24] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<EnemyBullet01>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
+	m_GenerateMap[25] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<Enemy11>(p_IWorld.lock().get(), GSVECTOR2_ZERO, FourDirection(FourDirectionName::None), p_IGameManager.lock()) };
 
 	//ÉuÉçÉbÉN
 	m_GenerateMap[81] = ActorData{ m_ParentMap[ActorName::EnemyManager],std::make_unique<BreakWall>(p_IWorld.lock().get(),GSVECTOR2_ZERO,p_IGameManager.lock()) };

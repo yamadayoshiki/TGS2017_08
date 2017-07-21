@@ -27,7 +27,10 @@
 #include "../../../StateContains/States/StopContains/OnlyInTheBack/EnemyStateStopOnlyInTheBack.h"
 #include "../../../StateContains/States/RepelContains/Repel/EnemyStateRepel.h"
 #include "../../../StateContains/States/Damage/EnemyStateDamage.h"
-
+#include "../../../StateContains/States/AttackContains/RushPreliminary/EnemyStateRushPreliminary.h"
+#include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../../../../../Utility/Texture2DParameter/Texture2DParameter.h"
+#include "../../../../../DrawManager/DisplayMode.h"
 Enemy09::Enemy09(
 	IWorld * world,
 	const GSvector2 & position,
@@ -41,7 +44,7 @@ Enemy09::Enemy09(
 		10,
 		MapType::Double,
 		gameManager,
-		std::make_shared<Texture>("Enemy09", gameManager->GetDrawManager(),DrawOrder::Enemy),
+		std::make_shared<Texture>("Enemy09", gameManager->GetDrawManager(), DrawOrder::Enemy),
 		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
 }
 
@@ -56,6 +59,17 @@ ActorPtr Enemy09::CsvGenerate(const int x, const int y, const int csvparam)
 }
 
 void Enemy09::SetUpCommand() {
+	m_TextureMap["Normal"] = std::make_shared<Texture>("Enemy09", p_GameManager->GetDrawManager(), DrawOrder::Enemy);
+	m_TextureMap["Rush"] = std::make_shared<Texture>("Enemy09", p_GameManager->GetDrawManager(), DrawOrder::Enemy);
+	m_TextureMap["RushPreliminary"] = std::make_shared<AnimationTexture>("Enemy09RushPreliminary", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 6);
+
+	for (auto itr = m_TextureMap.begin(); itr != m_TextureMap.end(); itr++)
+		itr->second->ChangeDisplayMode(DisplayMode::NonDisplay);
+
+	p_Texture = m_TextureMap["Normal"];
+	p_Texture->Initialize();
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
+
 	//ê∂ê¨
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Commandí«â¡
@@ -78,6 +92,7 @@ void Enemy09::SetUpState() {
 	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::Dead, std::make_shared<EnemyStateDeadStandard>(shared_from_this()));
 	p_StateManager->add(EnemyStateName::StickWall, std::make_shared<EnemyStateStopOnlyInTheBack>(shared_from_this(), 180));
+	p_StateManager->add(EnemyStateName::RushPreliminary, std::make_shared<EnemyStateRushPreliminary>(shared_from_this(), 1));
 	p_StateManager->add(EnemyStateName::Rush, std::make_shared<EnemyStateRush>(shared_from_this(), 10.0f));
 	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
 	//èâä˙Stateê›íË

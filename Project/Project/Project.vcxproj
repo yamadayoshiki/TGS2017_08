@@ -220,6 +220,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatchPtr.h" />
@@ -480,6 +481,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.cpp" />

@@ -41,6 +41,7 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("Enemy09", "Resource/Texture/Enemys/Enemy09.png");
 	p_Renderer2D->LoadTexture("Enemy10", "Resource/Texture/Enemys/Enemy10.png");
 	p_Renderer2D->LoadTexture("EnemyBullet01", "Resource/Texture/Enemys/EnemyBullet01.png");
+	p_Renderer2D->LoadTexture("Enemy09RushPreliminary", "Resource/Texture/Enemys/Enemy09RushPreliminary.png");
 
 	//Block
 	p_Renderer2D->LoadTexture("Block5", "Resource/Texture/UI/Breakwall.png");
@@ -116,6 +117,9 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("StageTitle10", "Resource/Texture/UI/Play/stage10.png");
 	p_Renderer2D->LoadTexture("StageTitle11", "Resource/Texture/UI/Play/stage11.png");
 	p_Renderer2D->LoadTexture("StageTitle12", "Resource/Texture/UI/Play/stage12.png");
+	p_Renderer2D->LoadTexture("StageTitle13", "Resource/Texture/UI/Play/stage13.png");
+	p_Renderer2D->LoadTexture("StageTitle14", "Resource/Texture/UI/Play/stage14.png");
+	p_Renderer2D->LoadTexture("StageTitle15", "Resource/Texture/UI/Play/stage15.png");
 	p_Renderer2D->LoadTexture("TutorialTitle", "Resource/Texture/UI/Play/Tutorial.png");
 
 	//Clear

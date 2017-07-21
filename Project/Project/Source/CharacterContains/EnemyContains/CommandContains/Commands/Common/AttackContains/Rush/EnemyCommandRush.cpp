@@ -15,7 +15,7 @@ EnemyCommandRush::~EnemyCommandRush(){
 
 void EnemyCommandRush::OnInitialize(){
 	EnemyCommandStraight::OnInitialize();
-	m_CurStateName = EnemyStateName::Rush;
+	m_CurStateName = EnemyStateName::RushPreliminary;
 }
 
 void EnemyCommandRush::HitWallReaction(){

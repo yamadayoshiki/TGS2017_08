@@ -26,6 +26,11 @@ int Player_Parameter::GetRemaining() const {
 	return m_Remaining;
 }
 
+bool Player_Parameter::getClipFlag() const
+{
+	return m_ClipFlag;
+}
+
 //c‹@”‚Ìİ’è
 void Player_Parameter::setRemaining(int remaining)
 {
