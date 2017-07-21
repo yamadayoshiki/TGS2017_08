@@ -8,6 +8,7 @@ class Guide;
 class BreakWall;
 class Enemy05;
 class Enemy12;
+class FlashSprite;
 class GameTutorial : public Scene
 {
 public:
@@ -31,6 +32,8 @@ public:
 	std::weak_ptr<Sprite> GetPauseBack();
 	//ガイドの取得
 	std::shared_ptr<Guide> GetGuide();
+	//SkipUIの取得
+	std::shared_ptr<FlashSprite> GetSkipUI();
 	//右BreakWallの取得
 	std::shared_ptr<BreakWall> GetBreakWall();
 	//Enemy05の取得
@@ -48,6 +51,7 @@ private:
 	std::weak_ptr<Button> p_ButtonUI;			//ポーズ画面ボタンUI
 	std::weak_ptr<Sprite> p_PauseBack;			//ポーズ画面背景
 	std::shared_ptr<Guide> p_Guide;
+	std::shared_ptr<FlashSprite> p_SkipUI;
 	std::shared_ptr<BreakWall> p_BreakWall;
 	std::shared_ptr<Enemy05> p_Enemy05;
 	std::shared_ptr<Enemy12> p_Enemy12;

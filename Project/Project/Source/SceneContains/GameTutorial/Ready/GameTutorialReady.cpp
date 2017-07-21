@@ -5,7 +5,12 @@
 #include "../../../Base/GameManagerContains/GameManager/GameManager.h"
 #include "../../../WorldContains/World/World.h"
 #include "../../../DrawManager/DisplayMode.h"
-
+#include "../GameTutorial.h"
+#include "../../Elements/FlashSprite/FlashSprite.h"
+#include "../../../Base/GameManagerContains/IGameManager.h"
+#include "../../../Utility/InputState/InputState.h"
+#include "../../../WorldContains/EventMessage/EventMessage.h"
+#include "../../SceneManager/SceneManager.h"
 GameTutorialReady::GameTutorialReady()
 	: m_CurState(State::End) {
 }
@@ -28,16 +33,19 @@ void GameTutorialReady::OnUpdate(float deltaTime) {
 		return;
 	}
 	p_Parent.lock()->StopWorld();
-
 	m_SpriteMap[m_CurState]->update(deltaTime);
 	m_SpriteMap[m_CurState]->LateUpdate();
 
 	if (m_SpriteMap[m_CurState]->IsEnd() == true)
 		ChangeState((State)(((int)m_CurState) + 1));
+
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
+		isGameClear = true;
+		p_GameManager->GetSceneManager()->HandleMessage(EventMessage::END_SCENE, (void*)SceneName::GamePlay);
+		return;
+	}
 }
 
-void GameTutorialReady::OnDraw() const {
-}
 
 void GameTutorialReady::OnEnd() {
 	p_Parent.lock()->Restart();

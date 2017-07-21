@@ -6,6 +6,7 @@
 #include "../../../UIContains/Sprite/Sprite.h"
 #include "../../../Base/GameManagerContains/IGameManager.h"
 #include "../../../Utility/InputState/InputState.h"
+#include "../../Elements/FlashSprite/FlashSprite.h"
 GameTutorialPause::GameTutorialPause(){
 }
 
@@ -14,6 +15,7 @@ void GameTutorialPause::OnStart(){
 	gsPlaySE(SE_PAUSE_OPEN);
 	std::dynamic_pointer_cast<GameTutorial>(p_Parent.lock())->GetButtonUI().lock()->ChangeDisplayMode(DisplayMode::Display);
 	std::dynamic_pointer_cast<GameTutorial>(p_Parent.lock())->GetPauseBack().lock()->ChangeDisplayMode(DisplayMode::Display);
+	std::dynamic_pointer_cast<GameTutorial>(p_Parent.lock())->GetSkipUI()->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 void GameTutorialPause::OnUpdate(float deltaTime){
@@ -30,4 +32,5 @@ void GameTutorialPause::OnEnd(){
 	gsPlaySE(SE_PAUSE_OPEN);
 	std::dynamic_pointer_cast<GameTutorial>(p_Parent.lock())->GetButtonUI().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	std::dynamic_pointer_cast<GameTutorial>(p_Parent.lock())->GetPauseBack().lock()->ChangeDisplayMode(DisplayMode::NonDisplay);
+	std::dynamic_pointer_cast<GameTutorial>(p_Parent.lock())->GetSkipUI()->ChangeDisplayMode(DisplayMode::Display);
 }

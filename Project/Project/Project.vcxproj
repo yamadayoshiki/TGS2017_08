@@ -112,7 +112,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\opencv_2413\build\include;C:\gslibEXT_2015\inc;C:\gslib_2015\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_ITERATOR_DEBUG_LEVEL=0;</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -138,12 +138,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Source\ActorContains\BodyContains\AARectangle\AARectangle.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Base\BodyBase.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\BodyDataName.h" />
-    <ClInclude Include="Source\ActorContains\BodyContains\BodyName.h" />
-    <ClInclude Include="Source\ActorContains\BodyContains\BodysPath.h" />
-    <ClInclude Include="Source\ActorContains\BodyContains\Composite\BodyComposite.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Elements\Collidable\BodyCollidable.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Elements\ContactSet\ContactSet.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Elements\MotionType.h" />
@@ -157,9 +153,7 @@
     <ClInclude Include="Source\ActorContains\BodyContains\Factory\BodyFactoryPtr.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBody.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBodyPtr.h" />
-    <ClInclude Include="Source\ActorContains\BodyContains\Line\Line.h" />
     <ClInclude Include="Source\ActorContains\BodyContains\NullBody\NullBody.h" />
-    <ClInclude Include="Source\ActorContains\BodyContains\Rectangle\Rectangle.h" />
     <ClInclude Include="Source\ActorContains\HitPoint\HitPoint.h" />
     <ClInclude Include="Source\ActorContains\ActorGroup.h" />
     <ClInclude Include="Source\ActorContains\ActorManager\ActorManager.h" />
@@ -266,7 +260,6 @@
     <ClInclude Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\Arm.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\ArmPtr.h" />
-    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerMotion_ID.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateManager.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateName.h" />
@@ -278,8 +271,6 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Respawn.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.h" />
-    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_CrushBase.h" />
-    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_Barrage.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idle.h" />
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.h" />
@@ -300,14 +291,12 @@
     <ClInclude Include="Source\DrawManager\DrawManagerPtr.h" />
     <ClInclude Include="Source\DrawManager\DrawOrder.h" />
     <ClInclude Include="Source\DrawManager\DrawOrderObject.h" />
-    <ClInclude Include="Source\DrawOrderManager\DrawOrderManagerPtr.h" />
-    <ClInclude Include="Source\DrawOrderManager\DrawOrder.h" />
-    <ClInclude Include="Source\DrawOrderManager\DrawOrderManager.h" />
     <ClInclude Include="Source\Map\CombinationTexture\CombinationTexture.h" />
     <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h" />
     <ClInclude Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.h" />
     <ClInclude Include="Source\SceneContains\Elements\AnimationSpriteBase\AnimationSpriteBase.h" />
     <ClInclude Include="Source\SceneContains\Elements\DropSprite\DropSprite.h" />
+    <ClInclude Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.h" />
     <ClInclude Include="Source\SceneContains\Elements\Guide\Guide.h" />
     <ClInclude Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.h" />
     <ClInclude Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.h" />
@@ -324,7 +313,6 @@
     <ClInclude Include="Source\SceneContains\GameResult\BigBlock.h" />
     <ClInclude Include="Source\SceneContains\GameResult\ResultEnd\ResultEnd.h" />
     <ClInclude Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.h" />
-    <ClInclude Include="Source\SceneContains\GameResult\ResultStart.h" />
     <ClInclude Include="Source\SceneContains\GameResult\ResultStart\ResultStart.h" />
     <ClInclude Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.h" />
     <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h" />
@@ -340,19 +328,15 @@
     <ClInclude Include="Source\UIContains\Number\Number.h" />
     <ClInclude Include="Source\UIContains\Number\NumberCreator.h" />
     <ClInclude Include="Source\UIContains\Rank\Rank.h" />
-    <ClInclude Include="Source\UIContains\Text\Text.h" />
-    <ClInclude Include="Source\UIContains\Text\TextCreator.h" />
     <ClInclude Include="Source\Utility\AAVector2\AAVector2.h" />
     <ClInclude Include="Source\Utility\Animation\AnimationPtr.h" />
     <ClInclude Include="Source\Utility\Collide2D\IsCollide2D.h" />
-    <ClInclude Include="Source\Utility\CombinationTexture\CombinationTexture.h" />
     <ClInclude Include="Source\Utility\Composite\Component\Component.h" />
     <ClInclude Include="Source\Utility\Composite\Component\ComponentPtr.h" />
     <ClInclude Include="Source\Utility\Composite\Composite\Composite.h" />
     <ClInclude Include="Source\Utility\Composite\Leaf\Leaf.h" />
     <ClInclude Include="Source\Utility\Contact\Contact.h" />
     <ClInclude Include="Source\Utility\Contact\ContactPoint.h" />
-    <ClInclude Include="Source\Utility\Contact\PairContact.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.h" />
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\TwoDVector.h" />
@@ -402,7 +386,6 @@
     <ClInclude Include="Source\UIContains\UIFilePaths.h" />
     <ClInclude Include="Source\UIContains\Selector\Selector.h" />
     <ClInclude Include="Source\UIContains\UICreator\UICreator.h" />
-    <ClInclude Include="Source\UIContains\UIGroup.h" />
     <ClInclude Include="Source\UIContains\UIManager\UIManager.h" />
     <ClInclude Include="Source\UIContains\UIType.h" />
     <ClInclude Include="Source\Utility\Animation\Animation.h" />
@@ -411,7 +394,6 @@
     <ClInclude Include="Source\Utility\FourDirection\FourDirection.h" />
     <ClInclude Include="Source\Utility\InputState\InputState.h" />
     <ClInclude Include="Source\Utility\InputState\InputStatePtr.h" />
-    <ClInclude Include="Source\Utility\MatCnvTxt\MatCnvTxt.h" />
     <ClInclude Include="Source\Utility\MathSupport\MathSupport.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
     <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h" />
@@ -553,6 +535,7 @@
     <ClCompile Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\AnimationSpriteBase\AnimationSpriteBase.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\DropSprite\DropSprite.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\Guide\Guide.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.cpp" />
@@ -605,8 +588,6 @@
     <ClCompile Include="Source\UIContains\Selector\Selector.cpp" />
     <ClCompile Include="Source\UIContains\Sprite\Sprite.cpp" />
     <ClCompile Include="Source\UIContains\Sprite\SpriteCreator.cpp" />
-    <ClCompile Include="Source\UIContains\Text\Text.cpp" />
-    <ClCompile Include="Source\UIContains\Text\TextCreator.cpp" />
     <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp" />
     <ClCompile Include="Source\UIContains\UIManager\UIManager.cpp" />
     <ClCompile Include="Source\Utility\Animation\Animation.cpp" />
@@ -615,11 +596,9 @@
     <ClCompile Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.cpp" />
     <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp" />
     <ClCompile Include="Source\Utility\InputState\InputState.cpp" />
-    <ClCompile Include="Source\Utility\MatCnvTxt\MatCnvTxt.cpp" />
     <ClCompile Include="Source\Utility\MathSupport\MathSupport.cpp" />
     <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
     <ClCompile Include="Source\Utility\Score\Score.cpp" />
-    <ClCompile Include="Source\Utility\Sound\Sound.cpp" />
     <ClCompile Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactory.cpp" />
     <ClCompile Include="Source\Utility\Texture2DParameter\Texture2DParameter.cpp" />
     <ClCompile Include="Source\Utility\TurnDirection\TurnDirection.cpp" />

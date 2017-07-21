@@ -3,6 +3,7 @@
 #include "../Utility/Texture2DParameter/Texture2DParameterPtr.h"
 #include "../DrawManager/DisplayMode.h"
 #include "ITexturePtr.h"
+
 struct GSvector2;
 enum class DrawOrder;
 class ITexture

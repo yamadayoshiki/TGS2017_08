@@ -39,9 +39,6 @@
     <ClInclude Include="Source\WorldContains\World\World.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\UIContains\UIGroup.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ActorContains\ActorPtr.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -172,12 +169,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_Barrage.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_CrushBase.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\PlayerState_Close.h">
@@ -360,9 +351,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerMotion_ID.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Invincible.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -537,12 +525,6 @@
     <ClInclude Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\UIContains\Text\Text.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\UIContains\Text\TextCreator.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -564,9 +546,6 @@
     <ClInclude Include="Source\SceneContains\GameOver\GameOver.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ActorContains\BodyContains\AARectangle\AARectangle.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ActorContains\BodyContains\Base\BodyBase.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -576,19 +555,7 @@
     <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBodyPtr.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\ActorContains\BodyContains\Line\Line.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\ActorContains\BodyContains\NullBody\NullBody.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\ActorContains\BodyContains\Rectangle\Rectangle.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\ActorContains\BodyContains\BodyName.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\ActorContains\BodyContains\BodysPath.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\ActorContains\Transform\Transform.h">
@@ -601,9 +568,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Utility\Collide2D\IsCollide2D.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Utility\CombinationTexture\CombinationTexture.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Utility\Sound\Sound.h">
@@ -636,9 +600,6 @@
     <ClInclude Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Utility\MatCnvTxt\MatCnvTxt.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Map\CombinationTexture\CombinationTexture.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -660,22 +621,10 @@
     <ClInclude Include="Source\Map\TerrainName.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\DrawOrderManager\DrawOrder.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\DrawOrderManager\DrawOrderManagerPtr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\UIContains\Rank\Rank.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\UIContains\Combo\Combo.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\SceneContains\GameResult\ResultStart.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\ActorContains\BodyContains\Composite\BodyComposite.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h">
@@ -697,9 +646,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\DrawOrderManager\DrawOrderManager.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\SceneContains\GameCredit\CreditEnd\CreditEnd.h">
@@ -795,9 +741,6 @@
     <ClInclude Include="Source\Utility\Contact\ContactPoint.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Utility\Contact\PairContact.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactory.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -889,6 +832,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1262,12 +1208,6 @@
     <ClCompile Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\UIContains\Text\Text.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\UIContains\Text\TextCreator.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -1292,9 +1232,6 @@
     <ClCompile Include="Source\Utility\Collide2D\IsCollide2D.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Utility\Sound\Sound.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -1314,9 +1251,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Utility\MatCnvTxt\MatCnvTxt.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\Map\CombinationTexture\CombinationTexture.cpp">
@@ -1473,6 +1407,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

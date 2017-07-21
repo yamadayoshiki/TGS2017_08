@@ -9,7 +9,7 @@ public:
 	 	const GSvector2& position,
 		const IGameManagerPtr& gameManager,
 		const std::string texName,
-		const int updateFrame);
+		const float updateFrame);
 	~AnimationFont();
 
 public:

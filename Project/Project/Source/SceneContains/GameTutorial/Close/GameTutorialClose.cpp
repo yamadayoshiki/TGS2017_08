@@ -9,7 +9,8 @@
 #include "../../../Define/Def_Nagano.h"
 #include "../../../DrawManager/DrawOrder.h"
 #include "../../Elements/ZoomSprite/ZoomSprite.h"
-
+#include "../../Elements/FlashSprite/FlashSprite.h"
+#include "../GameTutorial.h"
 #include <GStype.h>
 GameTutorialClose::GameTutorialClose()
 : m_CurState(State::Stop){
@@ -34,6 +35,8 @@ void GameTutorialClose::OnStart() {
 	p_Respown->initialize();
 	p_Respown->getTexture()->ChangeDisplayMode(DisplayMode::NonDisplay);
 	p_World->findActor(ActorName::Player)->getTexture()->ChangeDrawOredr(DrawOrder::UI_Front2);
+
+	std::dynamic_pointer_cast<GameTutorial>(p_Parent.lock())->GetSkipUI()->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 void GameTutorialClose::OnUpdate(float deltaTime) {

@@ -33,7 +33,8 @@
 #include "../../CharacterContains/EnemyContains/Entity/Enemys/Enemy05/Enemy05.h"
 #include "../../CharacterContains/EnemyContains/Entity/Enemys/Enemy12/Enemy12.h"
 #include "../Elements/TargetCircle/TargetCircle.h"
-
+#include "../Elements/FlashSprite/FlashSprite.h" 
+#include "../../TextureContains/Texture/Texture.h"
 GameTutorial::GameTutorial(const IGameManagerPtr & gameManager)
 	: Scene(gameManager) {
 }
@@ -87,6 +88,8 @@ void GameTutorial::OnStart() {
 	//UI等生成
 	p_Guide = std::make_shared<Guide>(p_World.get(), p_GameManager);
 	p_World->addActor(ActorGroup::UI, p_Guide);
+	p_SkipUI = std::make_shared<FlashSprite>(p_World.get(), GSvector2(600, 1235), p_GameManager, std::make_shared<Texture>("TutorialSkipFlash", p_GameManager->GetDrawManager(), DrawOrder::UI_Front2));
+	p_SkipUI->initialize();
 	ActorPtr enemyMgr = p_World->findActor(ActorName::EnemyManager);
 	//左ブロックの生成
 	std::shared_ptr<BreakWall> leftWall = std::make_shared<BreakWall>(p_World.get(), GSvector2(608, 736), p_GameManager);
@@ -109,6 +112,8 @@ void GameTutorial::OnStart() {
 void GameTutorial::OnUpdate(float deltaTime) {
 	//子シーンの更新
 	p_SceneChildMgr->Update(deltaTime);
+	//スキップUIの更新
+	p_SkipUI->update(deltaTime);
 }
 
 void GameTutorial::OnEnd() {
@@ -123,6 +128,7 @@ void GameTutorial::OnEnd() {
 	p_BreakWall.reset();
 	p_Enemy05.reset();
 	p_Enemy12.reset();
+	p_SkipUI.reset();
 
 	//BGM停止
 	gsStopMusic();
@@ -148,19 +154,23 @@ std::weak_ptr<Sprite> GameTutorial::GetPauseBack() {
 	return p_PauseBack;
 }
 
-std::shared_ptr<Guide> GameTutorial::GetGuide(){
+std::shared_ptr<Guide> GameTutorial::GetGuide() {
 	return p_Guide;
 }
 
-std::shared_ptr<BreakWall> GameTutorial::GetBreakWall(){
+std::shared_ptr<FlashSprite> GameTutorial::GetSkipUI() {
+	return p_SkipUI;
+}
+
+std::shared_ptr<BreakWall> GameTutorial::GetBreakWall() {
 	return p_BreakWall;
 }
 
-std::shared_ptr<Enemy05> GameTutorial::GetEnemy05(){
+std::shared_ptr<Enemy05> GameTutorial::GetEnemy05() {
 	return p_Enemy05;
 }
 
-std::shared_ptr<Enemy12> GameTutorial::GetEnemy12(){
+std::shared_ptr<Enemy12> GameTutorial::GetEnemy12() {
 	return p_Enemy12;
 }
 

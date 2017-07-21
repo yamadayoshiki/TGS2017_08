@@ -12,6 +12,11 @@
 #include "../../../CharacterContains/EnemyContains/Entity/Enemys/Enemy12/Enemy12.h"
 #include "../../../Utility/FourDirection/FourDirection.h"
 #include "../../../CharacterContains/PlayerContains/Player/Player_Parameter.h"
+#include "../../../Base/GameManagerContains/IGameManager.h"
+#include "../../../Utility/InputState/InputState.h"
+#include "../../../WorldContains/EventMessage/EventMessage.h"
+#include "../../SceneManager/SceneManager.h"
+
 GameTutorialPlay::GameTutorialPlay() {
 }
 
@@ -48,6 +53,12 @@ void GameTutorialPlay::OnUpdate(float deltaTime) {
 
 	case GuideState::Tutorial8:
 		Change(SceneName::Close);
+		return;
+	}
+
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
+		isGameClear = true;
+		p_GameManager->GetSceneManager()->HandleMessage(EventMessage::END_SCENE, (void*)SceneName::GamePlay);
 		return;
 	}
 
