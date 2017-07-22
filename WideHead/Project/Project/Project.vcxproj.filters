@@ -1,0 +1,1404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\ActorContains\ActorGroup.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\ActorName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\ActorPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\Actor\Actor.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\ActorManager\ActorManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\ActorManager\ActorManagerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\BodyDataName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Base\BodyBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\MotionType.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Collidable\BodyCollidable.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\ContactSet\ContactSet.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\PrimitiveName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\AABB2D\AABB2D.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\AASegment2D\AASegment2D.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\Interface\IPrimitive2D.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\Interface\IPrimitive2DPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Shape\BodyCollidableShape.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Factory\BodyFactory.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Factory\BodyFactoryPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBody.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBodyPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\BodyContains\NullBody\NullBody.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\HitPoint\HitPoint.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\NullActor\NullActor.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\State\Base\IState.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\State\Base\IStatePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\State\Base\State.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\State\Base\State_Dammy.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\State\Base\StateMgr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\Transform\Transform.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\ActorContains\Transform\TransformPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Base\GameFrame\GameFrame.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Base\GameManagerContains\IGameManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Base\GameManagerContains\IGameManagerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Base\GameManagerContains\GameManager\GameManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManagerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyCommandName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\AttackContains\Rush\EnemyCommandRush.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\Generate\EnemyCommandGenerate.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\AlongWallMove\EnemyCommandAlongWallMove.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Base\EnemyCommandMoveBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Patrol\EnemyCommandPatrol.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\ReturnRegularPos\EnemyCommandReturnRegularPos.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Straight\EnemyCommandStraight.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTouchWall.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Patrol\EnemyCommandEnemy07Patrol.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Spin\EnemyCommandEnemy07Spin.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Rush\EnemyCommandEnemy09Rush.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Standby\EnemyCommandEnemy09Standby.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEnemyBullet01StraightTouchWall.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Null\EnemyCommandNull.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBasePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy01\Enemy01.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy02\Enemy02.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy03\Enemy03.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy04\Enemy04.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy05\Enemy05.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy06\Enemy06.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy07\Enemy07.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatchPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Base\EnemyStateAttackBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\EnemyStateName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBasePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\ReleaseDead\EnemyStateCaughtReleaseDead.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Standard\EnemyStateCrushStandard.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Damage\EnemyStateDamage.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Inform\EnemyStateDeadInform.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\InformChildren\EnemyStateDeadInformChildren.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Standard\EnemyStateDeadStandard.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadWall\DeadWall.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Base\EnemyStateMoveBaseOnlyInTheBack.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Idle\EnemyStateIdleOnlyInTheBack.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Move\EnemyStateMoveOnlyInTheBack.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Base\EnemyStateMoveBaseRepel.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Idle\EnemyStateIdleRepel.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Move\EnemyStateMoveRepel.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Base\EnemyStateMoveBaseStandard.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Idle\EnemyStateIdleStandard.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Move\EnemyStateMoveStandard.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\RepelContains\Repel\EnemyStateRepel.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\SpinContains\Standard\EnemyStateSpinStandard.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\OnlyInTheBack\EnemyStateStopOnlyInTheBack.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\Standard\EnemyStateStopStandard.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\Factory\CharacterFactory.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\Factory\CharacterFactoryPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\Arm.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState_Path.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStatePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Damage.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Dead.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Invincible.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Release.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Respawn.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Swich.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\PlayerState_Close.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\PlayerState_Open.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Idle.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_MoveBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Walk.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Define\Def_Float.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Define\Def_GSvector2.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Define\Def_Nagano.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Define\Def_Nakayama.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DrawManager\DisplayMode.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DrawManager\DrawManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DrawManager\DrawManagerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DrawManager\DrawOrder.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\DrawManager\DrawOrderObject.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FileReader\CsvReader.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FileReader\CsvReaderPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\FrontChipList\FrontChipList.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\CombinationTexture\CombinationTexture.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\Map.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\MapData.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\MapPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\MapType.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Map\TerrainName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MapGenerator\ArrangeData.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MapGenerator\MapGenerator.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\AnimationSpriteBase\AnimationSpriteBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\DropSprite\DropSprite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\Guide\Guide.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameCredit\CreditEnd\CreditEnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameCredit\CreditStart\CreditStart.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameCredit\BigBlock2.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameCredit\GameCredit.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GamePlay\Close\GamePlayClose.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GamePlay\Play\GamePlayPlay.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GamePlay\GamePlay.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameResult\ResultEnd\ResultEnd.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameResult\ResultStart\ResultStart.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameResult\BigBlock.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameResult\GameResult.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameTitle\GameTitle.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameTutorial\Play\GameTutorialPlay.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameTutorial\Ready\GameTutorialReady.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameTutorial\GameTutorial.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\NullScene\NullScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Scene\ChildScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Scene\Scene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\SceneManager\SceneChildMgr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\SceneManager\SceneManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\IScene.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\IScenePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\SceneName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StagingContains\TransitionStaging\Transition\Transition.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StagingContains\TransitionStaging\TransitionManager\TransitionManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StagingContains\TransitionStaging\SceneTransition.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\StagingContains\TransitionStaging\TransitionPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TargetPosition\TargetPosition.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TextureContains\AnimationTexture\AnimationTexture.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TextureContains\Base\Texture_Base.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TextureContains\NullTexture\NullTexture.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TextureContains\NumberTexture\NumberTexture.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TextureContains\Texture\Texture.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TextureContains\ITexture.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\TextureContains\ITexturePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tile\TileData.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Base\UI_Base.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Button\Button.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Combo\Combo.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Number\Number.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Number\NumberCreator.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Rank\Rank.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Selector\Selector.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Sprite\Sprite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\Sprite\SpriteCreator.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\UICreator\UICreator.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\UIManager\UIManager.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\UIFilePaths.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UIContains\UIType.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\AAVector2\AAVector2.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Animation\Animation.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Animation\AnimationPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Collide2D\IsCollide2D.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Composite\Component\Component.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Composite\Component\ComponentPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Composite\Composite\Composite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Composite\Leaf\Leaf.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Contact\Contact.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Contact\ContactPoint.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\TwoDVector.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\EnumRap\EnumRap.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\EnumRap\EnumRapPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\FourDirection\FourDirection.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\InputState\InputState.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\InputState\InputStatePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\MathSupport\MathSupport.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Score\Score.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Score\ScorePtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Sound\Sound.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Sound\SoundName.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactory.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactoryPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameterPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Utility\TurnDirection\TurnDirection.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Wall\BreakWall.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Wall\Wall.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WorldContains\EventMessage\EventMessage.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WorldContains\World\World.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WorldContains\IWorld.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\WorldContains\IWorldPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManagerPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\GameOver\GameOver.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\ArmPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idle.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Walk.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ActorContains\Actor\Actor.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\ActorManager\ActorManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\BodyContains\Base\BodyBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\BodyContains\Elements\ContactSet\ContactSet.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\BodyContains\Elements\Primitive\AABB2D\AABB2D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\BodyContains\Elements\Primitive\AASegment2D\AASegment2D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\BodyContains\Factory\BodyFactory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\BodyContains\NullBody\NullBody.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\HitPoint\HitPoint.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\State\Base\State.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\ActorContains\Transform\Transform.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\AttackContains\Rush\EnemyCommandRush.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\Generate\EnemyCommandGenerate.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\AlongWallMove\EnemyCommandAlongWallMove.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Base\EnemyCommandMoveBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Patrol\EnemyCommandPatrol.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\ReturnRegularPos\EnemyCommandReturnRegularPos.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Straight\EnemyCommandStraight.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTouchWall.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Patrol\EnemyCommandEnemy07Patrol.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Spin\EnemyCommandEnemy07Spin.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Rush\EnemyCommandEnemy09Rush.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Standby\EnemyCommandEnemy09Standby.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEnemyBullet01StraightTouchWall.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy01\Enemy01.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy02\Enemy02.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy03\Enemy03.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy04\Enemy04.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy05\Enemy05.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy06\Enemy06.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy07\Enemy07.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Base\EnemyStateAttackBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\ReleaseDead\EnemyStateCaughtReleaseDead.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Standard\EnemyStateCrushStandard.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Damage\EnemyStateDamage.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Inform\EnemyStateDeadInform.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\InformChildren\EnemyStateDeadInformChildren.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Standard\EnemyStateDeadStandard.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadWall\DeadWall.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Base\EnemyStateMoveBaseOnlyInTheBack.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Idle\EnemyStateIdleOnlyInTheBack.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Move\EnemyStateMoveOnlyInTheBack.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Base\EnemyStateMoveBaseRepel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Idle\EnemyStateIdleRepel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Move\EnemyStateMoveRepel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Base\EnemyStateMoveBaseStandard.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Idle\EnemyStateIdleStandard.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Move\EnemyStateMoveStandard.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\RepelContains\Repel\EnemyStateRepel.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\SpinContains\Standard\EnemyStateSpinStandard.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\OnlyInTheBack\EnemyStateStopOnlyInTheBack.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\Standard\EnemyStateStopStandard.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\Factory\CharacterFactory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\Arm\Arm.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Damage.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Dead.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Invincible.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Release.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Respawn.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Swich.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\PlayerState_Close.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\PlayerState_Open.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Idle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_MoveBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Walk.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DrawManager\DrawManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FileReader\CsvReader.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\FrontChipList\FrontChipList.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Map\CombinationTexture\CombinationTexture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Map\Map.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MapGenerator\MapGenerator.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\AnimationSpriteBase\AnimationSpriteBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\DropSprite\DropSprite.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\Guide\Guide.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameCredit\CreditEnd\CreditEnd.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameCredit\CreditStart\CreditStart.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameCredit\BigBlock2.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameCredit\GameCredit.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GamePlay\Close\GamePlayClose.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GamePlay\Play\GamePlayPlay.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameResult\ResultEnd\ResultEnd.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameResult\ResultStart\ResultStart.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameResult\BigBlock.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameResult\GameResult.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameTutorial\Play\GameTutorialPlay.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameTutorial\Ready\GameTutorialReady.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameTutorial\GameTutorial.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Scene\ChildScene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Scene\Scene.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\SceneManager\SceneChildMgr.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\SceneManager\SceneManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StagingContains\TransitionStaging\Transition\Transition.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StagingContains\TransitionStaging\TransitionManager\TransitionManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StagingContains\TransitionStaging\SceneTransition.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TargetPosition\TargetPosition.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TextureContains\AnimationTexture\AnimationTexture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TextureContains\Base\Texture_Base.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TextureContains\NumberTexture\NumberTexture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TextureContains\Texture\Texture.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tile\TileData.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Base\UI_Base.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Button\Button.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Combo\Combo.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Number\Number.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Number\NumberCreator.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Rank\Rank.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Selector\Selector.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Sprite\Sprite.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\Sprite\SpriteCreator.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UIContains\UIManager\UIManager.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Animation\Animation.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Collide2D\IsCollide2D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Composite\Composite\Composite.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\InputState\InputState.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\MathSupport\MathSupport.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Score\Score.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactory.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\Texture2DParameter\Texture2DParameter.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility\TurnDirection\TurnDirection.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Wall\BreakWall.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Wall\Wall.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\WorldContains\World\World.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\GameOver\GameOver.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idle.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Walk.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

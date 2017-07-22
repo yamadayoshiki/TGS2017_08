@@ -1,0 +1,25 @@
+#ifndef PLAYERSTATE_RELEASE_H_
+#define PLAYERSTATE_RELEASE_H_
+
+#include"../../PlayerState.h"
+
+class PlayerState_Release :public PlayerState
+{
+public:
+	//コンストラクタ
+	PlayerState_Release(const Player_WPtr& player, IGameManagerPtr gameManager);
+	//各状態独自の初期化
+	virtual void unique_init()override;
+	//更新処理
+	virtual void update(float deltaTaime)override;
+	//衝突判定
+	virtual void collide(const Actor& other, const Body::ContactSet& contactSet)override {};
+	//終了処理
+	virtual void end()override {}
+
+private:
+	//フレームカウンター
+	float				m_FramConter{ 0.0f };
+};
+#endif // !PLAYERSTATE_RELEASE_H_
+

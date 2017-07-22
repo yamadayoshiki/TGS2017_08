@@ -1,0 +1,622 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2D2FA6AE-EF90-42A3-970E-D01054F69D3B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Project</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\opencv_2413\build\include;C:\gslibEXT_2015\inc;C:\gslib_2015\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_calib3d2413d.lib;opencv_contrib2413d.lib;opencv_core2413d.lib;opencv_features2d2413d.lib;opencv_flann2413d.lib;opencv_gpu2413d.lib;opencv_highgui2413d.lib;opencv_imgproc2413d.lib;opencv_legacy2413d.lib;opencv_ml2413d.lib;opencv_nonfree2413d.lib;opencv_objdetect2413d.lib;opencv_ocl2413d.lib;opencv_photo2413d.lib;opencv_stitching2413d.lib;opencv_superres2413d.lib;opencv_ts2413d.lib;opencv_video2413d.lib;opencv_videostab2413d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\opencv_2413\build\x86\vc12\lib;C:\gslibEXT_2015\lib;C:\gslib_2015\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\opencv_2413\build\include;C:\gslibEXT_2015\inc;C:\gslib_2015\inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\opencv_2413\build\x86\vc12\lib;C:\gslibEXT_2015\lib;C:\gslib_2015\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opencv_calib3d2413.lib;opencv_contrib2413.lib;opencv_core2413.lib;opencv_features2d2413.lib;opencv_flann2413.lib;opencv_gpu2413.lib;opencv_highgui2413.lib;opencv_imgproc2413.lib;opencv_legacy2413.lib;opencv_ml2413.lib;opencv_nonfree2413.lib;opencv_objdetect2413.lib;opencv_ocl2413.lib;opencv_photo2413.lib;opencv_stitching2413.lib;opencv_superres2413.lib;opencv_ts2413.lib;opencv_video2413.lib;opencv_videostab2413.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\ActorContains\ActorGroup.h" />
+    <ClInclude Include="Source\ActorContains\ActorManager\ActorManager.h" />
+    <ClInclude Include="Source\ActorContains\ActorManager\ActorManagerPtr.h" />
+    <ClInclude Include="Source\ActorContains\ActorName.h" />
+    <ClInclude Include="Source\ActorContains\ActorPtr.h" />
+    <ClInclude Include="Source\ActorContains\Actor\Actor.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Base\BodyBase.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\BodyDataName.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Collidable\BodyCollidable.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\ContactSet\ContactSet.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\MotionType.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\AABB2D\AABB2D.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\AASegment2D\AASegment2D.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\Interface\IPrimitive2D.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\Interface\IPrimitive2DPtr.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Primitive\PrimitiveName.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Elements\Shape\BodyCollidableShape.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Factory\BodyFactory.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Factory\BodyFactoryPtr.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBody.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\Interface\IBodyPtr.h" />
+    <ClInclude Include="Source\ActorContains\BodyContains\NullBody\NullBody.h" />
+    <ClInclude Include="Source\ActorContains\HitPoint\HitPoint.h" />
+    <ClInclude Include="Source\ActorContains\NullActor\NullActor.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\IState.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\IStatePtr.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\State.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\StateMgr.h" />
+    <ClInclude Include="Source\ActorContains\State\Base\State_Dammy.h" />
+    <ClInclude Include="Source\ActorContains\Transform\Transform.h" />
+    <ClInclude Include="Source\ActorContains\Transform\TransformPtr.h" />
+    <ClInclude Include="Source\Base\GameFrame\GameFrame.h" />
+    <ClInclude Include="Source\Base\GameManagerContains\GameManager\GameManager.h" />
+    <ClInclude Include="Source\Base\GameManagerContains\IGameManager.h" />
+    <ClInclude Include="Source\Base\GameManagerContains\IGameManagerPtr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManager.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManagerPtr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\AttackContains\Rush\EnemyCommandRush.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\Generate\EnemyCommandGenerate.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\AlongWallMove\EnemyCommandAlongWallMove.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Base\EnemyCommandMoveBase.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Patrol\EnemyCommandPatrol.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\ReturnRegularPos\EnemyCommandReturnRegularPos.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTouchWall.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Straight\EnemyCommandStraight.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Patrol\EnemyCommandEnemy07Patrol.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Spin\EnemyCommandEnemy07Spin.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Rush\EnemyCommandEnemy09Rush.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Standby\EnemyCommandEnemy09Standby.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEnemyBullet01StraightTouchWall.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyCommandName.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Null\EnemyCommandNull.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyManager.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBase.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBasePtr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy01\Enemy01.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy02\Enemy02.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy03\Enemy03.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy04\Enemy04.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy05\Enemy05.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy06\Enemy06.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy07\Enemy07.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatchPtr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManagerPtr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Base\EnemyStateAttackBase.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBasePtr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\ReleaseDead\EnemyStateCaughtReleaseDead.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Standard\EnemyStateCrushStandard.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Damage\EnemyStateDamage.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\InformChildren\EnemyStateDeadInformChildren.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Inform\EnemyStateDeadInform.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Standard\EnemyStateDeadStandard.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadWall\DeadWall.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\EnemyStateName.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Base\EnemyStateMoveBaseOnlyInTheBack.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Idle\EnemyStateIdleOnlyInTheBack.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Move\EnemyStateMoveOnlyInTheBack.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Base\EnemyStateMoveBaseRepel.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Idle\EnemyStateIdleRepel.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Move\EnemyStateMoveRepel.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Base\EnemyStateMoveBaseStandard.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Idle\EnemyStateIdleStandard.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Move\EnemyStateMoveStandard.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\RepelContains\Repel\EnemyStateRepel.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\SpinContains\Standard\EnemyStateSpinStandard.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\OnlyInTheBack\EnemyStateStopOnlyInTheBack.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\Standard\EnemyStateStopStandard.h" />
+    <ClInclude Include="Source\CharacterContains\Factory\CharacterFactory.h" />
+    <ClInclude Include="Source\CharacterContains\Factory\CharacterFactoryPtr.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\Arm.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Arm\ArmPtr.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateManager.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateName.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStatePtr.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState_Path.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Damage.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Dead.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Invincible.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Release.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Respawn.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Swich.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idle.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Walk.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\PlayerState_Close.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Idle.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_MoveBase.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Walk.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\PlayerState_Open.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Player\PlayerPtr.h" />
+    <ClInclude Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.h" />
+    <ClInclude Include="Source\Define\Def_Float.h" />
+    <ClInclude Include="Source\Define\Def_GSvector2.h" />
+    <ClInclude Include="Source\Define\Def_Nagano.h" />
+    <ClInclude Include="Source\Define\Def_Nakayama.h" />
+    <ClInclude Include="Source\DrawManager\DisplayMode.h" />
+    <ClInclude Include="Source\DrawManager\DrawManager.h" />
+    <ClInclude Include="Source\DrawManager\DrawManagerPtr.h" />
+    <ClInclude Include="Source\DrawManager\DrawOrder.h" />
+    <ClInclude Include="Source\DrawManager\DrawOrderObject.h" />
+    <ClInclude Include="Source\FileReader\CsvReader.h" />
+    <ClInclude Include="Source\FileReader\CsvReaderPtr.h" />
+    <ClInclude Include="Source\FrontChipList\FrontChipList.h" />
+    <ClInclude Include="Source\MapGenerator\ArrangeData.h" />
+    <ClInclude Include="Source\MapGenerator\MapGenerator.h" />
+    <ClInclude Include="Source\MapGenerator\MapGeneratorPtr.h" />
+    <ClInclude Include="Source\Map\CombinationTexture\CombinationTexture.h" />
+    <ClInclude Include="Source\Map\CsvTwoDVectorTerrainData.h" />
+    <ClInclude Include="Source\Map\Map.h" />
+    <ClInclude Include="Source\Map\MapData.h" />
+    <ClInclude Include="Source\Map\MapPtr.h" />
+    <ClInclude Include="Source\Map\MapType.h" />
+    <ClInclude Include="Source\Map\TerrainName.h" />
+    <ClInclude Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.h" />
+    <ClInclude Include="Source\SceneContains\Elements\AnimationSpriteBase\AnimationSpriteBase.h" />
+    <ClInclude Include="Source\SceneContains\Elements\DropSprite\DropSprite.h" />
+    <ClInclude Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.h" />
+    <ClInclude Include="Source\SceneContains\Elements\Guide\Guide.h" />
+    <ClInclude Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.h" />
+    <ClInclude Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.h" />
+    <ClInclude Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.h" />
+    <ClInclude Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.h" />
+    <ClInclude Include="Source\SceneContains\GameCredit\BigBlock2.h" />
+    <ClInclude Include="Source\SceneContains\GameCredit\CreditEnd\CreditEnd.h" />
+    <ClInclude Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.h" />
+    <ClInclude Include="Source\SceneContains\GameCredit\CreditStart\CreditStart.h" />
+    <ClInclude Include="Source\SceneContains\GameCredit\GameCredit.h" />
+    <ClInclude Include="Source\SceneContains\GameOver\GameOver.h" />
+    <ClInclude Include="Source\SceneContains\GamePlay\Close\GamePlayClose.h" />
+    <ClInclude Include="Source\SceneContains\GamePlay\GamePlay.h" />
+    <ClInclude Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.h" />
+    <ClInclude Include="Source\SceneContains\GamePlay\Play\GamePlayPlay.h" />
+    <ClInclude Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.h" />
+    <ClInclude Include="Source\SceneContains\GameResult\BigBlock.h" />
+    <ClInclude Include="Source\SceneContains\GameResult\GameResult.h" />
+    <ClInclude Include="Source\SceneContains\GameResult\ResultEnd\ResultEnd.h" />
+    <ClInclude Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.h" />
+    <ClInclude Include="Source\SceneContains\GameResult\ResultStart\ResultStart.h" />
+    <ClInclude Include="Source\SceneContains\GameTitle\GameTitle.h" />
+    <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\GameTutorial.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\Play\GameTutorialPlay.h" />
+    <ClInclude Include="Source\SceneContains\GameTutorial\Ready\GameTutorialReady.h" />
+    <ClInclude Include="Source\SceneContains\IScene.h" />
+    <ClInclude Include="Source\SceneContains\IScenePtr.h" />
+    <ClInclude Include="Source\SceneContains\NullScene\NullScene.h" />
+    <ClInclude Include="Source\SceneContains\SceneManager\SceneChildMgr.h" />
+    <ClInclude Include="Source\SceneContains\SceneManager\SceneManager.h" />
+    <ClInclude Include="Source\SceneContains\SceneName.h" />
+    <ClInclude Include="Source\SceneContains\Scene\ChildScene.h" />
+    <ClInclude Include="Source\SceneContains\Scene\Scene.h" />
+    <ClInclude Include="Source\StagingContains\TransitionStaging\SceneTransition.h" />
+    <ClInclude Include="Source\StagingContains\TransitionStaging\TransitionManager\TransitionManager.h" />
+    <ClInclude Include="Source\StagingContains\TransitionStaging\TransitionPtr.h" />
+    <ClInclude Include="Source\StagingContains\TransitionStaging\Transition\Transition.h" />
+    <ClInclude Include="Source\TargetPosition\TargetPosition.h" />
+    <ClInclude Include="Source\TextureContains\AnimationTexture\AnimationTexture.h" />
+    <ClInclude Include="Source\TextureContains\Base\Texture_Base.h" />
+    <ClInclude Include="Source\TextureContains\ITexture.h" />
+    <ClInclude Include="Source\TextureContains\ITexturePtr.h" />
+    <ClInclude Include="Source\TextureContains\NullTexture\NullTexture.h" />
+    <ClInclude Include="Source\TextureContains\NumberTexture\NumberTexture.h" />
+    <ClInclude Include="Source\TextureContains\Texture\Texture.h" />
+    <ClInclude Include="Source\Tile\TileData.h" />
+    <ClInclude Include="Source\UIContains\Base\UI_Base.h" />
+    <ClInclude Include="Source\UIContains\Button\Button.h" />
+    <ClInclude Include="Source\UIContains\Combo\Combo.h" />
+    <ClInclude Include="Source\UIContains\Number\Number.h" />
+    <ClInclude Include="Source\UIContains\Number\NumberCreator.h" />
+    <ClInclude Include="Source\UIContains\Rank\Rank.h" />
+    <ClInclude Include="Source\UIContains\Selector\Selector.h" />
+    <ClInclude Include="Source\UIContains\Sprite\Sprite.h" />
+    <ClInclude Include="Source\UIContains\Sprite\SpriteCreator.h" />
+    <ClInclude Include="Source\UIContains\UICreator\UICreator.h" />
+    <ClInclude Include="Source\UIContains\UIFilePaths.h" />
+    <ClInclude Include="Source\UIContains\UIManager\UIManager.h" />
+    <ClInclude Include="Source\UIContains\UIType.h" />
+    <ClInclude Include="Source\Utility\AAVector2\AAVector2.h" />
+    <ClInclude Include="Source\Utility\Animation\Animation.h" />
+    <ClInclude Include="Source\Utility\Animation\AnimationPtr.h" />
+    <ClInclude Include="Source\Utility\Collide2D\IsCollide2D.h" />
+    <ClInclude Include="Source\Utility\Composite\Component\Component.h" />
+    <ClInclude Include="Source\Utility\Composite\Component\ComponentPtr.h" />
+    <ClInclude Include="Source\Utility\Composite\Composite\Composite.h" />
+    <ClInclude Include="Source\Utility\Composite\Leaf\Leaf.h" />
+    <ClInclude Include="Source\Utility\Contact\Contact.h" />
+    <ClInclude Include="Source\Utility\Contact\ContactPoint.h" />
+    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h" />
+    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.h" />
+    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\TwoDVector.h" />
+    <ClInclude Include="Source\Utility\EnumRap\EnumRap.h" />
+    <ClInclude Include="Source\Utility\EnumRap\EnumRapPtr.h" />
+    <ClInclude Include="Source\Utility\FourDirection\FourDirection.h" />
+    <ClInclude Include="Source\Utility\InputState\InputState.h" />
+    <ClInclude Include="Source\Utility\InputState\InputStatePtr.h" />
+    <ClInclude Include="Source\Utility\MathSupport\MathSupport.h" />
+    <ClInclude Include="Source\Utility\Rederer2D\Renderer2D.h" />
+    <ClInclude Include="Source\Utility\Rederer2D\Renderer2DPtr.h" />
+    <ClInclude Include="Source\Utility\Score\Score.h" />
+    <ClInclude Include="Source\Utility\Score\ScorePtr.h" />
+    <ClInclude Include="Source\Utility\Sound\Sound.h" />
+    <ClInclude Include="Source\Utility\Sound\SoundName.h" />
+    <ClInclude Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactory.h" />
+    <ClInclude Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactoryPtr.h" />
+    <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameter.h" />
+    <ClInclude Include="Source\Utility\Texture2DParameter\Texture2DParameterPtr.h" />
+    <ClInclude Include="Source\Utility\TurnDirection\TurnDirection.h" />
+    <ClInclude Include="Source\Wall\BreakWall.h" />
+    <ClInclude Include="Source\Wall\Wall.h" />
+    <ClInclude Include="Source\WorldContains\EventMessage\EventMessage.h" />
+    <ClInclude Include="Source\WorldContains\IWorld.h" />
+    <ClInclude Include="Source\WorldContains\IWorldPtr.h" />
+    <ClInclude Include="Source\WorldContains\World\World.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ActorContains\ActorManager\ActorManager.cpp" />
+    <ClCompile Include="Source\ActorContains\Actor\Actor.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Base\BodyBase.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Elements\ContactSet\ContactSet.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Elements\Primitive\AABB2D\AABB2D.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Elements\Primitive\AASegment2D\AASegment2D.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\Factory\BodyFactory.cpp" />
+    <ClCompile Include="Source\ActorContains\BodyContains\NullBody\NullBody.cpp" />
+    <ClCompile Include="Source\ActorContains\HitPoint\HitPoint.cpp" />
+    <ClCompile Include="Source\ActorContains\NullActor\NullActor.cpp" />
+    <ClCompile Include="Source\ActorContains\State\Base\State.cpp" />
+    <ClCompile Include="Source\ActorContains\State\Base\StateMgr.cpp" />
+    <ClCompile Include="Source\ActorContains\Transform\Transform.cpp" />
+    <ClCompile Include="Source\Base\GameFrame\GameFrame.cpp" />
+    <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\AttackContains\Rush\EnemyCommandRush.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\Generate\EnemyCommandGenerate.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\AlongWallMove\EnemyCommandAlongWallMove.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Base\EnemyCommandMoveBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Patrol\EnemyCommandPatrol.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\ReturnRegularPos\EnemyCommandReturnRegularPos.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTouchWall.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Straight\EnemyCommandStraight.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy02Contains\Standby\EnemyCommandEnemy02Standby.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy04Contains\Standby\EnemyCommandEnemy04Standby.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Patrol\EnemyCommandEnemy07Patrol.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Spin\EnemyCommandEnemy07Spin.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Rush\EnemyCommandEnemy09Rush.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Standby\EnemyCommandEnemy09Standby.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEnemyBullet01StraightTouchWall.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyManager.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy01\Enemy01.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy02\Enemy02.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy03\Enemy03.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy04\Enemy04.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy05\Enemy05.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy06\Enemy06.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy07\Enemy07.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\PlayerWatch\PlayerWatch.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\StateManager\EnemyStateManager.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Base\EnemyStateAttackBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\RushPreliminary\EnemyStateRushPreliminary.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\ReleaseDead\EnemyStateCaughtReleaseDead.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Standard\EnemyStateCrushStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Damage\EnemyStateDamage.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\InformChildren\EnemyStateDeadInformChildren.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Inform\EnemyStateDeadInform.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Standard\EnemyStateDeadStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadWall\DeadWall.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Base\EnemyStateMoveBaseOnlyInTheBack.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Idle\EnemyStateIdleOnlyInTheBack.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Move\EnemyStateMoveOnlyInTheBack.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Base\EnemyStateMoveBaseRepel.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Idle\EnemyStateIdleRepel.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Repel\Move\EnemyStateMoveRepel.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Base\EnemyStateMoveBaseStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Idle\EnemyStateIdleStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\Standard\Move\EnemyStateMoveStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\RepelContains\Repel\EnemyStateRepel.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\SpinContains\Standard\EnemyStateSpinStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\OnlyInTheBack\EnemyStateStopOnlyInTheBack.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\StopContains\Standard\EnemyStateStopStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\Factory\CharacterFactory.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\Arm\Arm.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerState.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\PlayerStateManager.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Damage.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Dead.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Invincible.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Release.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Respawn.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Common\PlayerState_Swich.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Crush\PlayerState_Crush_After.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Dash.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Idle.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_MoveBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Walk.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\PlayerState_Close.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Idle.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_MoveBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\Move\PlayerState_O_Walk.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Open\PlayerState_Open.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Rounds\PlayerState_Round.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player.cpp" />
+    <ClCompile Include="Source\CharacterContains\PlayerContains\Player\Player_Parameter.cpp" />
+    <ClCompile Include="Source\DrawManager\DrawManager.cpp" />
+    <ClCompile Include="Source\FileReader\CsvReader.cpp" />
+    <ClCompile Include="Source\FrontChipList\FrontChipList.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\MapGenerator\MapGenerator.cpp" />
+    <ClCompile Include="Source\Map\CombinationTexture\CombinationTexture.cpp" />
+    <ClCompile Include="Source\Map\Map.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\AnimationFont\AnimationFont.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\AnimationSpriteBase\AnimationSpriteBase.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\DropSprite\DropSprite.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\Guide\Guide.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.cpp" />
+    <ClCompile Include="Source\SceneContains\GameCredit\BigBlock2.cpp" />
+    <ClCompile Include="Source\SceneContains\GameCredit\CreditEnd\CreditEnd.cpp" />
+    <ClCompile Include="Source\SceneContains\GameCredit\CreditStaging\CreditStaging.cpp" />
+    <ClCompile Include="Source\SceneContains\GameCredit\CreditStart\CreditStart.cpp" />
+    <ClCompile Include="Source\SceneContains\GameCredit\GameCredit.cpp" />
+    <ClCompile Include="Source\SceneContains\GameOver\GameOver.cpp" />
+    <ClCompile Include="Source\SceneContains\GamePlay\Close\GamePlayClose.cpp" />
+    <ClCompile Include="Source\SceneContains\GamePlay\GamePlay.cpp" />
+    <ClCompile Include="Source\SceneContains\GamePlay\Pause\GamePlayPause.cpp" />
+    <ClCompile Include="Source\SceneContains\GamePlay\Play\GamePlayPlay.cpp" />
+    <ClCompile Include="Source\SceneContains\GamePlay\Ready\GamePlayReady.cpp" />
+    <ClCompile Include="Source\SceneContains\GameResult\BigBlock.cpp" />
+    <ClCompile Include="Source\SceneContains\GameResult\GameResult.cpp" />
+    <ClCompile Include="Source\SceneContains\GameResult\ResultEnd\ResultEnd.cpp" />
+    <ClCompile Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.cpp" />
+    <ClCompile Include="Source\SceneContains\GameResult\ResultStart\ResultStart.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\GameTutorial.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\Play\GameTutorialPlay.cpp" />
+    <ClCompile Include="Source\SceneContains\GameTutorial\Ready\GameTutorialReady.cpp" />
+    <ClCompile Include="Source\SceneContains\SceneManager\SceneChildMgr.cpp" />
+    <ClCompile Include="Source\SceneContains\SceneManager\SceneManager.cpp" />
+    <ClCompile Include="Source\SceneContains\Scene\ChildScene.cpp" />
+    <ClCompile Include="Source\SceneContains\Scene\Scene.cpp" />
+    <ClCompile Include="Source\StagingContains\TransitionStaging\SceneTransition.cpp" />
+    <ClCompile Include="Source\StagingContains\TransitionStaging\TransitionManager\TransitionManager.cpp" />
+    <ClCompile Include="Source\StagingContains\TransitionStaging\Transition\Transition.cpp" />
+    <ClCompile Include="Source\TargetPosition\TargetPosition.cpp" />
+    <ClCompile Include="Source\TextureContains\AnimationTexture\AnimationTexture.cpp" />
+    <ClCompile Include="Source\TextureContains\Base\Texture_Base.cpp" />
+    <ClCompile Include="Source\TextureContains\NumberTexture\NumberTexture.cpp" />
+    <ClCompile Include="Source\TextureContains\Texture\Texture.cpp" />
+    <ClCompile Include="Source\Tile\TileData.cpp" />
+    <ClCompile Include="Source\UIContains\Base\UI_Base.cpp" />
+    <ClCompile Include="Source\UIContains\Button\Button.cpp" />
+    <ClCompile Include="Source\UIContains\Combo\Combo.cpp" />
+    <ClCompile Include="Source\UIContains\Number\Number.cpp" />
+    <ClCompile Include="Source\UIContains\Number\NumberCreator.cpp" />
+    <ClCompile Include="Source\UIContains\Rank\Rank.cpp" />
+    <ClCompile Include="Source\UIContains\Selector\Selector.cpp" />
+    <ClCompile Include="Source\UIContains\Sprite\Sprite.cpp" />
+    <ClCompile Include="Source\UIContains\Sprite\SpriteCreator.cpp" />
+    <ClCompile Include="Source\UIContains\UICreator\UICreator.cpp" />
+    <ClCompile Include="Source\UIContains\UIManager\UIManager.cpp" />
+    <ClCompile Include="Source\Utility\Animation\Animation.cpp" />
+    <ClCompile Include="Source\Utility\Collide2D\IsCollide2D.cpp" />
+    <ClCompile Include="Source\Utility\Composite\Composite\Composite.cpp" />
+    <ClCompile Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.cpp" />
+    <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp" />
+    <ClCompile Include="Source\Utility\InputState\InputState.cpp" />
+    <ClCompile Include="Source\Utility\MathSupport\MathSupport.cpp" />
+    <ClCompile Include="Source\Utility\Rederer2D\Renderer2D.cpp" />
+    <ClCompile Include="Source\Utility\Score\Score.cpp" />
+    <ClCompile Include="Source\Utility\Texture2DParameter\Factory\Texture2DParamFactory.cpp" />
+    <ClCompile Include="Source\Utility\Texture2DParameter\Texture2DParameter.cpp" />
+    <ClCompile Include="Source\Utility\TurnDirection\TurnDirection.cpp" />
+    <ClCompile Include="Source\Wall\BreakWall.cpp" />
+    <ClCompile Include="Source\Wall\Wall.cpp" />
+    <ClCompile Include="Source\WorldContains\World\World.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

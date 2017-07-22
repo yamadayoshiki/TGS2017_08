@@ -1,0 +1,84 @@
+#include "BreakWall.h"
+#include "../ActorContains/ActorName.h"
+#include "../ActorContains/Transform/Transform.h"
+#include "../Base/GameManagerContains/IGameManager.h"
+#include "../Define/Def_Nakayama.h"
+#include "../TextureContains/Texture/Texture.h"
+#include "../TextureContains/AnimationTexture/AnimationTexture.h"
+#include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../Utility/Rederer2D/Renderer2D.h"
+#include "../Utility/FourDirection/FourDirection.h"
+#include "../Utility/Animation/Animation.h"
+#include "../WorldContains/IWorld.h"
+#include "../Map/Map.h"
+#include "../CharacterContains/EnemyContains/PlayerWatch/PlayerWatch.h"
+//CommandContains
+#include"../CharacterContains/EnemyContains/CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
+#include"../CharacterContains/EnemyContains/CommandContains/Commands/EnemyCommandName.h"
+#include"../CharacterContains/EnemyContains/CommandContains/Commands/Null/EnemyCommandNull.h"
+//State
+#include "../CharacterContains/EnemyContains/StateContains/StateManager/EnemyStateManager.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/MoveContains/Standard/Idle/EnemyStateIdleStandard.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/CaughtContains/Standard/EnemyStateCaughtStandard.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/CrushContains/Standard/EnemyStateCrushStandard.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/DeadContaint/Standard/EnemyStateDeadStandard.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/DeadWall/DeadWall.h"
+#include "../CharacterContains/EnemyContains/StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
+
+BreakWall::BreakWall(
+	IWorld * world,
+	const GSvector2 & position,
+	const IGameManagerPtr & gameManager)
+	: EnemyBase(
+		world,
+		ActorName::BreakWall,
+		position,
+		FourDirection(),
+		3,
+		MapType::Default,
+		gameManager,
+		std::make_shared<Texture>("Block5", gameManager->GetDrawManager(), DrawOrder::Enemy),
+		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
+}
+
+//初期化
+void BreakWall::onInitialize() {
+	EnemyBase::onInitialize();
+	//マップ情報書き換え
+	p_World->GetMap()->SetcsvParameter(getPosition(), TerrainName::BreakeWall, p_World);
+}
+
+void BreakWall::SetUpCommand()
+{
+	//生成
+	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
+	//追加
+	p_CommandManager->AddDic(EnemyCommandName::None, std::make_shared<EnemyCommandNull>(shared_from_this()));
+	//初期Command設定
+	p_CommandManager->Change(EnemyCommandName::None);
+}
+
+void BreakWall::SetUpState()
+{
+	//生成
+	p_StateManager.reset(new EnemyStateManager());
+	//State追加
+	p_StateManager->add(EnemyStateName::Idle, std::make_shared<EnemyStateIdleStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Caught, std::make_shared<EnemyStateCaughtStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Crush, std::make_shared<EnemyStateCrushStandard>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Dead, std::make_shared<DeadWall>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
+	//初期State設定
+	p_StateManager->change(EnemyStateName::Idle);
+}
+
+void BreakWall::onDraw() const
+{
+}
+
+//csvで生成(使用時継承先でoverride)
+ActorPtr BreakWall::CsvGenerate(const int x, const int y, const int csvparam) {
+	GSvector2 pos = getWorld()->GetMap()->CsvPosCnvVector2(x, y, m_MapType);
+	pos = pos - GSvector2(CHIP_SIZE / 2, CHIP_SIZE / 2);
+	return std::make_shared<BreakWall>(p_World, pos, p_GameManager);
+}

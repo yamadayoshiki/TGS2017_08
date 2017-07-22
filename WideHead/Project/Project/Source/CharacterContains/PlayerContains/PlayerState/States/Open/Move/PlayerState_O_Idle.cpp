@@ -1,0 +1,15 @@
+#include"PlayerState_O_Idle.h"
+#include"../../../../../NeutralContains/Charge_Effect/Charge.h"
+
+//コンストラクタ
+PlayerState_O_Idle::PlayerState_O_Idle(const Player_WPtr& player, IGameManagerPtr gameManager)
+	:PlayerState_O_MoveBase(player, gameManager)
+{
+
+}
+
+//各状態独自の初期化
+void PlayerState_O_Idle::onUniqueInit()
+{
+
+}
