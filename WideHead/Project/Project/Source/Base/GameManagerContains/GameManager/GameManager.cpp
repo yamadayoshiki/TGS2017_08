@@ -71,6 +71,19 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("WideHead", "Resource/Texture/UI/Title/titleblock3.png");
 	p_Renderer2D->LoadTexture("Start", "Resource/Texture/UI/Title/Start.png");
 	p_Renderer2D->LoadTexture("logo", "Resource/Texture/UI/Title/logo.png");
+	p_Renderer2D->LoadTexture("StartLogo1", "Resource/Texture/UI/Title/moji_anime1.png");
+	p_Renderer2D->LoadTexture("StartLogo2", "Resource/Texture/UI/Title/moji_anime2.png");
+	p_Renderer2D->LoadTexture("StartLogo3", "Resource/Texture/UI/Title/moji_anime3.png");
+	p_Renderer2D->LoadTexture("StartLogo4", "Resource/Texture/UI/Title/moji_anime4.png");
+	p_Renderer2D->LoadTexture("StartLogo5", "Resource/Texture/UI/Title/moji_anime5.png");
+	p_Renderer2D->LoadTexture("StartLogo6", "Resource/Texture/UI/Title/moji_anime6.png");
+	p_Renderer2D->LoadTexture("StartLogo7", "Resource/Texture/UI/Title/moji_anime7.png");
+	p_Renderer2D->LoadTexture("StartLogo8", "Resource/Texture/UI/Title/moji_anime8.png");
+	p_Renderer2D->LoadTexture("StartLogo9", "Resource/Texture/UI/Title/moji_anime9.png");
+	p_Renderer2D->LoadTexture("StartLogo10", "Resource/Texture/UI/Title/moji_anime10.png");
+	p_Renderer2D->LoadTexture("StartLogo11", "Resource/Texture/UI/Title/moji_anime11.png");
+	p_Renderer2D->LoadTexture("StartLogo12", "Resource/Texture/UI/Title/moji_anime12.png");
+	p_Renderer2D->LoadTexture("StartLogo13", "Resource/Texture/UI/Title/moji_anime13.png");
 
 	//Tutorial
 	p_Renderer2D->LoadTexture("TutorialLeft1", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide1.png");

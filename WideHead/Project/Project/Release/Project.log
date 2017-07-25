@@ -6,8 +6,8 @@ Source\ActorContains\BodyContains\Base\BodyBase.cpp(45): warning C4018: '<': sig
   ContactSet.cpp
   AABB2D.cpp
   AASegment2D.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\actorcontains\bodycontains\elements\primitive\aasegment2d\AASegment2D.h(47): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\actorcontains\bodycontains\elements\primitive\aasegment2d\AASegment2D.h(50): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\actorcontains\bodycontains\elements\primitive\aasegment2d\AASegment2D.h(47): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\actorcontains\bodycontains\elements\primitive\aasegment2d\AASegment2D.h(50): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
   BodyFactory.cpp
   NullBody.cpp
   HitPoint.cpp
@@ -61,10 +61,10 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warn
   Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.cpp(39): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[14],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[14],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
   EnemyBase.cpp
   Enemy01.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy01\../../../StateContains/States/MoveContains/Repel/Idle/EnemyStateIdleRepel.h(17): warning C4250: 'EnemyStateIdleRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy01\../../../StateContains/States/MoveContains/Repel/Move/EnemyStateMoveRepel.h(20): warning C4250: 'EnemyStateMoveRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy01\../../../StateContains/States/MoveContains/Repel/Idle/EnemyStateIdleRepel.h(17): warning C4250: 'EnemyStateIdleRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy01\../../../StateContains/States/MoveContains/Repel/Move/EnemyStateMoveRepel.h(20): warning C4250: 'EnemyStateMoveRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
           with
@@ -94,8 +94,8 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warn
               _Ty=EnemyBase
           ]
   Enemy02.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy02\../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy02\../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
           with
@@ -113,10 +113,10 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warn
               _Ty=EnemyBase
           ]
   Enemy03.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy03\../../../StateContains/States/MoveContains/Repel/Idle/EnemyStateIdleRepel.h(17): warning C4250: 'EnemyStateIdleRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy03\../../../StateContains/States/MoveContains/Repel/Move/EnemyStateMoveRepel.h(20): warning C4250: 'EnemyStateMoveRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy03\../../../StateContains/States/MoveContains/Repel/Idle/EnemyStateIdleRepel.h(17): warning C4250: 'EnemyStateIdleRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy03\../../../StateContains/States/MoveContains/Repel/Move/EnemyStateMoveRepel.h(20): warning C4250: 'EnemyStateMoveRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
           with
@@ -263,8 +263,8 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warn
               _Ty=EnemyBase
           ]
   Enemy09.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy09\../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy09\../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[23],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[23],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
           with
@@ -323,8 +323,8 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warn
               _Ty=EnemyBase
           ]
   Enemy11.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy11\../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy11\../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
 C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
   C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[23],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[23],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
           with
@@ -401,16 +401,16 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warn
   DeadWall.cpp
   EnemyStateMoveBaseOnlyInTheBack.cpp
   EnemyStateIdleOnlyInTheBack.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
   EnemyStateMoveOnlyInTheBack.cpp
   EnemyStateMoveBaseRepel.cpp
   EnemyStateIdleRepel.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\EnemyStateIdleRepel.h(17): warning C4250: 'EnemyStateIdleRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\EnemyStateIdleRepel.h(17): warning C4250: 'EnemyStateIdleRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
   EnemyStateMoveRepel.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\move\EnemyStateMoveRepel.h(20): warning C4250: 'EnemyStateMoveRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\move\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\move\EnemyStateMoveRepel.h(20): warning C4250: 'EnemyStateMoveRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\move\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
   EnemyStateMoveBaseStandard.cpp
   EnemyStateIdleStandard.cpp
   EnemyStateMoveStandard.cpp
@@ -606,6 +606,22 @@ Source\SceneContains\GamePlay\Ready\GamePlayReady.cpp(66): warning C4018: '<=': 
   ResultStaging.cpp
   ResultStart.cpp
   GameTitle.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<World,GSvector2,IGameManagerPtr&,const char(&)[11],int>(World &&,GSvector2 &&,IGameManagerPtr &,const char (&)[11],int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationFont
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<World,GSvector2,IGameManagerPtr&,const char(&)[11],int>(World &&,GSvector2 &&,IGameManagerPtr &,const char (&)[11],int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationFont
+          ]
+  Source\SceneContains\GameTitle\GameTitle.cpp(36): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationFont> std::make_shared<AnimationFont,_Ty*,GSvector2,IGameManagerPtr&,const char(&)[11],int>(_Ty *&&,GSvector2 &&,IGameManagerPtr &,const char (&)[11],int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=World
+          ]
   StartLogoAnimation.cpp
   GameTutorialClose.cpp
   GameTutorial.cpp
@@ -712,6 +728,8 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warn
   Wall.cpp
   World.cpp
   コード生成しています。
-  All 16112 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  15655 of 16136 functions (97.0%) were compiled, the rest were copied from previous compilation.
+    87 functions were new in current compilation
+    247 functions had inline decision re-evaluated but remain unchanged
   コード生成が終了しました。
-  Project.vcxproj -> C:\Users\YuJimbo\Desktop\School\No.04 17年度前期\00_TGS'17\SourceTree\WideHead\Project\Release\Project.exe
+  Project.vcxproj -> C:\Users\nakayama\Desktop\TGS\WideHead\Project\Release\Project.exe

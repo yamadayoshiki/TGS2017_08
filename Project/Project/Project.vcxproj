@@ -298,6 +298,7 @@
     <ClInclude Include="Source\SceneContains\Elements\DropSprite\DropSprite.h" />
     <ClInclude Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.h" />
     <ClInclude Include="Source\SceneContains\Elements\Guide\Guide.h" />
+    <ClInclude Include="Source\SceneContains\Elements\StartLogoAnimationFont\StartLogoAnimationFont.h" />
     <ClInclude Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.h" />
     <ClInclude Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.h" />
     <ClInclude Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.h" />
@@ -315,7 +316,6 @@
     <ClInclude Include="Source\SceneContains\GameResult\ResultStaging\ResultStaging.h" />
     <ClInclude Include="Source\SceneContains\GameResult\ResultStart\ResultStart.h" />
     <ClInclude Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.h" />
-    <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h" />
     <ClInclude Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.h" />
     <ClInclude Include="Source\SceneContains\GameTutorial\GameTutorial.h" />
     <ClInclude Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.h" />
@@ -537,6 +537,7 @@
     <ClCompile Include="Source\SceneContains\Elements\DropSprite\DropSprite.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\Guide\Guide.cpp" />
+    <ClCompile Include="Source\SceneContains\Elements\StartLogoAnimationFont\StartLogoAnimationFont.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\TargetCircle\TargetCircle.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\TargetEnemySprite\TargetEnemySprite.cpp" />
     <ClCompile Include="Source\SceneContains\Elements\ZoomSprite\ZoomSprite.cpp" />
@@ -560,7 +561,6 @@
     <ClCompile Include="Source\SceneContains\Elements\ResultPlayerStaging\ResultPlayerStaging.cpp" />
     <ClCompile Include="Source\SceneContains\GameSelect\GameSelect.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
-    <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp" />
     <ClCompile Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.cpp" />
     <ClCompile Include="Source\SceneContains\GameTutorial\GameTutorial.cpp" />
     <ClCompile Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.cpp" />

@@ -34,7 +34,7 @@ public:
 	void PlaySE(const SoundName name);
 
 	//BGMÄ¶
-	void PlayBGM(const SoundName name);
+	void PlayBGM();
 
 	//BGMˆê’â~
 	void StopBGM();

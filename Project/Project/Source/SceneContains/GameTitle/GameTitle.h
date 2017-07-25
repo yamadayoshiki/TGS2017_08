@@ -3,6 +3,9 @@
 
 #include "../Scene/Scene.h"
 #include "../../Utility/Texture2DParameter/Texture2DParameterPtr.h"
+#include"../../DrawManager/DrawManagerPtr.h"
+#include"../../Utility/Rederer2D/Renderer2DPtr.h"
+
 #include <iostream>
 class AnimationTexture;
 //タイトルシーン
@@ -21,6 +24,14 @@ protected:
 	virtual void OnDraw()const;
 	//終了
 	virtual void OnEnd()override;
+
+private:
+	//ロゴのアニメーションタイマ
+	float LogoTimer = 0;
+
+	//レンダラー
+	Renderer2DPtr		p_Renderer;
+	DrawManagerSPtr		p_DrawManager;
 };
 
 #endif

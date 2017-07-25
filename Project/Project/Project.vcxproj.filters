@@ -627,9 +627,6 @@
     <ClInclude Include="Source\UIContains\Combo\Combo.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Utility\Composite\Component\Component.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -835,6 +832,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\SceneContains\Elements\StartLogoAnimationFont\StartLogoAnimationFont.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
@@ -1265,9 +1265,6 @@
     <ClCompile Include="Source\UIContains\Combo\Combo.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Utility\Composite\Composite\Composite.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -1410,6 +1407,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\Elements\FlashSprite\FlashSprite.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneContains\Elements\StartLogoAnimationFont\StartLogoAnimationFont.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
