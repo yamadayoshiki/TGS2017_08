@@ -1,10 +1,6 @@
 #ifndef ACTOR_H_
 #define ACTOR_H_
 
-#include <string>
-#include <functional>
-#include <forward_list>
-
 #include "../ActorPtr.h"
 #include "../ActorName.h"
 
@@ -19,6 +15,10 @@
 #include "../BodyContains/Elements/MotionType.h"
 #include "../BodyContains/BodyDataName.h"
 #include "../Transform/TransformPtr.h"
+
+#include <string>
+#include <functional>
+#include <forward_list>
 
 enum class EventMessage;
 class IWorld;

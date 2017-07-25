@@ -22,9 +22,6 @@ public:
 	void Collide(Actor&);
 	//èIóπ
 	void End();
-private:
-
-
 };
 
 #endif // !WALL_H_

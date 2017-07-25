@@ -12,7 +12,8 @@
 #include"../BigBlock2.h"
 
 
-CreditStaging::CreditStaging() {
+CreditStaging::CreditStaging()
+	: timer_(0.0f) {
 }
 
 CreditStaging::~CreditStaging() {

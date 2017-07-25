@@ -4,8 +4,8 @@
 #include "../Entity/Enemys/Base/EnemyBasePtr.h"
 #include <vector>
 #include <unordered_map> 
-
-class EnemyManager : public Actor
+class EnemyGroup;
+class EnemyManager : public Actor,public std::enable_shared_from_this<EnemyManager>
 {
 	struct TagetEnemy {
 		ActorName m_Name;
@@ -13,7 +13,7 @@ class EnemyManager : public Actor
 		TagetEnemy(const ActorName name, const ITexturePtr& texture) :m_Name(name), p_Texture(texture) {}
 	};
 
-	enum class EnemyGroup {
+	enum class EnemyGroupName {
 		Normal,		//通常敵
 		Enemy09,	//Enemy09のみ
 		Offensive,	//他エネミーにも攻撃する
@@ -27,8 +27,6 @@ public:
 public:
 	//子の追加
 	void addChild(const ActorPtr& child) override;
-	//子を削除する(死んだ子の削除)
-	void removeChildren_dead() override;
 
 public:
 	//セットアップ
@@ -43,6 +41,8 @@ public:
 	void GetTagetEnemyTextures(std::vector<ITexturePtr>& out);
 	//討伐可能敵のテクスチャ配列の数の取得
 	int GetNumTagetEnemyTextures();
+	//討伐可能敵の数の減算
+	void DecreaseSurviverSum(int num);
 
 private:
 	//倒せる敵か否か(スマポ参照)
@@ -53,6 +53,6 @@ private:
 private:
 	int m_SurviverSum;	//生き残っている討伐可能敵の数
 	std::vector<TagetEnemy> m_TagetEnemyTextures;	//討伐目標敵のテクスチャの配列
-	std::unordered_map<EnemyGroup, ActorPtr> m_Enemys;	//エネミーグループ
+	std::unordered_map<EnemyGroupName, std::shared_ptr<EnemyGroup>> m_Enemys;	//エネミーグループ
 };
 #endif

@@ -5,8 +5,8 @@
 #include "../../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../../../../Entity/Enemys/Base/EnemyBase.h"
-#include "../../../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
-#include "../../../../../../../Utility/CsvConvertTwoDVector/CsvCellData.h"
+#include "../../../../../../../CsvConvertTDV/CsvConvertTDV.h"
+#include "../../../../../../../CsvConvertTDV/CsvCellData.h"
 #include <iterator>
 #include <forward_list>
 
@@ -22,8 +22,8 @@ EnemyCommandPatrol::EnemyCommandPatrol(
 
 //巡回座標を設定
 void EnemyCommandPatrol::SetPatrolPos(const std::string fileName) {
-	std::vector<CsvCellData> csvCellDatavector = std::vector<CsvCellData>(CsvConvertTwoDVector::GetPatrolPos(fileName));
-	m_TargetPosList = std::vector<GSvector2>(CsvConvertTwoDVector::GetPatrolPosList(csvCellDatavector, m_Type));
+	std::vector<CsvCellData> csvCellDatavector = std::vector<CsvCellData>(CsvConvertTDV::GetPatrolPos(fileName));
+	m_TargetPosList = std::vector<GSvector2>(CsvConvertTDV::GetPatrolPosList(csvCellDatavector, m_Type));
 }
 
 //目標地点に到着したリアクション

@@ -2,8 +2,8 @@
 #include "../Map/Map.h"
 #include <iostream>
 #include "../Define/Def_Nakayama.h"
-#include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
-#include "../Utility/CsvConvertTwoDVector/CsvCellData.h"
+#include "../CsvConvertTDV/CsvConvertTDV.h"
+#include "../CsvConvertTDV/CsvCellData.h"
 #include "../Map/TerrainName.h"
 
 //コンストラクタ
@@ -141,11 +141,11 @@ float FrontChipList::GetToWallLength(const GSvector2 pos, const FourDirection di
 	//壁までの空きマスの数
 	int speaceNum = GetSpeaceNum();
 	//自分のマス準拠座標
-	GSvector2 cellDataVector2 = CsvConvertTwoDVector::Vector2CnvCsvPos(pos, m_Type);
+	GSvector2 cellDataVector2 = CsvConvertTDV::Vector2CnvCsvPos(pos, m_Type);
 	//壁手前の空きマスのcsv座標
 	GSvector2 speaceCellPos = cellDataVector2 + direction.GetVector2() * speaceNum;
 	//壁手前の空きマスの座標
-	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(speaceCellPos.x * 2, speaceCellPos.y * 2, m_Type);
+	GSvector2 position = CsvConvertTDV::CsvPosCnvVector2(speaceCellPos.x * 2, speaceCellPos.y * 2, m_Type);
 	//１マスの半分の長さ
 	float half = (CHIP_SIZE * ((int)m_Type + 1)) / 2;
 	//壁に当たる座標算出

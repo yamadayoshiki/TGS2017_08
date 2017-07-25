@@ -1,6 +1,6 @@
 #include "EnemyCommandReturnRegularPos.h"
 #include "../../../../../Entity/Enemys/Base/EnemyBase.h"
-#include "../../../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../../../../../../CsvConvertTDV/CsvConvertTDV.h"
 
 EnemyCommandReturnRegularPos::EnemyCommandReturnRegularPos(
 	const EnemyBasePtr & enemy,
@@ -19,5 +19,5 @@ void EnemyCommandReturnRegularPos::ArriveReaction() {
 
 void EnemyCommandReturnRegularPos::SetNextTargetPos() {
 	//Ž©•ª‚ª‚¢‚éÀ•W
-	m_NextTargetPos = CsvConvertTwoDVector::GetTilePos(p_Enemy.lock()->getPosition(), m_Type);
+	m_NextTargetPos = CsvConvertTDV::GetTilePos(p_Enemy.lock()->getPosition(), m_Type);
 }

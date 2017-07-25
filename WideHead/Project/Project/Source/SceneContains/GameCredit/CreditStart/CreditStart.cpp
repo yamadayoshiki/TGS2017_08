@@ -9,7 +9,8 @@
 
 #include<GSeasing.h>
 
-CreditStart::CreditStart() {
+CreditStart::CreditStart()
+	: timer_(0.0f) {
 }
 
 CreditStart::~CreditStart() {

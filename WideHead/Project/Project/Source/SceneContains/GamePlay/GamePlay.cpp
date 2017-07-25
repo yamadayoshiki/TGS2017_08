@@ -31,7 +31,12 @@
 
 // コンストラクタ    
 GamePlay::GamePlay(const IGameManagerPtr& gameManager)
-	: Scene(gameManager) {
+	: Scene(gameManager)
+	, p_SceneChildMgr(nullptr) {
+	p_ScoreUI.reset();
+	p_PlayerRemainingUI.reset();
+	p_ButtonUI.reset();
+	p_PauseBack.reset();
 }
 
 void GamePlay::SetUp() {

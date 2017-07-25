@@ -5,24 +5,26 @@
 #include <GSvector2.h>
 #include <algorithm>
 #include <iterator>
+#include "EnemyGroup.h"
 
 EnemyManager::EnemyManager()
 	: Actor(ActorName::EnemyManager)
 	, m_SurviverSum(0) {
 	m_TagetEnemyTextures.clear();
 	m_Enemys.clear();
-	m_Enemys[EnemyGroup::Enemy09] = std::make_shared<Actor>();
-	m_Enemys[EnemyGroup::Normal] = std::make_shared<Actor>();
-	m_Enemys[EnemyGroup::Offensive] = std::make_shared<Actor>();
-	m_Enemys[EnemyGroup::Invincible] = std::make_shared<Actor>();
-	m_Enemys[EnemyGroup::BreakWall] = std::make_shared<Actor>();
+	m_Enemys[EnemyGroupName::Enemy09] = std::make_shared<EnemyGroup>();
+	m_Enemys[EnemyGroupName::Normal] = std::make_shared<EnemyGroup>();
+	m_Enemys[EnemyGroupName::Offensive] = std::make_shared<EnemyGroup>();
+	m_Enemys[EnemyGroupName::Invincible] = std::make_shared<EnemyGroup>();
+	m_Enemys[EnemyGroupName::BreakWall] = std::make_shared<EnemyGroup>();
 
+	clearChildren();
 
-	m_children.push_front(m_Enemys[EnemyGroup::Enemy09]);
-	m_children.push_front(m_Enemys[EnemyGroup::Normal]);
-	m_children.push_front(m_Enemys[EnemyGroup::Offensive]);
-	m_children.push_front(m_Enemys[EnemyGroup::Invincible]);
-	m_children.push_front(m_Enemys[EnemyGroup::BreakWall]);
+	m_children.push_front(m_Enemys[EnemyGroupName::Enemy09]);
+	m_children.push_front(m_Enemys[EnemyGroupName::Normal]);
+	m_children.push_front(m_Enemys[EnemyGroupName::Offensive]);
+	m_children.push_front(m_Enemys[EnemyGroupName::Invincible]);
+	m_children.push_front(m_Enemys[EnemyGroupName::BreakWall]);
 
 }
 
@@ -41,63 +43,48 @@ void EnemyManager::addChild(const ActorPtr & child) {
 		m_TagetEnemyTextures.push_back(l_Result);
 	}
 SKIP:
+	std::dynamic_pointer_cast<Actor>(child);
 	//ÉOÉãÅ[Évï™ÇØ
 	switch (child->getName())
 	{
 	case ActorName::Enemy_09:
-		m_Enemys[EnemyGroup::Enemy09]->addChildNonInit(child);
+		m_Enemys[EnemyGroupName::Enemy09]->addChildNonInit(child);
 		return;
 
 	case ActorName::Enemy_07:
-		m_Enemys[EnemyGroup::Offensive]->addChildNonInit(child);
+		m_Enemys[EnemyGroupName::Offensive]->addChildNonInit(child);
 		return;
 
 	case ActorName::BreakWall:
-		m_Enemys[EnemyGroup::BreakWall]->addChildNonInit(child);
+		m_Enemys[EnemyGroupName::BreakWall]->addChildNonInit(child);
 		return;
 
 	}
 	if (isTarget == false) {
-		m_Enemys[EnemyGroup::Invincible]->addChildNonInit(child);
+		m_Enemys[EnemyGroupName::Invincible]->addChildNonInit(child);
 		return;
 	}
 
 	else {
-		m_Enemys[EnemyGroup::Normal]->addChildNonInit(child);
+		m_Enemys[EnemyGroupName::Normal]->addChildNonInit(child);
 	}
 
-}
-
-void EnemyManager::removeChildren_dead() {
-	//ì¢î∞â¬î\ìGÇ©
-	eachChildren([&](Actor& child)
-	{
-		child.removeChildren([&](Actor& childchild)
-		{
-			if (childchild.GetDead() == true)
-			{
-				if (CanDead(*dynamic_cast<EnemyBase*>(&childchild)) == true)
-				{
-					m_SurviverSum--;
-				}
-				return true;
-			}
-		});
-		child.eachChildren([](Actor& childchild) {childchild.removeChildren_dead(); });
-	});
 }
 
 void EnemyManager::SetUp(IWorld * world, const IGameManagerPtr & gameManager) {
 	p_World = world;
 	p_GameManager = gameManager;
+	for (auto itr = m_Enemys.begin(); itr != m_Enemys.end(); itr++){
+		itr->second->SetUp(shared_from_this());
+	}
 }
 
 //è’ìÀ
 void EnemyManager::EnemyCollide() {
-	m_Enemys[EnemyGroup::Enemy09]->collideChildren(*m_Enemys[EnemyGroup::Enemy09]);
-	m_Enemys[EnemyGroup::Offensive]->collideChildren(*m_Enemys[EnemyGroup::Enemy09]);
-	m_Enemys[EnemyGroup::Offensive]->collideChildren(*m_Enemys[EnemyGroup::Normal]);
-	m_Enemys[EnemyGroup::Offensive]->collideChildren(*m_Enemys[EnemyGroup::Offensive]);
+	m_Enemys[EnemyGroupName::Enemy09]->collideChildren(*m_Enemys[EnemyGroupName::Enemy09]);
+	m_Enemys[EnemyGroupName::Offensive]->collideChildren(*m_Enemys[EnemyGroupName::Enemy09]);
+	m_Enemys[EnemyGroupName::Offensive]->collideChildren(*m_Enemys[EnemyGroupName::Normal]);
+	m_Enemys[EnemyGroupName::Offensive]->collideChildren(*m_Enemys[EnemyGroupName::Offensive]);
 }
 
 int EnemyManager::GetSurviverSum() const {
@@ -116,6 +103,11 @@ void EnemyManager::GetTagetEnemyTextures(std::vector<ITexturePtr>& out) {
 
 int EnemyManager::GetNumTagetEnemyTextures() {
 	return m_TagetEnemyTextures.size();
+}
+
+//ì¢î∞â¬î\ìGÇÃêîÇÃå∏éZ
+void EnemyManager::DecreaseSurviverSum(int num){
+	m_SurviverSum -= num;
 }
 
 bool EnemyManager::CanDead(const EnemyBasePtr& enemy) {

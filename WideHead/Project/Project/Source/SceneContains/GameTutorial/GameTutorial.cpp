@@ -36,7 +36,14 @@
 #include "../Elements/FlashSprite/FlashSprite.h" 
 #include "../../TextureContains/Texture/Texture.h"
 GameTutorial::GameTutorial(const IGameManagerPtr & gameManager)
-	: Scene(gameManager) {
+	: Scene(gameManager)
+	, p_Guide(std::shared_ptr<Guide>())
+	, p_SkipUI(std::shared_ptr<FlashSprite>())
+	, p_BreakWall(std::shared_ptr<BreakWall>())
+	, p_Enemy05(std::shared_ptr<Enemy05>())
+	, p_Enemy12(std::shared_ptr<Enemy12>())
+	, p_ButtonUI(std::weak_ptr<Button>())
+	, p_PauseBack(std::weak_ptr<Sprite>()) {
 }
 
 void GameTutorial::SetUp() {

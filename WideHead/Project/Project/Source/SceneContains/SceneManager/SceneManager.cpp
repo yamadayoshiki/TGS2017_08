@@ -3,8 +3,8 @@
 
 // コンストラクタ     
 SceneManager::SceneManager()
-	:m_CurrentScene(std::make_shared<NullScene>())
-{
+	:m_CurrentScene(std::make_shared<NullScene>()){
+	m_SceneDic.clear();
 }
 
 void SceneManager::SetUp() {

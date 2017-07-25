@@ -2,7 +2,9 @@
 #include "../../WorldContains/EventMessage/EventMessage.h"
 
 ChildScene::ChildScene()
-	:Scene() {
+	:Scene()
+	, m_Next(SceneName::None) {
+	p_Parent.reset();
 }
 
 ChildScene::~ChildScene() {

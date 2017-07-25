@@ -4,6 +4,7 @@
 EnemyCommandManagerOrder::EnemyCommandManagerOrder(const EnemyBasePtr & enemy)
 	: EnemyCommandManagerBase(enemy)
 	, m_CurCommandNum(-1) {
+	m_CommandNameList.clear();
 }
 
 //ƒRƒ}ƒ“ƒh‡˜“o˜^(’Ç‰Á‡)

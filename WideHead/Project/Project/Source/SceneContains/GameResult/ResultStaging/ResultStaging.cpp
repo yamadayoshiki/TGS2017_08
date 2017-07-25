@@ -12,7 +12,8 @@
 #include"../BigBlock.h"
 
 
-ResultStaging::ResultStaging() {
+ResultStaging::ResultStaging()
+	: timer_(0.0f) {
 }
 
 ResultStaging::~ResultStaging() {

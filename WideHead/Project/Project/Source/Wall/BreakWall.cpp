@@ -5,7 +5,7 @@
 #include "../Define/Def_Nakayama.h"
 #include "../TextureContains/Texture/Texture.h"
 #include "../TextureContains/AnimationTexture/AnimationTexture.h"
-#include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../CsvConvertTDV/CsvConvertTDV.h"
 #include "../Utility/Rederer2D/Renderer2D.h"
 #include "../Utility/FourDirection/FourDirection.h"
 #include "../Utility/Animation/Animation.h"
@@ -53,7 +53,7 @@ void BreakWall::SetUpCommand()
 	//¶¬
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//’Ç‰Á
-	p_CommandManager->AddDic(EnemyCommandName::None, std::make_shared<EnemyCommandNull>(shared_from_this()));
+	p_CommandManager->AddDic(EnemyCommandName::None, std::make_shared<EnemyCommandNull>());
 	//‰ŠúCommandÝ’è
 	p_CommandManager->Change(EnemyCommandName::None);
 }

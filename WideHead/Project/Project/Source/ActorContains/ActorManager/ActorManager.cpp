@@ -7,7 +7,8 @@
 #include <chrono>
 
 // コンストラクタ 
-ActorManager::ActorManager() {
+ActorManager::ActorManager()
+	: p_EnemyManager(std::shared_ptr<EnemyManager>()) {
 	p_Root = std::make_unique<Actor>();
 	initialize();
 }
@@ -19,7 +20,7 @@ ActorManager::~ActorManager() {
 }
 
 void ActorManager::SetUp(IWorld * world, const IGameManagerPtr & gameManager) {
-	p_EnemyManager.lock()->SetUp(world, gameManager);
+	p_EnemyManager->SetUp(world, gameManager);
 }
 
 // 初期化 
@@ -28,8 +29,9 @@ void ActorManager::initialize() {
 	m_actors[ActorGroup::UI] = std::make_shared<Actor>(ActorName::UI_ALL);
 	m_actors[ActorGroup::Effect] = std::make_shared<Actor>();
 	m_actors[ActorGroup::Player] = std::make_shared<Actor>(ActorName::PlayerManager);
-	m_actors[ActorGroup::Enemy] = std::make_shared<EnemyManager>();
-	p_EnemyManager = std::dynamic_pointer_cast<EnemyManager>(m_actors[ActorGroup::Enemy]);
+	p_EnemyManager = std::make_shared<EnemyManager>();
+	//m_actors[ActorGroup::Enemy] = std::make_shared<Actor>(ActorName::EnemyManager);
+	m_actors[ActorGroup::Enemy] = p_EnemyManager;
 
 	p_Root->clearChildren();
 
@@ -76,7 +78,8 @@ int ActorManager::getCount(ActorGroup group) const {
 }
 
 int ActorManager::GetSurviverSum() {
-	return p_EnemyManager.lock()->GetSurviverSum();
+	//return 3;
+	return p_EnemyManager->GetSurviverSum();
 }
 
 //任意の衝突判定
@@ -87,5 +90,5 @@ void ActorManager::OptionalCollide(Actor* actor, ActorGroup actorGroup) {
 // 衝突判定 
 void ActorManager::collide() {
 	m_actors[ActorGroup::Player]->collideChildren(*m_actors[ActorGroup::Enemy]);
-	p_EnemyManager.lock()->EnemyCollide();
+	p_EnemyManager->EnemyCollide();
 }

@@ -2,7 +2,7 @@
 #include "../../../StateContains/StateManager/EnemyStateManager.h"
 #include "../../../../../WorldContains/World/World.h"
 #include "../../../../../WorldContains/EventMessage/EventMessage.h"
-#include "../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
+#include "../../../CommandContains/CommandManagers/Interface/IECommandMgr.h"
 #include "../../../PlayerWatch/PlayerWatch.h"
 #include "../../../../../DrawManager/DisplayMode.h"
 
@@ -19,9 +19,12 @@ EnemyBase::EnemyBase(
 	const Body::MotionType motionType,
 	const Body::BodyDataName dataName)
 	: Actor(world, name, position, gameManager, texture, motionType, dataName)
-	, m_HitPoint(maxHp)
-	, m_FourDirection(front)
-	, m_MapType(type) {
+	, m_MapType(type)
+	, m_HitPoint(HitPoint(maxHp))
+	, p_PlayerWatch(PlayerWatchUPtr())
+	, p_StateManager(EnemyStateManagerUPtr())
+	, p_CommandManager(IECommandMgrUPtr())
+	, m_FourDirection(front){
 	SetDirection(m_FourDirection);
 	p_Texture->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
@@ -56,10 +59,6 @@ void EnemyBase::onUpdate(float deltaTime) {
 	//地形との衝突判定
 }
 
-//描画
-void EnemyBase::onDraw() const {
-}
-
 //衝突した
 void EnemyBase::onCollide(Actor& other, const Body::ContactSet& contactSet) {
 	//スピン状態のノコノコと衝突した場合
@@ -79,7 +78,7 @@ EnemyStateManager* EnemyBase::GetStateManager() {
 }
 
 //コマンドマネージャーを取得する
-IEnemyCommandManager* EnemyBase::GetCommandManager() {
+IECommandMgr* EnemyBase::GetCommandManager() {
 	return p_CommandManager.get();
 }
 

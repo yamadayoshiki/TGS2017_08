@@ -13,7 +13,10 @@
 #include "../GameTutorial.h"
 #include <GStype.h>
 GameTutorialClose::GameTutorialClose()
-	: m_CurState(State::Stop) {
+	: m_CurState(State::Stop)
+	, p_Respown(nullptr)
+	, p_BlackScreen(nullptr) {
+	m_SpriteMap.clear();
 }
 
 void GameTutorialClose::OnStart() {

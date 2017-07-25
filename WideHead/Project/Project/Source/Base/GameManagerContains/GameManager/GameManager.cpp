@@ -11,9 +11,15 @@
 
 //コンストラクタ
 GameManager::GameManager(const Renderer2DPtr& renderer2D, const InputStatePtr& inputState, const ScorePtr& score)
-	:p_Renderer2D(renderer2D), p_InputState(inputState), p_Score(score), p_SceneEnum(std::make_shared<EnumRap<SceneName>>()) {
-	m_Parameter.m_Remaining = 3;
+	: p_Renderer2D(renderer2D)
+	, p_InputState(inputState)
+	, p_Score(score)
+	, p_SceneEnum(std::make_shared<EnumRap<SceneName>>())
+	, m_Parameter(Player_Parameter())
+	, MapOrder_(0) {
 	p_DrawManager = std::make_shared<DrawManager>(p_Renderer2D);
+	m_Parameter.m_Remaining = 3;
+	p_SceneMgr.reset();
 }
 
 

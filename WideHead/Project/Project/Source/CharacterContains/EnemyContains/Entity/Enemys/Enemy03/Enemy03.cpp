@@ -5,7 +5,7 @@
 #include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
 #include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
-#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../../../../CsvConvertTDV/CsvConvertTDV.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../../Utility/Animation/Animation.h"
@@ -43,7 +43,7 @@ Enemy03::Enemy03(
 }
 
 ActorPtr Enemy03::CsvGenerate(const int x, const int y, const int csvparam) {
-	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(x, y, m_MapType);
+	GSvector2 position = CsvConvertTDV::CsvPosCnvVector2(x, y, m_MapType);
 	FourDirection dir = FourDirection((FourDirectionName)MathSupport::GetCutNum(csvparam, 1, 1));
 	//TurnDirection turnDir = TurnDirection((TurnDirectionName)MathSupport::GetCutNum(csvparam, 2, 1));
 	return std::make_shared<Enemy03>(p_World, position, dir, m_TurnDirection, p_GameManager);

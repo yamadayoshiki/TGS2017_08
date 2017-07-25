@@ -1,7 +1,7 @@
 #ifndef TRANSFORM_H_
 #define TRANSFORM_H_
 
-#include <gslib.h>
+#include <GSvector2.h>
 
 //トランスフォームクラス
 class Transform {
@@ -10,6 +10,8 @@ public:
 	Transform(GSvector2 pos, float angle);
 	//デフォルトコンストラクタ
 	Transform();
+	//デストラクタ
+	~Transform();
 	//正面ベクトルを取得
 	GSvector2 GetForward() const;
 

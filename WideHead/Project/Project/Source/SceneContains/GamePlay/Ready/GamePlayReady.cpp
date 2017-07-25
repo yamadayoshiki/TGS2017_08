@@ -12,6 +12,7 @@
 
 GamePlayReady::GamePlayReady()
 	: m_CurIndex(0) {
+	m_SpriteVector.clear();
 }
 
 void GamePlayReady::OnStart() {

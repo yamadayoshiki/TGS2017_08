@@ -123,12 +123,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManagerPtr.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -162,9 +156,6 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Straight\EnemyCommandStraight.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTouchWall.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -187,9 +178,6 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Standby\EnemyCommandEnemy09Standby.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEnemyBullet01StraightTouchWall.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h">
@@ -732,15 +720,6 @@
     <ClInclude Include="Source\Utility\Contact\ContactPoint.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\TwoDVector.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Utility\EnumRap\EnumRap.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -831,6 +810,33 @@
     <ClInclude Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Walk.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEB01Straight.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTW.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Null\EnemyCommandManagerNull.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CsvConvertTDV\CsvCellData.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CsvConvertTDV\CsvConvertTDV.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CsvConvertTDV\TwoDVector.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IECommandMgr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IECommandMgrPtr.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyGroup.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ActorContains\Actor\Actor.cpp">
@@ -911,9 +917,6 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Straight\EnemyCommandStraight.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTouchWall.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -936,9 +939,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Standby\EnemyCommandEnemy09Standby.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEnemyBullet01StraightTouchWall.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyManager.cpp">
@@ -1346,9 +1346,6 @@
     <ClCompile Include="Source\Utility\Composite\Composite\Composite.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -1398,6 +1395,24 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\PlayerContains\PlayerState\States\Normal\Move\PlayerState_Walk.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEB01Straight.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTW.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Null\EnemyCommandManagerNull.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Null\EnemyCommandNull.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CsvConvertTDV\CsvConvertTDV.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyGroup.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>

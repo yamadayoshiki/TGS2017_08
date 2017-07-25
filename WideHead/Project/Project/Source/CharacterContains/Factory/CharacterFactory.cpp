@@ -4,8 +4,8 @@
 #include "../../Utility/TurnDirection/TurnDirection.h"
 #include "../../Define/Def_GSvector2.h"
 #include "../../Utility/MathSupport/MathSupport.h"
-#include "../../Utility/CsvConvertTwoDVector/CsvCellData.h"
-#include "../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../CsvConvertTDV/CsvCellData.h"
+#include "../../CsvConvertTDV/CsvConvertTDV.h"
 
 //生成キャラ
 #include "../EnemyContains/Entity/Enemys/Enemy01/Enemy01.h"
@@ -86,7 +86,7 @@ void CharacterFactory::Generate(const GSvector2 position, const int csvData) {
 	ActorData& data = m_GenerateMap[key];
 	//キャラのマップタイプ
 	MapType type = data.child->GetMapType();
-	GSvector2 cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, type);
+	GSvector2 cellData = CsvConvertTDV::Vector2CnvCsvPos(position, type);
 
 	data.parent.lock()->addChild(data.child->CsvGenerate(cellData.x, cellData.y, csvParam));
 }
@@ -101,7 +101,7 @@ ActorPtr CharacterFactory::GetGenerateCharacter(const GSvector2 position, const 
 
 	ActorData& data = m_GenerateMap[key];
 	//キャラのマップタイプ
-	GSvector2 cellData = CsvConvertTwoDVector::Vector2CnvCsvPos(position, MapType::Default);
+	GSvector2 cellData = CsvConvertTDV::Vector2CnvCsvPos(position, MapType::Default);
 
 	return data.child->CsvGenerate(cellData.x, cellData.y, csvParam);
 }

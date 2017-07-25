@@ -7,7 +7,7 @@
 EnemyCommandRush::EnemyCommandRush(
 	const EnemyBasePtr & enemy,
 	const MapType type)
-	:EnemyCommandStraightTouchWall(enemy, type) {
+	:EnemyCommandStraightTW(enemy, type) {
 }
 
 EnemyCommandRush::~EnemyCommandRush() {

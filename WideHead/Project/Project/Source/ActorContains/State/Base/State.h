@@ -1,5 +1,5 @@
-#pragma once
-
+#ifndef STATE_H_
+#define STATE_H_
 #include "IState.h"
 #include "../../Actor/Actor.h"
 
@@ -51,3 +51,5 @@ inline void State::change(const STATE id) {
 	// ステートの終了条件をtrueに変更
 	m_IsEnd = true;
 }
+
+#endif // !STATE_H_

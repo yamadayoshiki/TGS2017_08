@@ -4,7 +4,7 @@
 #include"../Utility/Rederer2D/Renderer2D.h"
 #include"../WorldContains/EventMessage/EventMessage.h"
 #include"TerrainName.h"
-#include "../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../CsvConvertTDV/CsvConvertTDV.h"
 #include "CombinationTexture\CombinationTexture.h"
 #include "../DrawManager/DrawManager.h"
 #include "../Utility/Texture2DParameter/Texture2DParameter.h"
@@ -175,7 +175,7 @@ GSvector2 Map::GetTilePos(const GSvector2& pos, const MapType type) {
 
 //指定された座標の情報更新
 void Map::SetcsvParameter(const GSvector2 position, const TerrainName name, IWorld* world) {
-	GSvector2 cellPos = CsvConvertTwoDVector::Vector2CnvCsvPos(position, MapType::Double);
+	GSvector2 cellPos = CsvConvertTDV::Vector2CnvCsvPos(position, MapType::Double);
 
 	m_Maps[MapType::Double][cellPos.y][cellPos.x] = name;
 

@@ -13,6 +13,7 @@
 #include "../../SceneManager/SceneManager.h"
 GameTutorialReady::GameTutorialReady()
 	: m_CurState(State::End) {
+	m_SpriteMap.clear();
 }
 
 

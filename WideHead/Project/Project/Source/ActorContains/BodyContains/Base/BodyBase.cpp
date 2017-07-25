@@ -1,15 +1,18 @@
 #include "BodyBase.h"
 #include "../../../Utility/Collide2D/IsCollide2D.h"
-#include "../../Transform/Transform.h"
 #include "../Elements/Shape/BodyCollidableShape.h"
 #include "../Elements/ContactSet/ContactSet.h"
 #include "../Elements/Primitive/Interface/IPrimitive2D.h"
+#include "../../Transform/Transform.h"
+
 namespace Body
 {
 	//コンストラクタ
 	BodyBase::BodyBase(const MotionType type)
 		: m_IsExist(true)
-		, m_Type(type) {
+		, m_Type(type)
+		, p_Transform(TransformPtr())
+		, m_Collidable(Body::BodyCollidable()) {
 	}
 
 	//デストラクタ

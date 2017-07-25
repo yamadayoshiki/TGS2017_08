@@ -10,12 +10,12 @@
 EnemyCommandBase::EnemyCommandBase(const EnemyBasePtr& enemy)
 	: IEnemyCommand()
 	, p_Enemy(enemy)
+	, m_NextCommand(EnemyCommandName::None)
+	, m_IsEnd(false)
 	, m_CurStateName(EnemyStateName::None)
 	, m_Regard(false)
 	, m_Velocity(GSVECTOR2_ZERO)
-	, m_RotateAngle(0.0f)
-	, m_NextCommand(EnemyCommandName::None)
-	, m_IsEnd(false) {
+	, m_RotateAngle(0.0f) {
 }
 
 //èâä˙âª

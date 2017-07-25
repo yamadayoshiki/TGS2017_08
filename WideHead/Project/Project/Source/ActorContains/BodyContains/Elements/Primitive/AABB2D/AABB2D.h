@@ -7,13 +7,11 @@ namespace Body
 	//軸平行矩形
 	struct AABB2D : public IPrimitive2D
 	{
-		struct
-		{
-			GSvector2 centerPoint;		//中心点
-			GSvector2 halfLength;		//各軸半分の長さ
+		GSvector2 centerPoint;		//中心点
+		GSvector2 halfLength;		//各軸半分の長さ
 
-			GSvector2 staticHalfLength;
-		};
+		GSvector2 staticHalfLength;
+
 		//コンストラクタ
 		AABB2D(const GSvector2& centerPoint, const GSvector2& halfLength);
 		//X軸の長さを取得

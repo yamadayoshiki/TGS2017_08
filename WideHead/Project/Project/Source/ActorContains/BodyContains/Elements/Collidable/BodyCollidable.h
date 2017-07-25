@@ -11,7 +11,13 @@ namespace Body
 		std::vector<BodyCollidableShape> m_Shapes;	//形状配列
 		GSvector2 m_AABBHalf;						//AABBの半分の長さ
 
-													//座標、回転の設定
+		//デフォルトコンストラクタ
+		BodyCollidable::BodyCollidable()
+			: m_NumShapes(0), m_AABBHalf(GSvector2(0.0f, 0.0f)) {
+			m_Shapes.clear();
+		}
+
+		//座標、回転の設定
 		void SetParam(const GSvector2& position, const float angle) {
 			for (int i = 0; i < m_NumShapes; i++) {
 				m_Shapes[i].p_Primitive->SetParam(position, angle + m_Shapes[i].m_OffsetAngle, m_Shapes[i].m_OffsetPos);

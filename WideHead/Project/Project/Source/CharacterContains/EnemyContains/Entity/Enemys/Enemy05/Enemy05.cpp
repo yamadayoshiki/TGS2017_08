@@ -5,7 +5,7 @@
 #include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
 #include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
-#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../../../../CsvConvertTDV/CsvConvertTDV.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../../Utility/Animation/Animation.h"
@@ -43,7 +43,7 @@ Enemy05::Enemy05(
 
 ActorPtr Enemy05::CsvGenerate(const int x, const int y, const int csvparam)
 {
-	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(x, y, m_MapType);
+	GSvector2 position = CsvConvertTDV::CsvPosCnvVector2(x, y, m_MapType);
 	FourDirection dir = FourDirection((FourDirectionName)csvparam);
 	return std::make_shared<Enemy05>(p_World, position, dir, p_GameManager);
 }

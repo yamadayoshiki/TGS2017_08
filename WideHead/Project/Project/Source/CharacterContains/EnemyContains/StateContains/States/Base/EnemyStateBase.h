@@ -19,7 +19,7 @@ public:
 	//入力処理
 	virtual void input() override;
 	//メッセージ処理
-	void handleMessage(EventMessage message, void * param) override;
+	virtual void handleMessage(EventMessage message, void* param) override;
 protected:
 	//移動処理
 	void ForwardMove(float deltaTime, float speed);

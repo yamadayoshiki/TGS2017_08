@@ -12,7 +12,10 @@
 
 #include <GStype.h>
 GamePlayClose::GamePlayClose()
-	: m_CurState(State::Stop) {
+	: m_CurState(State::Stop)
+	, p_Respown(nullptr)
+	, p_BlackScreen(nullptr) {
+	m_SpriteMap.clear();
 }
 
 void GamePlayClose::OnStart() {

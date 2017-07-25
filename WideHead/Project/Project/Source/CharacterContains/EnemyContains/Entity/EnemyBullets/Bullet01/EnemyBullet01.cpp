@@ -5,7 +5,7 @@
 #include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
 #include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
-#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../../../../CsvConvertTDV/CsvConvertTDV.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../../Utility/Animation/Animation.h"
@@ -13,7 +13,7 @@
 //CommandContains
 #include "../../../CommandContains/CommandManagers/Nomal/EnemyCommandManagerNormal.h"
 #include "../../../CommandContains/Commands/EnemyCommandName.h"
-#include "../../../CommandContains/Commands/EnemyBullet01Contains/Straight/EnemyCommandEnemyBullet01StraightTouchWall.h"
+#include "../../../CommandContains/Commands/EnemyBullet01Contains/Straight/EnemyCommandEB01Straight.h"
 //State
 #include "../../../StateContains/States/EnemyStateName.h"
 #include "../../../StateContains/StateManager/EnemyStateManager.h"
@@ -38,10 +38,11 @@ EnemyBullet01::EnemyBullet01(
 		gameManager,
 		std::make_shared<AnimationTexture>("EnemyBullet01", gameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8),
 		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
+	int i = 0;
 }
 
 ActorPtr EnemyBullet01::CsvGenerate(const int x, const int y, const int csvparam) {
-	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(x, y, m_MapType);
+	GSvector2 position = CsvConvertTDV::CsvPosCnvVector2(x, y, m_MapType);
 	FourDirection dir = FourDirection((FourDirectionName)csvparam);
 	return std::make_shared<EnemyBullet01>(p_World, position, dir, p_GameManager);
 }
@@ -51,7 +52,7 @@ void EnemyBullet01::SetUpCommand() {
 	//¶¬
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command’Ç‰Á
-	p_CommandManager->AddDic(EnemyCommandName::Straight, std::make_shared<EnemyCommandEnemyBullet01StraightTouchWall>(shared_from_this(), MapType::Double));
+	p_CommandManager->AddDic(EnemyCommandName::Straight, std::make_shared<EnemyCommandEB01Straight>(shared_from_this(), MapType::Double));
 	//‰ŠúCommandÝ’è
 	p_CommandManager->Change(EnemyCommandName::Straight);
 }
@@ -68,7 +69,4 @@ void EnemyBullet01::SetUpState() {
 	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
-}
-
-void EnemyBullet01::onDraw() const {
 }

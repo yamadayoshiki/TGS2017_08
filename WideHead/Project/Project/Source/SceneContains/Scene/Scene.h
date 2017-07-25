@@ -80,7 +80,7 @@ protected:
 	CarsorMovement					//カーソル移動
 		m_CarsorMovement{
 		CarsorMovement::Up };
-	int MapOrder = 0;				//マップの順番
+	int MapOrder;					//マップの順番
 	bool isGameClear;				//ゲームをクリアしたか
 
 private:

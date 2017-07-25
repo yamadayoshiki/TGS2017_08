@@ -8,13 +8,10 @@ namespace Body
 	//線分
 	struct AASegment2D : public IPrimitive2D
 	{
-		struct
-		{
-			GSvector2 point;	//始点
-			GSvector2 vector;	//ベクトル
+		GSvector2 point;	//始点
+		GSvector2 vector;	//ベクトル
+		const GSvector2 staticVector;
 
-			const GSvector2 staticVector;
-		};
 		//コンストラクタ
 		AASegment2D(const GSvector2& point, const GSvector2& vector);
 		//デストラクタ
@@ -35,6 +32,7 @@ namespace Body
 		//クローン生成
 		IPrimitive2D* Clone() override;
 	};
+
 	inline AASegment2D::AASegment2D(const GSvector2& point, const GSvector2& vector)
 		: point(point), vector(vector), staticVector(vector) {
 	}

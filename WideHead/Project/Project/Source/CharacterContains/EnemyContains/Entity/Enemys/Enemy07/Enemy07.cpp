@@ -5,7 +5,7 @@
 #include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
 #include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
-#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../../../../CsvConvertTDV/CsvConvertTDV.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../../Utility/Animation/Animation.h"
@@ -57,7 +57,7 @@ Enemy07::~Enemy07() {
 ActorPtr Enemy07::CsvGenerate(const int x, const int y, const int csvparam)
 {
 	//座標設定
-	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(x, y, m_MapType);
+	GSvector2 position = CsvConvertTDV::CsvPosCnvVector2(x, y, m_MapType);
 	//方向の設定
 	FourDirection dir = FourDirection((FourDirectionName)MathSupport::GetCutNum(csvparam, 1, 1));
 	//巡回ファイルの設定

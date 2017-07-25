@@ -1,9 +1,11 @@
 #include "ContactSet.h"
+#include <GSvector2.h>
 namespace Body
 {
 	ContactSet::ContactSet()
 		: m_IsCollide(false)
-		, m_SumVec({ 0.0f,0.0f }) {
+		, m_SumVec(GSvector2(0.0f, 0.0f)) {
+		m_ContactVec.clear();
 	}
 
 	void ContactSet::Add(Contact contact) {

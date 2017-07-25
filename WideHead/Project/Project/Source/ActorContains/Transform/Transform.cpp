@@ -9,7 +9,11 @@ Transform::Transform(GSvector2 pos, float angle)
 
 //デフォルトコンストラクタ
 Transform::Transform()
-	: Transform(GSvector2(0.0f, 0.0f), 0.0f) {
+	: m_Position(GSvector2(0.0f, 0.0f))
+	, m_Angle(0.0f) {
+}
+
+Transform::~Transform(){
 }
 
 //正面ベクトルを取得

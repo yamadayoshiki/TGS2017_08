@@ -8,7 +8,6 @@
 //プレイヤーパラメーター
 struct Player_Parameter
 {
-public:
 	Player_Parameter();
 	//座標
 	GSvector2 m_Position{ 0.0f,0.0f };
@@ -41,7 +40,6 @@ public:
 	//チャージボーナスコンボ
 	int m_BonusCombo{ 0 };
 
-public:
 	GSvector2 getPosition()const;
 	void setPosition(const GSvector2& position);
 	int GetRemaining() const;

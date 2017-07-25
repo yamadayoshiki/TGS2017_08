@@ -8,7 +8,8 @@
 
 #include<GSeasing.h>
 
-ResultStart::ResultStart() {
+ResultStart::ResultStart()
+	: timer_(0.0f) {
 }
 
 ResultStart::~ResultStart() {

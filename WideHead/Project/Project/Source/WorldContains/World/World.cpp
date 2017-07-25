@@ -8,12 +8,16 @@
 #include "../../CharacterContains/EnemyContains/Entity/Enemys/Base/EnemyBase.h"
 #include "../../CharacterContains/Factory/CharacterFactory.h"
 #include "../../ActorContains/BodyContains/Factory/BodyFactory.h"
+#include "../../SceneContains/SceneName.h"
 #include <iostream>
 
 // コンストラクタ
 World::World()
 	: p_Actors(std::make_shared<ActorManager>())
+	, p_MapGenerator(MapGeneratorPtr())
+	, m_NextScene(SceneName::None)
 	, m_IsEnd(false)
+	, p_CharacterFactory(CharacterFactoryUPtr())
 	, p_BodyFactory(std::make_unique<Body::BodyFactory>()) {
 }
 

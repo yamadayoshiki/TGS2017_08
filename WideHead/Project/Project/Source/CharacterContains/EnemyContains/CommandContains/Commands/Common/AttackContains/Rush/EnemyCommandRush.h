@@ -1,10 +1,10 @@
 #ifndef ENEMYCOMMANDRUSH_H_
 #define ENEMYCOMMANDRUSH_H_
 
-#include "../../MoveContains/StraightTouchWall/EnemyCommandStraightTouchWall.h"
+#include "../../MoveContains/StraightTouchWall/EnemyCommandStraightTW.h"
 
 //突撃
-class EnemyCommandRush : public EnemyCommandStraightTouchWall
+class EnemyCommandRush : public EnemyCommandStraightTW
 {
 public:
 	//コンストラクタ
@@ -21,9 +21,6 @@ protected:
 protected:
 	//正面に壁があった場合のリアクション
 	virtual void HitWallReaction() override;
-
-protected:
-
 };
 
 #endif

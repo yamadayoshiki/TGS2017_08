@@ -20,8 +20,8 @@
 #include"../../WorldContains/World/World.h"
 
 //コンストラクタ
-GameFrame::GameFrame() : Game(SCREEN_SIZE.x, SCREEN_SIZE.y)
-, m_SceneManager() {
+GameFrame::GameFrame()
+	: Game(SCREEN_SIZE.x, SCREEN_SIZE.y) {
 	//ゲームマネージャー生成
 	p_GameManager = std::make_shared<GameManager>(
 		std::make_shared<Renderer2D>(),
@@ -49,7 +49,6 @@ void GameFrame::start() {
 	p_GameManager->GetSceneEnum()->AddEnum("GamePlay", SceneName::GamePlay);
 	p_GameManager->GetSceneEnum()->AddEnum("GameResult", SceneName::GameResult);
 	p_GameManager->GetSceneEnum()->AddEnum("GameCredit", SceneName::GameCredit);
-	//p_GameManager->GetSceneEnum()->AddEnum("GameEnd", SceneName::GameEnd);
 	p_GameManager->GetSceneEnum()->AddEnum("GameOver", SceneName::GameOver);
 	p_GameManager->GetSceneEnum()->AddEnum("Play", SceneName::Play);
 
@@ -59,7 +58,6 @@ void GameFrame::start() {
 	m_SceneManager->Add(SceneName::GamePlay, std::make_shared<GamePlay>(p_GameManager));
 	m_SceneManager->Add(SceneName::GameResult, std::make_shared<GameResult>(p_GameManager));
 	m_SceneManager->Add(SceneName::GameCredit, std::make_shared<GameCredit>(p_GameManager));
-	//m_SceneManager.Add(SceneName::GameEnd, std::make_shared<GameEnd>(p_GameManager));
 	m_SceneManager->Add(SceneName::GameOver, std::make_shared<GameOver>(p_GameManager));
 	m_SceneManager->SetUp();
 	//初期シーンの設定

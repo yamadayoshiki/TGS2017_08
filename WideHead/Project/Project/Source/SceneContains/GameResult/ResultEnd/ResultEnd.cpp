@@ -18,7 +18,10 @@
 #include "../../../DrawManager/DisplayMode.h"
 #include"../../Elements/ResultPlayerStaging/ResultPlayerStaging.h"
 
-ResultEnd::ResultEnd() {
+ResultEnd::ResultEnd()
+	: timer_(0.0f)
+	, maxTimer_(0.0f)
+	, m_Color(GScolor(1.0f, 1.0f, 1.0f, 1.0f)) {
 }
 
 ResultEnd::~ResultEnd() {

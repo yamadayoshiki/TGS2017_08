@@ -35,7 +35,14 @@
 
 // コンストラクタ    
 GameResult::GameResult(const IGameManagerPtr& gameManager)
-	: Scene(gameManager) {
+	: Scene(gameManager)
+	, p_SceneChildMgr(nullptr) {
+	p_ScoreUI.reset();
+	p_RankUI.reset();
+	p_Platform.reset();
+	p_Block.reset();
+	p_Block2.reset();
+
 	isGameClear = false;
 }
 

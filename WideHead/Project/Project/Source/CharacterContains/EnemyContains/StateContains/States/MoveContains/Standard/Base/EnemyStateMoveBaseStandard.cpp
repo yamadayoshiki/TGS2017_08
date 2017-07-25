@@ -1,7 +1,7 @@
 #include "EnemyStateMoveBaseStandard.h"
 #include "../../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../../../WorldContains/EventMessage/EventMessage.h"
-#include "../../../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
+#include "../../../../../CommandContains/CommandManagers/Interface/IECommandMgr.h"
 
 // コンストラクタ
 EnemyStateMoveBaseStandard::EnemyStateMoveBaseStandard(const EnemyBasePtr& enemy)

@@ -1,7 +1,7 @@
 #include "EnemyStateBase.h"
 #include "../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../Utility/MathSupport/MathSupport.h"
-#include "../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
+#include "../../../CommandContains/CommandManagers/Interface/IECommandMgr.h"
 #include "../../../../../Define/Def_Float.h"
 #include "../../../../../WorldContains/IWorld.h"
 #include "../../../../../Map/Map.h"

@@ -6,7 +6,7 @@
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../../Utility/TurnDirection/TurnDirection.h"
-#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../../../../CsvConvertTDV/CsvConvertTDV.h"
 #include "../../../../../Utility/MathSupport/MathSupport.h"
 #include "../../../../../Define/Def_Nakayama.h"
 //CommandContains
@@ -47,7 +47,7 @@ Enemy02::Enemy02(
 
 ActorPtr Enemy02::CsvGenerate(const int x, const int y, const int csvparam)
 {
-	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(x, y, m_MapType);
+	GSvector2 position = CsvConvertTDV::CsvPosCnvVector2(x, y, m_MapType);
 	FourDirection dir = FourDirection((FourDirectionName)MathSupport::GetCutNum(csvparam, 1, 1));
 	return std::make_shared<Enemy02>(p_World, position, dir, m_TurnDirection, p_GameManager);
 }

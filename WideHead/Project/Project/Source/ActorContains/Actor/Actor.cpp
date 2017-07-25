@@ -27,21 +27,24 @@ Actor::Actor(
 	, m_Name(name)
 	, p_Transform(std::make_shared<Transform>(position, 0.0f))
 	, p_Texture(texture)
+	, p_Body(std::make_shared<Body::NullBody>())
 	, m_dead(false) {
 	p_Body = world->GetBodyFactory()->Generate(type, dataName);
 	p_Body->SetTransform(p_Transform);
 	p_Texture->SetPosAndAngle(p_Transform->m_Position, p_Transform->m_Angle);
+	m_children.clear();
 }
 
 //コンストラクタ
 Actor::Actor(const ActorName& name)
 	: p_World(nullptr)
-	, p_GameManager(nullptr)
+	, p_GameManager(IGameManagerPtr())
 	, m_Name(name)
 	, p_Transform(std::make_shared<Transform>(GSvector2(0.0f, 0.0f), 0.0f))
 	, p_Texture(std::make_shared<NullTexture>())
 	, p_Body(std::make_shared<Body::NullBody>())
 	, m_dead(false) {
+	m_children.clear();
 }
 
 //初期化

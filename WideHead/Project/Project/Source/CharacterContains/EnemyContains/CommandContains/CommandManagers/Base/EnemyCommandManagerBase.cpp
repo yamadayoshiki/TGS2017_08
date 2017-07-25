@@ -1,11 +1,13 @@
 #include "EnemyCommandManagerBase.h"
 #include "../../Commands/Interface/IEnemyCommand.h"
 #include "../../Commands/Null/EnemyCommandNull.h"
+#include <GSvector2.h>
 
 //コンストラクタ
 EnemyCommandManagerBase::EnemyCommandManagerBase(const EnemyBasePtr& enemy)
 	: p_Enemy(enemy)
-	, p_CurCommand(std::make_shared<EnemyCommandNull>(enemy)) {
+	, p_CurCommand(std::make_shared<EnemyCommandNull>()) {
+	m_CommandDic.clear();
 	Initialize();
 }
 

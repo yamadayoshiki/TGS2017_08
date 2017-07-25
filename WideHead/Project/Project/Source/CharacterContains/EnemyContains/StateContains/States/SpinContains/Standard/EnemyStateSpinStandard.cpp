@@ -1,6 +1,6 @@
 #include "EnemyStateSpinStandard.h"
 #include "../../../../Entity/Enemys/Base/EnemyBase.h"
-#include "../../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
+#include "../../../../CommandContains/CommandManagers/Interface/IECommandMgr.h"
 #include "../../../../PlayerWatch/PlayerWatch.h"
 #include "../../../../../../WorldContains/EventMessage/EventMessage.h"
 #include "../../../../../../WorldContains/IWorld.h"

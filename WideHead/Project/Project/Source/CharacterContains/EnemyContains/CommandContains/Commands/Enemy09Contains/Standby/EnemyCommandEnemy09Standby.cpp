@@ -11,6 +11,7 @@ EnemyCommandEnemy09Standby::EnemyCommandEnemy09Standby(
 	const EnemyBasePtr & enemy)
 	: EnemyCommandBase(enemy)
 	, p_FrontChipList(new FrontChipList(enemy->getWorld()->GetMap(), enemy->getPosition(), enemy->GetDirection(), MapType::Double)) {
+	m_SpeaceNumMap.clear();
 }
 
 EnemyCommandEnemy09Standby::~EnemyCommandEnemy09Standby() {

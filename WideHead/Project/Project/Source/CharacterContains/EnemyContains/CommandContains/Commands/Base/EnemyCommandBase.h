@@ -1,15 +1,13 @@
 #ifndef ENEMYCOMMANDBASE_H_
 #define ENEMYCOMMANDBASE_H_
-
-#include <gslib.h>
-#include <vector>
 #include "../Interface/IEnemyCommand.h"
 #include "../../../StateContains/States/EnemyStateName.h"
 #include "../../../Entity/Enemys/Base/EnemyBasePtr.h"
 #include "../EnemyCommandName.h"
 #include "../../../../../Map/MapType.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
-
+#include <gslib.h>
+#include <vector>
 //エネミーに対するコマンド基底クラス
 class EnemyCommandBase :public IEnemyCommand
 {

@@ -5,7 +5,7 @@
 #include "../../../../../Define/Def_Nakayama.h"
 #include "../../../../../TextureContains/Texture/Texture.h"
 #include "../../../../../TextureContains/AnimationTexture/AnimationTexture.h"
-#include "../../../../../Utility/CsvConvertTwoDVector/CsvConvertTwoDVector.h"
+#include "../../../../../CsvConvertTDV/CsvConvertTDV.h"
 #include "../../../../../Utility/Rederer2D/Renderer2D.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../../../Utility/Animation/Animation.h"
@@ -47,7 +47,7 @@ Enemy08::~Enemy08() {
 }
 
 ActorPtr Enemy08::CsvGenerate(const int x, const int y, const int csvparam) {
-	GSvector2 position = CsvConvertTwoDVector::CsvPosCnvVector2(x, y, m_MapType);
+	GSvector2 position = CsvConvertTDV::CsvPosCnvVector2(x, y, m_MapType);
 	FourDirection dir = FourDirection((FourDirectionName)csvparam);
 	return std::make_shared<Enemy08>(p_World, position, dir, p_GameManager);
 }
@@ -85,7 +85,4 @@ void Enemy08::SetUpState() {
 	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
-}
-
-void Enemy08::onDraw() const {
 }

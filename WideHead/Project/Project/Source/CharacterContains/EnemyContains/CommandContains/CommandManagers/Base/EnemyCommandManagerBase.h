@@ -3,13 +3,13 @@
 
 #include <map>
 #include <vector>
-#include "../Interface/IEnemyCommandManager.h"
+#include "../Interface/IECommandMgr.h"
 #include "../../../Entity/Enemys/Base/EnemyBasePtr.h"
 
 enum class EnemyCommandName;
 
 //エネミーコマンドマネージャ基底クラス
-class EnemyCommandManagerBase : public IEnemyCommandManager
+class EnemyCommandManagerBase : public IECommandMgr
 {
 public:
 	//コンストラクタ

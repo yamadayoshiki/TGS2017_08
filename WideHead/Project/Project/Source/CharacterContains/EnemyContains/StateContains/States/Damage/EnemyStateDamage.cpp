@@ -6,6 +6,7 @@
 #include "../../../../NeutralContains/Explosion/Neutral_Explosion.h"
 EnemyStateDamage::EnemyStateDamage(const EnemyBasePtr& enemy, const int damage)
 	: EnemyStateBase(enemy)
+	, p_Explosion(nullptr)
 	, m_Damage(damage) {
 }
 

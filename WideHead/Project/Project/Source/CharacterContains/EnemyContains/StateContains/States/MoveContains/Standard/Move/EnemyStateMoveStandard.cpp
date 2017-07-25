@@ -1,5 +1,5 @@
 #include "EnemyStateMoveStandard.h"
-#include "../../../../../CommandContains/CommandManagers/Interface/IEnemyCommandManager.h"
+#include "../../../../../CommandContains/CommandManagers/Interface/IECommandMgr.h"
 #include "../../../../../Entity/Enemys/Base/EnemyBase.h"
 
 //コンストラクタ

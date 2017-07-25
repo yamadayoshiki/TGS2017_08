@@ -1,18 +1,717 @@
 ﻿  ActorManager.cpp
+  Actor.cpp
+  BodyBase.cpp
+Source\ActorContains\BodyContains\Base\BodyBase.cpp(43): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Source\ActorContains\BodyContains\Base\BodyBase.cpp(45): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  ContactSet.cpp
+  AABB2D.cpp
+  AASegment2D.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\actorcontains\bodycontains\elements\primitive\aasegment2d\AASegment2D.h(47): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\actorcontains\bodycontains\elements\primitive\aasegment2d\AASegment2D.h(50): warning C4244: 'return': 'double' から 'float' への変換です。データが失われる可能性があります。
+  BodyFactory.cpp
+  NullBody.cpp
+  HitPoint.cpp
+  NullActor.cpp
+  State.cpp
+  StateMgr.cpp
+  Transform.cpp
   GameFrame.cpp
   GameManager.cpp
-  EnemyCommandEnemyBullet01StraightTouchWall.cpp
+  EnemyCommandManagerBase.cpp
+  EnemyCommandManagerNormal.cpp
+  EnemyCommandManagerNull.cpp
+  EnemyCommandManagerOrder.cpp
+Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.cpp(29): warning C4018: '>=': signed と unsigned の数値を比較しようとしました。
+  EnemyCommandBase.cpp
+  コンパイル中...
+  EnemyCommandRush.cpp
+  EnemyCommandGenerate.cpp
+  EnemyCommandAlongWallMove.cpp
+  EnemyCommandMoveBase.cpp
+  EnemyCommandPatrol.cpp
+Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Patrol\EnemyCommandPatrol.cpp(37): warning C4018: '>=': signed と unsigned の数値を比較しようとしました。
+  EnemyCommandReturnRegularPos.cpp
+  EnemyCommandStraightTW.cpp
+  EnemyCommandStraight.cpp
+  EnemyCommandEnemy01Detour.cpp
+  EnemyCommandEnemy01Straight.cpp
+  EnemyCommandEnemy02Standby.cpp
+  EnemyCommandEnemy04Standby.cpp
+  EnemyCommandEnemy07Patrol.cpp
+  EnemyCommandEnemy07Spin.cpp
+  EnemyCommandEnemy09Rush.cpp
+  EnemyCommandEnemy09Standby.cpp
+  EnemyCommandEB01Straight.cpp
+  EnemyCommandNull.cpp
+  EnemyGroup.cpp
+  EnemyManager.cpp
+  コンパイル中...
+  EnemyBullet01.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.cpp(39): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[14],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[14],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  EnemyBase.cpp
+  Enemy01.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy01\../../../StateContains/States/MoveContains/Repel/Idle/EnemyStateIdleRepel.h(17): warning C4250: 'EnemyStateIdleRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy01\../../../StateContains/States/MoveContains/Repel/Move/EnemyStateMoveRepel.h(20): warning C4250: 'EnemyStateMoveRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy01\Enemy01.cpp(41): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[8],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[8],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy01\Enemy01.cpp(71): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy02.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy02\../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopOnlyInTheBack
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopOnlyInTheBack
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy02\Enemy02.cpp(74): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopOnlyInTheBack> std::make_shared<EnemyStateStopOnlyInTheBack,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy03.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy03\../../../StateContains/States/MoveContains/Repel/Idle/EnemyStateIdleRepel.h(17): warning C4250: 'EnemyStateIdleRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy03\../../../StateContains/States/MoveContains/Repel/Move/EnemyStateMoveRepel.h(20): warning C4250: 'EnemyStateMoveRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy03\Enemy03.cpp(40): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[8],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[8],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  Enemy04.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy04\Enemy04.cpp(67): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy05.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy05\Enemy05.cpp(40): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[8],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[8],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy05\Enemy05.cpp(71): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy06.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy06\Enemy06.cpp(40): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[8],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[8],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy06\Enemy06.cpp(72): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy07.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy07\Enemy07.cpp(72): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[14],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[14],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy07\Enemy07.cpp(102): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy08.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.cpp(56): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[14],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[14],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy08\Enemy08.cpp(84): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy09.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy09\../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[23],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[23],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[23],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[23],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.cpp(64): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[23],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[23],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopOnlyInTheBack
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopOnlyInTheBack
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy09\Enemy09.cpp(89): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopOnlyInTheBack> std::make_shared<EnemyStateStopOnlyInTheBack,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy10.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.cpp(42): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[8],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[8],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy10\Enemy10.cpp(70): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy11.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy11\../../../StateContains/States/MoveContains/OnlyInTheBack/Idle/EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[23],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[23],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[23],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[23],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.cpp(65): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[23],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[23],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopOnlyInTheBack
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopOnlyInTheBack
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy11\Enemy11.cpp(90): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopOnlyInTheBack> std::make_shared<EnemyStateStopOnlyInTheBack,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Enemy12.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.cpp(39): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[8],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[8],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  Source\CharacterContains\EnemyContains\Entity\Enemys\Enemy12\Enemy12.cpp(64): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  PlayerWatch.cpp
+  EnemyStateManager.cpp
+  EnemyStateAttackBase.cpp
+  EnemyStateRushPreliminary.cpp
+  EnemyStateRush.cpp
+  EnemyStateShot.cpp
+  コンパイル中...
   EnemyStateBase.cpp
+  EnemyStateCaughtReleaseDead.cpp
+  EnemyStateCaughtStandard.cpp
+  EnemyStateCrushSpin.cpp
+  EnemyStateCrushStandard.cpp
+  EnemyStateDamage.cpp
+  EnemyStateDeadInformChildren.cpp
+  EnemyStateDeadInform.cpp
+  EnemyStateDeadStandard.cpp
+  DeadWall.cpp
+  EnemyStateMoveBaseOnlyInTheBack.cpp
+  EnemyStateIdleOnlyInTheBack.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\EnemyStateIdleOnlyInTheBack.h(17): warning C4250: 'EnemyStateIdleOnlyInTheBack': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseOnlyInTheBack::EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\onlyintheback\idle\../Base/EnemyStateMoveBaseOnlyInTheBack.h(14): note: 'EnemyStateMoveBaseOnlyInTheBack::OnHandleMessage' の宣言を確認してください
+  EnemyStateMoveOnlyInTheBack.cpp
+  EnemyStateMoveBaseRepel.cpp
+  EnemyStateIdleRepel.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\EnemyStateIdleRepel.h(17): warning C4250: 'EnemyStateIdleRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\idle\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+  EnemyStateMoveRepel.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\move\EnemyStateMoveRepel.h(20): warning C4250: 'EnemyStateMoveRepel': 2 つ以上のメンバーが同じ名前を持っています。'EnemyStateMoveBaseRepel::EnemyStateMoveBaseRepel::OnHandleMessage' から継承します。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\statecontains\states\movecontains\repel\move\../Base/EnemyStateMoveBaseRepel.h(13): note: 'EnemyStateMoveBaseRepel::OnHandleMessage' の宣言を確認してください
+  EnemyStateMoveBaseStandard.cpp
+  EnemyStateIdleStandard.cpp
+  EnemyStateMoveStandard.cpp
+  EnemyStateRepel.cpp
+  コンパイル中...
+  EnemyStateSpinStandard.cpp
+  EnemyStateStopOnlyInTheBack.cpp
+  EnemyStateStopStandard.cpp
+  CharacterFactory.cpp
+  Charge.cpp
+  Crush_Effect.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[6],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[6],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[6],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[6],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.cpp(9): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[6],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[6],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  Neutral_Explosion.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[10],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[10],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[10],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[10],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp(16): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[10],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[10],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  Pop_Effect.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[4],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[4],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[4],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[4],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.cpp(15): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[4],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[4],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  Repel_Effect.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[6],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[6],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[6],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[6],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.cpp(15): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[6],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[6],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  Respawn.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,const DrawOrder&,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,const DrawOrder &,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[8],std::shared_ptr<DrawManager>,const DrawOrder&,int,int>(const char (&)[8],std::shared_ptr<DrawManager> &&,const DrawOrder &,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\NeutralContains\Respawn_Effect\Respawn.cpp(13): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[8],DrawManagerSPtr,const DrawOrder&,int,int>(const char (&)[8],DrawManagerSPtr &&,const DrawOrder &,int &&,int &&)' のリファレンスを確認してください
+  Smork_Effect.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[11],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[11],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[11],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[11],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\NeutralContains\Smork_Effect\Smork_Effect.cpp(13): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[11],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[11],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  Arm.cpp
+  PlayerState.cpp
   PlayerStateManager.cpp
+  PlayerState_Damage.cpp
+  PlayerState_Dead.cpp
+  PlayerState_Invincible.cpp
+  PlayerState_Release.cpp
+  PlayerState_Respawn.cpp
+  PlayerState_Swich.cpp
+  コンパイル中...
+  PlayerState_Crush.cpp
+  PlayerState_Crush_After.cpp
   PlayerState_Dash.cpp
   PlayerState_Idle.cpp
   PlayerState_MoveBase.cpp
   PlayerState_Walk.cpp
+  PlayerState_Close.cpp
   PlayerState_O_Idle.cpp
   PlayerState_O_MoveBase.cpp
   PlayerState_O_Walk.cpp
+  PlayerState_Open.cpp
+  PlayerState_Round.cpp
+  Player.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[13],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[13],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[13],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[13],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\CharacterContains\PlayerContains\Player\Player.cpp(24): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[13],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[13],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  Player_Parameter.cpp
+  DrawManager.cpp
+  CsvReader.cpp
+  FrontChipList.cpp
+  main.cpp
+  MapGenerator.cpp
+  CombinationTexture.cpp
+  コンパイル中...
+  Map.cpp
+Source\Map\Map.cpp(34): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Source\Map\Map.cpp(37): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Source\Map\Map.cpp(71): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Source\Map\Map.cpp(193): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Source\Map\Map.cpp(195): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  AnimationFont.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'const float' から 'const unsigned int' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const std::string&,std::shared_ptr<DrawManager>,DrawOrder,float,const float&>(const std::string &,std::shared_ptr<DrawManager> &&,DrawOrder &&,float &&,const float &)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const std::string&,std::shared_ptr<DrawManager>,DrawOrder,float,const float&>(const std::string &,std::shared_ptr<DrawManager> &&,DrawOrder &&,float &&,const float &)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\SceneContains\Elements\AnimationFont\AnimationFont.cpp(7): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const std::string&,DrawManagerSPtr,DrawOrder,float,const float&>(const std::string &,DrawManagerSPtr &&,DrawOrder &&,float &&,const float &)' のリファレンスを確認してください
+  AnimationSpriteBase.cpp
+  DropSprite.cpp
+  FlashSprite.cpp
+  Guide.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(1630): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  Source\SceneContains\Elements\Guide\Guide.cpp(21): note: コンパイル対象の関数 テンプレート インスタンス化 'std::unique_ptr<AnimationTexture,std::default_delete<_Ty>> std::make_unique<AnimationTexture,const char(&)[21],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[21],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  ResultPlayerStaging.cpp
+  TargetCircle.cpp
+  TargetEnemySprite.cpp
+  ZoomSprite.cpp
+  BigBlock2.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[16],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[16],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[16],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[16],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  Source\SceneContains\GameCredit\BigBlock2.cpp(20): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[16],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[16],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  CreditEnd.cpp
+  CreditStaging.cpp
+  CreditStart.cpp
+  GameCredit.cpp
+  GameOver.cpp
+  GamePlayClose.cpp
+  GamePlay.cpp
+  GamePlayPause.cpp
+  GamePlayPlay.cpp
+  コンパイル中...
+  GamePlayReady.cpp
+Source\SceneContains\GamePlay\Ready\GamePlayReady.cpp(66): warning C4018: '<=': signed と unsigned の数値を比較しようとしました。
+  BigBlock.cpp
+  GameResult.cpp
+  ResultEnd.cpp
+  ResultStaging.cpp
+  ResultStart.cpp
+  GameTitle.cpp
+  StartLogoAnimation.cpp
+  GameTutorialClose.cpp
+  GameTutorial.cpp
+  GameTutorialPause.cpp
+  GameTutorialPlay.cpp
+  GameTutorialReady.cpp
+  SceneChildMgr.cpp
+  SceneManager.cpp
+  ChildScene.cpp
+  Scene.cpp
+  SceneTransition.cpp
+  TransitionManager.cpp
+  Transition.cpp
+  コンパイル中...
+  TargetPosition.cpp
+  AnimationTexture.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'const unsigned int' から 'const float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<GSrect&,const float&,const unsigned int&>(GSrect &,const float &,const unsigned int &)' のリファレンスを確認してください
+          with
+          [
+              _Ty=Animation
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<GSrect&,const float&,const unsigned int&>(GSrect &,const float &,const unsigned int &)' のリファレンスを確認してください
+          with
+          [
+              _Ty=Animation
+          ]
+  Source\TextureContains\AnimationTexture\AnimationTexture.cpp(13): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<Animation> std::make_shared<Animation,GSrect&,const float&,const unsigned int&>(GSrect &,const float &,const unsigned int &)' のリファレンスを確認してください
+  Texture_Base.cpp
+  NumberTexture.cpp
+Source\TextureContains\NumberTexture\NumberTexture.cpp(64): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  Texture.cpp
+  TileData.cpp
+  UI_Base.cpp
+  Button.cpp
+  Combo.cpp
+  Number.cpp
+  NumberCreator.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'float' から 'const int' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::string&,std::shared_ptr<DrawManager>,DrawOrder,GSvector2,float>(std::string &,std::shared_ptr<DrawManager> &&,DrawOrder &&,GSvector2 &&,float &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=NumberTexture
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::string&,std::shared_ptr<DrawManager>,DrawOrder,GSvector2,float>(std::string &,std::shared_ptr<DrawManager> &&,DrawOrder &&,GSvector2 &&,float &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=NumberTexture
+          ]
+  Source\UIContains\Number\NumberCreator.cpp(38): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<NumberTexture> std::make_shared<NumberTexture,std::string&,DrawManagerSPtr,DrawOrder,GSvector2,float>(std::string &,DrawManagerSPtr &&,DrawOrder &&,GSvector2 &&,float &&)' のリファレンスを確認してください
+  Rank.cpp
+Source\UIContains\Rank\Rank.cpp(104): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  Selector.cpp
+  Sprite.cpp
+  SpriteCreator.cpp
+  UICreator.cpp
+  UIManager.cpp
+  Animation.cpp
+  IsCollide2D.cpp
+  Composite.cpp
+  コンパイル中...
+  CsvConvertTDV.cpp
+Source\CsvConvertTDV\CsvConvertTDV.cpp(38): warning C4244: '=': 'int' から 'GSfloat' への変換です。データが失われる可能性があります。
+Source\CsvConvertTDV\CsvConvertTDV.cpp(39): warning C4244: '=': 'int' から 'GSfloat' への変換です。データが失われる可能性があります。
+Source\CsvConvertTDV\CsvConvertTDV.cpp(51): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Source\CsvConvertTDV\CsvConvertTDV.cpp(54): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+Source\CsvConvertTDV\CsvConvertTDV.cpp(92): warning C4244: '初期化中': 'GSfloat' から 'int' への変換です。データが失われる可能性があります。
+Source\CsvConvertTDV\CsvConvertTDV.cpp(93): warning C4244: '初期化中': 'GSfloat' から 'int' への変換です。データが失われる可能性があります。
+Source\CsvConvertTDV\CsvConvertTDV.cpp(95): warning C4244: '引数': 'int' から 'GSfloat' への変換です。データが失われる可能性があります。
+Source\CsvConvertTDV\CsvConvertTDV.cpp(104): warning C4244: '初期化中': 'GSfloat' から 'int' への変換です。データが失われる可能性があります。
+Source\CsvConvertTDV\CsvConvertTDV.cpp(105): warning C4244: '初期化中': 'GSfloat' から 'int' への変換です。データが失われる可能性があります。
+  FourDirection.cpp
+  InputState.cpp
+Source\Utility\InputState\InputState.cpp(17): warning C4800: 'BOOL': ブール値を 'true' または 'false' に強制的に設定します (警告の処理)
+Source\Utility\InputState\InputState.cpp(22): warning C4800: 'BOOL': ブール値を 'true' または 'false' に強制的に設定します (警告の処理)
+Source\Utility\InputState\InputState.cpp(29): warning C4800: 'BOOL': ブール値を 'true' または 'false' に強制的に設定します (警告の処理)
+Source\Utility\InputState\InputState.cpp(63): warning C4800: 'GSboolean': ブール値を 'true' または 'false' に強制的に設定します (警告の処理)
+Source\Utility\InputState\InputState.cpp(69): warning C4800: 'GSboolean': ブール値を 'true' または 'false' に強制的に設定します (警告の処理)
+Source\Utility\InputState\InputState.cpp(75): warning C4800: 'GSboolean': ブール値を 'true' または 'false' に強制的に設定します (警告の処理)
+  MathSupport.cpp
+Source\Utility\MathSupport\MathSupport.cpp(101): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  Renderer2D.cpp
+  Score.cpp
+  Texture2DParamFactory.cpp
+  Texture2DParameter.cpp
+  TurnDirection.cpp
+  BreakWall.cpp
+C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  Source\Wall\BreakWall.cpp(70): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  Wall.cpp
+  World.cpp
   コード生成しています。
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\project\project\project\source\charactercontains\enemycontains\enemymanager\enemymanager.cpp(85): warning C4715: '<lambda_82e0c341ce8df6034e40591f41d7d645>::operator()': 値を返さないコントロール パスがあります。
-  All 16150 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 16112 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   コード生成が終了しました。
-  Project.vcxproj -> C:\Users\YuJimbo\Desktop\School\No.04 17年度前期\00_TGS'17\Project\Project\Release\Project.exe
+  Project.vcxproj -> C:\Users\YuJimbo\Desktop\School\No.04 17年度前期\00_TGS'17\SourceTree\WideHead\Project\Release\Project.exe

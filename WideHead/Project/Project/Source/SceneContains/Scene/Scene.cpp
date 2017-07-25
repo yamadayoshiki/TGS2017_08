@@ -16,6 +16,8 @@
 Scene::Scene()
 	: m_IsEnd(false)
 	, p_GameManager(nullptr)
+	, p_World(nullptr)
+	, m_SceneName(SceneName::None)
 	, m_Transition(nullptr)
 	, MapOrder(0)
 	, isGameClear(false) {
@@ -26,6 +28,8 @@ Scene::Scene()
 Scene::Scene(const IGameManagerPtr& gameManager)
 	: m_IsEnd(false)
 	, p_GameManager(gameManager)
+	, p_World(nullptr)
+	, m_SceneName(SceneName::None)
 	, m_Transition(std::make_shared<SceneTransition>(gameManager))
 	, MapOrder(0)
 	, isGameClear(false) {

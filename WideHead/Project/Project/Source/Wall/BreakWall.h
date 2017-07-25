@@ -19,7 +19,5 @@ public:
 	virtual void onDraw() const override;
 	//csv‚Å¶¬(g—pŒp³æ‚Åoverride)
 	virtual ActorPtr CsvGenerate(const int x, const int y, const int csvparam) override;
-private:
-
 };
 #endif // !BREAK_WALL

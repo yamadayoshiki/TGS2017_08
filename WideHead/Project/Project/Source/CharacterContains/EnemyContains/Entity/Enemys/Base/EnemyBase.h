@@ -3,7 +3,7 @@
 
 #include "../../../../../ActorContains/State/Base/State.h"
 #include "../../../../../ActorContains/Actor/Actor.h"
-#include "../../../CommandContains/CommandManagers/Interface/IEnemyCommandManagerPtr.h"
+#include "../../../CommandContains/CommandManagers/Interface/IECommandMgrPtr.h"
 #include "../../../../../ActorContains/HitPoint/HitPoint.h"
 #include "../../../../../Utility/FourDirection/FourDirection.h"
 #include "../../../PlayerWatch/PlayerWatchPtr.h"
@@ -35,7 +35,7 @@ public:
 	//ステートマネージャーを取得する
 	EnemyStateManager* GetStateManager();
 	//コマンドマネージャーを取得する
-	IEnemyCommandManager* GetCommandManager();
+	IECommandMgr* GetCommandManager();
 	//ヒットポイントを取得する
 	HitPoint& GetHitPoint();
 	//倒せるか倒せないか
@@ -59,8 +59,6 @@ protected:
 	virtual void SetUpState() {}
 	//更新
 	virtual void onUpdate(float deltaTime) override;
-	//描画
-	virtual void onDraw() const override;
 	//衝突した
 	virtual void onCollide(Actor& other, const Body::ContactSet& contactSet) override;
 	//メッセージ処理
@@ -71,7 +69,7 @@ protected:
 	HitPoint m_HitPoint;							//ヒットポイント
 	PlayerWatchUPtr p_PlayerWatch;					//プレイヤー監視
 	EnemyStateManagerUPtr p_StateManager;			//ステートマネージャー
-	IEnemyCommandManagerUPtr p_CommandManager;		//コマンドマネージャー
+	IECommandMgrUPtr p_CommandManager;				//コマンドマネージャー
 
 	std::map < std::string, ITexturePtr > m_TextureMap;	//テクスチャ切り替えようマップ
 

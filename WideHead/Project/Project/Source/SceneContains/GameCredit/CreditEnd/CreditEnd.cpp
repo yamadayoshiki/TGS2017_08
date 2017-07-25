@@ -19,7 +19,10 @@
 
 #include"../../Elements/ResultPlayerStaging/ResultPlayerStaging.h"
 
-CreditEnd::CreditEnd() {
+CreditEnd::CreditEnd()
+	: timer_(0.0f)
+	, maxTimer_(0.0f)
+	, m_Color(GScolor(1.0f, 1.0f, 1.0f, 1.0f)) {
 }
 
 // ŠJŽn     

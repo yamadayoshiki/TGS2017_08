@@ -9,6 +9,9 @@ struct ContactPoint
 	GSvector2 pointB;	//剛体Bのローカル座標
 	GSvector2 normal;	//衝突点の法線ベクトル
 
-	ContactPoint() :distance(0.0f), pointA(0.0f, 0.0f), pointB(0.0f, 0.0f), normal(0.0f, 0.0f) {}
+	//デフォルトコンストラクタ
+	ContactPoint() 
+		:distance(0.0f), pointA(0.0f, 0.0f), pointB(0.0f, 0.0f), normal(0.0f, 0.0f) {
+	}
 };
 #endif // !CONTACTPOINT_H_

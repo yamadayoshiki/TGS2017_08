@@ -33,7 +33,18 @@
 
 // コンストラクタ    
 GameCredit::GameCredit(const IGameManagerPtr& gameManager)
-	:Scene(gameManager) {
+	: Scene(gameManager)
+	, p_SceneChildMgr(nullptr) {
+	p_ScoreUI.reset();
+	p_ComboUI.reset();
+	p_RetryUI.reset();
+	p_RankUI.reset();
+	p_Platform.reset();
+	p_Block.reset();
+	p_Block2.reset();
+	p_Tortal.reset();
+	p_MaxCombo.reset();
+	p_Retry.reset();
 }
 
 void GameCredit::SetUp() {

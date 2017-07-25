@@ -188,9 +188,10 @@
     <ClInclude Include="Source\Base\GameManagerContains\IGameManager.h" />
     <ClInclude Include="Source\Base\GameManagerContains\IGameManagerPtr.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.h" />
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManager.h" />
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IEnemyCommandManagerPtr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IECommandMgr.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Interface\IECommandMgrPtr.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Null\EnemyCommandManagerNull.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\AttackContains\Rush\EnemyCommandRush.h" />
@@ -199,7 +200,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Base\EnemyCommandMoveBase.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Patrol\EnemyCommandPatrol.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\ReturnRegularPos\EnemyCommandReturnRegularPos.h" />
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTouchWall.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTW.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Straight\EnemyCommandStraight.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.h" />
@@ -209,11 +210,12 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Spin\EnemyCommandEnemy07Spin.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Rush\EnemyCommandEnemy09Rush.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Standby\EnemyCommandEnemy09Standby.h" />
-    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEnemyBullet01StraightTouchWall.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEB01Straight.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyCommandName.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommand.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Interface\IEnemyCommandPtr.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Null\EnemyCommandNull.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyGroup.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyManager.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBase.h" />
@@ -398,9 +400,9 @@
     <ClInclude Include="Source\Utility\Composite\Leaf\Leaf.h" />
     <ClInclude Include="Source\Utility\Contact\Contact.h" />
     <ClInclude Include="Source\Utility\Contact\ContactPoint.h" />
-    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvCellData.h" />
-    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.h" />
-    <ClInclude Include="Source\Utility\CsvConvertTwoDVector\TwoDVector.h" />
+    <ClInclude Include="Source\CsvConvertTDV\CsvCellData.h" />
+    <ClInclude Include="Source\CsvConvertTDV\CsvConvertTDV.h" />
+    <ClInclude Include="Source\CsvConvertTDV\TwoDVector.h" />
     <ClInclude Include="Source\Utility\EnumRap\EnumRap.h" />
     <ClInclude Include="Source\Utility\EnumRap\EnumRapPtr.h" />
     <ClInclude Include="Source\Utility\FourDirection\FourDirection.h" />
@@ -443,6 +445,7 @@
     <ClCompile Include="Source\Base\GameManagerContains\GameManager\GameManager.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Base\EnemyCommandManagerBase.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Nomal\EnemyCommandManagerNormal.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Null\EnemyCommandManagerNull.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\CommandManagers\Order\EnemyCommandManagerOrder.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Base\EnemyCommandBase.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\AttackContains\Rush\EnemyCommandRush.cpp" />
@@ -451,7 +454,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Base\EnemyCommandMoveBase.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Patrol\EnemyCommandPatrol.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\ReturnRegularPos\EnemyCommandReturnRegularPos.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTouchWall.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\StraightTouchWall\EnemyCommandStraightTW.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Common\MoveContains\Straight\EnemyCommandStraight.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Detour\EnemyCommandEnemy01Detour.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy01Contains\Straight\EnemyCommandEnemy01Straight.cpp" />
@@ -461,7 +464,9 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy07Contains\Spin\EnemyCommandEnemy07Spin.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Rush\EnemyCommandEnemy09Rush.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Enemy09Contains\Standby\EnemyCommandEnemy09Standby.cpp" />
-    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEnemyBullet01StraightTouchWall.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\EnemyBullet01Contains\Straight\EnemyCommandEB01Straight.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\CommandContains\Commands\Null\EnemyCommandNull.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyGroup.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\EnemyManager\EnemyManager.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\EnemyBullets\Bullet01\EnemyBullet01.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\Entity\Enemys\Base\EnemyBase.cpp" />
@@ -603,7 +608,7 @@
     <ClCompile Include="Source\Utility\Animation\Animation.cpp" />
     <ClCompile Include="Source\Utility\Collide2D\IsCollide2D.cpp" />
     <ClCompile Include="Source\Utility\Composite\Composite\Composite.cpp" />
-    <ClCompile Include="Source\Utility\CsvConvertTwoDVector\CsvConvertTwoDVector.cpp" />
+    <ClCompile Include="Source\CsvConvertTDV\CsvConvertTDV.cpp" />
     <ClCompile Include="Source\Utility\FourDirection\FourDirection.cpp" />
     <ClCompile Include="Source\Utility\InputState\InputState.cpp" />
     <ClCompile Include="Source\Utility\MathSupport\MathSupport.cpp" />

@@ -48,7 +48,7 @@ private:
 	// アクターグループ
 	std::unordered_map<ActorGroup, ActorPtr> m_actors;
 	// エネミー
-	std::weak_ptr<EnemyManager> p_EnemyManager;
+	std::shared_ptr<EnemyManager> p_EnemyManager;
 };
 
 #endif

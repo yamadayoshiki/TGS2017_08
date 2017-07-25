@@ -16,11 +16,11 @@ ZoomSprite::ZoomSprite(
 		gameManager,
 		texture)
 	, m_CurState(UP)
+	, m_OriginScale(originScale)
 	, m_CurScale(originScale)
 	, m_MaxScale(maxScale)
 	, m_Timer(0.0f)
-	, m_RateOfTime(rateOfTime)
-	, m_OriginScale(originScale) {
+	, m_RateOfTime(rateOfTime){
 }
 
 void ZoomSprite::onUpdate(float deltaTime) {
