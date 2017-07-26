@@ -13,7 +13,7 @@ GamePlayPlay::GamePlayPlay()
 void GamePlayPlay::OnUpdate(float deltaTime) {
 	//UI”šİ’è
 	std::dynamic_pointer_cast<GamePlay>(p_Parent.lock())->GetScoreUI().lock()->SetNum(p_GameManager->GetScore()->ReleaseScore());
-	std::dynamic_pointer_cast<GamePlay>(p_Parent.lock())->GetPlayerRemainingUI().lock()->SetNum(p_GameManager->GetPlayerParameter().GetRemaining());
+	std::dynamic_pointer_cast<GamePlay>(p_Parent.lock())->GetPlayerRemainingUI().lock()->SetNum(MAX(0,p_GameManager->GetPlayerParameter().GetRemaining()));
 
 	// “¢”°‰Â”\‚È“G‚ª‚OˆÈ‰º‚Ìê‡ƒNƒŠƒA
 	if (p_World->GetSurviverSum() <= 0

@@ -24,6 +24,7 @@ enum class ActorName
 	Respawn,
 	Hajiki,
 	Pop,
+	AfterImage,
 
 	/* プレイヤーグループ */
 	PlayerManager = 90,		//プレイヤー

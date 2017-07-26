@@ -15,7 +15,7 @@
 
 Combo::Combo(IWorld * world, const GSvector2 & position, const IGameManagerPtr & gameManager, const std::string & file_name)
 	: UI_Base(world, ActorName::UI_Combo, position, gameManager, DrawOrder::UI_Front1)
-	, p_NumberTexture(std::make_shared<NumberTexture>("NumberTexture_1", gameManager->GetDrawManager(), DrawOrder::UI_Front1, GSvector2(500, 20), 3)) {
+	, p_NumberTexture(std::make_shared<NumberTexture>("NumberTexture_1", gameManager->GetDrawManager(), DrawOrder::UI_Front1, GSvector2(500, 20), 0)) {
 	m_MaxTime = 300.0f;
 	m_NowTime = 0.0f;
 	weidth = 300.0f;

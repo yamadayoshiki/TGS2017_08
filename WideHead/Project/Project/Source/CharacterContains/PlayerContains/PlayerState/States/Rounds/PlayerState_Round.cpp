@@ -26,7 +26,7 @@ void PlayerState_Round::update(float deltaTime)
 //Õ“Ë”»’è
 void PlayerState_Round::collide(const Actor& other, const Body::ContactSet& contactSet)
 {
-	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide) {
+	if (m_Children[ActorName::Player_Arm]->isCollide(other).m_IsCollide && other.getName() != ActorName::Enemy_01) {
 		GSvector2 enePos = other.getPosition();
 		GSvector2 playPos = m_Children[ActorName::Player_Arm]->getPosition();
 		float distance = playPos.distance(enePos);
@@ -36,10 +36,11 @@ void PlayerState_Round::collide(const Actor& other, const Body::ContactSet& cont
 		}
 		return;
 	}
-	//“G‚Æ‚ÌÕ“Ëˆ—
-	Collide(other, contactSet);
 
 	p_Player.lock()->getWorld()->sendMessage(EventMessage::PLAYER_RELEASE);
+
+	//“G‚Æ‚ÌÕ“Ëˆ—
+	Collide(other, contactSet);
 }
 //I—¹ˆ—
 void PlayerState_Round::end()

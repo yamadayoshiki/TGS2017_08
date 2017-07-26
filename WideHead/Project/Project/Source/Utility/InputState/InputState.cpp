@@ -107,7 +107,7 @@ void InputState::UpdatePadVelocity_Button()
 	else if (gsXBoxPadButtonState(0, GS_XBOX_PAD_LEFT) == GS_TRUE) {
 		mPadVelocity.x = -1.0f;
 	}
-	else if (gsXBoxPadButtonState(0, GS_XBOX_PAD_RIGHT == GS_TRUE)) {
+	else if (gsXBoxPadButtonState(0, GS_XBOX_PAD_RIGHT) == GS_TRUE) {
 		mPadVelocity.x = 1.0f;
 	}
 	mPadVelocity.normalize();

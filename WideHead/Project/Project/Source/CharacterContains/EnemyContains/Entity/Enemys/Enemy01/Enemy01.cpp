@@ -39,7 +39,7 @@ Enemy01::Enemy01(
 		MapType::Double,
 		gameManager,
 		std::make_shared<AnimationTexture>("Enemy01", gameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8),
-		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
+		Body::MotionType::Enemy, Body::BodyDataName::AABB_64) {
 }
 
 //csvで生成(使用時継承先でoverride)
@@ -52,6 +52,7 @@ ActorPtr Enemy01::CsvGenerate(const int x, const int y, const int csvparam) {
 //各種固有のコマンドの設定
 void Enemy01::SetUpCommand() {
 	p_Texture->GetParameter()->m_Center = { 16.0f, 16.0f };
+	p_Texture->GetParameter()->m_Scale = { 2.0f,2.0f };
 	//生成
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command追加
