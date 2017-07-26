@@ -1,15 +1,2 @@
-﻿  AnimationFont.cpp
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): warning C4244: '引数': 'const float' から 'const unsigned int' への変換です。データが失われる可能性があります。
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const std::string&,std::shared_ptr<DrawManager>,DrawOrder,float,const float&>(const std::string &,std::shared_ptr<DrawManager> &&,DrawOrder &&,float &&,const float &)' のリファレンスを確認してください
-          with
-          [
-              _Ty=AnimationTexture
-          ]
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const std::string&,std::shared_ptr<DrawManager>,DrawOrder,float,const float&>(const std::string &,std::shared_ptr<DrawManager> &&,DrawOrder &&,float &&,const float &)' のリファレンスを確認してください
-          with
-          [
-              _Ty=AnimationTexture
-          ]
-  c:\users\nakayama\desktop\tgs\widehead\project\project\source\scenecontains\elements\animationfont\animationfont.cpp(15): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const std::string&,DrawManagerSPtr,DrawOrder,float,const float&>(const std::string &,DrawManagerSPtr &&,DrawOrder &&,float &&,const float &)' のリファレンスを確認してください
-  LINK : 前回のインクリメンタル リンクで C:\Users\nakayama\Desktop\TGS\WideHead\Project\Debug\Project.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
-  Project.vcxproj -> C:\Users\nakayama\Desktop\TGS\WideHead\Project\Debug\Project.exe
+﻿  GameFrame.cpp
+  Project.vcxproj -> C:\Users\yoshiki\Documents\G016A1331\2年前期\TGS2017\WideHead\Project\Debug\Project.exe

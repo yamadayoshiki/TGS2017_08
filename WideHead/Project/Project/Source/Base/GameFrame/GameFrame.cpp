@@ -21,7 +21,7 @@
 
 //コンストラクタ
 GameFrame::GameFrame()
-	: Game(SCREEN_SIZE.x, SCREEN_SIZE.y) {
+	: Game(SCREEN_SIZE.x, SCREEN_SIZE.y, true) {
 	//ゲームマネージャー生成
 	p_GameManager = std::make_shared<GameManager>(
 		std::make_shared<Renderer2D>(),
@@ -33,6 +33,7 @@ GameFrame::GameFrame()
 
 	m_SceneManager = std::make_shared<SceneManager>();
 	p_GameManager->SetSceneManager(m_SceneManager);
+	ShowCursor(FALSE);
 }
 
 //デストラクタ
