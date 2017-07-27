@@ -22,7 +22,8 @@
 #include "../../../StateContains/States/MoveContains/Standard/Move/EnemyStateMoveStandard.h"
 #include "../../../StateContains/States/StopContains/Standard/EnemyStateStopStandard.h"
 #include "../../../StateContains/States/Damage/EnemyStateDamage.h"
-
+#include "../../../StateContains/States/Genarate/ESGenerate.h"
+#include "../../../../../DrawManager/DisplayMode.h"
 //コンストラクタ
 Enemy06::Enemy06(
 	IWorld * world,
@@ -37,7 +38,7 @@ Enemy06::Enemy06(
 		10,
 		MapType::Double,
 		gameManager,
-		std::make_shared<AnimationTexture>("Enemy06", gameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8),
+		std::make_shared<NullTexture>(),
 		Body::MotionType::Enemy, Body::BodyDataName::AABB_32) {
 }
 
@@ -50,7 +51,15 @@ ActorPtr Enemy06::CsvGenerate(const int x, const int y, const int csvparam)
 
 //各種固有のコマンドの設定
 void Enemy06::SetUpCommand() {
-	p_Texture->GetParameter()->m_Center = { 16.0f, 16.0f };
+	m_TextureMap["Normal"] = std::make_shared<AnimationTexture>("Enemy06", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
+	m_TextureMap["Generate"] = std::make_shared<AnimationTexture>("Enemy06", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
+	for (auto itr = m_TextureMap.begin(); itr != m_TextureMap.end(); itr++)
+		itr->second->ChangeDisplayMode(DisplayMode::NonDisplay);
+
+	p_Texture = m_TextureMap["Normal"];
+	p_Texture->Initialize();
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
+
 	//生成
 	p_CommandManager.reset(new EnemyCommandManagerNormal(shared_from_this()));
 	//Command追加
@@ -71,6 +80,7 @@ void Enemy06::SetUpState() {
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveStandard>(shared_from_this(), 10.0f));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
 	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Generate, std::make_shared<ESGenerate>(shared_from_this(), SE_ENEMY_GENERATESINGING, 0, 23));
 	//初期State設定
 	p_StateManager->change(EnemyStateName::Idle);
 }

@@ -1,3 +1,34 @@
-﻿  ESCaughtCharge.cpp
-  LINK : 前回のインクリメンタル リンクで C:\Users\YuJimbo\Desktop\School\No.04 17年度前期\00_TGS'17\SourceTree\WideHead\Project\Debug\Project.exe が見つからなかったか、ビルドされませんでした。フル リンクを行います。
+﻿  ESEntry.cpp
+  EnemyStateRush.cpp
+  Enemy08.cpp
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy08\enemy08.cpp(57): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[14],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[14],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyStateStopStandard
+          ]
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy08\enemy08.cpp(83): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=EnemyBase
+          ]
+  GameManager.cpp
+  コードを生成中...
   Project.vcxproj -> C:\Users\YuJimbo\Desktop\School\No.04 17年度前期\00_TGS'17\SourceTree\WideHead\Project\Debug\Project.exe

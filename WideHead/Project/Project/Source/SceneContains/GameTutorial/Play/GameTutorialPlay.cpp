@@ -56,15 +56,15 @@ void GameTutorialPlay::OnUpdate(float deltaTime) {
 		return;
 	}
 
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
+	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START)) {
 		isGameClear = true;
 		p_GameManager->GetSceneManager()->HandleMessage(EventMessage::END_SCENE, (void*)SceneName::GamePlay);
 		return;
 	}
 
 	//ƒ|[ƒYØ‚è‘Ö‚¦
-	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE)
-		Change(SceneName::Pause);
+	//if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START) == GS_TRUE)
+	//	Change(SceneName::Pause);
 }
 
 void GameTutorialPlay::OnDraw() const

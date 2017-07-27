@@ -26,7 +26,8 @@
 #include "../../../../../Utility/Animation/Animation.h"
 #include "../../../../../DrawManager/DisplayMode.h"
 #include "../../../StateContains/States/Damage/EnemyStateDamage.h"
-
+#include "../../../StateContains/States/Genarate/ESGenerate.h"
+#include "../../../../../DrawManager/DisplayMode.h"
 Enemy08::Enemy08(
 	IWorld * world,
 	const GSvector2 & position,
@@ -54,9 +55,7 @@ ActorPtr Enemy08::CsvGenerate(const int x, const int y, const int csvparam) {
 
 void Enemy08::SetUpCommand() {
 	m_TextureMap["Normal"] = std::make_shared<AnimationTexture>("Enemy08Normal", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
-	m_TextureMap["Attack"] = std::make_shared<AnimationTexture>("Enemy08Attack", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
-	m_TextureMap["Normal"]->GetParameter()->m_Center = { 16.0f,16.0f };
-	m_TextureMap["Attack"]->GetParameter()->m_Center = { 16.0f,16.0f };
+	m_TextureMap["Generate"] = std::make_shared<AnimationTexture>("Enemy08Attack", p_GameManager->GetDrawManager(), DrawOrder::Enemy, 32, 8);
 	for (auto itr = m_TextureMap.begin(); itr != m_TextureMap.end(); itr++)
 		itr->second->ChangeDisplayMode(DisplayMode::NonDisplay);
 
@@ -83,6 +82,7 @@ void Enemy08::SetUpState() {
 	p_StateManager->add(EnemyStateName::Move, std::make_shared<EnemyStateMoveStandard>(shared_from_this(), 10.0f));
 	p_StateManager->add(EnemyStateName::Stop, std::make_shared<EnemyStateStopStandard>(shared_from_this(), 120));
 	p_StateManager->add(EnemyStateName::Damage, std::make_shared<EnemyStateDamage>(shared_from_this()));
+	p_StateManager->add(EnemyStateName::Generate, std::make_shared<ESGenerate>(shared_from_this(), SE_ENEMY_SHOT, 0, 24,16));
 	//‰ŠúStateÝ’è
 	p_StateManager->change(EnemyStateName::Idle);
 }

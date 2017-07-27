@@ -18,7 +18,7 @@ enum SoundName
 	SE_PLAYER_CHARGE_SECOND,	//チャージ2段階目
 	SE_PLAYER_CHARGE_THIRD,		//チャージ3段階目
 
-								//EnemySE
+	/*EnemySE*/
 	SE_ENEMY_CHILDAPPEARED,		//子機出現
 	SE_ENEMY_ENEMYEXPLOTION,	//敵爆発
 	SE_ENEMY_GENERATESINGING,	//親機生成詠唱

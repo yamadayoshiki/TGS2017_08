@@ -202,12 +202,12 @@ void GameManager::LoadContent() {
 	gsLoadSE(SE_PLAYER_RESPAWN, "Resource/Sound/SE/Player/Respawn.wav", 1, GWAVE_DEFAULT);
 
 	//EnemySE
-	gsLoadSE(SE_ENEMY_CHILDAPPEARED, "Resource/Sound/SE/Enemy/ChildAppeared.mp3", 10, GWAVE_DEFAULT);
-	gsLoadSE(SE_ENEMY_ENEMYEXPLOTION, "Resource/Sound/SE/Enemy/EnemyExplotion.mp3", 10, GWAVE_DEFAULT);
-	gsLoadSE(SE_ENEMY_GENERATESINGING, "Resource/Sound/SE/Enemy/GenerateSinging.mp3", 10, GWAVE_DEFAULT);
-	gsLoadSE(SE_ENEMY_RUSH, "Resource/Sound/SE/Enemy/Rush.mp3", 10, GWAVE_DEFAULT);
-	gsLoadSE(SE_ENEMY_SHOT, "Resource/Sound/SE/Enemy/Shot.mp3", 10, GWAVE_DEFAULT);
-	gsLoadSE(SE_ENEMY_SPINBOUND, "Resource/Sound/SE/Enemy/SpinBound.mp3", 10, GWAVE_DEFAULT);
+	gsLoadSE(SE_ENEMY_CHILDAPPEARED, "Resource/Sound/SE/Enemy/éqã@èoåª.wav", 10, GWAVE_DEFAULT);
+	gsLoadSE(SE_ENEMY_ENEMYEXPLOTION, "Resource/Sound/SE/Enemy/ìGîöî≠.wav", 10, GWAVE_DEFAULT);
+	gsLoadSE(SE_ENEMY_GENERATESINGING, "Resource/Sound/SE/Enemy/êeã@ârè•.wav", 10, GWAVE_DEFAULT);
+	gsLoadSE(SE_ENEMY_RUSH, "Resource/Sound/SE/Enemy/ìÀÇ¡çûÇﬁéû.wav", 10, GWAVE_DEFAULT);
+	gsLoadSE(SE_ENEMY_SHOT, "Resource/Sound/SE/Enemy/íeÇî≠éÀ.wav", 10, GWAVE_DEFAULT);
+	gsLoadSE(SE_ENEMY_SPINBOUND, "Resource/Sound/SE/Enemy/ï«Ç…ìñÇΩÇ¡ÇƒíµÇÀï‘ÇÈ.wav", 10, GWAVE_DEFAULT);
 
 	//UISE
 	gsLoadSE(SE_BACK, "Resource/Sound/SE/Scene/back.wav", 1, GWAVE_DEFAULT);

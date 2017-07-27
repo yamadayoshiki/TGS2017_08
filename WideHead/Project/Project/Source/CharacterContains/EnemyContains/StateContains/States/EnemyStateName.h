@@ -22,8 +22,10 @@ enum class EnemyStateName
 						//ノコノコスピン
 	Spin,
 
-	//射撃
 	Shot,				//射撃
+
+	Entry,				//出現
+	Generate,			//生成
 };
 
 #endif

@@ -32,6 +32,7 @@ void EnemyCommandBase::Initialize() {
 //更新
 void EnemyCommandBase::Update(float deltaTime) {
 	//変数の初期化
+	m_CurStateName = EnemyStateName::None;
 	m_Velocity = GSVECTOR2_ZERO;
 	m_RotateAngle = 0;
 	//各種固有の更新

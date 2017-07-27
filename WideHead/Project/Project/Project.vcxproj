@@ -245,6 +245,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Charge\ESCaughtCharge.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\ReleaseDead\EnemyStateCaughtReleaseDead.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Genarate\ESGenerate.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Standard\EnemyStateCrushStandard.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Damage\EnemyStateDamage.h" />
@@ -253,6 +254,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Standard\EnemyStateDeadStandard.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadWall\DeadWall.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\EnemyStateName.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Entry\ESEntry.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Base\EnemyStateMoveBaseOnlyInTheBack.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Idle\EnemyStateIdleOnlyInTheBack.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Move\EnemyStateMoveOnlyInTheBack.h" />
@@ -494,6 +496,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Charge\ESCaughtCharge.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\ReleaseDead\EnemyStateCaughtReleaseDead.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Genarate\ESGenerate.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Standard\EnemyStateCrushStandard.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Damage\EnemyStateDamage.cpp" />
@@ -501,6 +504,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Inform\EnemyStateDeadInform.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadContaint\Standard\EnemyStateDeadStandard.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\DeadWall\DeadWall.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Entry\ESEntry.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Base\EnemyStateMoveBaseOnlyInTheBack.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Idle\EnemyStateIdleOnlyInTheBack.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\MoveContains\OnlyInTheBack\Move\EnemyStateMoveOnlyInTheBack.cpp" />

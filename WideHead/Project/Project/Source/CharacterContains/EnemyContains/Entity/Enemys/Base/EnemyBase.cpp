@@ -38,14 +38,14 @@ EnemyBase::~EnemyBase() {
 
 //初期化
 void EnemyBase::onInitialize() {
+	//表示モード
+	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 	//プレイヤー監視
 	p_PlayerWatch.reset(new PlayerWatch(shared_from_this()));
 	//各種固有のコマンドの設定
 	SetUpCommand();
 	//各種固有のStateの設定
 	SetUpState();
-	//表示モード
-	p_Texture->ChangeDisplayMode(DisplayMode::Display);
 }
 
 //更新

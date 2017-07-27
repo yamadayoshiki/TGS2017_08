@@ -2,6 +2,8 @@
 #include "../../../../Entity/Enemys/Base/EnemyBase.h"
 #include "../../../../../../WorldContains/EventMessage/EventMessage.h"
 #include "../../../../Entity/Enemys/Base/EnemyBase.h"
+#include "../../../../../../Utility/Sound/SoundName.h"
+#include <GSmusic.h>
 
 EnemyStateRush::EnemyStateRush(const EnemyBasePtr & enemy, const float speed)
 	: EnemyStateBase(enemy)
@@ -9,6 +11,7 @@ EnemyStateRush::EnemyStateRush(const EnemyBasePtr & enemy, const float speed)
 }
 
 void EnemyStateRush::unique_init() {
+	gsPlaySE(SE_ENEMY_RUSH);
 	//テクスチャ切替
 	p_Enemy.lock()->Settexture("Rush");
 }

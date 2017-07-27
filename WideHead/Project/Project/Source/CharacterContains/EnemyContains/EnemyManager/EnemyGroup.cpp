@@ -1,5 +1,6 @@
 #include "EnemyGroup.h"
 #include "EnemyManager.h"
+#include "../Entity/Enemys/Base/EnemyBase.h"
 EnemyGroup::EnemyGroup()
 	: p_EnemyMgr(std::weak_ptr<EnemyManager>()) {
 }
@@ -24,7 +25,9 @@ void EnemyGroup::removeChildren_dead() {
 	{
 		if ((*itr)->GetDead() == true)
 		{
-			p_EnemyMgr.lock()->DecreaseSurviverSum(1);
+			if (CanDead(std::dynamic_pointer_cast<EnemyBase>(*itr)))
+				p_EnemyMgr.lock()->DecreaseSurviverSum(1);
+
 			removeItr.push_back(itr);
 		}
 	}
@@ -32,4 +35,9 @@ void EnemyGroup::removeChildren_dead() {
 		m_children.remove(*(*itr));
 
 	eachChildren([](Actor& child) { child.removeChildren_dead(); });
+}
+
+bool EnemyGroup::CanDead(const EnemyBasePtr & enemy) {
+	if (enemy->getName() == ActorName::BreakWall) return false;
+	return enemy->CanDead();
 }

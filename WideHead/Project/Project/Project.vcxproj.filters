@@ -843,6 +843,12 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Charge\ESCaughtCharge.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Entry\ESEntry.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Genarate\ESGenerate.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ActorContains\Actor\Actor.cpp">
@@ -1425,6 +1431,12 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Charge\ESCaughtCharge.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Entry\ESEntry.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Genarate\ESGenerate.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
