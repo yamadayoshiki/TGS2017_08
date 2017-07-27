@@ -36,10 +36,6 @@ NumberTexture::~NumberTexture() {
 }
 
 void NumberTexture::Initialize() {
-	////ƒƒ‚ƒŠŠJ•ú
-	//std::vector<Texture2DParamAndID> a;
-	//m_ParamVector.swap(a);
-	//m_ParamVector.clear();
 	SetNumber(0);
 }
 

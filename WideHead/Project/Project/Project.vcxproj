@@ -269,6 +269,7 @@
     <ClInclude Include="Source\CharacterContains\Factory\CharacterFactoryPtr.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.h" />
+    <ClInclude Include="Source\CharacterContains\NeutralContains\Dash_Effect\Dash_Effect.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.h" />
     <ClInclude Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.h" />
@@ -514,6 +515,7 @@
     <ClCompile Include="Source\CharacterContains\Factory\CharacterFactory.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Charge_Effect\Charge.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Crush_Effect\Crush_Effect.cpp" />
+    <ClCompile Include="Source\CharacterContains\NeutralContains\Dash_Effect\Dash_Effect.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Explosion\Neutral_Explosion.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Pop_Effect\Pop_Effect.cpp" />
     <ClCompile Include="Source\CharacterContains\NeutralContains\Repel_Effect\Repel_Effect.cpp" />

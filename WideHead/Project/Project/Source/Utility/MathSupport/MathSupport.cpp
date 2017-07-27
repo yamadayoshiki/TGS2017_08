@@ -90,7 +90,10 @@ float MathSupport::GetAngleNormalize(const float angle) {
 
 //©‘R”‚ÌŒ…”‚ğ‹‚ß‚é
 unsigned MathSupport::GetDigit(unsigned num) {
-	return log10(num) + 1;
+	unsigned result = log10(num) + 1;
+	if (result == 0)
+		result = 1;
+	return result;
 }
 
 //©‘R”‚ğØ‚èæ‚é

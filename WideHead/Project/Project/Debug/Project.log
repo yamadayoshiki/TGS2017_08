@@ -1,2 +1,3 @@
-﻿  GameFrame.cpp
-  Project.vcxproj -> C:\Users\yoshiki\Documents\G016A1331\2年前期\TGS2017\WideHead\Project\Debug\Project.exe
+﻿  MathSupport.cpp
+c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\utility\mathsupport\mathsupport.cpp(104): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+  Project.vcxproj -> C:\Users\YuJimbo\Desktop\School\No.04 17年度前期\00_TGS'17\SourceTree\WideHead\Project\Debug\Project.exe
