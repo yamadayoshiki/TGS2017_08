@@ -85,6 +85,9 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("StartLogo12", "Resource/Texture/UI/Title/moji_anime12.png");
 	p_Renderer2D->LoadTexture("StartLogo13", "Resource/Texture/UI/Title/moji_anime13.png");
 
+	p_Renderer2D->LoadTexture("ToTutorialButton", "Resource/Texture/UI/Title/cyutonext.png");
+	p_Renderer2D->LoadTexture("ToStage1Button", "Resource/Texture/UI/Title/stagenext.png");
+
 	//Tutorial
 	p_Renderer2D->LoadTexture("TutorialLeft1", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide1.png");
 	p_Renderer2D->LoadTexture("TutorialLeft2", "Resource/Texture/UI/Tutorial/TutorialLeft/Guide2.png");

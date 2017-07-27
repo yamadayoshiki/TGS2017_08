@@ -10,5 +10,8 @@ public:
 
 protected:
 	void onUpdate(float deltaTime) override;
+
+public:
+	void Skip();
 };
 #endif

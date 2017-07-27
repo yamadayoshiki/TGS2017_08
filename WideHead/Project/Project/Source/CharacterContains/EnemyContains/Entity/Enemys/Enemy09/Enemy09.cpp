@@ -99,6 +99,6 @@ void Enemy09::SetUpState() {
 	p_StateManager->change(EnemyStateName::Idle);
 }
 
-void Enemy09::onDraw() const {
+void Enemy09::onMessage(EventMessage message, void * param){
+	EnemyBase::onMessage(message, param);
 }
-

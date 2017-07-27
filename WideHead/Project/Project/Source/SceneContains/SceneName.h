@@ -12,6 +12,9 @@ enum class SceneName
 	GameEnd,
 	GameOver,
 
+	//Title
+	Select,
+
 	//Result
 	ResultStart,
 	ResultStaging,

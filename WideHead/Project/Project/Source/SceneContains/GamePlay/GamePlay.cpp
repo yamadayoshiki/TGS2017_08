@@ -120,9 +120,6 @@ void GamePlay::OnUpdate(float deltaTime) {
 	p_SceneChildMgr->Update(deltaTime);
 }
 
-void GamePlay::OnDraw() const {
-}
-
 void GamePlay::OnEnd() {
 	//子シーンの終了
 	p_SceneChildMgr->End();

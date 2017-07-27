@@ -23,8 +23,8 @@ protected:
 	virtual void SetUpCommand() override;
 	//各種固有のStateの設定
 	virtual void SetUpState() override;
-	//描画
-	virtual void onDraw() const override;
+	//メッセージ処理
+	virtual void onMessage(EventMessage message, void* param) override;
 };
 
 #endif // !ENEMY09_H_

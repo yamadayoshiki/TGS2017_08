@@ -20,3 +20,7 @@ void DropSprite::onUpdate(float deltaTime) {
 	if (getPosition().y < 300)
 		setPosition(getPosition().lerp(GSvector2(SCREEN_SIZE.x / 2, 300), 0.05f));
 }
+
+void DropSprite::Skip(){
+	setPosition(GSvector2(getPosition().x, 300.0f));
+}
