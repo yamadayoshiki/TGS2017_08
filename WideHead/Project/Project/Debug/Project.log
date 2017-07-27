@@ -1,3 +1,8 @@
-﻿  MathSupport.cpp
-c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\utility\mathsupport\mathsupport.cpp(104): warning C4018: '<': signed と unsigned の数値を比較しようとしました。
+﻿  Guide.cpp
+c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(1630): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
+  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\scenecontains\elements\guide\guide.cpp(21): note: コンパイル対象の関数 テンプレート インスタンス化 'std::unique_ptr<AnimationTexture,std::default_delete<_Ty>> std::make_unique<AnimationTexture,const char(&)[21],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[21],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+          with
+          [
+              _Ty=AnimationTexture
+          ]
   Project.vcxproj -> C:\Users\YuJimbo\Desktop\School\No.04 17年度前期\00_TGS'17\SourceTree\WideHead\Project\Debug\Project.exe

@@ -50,6 +50,10 @@ void GameTutorialReady::OnUpdate(float deltaTime) {
 
 void GameTutorialReady::OnEnd() {
 	p_Parent.lock()->Restart();
+	for (auto itr = m_SpriteMap.begin(); itr != m_SpriteMap.end(); itr++)
+		itr->second->dead();
+
+	m_SpriteMap.clear();
 }
 
 void GameTutorialReady::ChangeState(const State next) {

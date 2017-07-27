@@ -16,7 +16,6 @@ FlashSprite::FlashSprite(IWorld * world, const GSvector2 & position, const IGame
 }
 
 void FlashSprite::onUpdate(float deltaTime) {
-	m_CurAlpha = std::pow(m_Timer, 2);
 	switch (m_CurState)
 	{
 	case State::UP:
@@ -31,13 +30,13 @@ void FlashSprite::onUpdate(float deltaTime) {
 	case State::DOWN:
 		m_CurAlpha -= m_RateOfTime;
 		if (m_Timer >= 1.0f) {
-			m_CurAlpha = 1.0f;
+			m_CurAlpha = 0.0f;
 			m_Timer = 0.0f;
-			m_CurState = State::DOWN;
+			m_CurState = State::UP;
 		}
 		break;
 	}
-	p_Texture->GetParameter()->m_Color.a = m_CurAlpha;
+	p_Texture->GetParameter()->m_Color.a = std::pow(m_CurAlpha,2);
 	m_Timer += m_RateOfTime;
 }
 

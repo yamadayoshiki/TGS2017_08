@@ -112,6 +112,8 @@ void GameManager::LoadContent() {
 	p_Renderer2D->LoadTexture("TutorialRightDash", "Resource/Texture/UI/Tutorial/TutorialRight/Player_anime3.png");
 
 	p_Renderer2D->LoadTexture("TutorialSkipFlash", "Resource/Texture/UI/Tutorial/cyutoskip.png");
+	p_Renderer2D->LoadTexture("ChargeButtonOse", "Resource/Texture/UI/Tutorial/gaido_mokuhyou1.png");
+	p_Renderer2D->LoadTexture("YButtonOse", "Resource/Texture/UI/Tutorial/gaido_mokuhyou2.png");
 
 	//Play
 	p_Renderer2D->LoadTexture("PlayStartLogo", "Resource/Texture/UI/Play/start3.png");

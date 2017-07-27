@@ -27,6 +27,10 @@ Guide::Guide(IWorld * world, const IGameManagerPtr & gameManager)
 	p_LeftItem = std::make_unique<Texture>("TutorialLeft1", gameManager->GetDrawManager(), DrawOrder::UI);
 	p_LeftItem->Initialize();
 	p_LeftItem->GetParameter()->m_Position = GSvector2(192, SCREEN_SIZE.y / 2);
+	p_ButtonOse = std::make_unique<Texture>("YButtonOse", gameManager->GetDrawManager(), DrawOrder::UI);
+	p_ButtonOse->Initialize();
+	p_ButtonOse->GetParameter()->m_Position = GSvector2(1120, SCREEN_SIZE.y / 2 - 200);
+	p_ButtonOse->ChangeDisplayMode(DisplayMode::NonDisplay);
 }
 
 Guide::~Guide() {
@@ -74,6 +78,7 @@ void Guide::ChangeState(const GuideState next) {
 		p_Button = std::make_unique<AnimationTexture>("TutorialRightYButton", p_GameManager->GetDrawManager(), DrawOrder::UI_Front1, 64, 30);
 		p_Motion = std::make_unique<AnimationTexture>("TutorialRightBlockCrush", p_GameManager->GetDrawManager(), DrawOrder::UI_Front1, 64, 30);
 		p_LeftItem->ChangeTexture("TutorialLeft2", DrawOrder::UI);
+		p_ButtonOse->ChangeDisplayMode(DisplayMode::Display);
 		break;
 
 	case GuideState::Tutorial3:
@@ -85,6 +90,7 @@ void Guide::ChangeState(const GuideState next) {
 		p_Button->ChangeDisplayMode(DisplayMode::NonDisplay);
 		p_Motion->ChangeDisplayMode(DisplayMode::NonDisplay);
 		p_LeftItem->ChangeTexture("TutorialLeft4", DrawOrder::UI);
+		p_ButtonOse->ChangeDisplayMode(DisplayMode::NonDisplay);
 		break;
 
 	case GuideState::Tutorial5:
@@ -97,12 +103,15 @@ void Guide::ChangeState(const GuideState next) {
 		p_Button = std::make_unique<AnimationTexture>("TutorialRightButtonCharge", p_GameManager->GetDrawManager(), DrawOrder::UI_Front1, 64, 30);
 		p_Motion = std::make_unique<AnimationTexture>("TutorialRightCharge", p_GameManager->GetDrawManager(), DrawOrder::UI_Front1, 64, 30);
 		p_LeftItem->ChangeTexture("TutorialLeft6", DrawOrder::UI);
+		p_ButtonOse->ChangeTexture("ChargeButtonOse",DrawOrder::UI);
+		p_ButtonOse->ChangeDisplayMode(DisplayMode::Display);
 		break;
 
 	case GuideState::Tutorial7:
 		p_Button = std::make_unique<AnimationTexture>("TutorialRightButtonChargeCrush", p_GameManager->GetDrawManager(), DrawOrder::UI_Front1, 64, 30);
 		p_Motion = std::make_unique<AnimationTexture>("TutorialRightChargeCrush", p_GameManager->GetDrawManager(), DrawOrder::UI_Front1, 64, 30);
 		p_LeftItem->ChangeTexture("TutorialLeft7", DrawOrder::UI);
+		p_ButtonOse->ChangeDisplayMode(DisplayMode::NonDisplay);
 		break;
 
 	case GuideState::Tutorial8:

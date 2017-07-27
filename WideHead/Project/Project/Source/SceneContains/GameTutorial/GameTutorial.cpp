@@ -95,7 +95,7 @@ void GameTutorial::OnStart() {
 	//UI“™¶¬
 	p_Guide = std::make_shared<Guide>(p_World.get(), p_GameManager);
 	p_World->addActor(ActorGroup::UI, p_Guide);
-	p_SkipUI = std::make_shared<FlashSprite>(p_World.get(), GSvector2(600, 1235), p_GameManager, std::make_shared<Texture>("TutorialSkipFlash", p_GameManager->GetDrawManager(), DrawOrder::UI_Front2));
+	p_SkipUI = std::make_shared<FlashSprite>(p_World.get(), GSvector2(892.5, 930), p_GameManager, std::make_shared<Texture>("TutorialSkipFlash", p_GameManager->GetDrawManager(), DrawOrder::UI_Front2));
 	p_SkipUI->initialize();
 	ActorPtr enemyMgr = p_World->findActor(ActorName::EnemyManager);
 	//¶ƒuƒƒbƒN‚Ì¶¬

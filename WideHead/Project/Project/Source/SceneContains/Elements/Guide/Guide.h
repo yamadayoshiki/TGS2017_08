@@ -43,6 +43,7 @@ private:
 	std::unique_ptr<AnimationTexture> p_Button;		//ボタン
 	std::unique_ptr<AnimationTexture> p_Motion;		//プレイヤーの動き
 	std::unique_ptr<Texture> p_LeftItem;			//左の項目
+	std::unique_ptr<Texture> p_ButtonOse;			//右の押せ項目
 
 	int m_Timer;
 

@@ -19,13 +19,17 @@ void EnemyGroup::removeChildren_dead() {
 		}
 	});
 	//*/
+	std::vector<std::forward_list<ActorPtr>::iterator> removeItr;
 	for (auto itr = m_children.begin(); itr != m_children.end(); itr++)
 	{
 		if ((*itr)->GetDead() == true)
 		{
 			p_EnemyMgr.lock()->DecreaseSurviverSum(1);
-			m_children.remove(*itr);
+			removeItr.push_back(itr);
 		}
 	}
+	for (auto itr = removeItr.begin(); itr != removeItr.end(); itr++)
+		m_children.remove(*(*itr));
+
 	eachChildren([](Actor& child) { child.removeChildren_dead(); });
 }
