@@ -4,7 +4,6 @@
 #include "../../../../../PlayerContains/PlayerState/PlayerStateName.h"
 #include "../../../../../../WorldContains/EventMessage/EventMessage.h"
 #include "../../../../../../ActorContains/Transform/Transform.h"
-
 //コンストラクタ
 EnemyStateCaughtStandard::EnemyStateCaughtStandard(
 	const EnemyBasePtr& enemy)

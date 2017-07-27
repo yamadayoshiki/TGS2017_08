@@ -242,6 +242,7 @@
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBasePtr.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.h" />
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Charge\ESCaughtCharge.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\ReleaseDead\EnemyStateCaughtReleaseDead.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.h" />
     <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.h" />
@@ -490,6 +491,7 @@
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Rush\EnemyStateRush.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\AttackContains\Shot\EnemyStateShot.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\Base\EnemyStateBase.cpp" />
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Charge\ESCaughtCharge.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\ReleaseDead\EnemyStateCaughtReleaseDead.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Standard\EnemyStateCaughtStandard.cpp" />
     <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CrushContains\Spin\EnemyStateCrushSpin.cpp" />

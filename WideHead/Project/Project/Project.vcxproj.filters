@@ -840,6 +840,9 @@
     <ClInclude Include="Source\CharacterContains\NeutralContains\Dash_Effect\Dash_Effect.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Charge\ESCaughtCharge.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\ActorContains\Actor\Actor.cpp">
@@ -1419,6 +1422,9 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\CharacterContains\NeutralContains\Dash_Effect\Dash_Effect.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CharacterContains\EnemyContains\StateContains\States\CaughtContains\Charge\ESCaughtCharge.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
