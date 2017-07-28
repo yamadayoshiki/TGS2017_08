@@ -16,8 +16,7 @@ void GamePlayPlay::OnUpdate(float deltaTime) {
 	std::dynamic_pointer_cast<GamePlay>(p_Parent.lock())->GetPlayerRemainingUI().lock()->SetNum(MAX(0,p_GameManager->GetPlayerParameter().GetRemaining()));
 
 	// “¢”°‰Â”\‚È“G‚ª‚OˆÈ‰º‚Ìê‡ƒNƒŠƒA
-	if (p_World->GetSurviverSum() <= 0
-		|| p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_X)) {
+	if (p_World->GetSurviverSum() <= 0) {
 		isGameClear = true;
 		Change(SceneName::Close);
 		return;

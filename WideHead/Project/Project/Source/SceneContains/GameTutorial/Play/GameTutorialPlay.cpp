@@ -58,7 +58,7 @@ void GameTutorialPlay::OnUpdate(float deltaTime) {
 
 	if (p_GameManager->GetInputState()->IsPadStateTrigger(GS_XBOX_PAD_START)) {
 		isGameClear = true;
-		p_GameManager->GetSceneManager()->HandleMessage(EventMessage::END_SCENE, (void*)SceneName::GamePlay);
+		p_GameManager->GetSceneManager()->HandleMessage(EventMessage::END_SCENE, (void*)SceneName::GameTitle);
 		return;
 	}
 
