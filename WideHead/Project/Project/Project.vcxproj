@@ -356,7 +356,6 @@
     <ClInclude Include="Source\SceneContains\GameTitle\GameTitle.h" />
     <ClInclude Include="Source\SceneContains\GameTitle\Ready\GameTitleReady.h" />
     <ClInclude Include="Source\SceneContains\GameTitle\Select\GameTitleSelect.h" />
-    <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h" />
     <ClInclude Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.h" />
     <ClInclude Include="Source\SceneContains\GameTutorial\GameTutorial.h" />
     <ClInclude Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.h" />
@@ -587,7 +586,6 @@
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\Ready\GameTitleReady.cpp" />
     <ClCompile Include="Source\SceneContains\GameTitle\Select\GameTitleSelect.cpp" />
-    <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp" />
     <ClCompile Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.cpp" />
     <ClCompile Include="Source\SceneContains\GameTutorial\GameTutorial.cpp" />
     <ClCompile Include="Source\SceneContains\GameTutorial\Pause\GameTutorialPause.cpp" />

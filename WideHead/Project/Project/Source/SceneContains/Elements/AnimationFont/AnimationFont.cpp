@@ -15,13 +15,11 @@ AnimationFont::AnimationFont(IWorld * world,
 		std::make_shared<AnimationTexture>(texName, gameManager->GetDrawManager(), DrawOrder::UI, 50.0f, updateFrame)),
 		p_DrawManager(gameManager->GetDrawManager())
 {
-	p_Texture->Stop();
+	
 }
 
 AnimationFont::~AnimationFont() {
 }
 
 void AnimationFont::onUpdate(float deltaTime) {
-	//if (p_Texture->GetLoopCount() == 1)
-	//	p_Texture->Stop();
 }

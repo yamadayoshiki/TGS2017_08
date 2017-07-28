@@ -1,34 +1,20 @@
-﻿  ESEntry.cpp
-  EnemyStateRush.cpp
-  Enemy08.cpp
+﻿  GameTitle.cpp
 c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): warning C4244: '引数': 'int' から 'const float' への変換です。データが失われる可能性があります。
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<World,GSvector2,IGameManagerPtr&,const char(&)[11],int>(World &&,GSvector2 &&,IGameManagerPtr &,const char (&)[11],int &&)' のリファレンスを確認してください
           with
           [
-              _Ty=AnimationTexture
+              _Ty=AnimationFont
           ]
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<const char(&)[14],std::shared_ptr<DrawManager>,DrawOrder,int,int>(const char (&)[14],std::shared_ptr<DrawManager> &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
+  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<World,GSvector2,IGameManagerPtr&,const char(&)[11],int>(World &&,GSvector2 &&,IGameManagerPtr &,const char (&)[11],int &&)' のリファレンスを確認してください
           with
           [
-              _Ty=AnimationTexture
+              _Ty=AnimationFont
           ]
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy08\enemy08.cpp(57): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<AnimationTexture> std::make_shared<AnimationTexture,const char(&)[14],DrawManagerSPtr,DrawOrder,int,int>(const char (&)[14],DrawManagerSPtr &&,DrawOrder &&,int &&,int &&)' のリファレンスを確認してください
-c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(901): warning C4244: '引数': 'int' から 'float' への変換です。データが失われる可能性があります。
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
+  c:\users\nakayama\desktop\tgs\widehead\project\project\source\scenecontains\gametitle\gametitle.cpp(120): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<_Ty> std::make_shared<AnimationFont,World*,GSvector2,IGameManagerPtr&,const char(&)[11],int>(World *&&,GSvector2 &&,IGameManagerPtr &,const char (&)[11],int &&)' のリファレンスを確認してください
           with
           [
-              _Ty=EnemyStateStopStandard
+              _Ty=AnimationFont
           ]
-  c:\program files (x86)\microsoft visual studio 14.0\vc\include\memory(971): note: コンパイル対象の関数 テンプレート インスタンス化 'std::_Ref_count_obj<_Ty>::_Ref_count_obj<std::shared_ptr<EnemyBase>,int>(std::shared_ptr<EnemyBase> &&,int &&)' のリファレンスを確認してください
-          with
-          [
-              _Ty=EnemyStateStopStandard
-          ]
-  c:\users\yujimbo\desktop\school\no.04 17年度前期\00_tgs'17\sourcetree\widehead\project\project\source\charactercontains\enemycontains\entity\enemys\enemy08\enemy08.cpp(83): note: コンパイル対象の関数 テンプレート インスタンス化 'std::shared_ptr<EnemyStateStopStandard> std::make_shared<EnemyStateStopStandard,std::shared_ptr<_Ty>,int>(std::shared_ptr<_Ty> &&,int &&)' のリファレンスを確認してください
-          with
-          [
-              _Ty=EnemyBase
-          ]
-  GameManager.cpp
+  GameFrame.cpp
   コードを生成中...
-  Project.vcxproj -> C:\Users\YuJimbo\Desktop\School\No.04 17年度前期\00_TGS'17\SourceTree\WideHead\Project\Debug\Project.exe
+  Project.vcxproj -> C:\Users\nakayama\Desktop\TGS\WideHead\Project\Debug\Project.exe

@@ -570,9 +570,6 @@
     <ClInclude Include="Source\SceneContains\GameTitle\GameTitle.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Source\SceneContains\GameTitle\StartLogoAnimation.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -1263,9 +1260,6 @@
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\GameTitle\GameTitle.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SceneContains\GameTitle\StartLogoAnimation.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
     <ClCompile Include="Source\SceneContains\GameTutorial\Close\GameTutorialClose.cpp">

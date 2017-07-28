@@ -28,7 +28,9 @@ GameTitle::GameTitle(const IGameManagerPtr& gameManager)
 	:Scene(gameManager)
 	, p_Title(std::weak_ptr<DropSprite>())
 	, p_Button(std::weak_ptr<Button>())
-	, p_SceneChildMgr(std::unique_ptr<SceneChildMgr>()) {
+	, p_SceneChildMgr(std::unique_ptr<SceneChildMgr>())
+	,m_Number(0)
+{
 }
 
 void GameTitle::SetUp() {
@@ -64,20 +66,6 @@ void GameTitle::OnStart() {
 	p_Title = dropSprite;
 	p_World->addActor(ActorGroup::UI, dropSprite);
 
-	//Bボタンを押せ
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[0] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(315, 700), p_GameManager, "StartLogo1", 60)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[1] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(365, 700), p_GameManager, "StartLogo2", 62)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[2] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(415, 700), p_GameManager, "StartLogo3", 64)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[3] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(465, 700), p_GameManager, "StartLogo4", 66)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[4] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(515, 700), p_GameManager, "StartLogo5", 68)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[5] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(565, 700), p_GameManager, "StartLogo6", 70)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[6] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(615, 700), p_GameManager, "StartLogo7", 72)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[7] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(665, 700), p_GameManager, "StartLogo8", 74)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[8] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(715, 700), p_GameManager, "StartLogo9", 76)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[9] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(765, 700), p_GameManager, "StartLogo10", 78)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[10] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(815, 700), p_GameManager, "StartLogo11", 80)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[11] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(865, 700), p_GameManager, "StartLogo12", 82)).lock());
-	p_World->addActor(ActorGroup::UI, (p_PushBMessage[12] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(915, 700), p_GameManager, "StartLogo13", 84)).lock());
 
 	//子のセットアップ
 	p_SceneChildMgr->SetUpChild();
@@ -94,6 +82,7 @@ void GameTitle::OnStart() {
 
 // 更新
 void GameTitle::OnUpdate(float deltaTime) {
+	calcTest();
 	//子シーンの更新
 	p_SceneChildMgr->Update(deltaTime);
 }
@@ -119,4 +108,65 @@ std::weak_ptr<AnimationFont> GameTitle::GetPushBMessage(const int index)
 std::weak_ptr<Button> GameTitle::GetButtonUI()
 {
 	return p_Button;
+}
+
+void GameTitle::calcTest()
+{
+#define NUMBER 60
+#define PLUS 5
+
+	if (m_Number == NUMBER + PLUS * 0)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[0] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(315, 700), p_GameManager, "StartLogo1", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 1)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[1] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(365, 700), p_GameManager, "StartLogo2", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 2)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[2] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(415, 700), p_GameManager, "StartLogo3", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 3)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[3] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(465, 700), p_GameManager, "StartLogo4", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 4)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[4] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(515, 700), p_GameManager, "StartLogo5", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 5)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[5] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(565, 700), p_GameManager, "StartLogo6", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 6)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[6] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(615, 700), p_GameManager, "StartLogo7", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 7)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[7] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(665, 700), p_GameManager, "StartLogo8", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 8)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[8] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(715, 700), p_GameManager, "StartLogo9", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 9)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[9] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(765, 700), p_GameManager, "StartLogo10", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 10)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[10] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(815, 700), p_GameManager, "StartLogo11", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 11)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[11] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(865, 700), p_GameManager, "StartLogo12", 60)).lock());
+	}
+	if (m_Number == NUMBER + PLUS * 12)
+	{
+		p_World->addActor(ActorGroup::UI, (p_PushBMessage[12] = std::make_shared<AnimationFont>(p_World.get(), GSvector2(915, 700), p_GameManager, "StartLogo13", 60)).lock());
+	}
+
+	if (m_Number <= 121) { m_Number += 1; }
 }

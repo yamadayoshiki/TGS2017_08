@@ -38,6 +38,11 @@ public:
 
 	std::unique_ptr<SceneChildMgr>				//qƒV[ƒ“ŠÇ—
 		p_SceneChildMgr;
+
+private:
+	void calcTest();
+private:
+	int m_Number;
 };
 
 #endif
